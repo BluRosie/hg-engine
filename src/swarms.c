@@ -55,13 +55,13 @@ void LONG_CALL GetSwarmInfoFromRand(u32 rand, u16 *mapno, u16 *species)
 
     switch (swarmMap[1]) {
     case SWARM_SURFING:
-        *species = encData.surfSwarm;
+        *species = encData.surf_swarm;
         break;
     case SWARM_FISHING:
-        *species = encData.fishSwarm;
+        *species = encData.fish_swarm;
         break;
     default:
-        *species = encData.landSwarm;
+        *species = encData.land_swarm;
         break;
     }
 

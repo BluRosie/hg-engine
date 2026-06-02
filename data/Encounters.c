@@ -7,18 +7,17 @@ u32 __size = sizeof(EncounterData);
 const EncounterData __data[] =
 {
     [ENCDATA_T20_NEW_BARK_TOWN] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -46,7 +45,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -61,65 +60,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 10, 20, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R29_ROUTE_29] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 2, 3, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEY,
                 SPECIES_SENTRET,
                 SPECIES_PIDGEY,
@@ -147,7 +145,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_PIDGEY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
@@ -162,65 +160,64 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_PIDGEY,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_PIDGEY,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_T21_CHERRYGROVE_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -248,7 +245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -263,65 +260,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 10, 20, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_CORSOLA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_CORSOLA },
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_KRABBY },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_STARYU,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_STARYU,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R30_ROUTE_30] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 2, 3, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
@@ -349,7 +345,7 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SPINARAK,
                 SPECIES_RATTATA,
                 SPECIES_SPINARAK,
@@ -364,65 +360,64 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_POLIWAG },
             { 10, 20, SPECIES_POLIWAG },
             { 15, 25, SPECIES_POLIWHIRL },
             { 15, 25, SPECIES_POLIWHIRL },
             { 32, 32, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_PIDGEY,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_PIDGEY,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R31_ROUTE_31] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
@@ -450,7 +445,7 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SPINARAK,
                 SPECIES_RATTATA,
                 SPECIES_SPINARAK,
@@ -465,65 +460,64 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_POLIWAG },
             { 10, 20, SPECIES_POLIWAG },
             { 15, 25, SPECIES_POLIWHIRL },
             { 15, 25, SPECIES_POLIWHIRL },
             { 32, 32, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_PIDGEY,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_PIDGEY,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_T22_VIOLET_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -551,7 +545,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -566,65 +560,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_POLIWAG },
             { 10, 20, SPECIES_POLIWAG },
             { 15, 25, SPECIES_POLIWHIRL },
             { 15, 25, SPECIES_POLIWHIRL },
             { 15, 25, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_WHISCASH,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_WHISCASH,
     },
 
     [ENCDATA_D15R0102_SPROUT_TOWER_2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 3, 4, 3, 4, 5, 5, 3, 3, 6, 5, 6, 5
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -652,7 +645,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -667,65 +660,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D15R0103_SPROUT_TOWER_3F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 3, 4, 3, 4, 5, 5, 3, 3, 6, 5, 6, 5
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -753,7 +745,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -768,65 +760,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R32_ROUTE_32] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 6, 4, 6, 4, 6, 6, 6, 6, 6, 4, 6, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_BELLSPROUT,
                 SPECIES_RATTATA,
                 SPECIES_BELLSPROUT,
@@ -854,7 +845,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_WOOPER,
                 SPECIES_RATTATA,
                 SPECIES_WOOPER,
@@ -869,65 +860,64 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_QUAGSIRE },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 36, 36, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_QWILFISH },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_TENTACOOL },
             { 40, 40, SPECIES_TENTACOOL },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_QWILFISH },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_BELLSPROUT,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_TENTACOOL,
-        .fishSwarm = SPECIES_QWILFISH,
+        .land_swarm = SPECIES_BELLSPROUT,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_TENTACOOL,
+        .fish_swarm = SPECIES_QWILFISH,
     },
 
     [ENCDATA_D24R0101_RUINS_OF_ALPH_OUTSIDE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 20,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 20,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 20, 22, 20, 22, 18, 18, 24, 24, 20, 22, 20, 22
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NATU,
                 SPECIES_NATU,
                 SPECIES_NATU,
@@ -955,7 +945,7 @@ const EncounterData __data[] =
                 SPECIES_SMEARGLE,
                 SPECIES_SMEARGLE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NATU,
                 SPECIES_NATU,
                 SPECIES_NATU,
@@ -970,65 +960,64 @@ const EncounterData __data[] =
                 SPECIES_SMEARGLE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_WOOPER },
             { 15, 25, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 8, 14, SPECIES_GEODUDE },
             { 3, 6, SPECIES_GEODUDE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NATU,
-        .surfSwarm = SPECIES_WOOPER,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NATU,
+        .surf_swarm = SPECIES_WOOPER,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D24R0205_RUINS_OF_ALPH_INSIDE_MAIN_ROOM] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1056,7 +1045,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1071,65 +1060,64 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_UNOWN,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_UNOWN,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D24R0216_RUINS_OF_ALPH_INSIDE_MAIN_ROOM_UNUSED] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1157,7 +1145,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1172,65 +1160,64 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_UNOWN,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_UNOWN,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D24R0218_RUINS_OF_ALPH_INSIDE_MAIN_ROOM_UNUSED] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1258,7 +1245,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1273,65 +1260,64 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_UNOWN,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_UNOWN,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D24R0217_RUINS_OF_ALPH_INSIDE_LADDER_ROOM] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1359,7 +1345,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1374,65 +1360,64 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_UNOWN,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_UNOWN,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D25R0101_UNION_CAVE_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 6, 6, 6, 6, 5, 5, 4, 4, 7, 6, 7, 6
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1460,7 +1445,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_ONIX,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1475,65 +1460,64 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_WOOPER },
             { 15, 25, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_GEODUDE,
-        .surfSwarm = SPECIES_WOOPER,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_GEODUDE,
+        .surf_swarm = SPECIES_WOOPER,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D25R0102_UNION_CAVE_B1F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 8, 8, 8, 8, 7, 7, 8, 8, 9, 6, 9, 6
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1561,7 +1545,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1576,65 +1560,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_WOOPER },
             { 15, 25, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
             { 10, 20, SPECIES_QUAGSIRE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_GEODUDE,
-        .surfSwarm = SPECIES_WOOPER,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_GEODUDE,
+        .surf_swarm = SPECIES_WOOPER,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D25R0103_UNION_CAVE_B2F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -1662,7 +1645,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_ONIX,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -1677,65 +1660,64 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_QUAGSIRE },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_CORSOLA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_CORSOLA },
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_KRABBY },
         },
-        .landSwarm = SPECIES_ZUBAT,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_STARYU,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_ZUBAT,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_STARYU,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R33_ROUTE_33] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 6, 7, 6, 7, 6, 6, 6, 6, 8, 4, 8, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_HOPPIP,
                 SPECIES_RATTATA,
                 SPECIES_HOPPIP,
@@ -1763,7 +1745,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
                 SPECIES_ZUBAT,
@@ -1778,65 +1760,64 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_HOPPIP,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_HOPPIP,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D26R0102_SLOWPOKE_WELL_1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 5, 6, 5, 6, 7, 7, 6, 6, 8, 8, 8, 8
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1864,7 +1845,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_SLOWPOKE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1879,65 +1860,64 @@ const EncounterData __data[] =
                 SPECIES_SLOWPOKE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_SLOWPOKE },
             { 15, 25, SPECIES_SLOWPOKE },
             { 5, 15, SPECIES_SLOWPOKE },
             { 5, 15, SPECIES_SLOWPOKE },
             { 5, 15, SPECIES_SLOWPOKE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_ZUBAT,
-        .surfSwarm = SPECIES_SLOWPOKE,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_ZUBAT,
+        .surf_swarm = SPECIES_SLOWPOKE,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D26R0103_SLOWPOKE_WELL_B2F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 21, 23, 21, 23, 19, 19, 21, 21, 23, 23, 23, 23
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1965,7 +1945,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SLOWPOKE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1980,65 +1960,64 @@ const EncounterData __data[] =
                 SPECIES_SLOWPOKE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_SLOWPOKE },
             { 15, 25, SPECIES_SLOWPOKE },
             { 15, 25, SPECIES_SLOWBRO },
             { 15, 25, SPECIES_SLOWBRO },
             { 30, 30, SPECIES_SLOWBRO },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_ZUBAT,
-        .surfSwarm = SPECIES_SLOWPOKE,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_ZUBAT,
+        .surf_swarm = SPECIES_SLOWPOKE,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D36R0101_ILEX_FOREST] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 5, 6, 5, 6, 6, 6, 5, 5, 5, 6, 5, 6
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
                 SPECIES_CATERPIE,
@@ -2066,7 +2045,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_PARAS,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
@@ -2081,65 +2060,64 @@ const EncounterData __data[] =
                 SPECIES_PARAS,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_SPOINK,
             SPECIES_NUMEL,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUDEW,
             SPECIES_CARNIVINE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_PSYDUCK },
             { 5, 15, SPECIES_PSYDUCK },
             { 10, 20, SPECIES_GOLDUCK },
             { 10, 20, SPECIES_GOLDUCK },
             { 10, 20, SPECIES_GOLDUCK },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_CATERPIE,
-        .surfSwarm = SPECIES_PSYDUCK,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_CATERPIE,
+        .surf_swarm = SPECIES_PSYDUCK,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R34_ROUTE_34] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 10, 11, 10, 11, 12, 12, 10, 10, 13, 10, 13, 10
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -2167,7 +2145,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_DITTO,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -2182,65 +2160,64 @@ const EncounterData __data[] =
                 SPECIES_DITTO,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 10, 20, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 29, 29, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_CORSOLA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_CORSOLA },
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_KRABBY },
         },
-        .landSwarm = SPECIES_RALTS,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_STARYU,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_RALTS,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_STARYU,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R35_ROUTE_35] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 12, 12, 12, 12, 14, 14, 10, 10, 14, 10, 14, 12
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2268,7 +2245,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEY,
                 SPECIES_YANMA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2283,65 +2260,64 @@ const EncounterData __data[] =
                 SPECIES_YANMA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_PSYDUCK },
             { 10, 20, SPECIES_PSYDUCK },
             { 15, 25, SPECIES_GOLDUCK },
             { 15, 25, SPECIES_GOLDUCK },
             { 31, 31, SPECIES_GOLDUCK },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_YANMA,
-        .surfSwarm = SPECIES_PSYDUCK,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_YANMA,
+        .surf_swarm = SPECIES_PSYDUCK,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D22R0101_NATIONAL_PARK] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
                 SPECIES_CATERPIE,
@@ -2369,7 +2345,7 @@ const EncounterData __data[] =
                 SPECIES_SUNKERN,
                 SPECIES_PIDGEY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
@@ -2384,65 +2360,64 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_CATERPIE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_CATERPIE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D22R0102_NATIONAL_PARK_BUG_CATCHING_CONTEST] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
@@ -2470,7 +2445,7 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
@@ -2485,65 +2460,64 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_CATERPIE,
             SPECIES_CATERPIE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CATERPIE,
             SPECIES_CATERPIE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_CATERPIE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_CATERPIE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R36_ROUTE_36] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 12, 12, 12, 12, 13, 13, 13, 13, 13, 15, 13, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2571,7 +2545,7 @@ const EncounterData __data[] =
                 SPECIES_STANTLER,
                 SPECIES_GROWLITHE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2586,65 +2560,64 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NIDORAN_M,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NIDORAN_M,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R37_ROUTE_37] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 13, 15, 13, 15, 15, 15, 14, 14, 15, 15, 15, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEY,
                 SPECIES_STANTLER,
                 SPECIES_PIDGEY,
@@ -2672,7 +2645,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_GROWLITHE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SPINARAK,
                 SPECIES_STANTLER,
                 SPECIES_SPINARAK,
@@ -2687,65 +2660,64 @@ const EncounterData __data[] =
                 SPECIES_SPINARAK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_PIDGEY,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_PIDGEY,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_T27_ECRUTEAK_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -2773,7 +2745,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -2788,65 +2760,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_POLIWAG },
             { 10, 20, SPECIES_POLIWAG },
             { 15, 25, SPECIES_POLIWHIRL },
             { 15, 25, SPECIES_POLIWHIRL },
             { 15, 25, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D18R0101_BURNED_TOWER_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 13, 14, 13, 14, 15, 15, 14, 14, 16, 15, 16, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2874,7 +2845,7 @@ const EncounterData __data[] =
                 SPECIES_KOFFING,
                 SPECIES_RATICATE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2889,65 +2860,64 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D18R0102_BURNED_TOWER_B1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 14, 14, 14, 14, 16, 16, 16, 16, 15, 14, 15, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2975,7 +2945,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2990,65 +2960,64 @@ const EncounterData __data[] =
                 SPECIES_MAGMAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0102_BELL_TOWER_2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3076,7 +3045,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3091,65 +3060,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0103_BELL_TOWER_3F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3177,7 +3145,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3192,65 +3160,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0104_BELL_TOWER_4F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3278,7 +3245,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3293,65 +3260,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0105_BELL_TOWER_5F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3379,7 +3345,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3394,65 +3360,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0106_BELL_TOWER_6F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3480,7 +3445,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3495,65 +3460,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0107_BELL_TOWER_7F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3581,7 +3545,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3596,65 +3560,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0108_BELL_TOWER_8F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3682,7 +3645,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3697,65 +3660,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0109_BELL_TOWER_9F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3783,7 +3745,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3798,65 +3760,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R38_ROUTE_38] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 16, 16, 16, 16, 16, 16, 16, 16, 13, 13, 13, 13
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -3884,7 +3845,7 @@ const EncounterData __data[] =
                 SPECIES_MILTANK,
                 SPECIES_SNUBBULL,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -3899,65 +3860,64 @@ const EncounterData __data[] =
                 SPECIES_SNUBBULL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_SNUBBULL,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_SNUBBULL,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R39_ROUTE_39] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 16, 17, 16, 17, 16, 16, 16, 16, 15, 15, 15, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -3985,7 +3945,7 @@ const EncounterData __data[] =
                 SPECIES_MILTANK,
                 SPECIES_TAUROS,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -4000,65 +3960,64 @@ const EncounterData __data[] =
                 SPECIES_TAUROS,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_T26_OLIVINE_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4086,7 +4045,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4101,65 +4060,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 10, 20, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_CORSOLA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_CORSOLA },
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_KRABBY },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_STARYU,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_STARYU,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_W40_ROUTE_40] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4187,7 +4145,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4202,65 +4160,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 10, 20, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_CORSOLA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_CORSOLA },
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_KRABBY },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_STARYU,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_STARYU,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_W41_ROUTE_41] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4288,7 +4245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4303,65 +4260,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_MANTINE },
             { 15, 25, SPECIES_MANTINE },
             { 15, 25, SPECIES_MANTINE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D40R0101_WHIRL_ISLANDS_1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4389,7 +4345,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4404,65 +4360,64 @@ const EncounterData __data[] =
                 SPECIES_SEEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 10, 20, SPECIES_HORSEA },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_HORSEA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_HORSEA },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_SEADRA },
             { 40, 40, SPECIES_KINGLER },
         },
-        .landSwarm = SPECIES_KRABBY,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_HORSEA,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_KRABBY,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_HORSEA,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D40R0102_WHIRL_ISLANDS_B1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4490,7 +4445,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4505,65 +4460,64 @@ const EncounterData __data[] =
                 SPECIES_SEEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_KRABBY,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_KRABBY,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_UNUSED_045_UNKNOWN_045] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4591,7 +4545,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4606,65 +4560,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D40R0104_WHIRL_ISLANDS_B2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4692,7 +4645,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4707,65 +4660,64 @@ const EncounterData __data[] =
                 SPECIES_SEEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_HORSEA },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_SEADRA },
             { 15, 25, SPECIES_SEADRA },
             { 30, 30, SPECIES_SEADRA },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_HORSEA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_HORSEA },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_SEADRA },
             { 40, 40, SPECIES_KINGLER },
         },
-        .landSwarm = SPECIES_KRABBY,
-        .surfSwarm = SPECIES_HORSEA,
-        .nightFish = SPECIES_HORSEA,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_KRABBY,
+        .surf_swarm = SPECIES_HORSEA,
+        .night_fish = SPECIES_HORSEA,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_UNUSED_047_UNKNOWN_047] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4793,7 +4745,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4808,65 +4760,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D40R0106_WHIRL_ISLANDS_B3F_LEDGE_OVERLOOKING_LUGIA_ROOM] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 23, 24, 23, 24, 25, 25, 23, 23, 24, 25, 24, 25
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4894,7 +4845,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4909,65 +4860,64 @@ const EncounterData __data[] =
                 SPECIES_SEEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_KRABBY,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_KRABBY,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_UNUSED_049_UNKNOWN_049] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4995,7 +4945,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5010,65 +4960,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_UNUSED_050_UNKNOWN_050] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5096,7 +5045,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5111,65 +5060,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_T24_CIANWOOD_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 30,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 30,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5197,7 +5145,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5212,65 +5160,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 10, 20, SPECIES_TENTACOOL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
             { 15, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 15, 24, SPECIES_KRABBY },
             { 23, 28, SPECIES_SHUCKLE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_CORSOLA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_CORSOLA },
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_KRABBY },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_STARYU,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_STARYU,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R42_ROUTE_42] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 15, 13, 15, 13, 14, 14, 16, 16, 15, 17, 15, 17
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_MANKEY,
                 SPECIES_MAREEP,
                 SPECIES_MANKEY,
@@ -5298,7 +5245,7 @@ const EncounterData __data[] =
                 SPECIES_FLAAFFY,
                 SPECIES_FLAAFFY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_MANKEY,
                 SPECIES_MAREEP,
                 SPECIES_MANKEY,
@@ -5313,65 +5260,64 @@ const EncounterData __data[] =
                 SPECIES_FLAAFFY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 15, 25, SPECIES_SEAKING },
             { 15, 25, SPECIES_SEAKING },
             { 15, 25, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_MANKEY,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_MANKEY,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D38R0101_MT_MORTAR_WATERFALL_ROOM] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 13, 15, 13, 15, 14, 14, 14, 14, 14, 16, 14, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5399,7 +5345,7 @@ const EncounterData __data[] =
                 SPECIES_GEODUDE,
                 SPECIES_MARILL,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5414,65 +5360,64 @@ const EncounterData __data[] =
                 SPECIES_MARILL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 15, 25, SPECIES_SEAKING },
             { 15, 25, SPECIES_SEAKING },
             { 15, 25, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_MARILL,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_MARILL,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D38R0102_MT_MORTAR_CENTRAL_ROOM] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 13, 13, 13, 13, 15, 15, 14, 14, 15, 14, 15, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GEODUDE,
                 SPECIES_MACHOP,
                 SPECIES_GEODUDE,
@@ -5500,7 +5445,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOP,
                 SPECIES_ZUBAT,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GEODUDE,
                 SPECIES_MACHOP,
                 SPECIES_GEODUDE,
@@ -5515,65 +5460,64 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GEODUDE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_GEODUDE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D38R0103_MT_MORTAR_ROOM_ABOVE_WATERFALL] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 31, 32, 31, 32, 31, 31, 30, 30, 28, 30, 28, 30
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GRAVELER,
                 SPECIES_MACHOKE,
                 SPECIES_GRAVELER,
@@ -5601,7 +5545,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOP,
                 SPECIES_GOLBAT,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GRAVELER,
                 SPECIES_MACHOKE,
                 SPECIES_GRAVELER,
@@ -5616,65 +5560,64 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_GOLDEEN },
             { 20, 30, SPECIES_GOLDEEN },
             { 20, 30, SPECIES_SEAKING },
             { 20, 30, SPECIES_SEAKING },
             { 20, 30, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_GRAVELER,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_GRAVELER,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D38R0104_MT_MORTAR_B1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 15, 17, 15, 17, 16, 16, 16, 16, 16, 16, 16, 16
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5702,7 +5645,7 @@ const EncounterData __data[] =
                 SPECIES_GEODUDE,
                 SPECIES_RATICATE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5717,65 +5660,64 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 15, 25, SPECIES_SEAKING },
             { 15, 25, SPECIES_SEAKING },
             { 15, 25, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_ZUBAT,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_ZUBAT,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R43_ROUTE_43] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 15, 15, 15, 15, 17, 17, 15, 15, 16, 17, 16, 17
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_FLAAFFY,
                 SPECIES_GIRAFARIG,
                 SPECIES_FLAAFFY,
@@ -5803,7 +5745,7 @@ const EncounterData __data[] =
                 SPECIES_FLAAFFY,
                 SPECIES_FLAAFFY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_FLAAFFY,
                 SPECIES_GIRAFARIG,
                 SPECIES_FLAAFFY,
@@ -5818,65 +5760,64 @@ const EncounterData __data[] =
                 SPECIES_VENONAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_MAGIKARP },
             { 10, 20, SPECIES_MAGIKARP },
             { 5, 15, SPECIES_MAGIKARP },
             { 5, 15, SPECIES_MAGIKARP },
             { 50, 50, SPECIES_MAGIKARP },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_FLAAFFY,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_FLAAFFY,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_T29_LAKE_OF_RAGE] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5904,7 +5845,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5919,65 +5860,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_MAGIKARP },
             { 5, 15, SPECIES_MAGIKARP },
             { 10, 20, SPECIES_GYARADOS },
             { 10, 20, SPECIES_GYARADOS },
             { 10, 20, SPECIES_GYARADOS },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GYARADOS },
             { 20, 20, SPECIES_MAGIKARP },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_GYARADOS,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_GYARADOS,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R44_ROUTE_44] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 23, 22, 23, 22, 22, 22, 24, 24, 24, 26, 24, 26
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_TANGELA,
                 SPECIES_WEEPINBELL,
                 SPECIES_TANGELA,
@@ -6005,7 +5945,7 @@ const EncounterData __data[] =
                 SPECIES_WEEPINBELL,
                 SPECIES_LICKITUNG,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_TANGELA,
                 SPECIES_WEEPINBELL,
                 SPECIES_TANGELA,
@@ -6020,65 +5960,64 @@ const EncounterData __data[] =
                 SPECIES_LICKITUNG,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 20, 30, SPECIES_POLIWAG },
             { 15, 25, SPECIES_POLIWAG },
             { 20, 30, SPECIES_POLIWHIRL },
             { 20, 30, SPECIES_POLIWHIRL },
             { 20, 30, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_REMORAID },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_REMORAID },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_TANGELA,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_REMORAID,
+        .land_swarm = SPECIES_TANGELA,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_REMORAID,
     },
 
     [ENCDATA_D39R0101_ICE_PATH_1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6106,7 +6045,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6121,65 +6060,64 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_SWINUB,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_SWINUB,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D39R0102_ICE_PATH_B1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6207,7 +6145,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6222,65 +6160,64 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_SWINUB,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_SWINUB,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D39R0103_ICE_PATH_B2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6308,7 +6245,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6323,65 +6260,64 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_SWINUB,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_SWINUB,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D39R0104_ICE_PATH_B3F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6409,7 +6345,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6424,65 +6360,64 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_SWINUB,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_SWINUB,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_UNUSED_064_UNKNOWN_064] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6510,7 +6445,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6525,65 +6460,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_T30_BLACKTHORN_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6611,7 +6545,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6626,65 +6560,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_MAGIKARP },
             { 5, 15, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D44R0102_DRAGONS_DEN] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6712,7 +6645,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6727,65 +6660,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_MAGIKARP },
             { 5, 15, SPECIES_MAGIKARP },
             { 5, 15, SPECIES_DRATINI },
             { 5, 15, SPECIES_DRATINI },
             { 5, 15, SPECIES_DRATINI },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_DRATINI },
             { 20, 20, SPECIES_MAGIKARP },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_DRATINI },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_DRAGONAIR },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_DRATINI,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_DRATINI,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R45_ROUTE_45] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 23, 23, 23, 23, 24, 24, 20, 20, 25, 27, 25, 27
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GEODUDE,
                 SPECIES_GRAVELER,
                 SPECIES_GEODUDE,
@@ -6813,7 +6745,7 @@ const EncounterData __data[] =
                 SPECIES_GRAVELER,
                 SPECIES_GRAVELER,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GEODUDE,
                 SPECIES_GRAVELER,
                 SPECIES_GEODUDE,
@@ -6828,65 +6760,64 @@ const EncounterData __data[] =
                 SPECIES_GRAVELER,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_MAGIKARP },
             { 10, 20, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_SWABLU,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_SWABLU,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R46_ROUTE_46] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 3, 2, 3, 2, 2, 2, 2, 2, 3, 4, 3, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GEODUDE,
                 SPECIES_SPEAROW,
                 SPECIES_GEODUDE,
@@ -6914,7 +6845,7 @@ const EncounterData __data[] =
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GEODUDE,
                 SPECIES_RATTATA,
                 SPECIES_GEODUDE,
@@ -6929,65 +6860,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GEODUDE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_GEODUDE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D42R0102_DARK_CAVE_ROUTE_31_ENTRANCE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 50,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 50,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 3, 2, 3, 2, 2, 2, 4, 4, 3, 4, 3, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7015,7 +6945,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_DUNSPARCE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7030,65 +6960,64 @@ const EncounterData __data[] =
                 SPECIES_DUNSPARCE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_MAGIKARP },
             { 5, 15, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 4, 8, SPECIES_DUNSPARCE },
             { 8, 14, SPECIES_GEODUDE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_DUNSPARCE,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_DUNSPARCE,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D42R0101_DARK_CAVE_ROUTE_45_ENTRANCE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 23, 23, 23, 23, 25, 25, 20, 20, 25, 23, 25, 23
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7116,7 +7045,7 @@ const EncounterData __data[] =
                 SPECIES_WOBBUFFET,
                 SPECIES_GOLBAT,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7131,65 +7060,64 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_MAGIKARP },
             { 5, 15, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
             { 2, 10, SPECIES_MAGIKARP },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_GEODUDE,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_GEODUDE,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R47_ROUTE_47] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 35, 35, 34, 33, 32, 31, 32, 31, 34, 31, 33, 40
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_FARFETCHD,
                 SPECIES_MILTANK,
                 SPECIES_DITTO,
@@ -7217,7 +7145,7 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
                 SPECIES_DITTO,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NOCTOWL,
                 SPECIES_MILTANK,
                 SPECIES_DITTO,
@@ -7232,65 +7160,64 @@ const EncounterData __data[] =
                 SPECIES_DITTO,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 25, SPECIES_TENTACOOL },
             { 10, 20, SPECIES_SEEL },
             { 15, 25, SPECIES_STARYU },
             { 15, 25, SPECIES_STARYU },
             { 15, 25, SPECIES_STARYU },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_DITTO,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_DITTO,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D02R0103_MT_MOON_OUTSIDE_AREA] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7318,7 +7245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7333,65 +7260,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 35, 35, SPECIES_POLIWAG },
             { 30, 30, SPECIES_MAGIKARP },
             { 35, 35, SPECIES_MAGIKARP },
             { 35, 35, SPECIES_MAGIKARP },
             { 35, 35, SPECIES_MAGIKARP },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D02R0104_MT_MOON_OUTSIDE_CLEFAIRY_ACTIVE] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7419,7 +7345,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7434,65 +7360,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 35, 35, SPECIES_POLIWAG },
             { 30, 30, SPECIES_POLIWAG },
             { 35, 35, SPECIES_POLIWAG },
             { 35, 35, SPECIES_POLIWAG },
             { 35, 35, SPECIES_POLIWAG },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_MAGIKARP,
-        .fishSwarm = SPECIES_POLIWAG,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_MAGIKARP,
+        .fish_swarm = SPECIES_POLIWAG,
     },
 
     [ENCDATA_D11R0101_SEAFOAM_ISLANDS_1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 28, 32, 28, 29, 30, 32, 27, 26, 27, 26, 27, 26
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7520,7 +7445,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7535,65 +7460,64 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_ZUBAT,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_ZUBAT,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D11R0102_SEAFOAM_ISLANDS_B1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 32, 34, 28, 34, 32, 34, 29, 28, 32, 28, 27, 26
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7621,7 +7545,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7636,65 +7560,64 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_SEEL,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_SEEL,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D11R0103_SEAFOAM_ISLANDS_B2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 33, 35, 30, 35, 33, 35, 30, 29, 33, 29, 28, 27
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7722,7 +7645,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7737,65 +7660,64 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_SEEL,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_SEEL,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D11R0104_SEAFOAM_ISLANDS_B3F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 35, 36, 32, 34, 34, 36, 32, 31, 34, 36, 32, 31
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7823,7 +7745,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7838,65 +7760,64 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_DEWGONG,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_DEWGONG,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D11R0105_SEAFOAM_ISLANDS_B4F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 5,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 5,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 37, 40, 34, 34, 38, 38, 39, 38, 37, 38, 40, 40
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7924,7 +7845,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7939,65 +7860,64 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 30, 40, SPECIES_SEEL },
             { 30, 40, SPECIES_HORSEA },
             { 35, 45, SPECIES_SLOWBRO },
             { 50, 50, SPECIES_SLOWBRO },
             { 35, 45, SPECIES_SLOWBRO },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_PSYDUCK },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_HORSEA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_HORSEA },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_SEADRA },
             { 40, 40, SPECIES_SEADRA },
         },
-        .landSwarm = SPECIES_SEEL,
-        .surfSwarm = SPECIES_SEEL,
-        .nightFish = SPECIES_HORSEA,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_SEEL,
+        .surf_swarm = SPECIES_SEEL,
+        .night_fish = SPECIES_HORSEA,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D41R0105_MT_SILVER_MOLTRES_ROOM] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 45, 48, 45, 48, 48, 47, 45, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_QUAGSIRE,
                 SPECIES_STEELIX,
                 SPECIES_QUAGSIRE,
@@ -8025,7 +7945,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_QUAGSIRE,
                 SPECIES_STEELIX,
                 SPECIES_QUAGSIRE,
@@ -8040,65 +7960,64 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 30, 40, SPECIES_SEAKING },
             { 35, 45, SPECIES_SEAKING },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_QUAGSIRE,
-        .surfSwarm = SPECIES_SEAKING,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_QUAGSIRE,
+        .surf_swarm = SPECIES_SEAKING,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D41R0106_MT_SILVER_3F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 45, 48, 46, 48, 48, 50, 45, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_QUAGSIRE,
                 SPECIES_SNEASEL,
                 SPECIES_PHANPY,
@@ -8126,7 +8045,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_QUAGSIRE,
                 SPECIES_SNEASEL,
                 SPECIES_PHANPY,
@@ -8141,65 +8060,64 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 30, 40, SPECIES_SEAKING },
             { 35, 45, SPECIES_SEAKING },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_QUAGSIRE,
-        .surfSwarm = SPECIES_SEAKING,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_QUAGSIRE,
+        .surf_swarm = SPECIES_SEAKING,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D41R0107_MT_SILVER_4F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 50, 48, 45, 48, 47, 47, 45, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -8227,7 +8145,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -8242,65 +8160,64 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 30, 40, SPECIES_SEAKING },
             { 35, 45, SPECIES_SEAKING },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_SNEASEL,
-        .surfSwarm = SPECIES_SEAKING,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_SNEASEL,
+        .surf_swarm = SPECIES_SEAKING,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D48R0101_CLIFF_EDGE_GATE] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -8328,7 +8245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -8343,65 +8260,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 20, 30, SPECIES_WOOPER },
             { 20, 30, SPECIES_WOOPER },
             { 30, 40, SPECIES_QUAGSIRE },
             { 30, 40, SPECIES_QUAGSIRE },
             { 30, 40, SPECIES_QUAGSIRE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_WOOPER,
-        .nightFish = SPECIES_MAGIKARP,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_WOOPER,
+        .night_fish = SPECIES_MAGIKARP,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D50R0101_CLIFF_CAVE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 30,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 30,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 22, 19, 20, 22, 19, 20, 18, 20, 20, 22, 23, 23
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GOLBAT,
                 SPECIES_GEODUDE,
                 SPECIES_KRABBY,
@@ -8429,7 +8345,7 @@ const EncounterData __data[] =
                 SPECIES_STEELIX,
                 SPECIES_STEELIX,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GOLBAT,
                 SPECIES_GEODUDE,
                 SPECIES_KRABBY,
@@ -8444,65 +8360,64 @@ const EncounterData __data[] =
                 SPECIES_STEELIX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 20, 26, SPECIES_KRABBY },
             { 28, 31, SPECIES_KINGLER },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GOLBAT,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .land_swarm = SPECIES_GOLBAT,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D17R0112_BELL_TOWER_10F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 5,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -8530,7 +8445,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -8545,65 +8460,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_T31_MT_SILVER_OUTSIDE_POKEMON_CENTER] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 41, 42, 41, 42, 42, 42, 44, 44, 41, 43, 41, 43
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -8631,7 +8545,7 @@ const EncounterData __data[] =
                 SPECIES_DODUO,
                 SPECIES_DODRIO,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -8646,65 +8560,64 @@ const EncounterData __data[] =
                 SPECIES_SNEASEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 30, 40, SPECIES_POLIWHIRL },
             { 35, 45, SPECIES_POLIWHIRL },
             { 30, 40, SPECIES_POLIWAG },
             { 30, 40, SPECIES_POLIWAG },
             { 48, 48, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_TANGELA,
-        .surfSwarm = SPECIES_POLIWHIRL,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_TANGELA,
+        .surf_swarm = SPECIES_POLIWHIRL,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D41R0101_MT_SILVER_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 42, 44, 42, 44, 43, 43, 42, 41, 45, 20, 45, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ONIX,
                 SPECIES_DONPHAN,
                 SPECIES_ONIX,
@@ -8732,7 +8645,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ONIX,
                 SPECIES_DONPHAN,
                 SPECIES_ONIX,
@@ -8747,65 +8660,64 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 30, 40, SPECIES_SEAKING },
             { 35, 45, SPECIES_SEAKING },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
             { 50, 50, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_SEAKING },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_SEAKING },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_SEAKING },
         },
-        .landSwarm = SPECIES_ONIX,
-        .surfSwarm = SPECIES_SEAKING,
-        .nightFish = SPECIES_GYARADOS,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_ONIX,
+        .surf_swarm = SPECIES_SEAKING,
+        .night_fish = SPECIES_GYARADOS,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D41R0103_MT_SILVER_MOUNTAINSIDE] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 51, 48, 51, 48, 48, 48, 50, 50, 51, 20, 51, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GOLBAT,
                 SPECIES_ONIX,
                 SPECIES_GOLBAT,
@@ -8833,7 +8745,7 @@ const EncounterData __data[] =
                 SPECIES_GOLDUCK,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GOLBAT,
                 SPECIES_ONIX,
                 SPECIES_GOLBAT,
@@ -8848,65 +8760,64 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GOLBAT,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_GOLBAT,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D41R0104_MT_SILVER_EXPERT_BELT_ROOM] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 45, 48, 45, 46, 48, 47, 45, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_QUAGSIRE,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -8934,7 +8845,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_MISDREAVUS,
                 SPECIES_GOLDUCK,
                 SPECIES_MISDREAVUS,
@@ -8949,65 +8860,64 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_QUAGSIRE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_QUAGSIRE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D41R0102_MT_SILVER_TOP_SNOWY_AREA] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 45, 48, 45, 48, 47, 47, 30, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -9035,7 +8945,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -9050,65 +8960,64 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 30, 40, SPECIES_SEAKING },
             { 35, 45, SPECIES_SEAKING },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
             { 30, 40, SPECIES_GOLDEEN },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_SNEASEL,
-        .surfSwarm = SPECIES_SEAKING,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_SNEASEL,
+        .surf_swarm = SPECIES_SEAKING,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_UNUSED_090_UNKNOWN_090] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9136,7 +9045,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9151,65 +9060,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D47R0102_SAFARI_ZONE_PLACEHOLDER_UNUSED] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 100,
-        .encounterRate_goodRod = 100,
-        .encounterRate_superRod = 100,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 100,
+        .rate_good_rod = 100,
+        .rate_super_rod = 100,
+        .land_slots = {
             .levels = {
                 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -9237,7 +9145,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -9252,65 +9160,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ZIGZAGOON,
             SPECIES_ZIGZAGOON,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BIDOOF,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 20, SPECIES_MAGIKARP },
             { 10, 20, SPECIES_MAGIKARP },
             { 10, 20, SPECIES_MAGIKARP },
             { 10, 20, SPECIES_MAGIKARP },
             { 10, 20, SPECIES_MAGIKARP },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
             { 10, 20, SPECIES_GOLDEEN },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_GOLDEEN,
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_GOLDEEN,
     },
 
     [ENCDATA_R12_ROUTE_12] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9338,7 +9245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9353,65 +9260,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 25, 25, SPECIES_TENTACOOL },
             { 25, 25, SPECIES_QUAGSIRE },
             { 25, 25, SPECIES_TENTACRUEL },
             { 25, 25, SPECIES_TENTACRUEL },
             { 25, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACOOL },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_TENTACOOL },
             { 40, 40, SPECIES_TENTACOOL },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_QWILFISH },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_TENTACOOL,
-        .fishSwarm = SPECIES_RELICANTH,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_TENTACOOL,
+        .fish_swarm = SPECIES_RELICANTH,
     },
 
     [ENCDATA_W19_ROUTE_19] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 30,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 10,
+        .rate_rock_smash = 30,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9439,7 +9345,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9454,65 +9360,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 35, 35, SPECIES_TENTACOOL },
             { 30, 30, SPECIES_TENTACOOL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 28, 31, SPECIES_KINGLER },
             { 24, 27, SPECIES_KRABBY },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_KRABBY },
             { 10, 10, SPECIES_KRABBY },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_KRABBY },
             { 20, 20, SPECIES_CORSOLA },
             { 20, 20, SPECIES_KRABBY },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_CORSOLA },
             { 40, 40, SPECIES_KRABBY },
             { 40, 40, SPECIES_KINGLER },
             { 40, 40, SPECIES_KRABBY },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_CLAMPERL,
-        .nightFish = SPECIES_STARYU,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_CLAMPERL,
+        .night_fish = SPECIES_STARYU,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_W20_ROUTE_20] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9540,7 +9445,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9555,65 +9460,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 35, 35, SPECIES_TENTACOOL },
             { 30, 30, SPECIES_TENTACOOL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_T01_PALLET_TOWN] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9641,7 +9545,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9656,65 +9560,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 35, 35, SPECIES_TENTACOOL },
             { 30, 30, SPECIES_TENTACOOL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_T02_VIRIDIAN_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9742,7 +9645,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9757,65 +9660,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 10, SPECIES_POLIWAG },
             { 5, 5, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWHIRL },
             { 10, 10, SPECIES_POLIWHIRL },
             { 10, 10, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_T04_CERULEAN_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9843,7 +9745,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9858,65 +9760,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 10, SPECIES_GOLDEEN },
             { 5, 5, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_SEAKING },
             { 10, 10, SPECIES_SEAKING },
             { 10, 10, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_T06_VERMILION_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 40,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 40,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9944,7 +9845,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9959,65 +9860,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 35, 35, SPECIES_TENTACOOL },
             { 30, 30, SPECIES_TENTACOOL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 24, 37, SPECIES_DIGLETT },
             { 32, 35, SPECIES_SHUCKLE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_WINGULL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_WINGULL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_T07_CELADON_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10045,7 +9945,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10060,65 +9960,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 20, 20, SPECIES_GRIMER },
             { 15, 15, SPECIES_GRIMER },
             { 15, 15, SPECIES_MUK },
             { 15, 15, SPECIES_MUK },
             { 15, 15, SPECIES_MUK },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_GRIMER,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_GRIMER,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_T08_FUCHSIA_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10146,7 +10045,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10161,65 +10060,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 15, 15, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GYARADOS },
             { 20, 20, SPECIES_MAGIKARP },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_MAGIKARP,
-        .nightFish = SPECIES_GYARADOS,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_MAGIKARP,
+        .night_fish = SPECIES_GYARADOS,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_T09_CINNABAR_ISLAND] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10247,7 +10145,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10262,65 +10160,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 35, 35, SPECIES_TENTACOOL },
             { 30, 30, SPECIES_TENTACOOL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R48_ROUTE_48] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 25, 20, 20, 21, 22, 24, 21, 20, 20, 22, 22, 24
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_FARFETCHD,
                 SPECIES_TAUROS,
                 SPECIES_HOPPIP,
@@ -10348,7 +10245,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_TAUROS,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GROWLITHE,
                 SPECIES_TAUROS,
                 SPECIES_HOPPIP,
@@ -10363,65 +10260,64 @@ const EncounterData __data[] =
                 SPECIES_TAUROS,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_TAUROS,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_TAUROS,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R26_ROUTE_26] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 28, 28, 28, 28, 32, 32, 30, 30, 30, 30, 30, 30
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_DODUO,
                 SPECIES_SANDSLASH,
                 SPECIES_DODUO,
@@ -10449,7 +10345,7 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
                 SPECIES_DODRIO,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATICATE,
                 SPECIES_SANDSLASH,
                 SPECIES_RATICATE,
@@ -10464,65 +10360,64 @@ const EncounterData __data[] =
                 SPECIES_QUAGSIRE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 30, 30, SPECIES_TENTACOOL },
             { 25, 25, SPECIES_TENTACOOL },
             { 30, 30, SPECIES_TENTACRUEL },
             { 30, 30, SPECIES_TENTACRUEL },
             { 30, 30, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_DODUO,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_DODUO,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R27_ROUTE_27] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 28, 28, 28, 28, 30, 30, 30, 30, 32, 30, 32, 30
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_DODUO,
                 SPECIES_RATICATE,
                 SPECIES_DODUO,
@@ -10550,7 +10445,7 @@ const EncounterData __data[] =
                 SPECIES_PONYTA,
                 SPECIES_SANDSLASH,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_QUAGSIRE,
                 SPECIES_RATICATE,
                 SPECIES_QUAGSIRE,
@@ -10565,65 +10460,64 @@ const EncounterData __data[] =
                 SPECIES_SANDSLASH,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 20, 20, SPECIES_TENTACOOL },
             { 15, 15, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACRUEL },
             { 20, 20, SPECIES_TENTACRUEL },
             { 20, 20, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_DODUO,
-        .surfSwarm = SPECIES_LUVDISC,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_DODUO,
+        .surf_swarm = SPECIES_LUVDISC,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R28_ROUTE_28] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 25,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 39, 40, 39, 40, 40, 40, 42, 42, 41, 43, 41, 43
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -10651,7 +10545,7 @@ const EncounterData __data[] =
                 SPECIES_DODUO,
                 SPECIES_DODRIO,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -10666,65 +10560,64 @@ const EncounterData __data[] =
                 SPECIES_RAPIDASH,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 35, 35, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWHIRL },
             { 40, 40, SPECIES_POLIWHIRL },
             { 40, 40, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_TANGELA,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_TANGELA,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D02R0101_MT_MOON_1F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 6, 8, 6, 8, 8, 8, 12, 12, 10, 8, 10, 8
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10752,7 +10645,7 @@ const EncounterData __data[] =
                 SPECIES_SANDSLASH,
                 SPECIES_CLEFAIRY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10767,65 +10660,64 @@ const EncounterData __data[] =
                 SPECIES_CLEFAIRY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_ZUBAT,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_ZUBAT,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D02R0102_MT_MOON_2F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 6, 8, 6, 8, 8, 8, 12, 12, 10, 8, 10, 8
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10853,7 +10745,7 @@ const EncounterData __data[] =
                 SPECIES_SANDSLASH,
                 SPECIES_CLEFAIRY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10868,65 +10760,64 @@ const EncounterData __data[] =
                 SPECIES_CLEFAIRY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_ZUBAT,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_ZUBAT,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D05R0101_ROCK_TUNNEL_1F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 10, 10, 10, 10, 12, 12, 8, 8, 14, 13, 14, 13
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -10954,7 +10845,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOKE,
                 SPECIES_CUBONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -10969,65 +10860,64 @@ const EncounterData __data[] =
                 SPECIES_CUBONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_CUBONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_CUBONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D05R0102_ROCK_TUNNEL_B1F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 20,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 20,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 12, 12, 12, 12, 16, 16, 10, 10, 14, 14, 14, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -11055,7 +10945,7 @@ const EncounterData __data[] =
                 SPECIES_MAROWAK,
                 SPECIES_KANGASKHAN,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -11070,65 +10960,64 @@ const EncounterData __data[] =
                 SPECIES_KANGASKHAN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 12, 16, SPECIES_GEODUDE },
             { 17, 21, SPECIES_GEODUDE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_CUBONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .land_swarm = SPECIES_CUBONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D43R0101_VICTORY_ROAD_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -11156,7 +11045,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -11171,65 +11060,64 @@ const EncounterData __data[] =
                 SPECIES_RHYHORN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GRAVELER,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_GRAVELER,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R01_ROUTE_1] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 2, 2, 2, 2, 3, 3, 3, 3, 6, 4, 6, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEY,
                 SPECIES_RATTATA,
                 SPECIES_PIDGEY,
@@ -11257,7 +11145,7 @@ const EncounterData __data[] =
                 SPECIES_FURRET,
                 SPECIES_PIDGEY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_HOOTHOOT,
                 SPECIES_RATTATA,
                 SPECIES_HOOTHOOT,
@@ -11272,65 +11160,64 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_POOCHYENA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_POOCHYENA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R02_ROUTE_2_SOUTH_BELOW_VIRIDIAN_FOREST] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 3, 3, 3, 3, 5, 5, 7, 8, 7, 10, 7, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
@@ -11358,7 +11245,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_CATERPIE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_HOOTHOOT,
                 SPECIES_SPINARAK,
                 SPECIES_HOOTHOOT,
@@ -11373,65 +11260,64 @@ const EncounterData __data[] =
                 SPECIES_SPINARAK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_CATERPIE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_CATERPIE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R03_ROUTE_3] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
@@ -11459,7 +11345,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATTATA,
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
@@ -11474,65 +11360,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_BALTOY,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_BALTOY,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R04_ROUTE_4] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
@@ -11560,7 +11445,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_SPEAROW,
                 SPECIES_ZUBAT,
                 SPECIES_SPEAROW,
@@ -11575,65 +11460,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 10, SPECIES_GOLDEEN },
             { 5, 5, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_SEAKING },
             { 10, 10, SPECIES_SEAKING },
             { 10, 10, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_SPEAROW,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_SPEAROW,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R05_ROUTE_5] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -11661,7 +11545,7 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
                 SPECIES_ABRA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
@@ -11676,65 +11560,64 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_PIDGEY,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_PIDGEY,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R06_ROUTE_6] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -11762,7 +11645,7 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
                 SPECIES_ABRA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
@@ -11777,65 +11660,64 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 10, SPECIES_PSYDUCK },
             { 5, 5, SPECIES_PSYDUCK },
             { 10, 10, SPECIES_GOLDUCK },
             { 10, 10, SPECIES_GOLDUCK },
             { 10, 10, SPECIES_GOLDUCK },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_PIDGEY,
-        .surfSwarm = SPECIES_PSYDUCK,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_PIDGEY,
+        .surf_swarm = SPECIES_PSYDUCK,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R07_ROUTE_7] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 17, 17, 17, 17, 18, 18, 19, 19, 19, 15, 19, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
@@ -11863,7 +11745,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_GROWLITHE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATTATA,
                 SPECIES_MURKROW,
                 SPECIES_RATTATA,
@@ -11878,65 +11760,64 @@ const EncounterData __data[] =
                 SPECIES_HOUNDOUR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R08_ROUTE_8] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 17, 19, 17, 19, 15, 15, 18, 18, 17, 15, 17, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEOTTO,
                 SPECIES_PIDGEOTTO,
                 SPECIES_PIDGEOTTO,
@@ -11964,7 +11845,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_KADABRA,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NOCTOWL,
                 SPECIES_HAUNTER,
                 SPECIES_NOCTOWL,
@@ -11979,65 +11860,64 @@ const EncounterData __data[] =
                 SPECIES_KADABRA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_PIDGEOTTO,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_PIDGEOTTO,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R09_ROUTE_9] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 13, 15, 13, 15, 13, 13, 15, 15, 15, 15, 15, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_MANKEY,
                 SPECIES_RATTATA,
                 SPECIES_MANKEY,
@@ -12065,7 +11945,7 @@ const EncounterData __data[] =
                 SPECIES_FEAROW,
                 SPECIES_PRIMEAPE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_MANKEY,
                 SPECIES_RATTATA,
                 SPECIES_MANKEY,
@@ -12080,65 +11960,64 @@ const EncounterData __data[] =
                 SPECIES_PRIMEAPE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 15, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
             { 15, 15, SPECIES_SEAKING },
             { 15, 15, SPECIES_SEAKING },
             { 15, 15, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_SABLEYE,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_SABLEYE,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R10_ROUTE_10] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 16, 17, 16, 17, 16, 16, 18, 18, 18, 15, 18, 15
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_SPEAROW,
                 SPECIES_VOLTORB,
                 SPECIES_SPEAROW,
@@ -12166,7 +12045,7 @@ const EncounterData __data[] =
                 SPECIES_ELECTABUZZ,
                 SPECIES_ELECTABUZZ,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_QUAGSIRE,
                 SPECIES_VOLTORB,
                 SPECIES_QUAGSIRE,
@@ -12181,65 +12060,64 @@ const EncounterData __data[] =
                 SPECIES_ELECTABUZZ,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 15, 15, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
             { 15, 15, SPECIES_SEAKING },
             { 15, 15, SPECIES_SEAKING },
             { 15, 15, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_SPEAROW,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_SPEAROW,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R11_ROUTE_11] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 14, 15, 14, 15, 15, 15, 16, 16, 16, 16, 16, 16
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -12267,7 +12145,7 @@ const EncounterData __data[] =
                 SPECIES_HYPNO,
                 SPECIES_HYPNO,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -12282,65 +12160,64 @@ const EncounterData __data[] =
                 SPECIES_HYPNO,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_DROWZEE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_DROWZEE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R13_ROUTE_13] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 15,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12368,7 +12245,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_CHANSEY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12383,65 +12260,64 @@ const EncounterData __data[] =
                 SPECIES_CHANSEY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 25, 25, SPECIES_TENTACOOL },
             { 25, 25, SPECIES_QUAGSIRE },
             { 25, 25, SPECIES_TENTACRUEL },
             { 25, 25, SPECIES_TENTACRUEL },
             { 25, 25, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_TENTACOOL },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_TENTACOOL },
             { 40, 40, SPECIES_TENTACOOL },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_QWILFISH },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_CHANSEY,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_TENTACOOL,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_CHANSEY,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_TENTACOOL,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R14_ROUTE_14] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 23, 23, 23, 23, 25, 25, 24, 24, 26, 26, 26, 25
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12469,7 +12345,7 @@ const EncounterData __data[] =
                 SPECIES_SKIPLOOM,
                 SPECIES_CHANSEY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12484,65 +12360,64 @@ const EncounterData __data[] =
                 SPECIES_CHANSEY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NIDORINA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NIDORINA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R15_ROUTE_15] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12570,7 +12445,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_CHANSEY,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12585,65 +12460,64 @@ const EncounterData __data[] =
                 SPECIES_CHANSEY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NIDORINA,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NIDORINA,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R16R0301_ROUTE_16] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 26, 27, 26, 27, 28, 28, 29, 29, 27, 30, 27, 30
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
@@ -12671,7 +12545,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
@@ -12686,65 +12560,64 @@ const EncounterData __data[] =
                 SPECIES_MUK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GRIMER,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_GRIMER,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R17_ROUTE_17] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 28, 27, 28, 27, 29, 29, 30, 30, 29, 32, 29, 32
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
@@ -12772,7 +12645,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
@@ -12787,65 +12660,64 @@ const EncounterData __data[] =
                 SPECIES_MUK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_FEAROW,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_FEAROW,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R18_ROUTE_18] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 26, 27, 26, 27, 28, 28, 29, 29, 27, 30, 27, 30
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
@@ -12873,7 +12745,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
@@ -12888,65 +12760,64 @@ const EncounterData __data[] =
                 SPECIES_MUK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GRIMER,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_GRIMER,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_W21_ROUTE_21] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 30, 25, 30, 25, 35, 35, 20, 20, 30, 28, 30, 28
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
@@ -12974,7 +12845,7 @@ const EncounterData __data[] =
                 SPECIES_MR_MIME,
                 SPECIES_MR_MIME,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
@@ -12989,65 +12860,64 @@ const EncounterData __data[] =
                 SPECIES_MR_MIME,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 35, 35, SPECIES_TENTACOOL },
             { 30, 30, SPECIES_TENTACOOL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
             { 35, 35, SPECIES_TENTACRUEL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_TENTACOOL },
             { 10, 10, SPECIES_TENTACOOL },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_TENTACOOL },
             { 20, 20, SPECIES_CHINCHOU },
             { 20, 20, SPECIES_SHELLDER },
             { 20, 20, SPECIES_CHINCHOU },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_CHINCHOU },
             { 40, 40, SPECIES_SHELLDER },
             { 40, 40, SPECIES_TENTACRUEL },
             { 40, 40, SPECIES_LANTURN },
             { 40, 40, SPECIES_TENTACRUEL },
         },
-        .landSwarm = SPECIES_TANGELA,
-        .surfSwarm = SPECIES_TENTACOOL,
-        .nightFish = SPECIES_SHELLDER,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_TANGELA,
+        .surf_swarm = SPECIES_TENTACOOL,
+        .night_fish = SPECIES_SHELLDER,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R22_ROUTE_22] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 3, 3, 3, 3, 5, 5, 4, 4, 6, 7, 6, 7
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
@@ -13075,7 +12945,7 @@ const EncounterData __data[] =
                 SPECIES_PONYTA,
                 SPECIES_FEAROW,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -13090,65 +12960,64 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 10, SPECIES_POLIWAG },
             { 5, 5, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWHIRL },
             { 10, 10, SPECIES_POLIWHIRL },
             { 10, 10, SPECIES_POLIWHIRL },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_POLIWAG },
             { 10, 10, SPECIES_POLIWAG },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_RATTATA,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_RATTATA,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R24_ROUTE_24] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 8, 10, 8, 10, 9, 9, 12, 12, 8, 14, 8, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_BELLSPROUT,
                 SPECIES_BELLSPROUT,
                 SPECIES_BELLSPROUT,
@@ -13176,7 +13045,7 @@ const EncounterData __data[] =
                 SPECIES_BELLSPROUT,
                 SPECIES_WEEPINBELL,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_VENONAT,
                 SPECIES_ODDISH,
                 SPECIES_VENONAT,
@@ -13191,65 +13060,64 @@ const EncounterData __data[] =
                 SPECIES_VENOMOTH,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 10, SPECIES_GOLDEEN },
             { 5, 5, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_SEAKING },
             { 10, 10, SPECIES_SEAKING },
             { 10, 10, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_BELLSPROUT,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_BELLSPROUT,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_R25_ROUTE_25] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 8, 10, 8, 10, 8, 8, 9, 9, 10, 14, 10, 14
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -13277,7 +13145,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_WEEPINBELL,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_VENONAT,
                 SPECIES_ODDISH,
                 SPECIES_VENONAT,
@@ -13292,65 +13160,64 @@ const EncounterData __data[] =
                 SPECIES_BELLSPROUT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 10, 10, SPECIES_GOLDEEN },
             { 5, 5, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_SEAKING },
             { 10, 10, SPECIES_SEAKING },
             { 10, 10, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_BUNEARY,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_BUNEARY,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D45R0101_TOHJO_FALLS] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -13378,7 +13245,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SLOWPOKE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -13393,65 +13260,64 @@ const EncounterData __data[] =
                 SPECIES_SLOWPOKE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_SLOWPOKE },
             { 20, 20, SPECIES_SEAKING },
             { 20, 20, SPECIES_SEAKING },
             { 20, 20, SPECIES_SEAKING },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_GOLDEEN },
             { 10, 10, SPECIES_GOLDEEN },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_GOLDEEN },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_GOLDEEN },
             { 40, 40, SPECIES_MAGIKARP },
             { 40, 40, SPECIES_SEAKING },
             { 40, 40, SPECIES_MAGIKARP },
         },
-        .landSwarm = SPECIES_ZUBAT,
-        .surfSwarm = SPECIES_GOLDEEN,
-        .nightFish = SPECIES_GOLDEEN,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_ZUBAT,
+        .surf_swarm = SPECIES_GOLDEEN,
+        .night_fish = SPECIES_GOLDEEN,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D01R0101_DIGLETTS_CAVE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 15, 17, 15, 17, 19, 19, 13, 13, 19, 24, 19, 29
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
@@ -13479,7 +13345,7 @@ const EncounterData __data[] =
                 SPECIES_DUGTRIO,
                 SPECIES_DUGTRIO,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
@@ -13494,65 +13360,64 @@ const EncounterData __data[] =
                 SPECIES_DUGTRIO,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_DIGLETT,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_DIGLETT,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D43R0102_VICTORY_ROAD_2F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13580,7 +13445,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13595,65 +13460,64 @@ const EncounterData __data[] =
                 SPECIES_RHYHORN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GRAVELER,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_GRAVELER,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D43R0103_VICTORY_ROAD_3F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 40,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 0,
+        .rate_rock_smash = 40,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13681,7 +13545,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13696,65 +13560,64 @@ const EncounterData __data[] =
                 SPECIES_RHYHORN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 24, 32, SPECIES_GEODUDE },
             { 30, 33, SPECIES_GRAVELER },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_GRAVELER,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .land_swarm = SPECIES_GRAVELER,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_R02R0101_ROUTE_2_NORTH_ABOVE_VIRIDIAN_FOREST] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 20,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 3, 3, 3, 3, 5, 5, 7, 8, 7, 10, 7, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
@@ -13782,7 +13645,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_CATERPIE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_HOOTHOOT,
                 SPECIES_SPINARAK,
                 SPECIES_HOOTHOOT,
@@ -13797,65 +13660,64 @@ const EncounterData __data[] =
                 SPECIES_SPINARAK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_CATERPIE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_CATERPIE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D46R0101_VIRIDIAN_FOREST] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 15,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 3, 3, 3, 3, 5, 5, 7, 7, 7, 4, 7, 4
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
@@ -13883,7 +13745,7 @@ const EncounterData __data[] =
                 SPECIES_PIKACHU,
                 SPECIES_PIKACHU,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
@@ -13898,65 +13760,64 @@ const EncounterData __data[] =
                 SPECIES_PIKACHU,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_SPOINK,
             SPECIES_NUMEL,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BUDEW,
             SPECIES_CARNIVINE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_KRICKETOT,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_KRICKETOT,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_UNUSED_138_UNKNOWN_138] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 0,
+        .rate_surf = 0,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 0,
+        .rate_good_rod = 0,
+        .rate_super_rod = 0,
+        .land_slots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -13984,7 +13845,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -13999,65 +13860,64 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-            { 0, 0, SPECIES_NONE },
-        },
-        .goodRodSlots = {
+        .old_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .superRodSlots = {
+        .good_rod_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .landSwarm = SPECIES_NONE,
-        .surfSwarm = SPECIES_NONE,
-        .nightFish = SPECIES_NONE,
-        .fishSwarm = SPECIES_NONE,
+        .super_rod_slots = {
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+            { 0, 0, SPECIES_NONE },
+        },
+        .land_swarm = SPECIES_NONE,
+        .surf_swarm = SPECIES_NONE,
+        .night_fish = SPECIES_NONE,
+        .fish_swarm = SPECIES_NONE,
     },
 
     [ENCDATA_D03R0101_CERULEAN_CAVE_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 5,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 5,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 39, 38, 38, 38, 40, 39, 40, 37, 39, 40, 39, 40
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_MACHOKE,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14085,7 +13945,7 @@ const EncounterData __data[] =
                 SPECIES_MAGNETON,
                 SPECIES_DITTO,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_GOLBAT,
                 SPECIES_GOLBAT,
                 SPECIES_GOLBAT,
@@ -14100,65 +13960,64 @@ const EncounterData __data[] =
                 SPECIES_MACHOKE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 40, 40, SPECIES_PSYDUCK },
             { 35, 35, SPECIES_PSYDUCK },
             { 40, 40, SPECIES_GOLDUCK },
             { 40, 40, SPECIES_GOLDUCK },
             { 40, 40, SPECIES_GOLDUCK },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 22, 24, SPECIES_GEODUDE },
             { 26, 30, SPECIES_GRAVELER },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWHIRL },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_GYARADOS },
         },
-        .landSwarm = SPECIES_GOLBAT,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_GOLBAT,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D03R0102_CERULEAN_CAVE_B1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 0,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 42, 40, 41, 39, 41, 42, 41, 42, 41, 42, 41, 42
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14186,7 +14045,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOKE,
                 SPECIES_MACHOKE,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14201,65 +14060,64 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 40, 40, SPECIES_PSYDUCK },
             { 35, 35, SPECIES_PSYDUCK },
             { 40, 40, SPECIES_GOLDUCK },
             { 40, 40, SPECIES_GOLDUCK },
             { 40, 40, SPECIES_GOLDUCK },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 0, 0, SPECIES_NONE },
             { 0, 0, SPECIES_NONE },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWHIRL },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_GYARADOS },
         },
-        .landSwarm = SPECIES_KADABRA,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_KADABRA,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
     [ENCDATA_D03R0103_CERULEAN_CAVE_B2F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 5,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
-        .landSlots = {
+        .rate_walk = 10,
+        .rate_surf = 10,
+        .rate_rock_smash = 5,
+        .rate_old_rod = 25,
+        .rate_good_rod = 50,
+        .rate_super_rod = 75,
+        .land_slots = {
             .levels = {
                 46, 45, 47, 45, 45, 45, 46, 47, 47, 49, 47, 49
             },
-            .species_morn = {
+            .species_morning = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14287,7 +14145,7 @@ const EncounterData __data[] =
                 SPECIES_PARASECT,
                 SPECIES_WOBBUFFET,
             },
-            .species_nite = {
+            .species_night = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14302,50 +14160,50 @@ const EncounterData __data[] =
                 SPECIES_WOBBUFFET,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoenn_sound_species = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnoh_sound_species = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
-        .surfSlots = {
+        .surf_slots = {
             { 40, 40, SPECIES_PSYDUCK },
             { 35, 35, SPECIES_PSYDUCK },
             { 40, 40, SPECIES_GOLDUCK },
             { 40, 40, SPECIES_GOLDUCK },
             { 40, 40, SPECIES_GOLDUCK },
         },
-        .rockSmashSlots = {
+        .rock_smash_slots = {
             { 22, 24, SPECIES_GEODUDE },
             { 26, 30, SPECIES_GRAVELER },
         },
-        .oldRodSlots = {
+        .old_rod_slots = {
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
             { 10, 10, SPECIES_MAGIKARP },
         },
-        .goodRodSlots = {
+        .good_rod_slots = {
             { 20, 20, SPECIES_POLIWAG },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_MAGIKARP },
             { 20, 20, SPECIES_GOLDEEN },
             { 20, 20, SPECIES_POLIWAG },
         },
-        .superRodSlots = {
+        .super_rod_slots = {
             { 40, 40, SPECIES_POLIWAG },
             { 40, 40, SPECIES_POLIWHIRL },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_GYARADOS },
             { 40, 40, SPECIES_GYARADOS },
         },
-        .landSwarm = SPECIES_KADABRA,
-        .surfSwarm = SPECIES_POLIWAG,
-        .nightFish = SPECIES_POLIWAG,
-        .fishSwarm = SPECIES_MAGIKARP,
+        .land_swarm = SPECIES_KADABRA,
+        .surf_swarm = SPECIES_POLIWAG,
+        .night_fish = SPECIES_POLIWAG,
+        .fish_swarm = SPECIES_MAGIKARP,
     },
 
 };

@@ -239,49 +239,47 @@ def dump_encounters_c(narc, is_expanded):
 	]
 
 	for idx, enc in enumerate(narc):
-		padding = enc["padding"]
 		lines.append(f"    [{get_encounter_area_name(idx)}] = {{")
-		lines.append(f"        .encounterRate_walking = {enc['walking_rate']},")
-		lines.append(f"        .encounterRate_surfing = {enc['surf_rate']},")
-		lines.append(f"        .encounterRate_rockSmash = {enc['rock_smash_rate']},")
-		lines.append(f"        .encounterRate_oldRod = {enc['old_rod_rate']},")
-		lines.append(f"        .encounterRate_goodRod = {enc['good_rod_rate']},")
-		lines.append(f"        .encounterRate_superRod = {enc['super_rod_rate']},")
-		lines.append(f"        .dummy = {{ {padding & 0xFF}, {(padding >> 8) & 0xFF} }},")
-		lines.append("        .landSlots = {")
+		lines.append(f"        .rate_walk = {enc['walking_rate']},")
+		lines.append(f"        .rate_surf = {enc['surf_rate']},")
+		lines.append(f"        .rate_rock_smash = {enc['rock_smash_rate']},")
+		lines.append(f"        .rate_old_rod = {enc['old_rod_rate']},")
+		lines.append(f"        .rate_good_rod = {enc['good_rod_rate']},")
+		lines.append(f"        .rate_super_rod = {enc['super_rod_rate']},")
+		lines.append("        .land_slots = {")
 		lines.append("            .levels = {")
 		lines.append("                " + ", ".join(str(enc[f"walking_{n}_level"]) for n in range(12)))
 		lines.append("            },")
 		for field_name, prefix, count in (
-			("species_morn", "morning", 12),
+			("species_morning", "morning", 12),
 			("species_day", "day", 12),
-			("species_nite", "night", 12),
+			("species_night", "night", 12),
 		):
 			lines.append(f"            .{field_name} = {{")
 			for n in range(count):
 				lines.append(f"                {get_species_expr(enc[f'{prefix}_{n}_species_id'], is_expanded)},")
 			lines.append("            },")
 		lines.append("        },")
-		for field_name, prefix, count in (("hoennSoundsSpecies", "hoenn", 2), ("sinnohSoundsSpecies", "sinnoh", 2)):
+		for field_name, prefix, count in (("hoenn_sound_species", "hoenn", 2), ("sinnoh_sound_species", "sinnoh", 2)):
 			lines.append(f"        .{field_name} = {{")
 			for n in range(count):
 				lines.append(f"            {get_species_expr(enc[f'{prefix}_{n}_species_id'], is_expanded)},")
 			lines.append("        },")
 		for field_name, prefix, count in (
-			("surfSlots", "surf", 5),
-			("rockSmashSlots", "rock_smash", 2),
-			("oldRodSlots", "old_rod", 5),
-			("goodRodSlots", "good_rod", 5),
-			("superRodSlots", "super_rod", 5),
+			("surf_slots", "surf", 5),
+			("rock_smash_slots", "rock_smash", 2),
+			("old_rod_slots", "old_rod", 5),
+			("good_rod_slots", "good_rod", 5),
+			("super_rod_slots", "super_rod", 5),
 		):
 			lines.append(f"        .{field_name} = {{")
 			for n in range(count):
 				lines.append(f"            {{ {enc[f'{prefix}_{n}_min_lvl']}, {enc[f'{prefix}_{n}_max_lvl']}, {get_species_expr(enc[f'{prefix}_{n}_species_id'], is_expanded)} }},")
 			lines.append("        },")
-		lines.append(f"        .landSwarm = {get_species_expr(enc['swarm_0_species_id'], is_expanded)},")
-		lines.append(f"        .surfSwarm = {get_species_expr(enc['swarm_1_species_id'], is_expanded)},")
-		lines.append(f"        .nightFish = {get_species_expr(enc['swarm_2_species_id'], is_expanded)},")
-		lines.append(f"        .fishSwarm = {get_species_expr(enc['swarm_3_species_id'], is_expanded)},")
+		lines.append(f"        .land_swarm = {get_species_expr(enc['swarm_0_species_id'], is_expanded)},")
+		lines.append(f"        .surf_swarm = {get_species_expr(enc['swarm_1_species_id'], is_expanded)},")
+		lines.append(f"        .night_fish = {get_species_expr(enc['swarm_2_species_id'], is_expanded)},")
+		lines.append(f"        .fish_swarm = {get_species_expr(enc['swarm_3_species_id'], is_expanded)},")
 		lines.append("    },")
 		lines.append("")
 
@@ -296,6 +294,7 @@ def get_encounter_area_name(idx):
 	if idx < len(ENCOUNTER_AREA_NAMES):
 		return ENCOUNTER_AREA_NAMES[idx]
 	return f"{idx}"
+
 
 def get_enc_macro(species_id, enc_type, is_expanded):
 	max_mons = 2048 if is_expanded else 1024
