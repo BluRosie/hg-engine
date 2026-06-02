@@ -13,9 +13,9 @@ ENCOUNTER_MODE_NAMES = (
     ("super_rod", "super_rod", 2),
 )
 TIME_OF_DAY_NAMES = (
-    ("morn", "morn"),
-    ("day", "day"),
-    ("nite", "nite"),
+    "morning",
+    "day",
+    "night",
 )
 
 
@@ -53,12 +53,12 @@ def parse_safari_encounter_narc(narc):
 
         for mode_index, (_, _, bonus_count) in enumerate(ENCOUNTER_MODE_NAMES):
             encounter_type = {
-                "base_mons": {time_name: [] for _, time_name in TIME_OF_DAY_NAMES},
-                "bonus_mons": {time_name: [] for _, time_name in TIME_OF_DAY_NAMES},
+                "base_mons": {time_name: [] for time_name in TIME_OF_DAY_NAMES},
+                "bonus_mons": {time_name: [] for time_name in TIME_OF_DAY_NAMES},
                 "unlock_conditions": [],
             }
 
-            for _, time_name in TIME_OF_DAY_NAMES:
+            for time_name in TIME_OF_DAY_NAMES:
                 for _ in range(10):
                     species = _read_u16(area_data, offset)
                     level = _read_u16(area_data, offset + 2)
@@ -66,7 +66,7 @@ def parse_safari_encounter_narc(narc):
                     offset += 4
 
             current_bonus_count = area["bonus_counts"][mode_index]
-            for _, time_name in TIME_OF_DAY_NAMES:
+            for time_name in TIME_OF_DAY_NAMES:
                 for _ in range(current_bonus_count):
                     species = _read_u16(area_data, offset)
                     level = _read_u16(area_data, offset + 2)
@@ -127,15 +127,13 @@ def dump_safari_encounters_c(narc, is_expanded):
         for mode_index, (_, field_name, bonus_count) in enumerate(ENCOUNTER_MODE_NAMES):
             encounter_type = area["encounter_types"][mode_index]
             lines.append(f"        .{field_name} = {{")
-            for _, time_name in TIME_OF_DAY_NAMES:
-                struct_time_name = "night" if time_name == "nite" else time_name
-                lines.append(f"            .species_{struct_time_name} = {{")
+            for time_name in TIME_OF_DAY_NAMES:
+                lines.append(f"            .species_{time_name} = {{")
                 for species, level in encounter_type["base_mons"][time_name]:
                     lines.append(f"                {{ {_species_expr(species, is_expanded)}, {level} }},")
                 lines.append("            },")
-            for _, time_name in TIME_OF_DAY_NAMES:
-                struct_time_name = "night" if time_name == "nite" else time_name
-                lines.append(f"            .bonus_species_{struct_time_name} = {{")
+            for time_name in TIME_OF_DAY_NAMES:
+                lines.append(f"            .bonus_species_{time_name} = {{")
                 for bonus_index, _ in enumerate(encounter_type["unlock_conditions"]):
                     species, level = encounter_type["bonus_mons"][time_name][bonus_index]
                     lines.append(f"                {{ {_species_expr(species, is_expanded)}, {level} }},")
