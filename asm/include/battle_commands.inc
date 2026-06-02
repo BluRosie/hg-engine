@@ -615,8 +615,9 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro Transform
+    .macro Transform arg_0
     .long 103
+    .long (((\arg_0 - .) / 4) - 1)
     .endm
 
     .macro TrySpikes arg_0

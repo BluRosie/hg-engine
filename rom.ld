@@ -36,9 +36,6 @@ ST_ServerPokeAppearCheck = 0x1B8D4 + 0x022378C1;
 SCIO_StatusEffectSet = 0x2BF88 + 0x022378C1;
 
 /*battle table*/
-SoubiItemWazaTypePowUpTbl = 0x0226CC3A;
-TetsunoKobushiTable = 0x0226CBBE;
-CondChgTable = 0x226CB88;
 ItemDataIndex = 0x2100194;
 
 gf_rand = 0x0201FD44 |1;

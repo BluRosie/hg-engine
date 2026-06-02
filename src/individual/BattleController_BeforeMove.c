@@ -3606,7 +3606,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                 }
                 break;
             // TODO: Handle Sky Drop here
-            case MOVE_EFFECT_TRANSFORM:
+            //case MOVE_EFFECT_TRANSFORM:
             case MOVE_EFFECT_SET_ABILITY_TO_INSOMNIA:
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);

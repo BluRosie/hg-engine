@@ -1,4 +1,4 @@
-// Test: Illusion - imitate an alive mon over an egg mon
+// Test: Transform - fails on target under Illusion
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_PIKACHU,
+            .species = SPECIES_MEW,
             .level = 50,
-            .form = 3,
-            .ability = ABILITY_STATIC,
+            .form = 0,
+            .ability = ABILITY_SYNCHRONIZE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -28,7 +28,7 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_ZOROARK,
-            .level = 1,
+            .level = 50,
             .form = 1,
             .ability = ABILITY_ILLUSION,
             .item = ITEM_NONE,
@@ -69,7 +69,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = {
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -92,7 +92,8 @@ BEGIN_TEST
         }
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Rattata used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mew used Transform!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
     }
 }
 END_TEST
