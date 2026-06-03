@@ -15895,7 +15895,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_OPPONENT_SIDE,
             .priority = 0,
-            .flags = FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_MAGIC_COAT,
+            .flags = FLAG_MIRROR_MOVE | FLAG_MAGIC_COAT,
         },
         .contest = {
             .appeal = 0,
