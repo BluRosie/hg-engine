@@ -951,6 +951,7 @@ int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx
         int ally = BATTLER_ALLY(ctx->defence_client);
         if (ctx->battlemon[ally].hp
             && (GetBattlerAbility(ctx, ally) != ABILITY_MAGIC_GUARD)
+            && ((ctx->battlemon[ally].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0)
             && ctx->oneSelfFlag[ctx->defence_client].special_damager == ctx->attack_client) {
             ctx->addeffect_param = ADD_STATUS_EFF_FLAME_BURST_HIT;
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
