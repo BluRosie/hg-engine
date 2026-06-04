@@ -5407,17 +5407,9 @@ BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ct
 
 BOOL BtlCmd_Transform(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    int failAddress, clientToTransform = ctx->defence_client;
     IncrementBattleScriptPtr(ctx, 1);
-    failAddress = read_battle_script_param(ctx);
 
-    if (GetBattlerAbility(ctx, clientToTransform) != ABILITY_GOOD_AS_GOLD // target ability is not good as gold
-        && (ctx->battlemon[clientToTransform].condition2 & (STATUS2_TRANSFORMED | STATUS2_SUBSTITUTE)) == 0 // target is not behind a substitute or themselves transformed
-        && !IS_CLIENT_IN_ILLUSION(bsys, clientToTransform)) { // target is not behind illusion
-        HandleTransform(ctx);
-    } else {
-        IncrementBattleScriptPtr(ctx, failAddress);
-    }
+	HandleTransform(ctx);
 
     return FALSE;
 }
