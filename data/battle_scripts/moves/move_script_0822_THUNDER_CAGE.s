@@ -5,3 +5,4 @@
 _Start:
     // {0} trapped {1}!
     BufferMessage 1750, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_DEFENDER
+    GoToEffectScript
