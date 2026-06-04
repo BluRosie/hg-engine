@@ -61,7 +61,7 @@ def main() -> None:
     data_folder = pathlib.Path(os.path.join(os.getcwd(), "data"))
     build_folder = pathlib.Path(os.path.join(os.getcwd(), "build", "battle_tests"))
     battle_tests_root_folder = pathlib.Path(data_folder, "battle_tests")
-    files = list(battle_tests_root_folder.rglob("*c"))
+    files = list(battle_tests_root_folder.rglob("*.c"))
 
     if os.path.exists("test_filter.txt"):
         try:

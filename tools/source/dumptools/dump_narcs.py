@@ -14,6 +14,7 @@ from dump_scripts.mondata import dump_mondata
 from dump_scripts.moves import dump_moves_c
 from dump_scripts.pokedex_data import dump_pokedex_area_files, dump_pokedex_sort_files
 from dump_scripts.regional_dex import dump_regionaldex_c
+from dump_scripts.safari import dump_safari_encounters_c
 from dump_scripts.speciesdata import dump_species_data
 from dump_scripts.sprite_offsets import dump_spriteoffsets_c
 from dump_scripts.trainerdata import dump_trainerdata, dump_trainerdata_c
@@ -109,6 +110,10 @@ def dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expand
 
     headbutt_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/5/2"]])
     dump_headbutt_c(headbutt_narc.files, "./dumped_c/Headbutt.c")
+
+    safari_encounters_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/3/0"]])
+    with open("./dumped_c/SafariEncounters.c", "w", encoding="utf-8") as file:
+        file.write(dump_safari_encounters_c(safari_encounters_narc, expanded))
 
     with open("./dumped_c/Trainers.c", "w", encoding="utf-8") as file:
         file.write(dump_trainerdata_c(rom, msgdata_narc, expanded))

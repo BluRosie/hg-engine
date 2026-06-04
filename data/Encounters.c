@@ -7,18 +7,17 @@ u32 __size = sizeof(EncounterData);
 const EncounterData __data[] =
 {
     [ENCDATA_T20_NEW_BARK_TOWN] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -32,7 +31,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -46,7 +45,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -61,11 +60,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -108,18 +107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R29_ROUTE_29] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 2, 3, 2, 3, 3, 3, 2, 2, 4, 4, 4, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEY,
                 SPECIES_SENTRET,
                 SPECIES_PIDGEY,
@@ -133,7 +131,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_PIDGEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEY,
                 SPECIES_SENTRET,
                 SPECIES_PIDGEY,
@@ -147,7 +145,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_PIDGEY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
@@ -162,11 +160,11 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -209,18 +207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T21_CHERRYGROVE_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -234,7 +231,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -248,7 +245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -263,11 +260,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -310,18 +307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R30_ROUTE_30] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 2, 3, 2, 3, 4, 4, 4, 4, 4, 4, 4, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
@@ -335,7 +331,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEY,
                 SPECIES_PIDGEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
@@ -349,7 +345,7 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SPINARAK,
                 SPECIES_RATTATA,
                 SPECIES_SPINARAK,
@@ -364,11 +360,11 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -411,18 +407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R31_ROUTE_31] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 3, 4, 3, 4, 3, 3, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
@@ -436,7 +431,7 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
@@ -450,7 +445,7 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SPINARAK,
                 SPECIES_RATTATA,
                 SPECIES_SPINARAK,
@@ -465,11 +460,11 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -512,18 +507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T22_VIOLET_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -537,7 +531,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -551,7 +545,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -566,11 +560,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -613,18 +607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D15R0102_SPROUT_TOWER_2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 3, 4, 3, 4, 5, 5, 3, 3, 6, 5, 6, 5
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -638,7 +631,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -652,7 +645,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -667,11 +660,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -714,18 +707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D15R0103_SPROUT_TOWER_3F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 3, 4, 3, 4, 5, 5, 3, 3, 6, 5, 6, 5
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -739,7 +731,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -753,7 +745,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -768,11 +760,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -815,18 +807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R32_ROUTE_32] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 6, 4, 6, 4, 6, 6, 6, 6, 6, 4, 6, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_BELLSPROUT,
                 SPECIES_RATTATA,
                 SPECIES_BELLSPROUT,
@@ -840,7 +831,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_ZUBAT,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_BELLSPROUT,
                 SPECIES_RATTATA,
                 SPECIES_BELLSPROUT,
@@ -854,7 +845,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_WOOPER,
                 SPECIES_RATTATA,
                 SPECIES_WOOPER,
@@ -869,11 +860,11 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -916,18 +907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D24R0101_RUINS_OF_ALPH_OUTSIDE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 20,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 20,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 20, 22, 20, 22, 18, 18, 24, 24, 20, 22, 20, 22
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NATU,
                 SPECIES_NATU,
                 SPECIES_NATU,
@@ -941,7 +931,7 @@ const EncounterData __data[] =
                 SPECIES_SMEARGLE,
                 SPECIES_SMEARGLE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NATU,
                 SPECIES_NATU,
                 SPECIES_NATU,
@@ -955,7 +945,7 @@ const EncounterData __data[] =
                 SPECIES_SMEARGLE,
                 SPECIES_SMEARGLE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NATU,
                 SPECIES_NATU,
                 SPECIES_NATU,
@@ -970,11 +960,11 @@ const EncounterData __data[] =
                 SPECIES_SMEARGLE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -1017,18 +1007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D24R0205_RUINS_OF_ALPH_INSIDE_MAIN_ROOM] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1042,7 +1031,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1056,7 +1045,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1071,11 +1060,11 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
@@ -1118,18 +1107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D24R0216_RUINS_OF_ALPH_INSIDE_MAIN_ROOM_UNUSED] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1143,7 +1131,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1157,7 +1145,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1172,11 +1160,11 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
@@ -1219,18 +1207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D24R0218_RUINS_OF_ALPH_INSIDE_MAIN_ROOM_UNUSED] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1244,7 +1231,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1258,7 +1245,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1273,11 +1260,11 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
@@ -1320,18 +1307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D24R0217_RUINS_OF_ALPH_INSIDE_LADDER_ROOM] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1345,7 +1331,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1359,7 +1345,7 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
                 SPECIES_UNOWN,
@@ -1374,11 +1360,11 @@ const EncounterData __data[] =
                 SPECIES_UNOWN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_UNOWN,
             SPECIES_UNOWN,
         },
@@ -1421,18 +1407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D25R0101_UNION_CAVE_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 6, 6, 6, 6, 5, 5, 4, 4, 7, 6, 7, 6
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1446,7 +1431,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_ONIX,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1460,7 +1445,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_ONIX,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1475,11 +1460,11 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -1522,18 +1507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D25R0102_UNION_CAVE_B1F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 8, 8, 8, 8, 7, 7, 8, 8, 9, 6, 9, 6
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1547,7 +1531,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1561,7 +1545,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GEODUDE,
                 SPECIES_SANDSHREW,
                 SPECIES_GEODUDE,
@@ -1576,11 +1560,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -1623,18 +1607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D25R0103_UNION_CAVE_B2F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -1648,7 +1631,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_ONIX,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -1662,7 +1645,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_ONIX,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -1677,11 +1660,11 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -1724,18 +1707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R33_ROUTE_33] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 6, 7, 6, 7, 6, 6, 6, 6, 8, 4, 8, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_HOPPIP,
                 SPECIES_RATTATA,
                 SPECIES_HOPPIP,
@@ -1749,7 +1731,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_ZUBAT,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_HOPPIP,
                 SPECIES_RATTATA,
                 SPECIES_HOPPIP,
@@ -1763,7 +1745,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
                 SPECIES_ZUBAT,
@@ -1778,11 +1760,11 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -1825,18 +1807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D26R0102_SLOWPOKE_WELL_1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 5, 6, 5, 6, 7, 7, 6, 6, 8, 8, 8, 8
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1850,7 +1831,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_SLOWPOKE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1864,7 +1845,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_SLOWPOKE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1879,11 +1860,11 @@ const EncounterData __data[] =
                 SPECIES_SLOWPOKE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -1926,18 +1907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D26R0103_SLOWPOKE_WELL_B2F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 21, 23, 21, 23, 19, 19, 21, 21, 23, 23, 23, 23
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1951,7 +1931,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SLOWPOKE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1965,7 +1945,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SLOWPOKE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -1980,11 +1960,11 @@ const EncounterData __data[] =
                 SPECIES_SLOWPOKE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -2027,18 +2007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D36R0101_ILEX_FOREST] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 5, 6, 5, 6, 6, 6, 5, 5, 5, 6, 5, 6
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
                 SPECIES_CATERPIE,
@@ -2052,7 +2031,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_PARAS,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
@@ -2066,7 +2045,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_PARAS,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
@@ -2081,11 +2060,11 @@ const EncounterData __data[] =
                 SPECIES_PARAS,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_SPOINK,
             SPECIES_NUMEL,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUDEW,
             SPECIES_CARNIVINE,
         },
@@ -2128,18 +2107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R34_ROUTE_34] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 10, 11, 10, 11, 12, 12, 10, 10, 13, 10, 13, 10
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -2153,7 +2131,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_DITTO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -2167,7 +2145,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_DITTO,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -2182,11 +2160,11 @@ const EncounterData __data[] =
                 SPECIES_DITTO,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -2229,18 +2207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R35_ROUTE_35] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 12, 12, 12, 12, 14, 14, 10, 10, 14, 10, 14, 12
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2254,7 +2231,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEY,
                 SPECIES_YANMA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2268,7 +2245,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEY,
                 SPECIES_YANMA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2283,11 +2260,11 @@ const EncounterData __data[] =
                 SPECIES_YANMA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -2330,18 +2307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D22R0101_NATIONAL_PARK] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
                 SPECIES_CATERPIE,
@@ -2355,7 +2331,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEY,
                 SPECIES_PIDGEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
                 SPECIES_CATERPIE,
@@ -2369,7 +2345,7 @@ const EncounterData __data[] =
                 SPECIES_SUNKERN,
                 SPECIES_PIDGEY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
@@ -2384,11 +2360,11 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -2431,18 +2407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D22R0102_NATIONAL_PARK_BUG_CATCHING_CONTEST] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 10, 10, 10, 10, 12, 12, 12, 12, 10, 14, 10, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
@@ -2456,7 +2431,7 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
@@ -2470,7 +2445,7 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
@@ -2485,11 +2460,11 @@ const EncounterData __data[] =
                 SPECIES_CATERPIE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_CATERPIE,
             SPECIES_CATERPIE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CATERPIE,
             SPECIES_CATERPIE,
         },
@@ -2532,18 +2507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R36_ROUTE_36] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 12, 12, 12, 12, 13, 13, 13, 13, 13, 15, 13, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2557,7 +2531,7 @@ const EncounterData __data[] =
                 SPECIES_STANTLER,
                 SPECIES_PIDGEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2571,7 +2545,7 @@ const EncounterData __data[] =
                 SPECIES_STANTLER,
                 SPECIES_GROWLITHE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NIDORAN_M,
                 SPECIES_NIDORAN_F,
                 SPECIES_NIDORAN_M,
@@ -2586,11 +2560,11 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -2633,18 +2607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R37_ROUTE_37] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 13, 15, 13, 15, 15, 15, 14, 14, 15, 15, 15, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEY,
                 SPECIES_STANTLER,
                 SPECIES_PIDGEY,
@@ -2658,7 +2631,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEY,
                 SPECIES_PIDGEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEY,
                 SPECIES_STANTLER,
                 SPECIES_PIDGEY,
@@ -2672,7 +2645,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_GROWLITHE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SPINARAK,
                 SPECIES_STANTLER,
                 SPECIES_SPINARAK,
@@ -2687,11 +2660,11 @@ const EncounterData __data[] =
                 SPECIES_SPINARAK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -2734,18 +2707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T27_ECRUTEAK_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -2759,7 +2731,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -2773,7 +2745,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -2788,11 +2760,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -2835,18 +2807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D18R0101_BURNED_TOWER_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 13, 14, 13, 14, 15, 15, 14, 14, 16, 15, 16, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2860,7 +2831,7 @@ const EncounterData __data[] =
                 SPECIES_KOFFING,
                 SPECIES_RATICATE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2874,7 +2845,7 @@ const EncounterData __data[] =
                 SPECIES_KOFFING,
                 SPECIES_RATICATE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2889,11 +2860,11 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -2936,18 +2907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D18R0102_BURNED_TOWER_B1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 14, 14, 14, 14, 16, 16, 16, 16, 15, 14, 15, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2961,7 +2931,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_MAGMAR,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2975,7 +2945,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATTATA,
                 SPECIES_KOFFING,
                 SPECIES_RATTATA,
@@ -2990,11 +2960,11 @@ const EncounterData __data[] =
                 SPECIES_MAGMAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3037,18 +3007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0102_BELL_TOWER_2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3062,7 +3031,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3076,7 +3045,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3091,11 +3060,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3138,18 +3107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0103_BELL_TOWER_3F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3163,7 +3131,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3177,7 +3145,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3192,11 +3160,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3239,18 +3207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0104_BELL_TOWER_4F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3264,7 +3231,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3278,7 +3245,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3293,11 +3260,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3340,18 +3307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0105_BELL_TOWER_5F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3365,7 +3331,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3379,7 +3345,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3394,11 +3360,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3441,18 +3407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0106_BELL_TOWER_6F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3466,7 +3431,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3480,7 +3445,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3495,11 +3460,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3542,18 +3507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0107_BELL_TOWER_7F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3567,7 +3531,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3581,7 +3545,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3596,11 +3560,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3643,18 +3607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0108_BELL_TOWER_8F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3668,7 +3631,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3682,7 +3645,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3697,11 +3660,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3744,18 +3707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0109_BELL_TOWER_9F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3769,7 +3731,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -3783,7 +3745,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -3798,11 +3760,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -3845,18 +3807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R38_ROUTE_38] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 16, 16, 16, 16, 16, 16, 16, 16, 13, 13, 13, 13
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -3870,7 +3831,7 @@ const EncounterData __data[] =
                 SPECIES_MILTANK,
                 SPECIES_SNUBBULL,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -3884,7 +3845,7 @@ const EncounterData __data[] =
                 SPECIES_MILTANK,
                 SPECIES_SNUBBULL,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -3899,11 +3860,11 @@ const EncounterData __data[] =
                 SPECIES_SNUBBULL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -3946,18 +3907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R39_ROUTE_39] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 16, 17, 16, 17, 16, 16, 16, 16, 15, 15, 15, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -3971,7 +3931,7 @@ const EncounterData __data[] =
                 SPECIES_MILTANK,
                 SPECIES_TAUROS,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -3985,7 +3945,7 @@ const EncounterData __data[] =
                 SPECIES_MILTANK,
                 SPECIES_TAUROS,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATTATA,
                 SPECIES_RATICATE,
                 SPECIES_RATTATA,
@@ -4000,11 +3960,11 @@ const EncounterData __data[] =
                 SPECIES_TAUROS,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -4047,18 +4007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T26_OLIVINE_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4072,7 +4031,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4086,7 +4045,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4101,11 +4060,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -4148,18 +4107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_W40_ROUTE_40] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4173,7 +4131,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4187,7 +4145,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4202,11 +4160,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -4249,18 +4207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_W41_ROUTE_41] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4274,7 +4231,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4288,7 +4245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4303,11 +4260,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -4350,18 +4307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D40R0101_WHIRL_ISLANDS_1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4375,7 +4331,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4389,7 +4345,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4404,11 +4360,11 @@ const EncounterData __data[] =
                 SPECIES_SEEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -4451,18 +4407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D40R0102_WHIRL_ISLANDS_B1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4476,7 +4431,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4490,7 +4445,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4505,11 +4460,11 @@ const EncounterData __data[] =
                 SPECIES_SEEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -4552,18 +4507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_UNUSED_045_UNKNOWN_045] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4577,7 +4531,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4591,7 +4545,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4606,11 +4560,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -4653,18 +4607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D40R0104_WHIRL_ISLANDS_B2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 22, 23, 22, 23, 24, 24, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4678,7 +4631,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4692,7 +4645,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4707,11 +4660,11 @@ const EncounterData __data[] =
                 SPECIES_SEEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -4754,18 +4707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_UNUSED_047_UNKNOWN_047] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4779,7 +4731,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4793,7 +4745,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4808,11 +4760,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -4855,18 +4807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D40R0106_WHIRL_ISLANDS_B3F_LEDGE_OVERLOOKING_LUGIA_ROOM] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 23, 24, 23, 24, 25, 25, 23, 23, 24, 25, 24, 25
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4880,7 +4831,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4894,7 +4845,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_SEEL,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_KRABBY,
                 SPECIES_ZUBAT,
                 SPECIES_KRABBY,
@@ -4909,11 +4860,11 @@ const EncounterData __data[] =
                 SPECIES_SEEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -4956,18 +4907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_UNUSED_049_UNKNOWN_049] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4981,7 +4931,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -4995,7 +4945,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5010,11 +4960,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -5057,18 +5007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_UNUSED_050_UNKNOWN_050] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5082,7 +5031,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5096,7 +5045,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5111,11 +5060,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -5158,18 +5107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T24_CIANWOOD_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 30,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 30,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5183,7 +5131,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5197,7 +5145,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5212,11 +5160,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -5259,18 +5207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R42_ROUTE_42] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 15, 13, 15, 13, 14, 14, 16, 16, 15, 17, 15, 17
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_MANKEY,
                 SPECIES_MAREEP,
                 SPECIES_MANKEY,
@@ -5284,7 +5231,7 @@ const EncounterData __data[] =
                 SPECIES_FLAAFFY,
                 SPECIES_FLAAFFY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_MANKEY,
                 SPECIES_MAREEP,
                 SPECIES_MANKEY,
@@ -5298,7 +5245,7 @@ const EncounterData __data[] =
                 SPECIES_FLAAFFY,
                 SPECIES_FLAAFFY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_MANKEY,
                 SPECIES_MAREEP,
                 SPECIES_MANKEY,
@@ -5313,11 +5260,11 @@ const EncounterData __data[] =
                 SPECIES_FLAAFFY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -5360,18 +5307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D38R0101_MT_MORTAR_WATERFALL_ROOM] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 13, 15, 13, 15, 14, 14, 14, 14, 14, 16, 14, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5385,7 +5331,7 @@ const EncounterData __data[] =
                 SPECIES_GEODUDE,
                 SPECIES_MARILL,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5399,7 +5345,7 @@ const EncounterData __data[] =
                 SPECIES_GEODUDE,
                 SPECIES_MARILL,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5414,11 +5360,11 @@ const EncounterData __data[] =
                 SPECIES_MARILL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -5461,18 +5407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D38R0102_MT_MORTAR_CENTRAL_ROOM] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 13, 13, 13, 13, 15, 15, 14, 14, 15, 14, 15, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GEODUDE,
                 SPECIES_MACHOP,
                 SPECIES_GEODUDE,
@@ -5486,7 +5431,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOP,
                 SPECIES_ZUBAT,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GEODUDE,
                 SPECIES_MACHOP,
                 SPECIES_GEODUDE,
@@ -5500,7 +5445,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOP,
                 SPECIES_ZUBAT,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GEODUDE,
                 SPECIES_MACHOP,
                 SPECIES_GEODUDE,
@@ -5515,11 +5460,11 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -5562,18 +5507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D38R0103_MT_MORTAR_ROOM_ABOVE_WATERFALL] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 31, 32, 31, 32, 31, 31, 30, 30, 28, 30, 28, 30
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GRAVELER,
                 SPECIES_MACHOKE,
                 SPECIES_GRAVELER,
@@ -5587,7 +5531,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOP,
                 SPECIES_GOLBAT,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GRAVELER,
                 SPECIES_MACHOKE,
                 SPECIES_GRAVELER,
@@ -5601,7 +5545,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOP,
                 SPECIES_GOLBAT,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GRAVELER,
                 SPECIES_MACHOKE,
                 SPECIES_GRAVELER,
@@ -5616,11 +5560,11 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -5663,18 +5607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D38R0104_MT_MORTAR_B1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 15, 17, 15, 17, 16, 16, 16, 16, 16, 16, 16, 16
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5688,7 +5631,7 @@ const EncounterData __data[] =
                 SPECIES_GEODUDE,
                 SPECIES_RATICATE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5702,7 +5645,7 @@ const EncounterData __data[] =
                 SPECIES_GEODUDE,
                 SPECIES_RATICATE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
                 SPECIES_ZUBAT,
@@ -5717,11 +5660,11 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -5764,18 +5707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R43_ROUTE_43] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 15, 15, 15, 15, 17, 17, 15, 15, 16, 17, 16, 17
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_FLAAFFY,
                 SPECIES_GIRAFARIG,
                 SPECIES_FLAAFFY,
@@ -5789,7 +5731,7 @@ const EncounterData __data[] =
                 SPECIES_VENONAT,
                 SPECIES_PIDGEOTTO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_FLAAFFY,
                 SPECIES_GIRAFARIG,
                 SPECIES_FLAAFFY,
@@ -5803,7 +5745,7 @@ const EncounterData __data[] =
                 SPECIES_FLAAFFY,
                 SPECIES_FLAAFFY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_FLAAFFY,
                 SPECIES_GIRAFARIG,
                 SPECIES_FLAAFFY,
@@ -5818,11 +5760,11 @@ const EncounterData __data[] =
                 SPECIES_VENONAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -5865,18 +5807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T29_LAKE_OF_RAGE] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5890,7 +5831,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5904,7 +5845,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -5919,11 +5860,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -5966,18 +5907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R44_ROUTE_44] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 23, 22, 23, 22, 22, 22, 24, 24, 24, 26, 24, 26
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_TANGELA,
                 SPECIES_WEEPINBELL,
                 SPECIES_TANGELA,
@@ -5991,7 +5931,7 @@ const EncounterData __data[] =
                 SPECIES_WEEPINBELL,
                 SPECIES_LICKITUNG,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_TANGELA,
                 SPECIES_WEEPINBELL,
                 SPECIES_TANGELA,
@@ -6005,7 +5945,7 @@ const EncounterData __data[] =
                 SPECIES_WEEPINBELL,
                 SPECIES_LICKITUNG,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_TANGELA,
                 SPECIES_WEEPINBELL,
                 SPECIES_TANGELA,
@@ -6020,11 +5960,11 @@ const EncounterData __data[] =
                 SPECIES_LICKITUNG,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -6067,18 +6007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D39R0101_ICE_PATH_1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6092,7 +6031,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_JYNX,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6106,7 +6045,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6121,11 +6060,11 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -6168,18 +6107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D39R0102_ICE_PATH_B1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 21, 22, 21, 22, 22, 22, 23, 23, 22, 22, 22, 22
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6193,7 +6131,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_JYNX,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6207,7 +6145,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6222,11 +6160,11 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -6269,18 +6207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D39R0103_ICE_PATH_B2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6294,7 +6231,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_JYNX,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6308,7 +6245,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6323,11 +6260,11 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -6370,18 +6307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D39R0104_ICE_PATH_B3F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 22, 23, 22, 23, 23, 23, 24, 24, 23, 23, 23, 23
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6395,7 +6331,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_JYNX,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6409,7 +6345,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SWINUB,
                 SPECIES_GOLBAT,
                 SPECIES_SWINUB,
@@ -6424,11 +6360,11 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -6471,18 +6407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_UNUSED_064_UNKNOWN_064] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6496,7 +6431,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6510,7 +6445,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6525,11 +6460,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -6572,18 +6507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T30_BLACKTHORN_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6597,7 +6531,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6611,7 +6545,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6626,11 +6560,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -6673,18 +6607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D44R0102_DRAGONS_DEN] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6698,7 +6631,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6712,7 +6645,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -6727,11 +6660,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -6774,18 +6707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R45_ROUTE_45] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 23, 23, 23, 23, 24, 24, 20, 20, 25, 27, 25, 27
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GEODUDE,
                 SPECIES_GRAVELER,
                 SPECIES_GEODUDE,
@@ -6799,7 +6731,7 @@ const EncounterData __data[] =
                 SPECIES_GRAVELER,
                 SPECIES_GRAVELER,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GEODUDE,
                 SPECIES_GRAVELER,
                 SPECIES_GEODUDE,
@@ -6813,7 +6745,7 @@ const EncounterData __data[] =
                 SPECIES_GRAVELER,
                 SPECIES_GRAVELER,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GEODUDE,
                 SPECIES_GRAVELER,
                 SPECIES_GEODUDE,
@@ -6828,11 +6760,11 @@ const EncounterData __data[] =
                 SPECIES_GRAVELER,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -6875,18 +6807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R46_ROUTE_46] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 3, 2, 3, 2, 2, 2, 2, 2, 3, 4, 3, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GEODUDE,
                 SPECIES_SPEAROW,
                 SPECIES_GEODUDE,
@@ -6900,7 +6831,7 @@ const EncounterData __data[] =
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GEODUDE,
                 SPECIES_SPEAROW,
                 SPECIES_GEODUDE,
@@ -6914,7 +6845,7 @@ const EncounterData __data[] =
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GEODUDE,
                 SPECIES_RATTATA,
                 SPECIES_GEODUDE,
@@ -6929,11 +6860,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -6976,18 +6907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D42R0102_DARK_CAVE_ROUTE_31_ENTRANCE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 50,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 50,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 3, 2, 3, 2, 2, 2, 4, 4, 3, 4, 3, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7001,7 +6931,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_DUNSPARCE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7015,7 +6945,7 @@ const EncounterData __data[] =
                 SPECIES_ZUBAT,
                 SPECIES_DUNSPARCE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7030,11 +6960,11 @@ const EncounterData __data[] =
                 SPECIES_DUNSPARCE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -7077,18 +7007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D42R0101_DARK_CAVE_ROUTE_45_ENTRANCE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 23, 23, 23, 23, 25, 25, 20, 20, 25, 23, 25, 23
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7102,7 +7031,7 @@ const EncounterData __data[] =
                 SPECIES_WOBBUFFET,
                 SPECIES_GOLBAT,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7116,7 +7045,7 @@ const EncounterData __data[] =
                 SPECIES_WOBBUFFET,
                 SPECIES_GOLBAT,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
@@ -7131,11 +7060,11 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -7178,18 +7107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R47_ROUTE_47] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 35, 35, 34, 33, 32, 31, 32, 31, 34, 31, 33, 40
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_FARFETCHD,
                 SPECIES_MILTANK,
                 SPECIES_DITTO,
@@ -7203,7 +7131,7 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
                 SPECIES_DITTO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_FARFETCHD,
                 SPECIES_MILTANK,
                 SPECIES_DITTO,
@@ -7217,7 +7145,7 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
                 SPECIES_DITTO,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NOCTOWL,
                 SPECIES_MILTANK,
                 SPECIES_DITTO,
@@ -7232,11 +7160,11 @@ const EncounterData __data[] =
                 SPECIES_DITTO,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -7279,18 +7207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D02R0103_MT_MOON_OUTSIDE_AREA] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7304,7 +7231,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7318,7 +7245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7333,11 +7260,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -7380,18 +7307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D02R0104_MT_MOON_OUTSIDE_CLEFAIRY_ACTIVE] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7405,7 +7331,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7419,7 +7345,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -7434,11 +7360,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -7481,18 +7407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D11R0101_SEAFOAM_ISLANDS_1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 28, 32, 28, 29, 30, 32, 27, 26, 27, 26, 27, 26
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7506,7 +7431,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7520,7 +7445,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7535,11 +7460,11 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -7582,18 +7507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D11R0102_SEAFOAM_ISLANDS_B1F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 32, 34, 28, 34, 32, 34, 29, 28, 32, 28, 27, 26
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7607,7 +7531,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7621,7 +7545,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7636,11 +7560,11 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -7683,18 +7607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D11R0103_SEAFOAM_ISLANDS_B2F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 33, 35, 30, 35, 33, 35, 30, 29, 33, 29, 28, 27
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7708,7 +7631,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7722,7 +7645,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SEEL,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7737,11 +7660,11 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -7784,18 +7707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D11R0104_SEAFOAM_ISLANDS_B3F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 35, 36, 32, 34, 34, 36, 32, 31, 34, 36, 32, 31
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7809,7 +7731,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7823,7 +7745,7 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
                 SPECIES_PSYDUCK,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7838,11 +7760,11 @@ const EncounterData __data[] =
                 SPECIES_PSYDUCK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -7885,18 +7807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D11R0105_SEAFOAM_ISLANDS_B4F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 5,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 5,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 37, 40, 34, 34, 38, 38, 39, 38, 37, 38, 40, 40
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7910,7 +7831,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7924,7 +7845,7 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
                 SPECIES_JYNX,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_DEWGONG,
                 SPECIES_GOLBAT,
                 SPECIES_PSYDUCK,
@@ -7939,11 +7860,11 @@ const EncounterData __data[] =
                 SPECIES_JYNX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -7986,18 +7907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D41R0105_MT_SILVER_MOLTRES_ROOM] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 45, 48, 45, 48, 48, 47, 45, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_QUAGSIRE,
                 SPECIES_STEELIX,
                 SPECIES_QUAGSIRE,
@@ -8011,7 +7931,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_QUAGSIRE,
                 SPECIES_STEELIX,
                 SPECIES_QUAGSIRE,
@@ -8025,7 +7945,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_QUAGSIRE,
                 SPECIES_STEELIX,
                 SPECIES_QUAGSIRE,
@@ -8040,11 +7960,11 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -8087,18 +8007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D41R0106_MT_SILVER_3F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 45, 48, 46, 48, 48, 50, 45, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_QUAGSIRE,
                 SPECIES_SNEASEL,
                 SPECIES_PHANPY,
@@ -8112,7 +8031,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_QUAGSIRE,
                 SPECIES_SNEASEL,
                 SPECIES_PHANPY,
@@ -8126,7 +8045,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_QUAGSIRE,
                 SPECIES_SNEASEL,
                 SPECIES_PHANPY,
@@ -8141,11 +8060,11 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -8188,18 +8107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D41R0107_MT_SILVER_4F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 50, 48, 45, 48, 47, 47, 45, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -8213,7 +8131,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -8227,7 +8145,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -8242,11 +8160,11 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -8289,18 +8207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D48R0101_CLIFF_EDGE_GATE] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -8314,7 +8231,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -8328,7 +8245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -8343,11 +8260,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -8390,18 +8307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D50R0101_CLIFF_CAVE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 30,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 30,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 22, 19, 20, 22, 19, 20, 18, 20, 20, 22, 23, 23
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GOLBAT,
                 SPECIES_GEODUDE,
                 SPECIES_KRABBY,
@@ -8415,7 +8331,7 @@ const EncounterData __data[] =
                 SPECIES_STEELIX,
                 SPECIES_STEELIX,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GOLBAT,
                 SPECIES_GEODUDE,
                 SPECIES_KRABBY,
@@ -8429,7 +8345,7 @@ const EncounterData __data[] =
                 SPECIES_STEELIX,
                 SPECIES_STEELIX,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GOLBAT,
                 SPECIES_GEODUDE,
                 SPECIES_KRABBY,
@@ -8444,11 +8360,11 @@ const EncounterData __data[] =
                 SPECIES_STEELIX,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -8491,18 +8407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D17R0112_BELL_TOWER_10F] = {
-        .encounterRate_walking = 5,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 5,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 20, 21, 20, 21, 22, 22, 22, 22, 23, 24, 23, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -8516,7 +8431,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -8530,7 +8445,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
                 SPECIES_GASTLY,
@@ -8545,11 +8460,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_SPINDA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_CHATOT,
             SPECIES_MEDITITE,
         },
@@ -8592,18 +8507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T31_MT_SILVER_OUTSIDE_POKEMON_CENTER] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 41, 42, 41, 42, 42, 42, 44, 44, 41, 43, 41, 43
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -8617,7 +8531,7 @@ const EncounterData __data[] =
                 SPECIES_DODUO,
                 SPECIES_DODRIO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -8631,7 +8545,7 @@ const EncounterData __data[] =
                 SPECIES_DODUO,
                 SPECIES_DODRIO,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -8646,11 +8560,11 @@ const EncounterData __data[] =
                 SPECIES_SNEASEL,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -8693,18 +8607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D41R0101_MT_SILVER_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 42, 44, 42, 44, 43, 43, 42, 41, 45, 20, 45, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ONIX,
                 SPECIES_DONPHAN,
                 SPECIES_ONIX,
@@ -8718,7 +8631,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ONIX,
                 SPECIES_DONPHAN,
                 SPECIES_ONIX,
@@ -8732,7 +8645,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ONIX,
                 SPECIES_DONPHAN,
                 SPECIES_ONIX,
@@ -8747,11 +8660,11 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -8794,18 +8707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D41R0103_MT_SILVER_MOUNTAINSIDE] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 51, 48, 51, 48, 48, 48, 50, 50, 51, 20, 51, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GOLBAT,
                 SPECIES_ONIX,
                 SPECIES_GOLBAT,
@@ -8819,7 +8731,7 @@ const EncounterData __data[] =
                 SPECIES_GOLDUCK,
                 SPECIES_LARVITAR,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GOLBAT,
                 SPECIES_ONIX,
                 SPECIES_GOLBAT,
@@ -8833,7 +8745,7 @@ const EncounterData __data[] =
                 SPECIES_GOLDUCK,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GOLBAT,
                 SPECIES_ONIX,
                 SPECIES_GOLBAT,
@@ -8848,11 +8760,11 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -8895,18 +8807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D41R0104_MT_SILVER_EXPERT_BELT_ROOM] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 45, 48, 45, 46, 48, 47, 45, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_QUAGSIRE,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -8920,7 +8831,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_QUAGSIRE,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -8934,7 +8845,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_MISDREAVUS,
                 SPECIES_GOLDUCK,
                 SPECIES_MISDREAVUS,
@@ -8949,11 +8860,11 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -8996,18 +8907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D41R0102_MT_SILVER_TOP_SNOWY_AREA] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 45, 48, 45, 48, 47, 47, 30, 45, 48, 20, 48, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -9021,7 +8931,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -9035,7 +8945,7 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
                 SPECIES_LARVITAR,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SNEASEL,
                 SPECIES_GOLDUCK,
                 SPECIES_QUAGSIRE,
@@ -9050,11 +8960,11 @@ const EncounterData __data[] =
                 SPECIES_LARVITAR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -9097,18 +9007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_UNUSED_090_UNKNOWN_090] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9122,7 +9031,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9136,7 +9045,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9151,11 +9060,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -9198,18 +9107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D47R0102_SAFARI_ZONE_PLACEHOLDER_UNUSED] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 100,
-        .encounterRate_goodRod = 100,
-        .encounterRate_superRod = 100,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 100,
+        .rateGoodRod = 100,
+        .rateSuperRod = 100,
         .landSlots = {
             .levels = {
                 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20, 20
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -9223,7 +9131,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -9237,7 +9145,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -9252,11 +9160,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ZIGZAGOON,
             SPECIES_ZIGZAGOON,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BIDOOF,
             SPECIES_BIDOOF,
         },
@@ -9299,18 +9207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R12_ROUTE_12] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9324,7 +9231,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9338,7 +9245,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9353,11 +9260,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -9400,18 +9307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_W19_ROUTE_19] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 30,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 10,
+        .rateRockSmash = 30,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9425,7 +9331,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9439,7 +9345,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9454,11 +9360,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -9501,18 +9407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_W20_ROUTE_20] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9526,7 +9431,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9540,7 +9445,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9555,11 +9460,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -9602,18 +9507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T01_PALLET_TOWN] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9627,7 +9531,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9641,7 +9545,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9656,11 +9560,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -9703,18 +9607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T02_VIRIDIAN_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9728,7 +9631,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9742,7 +9645,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9757,11 +9660,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -9804,18 +9707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T04_CERULEAN_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9829,7 +9731,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9843,7 +9745,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9858,11 +9760,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -9905,18 +9807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T06_VERMILION_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 40,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 40,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9930,7 +9831,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9944,7 +9845,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -9959,11 +9860,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -10006,18 +9907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T07_CELADON_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10031,7 +9931,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10045,7 +9945,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10060,11 +9960,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -10107,18 +10007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T08_FUCHSIA_CITY] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10132,7 +10031,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10146,7 +10045,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10161,11 +10060,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -10208,18 +10107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_T09_CINNABAR_ISLAND] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10233,7 +10131,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10247,7 +10145,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -10262,11 +10160,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -10309,18 +10207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R48_ROUTE_48] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 25, 20, 20, 21, 22, 24, 21, 20, 20, 22, 22, 24
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_FARFETCHD,
                 SPECIES_TAUROS,
                 SPECIES_HOPPIP,
@@ -10334,7 +10231,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_TAUROS,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_FARFETCHD,
                 SPECIES_TAUROS,
                 SPECIES_HOPPIP,
@@ -10348,7 +10245,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_TAUROS,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GROWLITHE,
                 SPECIES_TAUROS,
                 SPECIES_HOPPIP,
@@ -10363,11 +10260,11 @@ const EncounterData __data[] =
                 SPECIES_TAUROS,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -10410,18 +10307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R26_ROUTE_26] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 28, 28, 28, 28, 32, 32, 30, 30, 30, 30, 30, 30
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_DODUO,
                 SPECIES_SANDSLASH,
                 SPECIES_DODUO,
@@ -10435,7 +10331,7 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
                 SPECIES_DODRIO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_DODUO,
                 SPECIES_SANDSLASH,
                 SPECIES_DODUO,
@@ -10449,7 +10345,7 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
                 SPECIES_DODRIO,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATICATE,
                 SPECIES_SANDSLASH,
                 SPECIES_RATICATE,
@@ -10464,11 +10360,11 @@ const EncounterData __data[] =
                 SPECIES_QUAGSIRE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -10511,18 +10407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R27_ROUTE_27] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 28, 28, 28, 28, 30, 30, 30, 30, 32, 30, 32, 30
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_DODUO,
                 SPECIES_RATICATE,
                 SPECIES_DODUO,
@@ -10536,7 +10431,7 @@ const EncounterData __data[] =
                 SPECIES_PONYTA,
                 SPECIES_SANDSLASH,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_DODUO,
                 SPECIES_RATICATE,
                 SPECIES_DODUO,
@@ -10550,7 +10445,7 @@ const EncounterData __data[] =
                 SPECIES_PONYTA,
                 SPECIES_SANDSLASH,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_QUAGSIRE,
                 SPECIES_RATICATE,
                 SPECIES_QUAGSIRE,
@@ -10565,11 +10460,11 @@ const EncounterData __data[] =
                 SPECIES_SANDSLASH,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -10612,18 +10507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R28_ROUTE_28] = {
-        .encounterRate_walking = 25,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 25,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 39, 40, 39, 40, 40, 40, 42, 42, 41, 43, 41, 43
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -10637,7 +10531,7 @@ const EncounterData __data[] =
                 SPECIES_DODUO,
                 SPECIES_DODRIO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -10651,7 +10545,7 @@ const EncounterData __data[] =
                 SPECIES_DODUO,
                 SPECIES_DODRIO,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_TANGELA,
                 SPECIES_PONYTA,
                 SPECIES_TANGELA,
@@ -10666,11 +10560,11 @@ const EncounterData __data[] =
                 SPECIES_RAPIDASH,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -10713,18 +10607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D02R0101_MT_MOON_1F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 6, 8, 6, 8, 8, 8, 12, 12, 10, 8, 10, 8
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10738,7 +10631,7 @@ const EncounterData __data[] =
                 SPECIES_SANDSLASH,
                 SPECIES_CLEFAIRY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10752,7 +10645,7 @@ const EncounterData __data[] =
                 SPECIES_SANDSLASH,
                 SPECIES_CLEFAIRY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10767,11 +10660,11 @@ const EncounterData __data[] =
                 SPECIES_CLEFAIRY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -10814,18 +10707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D02R0102_MT_MOON_2F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 6, 8, 6, 8, 8, 8, 12, 12, 10, 8, 10, 8
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10839,7 +10731,7 @@ const EncounterData __data[] =
                 SPECIES_SANDSLASH,
                 SPECIES_CLEFAIRY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10853,7 +10745,7 @@ const EncounterData __data[] =
                 SPECIES_SANDSLASH,
                 SPECIES_CLEFAIRY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_GEODUDE,
                 SPECIES_ZUBAT,
@@ -10868,11 +10760,11 @@ const EncounterData __data[] =
                 SPECIES_CLEFAIRY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -10915,18 +10807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D05R0101_ROCK_TUNNEL_1F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 10, 10, 10, 10, 12, 12, 8, 8, 14, 13, 14, 13
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -10940,7 +10831,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOKE,
                 SPECIES_CUBONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -10954,7 +10845,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOKE,
                 SPECIES_CUBONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -10969,11 +10860,11 @@ const EncounterData __data[] =
                 SPECIES_CUBONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -11016,18 +10907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D05R0102_ROCK_TUNNEL_B1F] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 20,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 20,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 12, 12, 12, 12, 16, 16, 10, 10, 14, 14, 14, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -11041,7 +10931,7 @@ const EncounterData __data[] =
                 SPECIES_MAROWAK,
                 SPECIES_KANGASKHAN,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -11055,7 +10945,7 @@ const EncounterData __data[] =
                 SPECIES_MAROWAK,
                 SPECIES_KANGASKHAN,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_CUBONE,
                 SPECIES_GEODUDE,
                 SPECIES_CUBONE,
@@ -11070,11 +10960,11 @@ const EncounterData __data[] =
                 SPECIES_KANGASKHAN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -11117,18 +11007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D43R0101_VICTORY_ROAD_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -11142,7 +11031,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -11156,7 +11045,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -11171,11 +11060,11 @@ const EncounterData __data[] =
                 SPECIES_RHYHORN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -11218,18 +11107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R01_ROUTE_1] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 2, 2, 2, 2, 3, 3, 3, 3, 6, 4, 6, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEY,
                 SPECIES_RATTATA,
                 SPECIES_PIDGEY,
@@ -11243,7 +11131,7 @@ const EncounterData __data[] =
                 SPECIES_FURRET,
                 SPECIES_PIDGEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEY,
                 SPECIES_RATTATA,
                 SPECIES_PIDGEY,
@@ -11257,7 +11145,7 @@ const EncounterData __data[] =
                 SPECIES_FURRET,
                 SPECIES_PIDGEY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_HOOTHOOT,
                 SPECIES_RATTATA,
                 SPECIES_HOOTHOOT,
@@ -11272,11 +11160,11 @@ const EncounterData __data[] =
                 SPECIES_HOOTHOOT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -11319,18 +11207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R02_ROUTE_2_SOUTH_BELOW_VIRIDIAN_FOREST] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 3, 3, 3, 3, 5, 5, 7, 8, 7, 10, 7, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
@@ -11344,7 +11231,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_CATERPIE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
@@ -11358,7 +11245,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_CATERPIE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_HOOTHOOT,
                 SPECIES_SPINARAK,
                 SPECIES_HOOTHOOT,
@@ -11373,11 +11260,11 @@ const EncounterData __data[] =
                 SPECIES_SPINARAK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -11420,18 +11307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R03_ROUTE_3] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
@@ -11445,7 +11331,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
@@ -11459,7 +11345,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATTATA,
                 SPECIES_ZUBAT,
                 SPECIES_RATTATA,
@@ -11474,11 +11360,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -11521,18 +11407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R04_ROUTE_4] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 5, 5, 5, 5, 8, 8, 6, 6, 10, 8, 10, 8
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
@@ -11546,7 +11431,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
@@ -11560,7 +11445,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_SPEAROW,
                 SPECIES_ZUBAT,
                 SPECIES_SPEAROW,
@@ -11575,11 +11460,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -11622,18 +11507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R05_ROUTE_5] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -11647,7 +11531,7 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
                 SPECIES_ABRA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -11661,7 +11545,7 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
                 SPECIES_ABRA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
@@ -11676,11 +11560,11 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -11723,18 +11607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R06_ROUTE_6] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 13, 13, 13, 13, 14, 14, 15, 15, 12, 14, 12, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -11748,7 +11631,7 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
                 SPECIES_ABRA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -11762,7 +11645,7 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
                 SPECIES_ABRA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
                 SPECIES_ODDISH,
@@ -11777,11 +11660,11 @@ const EncounterData __data[] =
                 SPECIES_ABRA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -11824,18 +11707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R07_ROUTE_7] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 17, 17, 17, 17, 18, 18, 19, 19, 19, 15, 19, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
@@ -11849,7 +11731,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
@@ -11863,7 +11745,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_GROWLITHE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATTATA,
                 SPECIES_MURKROW,
                 SPECIES_RATTATA,
@@ -11878,11 +11760,11 @@ const EncounterData __data[] =
                 SPECIES_HOUNDOUR,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -11925,18 +11807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R08_ROUTE_8] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 17, 19, 17, 19, 15, 15, 18, 18, 17, 15, 17, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEOTTO,
                 SPECIES_PIDGEOTTO,
                 SPECIES_PIDGEOTTO,
@@ -11950,7 +11831,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_KADABRA,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEOTTO,
                 SPECIES_PIDGEOTTO,
                 SPECIES_PIDGEOTTO,
@@ -11964,7 +11845,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_KADABRA,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NOCTOWL,
                 SPECIES_HAUNTER,
                 SPECIES_NOCTOWL,
@@ -11979,11 +11860,11 @@ const EncounterData __data[] =
                 SPECIES_KADABRA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -12026,18 +11907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R09_ROUTE_9] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 13, 15, 13, 15, 13, 13, 15, 15, 15, 15, 15, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_MANKEY,
                 SPECIES_RATTATA,
                 SPECIES_MANKEY,
@@ -12051,7 +11931,7 @@ const EncounterData __data[] =
                 SPECIES_FEAROW,
                 SPECIES_PRIMEAPE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_MANKEY,
                 SPECIES_RATTATA,
                 SPECIES_MANKEY,
@@ -12065,7 +11945,7 @@ const EncounterData __data[] =
                 SPECIES_FEAROW,
                 SPECIES_PRIMEAPE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_MANKEY,
                 SPECIES_RATTATA,
                 SPECIES_MANKEY,
@@ -12080,11 +11960,11 @@ const EncounterData __data[] =
                 SPECIES_PRIMEAPE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -12127,18 +12007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R10_ROUTE_10] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 16, 17, 16, 17, 16, 16, 18, 18, 18, 15, 18, 15
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_SPEAROW,
                 SPECIES_VOLTORB,
                 SPECIES_SPEAROW,
@@ -12152,7 +12031,7 @@ const EncounterData __data[] =
                 SPECIES_RATICATE,
                 SPECIES_ELECTABUZZ,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_SPEAROW,
                 SPECIES_VOLTORB,
                 SPECIES_SPEAROW,
@@ -12166,7 +12045,7 @@ const EncounterData __data[] =
                 SPECIES_ELECTABUZZ,
                 SPECIES_ELECTABUZZ,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_QUAGSIRE,
                 SPECIES_VOLTORB,
                 SPECIES_QUAGSIRE,
@@ -12181,11 +12060,11 @@ const EncounterData __data[] =
                 SPECIES_ELECTABUZZ,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -12228,18 +12107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R11_ROUTE_11] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 14, 15, 14, 15, 15, 15, 16, 16, 16, 16, 16, 16
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -12253,7 +12131,7 @@ const EncounterData __data[] =
                 SPECIES_HYPNO,
                 SPECIES_HYPNO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -12267,7 +12145,7 @@ const EncounterData __data[] =
                 SPECIES_HYPNO,
                 SPECIES_HYPNO,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_DROWZEE,
                 SPECIES_RATTATA,
                 SPECIES_DROWZEE,
@@ -12282,11 +12160,11 @@ const EncounterData __data[] =
                 SPECIES_HYPNO,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -12329,18 +12207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R13_ROUTE_13] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 15,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 15,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12354,7 +12231,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_CHANSEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12368,7 +12245,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_CHANSEY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12383,11 +12260,11 @@ const EncounterData __data[] =
                 SPECIES_CHANSEY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -12430,18 +12307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R14_ROUTE_14] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 23, 23, 23, 23, 25, 25, 24, 24, 26, 26, 26, 25
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12455,7 +12331,7 @@ const EncounterData __data[] =
                 SPECIES_SKIPLOOM,
                 SPECIES_CHANSEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12469,7 +12345,7 @@ const EncounterData __data[] =
                 SPECIES_SKIPLOOM,
                 SPECIES_CHANSEY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12484,11 +12360,11 @@ const EncounterData __data[] =
                 SPECIES_CHANSEY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -12531,18 +12407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R15_ROUTE_15] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 23, 23, 23, 23, 25, 25, 22, 22, 24, 24, 24, 25
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12556,7 +12431,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_CHANSEY,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12570,7 +12445,7 @@ const EncounterData __data[] =
                 SPECIES_HOPPIP,
                 SPECIES_CHANSEY,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NIDORINA,
                 SPECIES_NIDORINO,
                 SPECIES_NIDORINA,
@@ -12585,11 +12460,11 @@ const EncounterData __data[] =
                 SPECIES_CHANSEY,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -12632,18 +12507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R16R0301_ROUTE_16] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 26, 27, 26, 27, 28, 28, 29, 29, 27, 30, 27, 30
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
@@ -12657,7 +12531,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
@@ -12671,7 +12545,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
@@ -12686,11 +12560,11 @@ const EncounterData __data[] =
                 SPECIES_MUK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -12733,18 +12607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R17_ROUTE_17] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 28, 27, 28, 27, 29, 29, 30, 30, 29, 32, 29, 32
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
@@ -12758,7 +12631,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_FEAROW,
                 SPECIES_SLUGMA,
                 SPECIES_FEAROW,
@@ -12772,7 +12645,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
@@ -12787,11 +12660,11 @@ const EncounterData __data[] =
                 SPECIES_MUK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -12834,18 +12707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R18_ROUTE_18] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 26, 27, 26, 27, 28, 28, 29, 29, 27, 30, 27, 30
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
@@ -12859,7 +12731,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GRIMER,
                 SPECIES_FEAROW,
                 SPECIES_GRIMER,
@@ -12873,7 +12745,7 @@ const EncounterData __data[] =
                 SPECIES_SLUGMA,
                 SPECIES_MUK,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
                 SPECIES_GRIMER,
@@ -12888,11 +12760,11 @@ const EncounterData __data[] =
                 SPECIES_MUK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -12935,18 +12807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_W21_ROUTE_21] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 30, 25, 30, 25, 35, 35, 20, 20, 30, 28, 30, 28
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
@@ -12960,7 +12831,7 @@ const EncounterData __data[] =
                 SPECIES_TANGELA,
                 SPECIES_MR_MIME,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
@@ -12974,7 +12845,7 @@ const EncounterData __data[] =
                 SPECIES_MR_MIME,
                 SPECIES_MR_MIME,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
                 SPECIES_TANGELA,
@@ -12989,11 +12860,11 @@ const EncounterData __data[] =
                 SPECIES_MR_MIME,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -13036,18 +12907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R22_ROUTE_22] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 3, 3, 3, 3, 5, 5, 4, 4, 6, 7, 6, 7
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
@@ -13061,7 +12931,7 @@ const EncounterData __data[] =
                 SPECIES_PONYTA,
                 SPECIES_FEAROW,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_RATTATA,
                 SPECIES_SPEAROW,
                 SPECIES_RATTATA,
@@ -13075,7 +12945,7 @@ const EncounterData __data[] =
                 SPECIES_PONYTA,
                 SPECIES_FEAROW,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
                 SPECIES_RATTATA,
@@ -13090,11 +12960,11 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -13137,18 +13007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R24_ROUTE_24] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 8, 10, 8, 10, 9, 9, 12, 12, 8, 14, 8, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_BELLSPROUT,
                 SPECIES_BELLSPROUT,
                 SPECIES_BELLSPROUT,
@@ -13162,7 +13031,7 @@ const EncounterData __data[] =
                 SPECIES_VENONAT,
                 SPECIES_WEEPINBELL,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_BELLSPROUT,
                 SPECIES_SUNKERN,
                 SPECIES_BELLSPROUT,
@@ -13176,7 +13045,7 @@ const EncounterData __data[] =
                 SPECIES_BELLSPROUT,
                 SPECIES_WEEPINBELL,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_VENONAT,
                 SPECIES_ODDISH,
                 SPECIES_VENONAT,
@@ -13191,11 +13060,11 @@ const EncounterData __data[] =
                 SPECIES_VENOMOTH,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -13238,18 +13107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R25_ROUTE_25] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 8, 10, 8, 10, 8, 8, 9, 9, 10, 14, 10, 14
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -13263,7 +13131,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_WEEPINBELL,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_PIDGEY,
                 SPECIES_BELLSPROUT,
                 SPECIES_PIDGEY,
@@ -13277,7 +13145,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_WEEPINBELL,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_VENONAT,
                 SPECIES_ODDISH,
                 SPECIES_VENONAT,
@@ -13292,11 +13160,11 @@ const EncounterData __data[] =
                 SPECIES_BELLSPROUT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_WHISMUR,
             SPECIES_LINOONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUIZEL,
             SPECIES_BIDOOF,
         },
@@ -13339,18 +13207,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D45R0101_TOHJO_FALLS] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 22, 22, 22, 22, 22, 22, 21, 21, 20, 23, 20, 23
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -13364,7 +13231,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SLOWPOKE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -13378,7 +13245,7 @@ const EncounterData __data[] =
                 SPECIES_RATTATA,
                 SPECIES_SLOWPOKE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_ZUBAT,
                 SPECIES_RATICATE,
                 SPECIES_ZUBAT,
@@ -13393,11 +13260,11 @@ const EncounterData __data[] =
                 SPECIES_SLOWPOKE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -13440,18 +13307,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D01R0101_DIGLETTS_CAVE] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 15, 17, 15, 17, 19, 19, 13, 13, 19, 24, 19, 29
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
@@ -13465,7 +13331,7 @@ const EncounterData __data[] =
                 SPECIES_DUGTRIO,
                 SPECIES_DUGTRIO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
@@ -13479,7 +13345,7 @@ const EncounterData __data[] =
                 SPECIES_DUGTRIO,
                 SPECIES_DUGTRIO,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
                 SPECIES_DIGLETT,
@@ -13494,11 +13360,11 @@ const EncounterData __data[] =
                 SPECIES_DUGTRIO,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -13541,18 +13407,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D43R0102_VICTORY_ROAD_2F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13566,7 +13431,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13580,7 +13445,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13595,11 +13460,11 @@ const EncounterData __data[] =
                 SPECIES_RHYHORN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -13642,18 +13507,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D43R0103_VICTORY_ROAD_3F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 40,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 0,
+        .rateRockSmash = 40,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 32, 32, 32, 32, 33, 33, 34, 34, 36, 35, 36, 35
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13667,7 +13531,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13681,7 +13545,7 @@ const EncounterData __data[] =
                 SPECIES_ONIX,
                 SPECIES_RHYHORN,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GRAVELER,
                 SPECIES_GOLBAT,
                 SPECIES_GRAVELER,
@@ -13696,11 +13560,11 @@ const EncounterData __data[] =
                 SPECIES_RHYHORN,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -13743,18 +13607,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_R02R0101_ROUTE_2_NORTH_ABOVE_VIRIDIAN_FOREST] = {
-        .encounterRate_walking = 20,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 20,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 3, 3, 3, 3, 5, 5, 7, 8, 7, 10, 7, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
@@ -13768,7 +13631,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_CATERPIE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_CATERPIE,
                 SPECIES_PIDGEY,
                 SPECIES_CATERPIE,
@@ -13782,7 +13645,7 @@ const EncounterData __data[] =
                 SPECIES_PIDGEOTTO,
                 SPECIES_CATERPIE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_HOOTHOOT,
                 SPECIES_SPINARAK,
                 SPECIES_HOOTHOOT,
@@ -13797,11 +13660,11 @@ const EncounterData __data[] =
                 SPECIES_SPINARAK,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_PLUSLE,
             SPECIES_MINUN,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_SHINX,
             SPECIES_SHINX,
         },
@@ -13844,18 +13707,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D46R0101_VIRIDIAN_FOREST] = {
-        .encounterRate_walking = 15,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 15,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 3, 3, 3, 3, 5, 5, 7, 7, 7, 4, 7, 4
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
@@ -13869,7 +13731,7 @@ const EncounterData __data[] =
                 SPECIES_PIKACHU,
                 SPECIES_PIKACHU,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_CATERPIE,
                 SPECIES_CATERPIE,
                 SPECIES_METAPOD,
@@ -13883,7 +13745,7 @@ const EncounterData __data[] =
                 SPECIES_PIKACHU,
                 SPECIES_PIKACHU,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
                 SPECIES_HOOTHOOT,
@@ -13898,11 +13760,11 @@ const EncounterData __data[] =
                 SPECIES_PIKACHU,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_SPOINK,
             SPECIES_NUMEL,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BUDEW,
             SPECIES_CARNIVINE,
         },
@@ -13945,18 +13807,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_UNUSED_138_UNKNOWN_138] = {
-        .encounterRate_walking = 0,
-        .encounterRate_surfing = 0,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 0,
-        .encounterRate_goodRod = 0,
-        .encounterRate_superRod = 0,
-        .dummy = { 0, 0 },
+        .rateWalk = 0,
+        .rateSurf = 0,
+        .rateRockSmash = 0,
+        .rateOldRod = 0,
+        .rateGoodRod = 0,
+        .rateSuperRod = 0,
         .landSlots = {
             .levels = {
                 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -13970,7 +13831,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -13984,7 +13845,7 @@ const EncounterData __data[] =
                 SPECIES_NONE,
                 SPECIES_NONE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_NONE,
                 SPECIES_NONE,
                 SPECIES_NONE,
@@ -13999,11 +13860,11 @@ const EncounterData __data[] =
                 SPECIES_NONE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_NONE,
             SPECIES_NONE,
         },
@@ -14046,18 +13907,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D03R0101_CERULEAN_CAVE_1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 5,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 5,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 39, 38, 38, 38, 40, 39, 40, 37, 39, 40, 39, 40
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_MACHOKE,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14071,7 +13931,7 @@ const EncounterData __data[] =
                 SPECIES_MAGNETON,
                 SPECIES_DITTO,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_MACHOKE,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14085,7 +13945,7 @@ const EncounterData __data[] =
                 SPECIES_MAGNETON,
                 SPECIES_DITTO,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_GOLBAT,
                 SPECIES_GOLBAT,
                 SPECIES_GOLBAT,
@@ -14100,11 +13960,11 @@ const EncounterData __data[] =
                 SPECIES_MACHOKE,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -14147,18 +14007,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D03R0102_CERULEAN_CAVE_B1F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 0,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 0,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 42, 40, 41, 39, 41, 42, 41, 42, 41, 42, 41, 42
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14172,7 +14031,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOKE,
                 SPECIES_MACHOKE,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14186,7 +14045,7 @@ const EncounterData __data[] =
                 SPECIES_MACHOKE,
                 SPECIES_MACHOKE,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14201,11 +14060,11 @@ const EncounterData __data[] =
                 SPECIES_GOLBAT,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
@@ -14248,18 +14107,17 @@ const EncounterData __data[] =
     },
 
     [ENCDATA_D03R0103_CERULEAN_CAVE_B2F] = {
-        .encounterRate_walking = 10,
-        .encounterRate_surfing = 10,
-        .encounterRate_rockSmash = 5,
-        .encounterRate_oldRod = 25,
-        .encounterRate_goodRod = 50,
-        .encounterRate_superRod = 75,
-        .dummy = { 0, 0 },
+        .rateWalk = 10,
+        .rateSurf = 10,
+        .rateRockSmash = 5,
+        .rateOldRod = 25,
+        .rateGoodRod = 50,
+        .rateSuperRod = 75,
         .landSlots = {
             .levels = {
                 46, 45, 47, 45, 45, 45, 46, 47, 47, 49, 47, 49
             },
-            .species_morn = {
+            .speciesMorning = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14273,7 +14131,7 @@ const EncounterData __data[] =
                 SPECIES_PARASECT,
                 SPECIES_WOBBUFFET,
             },
-            .species_day = {
+            .speciesDay = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14287,7 +14145,7 @@ const EncounterData __data[] =
                 SPECIES_PARASECT,
                 SPECIES_WOBBUFFET,
             },
-            .species_nite = {
+            .speciesNight = {
                 SPECIES_KADABRA,
                 SPECIES_PARASECT,
                 SPECIES_GOLBAT,
@@ -14302,11 +14160,11 @@ const EncounterData __data[] =
                 SPECIES_WOBBUFFET,
             },
         },
-        .hoennSoundsSpecies = {
+        .hoennSoundSpecies = {
             SPECIES_ABSOL,
             SPECIES_MAKUHITA,
         },
-        .sinnohSoundsSpecies = {
+        .sinnohSoundSpecies = {
             SPECIES_BRONZOR,
             SPECIES_CHINGLING,
         },
