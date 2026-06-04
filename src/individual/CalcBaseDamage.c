@@ -57,6 +57,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     u8 originalMoveType = damageCalc->originalMoveType;
     u16 moveEffect = damageCalc->moveEffect;
     u8 moveFlag = damageCalc->moveFlag;
+    u8 multiHitCount = damageCalc->multiHitCount;
     u32 weather = GetWeather(bw, sp, attacker);
 
     for (u32 i = 0; i < damageCalc->maxBattlers; i++) {
@@ -359,7 +360,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         movepower = damage_power;
         break;
     case MOVE_TRIPLE_KICK:
-        movepower = damage_power;
+        movepower = 10 * (4 - multiHitCount);
+        break;
+    case MOVE_TRIPLE_AXEL:
+        movepower = 20 * (4 - multiHitCount);
         break;
     case MOVE_TRUMP_CARD:
         movepower = damage_power;
@@ -369,6 +373,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             && sp->terrainOverlay.type
             && IsClientGrounded(sp, attacker)) {
             movepower *= 2;
+        }
+    case MOVE_PSYBLADE:
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0 && sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
+            movepower = 120;
         }
     default:
         break;
