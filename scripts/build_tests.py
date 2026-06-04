@@ -1,6 +1,8 @@
 import os
 import pathlib
 import sys
+import json
+import re
 from string import Template
 
 FILE_OUTPUT = """#include "../../include/battle.h"
@@ -55,6 +57,48 @@ def write_test_battle_header(test_count):
         f.write("#endif // GENERATED_TESTBATTLE_CONSTANTS_H\n")
 
 
+def get_test_case_name(test_file_path: pathlib.Path) -> str:
+    with open(test_file_path, "r") as test_file:
+        test_case_match_group = test_file.readline().strip()
+        match = re.match(r"// Test: (.+)", test_case_match_group)
+        if match:
+            return match.group(1)
+
+    raise RuntimeError(f"Test case does not contain test description: {test_file_path}")
+
+
+def write_test_manifest(
+    build_folder: pathlib.Path,
+    data_folder: pathlib.Path,
+    files: list[pathlib.Path],
+    skipped_files: list[pathlib.Path],
+) -> None:
+    selected_tests = list()
+    skipped_tests = list()
+
+    for file_path in sorted(files):
+        entry = {
+            "path": os.path.relpath(file_path, data_folder).replace(os.sep, "/"),
+            "name": get_test_case_name(file_path),
+        }
+
+        if file_path in skipped_files:
+            skipped_tests.append(entry)
+        else:
+            entry["index"] = len(selected_tests)
+            selected_tests.append(entry)
+
+    manifest = {
+        "selected_tests": selected_tests,
+        "skipped_tests": skipped_tests,
+        "total_tests": len(selected_tests),
+    }
+
+    with open(build_folder / "test_manifest.json", "w", encoding="utf-8") as file:
+        json.dump(manifest, file, indent=2)
+        file.write("\n")
+
+
 def main() -> None:
     filter_keywords = sys.argv[1:]
     template = Template(FILE_OUTPUT)
@@ -100,6 +144,7 @@ def main() -> None:
     with open(os.path.join(build_folder, "BattleTests.c"), "w") as file:
         file.write(template.substitute({"tests": tests}))
 
+    write_test_manifest(build_folder, data_folder, files, skippedFiles)
     write_test_battle_header(len(test_files) - len(skippedFiles))
 
 
