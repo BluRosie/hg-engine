@@ -1,4 +1,4 @@
-// Test: Bestow - Regular invalid item
+// Test: Bestow - Does not interact with Sticky Hold
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,11 +20,11 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_PELIPPER,
-                .level = 50,
+                .species = SPECIES_ALCREMIE,
+                .level = 100,
                 .form = 0,
-                .ability = ABILITY_KEEN_EYE,
-                .item = ITEM_AIR_MAIL,
+                .ability = ABILITY_STICKY_HOLD,
+                .item = ITEM_BLACK_SLUDGE,
                 .moves = { MOVE_BESTOW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
@@ -39,10 +39,10 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .enemyParty = {
             {
-                            .species = SPECIES_TORCHIC,
-                            .level = 50,
+                            .species = SPECIES_GRIMER,
+                            .level = 1,
                             .form = 0,
-                            .ability = ABILITY_STALL,
+                            .ability = ABILITY_STICKY_HOLD,
                             .item = ITEM_NONE,
                             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
@@ -101,7 +101,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Grimer received Black Sludge from Alcremie!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         },
     },

@@ -1,4 +1,4 @@
-// Test: Bestow - Regular invalid item
+// Test: Bestow - Invalid item (Z-Crystal)
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,11 +20,11 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_PELIPPER,
+                .species = SPECIES_SNORLAX,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_KEEN_EYE,
-                .item = ITEM_AIR_MAIL,
+                .ability = ABILITY_IMMUNITY,
+                .item = ITEM_SNORLIUM_Z_HELD,
                 .moves = { MOVE_BESTOW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
@@ -39,7 +39,7 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .enemyParty = {
             {
-                            .species = SPECIES_TORCHIC,
+                            .species = SPECIES_MUNCHLAX,
                             .level = 50,
                             .form = 0,
                             .ability = ABILITY_STALL,

@@ -1,4 +1,4 @@
-// Test: Bestow - Regular invalid item
+// Test: Bestow - Invalid item (Mega Stone)
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,11 +20,11 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_PELIPPER,
+                .species = SPECIES_BLAZIKEN,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_KEEN_EYE,
-                .item = ITEM_AIR_MAIL,
+                .ability = ABILITY_BLAZE,
+                .item = ITEM_BLAZIKENITE,
                 .moves = { MOVE_BESTOW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,

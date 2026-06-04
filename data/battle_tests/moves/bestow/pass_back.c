@@ -1,4 +1,4 @@
-// Test: Bestow - Regular invalid item
+// Test: Bestow - Item can be passed back and forth
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,11 +20,11 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_PELIPPER,
+                .species = SPECIES_DELIBIRD,
                 .level = 50,
                 .form = 0,
                 .ability = ABILITY_KEEN_EYE,
-                .item = ITEM_AIR_MAIL,
+                .item = ITEM_ORAN_BERRY,
                 .moves = { MOVE_BESTOW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
@@ -39,12 +39,12 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .enemyParty = {
             {
-                            .species = SPECIES_TORCHIC,
+                            .species = SPECIES_DELIBIRD,
                             .level = 50,
                             .form = 0,
                             .ability = ABILITY_STALL,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_BESTOW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -101,8 +101,8 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Delibird received Oran Berry from Delibird!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Delibird received Oran Berry from the opposing Delibird!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY
