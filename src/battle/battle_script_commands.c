@@ -5405,11 +5405,11 @@ BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ct
     return FALSE;
 }
 
-BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
+BOOL BtlCmd_Transform(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
 
-    HandleTransform(ctx);
+	HandleTransform(ctx);
 
     return FALSE;
 }
