@@ -5,6 +5,7 @@
 _000:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_ABILITY, ABILITY_MEGA_SOL, _Continue
     PrintAttackMessage
+    Wait
     AbilityPopup BATTLER_CATEGORY_ATTACKER
 _Continue:
     WeatherHPRecovery
