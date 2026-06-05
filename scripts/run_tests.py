@@ -588,9 +588,8 @@ def run_parallel_partitions(args) -> int:
         summary = format_aggregate_results(results)
         total_failed = sum(len(result["failed"]) for result in results)
         total_partition_errors = sum(1 for result in results if result.get("status") != "ok")
-        if not args.continuous_integration:
-            print("\n\n".join(section for section in replay_sections if section))
-            print()
+        print("\n\n".join(section for section in replay_sections if section))
+        print()
         print(summary)
 
         with open("test_logs.txt", "w", encoding="utf-8") as file:
