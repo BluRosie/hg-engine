@@ -454,6 +454,35 @@ def run_parallel_partitions(args) -> int:
     with tempfile.TemporaryDirectory(prefix="battle-test-partitions-") as temp_dir:
         processes: list[tuple[int, pathlib.Path, pathlib.Path, subprocess.Popen, object]] = list()
         selector = selectors.DefaultSelector()
+        partition_buffers: dict[int, str] = {}
+
+        def handle_output_chunk(partition_index: int, output_file, chunk_text: str) -> None:
+            buffer = partition_buffers.get(partition_index, "") + chunk_text
+
+            while True:
+                newline_index = buffer.find("\n")
+                if newline_index == -1:
+                    break
+
+                line = buffer[: newline_index + 1]
+                buffer = buffer[newline_index + 1 :]
+                output_file.write(line)
+                if live_result_pattern.search(line):
+                    print(line, end="", flush=True)
+
+            output_file.flush()
+            partition_buffers[partition_index] = buffer
+
+        def flush_partition_buffer(partition_index: int, output_file) -> None:
+            buffer = partition_buffers.get(partition_index, "")
+            if not buffer:
+                return
+
+            output_file.write(buffer)
+            output_file.flush()
+            if live_result_pattern.search(buffer):
+                print(buffer, end="", flush=True)
+            partition_buffers[partition_index] = ""
 
         for partition_index in range(worker_count):
             result_path = pathlib.Path(temp_dir, f"partition_{partition_index}.json")
@@ -480,13 +509,13 @@ def run_parallel_partitions(args) -> int:
                 env=env,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.STDOUT,
-                text=True,
-                bufsize=1,
+                bufsize=0,
             )
             if process.stdout is None:
                 raise RuntimeError(f"Failed to capture stdout for partition {partition_index}")
             selector.register(process.stdout, selectors.EVENT_READ, (partition_index, output_file))
             processes.append((partition_index, result_path, output_path, process, output_file))
+            partition_buffers[partition_index] = ""
             print(
                 f"Started partition {partition_index + 1}/{worker_count} "
                 f"(tests {start_index}..{max(start_index, end_index) - 1})"
@@ -496,20 +525,25 @@ def run_parallel_partitions(args) -> int:
             for key, _ in selector.select(timeout=0.1):
                 stream = key.fileobj
                 partition_index, output_file = key.data
-                del partition_index
-                line = stream.readline()
-                if line == "":
+                chunk = os.read(stream.fileno(), 4096)
+                if not chunk:
                     selector.unregister(stream)
-                    output_file.flush()
                     continue
-                output_file.write(line)
-                output_file.flush()
-                if live_result_pattern.search(line):
-                    print(line, end="")
+                handle_output_chunk(partition_index, output_file, chunk.decode("utf-8", errors="replace"))
 
         exit_code = 0
         for partition_index, result_path, output_path, process, output_file in processes:
             process.wait()
+            if process.stdout is not None:
+                remaining_output = process.stdout.read()
+                if remaining_output:
+                    handle_output_chunk(
+                        partition_index,
+                        output_file,
+                        remaining_output.decode("utf-8", errors="replace"),
+                    )
+                process.stdout.close()
+            flush_partition_buffer(partition_index, output_file)
             output_file.close()
             if process.returncode != 0:
                 exit_code = 1
