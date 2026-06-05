@@ -13,7 +13,7 @@ import time
 from desmume.emulator import DeSmuME, DeSmuME_Memory
 
 # Settings
-IDLE_TIMEOUT_SECONDS = 1 * 60  # 1 minute
+BASE_IDLE_TIMEOUT_SECONDS = 1 * 60  # 1 minute
 
 g_EmulatorCommunicationSendHoleAddress = 0x02FFF81C
 TEST_CASE_PASS = -1
@@ -111,6 +111,10 @@ def get_partition_index() -> int:
 
 def get_result_file() -> str | None:
     return os.environ.get("TEST_RUNNER_RESULT_FILE")
+
+
+def get_idle_timeout_seconds(partition_count: int) -> int:
+    return BASE_IDLE_TIMEOUT_SECONDS * max(1, partition_count)
 
 
 def read_communication_hole_value():
@@ -297,6 +301,7 @@ def run_single_partition(args) -> int:
     partition_count = get_partition_count()
     partition_index = get_partition_index()
     result_file = get_result_file()
+    idle_timeout_seconds = get_idle_timeout_seconds(partition_count)
 
     validate_partition_args(partition_count, partition_index)
     reset_partition_state()
@@ -353,11 +358,11 @@ def run_single_partition(args) -> int:
 
     # Run the emulation as fast as possible until testing complete
     while not has_finished_testing():
-        if (time.monotonic() - last_activity_time) > IDLE_TIMEOUT_SECONDS:
+        if (time.monotonic() - last_activity_time) > idle_timeout_seconds:
             current_test_name = get_current_test_name()
             current_global_test_index = get_current_global_test_index()
             timeout_message = (
-                f"[Timeout] No activity for {IDLE_TIMEOUT_SECONDS // 60} minutes. Aborting."
+                f"[Timeout] No activity for {idle_timeout_seconds // 60} minutes. Aborting."
             )
             if current_test_name is not None and current_global_test_index is not None:
                 timeout_message += (
