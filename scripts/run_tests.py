@@ -439,6 +439,40 @@ def format_aggregate_results(results: list[dict]) -> str:
     return "\n".join(lines)
 
 
+def should_skip_replayed_stdout_line(line: str) -> bool:
+    noisy_prefixes = (
+        "Microphone successfully inited.",
+        "DeSmuME ",
+        "SoftRasterizer:",
+        "ROM game code:",
+        "ROM crc:",
+        "ROM serial:",
+        "ROM chipID:",
+        "ROM internal name:",
+        "ROM developer:",
+        "Slot1 auto-selected device type:",
+        "Slot2 auto-selected device type:",
+        "BackupDevice:",
+        "CPU mode:",
+        "Already decrypted.",
+        "WIFI:",
+        "Autodetecting with autodetect_size=",
+        "Running partition ",
+        "Number of tests:",
+        "Number of skipped tests:",
+    )
+    return line.startswith(noisy_prefixes)
+
+
+def filter_replayed_stdout_section(section_text: str) -> str:
+    filtered_lines = [
+        line
+        for line in section_text.splitlines()
+        if not should_skip_replayed_stdout_line(line)
+    ]
+    return "\n".join(filtered_lines).rstrip()
+
+
 def run_parallel_partitions(args) -> int:
     if args.video:
         raise ValueError("Parallel mode does not support --video")
@@ -450,6 +484,7 @@ def run_parallel_partitions(args) -> int:
     script_path = pathlib.Path(__file__).resolve()
     print(f"Running {worker_count} test partitions. Logs will be printed in order after completion.")
     live_result_pattern = re.compile(r"\[(Pass|Fail|Known Failing|Timeout)\]")
+    print_live_results = not args.continuous_integration
 
     with tempfile.TemporaryDirectory(prefix="battle-test-partitions-") as temp_dir:
         processes: list[tuple[int, pathlib.Path, pathlib.Path, subprocess.Popen, object]] = list()
@@ -467,7 +502,7 @@ def run_parallel_partitions(args) -> int:
                 line = buffer[: newline_index + 1]
                 buffer = buffer[newline_index + 1 :]
                 output_file.write(line)
-                if live_result_pattern.search(line):
+                if print_live_results and live_result_pattern.search(line):
                     print(line, end="", flush=True)
 
             output_file.flush()
@@ -480,7 +515,7 @@ def run_parallel_partitions(args) -> int:
 
             output_file.write(buffer)
             output_file.flush()
-            if live_result_pattern.search(buffer):
+            if print_live_results and live_result_pattern.search(buffer):
                 print(buffer, end="", flush=True)
             partition_buffers[partition_index] = ""
 
@@ -554,6 +589,7 @@ def run_parallel_partitions(args) -> int:
 
         results = list()
         log_sections = list()
+        replay_sections = list()
         for partition_index, result_path, output_path, process, output_file in processes:
             del process
             del output_file
@@ -566,15 +602,17 @@ def run_parallel_partitions(args) -> int:
                     )
                 results.append(result)
             with open(output_path, "r", encoding="utf-8") as file:
-                log_sections.append(
+                raw_section = (
                     f"== Partition {partition_index + 1}/{worker_count} ==\n{file.read()}".rstrip()
                 )
+                log_sections.append(raw_section)
+                replay_sections.append(filter_replayed_stdout_section(raw_section))
 
         results.sort(key=lambda item: item["partition_index"])
         summary = format_aggregate_results(results)
         total_failed = sum(len(result["failed"]) for result in results)
         total_partition_errors = sum(1 for result in results if result.get("status") != "ok")
-        print("\n\n".join(log_sections))
+        print("\n\n".join(section for section in replay_sections if section))
         print()
         print(summary)
 
