@@ -113,6 +113,10 @@ def get_result_file() -> str | None:
     return os.environ.get("TEST_RUNNER_RESULT_FILE")
 
 
+def should_suppress_partition_summary() -> bool:
+    return os.environ.get("TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY", "0") == "1"
+
+
 def get_idle_timeout_seconds(partition_count: int) -> int:
     return BASE_IDLE_TIMEOUT_SECONDS * max(1, partition_count)
 
@@ -337,7 +341,8 @@ def run_single_partition(args) -> int:
         print("No tests assigned to this partition.")
         payload = get_result_payload(partition_count, partition_index)
         write_result_payload(result_file, payload)
-        print(get_test_results(), flush=True)
+        if not should_suppress_partition_summary():
+            print(format_aggregate_results([payload]), flush=True)
         return 0
 
     emu.open("test.nds")
@@ -391,8 +396,8 @@ def run_single_partition(args) -> int:
     payload = get_result_payload(partition_count, partition_index)
     write_result_payload(result_file, payload)
 
-    print("Tests complete!", flush=True)
-    print(get_test_results(), flush=True)
+    if not should_suppress_partition_summary():
+        print(format_aggregate_results([payload]), flush=True)
 
     return return_value
 
@@ -440,8 +445,11 @@ def run_parallel_partitions(args) -> int:
     if args.jobs < 1:
         raise ValueError("--jobs must be at least 1")
 
-    worker_count = min(args.jobs, max(1, read_total_tests_from_header()))
+    total_test_count = read_total_tests_from_header()
+    worker_count = min(args.jobs, max(1, total_test_count))
     script_path = pathlib.Path(__file__).resolve()
+    print(f"Running {worker_count} test partitions. Logs will be printed in order after completion.")
+    live_result_pattern = re.compile(r"\[(Pass|Fail|Known Failing|Timeout)\]")
 
     with tempfile.TemporaryDirectory(prefix="battle-test-partitions-") as temp_dir:
         processes: list[tuple[int, pathlib.Path, pathlib.Path, subprocess.Popen, object]] = list()
@@ -450,10 +458,14 @@ def run_parallel_partitions(args) -> int:
         for partition_index in range(worker_count):
             result_path = pathlib.Path(temp_dir, f"partition_{partition_index}.json")
             output_path = pathlib.Path(temp_dir, f"partition_{partition_index}.log")
+            start_index, end_index = get_partition_bounds(
+                total_test_count, worker_count, partition_index
+            )
             env = os.environ.copy()
             env["TEST_RUNNER_PARTITION_COUNT"] = str(worker_count)
             env["TEST_RUNNER_PARTITION_INDEX"] = str(partition_index)
             env["TEST_RUNNER_RESULT_FILE"] = str(result_path)
+            env["TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY"] = "1"
             cmd = [
                 sys.executable,
                 "-u",
@@ -475,24 +487,25 @@ def run_parallel_partitions(args) -> int:
                 raise RuntimeError(f"Failed to capture stdout for partition {partition_index}")
             selector.register(process.stdout, selectors.EVENT_READ, (partition_index, output_file))
             processes.append((partition_index, result_path, output_path, process, output_file))
-
-        live_outputs = {partition_index: False for partition_index in range(worker_count)}
+            print(
+                f"Started partition {partition_index + 1}/{worker_count} "
+                f"(tests {start_index}..{max(start_index, end_index) - 1})"
+            )
 
         while selector.get_map():
             for key, _ in selector.select(timeout=0.1):
                 stream = key.fileobj
                 partition_index, output_file = key.data
+                del partition_index
                 line = stream.readline()
                 if line == "":
                     selector.unregister(stream)
                     output_file.flush()
                     continue
-                if not live_outputs[partition_index]:
-                    print(f"\n== Partition {partition_index + 1}/{worker_count} ==")
-                    live_outputs[partition_index] = True
-                print(line, end="")
                 output_file.write(line)
                 output_file.flush()
+                if live_result_pattern.search(line):
+                    print(line, end="")
 
         exit_code = 0
         for partition_index, result_path, output_path, process, output_file in processes:
@@ -527,6 +540,8 @@ def run_parallel_partitions(args) -> int:
         summary = format_aggregate_results(results)
         total_failed = sum(len(result["failed"]) for result in results)
         total_partition_errors = sum(1 for result in results if result.get("status") != "ok")
+        print("\n\n".join(log_sections))
+        print()
         print(summary)
 
         with open("test_logs.txt", "w", encoding="utf-8") as file:

@@ -3,6 +3,7 @@ import pathlib
 import sys
 import json
 import re
+import tempfile
 from string import Template
 
 FILE_OUTPUT = """#include "../../include/battle.h"
@@ -58,13 +59,26 @@ def write_test_battle_header(test_count):
 
 
 def get_test_case_name(test_file_path: pathlib.Path) -> str:
-    with open(test_file_path, "r") as test_file:
-        test_case_match_group = test_file.readline().strip()
-        match = re.match(r"// Test: (.+)", test_case_match_group)
-        if match:
-            return match.group(1)
+    with open(test_file_path, "r", encoding="utf-8") as test_file:
+        for line in test_file:
+            match = re.match(r"// Test: (.+)", line.strip())
+            if match:
+                return match.group(1)
 
     raise RuntimeError(f"Test case does not contain test description: {test_file_path}")
+
+
+def atomic_write_text(file_path: pathlib.Path, content: str) -> None:
+    with tempfile.NamedTemporaryFile(
+        "w",
+        encoding="utf-8",
+        dir=file_path.parent,
+        delete=False,
+    ) as temp_file:
+        temp_file.write(content)
+        temp_name = temp_file.name
+
+    os.replace(temp_name, file_path)
 
 
 def write_test_manifest(
@@ -123,13 +137,13 @@ def main() -> None:
     skippedFiles = list(filter(lambda x: keywords_in_file(str(x), ["// SKIP"]), files))
 
     for file_path in list(files):
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             content = file.read()
 
-        content = content.replace("’", "'").replace("é", "e")
+        normalized_content = content.replace("’", "'").replace("é", "e")
 
-        with open(file_path, "w") as file:
-            file.write(content)
+        if normalized_content != content:
+            atomic_write_text(file_path, normalized_content)
 
     test_files = [
         f'#include "../../data/{os.path.relpath(file, data_folder)}"'
