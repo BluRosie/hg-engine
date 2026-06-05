@@ -2,7 +2,6 @@ import argparse
 import json
 import os
 import pathlib
-import selectors
 import re
 import signal
 import subprocess
@@ -113,6 +112,10 @@ def get_result_file() -> str | None:
     return os.environ.get("TEST_RUNNER_RESULT_FILE")
 
 
+def get_live_result_file() -> str | None:
+    return os.environ.get("TEST_RUNNER_LIVE_RESULT_FILE")
+
+
 def should_suppress_partition_summary() -> bool:
     return os.environ.get("TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY", "0") == "1"
 
@@ -146,23 +149,20 @@ def callback_function_when_game_put_thing_into_communication_hole(address, size)
     value = read_communication_hole_value()
 
     if value == TEST_CASE_FAIL:
-        print(
-            f"{bcolors.FAIL}[Fail] {test_case_names[current_test_case]}{bcolors.ENDC}",
-            flush=True,
-        )
+        line = f"{bcolors.FAIL}[Fail] {test_case_names[current_test_case]}{bcolors.ENDC}"
+        print(line, flush=True)
+        append_live_result_line(line)
         fail_test_case_names.append(test_case_names[current_test_case])
         return_value += 1
     elif value == TEST_CASE_PASS:
-        print(
-            f"{bcolors.OKGREEN}[Pass] {test_case_names[current_test_case]}{bcolors.ENDC}",
-            flush=True,
-        )
+        line = f"{bcolors.OKGREEN}[Pass] {test_case_names[current_test_case]}{bcolors.ENDC}"
+        print(line, flush=True)
+        append_live_result_line(line)
         pass_test_case_names.append(test_case_names[current_test_case])
     elif value == TEST_CASE_KNOWN_FAILING:
-        print(
-            f"{bcolors.WARNING}[Known Failing] {test_case_names[current_test_case]}{bcolors.ENDC}",
-            flush=True,
-        )
+        line = f"{bcolors.WARNING}[Known Failing] {test_case_names[current_test_case]}{bcolors.ENDC}"
+        print(line, flush=True)
+        append_live_result_line(line)
         known_failing_test_case_names.append(test_case_names[current_test_case])
     else:
         return
@@ -234,6 +234,17 @@ def write_result_payload(result_file: str | None, payload: dict) -> None:
     with open(result_file, "w", encoding="utf-8") as file:
         json.dump(payload, file, indent=2)
         file.write("\n")
+
+
+def append_live_result_line(line: str) -> None:
+    live_result_file = get_live_result_file()
+    if live_result_file is None:
+        return
+
+    with open(live_result_file, "a", encoding="utf-8") as file:
+        file.write(line)
+        if not line.endswith("\n"):
+            file.write("\n")
 
 
 def append_results_to_log() -> None:
@@ -377,6 +388,7 @@ def run_single_partition(args) -> int:
                 f"{bcolors.FAIL}{timeout_message}{bcolors.ENDC}",
                 flush=True,
             )
+            append_live_result_line(f"{bcolors.FAIL}{timeout_message}{bcolors.ENDC}")
             payload = mark_result_error(
                 get_result_payload(partition_count, partition_index),
                 "timeout",
@@ -483,45 +495,15 @@ def run_parallel_partitions(args) -> int:
     worker_count = min(args.jobs, max(1, total_test_count))
     script_path = pathlib.Path(__file__).resolve()
     print(f"Running {worker_count} test partitions. Logs will be printed in order after completion.")
-    live_result_pattern = re.compile(r"\[(Pass|Fail|Known Failing|Timeout)\]")
-    print_live_results = not args.continuous_integration
 
     with tempfile.TemporaryDirectory(prefix="battle-test-partitions-") as temp_dir:
         processes: list[tuple[int, pathlib.Path, pathlib.Path, subprocess.Popen, object]] = list()
-        selector = selectors.DefaultSelector()
-        partition_buffers: dict[int, str] = {}
-
-        def handle_output_chunk(partition_index: int, output_file, chunk_text: str) -> None:
-            buffer = partition_buffers.get(partition_index, "") + chunk_text
-
-            while True:
-                newline_index = buffer.find("\n")
-                if newline_index == -1:
-                    break
-
-                line = buffer[: newline_index + 1]
-                buffer = buffer[newline_index + 1 :]
-                output_file.write(line)
-                if print_live_results and live_result_pattern.search(line):
-                    print(line, end="", flush=True)
-
-            output_file.flush()
-            partition_buffers[partition_index] = buffer
-
-        def flush_partition_buffer(partition_index: int, output_file) -> None:
-            buffer = partition_buffers.get(partition_index, "")
-            if not buffer:
-                return
-
-            output_file.write(buffer)
-            output_file.flush()
-            if print_live_results and live_result_pattern.search(buffer):
-                print(buffer, end="", flush=True)
-            partition_buffers[partition_index] = ""
+        live_result_offsets: dict[int, int] = {}
 
         for partition_index in range(worker_count):
             result_path = pathlib.Path(temp_dir, f"partition_{partition_index}.json")
             output_path = pathlib.Path(temp_dir, f"partition_{partition_index}.log")
+            live_result_path = pathlib.Path(temp_dir, f"partition_{partition_index}.results.log")
             start_index, end_index = get_partition_bounds(
                 total_test_count, worker_count, partition_index
             )
@@ -529,6 +511,7 @@ def run_parallel_partitions(args) -> int:
             env["TEST_RUNNER_PARTITION_COUNT"] = str(worker_count)
             env["TEST_RUNNER_PARTITION_INDEX"] = str(partition_index)
             env["TEST_RUNNER_RESULT_FILE"] = str(result_path)
+            env["TEST_RUNNER_LIVE_RESULT_FILE"] = str(live_result_path)
             env["TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY"] = "1"
             cmd = [
                 sys.executable,
@@ -542,43 +525,36 @@ def run_parallel_partitions(args) -> int:
             process = subprocess.Popen(
                 cmd,
                 env=env,
-                stdout=subprocess.PIPE,
+                stdout=output_file,
                 stderr=subprocess.STDOUT,
                 bufsize=0,
             )
-            if process.stdout is None:
-                raise RuntimeError(f"Failed to capture stdout for partition {partition_index}")
-            selector.register(process.stdout, selectors.EVENT_READ, (partition_index, output_file))
             processes.append((partition_index, result_path, output_path, process, output_file))
-            partition_buffers[partition_index] = ""
+            live_result_offsets[partition_index] = 0
             print(
                 f"Started partition {partition_index + 1}/{worker_count} "
                 f"(tests {start_index}..{max(start_index, end_index) - 1})"
             )
 
-        while selector.get_map():
-            for key, _ in selector.select(timeout=0.1):
-                stream = key.fileobj
-                partition_index, output_file = key.data
-                chunk = os.read(stream.fileno(), 4096)
-                if not chunk:
-                    selector.unregister(stream)
-                    continue
-                handle_output_chunk(partition_index, output_file, chunk.decode("utf-8", errors="replace"))
-
         exit_code = 0
         for partition_index, result_path, output_path, process, output_file in processes:
-            process.wait()
-            if process.stdout is not None:
-                remaining_output = process.stdout.read()
-                if remaining_output:
-                    handle_output_chunk(
-                        partition_index,
-                        output_file,
-                        remaining_output.decode("utf-8", errors="replace"),
-                    )
-                process.stdout.close()
-            flush_partition_buffer(partition_index, output_file)
+            live_result_path = pathlib.Path(temp_dir, f"partition_{partition_index}.results.log")
+            while process.poll() is None:
+                if live_result_path.exists():
+                    with open(live_result_path, "r", encoding="utf-8") as file:
+                        file.seek(live_result_offsets[partition_index])
+                        new_output = file.read()
+                        live_result_offsets[partition_index] = file.tell()
+                    if new_output:
+                        print(new_output, end="", flush=True)
+                time.sleep(0.1)
+            if live_result_path.exists():
+                with open(live_result_path, "r", encoding="utf-8") as file:
+                    file.seek(live_result_offsets[partition_index])
+                    new_output = file.read()
+                    live_result_offsets[partition_index] = file.tell()
+                if new_output:
+                    print(new_output, end="", flush=True)
             output_file.close()
             if process.returncode != 0:
                 exit_code = 1
@@ -612,8 +588,9 @@ def run_parallel_partitions(args) -> int:
         summary = format_aggregate_results(results)
         total_failed = sum(len(result["failed"]) for result in results)
         total_partition_errors = sum(1 for result in results if result.get("status") != "ok")
-        print("\n\n".join(section for section in replay_sections if section))
-        print()
+        if not args.continuous_integration:
+            print("\n\n".join(section for section in replay_sections if section))
+            print()
         print(summary)
 
         with open("test_logs.txt", "w", encoding="utf-8") as file:
