@@ -118,10 +118,9 @@ END_TEST
 
 
 ### Run tests (headless)
-`SDL_VIDEODRIVER=dummy scripts/run_tests.sh`
+`SDL_VIDEODRIVER=dummy scripts/run_tests.sh -j $(nproc)`
 
+Optionally provide `-j` with a number to partition the tests into N parallelized chunks
 
 ### Run tests (with video)
 `scripts/run_tests.sh -v`
-
-Tests are run sequentially.
