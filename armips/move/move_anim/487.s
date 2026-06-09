@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-//.include "asm/include/abilities.inc"
-//.include "asm/include/items.inc"
-//.include "asm/include/species.inc"
-//.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_487", 0
 
 // due to this animation, pokemon that can learn heavy slam should be 8 px *below* the textbox to prevent the empty space from showing below the mon when the animation of the move is shown.

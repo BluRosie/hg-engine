@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-//.include "asm/include/abilities.inc"
-//.include "asm/include/items.inc"
-//.include "asm/include/species.inc"
-//.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_826", 0
 // Thunderous Kick
 a010_826:
@@ -38,8 +33,6 @@ a010_826:
 
     addparticle 2, 0, 17
     cmd37 6, 0, 2, 6, 1, 0, 0, "NaN", "NaN" //launch the zap cannon
-
-
 
     //do mega kick anim
     wait 5

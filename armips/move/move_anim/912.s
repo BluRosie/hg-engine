@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-//.include "asm/include/abilities.inc"
-//.include "asm/include/items.inc"
-//.include "asm/include/species.inc"
-//.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_912", 0
 //Thunderclap
 a010_912:
@@ -35,8 +30,6 @@ a010_912:
     playsepan 1849, 117
     wait 10
     playsepan 1849, 117
-
-
 
     addparticle 1, 1, 4
     addparticle 1, 0, 4

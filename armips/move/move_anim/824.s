@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-//.include "asm/include/abilities.inc"
-//.include "asm/include/items.inc"
-//.include "asm/include/species.inc"
-//.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_824", 0
 // Freezing Glare
 a010_824:
@@ -36,10 +31,6 @@ a010_824:
     wait 41
 
     callfunction 33, 5, 0, 1, 8, 0, 32631, "NaN", "NaN", "NaN", "NaN", "NaN"
-
-
-
-
 
     unloadparticle 0
     waitstate

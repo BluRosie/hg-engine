@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-//.include "asm/include/abilities.inc"
-//.include "asm/include/items.inc"
-//.include "asm/include/species.inc"
-//.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_790", 0
 //Apple Acid
 a010_790:
@@ -17,9 +12,6 @@ a010_790:
     waitparticle
 
     shadescreencolor 20, 31, 10, 0, 8
-
-
-
 
     repeatse 2081, 117, 2, 6
     addparticle 1, 0, 17

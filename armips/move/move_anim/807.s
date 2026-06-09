@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-//.include "asm/include/abilities.inc"
-//.include "asm/include/items.inc"
-//.include "asm/include/species.inc"
-//.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_807", 0
 
 //Rising Voltage
@@ -31,8 +26,6 @@ a010_807:
     cmd0C 7, 1
     changebg 19, 0x800001
     waitforchangebg
-
-
 
     addparticle 0, 2, 4
     addparticle 0, 3, 4

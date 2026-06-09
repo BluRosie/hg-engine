@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-//.include "asm/include/abilities.inc"
-//.include "asm/include/items.inc"
-//.include "asm/include/species.inc"
-//.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_893", 0
 //Armor Cannon
 a010_893:
@@ -42,8 +37,6 @@ a010_893:
     playsepan 1907, 0
     shaketargetmon 4, 4
     shadetargetmon 31, 1, 1
-
-
 
     cmd43
     cmd0C 7, 1

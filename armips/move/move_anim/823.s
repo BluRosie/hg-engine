@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-//.include "asm/include/abilities.inc"
-//.include "asm/include/items.inc"
-//.include "asm/include/species.inc"
-//.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_823", 0
 //Dragon Energy
 a010_823:
@@ -37,9 +32,6 @@ a010_823:
     
     callfunction 33, 5, 0, 1, 12, 0, 10272, "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate
-
-
-
 
     unloadparticle 0
     waitstate
