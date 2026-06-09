@@ -1,8 +1,8 @@
-#include "../../include/constants/file.h"
-#include "../../include/constants/pokemon.h"
-#include "../../include/constants/species.h"
-#include "../../include/pokemon.h"
-#include "../../include/types.h"
+#include "constants/file.h"
+#include "constants/pokemon.h"
+#include "constants/species.h"
+#include "pokemon.h"
+#include "types.h"
 
 #define OVERWORLD_SIZE_SMALL           0x4E27
 #define OVERWORLD_SIZE_SMALL_NO_SHADOW 0x4E26

@@ -1,10 +1,10 @@
-#include "../../include/types.h"
-#include "../../include/config.h"
-#include "../../include/pokemon.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
+#include "types.h"
+#include "config.h"
+#include "pokemon.h"
+#include "constants/file.h"
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/species.h"
 
 
 #define POKEWALKER_SPRITE_BASE_DEOXYS 586

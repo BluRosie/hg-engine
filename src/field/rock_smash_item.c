@@ -1,6 +1,6 @@
-#include "../../include/constants/item.h"
-#include "../../include/debug.h"
-#include "../../include/types.h"
+#include "constants/item.h"
+#include "debug.h"
+#include "types.h"
 
 /*
  * Each table is 8 slots with chances of 25/20/10/10/10/10/10/5 %.

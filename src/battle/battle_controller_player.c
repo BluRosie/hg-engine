@@ -1,14 +1,14 @@
-#include "../../include/battle.h"
-#include "../../include/battle_controller_player.h"
-#include "../../include/config.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/file.h"
+#include "battle.h"
+#include "battle_controller_player.h"
+#include "config.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/move_effects.h"
+#include "constants/hold_item_effects.h"
+#include "constants/file.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-#include "../../include/test_battle.h"
+#include "test_battle.h"
 #endif // DEBUG_BATTLE_SCENARIOS
 
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
