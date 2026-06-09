@@ -1,12 +1,14 @@
 .ifndef ASM_BATTLE_SCRIPT_INC
 .set ASM_BATTLE_SCRIPT_INC, 1
-.include "asm/include/interop_macros.inc"
-.include "asm/include/abilities.inc"
-.include "asm/include/hold_item_effects.inc"
-.include "asm/include/items.inc"
-.include "asm/include/move_effects.inc"
-.include "asm/include/moves.inc"
-.include "asm/include/species.inc"
+
+#include "include/constants/ability.h"
+#include "include/constants/hold_item_effects.h"
+#include "include/constants/item.h"
+#include "include/constants/move_effects.h"
+#include "include/constants/moves.h"
+#include "include/constants/species.h"
+
+//.include "asm/include/interop_macros.inc"
 .include "asm/include/battle_constants.inc"
 
     .macro PlayEncounterAnimation

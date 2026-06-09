@@ -1,4 +1,4 @@
-.include "asm/include/battle_commands.inc"
+#include "asm/include/battle_commands.inc"
 
 .data
 
