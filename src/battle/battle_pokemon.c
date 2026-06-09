@@ -452,7 +452,7 @@ void BattleMessage_BufferNickname(struct BattleSystem *battleSystem, int bufferI
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIndex);
     struct BattleStruct *ctx = battleSystem->sp;
 
-    if (GetMonData(mon, MON_DATA_ABILITY, NULL == ABILITY_ILLUSION) && IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
+    if (GetMonData(mon, MON_DATA_ABILITY, NULL) == ABILITY_ILLUSION && IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
         mon = Party_GetMonByIndex(party, Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]));
     }
     BufferBoxMonNickname(battleSystem->msgFormat, bufferIndex, &mon->box);
@@ -465,7 +465,7 @@ void BattleSystem_GrabIllusionBoxMonNameForHpBar(struct BattleSystem *battleSyst
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIndex);
     struct BattleStruct *ctx = battleSystem->sp;
 
-    if (GetMonData(mon, MON_DATA_ABILITY, NULL == ABILITY_ILLUSION) && IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
+    if (GetMonData(mon, MON_DATA_ABILITY, NULL) == ABILITY_ILLUSION && IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
         mon = Party_GetMonByIndex(party, Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]));
     }
     BufferBoxMonNickname(msgFormat, 0, &mon->box);
