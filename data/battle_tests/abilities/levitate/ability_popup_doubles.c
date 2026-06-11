@@ -107,7 +107,10 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem used Earthquake!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Flygon's Levitate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Flygon..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vikavolt's Levitate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Vikavolt..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective on the opposing Lanturn!" },
     }
 }
 END_TEST
