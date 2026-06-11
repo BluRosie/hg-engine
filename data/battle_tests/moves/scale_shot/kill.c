@@ -98,8 +98,8 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dragonite fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "was hit" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dragonite’s Defense fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dragonite’s Speed rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dragonite's Defense fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dragonite's Speed rose!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out" },
     }
 }
