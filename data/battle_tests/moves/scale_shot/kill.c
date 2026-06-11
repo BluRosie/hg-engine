@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_DRAGONITE,
-            .level = 65,
+            .level = 68,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_LOADED_DICE,
