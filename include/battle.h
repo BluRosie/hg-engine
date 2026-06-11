@@ -1850,6 +1850,7 @@ struct ILLUSION_STRUCT {
     u8 illusionPos[4];
     u8 illusionClient[4];
     u8 isSideInIllusion;
+    BOOL dontRemoveIllusion;
 };
 
 struct __attribute__((packed)) SWITCH_MESSAGE_PARAM {
