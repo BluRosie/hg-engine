@@ -1393,7 +1393,7 @@ void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u3
  */
 u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
 
-extern u8 gIconPalTable[];
+void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 
 // defined in src/pokemon.c
 
@@ -1852,7 +1852,5 @@ s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
 BOOL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID);
-
-void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 
 #endif

@@ -1846,8 +1846,7 @@ struct __attribute__((packed)) POKEMON_APPEAR_PARAM {
     u32 wep_personal_rnd[CLIENT_MAX];
 };
 
-struct __attribute__((packed)) ILLUSION_STRUCT {
-    u16 illusionNameBuf[4][12]; // at least get this hword aligned
+struct ILLUSION_STRUCT {
     u8 illusionPos[4];
     u8 illusionClient[4];
     u8 isSideInIllusion;
@@ -2255,7 +2254,14 @@ extern u16 WeightMoveList[6];
 
 extern struct newBattleStruct newBS;
 extern struct ILLUSION_STRUCT gIllusionStruct;
-extern const u16 TetsunoKobushiTable[0xF];
+
+#define IS_CLIENT_IN_ILLUSION_NO_ABILITY(bsys, client) ( \
+   gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bsys, client)) \
+&& gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bsys, client)] == client \
+&& gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bsys, client)] == bsys->sp->sel_mons_no[client] \
+)
+
+#define IS_CLIENT_IN_ILLUSION(bsys, client) (IS_CLIENT_IN_ILLUSION_NO_ABILITY(bsys, client) && GetBattlerAbility(bsys->sp, client) == ABILITY_ILLUSION)
 
 int LONG_CALL BattlePokemonParamGet(void *, int, int, void *);
 s32 LONG_CALL BattleItemDataGet(void *, u16, u16);
@@ -3295,12 +3301,12 @@ BOOL LONG_CALL TryGetSynchronizeStatusSubsequence(struct BattleStruct *sp, int *
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript
  *
- *  @param bw battle work structure; void * because we haven't defined the battle work structure
+ *  @param bw battle work structure
  *  @param sp global battle structure
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+BOOL LONG_CALL MoveHitDefenderAbilityCheck(struct BattleSystem *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
  *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script

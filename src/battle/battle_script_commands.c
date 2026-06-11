@@ -5409,7 +5409,7 @@ BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
 {
     IncrementBattleScriptPtr(ctx, 1);
 
-    HandleTransform(ctx);
+	HandleTransform(ctx);
 
     return FALSE;
 }

@@ -21,7 +21,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 //int SwitchInAbilityCheck(void *bw, struct BattleStruct *sp);
 //BOOL AreAnyStatsNotAtValue(struct BattleStruct *sp, int client, int value, BOOL excludeAccuracyEvasion);
 //u8 BeastBoostGreatestStatHelper(struct BattleStruct *sp, u32 client);
-//BOOL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no);
+//BOOL MoveHitDefenderAbilityCheck(struct BattleSystem *bw, struct BattleStruct *sp, int *seq_no);
 //u32 MoldBreakerAbilityCheck(struct BattleStruct *sp, int attacker, int defender, int ability);
 BOOL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int server_seq_no);
 
@@ -508,7 +508,7 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL LONG_CALL MoveHitDefenderAbilityCheck(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL LONG_CALL MoveHitDefenderAbilityCheck(struct BattleSystem *bw, struct BattleStruct *sp, int *seq_no)
 {
     u32 ovyId, ret, offset;
     BOOL (*internalFunc)(void *bw, struct BattleStruct *sp, int *seq_no);
