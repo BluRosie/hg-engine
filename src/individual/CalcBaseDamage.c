@@ -374,10 +374,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             && IsClientGrounded(sp, attacker)) {
             movepower *= 2;
         }
+        break;
     case MOVE_PSYBLADE:
         if (sp->terrainOverlay.numberOfTurnsLeft > 0 && sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
             movepower = 120;
         }
+        break;
     default:
         break;
     }
