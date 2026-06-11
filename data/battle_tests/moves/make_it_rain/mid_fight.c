@@ -105,9 +105,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gholdengo used Make It Rain!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on the opposing Swampert or Charizard." },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gholdengo's Sp. Atk fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective on the opposing Maractus and Gholdengo!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on Swampert." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Occa Berry weakened the damage to the opposing Gholdengo!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gholdengo used Make It Rain!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on Swampert or Charizard." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coins were scattered everywhere!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gholdengo's Sp. Atk fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus's Storm Drain raised its Sp. Atk!" },
     }
 }
 END_TEST
