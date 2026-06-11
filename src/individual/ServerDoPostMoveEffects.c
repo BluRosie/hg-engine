@@ -157,7 +157,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
-        } else if (ctx->multiHitCount <= 1) {
+        } else if (ctx->multiHitCount <= 1 || (ctx->multiHitCount > 1 && ctx->battlemon[ctx->defence_client].hp == 0)) {
             if (ServerWazaStatusMessage(bsys, ctx) == TRUE) {
                 return;
             }
