@@ -52,7 +52,7 @@ BEGIN_TEST
             .species = SPECIES_GHOLDENGO,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_GOOD_AS_GOLD,
+            .ability = ABILITY_NO_GUARD,
             .item = ITEM_OCCA_BERRY,
             .moves = { MOVE_MAKE_IT_RAIN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
