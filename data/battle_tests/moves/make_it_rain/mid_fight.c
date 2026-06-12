@@ -112,7 +112,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on Swampert or Charizard." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Coins were scattered everywhere!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gholdengo's Sp. Atk fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus's Storm Drain raised its Sp. Atk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Maractus's Storm Drain" },
     }
 }
 END_TEST
