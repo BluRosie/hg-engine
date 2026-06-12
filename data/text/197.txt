@@ -654,9 +654,9 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents poisoning!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents confusion!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents confusion!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents confusion!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} raised\nthe power of its Fire-type moves!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised the power\fof its Fire-type moves!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised the power\fof its Fire-type moves!
+The power of {STRVAR_1 1, 0, 0}’s\nFire-type moves rose!
+The power of the wild {STRVAR_1 1, 0, 0}’s\nFire-type moves rose!
+The power of the opposing {STRVAR_1 1, 0, 0}’s\nFire-type moves rose!
 {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
 The wild {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
 The opposing {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
