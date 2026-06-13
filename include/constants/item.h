@@ -2760,8 +2760,8 @@ enum ItemGeneration {
 #define GEN5 2
 #define GEN6 3
 #define GEN7 4
-#define GEN8 4
-#define GEN9 5
+#define GEN8 5
+#define GEN9 6
 #endif
 
 
