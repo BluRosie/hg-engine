@@ -1,12 +1,12 @@
 // Test: Snipe Shot - Ignore Storm Drain
 #ifndef GET_TEST_CASE_ONLY
 
-#include "../../../../include/battle.h"
-#include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/item.h"
-#include "../../../../include/constants/moves.h"
-#include "../../../../include/constants/species.h"
-#include "../../../../include/test_battle.h"
+#include "include/battle.h"
+#include "include/constants/ability.h"
+#include "include/constants/item.h"
+#include "include/constants/moves.h"
+#include "include/constants/species.h"
+#include "include/test_battle.h"
 
 const struct TestBattleScenario BattleTests[] = {
 
@@ -129,5 +129,5 @@ const struct TestBattleScenario BattleTests[] = {
     },
 #ifndef GET_TEST_CASE_ONLY
 };
-// each test file is a separate .c file in battle_tests/ for better organization
+// each test file is a separate .c file in ../../battle_tests/ for better organization
 #endif

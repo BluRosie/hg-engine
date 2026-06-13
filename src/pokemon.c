@@ -165,7 +165,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
  */
 u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 {
-    if (mons_no > MAX_MON_NUM)
+    if (mons_no > SPECIES_MAX_MON_NUM)
     {
         ArchiveDataLoadOfs(&mons_no, ARC_CODE_ADDONS, CODE_ADDON_FORM_SPECIES_MAPPING, sizeof(u16) * (mons_no - SPECIES_MEGA_START), sizeof(u16));
     }
@@ -181,7 +181,7 @@ u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no)
 {
     u32 ret = 0;
-    if (mons_no > MAX_MON_NUM)
+    if (mons_no > SPECIES_MAX_MON_NUM)
     {
         u16 oldSpecies = GetBaseSpeciesFromAdjustedForm(mons_no);
         u16 formTable[32]; // right on stack so do not have to free this
@@ -1912,7 +1912,7 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
 }
 
 
-#define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM+1)
+#define CRY_SPECIES_FORMS_BASE (SPECIES_MAX_MON_NUM+1)
 
 // need to be in order of form so that python script can generate the makefile
 #define CRY_SPECIES_SHAYMIN 0x1EE
@@ -2007,7 +2007,7 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
     //debug_printf("[GrabCryNumSpeciesForm] species = %d, form = %d\n", species, form)
 
     // battles are fucking stupid and pass in species already adjusted for form.  need to revert to base species and extract form
-    if (species > MAX_MON_NUM) {
+    if (species > SPECIES_MAX_MON_NUM) {
         // if form-adjusted species is passed in, no need to call it to grab it again
         newSpecies = species;
         form = GetFormFromAdjustedForm(species);

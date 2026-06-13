@@ -525,11 +525,11 @@ class DictWrapper:
     def get(self, key, default=None):
         return self.dict.get(key, default)
 
-MONS = parse_inc_file("asm/include/species.inc")
-ITEMS = parse_inc_file("asm/include/items.inc")
-MOVES = parse_inc_file("asm/include/moves.inc")
-MOVE_EFFECTS = parse_inc_file("asm/include/move_effects.inc")
-ABILITIES = parse_inc_file("asm/include/abilities.inc")
+#MONS = parse_inc_file("asm/include/species.inc")
+#ITEMS = parse_inc_file("asm/include/items.inc")
+#MOVES = parse_inc_file("asm/include/moves.inc")
+#MOVE_EFFECTS = parse_inc_file("asm/include/move_effects.inc")
+#ABILITIES = parse_inc_file("asm/include/abilities.inc")
 CONSTANTS = parse_inc_file("armips/include/constants.s")
 MOVE_MACROS = DictWrapper(parse_inc_file("armips/include/movemacros.s"))
 
@@ -537,6 +537,7 @@ C_CONSTANT_GROUPS = {
     "SPECIES": parse_c_header_defines("include/constants/species.h", "SPECIES_"),
     "ITEM": parse_c_header_defines("include/constants/item.h", "ITEM_"),
     "MOVE": parse_c_header_defines("include/constants/moves.h", "MOVE_"),
+    "MOVE_EFFECT": parse_c_header_defines("include/constants/move_effects.h", "MOVE_EFFECT_"),
     "ABILITY": parse_c_header_defines("include/constants/ability.h", "ABILITY_"),
     "TYPE": parse_c_header_defines("include/constants/pokemon.h", "TYPE_"),
     "GROWTH": parse_c_header_defines("include/constants/pokemon.h", "GROWTH_"),
@@ -546,6 +547,12 @@ C_CONSTANT_GROUPS = {
     "TRAINERCLASS": parse_c_header_defines("include/constants/trainerclass.h", "TRAINERCLASS_"),
     "EVO": parse_c_enum("include/pokemon.h", "EvoMethod", "EVO_"),
 }
+
+MONS = C_CONSTANT_GROUPS["SPECIES"]
+ITEMS = C_CONSTANT_GROUPS["ITEM"]
+MOVES = C_CONSTANT_GROUPS["MOVE"]
+MOVE_EFFECTS = C_CONSTANT_GROUPS["MOVE_EFFECT"]
+ABILITIES = C_CONSTANT_GROUPS["ABILITY"]
 
 
 def lookup_const(group, value):

@@ -29,7 +29,7 @@ void PCStorage_InitializeBoxes(PCStorage *storage) {
             u32 form = 0;
             if (species <= MAX_SPECIES_INCLUDING_FORMS)
             {
-                if (species > MAX_MON_NUM)
+                if (species > SPECIES_MAX_MON_NUM)
                 {
                     form = GetFormFromAdjustedForm(species);
                     species = GetBaseSpeciesFromAdjustedForm(species);

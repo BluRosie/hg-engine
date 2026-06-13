@@ -398,7 +398,7 @@ _edited: // originally at 0x022501CA
     .word 0x3181
 
 .org 0x0225E564
-	.word NUM_OF_MOVES
+	.word 0x7FFF // NUM_OF_MOVES but here disabling the limiter
 
 .org 0x022645A4
     .word 0x3181
@@ -411,6 +411,6 @@ _edited: // originally at 0x022501CA
 .open "base/overlay/overlay_0007.bin", 0x0221BE20
 
 .org 0x0221C380
-    .word NUM_OF_MOVES
+    .word 0x7FFF // NUM_OF_MOVES but here disabling the limiter
 
 .close

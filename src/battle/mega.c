@@ -1,13 +1,13 @@
-#include "../../include/types.h"
-#include "../../include/battle.h"
-#include "../../include/pokemon.h"
-#include "../../include/mega.h"
-#include "../../include/sprite.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
+#include "types.h"
+#include "battle.h"
+#include "pokemon.h"
+#include "mega.h"
+#include "sprite.h"
+#include "constants/ability.h"
+#include "constants/item.h"
+#include "constants/file.h"
+#include "constants/moves.h"
+#include "constants/species.h"
 
 struct MegaStruct
 {

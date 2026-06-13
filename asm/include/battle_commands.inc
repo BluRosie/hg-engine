@@ -1,13 +1,7 @@
 .ifndef ASM_BATTLE_SCRIPT_INC
 .set ASM_BATTLE_SCRIPT_INC, 1
+
 .include "asm/include/interop_macros.inc"
-.include "asm/include/abilities.inc"
-.include "asm/include/hold_item_effects.inc"
-.include "asm/include/items.inc"
-.include "asm/include/move_effects.inc"
-.include "asm/include/moves.inc"
-.include "asm/include/species.inc"
-.include "asm/include/battle_constants.inc"
 
     .macro PlayEncounterAnimation
     .long 0
@@ -95,19 +89,21 @@
     .long 17
     .endm
 
+	// preproc nonsense doesn't let me use C constants here!
+
     .macro PrintMessage msg_id, tag, arg_0, arg_1, arg_2, arg_3, arg_4, arg_5
     .long 18
     .long \msg_id
     .long \tag
-    .if \tag > TAG_NONE
+    .if \tag > 0x0 // TAG_NONE
         .long \arg_0
-        .if \tag > TAG_TRNAME
+        .if \tag > 0x8 // TAG_TRNAME
             .long \arg_1
-            .if \tag > TAG_TRCLASS_TRNAME
+            .if \tag > 0x1E // TAG_TRCLASS_TRNAME
                 .long \arg_2
-                .if \tag > TAG_TRCLASS_TRNAME_ITEM
+                .if \tag > 0x33 // TAG_TRCLASS_TRNAME_ITEM
                     .long \arg_3
-                    .if \tag > TAG_TRCLASS_TRNAME_TRCLASS_TRNAME
+                    .if \tag > 0x3B // TAG_TRCLASS_TRNAME_TRCLASS_TRNAME
                         .long \arg_4
                         .long \arg_5
                     .endif
@@ -121,15 +117,15 @@
     .long 19
     .long \msg_id
     .long \tag
-    .if \tag > TAG_NONE
+    .if \tag > 0x0 // TAG_NONE
         .long \arg_0
-        .if \tag > TAG_TRNAME
+        .if \tag > 0x8 // TAG_TRNAME
             .long \arg_1
-            .if \tag > TAG_TRCLASS_TRNAME
+            .if \tag > 0x1E // TAG_TRCLASS_TRNAME
                 .long \arg_2
-                .if \tag > TAG_TRCLASS_TRNAME_ITEM
+                .if \tag > 0x33 // TAG_TRCLASS_TRNAME_ITEM
                     .long \arg_3
-                    .if \tag > TAG_TRCLASS_TRNAME_TRCLASS_TRNAME
+                    .if \tag > 0x3B // TAG_TRCLASS_TRNAME_TRCLASS_TRNAME
                         .long \arg_4
                         .long \arg_5
                     .endif
@@ -147,15 +143,15 @@
     .long 21
     .long \msg_id
     .long \tag
-    .if \tag > TAG_NONE
+    .if \tag > 0x0 // TAG_NONE
         .long \arg_0
-        .if \tag > TAG_TRNAME
+        .if \tag > 0x8 // TAG_TRNAME
             .long \arg_1
-            .if \tag > TAG_TRCLASS_TRNAME
+            .if \tag > 0x1E // TAG_TRCLASS_TRNAME
                 .long \arg_2
-                .if \tag > TAG_TRCLASS_TRNAME_ITEM
+                .if \tag > 0x33 // TAG_TRCLASS_TRNAME_ITEM
                     .long \arg_3
-                    .if \tag > TAG_TRCLASS_TRNAME_TRCLASS_TRNAME
+                    .if \tag > 0x3B // TAG_TRCLASS_TRNAME_TRCLASS_TRNAME
                         .long \arg_4
                         .long \arg_5
                     .endif
@@ -170,15 +166,15 @@
     .long \battler
     .long \msg_id
     .long \tag
-    .if \tag > TAG_NONE
+    .if \tag > 0x0 // TAG_NONE
         .long \arg_0
-        .if \tag > TAG_TRNAME
+        .if \tag > 0x8 // TAG_TRNAME
             .long \arg_1
-            .if \tag > TAG_TRCLASS_TRNAME
+            .if \tag > 0x1E // TAG_TRCLASS_TRNAME
                 .long \arg_2
-                .if \tag > TAG_TRCLASS_TRNAME_ITEM
+                .if \tag > 0x33 // TAG_TRCLASS_TRNAME_ITEM
                     .long \arg_3
-                    .if \tag > TAG_TRCLASS_TRNAME_TRCLASS_TRNAME
+                    .if \tag > 0x3B // TAG_TRCLASS_TRNAME_TRCLASS_TRNAME
                         .long \arg_4
                         .long \arg_5
                     .endif
@@ -1423,10 +1419,11 @@
     .long \arg_1
     .endm
 
-    .macro CheckShouldNotTurnOffMultiStatAnim battlerCategory, label
     // need to skip the stat animation turning off in case of defiant and competitive so the animation shows properly
-    CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_DEFIANT, \label
-    CheckAbility CHECK_OPCODE_HAVE, \battlerCategory, ABILITY_COMPETITIVE, \label
+	// preproc shenanigans don't let me use the constant directly
+    .macro CheckShouldNotTurnOffMultiStatAnim battlerCategory, label
+	CheckAbility 0x0, \battlerCategory, 128, \label
+	CheckAbility 0x0, \battlerCategory, 172, \label
     .endm
 
     .macro CheckProtectContactMoves

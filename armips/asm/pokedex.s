@@ -942,7 +942,7 @@ get_dex_num_patch:
     b @@_return
 
 @@_getNationalNum:
-    ldr r0, =SPECIES_ARCEUS
+    ldr r0, =493
     cmp r1, r0
     ble @@_return_r1 // if not a new mon
     sub r1, #50
@@ -1167,11 +1167,11 @@ Pokedex_CountDexOwned:
 
 @@_increment:
     add r4, #1
-    mov r7, #(SPECIES_ARCEUS + 1) / 2
+    mov r7, #(493 + 1) / 2
     lsl r7, #1
     cmp r4, r7
     blt @@_loop
-    add r7, #(SPECIES_VICTINI - SPECIES_ARCEUS - 1)
+    add r7, #(544 - 493 - 1)
     cmp r4, r7
     blt @@_increment
     ldr r7, =NUM_OF_MONS
@@ -1207,11 +1207,11 @@ GetSeenMonCount:
 
 @@_increment:
     add r4, #1
-    mov r7, #(SPECIES_ARCEUS + 1) / 2
+    mov r7, #(493 + 1) / 2
     lsl r7, #1
     cmp r4, r7
     blt @@_loop
-    add r7, #(SPECIES_VICTINI - SPECIES_ARCEUS - 1)
+    add r7, #(544 - 493 - 1)
     cmp r4, r7
     blt @@_increment
     ldr r7, =NUM_OF_MONS

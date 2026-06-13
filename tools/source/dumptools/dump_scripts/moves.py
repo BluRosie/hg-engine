@@ -89,17 +89,27 @@ def dump_moves_c(moves_narc, msgdata_narc):
     for idx, move in enumerate(moves_narc[:-1]):
         range_num = move["target"]
         range_string = "RANGE_SINGLE_TARGET" if range_num == 0 else flags_to_string(move["target"], RANGE_FLAG_DEFINES)
-        full_name = get_full_name(move_used_names[idx * 3])
+        if (idx * 3 >= len(move_used_names) or idx >= len(move_names) or idx >= len(move_caps_names) or idx > len(move_descriptions)):
+            print(f"Move {idx} can not have a set of names because it does not have valid strings in one of the texts.  Leaving blank")
+            full_name = ""
+            move_short_name = ""
+            move_capital_name = ""
+            move_description = ""
+        else:
+            full_name = get_full_name(move_used_names[idx * 3])
+            move_short_name = move_names[idx]
+            move_capital_name = move_caps_names[idx]
+            move_description = move_descriptions[idx]
         lines.extend(
             [
                 f"    [{lookup_move(idx)}] = {{",
                 "        .names = {",
-                f'            .name = "{escape_c_string(move_names[idx])}",',
-                f'            .capsName = "{escape_c_string(move_caps_names[idx])}",',
+                f'            .name = "{escape_c_string(move_short_name)}",',
+                f'            .capsName = "{escape_c_string(move_capital_name)}",',
                 f'            .fullName = "{escape_c_string(full_name)}",',
                 "        },",
                 "        .data = {",
-                f"            .effect = {MOVE_EFFECTS['MOVE'].get(move['effect'], str(move['effect']))},",
+                f"            .effect = {MOVE_EFFECTS.get(move['effect'], str(move['effect']))},",
                 f"            .split = {MOVE_MACROS['SPLIT'][move['category']]},",
                 f"            .power = {move['power']},",
                 f"            .type = {lookup_const('TYPE', move['type'])},",
@@ -116,7 +126,7 @@ def dump_moves_c(moves_narc, msgdata_narc):
                 f"            .appeal = {MOVE_MACROS['APPEAL'].get(move['appeal'], str(move['appeal']))},",
                 f"            .contestType = {MOVE_MACROS['CONTEST'].get(move['contest_type'], str(move['contest_type']))},",
                 "        },",
-                f'        .description = "{escape_c_string(move_descriptions[idx])}",',
+                f'        .description = "{escape_c_string(move_description)}",',
                 "    },",
                 "",
             ]
@@ -134,7 +144,7 @@ def dump_moves_c(moves_narc, msgdata_narc):
             '            .fullName = "",',
             "        },",
             "        .data = {",
-            f"            .effect = {MOVE_EFFECTS['MOVE'].get(move['effect'], str(move['effect']))},",
+            f"            .effect = {MOVE_EFFECTS.get(move['effect'], str(move['effect']))},",
             f"            .split = {MOVE_MACROS['SPLIT'][move['category']]},",
             f"            .power = {move['power']},",
             f"            .type = {lookup_const('TYPE', move['type'])},",

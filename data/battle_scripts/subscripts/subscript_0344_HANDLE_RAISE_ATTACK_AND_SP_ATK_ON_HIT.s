@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -20,7 +21,7 @@ _000:
     PrintMessage 759, TAG_NICKNAME_ITEM_STAT, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_MSG_TEMP
     Wait 
     WaitButtonABTime 30
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, STAT_SPATK
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_MESSAGE, STAT_SPECIAL_ATTACK
     // The {1} sharply boosted {0}'s {2}!
     PrintMessage 759, TAG_NICKNAME_ITEM_STAT, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_MSG_TEMP
     Wait 

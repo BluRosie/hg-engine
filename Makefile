@@ -43,25 +43,17 @@ endif
 ifeq ($(shell echo $$DEVKITARM),)
 ifeq ($(MSYS2), 0)
 PREFIX = /mingw64/bin/arm-none-eabi-
-AS = $(PREFIX)as
-CC = $(PREFIX)gcc
-LD = $(PREFIX)ld
-OBJCOPY = $(PREFIX)objcopy
 else
 PREFIX = arm-none-eabi-
-AS = $(PREFIX)as
-CC = $(PREFIX)gcc
-LD = $(PREFIX)ld
-OBJCOPY = $(PREFIX)objcopy
 endif
 else
 # support legacy devkitpro instructions
-PREFIX = bin/arm-none-eabi-
-AS = $(DEVKITARM)/$(PREFIX)as
-CC = $(DEVKITARM)/$(PREFIX)gcc
-LD = $(DEVKITARM)/$(PREFIX)ld
-OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
+PREFIX = $(DEVKITARM)/bin/arm-none-eabi-
 endif
+AS = $(PREFIX)gcc -x assembler-with-cpp
+CC = $(PREFIX)gcc
+LD = $(PREFIX)ld
+OBJCOPY = $(PREFIX)objcopy
 PYTHON_NO_VENV = python3
 VENV = .venv
 PYTHON_VENV_VERSION := $(shell $(PYTHON_NO_VENV) -m ensurepip 2>&1 | grep -i -q 'No module named'; echo $$?)
@@ -121,8 +113,8 @@ SDATTOOL := $(PYTHON) tools/SDATTool.py
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
-ASFLAGS = -mthumb
-CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
+ASFLAGS =  -I$(shell pwd)/asm/include -I$(shell pwd)/include -mthumb -mcpu=arm946e-s -mtune=arm946e-s
+CFLAGS =  -I$(shell pwd)/include -mthumb -mno-thumb-interwork -mcpu=arm946e-s -mtune=arm946e-s -mno-long-calls -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 0
 
 ifeq ($(AUTO_TEST),Y)

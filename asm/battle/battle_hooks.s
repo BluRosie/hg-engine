@@ -3,7 +3,7 @@
 .thumb
 
 .include "asm/include/interop_macros.inc"
-.include "asm/include/moves.inc"
+#include "../../include/constants/moves.h"
 
 //形态变化恢复
 .global TryRevertFormChange_hook

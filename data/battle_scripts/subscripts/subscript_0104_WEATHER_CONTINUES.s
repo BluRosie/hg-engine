@@ -1,11 +1,12 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
 _000:
-.ifndef DISABLE_END_OF_TURN_WEATHER_MESSAGE
+#ifndef DISABLE_END_OF_TURN_WEATHER_MESSAGE
     Call BATTLE_SUBSCRIPT_SHOW_PREPARED_MESSAGE
-.endif
+#endif
 
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SNOW_ANY, _021
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_EXTREMELY_HARSH_SUNLIGHT, _021
