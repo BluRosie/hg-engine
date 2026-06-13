@@ -67086,7 +67086,7 @@
       "MOVE_ZEN_HEADBUTT"
     ]
   },
-  "SPECIES_DEOXYS_SPEED": {
+  "SPECIES_498": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -67293,7 +67293,7 @@
       "MOVE_ZEN_HEADBUTT"
     ]
   },
-  "SPECIES_DEOXYS_ATTACK": {
+  "SPECIES_496": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -67490,7 +67490,7 @@
       "MOVE_ZEN_HEADBUTT"
     ]
   },
-  "SPECIES_DEOXYS_DEFENSE": {
+  "SPECIES_497": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -85008,7 +85008,7 @@
       "MOVE_ZEN_HEADBUTT"
     ]
   },
-  "SPECIES_WORMADAM_SANDY": {
+  "SPECIES_499": {
     "LevelMoves": [
       {
         "Level": 0,
@@ -85151,7 +85151,7 @@
       "MOVE_UPROAR"
     ]
   },
-  "SPECIES_GIRATINA_ORIGIN": {
+  "SPECIES_501": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -85326,7 +85326,7 @@
       "MOVE_TWISTER"
     ]
   },
-  "SPECIES_SHAYMIN_SKY": {
+  "SPECIES_502": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -85450,7 +85450,7 @@
       "MOVE_ZEN_HEADBUTT"
     ]
   },
-  "SPECIES_ROTOM_HEAT": {
+  "SPECIES_503": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -85589,7 +85589,7 @@
       "MOVE_UPROAR"
     ]
   },
-  "SPECIES_ROTOM_WASH": {
+  "SPECIES_504": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -85728,7 +85728,7 @@
       "MOVE_UPROAR"
     ]
   },
-  "SPECIES_ROTOM_FROST": {
+  "SPECIES_505": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -85867,7 +85867,7 @@
       "MOVE_UPROAR"
     ]
   },
-  "SPECIES_ROTOM_FAN": {
+  "SPECIES_506": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -86006,7 +86006,7 @@
       "MOVE_UPROAR"
     ]
   },
-  "SPECIES_ROTOM_MOW": {
+  "SPECIES_507": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -147559,6 +147559,138 @@
     "TutorMoves": []
   },
   "SPECIES_DARMANITAN_GALARIAN": {
+    "LevelMoves": [
+      {
+        "Level": 0,
+        "Move": "MOVE_ICICLE_CRASH"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_ICICLE_CRASH"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_POWDER_SNOW"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_TACKLE"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_TAUNT"
+      },
+      {
+        "Level": 1,
+        "Move": "MOVE_BITE"
+      },
+      {
+        "Level": 12,
+        "Move": "MOVE_AVALANCHE"
+      },
+      {
+        "Level": 16,
+        "Move": "MOVE_WORK_UP"
+      },
+      {
+        "Level": 20,
+        "Move": "MOVE_ICE_FANG"
+      },
+      {
+        "Level": 24,
+        "Move": "MOVE_HEADBUTT"
+      },
+      {
+        "Level": 28,
+        "Move": "MOVE_ICE_PUNCH"
+      },
+      {
+        "Level": 32,
+        "Move": "MOVE_UPROAR"
+      },
+      {
+        "Level": 38,
+        "Move": "MOVE_BELLY_DRUM"
+      },
+      {
+        "Level": 44,
+        "Move": "MOVE_BLIZZARD"
+      },
+      {
+        "Level": 50,
+        "Move": "MOVE_THRASH"
+      },
+      {
+        "Level": 56,
+        "Move": "MOVE_SUPERPOWER"
+      }
+    ],
+    "MachineMoves": [
+      "MOVE_ATTRACT",
+      "MOVE_AVALANCHE",
+      "MOVE_BLIZZARD",
+      "MOVE_BODY_PRESS",
+      "MOVE_BODY_SLAM",
+      "MOVE_BRICK_BREAK",
+      "MOVE_BULK_UP",
+      "MOVE_BULLDOZE",
+      "MOVE_DIG",
+      "MOVE_EARTHQUAKE",
+      "MOVE_ENCORE",
+      "MOVE_ENDURE",
+      "MOVE_FACADE",
+      "MOVE_FIRE_BLAST",
+      "MOVE_FIRE_FANG",
+      "MOVE_FIRE_PUNCH",
+      "MOVE_FIRE_SPIN",
+      "MOVE_FLAMETHROWER",
+      "MOVE_FLARE_BLITZ",
+      "MOVE_FLING",
+      "MOVE_FOCUS_BLAST",
+      "MOVE_FOCUS_ENERGY",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_GRASS_KNOT",
+      "MOVE_GYRO_BALL",
+      "MOVE_HEAT_WAVE",
+      "MOVE_HYPER_BEAM",
+      "MOVE_ICE_BEAM",
+      "MOVE_ICE_FANG",
+      "MOVE_ICE_PUNCH",
+      "MOVE_IRON_DEFENSE",
+      "MOVE_IRON_HEAD",
+      "MOVE_MEGA_KICK",
+      "MOVE_MEGA_PUNCH",
+      "MOVE_OVERHEAT",
+      "MOVE_PAYBACK",
+      "MOVE_PROTECT",
+      "MOVE_PSYCHIC",
+      "MOVE_REST",
+      "MOVE_REVERSAL",
+      "MOVE_ROCK_SLIDE",
+      "MOVE_ROCK_TOMB",
+      "MOVE_ROUND",
+      "MOVE_SLEEP_TALK",
+      "MOVE_SNORE",
+      "MOVE_SOLAR_BEAM",
+      "MOVE_STONE_EDGE",
+      "MOVE_SUBSTITUTE",
+      "MOVE_SUNNY_DAY",
+      "MOVE_SUPERPOWER",
+      "MOVE_TAUNT",
+      "MOVE_THIEF",
+      "MOVE_UPROAR",
+      "MOVE_U_TURN",
+      "MOVE_WILL_O_WISP",
+      "MOVE_WORK_UP",
+      "MOVE_ZEN_HEADBUTT"
+    ],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_BURNING_JEALOUSY",
+      "MOVE_LASH_OUT"
+    ]
+  },
+  "SPECIES_DARMANITAN_ZEN_MODE_GALARIAN": {
     "LevelMoves": [
       {
         "Level": 0,

@@ -15,7 +15,7 @@
 
 
 static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
-static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client);
+static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *sp, u32 client);
 
 extern struct ILLUSION_STRUCT gIllusionStruct;
 
@@ -599,48 +599,13 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                          && (sp->battlemon[client_no].hp)
                          && IsValidImposterTarget(bw, sp, client_no)
                          && ((!(BattleTypeGet(bw) & BATTLE_TYPE_TRAINER)) ? (sp->battlemon[client_no].species == SPECIES_DITTO || sp->battlemon[client_no].species == SPECIES_MEW) : TRUE)) {
-                            u32 num;
-                            sp->battlemon[client_no].imposter_flag = 1;
                             scriptnum = SUB_SEQ_HANDLE_IMPOSTER;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
 
                             sp->attack_client = client_no;            // attack transforms into defence
                             sp->current_move_index = MOVE_TRANSFORM;  // force move anim to play
 
-                            // fuck it get rid of transform script command:
-                            sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORMED;
-                            sp->battlemon[sp->attack_client].moveeffect.disabledMove = 0;
-                            sp->battlemon[sp->attack_client].moveeffect.disabledTurns = 0;
-                            sp->battlemon[sp->attack_client].moveeffect.transformPid = sp->battlemon[sp->defence_client].personal_rnd;
-                            sp->battlemon[sp->attack_client].moveeffect.transformGender = sp->battlemon[sp->defence_client].sex;
-                            sp->battlemon[sp->attack_client].moveeffect.mimickedMoveIndex = 0;
-                            sp->battlemon[sp->attack_client].moveeffect.lastResortCount = 0;
-
-                            u8 *src, *dest;
-                            src = (u8 *)&sp->battlemon[sp->attack_client];
-                            dest = (u8 *)&sp->battlemon[sp->defence_client];
-
-                            for (num = 0; num <= (int)0x26/*offsetof(struct BattlePokemon, ability)*/; num++) {
-                                src[num] = dest[num];
-                            }
-
-                            sp->battlemon[sp->attack_client].ability_activated_flag = 0;
-                            sp->battlemon[sp->attack_client].ability_activated_flag = 0;
-                            sp->battlemon[sp->attack_client].moveeffect.truantFlag = sp->total_turn & 1;
-                            sp->battlemon[sp->attack_client].moveeffect.slowStartTurns = sp->total_turn + 1;
-                            sp->battlemon[sp->attack_client].slow_start_flag = 0;
-                            sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
-                            ClearBattleMonFlags(sp, sp->attack_client);  // clear extra flags here too
-                            sp->moveConditionsFlags[sp->attack_client].laserFocusTimer = sp->moveConditionsFlags[sp->defence_client].laserFocusTimer;
-
-                            for (num = 0; num < 4; num++) {
-                                sp->battlemon[sp->attack_client].move[num] = sp->battlemon[sp->defence_client].move[num];
-                                if (sp->moveTbl[sp->battlemon[sp->attack_client].move[num]].pp < 5) {
-                                    sp->battlemon[sp->attack_client].pp[num] = sp->moveTbl[sp->battlemon[sp->attack_client].move[num]].pp;
-                                } else {
-                                    sp->battlemon[sp->attack_client].pp[num] = 5;
-                                }
-                            }
+                            HandleTransform(sp);
                             break;
                         }
                     }
@@ -891,6 +856,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     // White Herb, etc
                     {
                         if (HeldItemHealCheck(bw, sp, client_no, &scriptnum) == TRUE) {
+
+                            if (IS_ITEM_BERRY(GetBattleMonItem(sp, client_no))) {
+                                sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].berryEatenAndCanBelch = TRUE;
+                            }
                             sp->battlerIdTemp = client_no;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                             break;
@@ -1127,7 +1096,7 @@ static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
  *  @param client battler to check if either opponent is a valid imposter target
  *  @return TRUE if imposter can target the client directly opposite the passed client; FALSE otherwise.  also sets attack_client and defence_client automatically
  */
-static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
+static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *sp, u32 client)
 {
     // double battles need to use BATTLER_ACROSS to get the battler standing visibly across from it.  BATTLER_OPPONENT needs to be used otherwise
     u32 testClient = (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) ? BATTLER_ACROSS(client) : BATTLER_OPPONENT(client);
@@ -1136,9 +1105,8 @@ static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
     if (battleMon->hp != 0
     // can not copy another imposter
      && battleMon->ability != ABILITY_IMPOSTER
-    // can not copy a disguised mon
-     && !(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, testClient))
-       && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, testClient)] == testClient)
+    // can not copy an illusioned mon
+     && !(IS_CLIENT_IN_ILLUSION_NO_ABILITY(bw, testClient))
     // can not copy a substitute or transformed mon
      && ((battleMon->condition2 & (STATUS2_SUBSTITUTE | STATUS2_TRANSFORMED)) == 0))
     {
@@ -1152,8 +1120,7 @@ static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
     //// can not copy another imposter
     // && battleMon->ability != ABILITY_IMPOSTER
     //// can not copy a disguised mon
-    // && !(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, testClient))
-    //   && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, testClient)] == testClient)
+    // && !(IS_CLIENT_IN_ILLUSION_NO_ABILITY(bw, testClient))
     //// can not copy a substitute or transformed mon
     // && ((battleMon->condition2 & (STATUS2_SUBSTITUTE | STATUS2_TRANSFORMED)) == 0))
     //{

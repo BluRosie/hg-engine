@@ -52834,7 +52834,7 @@
       "MOVE_DRACO_METEOR"
     ]
   },
-  "SPECIES_DEOXYS_ATTACK": {
+  "SPECIES_496": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -52948,7 +52948,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_DEOXYS_DEFENSE": {
+  "SPECIES_497": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53070,7 +53070,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_DEOXYS_SPEED": {
+  "SPECIES_498": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53184,7 +53184,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_WORMADAM_SANDY": {
+  "SPECIES_499": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53274,7 +53274,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_GIRATINA_ORIGIN": {
+  "SPECIES_501": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53379,7 +53379,7 @@
       "MOVE_DRACO_METEOR"
     ]
   },
-  "SPECIES_SHAYMIN_SKY": {
+  "SPECIES_502": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53457,7 +53457,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ROTOM_HEAT": {
+  "SPECIES_503": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53548,7 +53548,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ROTOM_WASH": {
+  "SPECIES_504": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53639,7 +53639,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ROTOM_FROST": {
+  "SPECIES_505": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53730,7 +53730,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ROTOM_FAN": {
+  "SPECIES_506": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -53821,7 +53821,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ROTOM_MOW": {
+  "SPECIES_507": {
     "LevelMoves": [
       {
         "Level": 1,

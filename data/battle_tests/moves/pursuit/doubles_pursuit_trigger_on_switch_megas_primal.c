@@ -148,10 +148,10 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Groudon’s Primal Reversion! It reverted to its primal state!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Groudon's Primal Reversion! It reverted to its primal state!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The sunlight turned extremely harsh!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Groudon!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom’s Houndoominite is reacting to the Key Stone!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom's Houndoominite is reacting to the Key Stone!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom has Mega Evolved into Mega Houndoom!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom used Pursuit!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight faded." },

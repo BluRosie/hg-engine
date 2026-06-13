@@ -128,9 +128,9 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Garchomp!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric’s Manectite is reacting to the Key Stone!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric's Manectite is reacting to the Key Stone!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric has Mega Evolved into Mega Manectric!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric’s Intimidate cuts the opposing Garchomp’s Attack!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric's Intimidate cuts the opposing Garchomp's Attack!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric used Pursuit!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom used Pursuit!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Houndoom!" },

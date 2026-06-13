@@ -12,6 +12,8 @@
 
 .org 0x02110334
 
+.area 0x02110358-.
+
 load_arm9_expansion: // load the narc subfile with arm9 expansion data
     push {r2, lr}
 
@@ -25,10 +27,7 @@ load_arm9_expansion: // load the narc subfile with arm9 expansion data
     mov r1, #3
     pop {r2, pc}
 
-
 .pool
-
-.org 0x21102C4
 
 HandleLoadOverlay129:
 	push {r3-r7, lr}
@@ -39,5 +38,7 @@ HandleLoadOverlay129:
 	bx r2
 
 .pool
+
+.endarea
 
 .close

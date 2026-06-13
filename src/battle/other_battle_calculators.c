@@ -3498,7 +3498,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             && (struggleCheckFlags & STRUGGLE_CHECK_THROAT_CHOPPED)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
-
+#if PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION <= GEN_LATEST
         if (ctx->battlemon[battlerId].move[movePos] == MOVE_BELCH
             && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE
             && (struggleCheckFlags & STRUGGLE_CHECK_BELCH)) {
@@ -3509,6 +3509,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
             && (struggleCheckFlags & STRUGGLE_CHECK_STUFF_CHEEKS)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
+#endif
     }
     return nonSelectableMoves;
 }
@@ -3599,7 +3600,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
         && ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch == FALSE) {
         msg->tag = TAG_NICKNAME;
         // { STRVAR_1 1, 0, 0 } hasn’t eaten any held Berries,\nso it can’t possibly belch!
-        msg->id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCN;
+        msg->id = BATTLE_MSG_CANT_POSSIBLY_USE_BELCH;
         msg->param[0] = CreateNicknameTag(ctx, battlerId);
         ret = FALSE;
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_STUFF_CHEEKS) & No2Bit(movePos)) {
@@ -4227,4 +4228,180 @@ BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx)
         return FALSE;
     }
     return TRUE;
+}
+
+int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, int battlerIdAttacker, u16 moveNo, int a4, int range)
+{
+    int battlerIdTarget = BATTLER_NONE;
+    int moveRange;
+
+    if (moveNo) {
+        moveRange = ctx->moveTbl[moveNo].target;
+    } else {
+        moveRange = range;
+    }
+
+    if (moveRange == RANGE_ADJACENT_OPPONENTS) {
+        int battlerId;
+        int maxBattlers = BattleWorkClientSetMaxGet(bw);
+        void *opponent = bw->opponentData[battlerIdAttacker];
+        u8 flag = ov12_02261258(opponent);
+
+        for (ctx->client_loop = 0; ctx->client_loop < maxBattlers; ctx->client_loop++) {
+            battlerId = ctx->turnOrder[ctx->client_loop];
+            if (ctx->battlemon[battlerId].hp) {
+                opponent = bw->opponentData[battlerId];
+                if (((flag & 1) && !(ov12_02261258(opponent) & 1)) || (!(flag & 1) && (ov12_02261258(opponent) & 1))) {
+                    battlerIdTarget = battlerId;
+                    break;
+                }
+            }
+        }
+
+        if (ctx->client_loop != maxBattlers) {
+            ctx->client_loop++;
+        }
+    } else if (moveRange == RANGE_ALL_ADJACENT) {
+        int battlerId;
+        int maxBattlers = BattleWorkClientSetMaxGet(bw);
+
+        for (ctx->client_loop = 0; ctx->client_loop < maxBattlers; ctx->client_loop++) {
+            battlerId = ctx->turnOrder[ctx->client_loop];
+            if (ctx->battlemon[battlerId].hp) {
+                if (battlerId != battlerIdAttacker) {
+                    battlerIdTarget = battlerId;
+                    break;
+                }
+            }
+        }
+
+        if (ctx->client_loop != maxBattlers) {
+            ctx->client_loop++;
+        }
+    } else if (moveRange == RANGE_SINGLE_TARGET_USER_SIDE && (a4 == 1)) {
+        int battleType = BattleTypeGet(bw);
+
+        if ((battleType & BATTLE_TYPE_DOUBLE) && (BattleRand(bw) % 2) == 0) {
+            battlerIdTarget = BATTLER_ALLY(battlerIdAttacker);
+            if (!ctx->battlemon[battlerIdTarget].hp) {
+                battlerIdTarget = battlerIdAttacker;
+            }
+        } else {
+            battlerIdTarget = battlerIdAttacker;
+        }
+    } else if (moveRange == RANGE_FRONT && (a4 == 1)) {
+        battlerIdTarget = Battler_GetRandomOpposingBattlerId(bw, ctx, battlerIdAttacker);
+    } else if (moveRange == RANGE_OPPONENT_SIDE) {
+        battlerIdTarget = Battler_GetRandomOpposingBattlerId(bw, ctx, battlerIdAttacker);
+    } else if (moveRange == RANGE_USER || moveRange == RANGE_USER_SIDE || moveRange == RANGE_SINGLE_TARGET_SPECIAL || moveRange == RANGE_FIELD) {
+        battlerIdTarget = battlerIdAttacker;
+    } else if (moveRange == RANGE_ALLY) {
+        int battleType = BattleTypeGet(bw);
+
+        if (battleType & BATTLE_TYPE_DOUBLE) {
+            battlerIdTarget = BATTLER_ALLY(battlerIdAttacker);
+        } else {
+            battlerIdTarget = battlerIdAttacker;
+        }
+    } else if (moveRange == RANGE_SINGLE_TARGET_USER_SIDE) {
+        int battleType = BattleTypeGet(bw);
+
+        if (battleType & BATTLE_TYPE_DOUBLE) {
+            battlerIdTarget = ctx->playerActions[battlerIdAttacker][1]; //.unk4
+            if (!ctx->battlemon[battlerIdTarget].hp) {
+                battlerIdTarget = battlerIdAttacker;
+            }
+        } else {
+            battlerIdTarget = battlerIdAttacker;
+        }
+    } else if (moveRange == RANGE_RANDOM_OPPONENT || a4 == 1) {
+        int battleType = BattleTypeGet(bw);
+        int side = IsClientEnemy(bw, battlerIdAttacker) ^ 1;
+        //int side = BattleSystem_GetFieldSide(battleSystem, battlerIdAttacker) ^ 1;
+        int battlerIdOpponents[2];
+        battlerIdOpponents[0] = ov12_0223ABB8(bw, battlerIdAttacker, 0);
+        battlerIdOpponents[1] = ov12_0223ABB8(bw, battlerIdAttacker, 2);
+
+        if (battleType & BATTLE_TYPE_DOUBLE) {
+            if (ctx->current_move_index != MOVE_SNIPE_SHOT
+                && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_PROPELLER_TAIL)
+                && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_STALWART)
+                && ctx->scw[side].followMeFlag
+                && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
+                battlerIdTarget = ctx->scw[side].battlerIdFollowMe;
+            } else if (ctx->battlemon[battlerIdOpponents[0]].hp && ctx->battlemon[battlerIdOpponents[1]].hp) {
+                // This looks like targeting for Outrage in double battles
+                side = BattleRand(bw) & 1;
+                battlerIdTarget = battlerIdOpponents[side];
+            } else if (ctx->battlemon[battlerIdOpponents[0]].hp) {
+                battlerIdTarget = battlerIdOpponents[0];
+            } else if (ctx->battlemon[battlerIdOpponents[1]].hp) {
+                battlerIdTarget = battlerIdOpponents[1];
+            }
+        } else if (ctx->battlemon[BATTLER_OPPONENT(battlerIdAttacker)].hp) {
+            battlerIdTarget = BATTLER_OPPONENT(battlerIdAttacker);
+        }
+    } else {
+        int side = IsClientEnemy(bw, battlerIdAttacker) ^ 1;
+        //int side = BattleSystem_GetFieldSide(battleSystem, battlerIdAttacker) ^ 1;
+        int battlerIdTargetTemp = ctx->playerActions[battlerIdAttacker][1]; //.unk4
+        //BattleSystem_GetMaxBattlers(battleSystem);
+
+        if (ctx->current_move_index != MOVE_SNIPE_SHOT
+            && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_PROPELLER_TAIL)
+            && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_STALWART)
+            && ctx->scw[side].followMeFlag
+            && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
+            battlerIdTarget = ctx->scw[side].battlerIdFollowMe;
+        } else if (ctx->battlemon[battlerIdTargetTemp].hp) {
+            battlerIdTarget = battlerIdTargetTemp;
+        } else {
+            battlerIdTargetTemp = Battler_GetRandomOpposingBattlerId(bw, ctx, battlerIdAttacker);
+            if (ctx->battlemon[battlerIdTargetTemp].hp) {
+                battlerIdTarget = battlerIdTargetTemp;
+            }
+        }
+    }
+
+    return battlerIdTarget;
+}
+
+
+void LONG_CALL HandleTransform(struct BattleStruct *sp)
+{
+    // fuck it get rid of transform script command:
+    sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORMED;
+    sp->battlemon[sp->attack_client].moveeffect.disabledMove = 0;
+    sp->battlemon[sp->attack_client].moveeffect.disabledTurns = 0;
+    sp->battlemon[sp->attack_client].moveeffect.transformPid = sp->battlemon[sp->defence_client].personal_rnd;
+    sp->battlemon[sp->attack_client].moveeffect.transformGender = sp->battlemon[sp->defence_client].sex;
+    sp->battlemon[sp->attack_client].moveeffect.mimickedMoveIndex = 0;
+    sp->battlemon[sp->attack_client].moveeffect.lastResortCount = 0;
+
+    u8 *src, *dest;
+    src = (u8 *)&sp->battlemon[sp->attack_client];
+    dest = (u8 *)&sp->battlemon[sp->defence_client];
+
+    for (int num = 0; num <= (int)0x26 /*offsetof(struct BattlePokemon, ability)*/; num++) {
+        src[num] = dest[num];
+    }
+
+    sp->battlemon[sp->attack_client].ability = sp->battlemon[sp->defence_client].ability; // was moved inside the struct
+    sp->battlemon[sp->attack_client].ability_activated_flag = 0;
+    sp->battlemon[sp->attack_client].moveeffect.truantFlag = sp->total_turn & 1;
+    sp->battlemon[sp->attack_client].moveeffect.slowStartTurns = sp->total_turn + 1;
+    sp->battlemon[sp->attack_client].slow_start_flag = 0;
+    sp->battlemon[sp->attack_client].slow_start_end_flag = 0;
+    ClearBattleMonFlags(sp, sp->attack_client); // clear extra flags here too
+    sp->battlemon[sp->attack_client].imposter_flag = 1;
+    sp->moveConditionsFlags[sp->attack_client].laserFocusTimer = sp->moveConditionsFlags[sp->defence_client].laserFocusTimer;
+
+    for (int num = 0; num < 4; num++) {
+        sp->battlemon[sp->attack_client].move[num] = sp->battlemon[sp->defence_client].move[num];
+        if (sp->moveTbl[sp->battlemon[sp->attack_client].move[num]].pp < 5) {
+            sp->battlemon[sp->attack_client].pp[num] = sp->moveTbl[sp->battlemon[sp->attack_client].move[num]].pp;
+        } else {
+            sp->battlemon[sp->attack_client].pp[num] = 5;
+        }
+    }
 }

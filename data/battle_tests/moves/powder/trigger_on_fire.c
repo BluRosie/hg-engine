@@ -104,7 +104,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon is covered in powder!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Fire Blast!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "When the flame touched the powder on the Pokémon, it exploded!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "When the flame touched the powder on the Pokemon, it exploded!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Tackle!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 33, 33, 33, 34, 34, 35, 35, 35, 36, 36, 37, 37, 37, 38, 38, 39 } },            

@@ -185,6 +185,14 @@ def load_tutor_move_list(file_path):
     return move_list
 
 
+def grab_learnset_field(species_learnsets, species_name, field):
+    form_to_base = load_form_to_species_mapping("data/FormToSpeciesMapping.c")
+    learnset = species_learnsets.get(species_name, {}).get(field, [])
+    if learnset == [] and species_name in form_to_base:
+        learnset = species_learnsets.get(form_to_base[species_name], {}).get(field, [])
+    return learnset
+
+
 def write_learnset_constants_inc(max_num_levelup_moves, output_path):
     os.makedirs(os.path.dirname(output_path), exist_ok=True)
 
@@ -226,11 +234,11 @@ def write_machine_data(species_dict, species_learnsets, machine_moves, output_pa
             learnset = []
             levelup_moves = {}
             if species_name:
-                learnset = species_learnsets.get(species_name, {}).get("MachineMoves", [])
+                learnset = grab_learnset_field(species_learnsets, species_name, "MachineMoves")
                 learnset = list(set(m.strip() for m in learnset))
 
                 levelup_moves = {
-                    m["Move"] for m in species_learnsets.get(species_name, {}).get("LevelMoves", [])
+                    m["Move"] for m in grab_learnset_field(species_learnsets, species_name, "LevelMoves")
                     if "Move" in m
                 }
 
@@ -268,7 +276,7 @@ def write_levelup_data(species_dict, moves_dict, species_learnsets, max_num_leve
             species_name = species_id_to_name.get(species_id)
             learnset = []
             if species_name:
-                learnset = species_learnsets.get(species_name, {}).get("LevelMoves", [])
+                learnset = grab_learnset_field(species_learnsets, species_name, "LevelMoves")
 
             entries = []
 
@@ -314,7 +322,7 @@ def write_eggmove_data(species_dict, moves_dict, species_learnsets, max_num_egg_
             egg_moves = []
 
             if species_name:
-                egg_moves = species_learnsets.get(species_name, {}).get("EggMoves", [])
+                egg_moves = grab_learnset_field(species_learnsets, species_name, "EggMoves")
 
             moves = []
             for move in egg_moves:
@@ -362,7 +370,7 @@ def write_tutor_data(species_dict, moves_dict, species_learnsets, tutor_moves, o
 
             parts = [0] * words_per_row
             if species_name:
-                tutor_list = species_learnsets.get(species_name, {}).get("TutorMoves", [])
+                tutor_list = grab_learnset_field(species_learnsets, species_name, "TutorMoves")
                 for move in tutor_list:
                     idx = move_to_index.get(move)
                     if idx is None:

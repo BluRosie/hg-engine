@@ -80,7 +80,8 @@ OUTPUT = BUILD + "/output.bin"
 LINKED_SECTIONS = [BUILD + "/linked.o"]
 for file in OVERLAYS:
     LINKED_SECTIONS.append(BUILD + "/" + file + "_linked.o")
-OFFSET_START_IN_129 = 0x680
+
+OFFSET_START_IN_129 = 0x60
 
 def ExtractPointer(byteList: [bytes]):
     pointer = 0
@@ -570,7 +571,7 @@ def offset():
                 rom.close()
 
 
-OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 23, 31, 61, 63, 64, 68, 94, 96, 112]
+OVERLAYS_TO_DECOMPRESS = [1, 2, 6, 7, 8, 10, 12, 14, 15, 18, 23, 31, 61, 63, 64, 68, 94, 96, 112, 123]
 
 
 def decompress():

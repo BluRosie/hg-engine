@@ -166,7 +166,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         damageCalc.clients[attacker].type2 = GetMonData(pp, MON_DATA_TYPE_2, 0);
         damageCalc.clients[attacker].type3 = TYPE_TYPELESS;
         damageCalc.clients[attacker].isGrounded = TRUE;
-        if ((damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING) && !(sp->field_condition & FIELD_STATUS_GRAVITY))
+        if ((damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING)) //&& !(sp->field_condition & FIELD_STATUS_GRAVITY)) //unknown
         {
             damageCalc.clients[attacker].isGrounded = FALSE;
         }
@@ -921,6 +921,28 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_DAMAGE_CALC
     debug_printf("\n=================\n");
     debug_printf("[CalcBaseDamage] Step 10. Z-move into Protecting Move Modifier\n");
+    debug_printf("[CalcBaseDamage] damage: %d\n", damage);
+#endif
+
+    // Todo Z-Move + Unseen Fist?
+    // Step 10.1 Unseen Fist / Piercing Drill
+    // 0.25x damage into protect
+    if (((attackerAbility == ABILITY_PIERCING_DRILL)
+#if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
+            || (attackerAbility == ABILITY_UNSEEN_FIST))
+#endif
+        && sp->oneTurnFlag[defender].protectFlag) {
+        damage = QMul_RoundDown(damage, UQ412__0_25);
+#ifdef DEBUG_DAMAGE_ROLLS
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = QMul_RoundDown(predamage[u], UQ412__0_25);
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+    }
+
+#ifdef DEBUG_DAMAGE_CALC
+    debug_printf("\n=================\n");
+    debug_printf("[CalcBaseDamage] Step 10.1 Unseen Fist / Piercing Drill\n");
     debug_printf("[CalcBaseDamage] damage: %d\n", damage);
 #endif
 
