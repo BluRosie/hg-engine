@@ -660,13 +660,13 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised the power\fof its
 {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
 The wild {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
 The opposing {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts {STRVAR_1 1, 2, 0}’s {STRVAR_1 13, 3, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts the wild {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts the opposing {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cuts {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cuts the wild\f{STRVAR_1 1, 2, 0}’s {STRVAR_1 13, 3, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cuts {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cuts the opposing\f{STRVAR_1 1, 2, 0}’s {STRVAR_1 13, 3, 0}!
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents stat loss!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents stat loss!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents stat loss!
