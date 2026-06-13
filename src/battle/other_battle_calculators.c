@@ -82,7 +82,7 @@ u8 HeldItemPowerUpTable[36][2] = {
 #endif
 };
 
-const u16 PowderMovesList[] = {
+const u16 PowderMoveList[] = {
     MOVE_COTTON_SPORE,
     MOVE_POISON_POWDER,
     MOVE_SLEEP_POWDER,
@@ -127,7 +127,7 @@ const u16 TriageMovesList[] = {
     MOVE_WISH,
 };
 
-const u16 BulletproofMoveList[] = {
+const u16 BallAndBombMoveList[] = {
     MOVE_ACID_SPRAY,
     MOVE_AURA_SPHERE,
     MOVE_BARRAGE,
@@ -156,7 +156,7 @@ const u16 BulletproofMoveList[] = {
     MOVE_ZAP_CANNON,
 };
 
-const u16 WindMovesTable[] = {
+const u16 WindMoveTable[] = {
     MOVE_AEROBLAST,
     MOVE_AIR_CUTTER,
     MOVE_BLEAKWIND_STORM,
@@ -409,16 +409,14 @@ const u16 MaxMoveList[] = {
     MOVE_MAX_STEELSPIKE,
 };
 
-u16 WeightMoveList[6] = {
+u16 DynamaxBannedWeightMoveList[6] = {
     MOVE_LOW_KICK,
     MOVE_GRASS_KNOT,
-    MOVE_AUTOTOMIZE,
     MOVE_HEAVY_SLAM,
-    MOVE_SKY_DROP,
     MOVE_HEAT_CRASH,
 };
 
-u16 PunchingMovesTable[24] = {
+u16 PunchingMoveTable[24] = {
     MOVE_BULLET_PUNCH,
     MOVE_COMET_PUNCH,
     MOVE_DIZZY_PUNCH,
@@ -445,7 +443,7 @@ u16 PunchingMovesTable[24] = {
     MOVE_WICKED_BLOW,
 };
 
-u16 StrongJawMovesTable[10] = {
+u16 BitingMoveTable[10] = {
     MOVE_BITE,
     MOVE_CRUNCH,
     MOVE_FIRE_FANG,
@@ -458,7 +456,7 @@ u16 StrongJawMovesTable[10] = {
     MOVE_THUNDER_FANG,
 };
 
-u16 MegaLauncherMovesTable[7] = {
+u16 PulseMoveTable[7] = {
     MOVE_AURA_SPHERE,
     MOVE_DARK_PULSE,
     MOVE_DRAGON_PULSE,
@@ -468,7 +466,7 @@ u16 MegaLauncherMovesTable[7] = {
     MOVE_WATER_PULSE,
 };
 
-u16 SharpnessMovesTable[27] = {
+u16 SlicingMoveTable[31] = {
     MOVE_AERIAL_ACE,
     MOVE_AIR_CUTTER,
     MOVE_AIR_SLASH,
@@ -477,26 +475,47 @@ u16 SharpnessMovesTable[27] = {
     MOVE_BITTER_BLADE,
     MOVE_CEASELESS_EDGE,
     MOVE_CROSS_POISON,
+    MOVE_CRUSH_CLAW,
     MOVE_CUT,
+    MOVE_DIRE_CLAW,
+    MOVE_DRAGON_CLAW,
     MOVE_FURY_CUTTER,
     MOVE_KOWTOW_CLEAVE,
     MOVE_LEAF_BLADE,
+    MOVE_METAL_CLAW,
+    MOVE_MIGHTY_CLEAVE,
     MOVE_NIGHT_SLASH,
     MOVE_POPULATION_BOMB,
     MOVE_PSYBLADE,
     MOVE_PSYCHO_CUT,
-    MOVE_RAZOR_SHELL,
     MOVE_RAZOR_LEAF,
+    MOVE_RAZOR_SHELL,
     MOVE_SACRED_SWORD,
     MOVE_SECRET_SWORD,
+    MOVE_SHADOW_CLAW,
     MOVE_SLASH,
     MOVE_SOLAR_BLADE,
     MOVE_STONE_AXE,
+    MOVE_TACHYON_CUTTER,
     MOVE_X_SCISSOR,
-    MOVE_SHADOW_CLAW,
-    MOVE_DRAGON_CLAW,
-    MOVE_DIRE_CLAW,
 };
+
+u16 DanceMoveTable[] = {
+    MOVE_SWORDS_DANCE,
+    MOVE_PETAL_DANCE,
+    MOVE_FEATHER_DANCE,
+    MOVE_TEETER_DANCE,
+    MOVE_DRAGON_DANCE,
+    MOVE_LUNAR_DANCE,
+    MOVE_QUIVER_DANCE,
+    MOVE_FIERY_DANCE,
+    MOVE_REVELATION_DANCE,
+    MOVE_CLANGOROUS_SOUL,
+    MOVE_VICTORY_DANCE,
+    MOVE_AQUA_STEP,
+};
+
+// TODO: code table to store the above, as well as Explosive, Mental, Healing moves list
 
 u16 sLowKickWeightToPower[6][2] = {
     { 100, 20 }, //   0- 10 kg ->  20 bp
@@ -2344,8 +2363,8 @@ BOOL LONG_CALL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL c
 BOOL LONG_CALL IsPowderMove(u32 moveIndex)
 {
     u8 output = FALSE;
-    for (u16 i = 0; i < NELEMS(PowderMovesList); i++) {
-        if (moveIndex == PowderMovesList[i]) {
+    for (u16 i = 0; i < NELEMS(PowderMoveList); i++) {
+        if (moveIndex == PowderMoveList[i]) {
             output = TRUE;
             break;
         }
@@ -2356,12 +2375,12 @@ BOOL LONG_CALL IsPowderMove(u32 moveIndex)
 /**
  * @brief Check if the current move is a Weight move
  * @param moveIndex move index
- * @return TRUE if it is a Weight move
+ * @return TRUE if it is a Dynamax banned weight move
  */
-BOOL LONG_CALL IsWeightMove(u32 moveIndex)
+BOOL LONG_CALL IsDynamaxBannedWeightMove(u32 moveIndex)
 {
-    for (u16 i = 0; i < NELEMS(WeightMoveList); i++) {
-        if (moveIndex == WeightMoveList[i]) {
+    for (u16 i = 0; i < NELEMS(DynamaxBannedWeightMoveList); i++) {
+        if (moveIndex == DynamaxBannedWeightMoveList[i]) {
             return TRUE;
         }
     }
@@ -2375,8 +2394,8 @@ BOOL LONG_CALL IsWeightMove(u32 moveIndex)
  */
 BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex)
 {
-    for (u16 i = 0; i < NELEMS(BulletproofMoveList); i++) {
-        if (moveIndex == BulletproofMoveList[i]) {
+    for (u16 i = 0; i < NELEMS(BallAndBombMoveList); i++) {
+        if (moveIndex == BallAndBombMoveList[i]) {
             return TRUE;
         }
     }
@@ -2718,7 +2737,7 @@ void LONG_CALL BattleController_MoveEnd(struct BattleSystem *bsys, struct Battle
  */
 BOOL LONG_CALL IsMovePunchingMove(u16 move)
 {
-    return IsElementInArray(PunchingMovesTable, (u16 *)&move, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]));
+    return IsElementInArray(PunchingMoveTable, (u16 *)&move, NELEMS(PunchingMoveTable), sizeof(PunchingMoveTable[0]));
 }
 
 /**
@@ -2728,7 +2747,7 @@ BOOL LONG_CALL IsMovePunchingMove(u16 move)
  */
 BOOL LONG_CALL IsMoveWindMove(u16 move)
 {
-    return IsElementInArray(WindMovesTable, (u16 *)&move, NELEMS(WindMovesTable), sizeof(WindMovesTable[0]));
+    return IsElementInArray(WindMoveTable, (u16 *)&move, NELEMS(WindMoveTable), sizeof(WindMoveTable[0]));
 }
 
 /**

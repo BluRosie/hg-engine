@@ -2011,7 +2011,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         return TRUE;
     }
     // Weight moves into Dynamax
-    if (IsWeightMove(currentMoveIndex) && defenceClient.is_currently_dynamaxed) {
+    if (IsDynamaxBannedWeightMove(currentMoveIndex) && defenceClient.is_currently_dynamaxed) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANT_USE_MOVE_DYNAMAX_TARGET);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;

@@ -2237,13 +2237,13 @@ extern u8 TypeEffectivenessTable[][3];
 
 extern u8 HeldItemPowerUpTable[36][2];
 
-extern u16 PunchingMovesTable[24];
+extern u16 PunchingMoveTable[24];
 
-extern u16 StrongJawMovesTable[10];
+extern u16 BitingMoveTable[10];
 
-extern u16 MegaLauncherMovesTable[7];
+extern u16 PulseMoveTable[7];
 
-extern u16 SharpnessMovesTable[27];
+extern u16 SlicingMoveTable[31];
 
 extern u16 sLowKickWeightToPower[6][2];
 
@@ -2251,7 +2251,7 @@ extern int typeToBerryMapping[18];
 
 extern u8 StatBoostModifiers[13][2];
 
-extern u16 WeightMoveList[6];
+extern u16 DynamaxBannedWeightMoveList[6];
 
 extern struct newBattleStruct newBS;
 extern struct ILLUSION_STRUCT gIllusionStruct;
@@ -3449,9 +3449,9 @@ BOOL LONG_CALL IsPowderMove(u32 moveIndex);
 /**
  * @brief Check if the current move is a Weight move
  * @param moveIndex move index
- * @return TRUE if it is a Weight move
+ * @return TRUE if it is a Dynamax banned weight move
  */
-BOOL LONG_CALL IsWeightMove(u32 moveIndex);
+BOOL LONG_CALL IsDynamaxBannedWeightMove(u32 moveIndex);
 
 /**
  * @brief Check if the current move is a ball or bomb move

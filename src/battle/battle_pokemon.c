@@ -1147,7 +1147,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 /**
  *  @brief moves that soundproof blocks
  */
-u16 SoundProofMovesList[] = {
+u16 SoundBasedMoveList[] = {
     MOVE_ALLURING_VOICE,
     MOVE_BOOMBURST,
     MOVE_BUG_BUZZ,
@@ -1278,7 +1278,7 @@ u32 LONG_CALL GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
  */
 BOOL LONG_CALL IsMoveSoundBased(u32 move)
 {
-    return IsElementInArray(SoundProofMovesList, (u16 *)(&move), NELEMS(SoundProofMovesList), sizeof(SoundProofMovesList[0]));
+    return IsElementInArray(SoundBasedMoveList, (u16 *)(&move), NELEMS(SoundBasedMoveList), sizeof(SoundBasedMoveList[0]));
 }
 
 
