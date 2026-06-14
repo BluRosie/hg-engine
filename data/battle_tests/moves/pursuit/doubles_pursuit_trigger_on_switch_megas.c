@@ -123,5 +123,4 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp's Rough Skin" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric's Attack fell!" },
     },
-    .knownFailing = TRUE
 } END_TEST

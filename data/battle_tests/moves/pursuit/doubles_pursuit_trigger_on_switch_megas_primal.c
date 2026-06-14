@@ -142,7 +142,6 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom has Mega Evolved into Mega Houndoom!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom used Pursuit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight faded." },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom's Attack fell!" },
     },
-    .knownFailing = TRUE,
 } END_TEST

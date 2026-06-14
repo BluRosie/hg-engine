@@ -3038,6 +3038,8 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
     if (script) {
         // debug_printf("script: %d\n", script);
         sp->temp_work = script;
+        sp->next_server_seq_no = sp->server_seq_no;
+        sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
     } else {
         // debug_printf("no script needed\n");
         IncrementBattleScriptPtr(sp, failAddress);
@@ -5506,4 +5508,6 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
         }
         */
     }
+
+    return FALSE;
 }
