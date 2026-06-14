@@ -51,7 +51,7 @@ BEGIN_TEST {
             .level = 50,
             .form = 0,
             .ability = ABILITY_OVERGROW,
-            .item = ITEM_NONE,
+            .item = ITEM_MEGANIUMITE,
             .moves = { MOVE_WEATHER_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
