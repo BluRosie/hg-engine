@@ -27,10 +27,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
 
     if (ctx->pursuitContext.isActive == TRUE)
     {
+        ctx->pursuitContext.isActive = FALSE;
         ctx->attack_client = ctx->pursuitContext.originalAttacker;
         ctx->defence_client = ctx->pursuitContext.originalDefender;
-        if (ctx->pursuitContext.isActive
-            && ctx->current_move_index == MOVE_PURSUIT
+        if (ctx->current_move_index == MOVE_PURSUIT
             && ctx->battlemon[ctx->reshuffle_client].hp) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARTY_LIST);
             ctx->next_server_seq_no = ctx->server_seq_no;
