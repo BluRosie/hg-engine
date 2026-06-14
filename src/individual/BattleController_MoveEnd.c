@@ -33,7 +33,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         if (ctx->current_move_index == MOVE_PURSUIT
             && ctx->battlemon[ctx->reshuffle_client].hp) {
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARTY_LIST);
-            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->next_server_seq_no = CONTROLLER_COMMAND_BEFORE_TURN;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         }
