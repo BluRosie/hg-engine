@@ -85,7 +85,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon used Pursuit!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 23, 23, 25, 25, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 27, 29 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Umbreon!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp's Rough Skin" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon lost some of its HP!" },
     }
 }

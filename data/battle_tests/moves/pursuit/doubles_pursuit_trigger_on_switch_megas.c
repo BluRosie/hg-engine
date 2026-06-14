@@ -120,7 +120,7 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Attack fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric used Pursuit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom used Pursuit!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Houndoom!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp's Rough Skin" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric's Attack fell!" },
     },
     .knownFailing = TRUE

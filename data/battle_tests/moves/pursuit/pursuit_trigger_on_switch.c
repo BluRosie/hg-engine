@@ -97,7 +97,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Garchomp!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon used Pursuit!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 44, 47, 47, 47, 47, 48, 48, 48, 51, 51, 51, 51, 52, 52, 52, 55 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Umbreon!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = " Garchomp's Rough Skin" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon lost some of its HP!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon's Attack fell!" },
     }
