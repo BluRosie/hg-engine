@@ -29,6 +29,14 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     {
         ctx->attack_client = ctx->pursuitContext.originalAttacker;
         ctx->defence_client = ctx->pursuitContext.originalDefender;
+        if (ctx->pursuitContext.isActive
+            && ctx->current_move_index == MOVE_PURSUIT
+            && ctx->battlemon[ctx->reshuffle_client].hp) {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARTY_LIST);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
     }
 
     if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_PAL_PARK))) {
@@ -108,6 +116,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->moveContext.currentMoveCalcDone = FALSE;
 
     ctx->pursuitContext.isActive = FALSE;
+
+    for (unsigned int i = 0; i < MAX_BATTLERS_COUNT; i++) {
+        debug_printf("ctx->playerActions[%d] = %d", i, ctx->playerActions[i][0]);
+    }
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
