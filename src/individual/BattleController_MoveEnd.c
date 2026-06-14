@@ -117,10 +117,6 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
 
     ctx->pursuitContext.isActive = FALSE;
 
-    for (unsigned int i = 0; i < MAX_BATTLERS_COUNT; i++) {
-        debug_printf("ctx->playerActions[%d] = %d", i, ctx->playerActions[i][0]);
-    }
-
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 
     if (ctx->oneSelfFlag[ctx->attack_client].trickRoomFlag) {
