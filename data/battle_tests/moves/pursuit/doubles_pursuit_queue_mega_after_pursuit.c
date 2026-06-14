@@ -52,7 +52,7 @@ BEGIN_TEST {
             .form = 0,
             .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
-            .moves = { MOVE_SOLAR_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_WEATHER_BALL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
