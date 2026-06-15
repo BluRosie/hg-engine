@@ -252,6 +252,11 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             movepower *= 2;
         }
         break;
+    case MOVE_PURSUIT:
+        if (sp->pursuitContext.isActive) {
+            movepower *= 2;
+        }
+        break;
     case MOVE_WATER_PLEDGE:
     case MOVE_FIRE_PLEDGE:
     case MOVE_GRASS_PLEDGE:
@@ -400,11 +405,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     }
 
     switch (moveno) {
-    case MOVE_PURSUIT:
-        if (sp->pursuitContext.isActive) {
-            basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
-        }
-        break;
     case MOVE_FACADE:
         if (AttackingMon.condition & STATUS_FACADE_BOOST) {
             basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);

@@ -1,4 +1,4 @@
-// Test: Pursuit - trigger pursuit on hard switch in doubles and mega against Pirmal-Groudon
+// Test: Pursuit - trigger pursuit on hard switch in doubles and mega against Primal-Groudon
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLE,
