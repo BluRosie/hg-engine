@@ -30,7 +30,7 @@ BEGIN_TEST
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_ROUGH_SKIN,
-                        .item = ITEM_NONE,
+                        .item = ITEM_EJECT_BUTTON,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
