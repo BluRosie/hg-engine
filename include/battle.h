@@ -1263,6 +1263,21 @@ typedef struct MovePerformanceContext {
     int hitSubstitute[3];
 } MovePerformanceContext;
 
+typedef struct ExtraAction {
+    u8 attacker;
+    u8 defender;
+    u16 type;    // unused for now
+    u32 moveNumberOrAction;
+} ExtraAction;
+
+typedef struct DancerContext {
+    u8 isActive;
+    u8 originalDefender;
+    u8 originalAttacker;
+    ExtraAction extraActions[CLIENT_MAX];
+} DancerContext;
+
+
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
 /**
@@ -1506,6 +1521,8 @@ struct BattleStruct {
     u8 paradoxBoostedStat[CLIENT_MAX];
     BOOL boosterEnergyActivated[CLIENT_MAX];
     MovePerformanceContext moveContext;
+
+    DancerContext dancerContext;
 };
 
 enum {
@@ -3459,6 +3476,8 @@ BOOL LONG_CALL IsDynamaxBannedWeightMove(u32 moveIndex);
  * @return TRUE if it is a Weight move
  */
 BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex);
+
+BOOL LONG_CALL IsDanceMove(u32 moveIndex);
 
 /// @brief Get the priority of the client
 /// @param bsys

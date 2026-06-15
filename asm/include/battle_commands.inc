@@ -1581,6 +1581,10 @@
     .long \val
     .endm
 
+    .macro GoBackToBeforeMove
+    .long 289
+    .endm
+
     .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 288
 
     // .macro YourCustomCommand

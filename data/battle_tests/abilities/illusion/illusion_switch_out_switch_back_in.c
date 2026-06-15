@@ -40,7 +40,7 @@ BEGIN_TEST
         {
             .species = SPECIES_LAPRAS,
             .level = 50,
-            .form = 1,
+            .form = 0,
             .ability = ABILITY_WATER_ABSORB,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },

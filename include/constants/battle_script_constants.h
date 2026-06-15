@@ -513,8 +513,9 @@
 #define SUB_SEQ_STAT_WONT_GO_LOWER                     (504)
 #define SUB_SEQ_HANDLE_ANGER_POINT                     (505)
 #define SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE             (506)
+#define SUB_SEQ_HANDLE_DANCER                          (507)
 
-#define MAX_BASE_SUBSCRIPT_NUM 506
+#define MAX_BASE_SUBSCRIPT_NUM 507
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

@@ -2402,6 +2402,16 @@ BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex)
     return FALSE;
 }
 
+BOOL LONG_CALL IsDanceMove(u32 moveIndex)
+{
+    for (u16 i = 0; i < NELEMS(DanceMoveTable); i++) {
+        if (moveIndex == DanceMoveTable[i]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 /**
  * @brief gets the actual attack and defense for damage calculation
  * @param sp battle structure
