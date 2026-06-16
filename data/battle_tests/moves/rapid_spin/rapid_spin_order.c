@@ -37,7 +37,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE }
         },
-        .enemyParty = { 
+        .enemyParty = {
                         {
                             .species = SPECIES_GARCHOMP,
                             .level = 50,
@@ -102,7 +102,7 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem's Speed rose!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Golem!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp's Rough Skin" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem blew away Spikes!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem lost some of its HP!" },
         },

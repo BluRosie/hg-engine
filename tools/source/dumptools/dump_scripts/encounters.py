@@ -239,30 +239,28 @@ def dump_encounters_c(narc, is_expanded):
 	]
 
 	for idx, enc in enumerate(narc):
-		padding = enc["padding"]
 		lines.append(f"    [{get_encounter_area_name(idx)}] = {{")
-		lines.append(f"        .encounterRate_walking = {enc['walking_rate']},")
-		lines.append(f"        .encounterRate_surfing = {enc['surf_rate']},")
-		lines.append(f"        .encounterRate_rockSmash = {enc['rock_smash_rate']},")
-		lines.append(f"        .encounterRate_oldRod = {enc['old_rod_rate']},")
-		lines.append(f"        .encounterRate_goodRod = {enc['good_rod_rate']},")
-		lines.append(f"        .encounterRate_superRod = {enc['super_rod_rate']},")
-		lines.append(f"        .dummy = {{ {padding & 0xFF}, {(padding >> 8) & 0xFF} }},")
+		lines.append(f"        .rateWalk = {enc['walking_rate']},")
+		lines.append(f"        .rateSurf = {enc['surf_rate']},")
+		lines.append(f"        .rateRockSmash = {enc['rock_smash_rate']},")
+		lines.append(f"        .rateOldRod = {enc['old_rod_rate']},")
+		lines.append(f"        .rateGoodRod = {enc['good_rod_rate']},")
+		lines.append(f"        .rateSuperRod = {enc['super_rod_rate']},")
 		lines.append("        .landSlots = {")
 		lines.append("            .levels = {")
 		lines.append("                " + ", ".join(str(enc[f"walking_{n}_level"]) for n in range(12)))
 		lines.append("            },")
 		for field_name, prefix, count in (
-			("species_morn", "morning", 12),
-			("species_day", "day", 12),
-			("species_nite", "night", 12),
+			("speciesMorning", "morning", 12),
+			("speciesDay", "day", 12),
+			("speciesNight", "night", 12),
 		):
 			lines.append(f"            .{field_name} = {{")
 			for n in range(count):
 				lines.append(f"                {get_species_expr(enc[f'{prefix}_{n}_species_id'], is_expanded)},")
 			lines.append("            },")
 		lines.append("        },")
-		for field_name, prefix, count in (("hoennSoundsSpecies", "hoenn", 2), ("sinnohSoundsSpecies", "sinnoh", 2)):
+		for field_name, prefix, count in (("hoennSoundSpecies", "hoenn", 2), ("sinnohSoundSpecies", "sinnoh", 2)):
 			lines.append(f"        .{field_name} = {{")
 			for n in range(count):
 				lines.append(f"            {get_species_expr(enc[f'{prefix}_{n}_species_id'], is_expanded)},")
@@ -296,6 +294,7 @@ def get_encounter_area_name(idx):
 	if idx < len(ENCOUNTER_AREA_NAMES):
 		return ENCOUNTER_AREA_NAMES[idx]
 	return f"{idx}"
+
 
 def get_enc_macro(species_id, enc_type, is_expanded):
 	max_mons = 2048 if is_expanded else 1024

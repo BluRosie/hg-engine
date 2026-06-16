@@ -444,6 +444,9 @@ move_narc: $(NARC_FILES)
 	@echo "wild encounters:"
 	cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)
 
+	@echo "safari zone encounters:"
+	cp $(SAFARI_ENCOUNTER_NARC) $(SAFARI_ENCOUNTER_TARGET)
+
 	@echo "pokemon overworlds:"
 	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
 
