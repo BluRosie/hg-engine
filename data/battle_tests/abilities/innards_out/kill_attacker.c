@@ -1,4 +1,4 @@
-// Test: Snipe Shot - Ignore Follow Me
+// Test: Innards Out - return entire damage received, kill attacker
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,24 +8,24 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_INTELEON,
+            .species = SPECIES_STARAPTOR,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_TORRENT,
+            .ability = ABILITY_RECKLESS,
             .item = ITEM_NONE,
-            .moves = { MOVE_SNIPE_SHOT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 155,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_MUDKIP,
+            .species = SPECIES_SNOM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_TORRENT,
+            .ability = ABILITY_ICE_SCALES,
             .item = ITEM_NONE,
-            .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -34,13 +34,14 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE } },
+        { .species = SPECIES_NONE }
+    },
     .enemyParty = { {
-                        .species = SPECIES_KANGASKHAN,
+                        .species = SPECIES_VICTREEBEL,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_SCRAPPY,
-                        .item = ITEM_NONE,
+                        .ability = ABILITY_OVERGROW,
+                        .item = ITEM_VICTREEBELITE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
@@ -48,18 +49,29 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_CLEFABLE,
+            .species = SPECIES_STARAPTOR,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_MAGIC_GUARD,
+            .ability = ABILITY_RECKLESS,
             .item = ITEM_NONE,
-            .moves = { MOVE_FOLLOW_ME, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_BRAVE_BIRD, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 155,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_SNOM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_ICE_SCALES,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
@@ -84,7 +96,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -94,7 +106,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -104,16 +116,13 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefable used Follow Me!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefable became the center of attention!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Inteleon used Snipe Shot!" },
-#ifdef CHAMPIONS_POWER_CHANGES
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 70, 72, 72, 73, 73, 75, 75, 76, 78, 78, 79, 79, 81, 81, 82, 84 } }, // 85 BP
-#else
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 67, 67, 69, 69, 70, 70, 72, 72, 73, 73, 75, 75, 76, 76, 78, 79 } }, // 80 BP
-#endif 
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 16, 16, 16, 16, 16, 16, 16, 16, 18, 18, 18, 18, 18, 18, 18, 19 } },
-    },
-    .knownFailing = TRUE,
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor used Brave Bird!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155, 155 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Victreebel's Innards Out" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor was hurt!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Victreebel fainted!" },
+    }
 }
 END_TEST

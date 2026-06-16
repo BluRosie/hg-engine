@@ -119,7 +119,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_AFTERMATH)) {
-        if ((sp->defence_client == sp->fainting_client)
+        if ((sp->battlemon[sp->defence_client].hp == 0)
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DAMP) == 0)
             && (sp->battlemon[sp->attack_client].hp)
@@ -130,11 +130,11 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_INNARDS_OUT)) {
-        if ((sp->defence_client == sp->fainting_client)
+        if ((sp->battlemon[sp->defence_client].hp == 0)
             && IsAttackerOnField(sp)
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             && (sp->battlemon[sp->attack_client].hp)) {
-            sp->hp_calc_work = sp->damage;
+            sp->hp_calc_work = sp->store_damage[sp->defence_client];
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE;
             ret = TRUE;
