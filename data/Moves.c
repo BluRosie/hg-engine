@@ -14021,7 +14021,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Bestow",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_GIVE_HELD_ITEM,
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
@@ -14032,13 +14032,13 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9,
         },
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
         },
-        .description = "The user passes its\\nheld item to the\\ntarget when the\\ntarget isn’t\\nholding an item.",
+        .description = "The user passes its\\nheld item to the\\ntarget when the\\ntarget isn’t holding\\nan item.",
     },
 
     [MOVE_INFERNO] = {
@@ -15415,7 +15415,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = 0,
             .contestType = CONTEST_CUTE,
         },
-        .description = "The user takes the\\ntarget\\ntrick-or-treating.\\nThis adds Ghost type\\nto the target’s type.",
+        .description = "The user takes the\\ntarget trick-or-\\ntreating.\\nThis adds Ghost type\\nto the target’s type.",
     },
 
     [MOVE_NOBLE_ROAR] = {
@@ -15523,7 +15523,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = 0,
             .contestType = CONTEST_SMART,
         },
-        .description = "The user puts a forest\\ncurse on the target.\\nThis adds Grass type\\nto the target’s type.",
+        .description = "The user puts a\\nforest curse on the\\ntarget.\\nThis adds Grass type\\nto the target’s type.",
     },
 
     [MOVE_PETAL_BLIZZARD] = {
@@ -21122,7 +21122,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Snap Trap",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_BIND_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 35,
             .type = ((CHAMPIONS_TYPE_CHANGES) ? (TYPE_STEEL) : (TYPE_GRASS)),
@@ -21133,7 +21133,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT | FLAG_CONTACT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT | FLAG_CONTACT,
         },
         .contest = {
             .appeal = 0,
@@ -21230,7 +21230,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Aura Wheel",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_RAISE_SPEED_HIT,
             .split = SPLIT_PHYSICAL,
             .power = 110,
             .type = TYPE_ELECTRIC,
@@ -21241,7 +21241,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
@@ -22202,7 +22202,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Thunder Cage",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_BIND_HIT,
             .split = SPLIT_SPECIAL,
             .power = 80,
             .type = TYPE_ELECTRIC,
@@ -22213,13 +22213,13 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
         .battle = {
             .target = RANGE_SINGLE_TARGET,
             .priority = 0,
-            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED | FLAG_PROTECT,
+            .flags = FLAG_KEEP_HP_BAR | FLAG_MIRROR_MOVE | FLAG_PROTECT,
         },
         .contest = {
             .appeal = 0,
             .contestType = CONTEST_COOL,
         },
-        .description = "The user traps the\\ntarget inside a cage of\\nsparking electricity\\nthat inflicts damage\\nfor four to five turns.",
+        .description = "The user traps the\\ntarget inside a cage\\nof electricity that\\ninflicts damage for\\nfour to five turns.",
     },
 
     [MOVE_DRAGON_ENERGY] = {

@@ -513,8 +513,9 @@
 #define SUB_SEQ_STAT_WONT_GO_LOWER                     (504)
 #define SUB_SEQ_HANDLE_ANGER_POINT                     (505)
 #define SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE             (506)
+#define SUB_SEQ_GIVE_HELD_ITEM                         (507)
 
-#define MAX_BASE_SUBSCRIPT_NUM 506
+#define MAX_BASE_SUBSCRIPT_NUM 507
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -736,8 +737,9 @@
 #define ADD_STATUS_EFF_STUFF_CHEEKS                  (212)
 #define ADD_STATUS_EFF_POWDER                        (213)
 #define ADD_STATUS_EFF_LASER_FOCUS                   (214)
+#define ADD_STATUS_EFF_GIVE_HELD_ITEM                (215)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (214)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (215)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
