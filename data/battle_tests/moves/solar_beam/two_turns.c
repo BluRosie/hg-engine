@@ -1,4 +1,4 @@
-// Test: Solar Beam - Sunny weather interaction
+// Test: Solar Beam - two turn charge move
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -44,7 +44,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -85,6 +85,8 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon used Solar Beam!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon absorbed light!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Blissey used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon used Solar Beam!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 43, 43, 44, 44, 45, 45, 46, 46, 47, 47, 48, 48, 49, 49, 50, 51 } },
     }
 }
