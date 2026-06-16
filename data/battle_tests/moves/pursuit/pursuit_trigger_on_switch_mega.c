@@ -1,31 +1,18 @@
-// Test: Brutal Swing - Helping Hand, ally Rough Skin, Focus Sash order, Weak Armor
+// Test: Pursuit - trigger on hard switch with two Megas in singles
 #include "../../battle_tests.h"
-BEGIN_TEST
-{
-    .battleType = BATTLE_TYPE_DOUBLE,
+BEGIN_TEST {
+    .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_OKIDOGI,
-            .level = 100,
+            .species = SPECIES_HOUNDOOM,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_INSOMNIA,
-            .item = ITEM_NONE,
-            .moves = { MOVE_BRUTAL_SWING, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        {
-            .species = SPECIES_GARCHOMP,
-            .level = 1,
-            .form = 0,
-            .ability = ABILITY_ROUGH_SKIN,
-            .item = ITEM_FOCUS_SASH,
-            .moves = { MOVE_HELPING_HAND, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .ability = ABILITY_FLASH_FIRE,
+            .item = ITEM_HOUNDOOMINITE,
+            .moves = { MOVE_PURSUIT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -34,14 +21,14 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
-    },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_ARMAROUGE,
-                        .level = 1,
+                        .species = SPECIES_GARCHOMP,
+                        .level = 50,
                         .form = 0,
-                        .ability = ABILITY_WEAK_ARMOR,
-                        .item = ITEM_FOCUS_SASH,
+                        .ability = ABILITY_ROUGH_SKIN,
+                        .item = ITEM_GARCHOMPITE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
@@ -49,11 +36,11 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_CERULEDGE,
-            .level = 1,
+            .species = SPECIES_GYARADOS,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_WEAK_ARMOR,
-            .item = ITEM_FOCUS_SASH,
+            .ability = ABILITY_INTIMIDATE,
+            .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -66,7 +53,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -75,7 +62,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -85,8 +72,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
+                         { ACTION_SWITCH_SLOT_1, 0 },
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -95,7 +82,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -105,14 +92,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp hung on using its Focus Sash!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Garchomp!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Houndoom has Mega Evolved into Mega Houndoom!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom used Pursuit!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 43, 45, 45, 45, 46, 46, 46, 48, 48, 48, 49, 49, 49, 51, 51, 52 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp's Rough Skin" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Armarouge hung on using its Focus Sash!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ceruledge hung on using its Focus Sash!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Armarouge's Defense fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Armarouge's Speed rose sharply!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ceruledge's Defense fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ceruledge's Speed rose sharply!" },
-    }
-}
-END_TEST
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom's Attack fell!" },
+    },
+} END_TEST

@@ -1,32 +1,53 @@
-// Test: Struggle - Technician, Life Orb chip
+// Test: Red Card - forced out mon takes hazards damage
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
 #include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/battle_message_constants.h"
 #include "../../../../include/constants/item.h"
 #include "../../../../include/constants/moves.h"
 #include "../../../../include/constants/species.h"
 #include "../../../../include/test_battle.h"
 
-// each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {
-        .battleType = BATTLE_TYPE_SINGLE,
+    { .battleType = BATTLE_TYPE_DOUBLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_SCIZOR,
+                .species = SPECIES_MARSHTOMP,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_TECHNICIAN,
-                .item = ITEM_LIFE_ORB,
-                .moves = { MOVE_STRUGGLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .ability = ABILITY_INSOMNIA,
+                .item = ITEM_NONE,
+                .moves = { MOVE_BULLDOZE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
+            {
+                .species = SPECIES_FURRET,
+                .level = 29,
+                .form = 0,
+                .ability = ABILITY_FRISK,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
+            {
+                .species = SPECIES_TREECKO,
+                .level = 29,
+                .form = 0,
+                .ability = ABILITY_CHLOROPHYLL,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -34,22 +55,31 @@ const struct TestBattleScenario BattleTests[] = {
             },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE },
-            { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .enemyParty = { {
-                            .species = SPECIES_GARCHOMP,
-                            .level = 50,
+                            .species = SPECIES_GRENINJA,
+                            .level = 100,
                             .form = 0,
-                            .ability = ABILITY_ROUGH_SKIN,
-                            .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .ability = ABILITY_TORRENT,
+                            .item = ITEM_RED_CARD,
+                            .moves = { MOVE_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
                         },
-            { .species = SPECIES_NONE },
+            {
+                .species = SPECIES_FURRET,
+                .level = 30,
+                .form = 0,
+                .ability = ABILITY_FRISK,
+                .item = ITEM_NONE,
+                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -65,7 +95,7 @@ const struct TestBattleScenario BattleTests[] = {
                               { ACTION_NONE, 0 },
                           },
             {
-                { ACTION_NONE, 0 },
+                { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -85,7 +115,7 @@ const struct TestBattleScenario BattleTests[] = {
                              { ACTION_NONE, 0 },
                          },
             {
-                { ACTION_NONE, 0 },
+                { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
                 { ACTION_NONE, 0 },
@@ -95,11 +125,14 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 49, 49, 51, 51, 52, 52, 52, 53, 53, 55, 55, 56, 56, 57, 57, 58 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp's Rough Skin" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Scizor lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Marshtomp used Bulldoze!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Treecko was dragged out!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Treecko was hurt by the spikes!" },
         },
-    },
+}
+,
 #ifndef GET_TEST_CASE_ONLY
-};
+}
+;
+// each test file is a separate .c file in battle_tests/ for better organization
 #endif

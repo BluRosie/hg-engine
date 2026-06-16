@@ -21,7 +21,7 @@ _040:
     WaitButtonABTime 30
     RemoveItem BATTLER_CATEGORY_ATTACKER
 
-    Call BATTLE_SUBSCRIPT_PURSUIT
+    //Call BATTLE_SUBSCRIPT_PURSUIT
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, _end
 
 _nostatusrestored:
@@ -40,7 +40,7 @@ _nostatusrestored:
     Wait 
     WaitButtonABTime 30
     //SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
-    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_TARGET
+    //UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_TARGET
     Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
     GoTo _end
 

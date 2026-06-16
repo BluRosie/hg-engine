@@ -1,4 +1,4 @@
-// Test: Wake Up Slap - Wake Up Target
+// Test: Powder - trigger on Fire-type move
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -20,12 +20,12 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_HARIYAMA,
+                .species = SPECIES_VIVILLON,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_THICK_FAT,
-                .item = ITEM_LIFE_ORB,
-                .moves = { MOVE_WAKE_UP_SLAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .ability = ABILITY_NO_GUARD,
+                .item = ITEM_NONE,
+                .moves = { MOVE_POWDER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -37,16 +37,16 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE }
         },
-        .enemyParty = {
+        .enemyParty = { 
                         {
-                            .species = SPECIES_MEGANIUM,
-                            .level = 75,
+                            .species = SPECIES_FLAREON,
+                            .level = 50,
                             .form = 0,
-                            .ability = ABILITY_IRON_BARBS,
+                            .ability = ABILITY_FLASH_FIRE,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_FIRE_BLAST, MOVE_TACKLE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
-                            .status = STATUS_SLEEP,
+                            .status = 0,
                             .condition2 = 0,
                             .moveEffectFlags = 0,
                         },
@@ -59,7 +59,7 @@ const struct TestBattleScenario BattleTests[] = {
         .playerScript = {
             {
                               { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                              { ACTION_NONE, 0 },
+                              { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
                               { ACTION_NONE, 0 },
@@ -81,7 +81,7 @@ const struct TestBattleScenario BattleTests[] = {
         .enemyScript = {
             {
                              { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                             { ACTION_NONE, 0 },
+                             { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
                              { ACTION_NONE, 0 },
@@ -101,10 +101,13 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 82, 83, 83, 86, 86, 87, 87, 90, 90, 91, 91, 94, 94, 95, 95, 97 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meganium's Iron Barbs" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium woke up!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hariyama lost some of its HP!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon is covered in powder!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Fire Blast!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "When the flame touched the powder on the Pokemon, it exploded!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Vivillon used Powder!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flareon used Tackle!" },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 33, 33, 33, 34, 34, 35, 35, 35, 36, 36, 37, 37, 37, 38, 38, 39 } },            
         },
     },
 #ifndef GET_TEST_CASE_ONLY

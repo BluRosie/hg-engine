@@ -25,6 +25,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
 {
     BOOL ret = FALSE;
     u32 move_pos;
+    seq_no[0] = 0;
 
     if (sp->defence_client == BATTLER_NONE
      || CheckSubstitute(sp, sp->defence_client) == TRUE

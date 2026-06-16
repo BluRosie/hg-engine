@@ -1,4 +1,4 @@
-// Test: U-Turn - Iron Barbs, Eject Button, Vanish, Life Orb, Switch, Ability
+// Test: Skill Swap - Swap Absorb ability
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,58 +8,36 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_BEEDRILL,
+            .species = SPECIES_SABLEYE,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SWARM,
-            .item = ITEM_LIFE_ORB,
-            .moves = { MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .ability = ABILITY_PRANKSTER,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SKILL_SWAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 1,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        {
-            .species = SPECIES_BEEDRILL,
-            .level = 49,
-            .form = 0,
-            .ability = ABILITY_SWARM,
-            .item = ITEM_LIFE_ORB,
-            .moves = { MOVE_U_TURN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_FERROSEED,
-                        .level = 45,
+                        .species = SPECIES_POLIWAG,
+                        .level = 50,
                         .form = 0,
-                        .ability = ABILITY_IRON_BARBS,
-                        .item = ITEM_EJECT_BUTTON,
-                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .ability = ABILITY_WATER_ABSORB,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        {
-            .species = SPECIES_LITTEN,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_INTIMIDATE,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -105,11 +83,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 56, 58, 58, 58, 60, 60, 60, 62, 62, 62, 64, 64, 64, 66, 66, 68 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ferroseed's Iron Barbs" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ferroseed is switched out with the Eject Button!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beedrill lost some of its HP!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beedrill's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye used Skill Swap!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye swapped Abilities with its target!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Poliwag used Water Gun!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye's Water Absorb" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye had its HP restored." },
     }
 }
 END_TEST
