@@ -6,9 +6,7 @@ _000:
     PrintAttackMessage
     Wait
     WaitButtonABTime 30
-
-    // ability popup
-
+    AbilityPopup BATTLER_CATEGORY_MSG_TEMP
     // {0} surrounded itself with a veil of petals!
     PrintMessage 1511, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait

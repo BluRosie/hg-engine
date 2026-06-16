@@ -1,97 +1,9 @@
+import subprocess
+import tempfile
+from pathlib import Path
+
 from dump_scripts.dump_tools import *
 
-def dump_moves(narc):
-	MOVE_ENTRIES = get_move_entries(MOVES)
-
-	MOVE_ENTRIES[923][0] = "movedatanoname NUM_OF_MOVES\n"
-	MOVE_ENTRIES[923][1] = ""
-
-
-	moves_armip = ""
-	moves_armip += ".nds\n"
-	moves_armip += ".thumb\n\n"
-	moves_armip += ".include \"armips/include/macros.s\"\n"
-	moves_armip += ".include \"armips/include/constants.s\"\n"
-	moves_armip += ".include \"armips/include/config.s\"\n"
-	moves_armip += ".include \"armips/include/movemacros.s\"\n\n"
-	moves_armip += ".include \"asm/include/moves.inc\"\n"
-	moves_armip += ".include \"asm/include/move_effects.inc\"\n\n"
-
-
-	for idx, move in enumerate(narc):
-		# print(MOVE_ENTRIES[idx][0])
-
-		if idx > 923:
-			break
-
-		rangeNum = move["target"]
-		rangeString = "RANGE_SINGLE_TARGET" if rangeNum == 0 else flags_to_string(move["target"], RANGE_FLAG_DEFINES)
-		moves_armip += f"{MOVE_ENTRIES[idx][0]}"
-		moves_armip += f'    battleeffect {MOVE_EFFECTS["MOVE"][move["effect"]]}\n'
-		moves_armip += f'    pss {MOVE_MACROS["SPLIT"][move["category"]]}\n'
-		moves_armip += f'    basepower {move["power"]}\n'
-		moves_armip += f'    type {CONSTANTS["TYPE"][move["type"]]}\n'
-		moves_armip += f'    accuracy {move["accuracy"]}\n'
-		moves_armip += f'    pp {move["pp"]}\n'
-		moves_armip += f'    effectchance {move["effect_chance"]}\n'
-		moves_armip += f'    target {rangeString}\n'
-		moves_armip += f'    priority {signed_byte(move["priority"])}\n'
-		moves_armip += f'    flags {get_flags(move["properties"])}\n'
-		moves_armip += f'    appeal 0x{move["appeal"]:02x}\n'
-		moves_armip += f'    contesttype {MOVE_MACROS["CONTEST"][move["contest_type"]]}\n'
-		moves_armip += f'    terminatedata\n'
-		moves_armip += MOVE_ENTRIES[idx][1]
-		moves_armip += "\n"
-	moves_armip += get_remaining_lines("armips/data/moves.s", len(narc), "movedata")
-
-	return moves_armip
-
-
-# gets move data not present in narc from armips/data/moves.s
-def get_move_entries(indexed_moves):
-	with open("armips/data/moves.s", 'r') as f:
-		content = f.readlines()
-
-	move_entries = {}
-	current_move_index = 0
-
-	for index, line in enumerate(content):
-		if "movedata" in line:
-			# make sure entry matches
-			move_name = ""
-			move_entry = ""
-			
-	
-			if (len(content) > index + 14) and "movedescription" in content[index + 14]:
-				move_name = line
-				move_entry += content[index + 14]
-			elif (len(content) > index + 15) and "movedescription" in content[index + 15]:
-				move_name = line
-				move_entry += content[index + 15]
-
-			move_entries[current_move_index] = [move_name, move_entry]
-			current_move_index += 1
-
-	return move_entries
-
-def get_flags(value):
-    flags = {
-        0x01: "FLAG_CONTACT",
-        0x02: "FLAG_PROTECT", 
-        0x04: "FLAG_MAGIC_COAT",
-        0x08: "FLAG_SNATCH",
-        0x10: "FLAG_MIRROR_MOVE",
-        # 0x20: "FLAG_KINGS_ROCK",
-        0x40: "FLAG_KEEP_HP_BAR",
-        0x80: "FLAG_HIDE_SHADOW"
-    }
-    
-    active_flags = []
-    for flag_value, flag_name in flags.items():
-        if value & flag_value:
-            active_flags.append(flag_name)
-            
-    return " | ".join(active_flags) if active_flags else "0x00"
 
 RANGE_FLAG_DEFINES = [
     "RANGE_SINGLE_TARGET_SPECIAL",
@@ -106,3 +18,144 @@ RANGE_FLAG_DEFINES = [
     "RANGE_SINGLE_TARGET_USER_SIDE",
     "RANGE_FRONT",
 ]
+
+
+def get_flags(value):
+    flags = {
+        0x40: "FLAG_KEEP_HP_BAR",
+        0x10: "FLAG_MIRROR_MOVE",
+        0x20: "FLAG_UNUSABLE_IN_GEN_8 | FLAG_UNUSABLE_IN_GEN_9 | FLAG_UNUSABLE_UNIMPLEMENTED",
+        0x02: "FLAG_PROTECT",
+        0x01: "FLAG_CONTACT",
+        0x04: "FLAG_MAGIC_COAT",
+        0x08: "FLAG_SNATCH",
+        0x80: "FLAG_HIDE_SHADOW",
+    }
+
+    active_flags = []
+    for flag_value, flag_name in flags.items():
+        if value & flag_value:
+            active_flags.append(flag_name)
+
+    return " | ".join(active_flags) if active_flags else "0x00"
+
+
+def decode_msg_bank(msgdata_narc, bank_id):
+    with tempfile.TemporaryDirectory() as tmpdir:
+        tmpdir = Path(tmpdir)
+        encoded_path = tmpdir / f"{bank_id:04d}.bin"
+        decoded_path = tmpdir / f"{bank_id:04d}.txt"
+        encoded_path.write_bytes(msgdata_narc.files[bank_id])
+        subprocess.run(
+            ["./tools/msgenc", "-d", "-c", "charmap.txt", str(encoded_path), str(decoded_path)],
+            check=True,
+        )
+        return decoded_path.read_text(encoding="utf-8").splitlines()
+
+
+def escape_c_string(text):
+    return (
+        text.replace("\\", "\\\\")
+        .replace('"', '\\"')
+        .replace("\n", "\\n")
+        .replace("\r", "\\r")
+    )
+
+
+def get_full_name(used_move_text):
+    prefixes = [
+        "{STRVAR_1 1, 0, 0} used\\n",
+        "The wild {STRVAR_1 1, 0, 0} used\\n",
+        "The opposing {STRVAR_1 1, 0, 0} used\\n",
+    ]
+    for prefix in prefixes:
+        if used_move_text.startswith(prefix) and used_move_text.endswith("!"):
+            return used_move_text[len(prefix) : -1]
+    return used_move_text
+
+
+def dump_moves_c(moves_narc, msgdata_narc):
+    move_names = decode_msg_bank(msgdata_narc, 750)
+    move_caps_names = decode_msg_bank(msgdata_narc, 751)
+    move_used_names = decode_msg_bank(msgdata_narc, 3)
+    move_descriptions = decode_msg_bank(msgdata_narc, 749)
+
+    lines = [
+        '#include "../include/move_data.h"',
+        "",
+        "const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {",
+    ]
+
+    for idx, move in enumerate(moves_narc[:-1]):
+        range_num = move["target"]
+        range_string = "RANGE_SINGLE_TARGET" if range_num == 0 else flags_to_string(move["target"], RANGE_FLAG_DEFINES)
+        full_name = get_full_name(move_used_names[idx * 3])
+        lines.extend(
+            [
+                f"    [{lookup_move(idx)}] = {{",
+                "        .names = {",
+                f'            .name = "{escape_c_string(move_names[idx])}",',
+                f'            .capsName = "{escape_c_string(move_caps_names[idx])}",',
+                f'            .fullName = "{escape_c_string(full_name)}",',
+                "        },",
+                "        .data = {",
+                f"            .effect = {MOVE_EFFECTS['MOVE'].get(move['effect'], str(move['effect']))},",
+                f"            .split = {MOVE_MACROS['SPLIT'][move['category']]},",
+                f"            .power = {move['power']},",
+                f"            .type = {lookup_const('TYPE', move['type'])},",
+                f"            .accuracy = {move['accuracy']},",
+                f"            .pp = {move['pp']},",
+                f"            .effectChance = {move['effect_chance']},",
+                "        },",
+                "        .battle = {",
+                f"            .target = {range_string},",
+                f"            .priority = {signed_byte(move['priority'])},",
+                f"            .flags = {get_flags(move['properties'])},",
+                "        },",
+                "        .contest = {",
+                f"            .appeal = {MOVE_MACROS['APPEAL'].get(move['appeal'], str(move['appeal']))},",
+                f"            .contestType = {MOVE_MACROS['CONTEST'].get(move['contest_type'], str(move['contest_type']))},",
+                "        },",
+                f'        .description = "{escape_c_string(move_descriptions[idx])}",',
+                "    },",
+                "",
+            ]
+        )
+
+    move = moves_narc[-1]
+    range_num = move["target"]
+    range_string = "RANGE_SINGLE_TARGET" if range_num == 0 else flags_to_string(move["target"], RANGE_FLAG_DEFINES)
+    lines.extend(
+        [
+            "    [NUM_OF_MOVES] = {",
+            "        .names = {",
+            '            .name = "",',
+            '            .capsName = "",',
+            '            .fullName = "",',
+            "        },",
+            "        .data = {",
+            f"            .effect = {MOVE_EFFECTS['MOVE'].get(move['effect'], str(move['effect']))},",
+            f"            .split = {MOVE_MACROS['SPLIT'][move['category']]},",
+            f"            .power = {move['power']},",
+            f"            .type = {lookup_const('TYPE', move['type'])},",
+            f"            .accuracy = {move['accuracy']},",
+            f"            .pp = {move['pp']},",
+            f"            .effectChance = {move['effect_chance']},",
+            "        },",
+            "        .battle = {",
+            f"            .target = {range_string},",
+            f"            .priority = {signed_byte(move['priority'])},",
+            f"            .flags = {get_flags(move['properties'])},",
+            "        },",
+            "        .contest = {",
+            f"            .appeal = {MOVE_MACROS['APPEAL'].get(move['appeal'], str(move['appeal']))},",
+            f"            .contestType = {MOVE_MACROS['CONTEST'].get(move['contest_type'], str(move['contest_type']))},",
+            f"            .padding02 = {{ {move['contest_padding'] & 0xFF}, {(move['contest_padding'] >> 8) & 0xFF} }},",
+            "        },",
+            '        .description = "",',
+            "    },",
+            "};",
+        ]
+    )
+
+    return "\n".join(lines)

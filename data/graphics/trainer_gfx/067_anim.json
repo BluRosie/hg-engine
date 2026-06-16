@@ -1,5 +1,6 @@
 {
 	"labelEnabled":	true,
+	"uaatEnabled":	false,
 	"sequenceCount":	3,
 	"frameCount":	8,
 	"sequences":	[{

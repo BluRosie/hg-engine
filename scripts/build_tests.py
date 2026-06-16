@@ -1,6 +1,9 @@
 import os
 import pathlib
 import sys
+import json
+import re
+import tempfile
 from string import Template
 
 FILE_OUTPUT = """#include "../../include/battle.h"
@@ -55,31 +58,97 @@ def write_test_battle_header(test_count):
         f.write("#endif // GENERATED_TESTBATTLE_CONSTANTS_H\n")
 
 
+def get_test_case_name(test_file_path: pathlib.Path) -> str:
+    with open(test_file_path, "r", encoding="utf-8") as test_file:
+        for line in test_file:
+            match = re.match(r"// Test: (.+)", line.strip())
+            if match:
+                return match.group(1)
+
+    raise RuntimeError(f"Test case does not contain test description: {test_file_path}")
+
+
+def atomic_write_text(file_path: pathlib.Path, content: str) -> None:
+    with tempfile.NamedTemporaryFile(
+        "w",
+        encoding="utf-8",
+        dir=file_path.parent,
+        delete=False,
+    ) as temp_file:
+        temp_file.write(content)
+        temp_name = temp_file.name
+
+    os.replace(temp_name, file_path)
+
+
+def write_test_manifest(
+    build_folder: pathlib.Path,
+    data_folder: pathlib.Path,
+    files: list[pathlib.Path],
+    skipped_files: list[pathlib.Path],
+) -> None:
+    selected_tests = list()
+    skipped_tests = list()
+
+    for file_path in sorted(files):
+        entry = {
+            "path": os.path.relpath(file_path, data_folder).replace(os.sep, "/"),
+            "name": get_test_case_name(file_path),
+        }
+
+        if file_path in skipped_files:
+            skipped_tests.append(entry)
+        else:
+            entry["index"] = len(selected_tests)
+            selected_tests.append(entry)
+
+    manifest = {
+        "selected_tests": selected_tests,
+        "skipped_tests": skipped_tests,
+        "total_tests": len(selected_tests),
+    }
+
+    with open(build_folder / "test_manifest.json", "w", encoding="utf-8") as file:
+        json.dump(manifest, file, indent=2)
+        file.write("\n")
+
+
 def main() -> None:
     filter_keywords = sys.argv[1:]
     template = Template(FILE_OUTPUT)
     data_folder = pathlib.Path(os.path.join(os.getcwd(), "data"))
     build_folder = pathlib.Path(os.path.join(os.getcwd(), "build", "battle_tests"))
     battle_tests_root_folder = pathlib.Path(data_folder, "battle_tests")
-    files = list(battle_tests_root_folder.rglob("*c"))
+    files = list(battle_tests_root_folder.rglob("*.c"))
+
+    if os.path.exists("test_filter.txt"):
+        try:
+            with open("test_filter.txt", "r") as file:
+                for line in file:
+                    if len(line):
+                        filter_keywords.append(line)
+        except (IOError, UnicodeDecodeError):
+            print("Could not read file: 'test_filter.txt'")
+            raise
 
     if len(filter_keywords) > 0:
         files = list(filter(lambda x: keywords_in_file(str(x), filter_keywords), files))
 
-    skippedFiles = list(filter(lambda x: keywords_in_file(str(x), ['// SKIP']), files))
-    print(skippedFiles)
+    skippedFiles = list(filter(lambda x: keywords_in_file(str(x), ["// SKIP"]), files))
 
     for file_path in list(files):
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             content = file.read()
 
-        content = content.replace("’", "'").replace("é", "e")
+        normalized_content = content.replace("’", "'").replace("é", "e")
 
-        with open(file_path, "w") as file:
-            file.write(content)
+        if normalized_content != content:
+            atomic_write_text(file_path, normalized_content)
 
     test_files = [
-        f'#include "../../data/{os.path.relpath(file, data_folder)}"' if file not in skippedFiles else f'// #include "../../data/{os.path.relpath(file, data_folder)}"'
+        f'#include "../../data/{os.path.relpath(file, data_folder)}"'
+        if file not in skippedFiles
+        else f'// #include "../../data/{os.path.relpath(file, data_folder)}"'
         for file in sorted(files)
     ]
 
@@ -89,6 +158,7 @@ def main() -> None:
     with open(os.path.join(build_folder, "BattleTests.c"), "w") as file:
         file.write(template.substitute({"tests": tests}))
 
+    write_test_manifest(build_folder, data_folder, files, skippedFiles)
     write_test_battle_header(len(test_files) - len(skippedFiles))
 
 

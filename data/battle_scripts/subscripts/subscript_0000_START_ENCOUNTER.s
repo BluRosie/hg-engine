@@ -49,7 +49,7 @@ _WildDoublesMessage:
 
 _TotemEncounter:
     // You are challenged by Totem {0}!
-    PrintGlobalMessage 1740, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
+    PrintGlobalMessage 1757, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     Wait
     WaitButtonABTime 30
     MakeTotem BATTLER_ENEMY

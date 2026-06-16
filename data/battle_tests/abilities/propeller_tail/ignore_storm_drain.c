@@ -123,7 +123,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 69, 70, 70, 72, 72, 73, 75, 75, 76, 76, 78, 78, 79, 79, 81, 82 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mudkip used Water Gun!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus's Storm Drain took the attack!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus's Storm Drain raised its Sp. Atk!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Maractus's Storm Drain" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

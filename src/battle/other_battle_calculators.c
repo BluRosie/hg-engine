@@ -4054,25 +4054,15 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form)
  *  @param sp global battle structure
  *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
  */
-BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker, int defender)
+BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker UNUSED, int defender)
 {
     u32 item = sp->battlemon[defender].item;
-    u32 ability = GetBattlerAbility(sp, defender);
+    // u32 ability = GetBattlerAbility(sp, defender);
     u32 species = sp->battlemon[defender].species;
     u32 form = sp->battlemon[defender].form_no;
 
     if (CanActivateDamageReductionBerry(sp, defender)) {
         // the berry activated already
-        return FALSE;
-    }
-
-    // if the user is about to die because of an opponent's rough skin, iron barbs, or rocky helmet, then do not proc knock off's item removal
-    // abilities do 1/8th total hp as damage
-    if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
-            // rocky helmet does 1/6th total hp as damage
-            || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 6))
-        && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
-        && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0) {
         return FALSE;
     }
 

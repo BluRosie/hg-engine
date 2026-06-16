@@ -166,7 +166,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         damageCalc.clients[attacker].type2 = GetMonData(pp, MON_DATA_TYPE_2, 0);
         damageCalc.clients[attacker].type3 = TYPE_TYPELESS;
         damageCalc.clients[attacker].isGrounded = TRUE;
-        if ((damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING) && !(sp->field_condition & FIELD_STATUS_GRAVITY))
+        if ((damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING)) //&& !(sp->field_condition & FIELD_STATUS_GRAVITY)) //unknown
         {
             damageCalc.clients[attacker].isGrounded = FALSE;
         }
