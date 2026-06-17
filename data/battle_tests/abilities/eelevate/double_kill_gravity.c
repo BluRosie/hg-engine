@@ -54,7 +54,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_HIGH_HORSEPOWER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_MUD_SLAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -111,8 +111,8 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Cyndaquil fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Eelevate" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Attack rose sharply!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Eelevate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Eelektross..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Donphan used Mud Slap" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s super effective!" },
     }
 }
 END_TEST
