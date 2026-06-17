@@ -9,6 +9,10 @@
 #define GEN_LATEST 9
 #endif
 
+// APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
+// comment out the lines if you do not want anti-piracy to be applied to your ROM
+#define APPLY_ANTIPIRACY
+
 // FAIRY_TYPE_IMPLEMENTED should be used if you want to implement the fairy type and overwrite type 9 in this project
 // set FAIRY_TYPE_IMPLEMENTED to 0 if you do not want this to happen
 #define FAIRY_TYPE_IMPLEMENTED 1
@@ -17,13 +21,6 @@
 // Defining this as "5" or lower will revert Steel to resisting Ghost- and Dark-type moves.
 // Type chart changes prior to Gen 4 (e.g. Gen 1) are not included.
 #define TYPE_EFFECTIVENESS_GEN GEN_LATEST
-
-// START_ADDRESS should be the same as armips/include/config.h's START_ADDRESS so that hall of fame/pokéathlon overworlds work properly.
-// START_ADDRESS defines the file address within the synthetic overlay where you would like to place all of the code that this project uses.  this is largely the repointed tables that the code uses.
-// if START_ADDRESS is 0x10000, then the tables will be inserted at address 0x10000 of the synthetic overlay
-// the current implementation (with all gen 5 mons) uses ~9222/0x2406 bytes.  make sure this points to that much free space (probably allow for a little bit more than that)
-// currently 0x10 to have space for a marker for DSPRE to disable editors!
-#define START_ADDRESS 0x10
 
 // ALLOW_SAVE_CHANGES will allow save file field expansions for full feature implementation, but will break compatibility with PKHeX
 // commenting out this define will disable kyurem's forme change method and keep saves compatible with pkhex
@@ -236,5 +233,11 @@
 // PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION actiavtes the struggle check for Belch/Stuff Cheeks in Generations before Champions
 #define PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION GEN_LATEST
 
+// Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
+#define CHAMPIONS_POWER_CHANGES         1
+#define CHAMPIONS_TYPE_CHANGES          1
+#define CHAMPIONS_ACC_CHANGES           1
+#define CHAMPIONS_PP_CHANGES            0
+#define CHAMPIONS_EFFECT_CHANCE_CHANGES 1
 
 #endif

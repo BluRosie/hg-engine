@@ -21,10 +21,11 @@
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
     u32 move_pos;
+    seq_no[0] = 0;
 
     if (sp->defence_client == BATTLER_NONE
      || CheckSubstitute(sp, sp->defence_client) == TRUE
@@ -118,7 +119,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_AFTERMATH)) {
-        if ((sp->defence_client == sp->fainting_client)
+        if ((sp->battlemon[sp->defence_client].hp == 0)
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DAMP) == 0)
             && (sp->battlemon[sp->attack_client].hp)
@@ -129,10 +130,11 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_INNARDS_OUT)) {
-        if ((sp->defence_client == sp->fainting_client)
+        if ((sp->battlemon[sp->defence_client].hp == 0)
+            && IsAttackerOnField(sp)
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             && (sp->battlemon[sp->attack_client].hp)) {
-            sp->hp_calc_work = sp->damage;
+            sp->hp_calc_work = sp->store_damage[sp->defence_client];
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = SUB_SEQ_HANDLE_INNARDS_OUT_MESSAGE;
             ret = TRUE;
@@ -152,7 +154,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->defence_client;
-                seq_no[0] = SUB_SEQ_BOOST_STATS;
+                seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                 ret = TRUE;
             }
         }
@@ -169,7 +171,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->defence_client;
-                seq_no[0] = SUB_SEQ_BOOST_STATS;
+                seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                 ret = TRUE;
             }
         }
@@ -204,7 +206,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             sp->addeffect_type = ADD_EFFECT_ABILITY;
             sp->state_client = sp->defence_client;
             sp->battlerIdTemp = sp->defence_client;
-            seq_no[0] = SUB_SEQ_BOOST_STATS;
+            seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_GOOEY)
@@ -216,7 +218,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
-            seq_no[0] = SUB_SEQ_BOOST_STATS;
+            seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MUMMY) || MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_LINGERING_AROMA)) {
@@ -245,7 +247,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->defence_client;
                     sp->battlerIdTemp = sp->defence_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
+                    seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                     ret = TRUE;
                 }
             }
@@ -263,7 +265,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->state_client = sp->defence_client;
                 sp->battlerIdTemp = sp->defence_client;
-                seq_no[0] = SUB_SEQ_BOOST_STATS;
+                seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                 ret = TRUE;
             }
         }
@@ -271,11 +273,10 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         if (((sp->moveStatusFlagForSpreadMoves[sp->defence_client] & WAZA_STATUS_FLAG_CRITICAL) != 0)
             && (sp->battlemon[sp->defence_client].hp)
             && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)) {
-            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_6;
             sp->addeffect_type = ADD_EFFECT_ABILITY;
             sp->state_client = sp->defence_client;
             sp->battlerIdTemp = sp->defence_client;
-            seq_no[0] = SUB_SEQ_BOOST_STATS;
+            seq_no[0] = SUB_SEQ_HANDLE_ANGER_POINT;
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_WEAK_ARMOR)) {
@@ -324,7 +325,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
                     sp->addeffect_type = ADD_EFFECT_ABILITY;
                     sp->state_client = sp->defence_client;
                     sp->battlerIdTemp = sp->defence_client;
-                    seq_no[0] = SUB_SEQ_BOOST_STATS;
+                    seq_no[0] = SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE;
                     ret = TRUE;
                 }
             }
@@ -364,6 +365,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_SPICY_SPRAY)) {
         if ((sp->battlemon[sp->attack_client].hp)
+            && IsAttackerOnField(sp)
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
             sp->addeffect_type = ADD_STATUS_ABILITY;
@@ -372,6 +374,18 @@ BOOL MoveHitDefenderAbilityCheckInternal(void *bw, struct BattleStruct *sp, int 
             seq_no[0] = SUB_SEQ_APPLY_BURN;
             ret = TRUE;
         }
+
+    } else if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(bw, sp->defence_client)
+            && ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
+                || GetBattlerAbility(sp, sp->defence_client) != ABILITY_ILLUSION)) { // illusion has already activated, but it can be taken away without needing to have the ability
+            // handle illusion here so it takes priority over fainting.  notably
+            gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, sp->defence_client));
+            gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, sp->defence_client)] = CLIENT_MAX;
+            gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, sp->defence_client)] = 6;
+            BattleFormChange(sp->defence_client, sp->battlemon[sp->defence_client].form_no, bw, sp, 0);
+            sp->battlerIdTemp = sp->defence_client;
+            seq_no[0] = SUB_SEQ_HANDLE_ILLUSION_FADED;
+            ret = TRUE;
     }
 
     return ret;

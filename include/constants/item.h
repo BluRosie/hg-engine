@@ -2759,7 +2759,7 @@ enum ItemGeneration {
     (id) <= ITEM_EON_FLUTE    ? GEN6 : \
     (id) <= ITEM_UNKNOWN_1073 ? GEN7 : \
     (id) <= ITEM_LEGEND_PLATE ? GEN8 : \
-    (id) <= ITEM_BAXCALIBRITE  ? GEN9 : \
+    (id) <= ITEM_CANARI_BREAD  ? GEN9 : \
                                 CUSTOM )
 
 #define ITEM_MSG_OFFSET(id) ( \
@@ -2768,8 +2768,8 @@ enum ItemGeneration {
     (id) <= ITEM_EON_FLUTE    ? ((id) - (ITEM_REVEAL_GLASS + 1)) : \
     (id) <= ITEM_UNKNOWN_1073 ? ((id) - (ITEM_EON_FLUTE    + 1)) : \
     (id) <= ITEM_LEGEND_PLATE ? ((id) - (ITEM_UNKNOWN_1073 + 1)) : \
-    (id) <= ITEM_BAXCALIBRITE ? ((id) - (ITEM_LEGEND_PLATE + 1)) : \
-                                ((id) - (ITEM_BAXCALIBRITE  + 1)) )
+    (id) <= ITEM_CANARI_BREAD ? ((id) - (ITEM_LEGEND_PLATE + 1)) : \
+                                ((id) - (ITEM_CANARI_BREAD  + 1)) )
 
 #define NUM_UNKNOWN_SLOTS 0 // 22 // used to adjust in data/itemdata.c
 #define NUM_UNKNOWN_SLOTS_EXPLORER_KIT 0 // (NUM_UNKNOWN_SLOTS+1) // used to adjust in data/itemdata.c

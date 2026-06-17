@@ -19,6 +19,7 @@ dumpitem.py
 *_DSPRE_contents/*
 /tools/*.s
 /tools/dumped_armips/*
+/tools/dumped_c/*
 
 # pycache files
 *.pyc
@@ -51,6 +52,10 @@ dumpitem.py
 /tools/replacehexwithdec
 /tools/sortmonareadexdata
 /tools/msgenc
+/tools/movedatagen
+/tools/pokedexdatagen
+/tools/speciesdatagen
+/tools/trainerdatagen
 /tools/genleveldatatxt.exe
 /tools/genbabymondata.exe
 /tools/gendexsortlists.exe
@@ -104,3 +109,6 @@ changelog
 /include/constants/generated/
 test_logs.txt
 .scratch/
+dumped_armips/
+dumped_c/
+test_filter.txt

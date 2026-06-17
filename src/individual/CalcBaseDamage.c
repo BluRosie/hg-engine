@@ -252,6 +252,11 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             movepower *= 2;
         }
         break;
+    case MOVE_PURSUIT:
+        if (sp->pursuitContext.isActive) {
+            movepower *= 2;
+        }
+        break;
     case MOVE_WATER_PLEDGE:
     case MOVE_FIRE_PLEDGE:
     case MOVE_GRASS_PLEDGE:
@@ -274,10 +279,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (IsMovingAfterClient(sp, defender) == TRUE) { // as of Gen5 no longer doubles on switching
             movepower *= 2;
         }
-        break;
-    case MOVE_PURSUIT:
-        // TODO: Handle this massive headache later
-        movepower = movepower * damage_value / 10;
         break;
     case MOVE_ROUND:
         // TODO: Implement Round

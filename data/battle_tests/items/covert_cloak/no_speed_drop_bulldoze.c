@@ -117,6 +117,5 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "The opposing Pawniard's Speed fell!" },
         { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "The opposing Pawniard's Defiant raised its Attack sharply!" },
     },
-    .knownFailing = TRUE
 }
 END_TEST

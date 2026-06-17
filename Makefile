@@ -109,6 +109,10 @@ BTX := tools/btx
 ENCODEPWIMG := tools/ENCODE_IMG
 GFX := tools/nitrogfx
 MSGENC := tools/msgenc
+MOVEDATAGEN := tools/movedatagen
+POKEDEXDATAGEN := tools/pokedexdatagen
+SPECIESDATAGEN := tools/speciesdatagen
+TRAINERDATAGEN := tools/trainerdatagen
 NARCHIVE := $(PYTHON) tools/narcpy.py
 NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
@@ -159,6 +163,7 @@ include data/itemdata/itemdata.mk
 include data/codetables.mk
 include narcs.mk
 include overlays.mk
+include dump.mk
 
 ####################### Build Tools #######################
 MSGENC_SOURCES := $(wildcard tools/source/msgenc/*.cpp) $(wildcard tools/source/msgenc/*.h)
@@ -223,6 +228,26 @@ $(GFX): $(NITROGFX_SOURCES)
 	mv tools/source/nitrogfx/nitrogfx $(GFX)
 
 TOOLS += $(GFX)
+
+$(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/Moves.c include/move_data.h include/config.h
+	cd tools/source/movedatagen ; $(MAKE)
+
+TOOLS += $(MOVEDATAGEN)
+
+$(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSort.c data/PokedexArea.c include/pokedex_archive_data.h include/constants/pokedex.h
+	cd tools/source/pokedexdatagen ; $(MAKE)
+
+TOOLS += $(POKEDEXDATAGEN)
+
+$(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/Species.c include/species_data.h include/config.h
+	cd tools/source/speciesdatagen ; $(MAKE)
+
+TOOLS += $(SPECIESDATAGEN)
+
+$(TRAINERDATAGEN): $(wildcard tools/source/trainerdatagen/*.c) data/Trainers.c include/trainer_data.h include/constants/trainerclass.h include/constants/pokemon.h
+	cd tools/source/trainerdatagen ; $(MAKE)
+
+TOOLS += $(TRAINERDATAGEN)
 
 $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
 	cd tools/source/o2narc ; $(MAKE)
@@ -351,7 +376,7 @@ move_narc: $(NARC_FILES)
 	@echo "opening demo files:"
 	cp $(OPENDEMO_NARC) $(OPENDEMO_TARGET)
 
-	@echo "mon data properties:"
+	@echo "mon personal data:"
 	cp $(MONDATA_NARC) $(MONDATA_TARGET)
 
 	@echo "sprite offsets:"
@@ -414,11 +439,13 @@ move_narc: $(NARC_FILES)
 	cp $(OTHERPOKE_NARC) $(OTHERPOKE_TARGET)
 
 	@echo "pokemon icons:"
-	$(ARMIPS) armips/data/iconpalettetable.s
 	cp $(ICONGFX_NARC) $(ICONGFX_TARGET)
 
 	@echo "wild encounters:"
 	cp $(ENCOUNTER_NARC) $(ENCOUNTER_TARGET)
+
+	@echo "safari zone encounters:"
+	cp $(SAFARI_ENCOUNTER_NARC) $(SAFARI_ENCOUNTER_TARGET)
 
 	@echo "pokemon overworlds:"
 	cp $(OVERWORLDS_NARC) $(OVERWORLDS_TARGET)
@@ -456,6 +483,9 @@ move_narc: $(NARC_FILES)
 	@echo "trainer gfx:"
 	cp $(TRAINER_GFX_NARC) $(TRAINER_GFX_TARGET)
 
+	@echo "trainer back gfx:"
+	cp $(TRAINER_GFX_BACK_NARC) $(TRAINER_GFX_BACK_TARGET)
+
 	@echo "levelup learnset:"
 	cp $(LEVELUPLEARNSET_NARC) $(LEVELUPLEARNSET_TARGET)
 
@@ -465,7 +495,7 @@ move_narc: $(NARC_FILES)
 
 
 	@echo "baby mons:"
-	$(ARMIPS) armips/data/babymons.s
+	cp $(BABYMONS_BIN) $(BABYMONS_TARGET)
 
 	@if test -s build/a028/8_00; then \
 		rm -rf build/a028/8_0 build/a028/8_1 build/a028/8_2 build/a028/8_3 build/a028/8_4 build/a028/8_5 build/a028/8_6 build/a028/8_7 build/a028/8_8 build/a028/8_9; \
@@ -481,11 +511,11 @@ move_narc: $(NARC_FILES)
 	@echo "base experience table:"
 	cp $(BASE_EXPERIENCE_TABLE_BIN) $(BASE_EXPERIENCE_TABLE_TARGET)
 
-	@echo "mon overworld data:"
-	$(ARMIPS) $(OVERWORLD_DATA_DEPENDENCIES)
+	@echo "icon palette table:"
+	cp $(ICON_PALETTE_TABLE_BIN) $(ICON_PALETTE_TABLE_TARGET)
 
-	@echo "species to ow gfx table:"
-	cp $(SPECIES_TO_OW_GFX_BIN) $(SPECIES_TO_OW_GFX_TARGET)
+	@echo "species to ow female table:"
+	cp $(SPECIES_TO_OW_FEMALE_BIN) $(SPECIES_TO_OW_FEMALE_TARGET)
 
 	@echo "form data table:"
 	cp $(POKEFORMDATATBL_BIN) $(POKEFORMDATATBL_TARGET)
@@ -505,40 +535,11 @@ move_narc: $(NARC_FILES)
 	@echo "battle tests:"
 	cp $(BATTLETESTS_BIN) $(BATTLETESTS_TARGET)
 
+	@echo "background gfx ids:"
+	cp $(BACKGROUND_GFX_IDS_BIN) $(BACKGROUND_GFX_IDS_TARGET)
 
-DUMP_SCRIPT_LOCATION := tools/source/dumptools
-# the goal here is to extract the required narcs to the proper folders for the dump scripts to work.
-# learnsets are covered by script migration
-dumprom: $(VENV_ACTIVATE) $(TOOLS)
-	$(MAKE) clean
-	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
-
-	./$(DUMP_SCRIPT_LOCATION)/dumprom.sh
-	mkdir -p $(BUILD) $(BUILD_NARC) $(BUILD)/a028/
-# dump human overworlds
-	#./$(DUMP_SCRIPT_LOCATION)/dump_human_overworlds.sh
-# dump everything covered by this script
-	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
-# mondata:  needed by migrate_learnsets.py
-	cp $(MONDATA_TARGET) $(BUILD_NARC)/mondata
-	$(NARCHIVE) extract $(BUILD_NARC)/mondata -o $(MONDATA_DIR)
-	rm $(BUILD_NARC)/mondata
-# learnsets:  needed by migrate_learnsets.py
-	cp $(LEVELUPLEARNSET_TARGET) $(BUILD_NARC)/learnset
-	$(NARCHIVE) extract $(BUILD_NARC)/learnset -o $(LEVELUPLEARNSET_DIR)
-# kowaza:  needed by migrate_learnsets.py
-	cp $(EGGLEARNSET_TARGET) $(BUILD_NARC)/kowaza
-	$(NARCHIVE) extract $(BUILD_NARC)/kowaza -o $(BUILD)/kowaza
-	$(PYTHON) tools/source/dumptools/migrate_learnsets.py
-	rm -rf $(BUILD)
-
-# dump mondata, encounters, evos, moves, trainers
-	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
-	$(MSGENC) -d -c $(CHARMAP) $(MSGDATA_DIR)/7_729 $(BUILD)/trainernames.txt
-	$(PYTHON) tools/source/dumptools/dump_narcs.py $(ROMNAME)
-
-	@echo "Done.  See output in dumped_armips/, learnsets are already in data/learnsets/learnsets.json."
-
+	@echo "hidden item params:"
+	cp $(HIDDEN_ITEM_PARAMS_BIN) $(HIDDEN_ITEM_PARAMS_TARGET)
 
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
