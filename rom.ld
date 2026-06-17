@@ -848,3 +848,8 @@ UpdateFriendshipFainted = 0x02248558 | 1;
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
+
+ReadWholeNarcMemberByIdPair = 0x02007508 | 1;
+ov01_02200540 = 0x02200540 | 1;
+ov01_022003F4 = 0x022003F4 | 1;
+sub_02068B48 = 0x02068B48 | 1;

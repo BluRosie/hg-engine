@@ -604,3 +604,7 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 ov12_0224D23C 0224D23C 3
 0012 ov12_0224DD74 0224DD74 3
 0012 GetTypeEffectivenessData 0225260C 3
+
+0001 CheckRockSmashItemDrop 02204CF8 2
+0001 Task_GetRockSmashItem 02204DA0 1
+0001 DrawRockSmashIdx 02204E8C 1
