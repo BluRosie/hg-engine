@@ -111,7 +111,8 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Cyndaquil fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Eelevate" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Attack rose sharply!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Eelevate!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Eelevate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Eelektross..." },
     }
 }
 END_TEST
