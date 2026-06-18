@@ -9,7 +9,7 @@
 typedef struct {
     u16 odds;
     u16 table;
-} ROCK_SMASH;
+} RockSmashMapData;
 
 typedef struct {
     int ability;
@@ -17,11 +17,16 @@ typedef struct {
 } RockSmashAbilityOdds;
 
 typedef struct {
+    int ability;
+    s8 quality;
+} RockSmashAbilityQuality;
+
+typedef struct {
     BOOL followMonKnowsHM;
     int ability;
     u16 *itemFound; // TODO: bool16
     u16 *item;
-    ROCK_SMASH rockSmash;
+    RockSmashMapData rockSmash;
     u32 unk14;
 } RockSmashItemCheckWork;
 
@@ -36,7 +41,8 @@ enum {
 
 /*
 This table can be expanded as you please.
-Each vanilla header has a file in a253 that has 2 bytes for odds (out of 100) and 2 bytes for the item table below to use.
+Each vanilla header has a file in a253 that has 2 bytes for odds (out of 100) to receive an item from a rock and 2 bytes for the item table index.
+Items are sorted in ascending order of quality, which affects their individual chance to be received.
 */
 const u16 RockSmashItemTable[NUM_ROCK_SMASH_TABLES][MAX_ROCK_SMASH_ITEMS_PER_TABLE] =
 {
@@ -72,10 +78,19 @@ const u16 RockSmashItemTable[NUM_ROCK_SMASH_TABLES][MAX_ROCK_SMASH_ITEMS_PER_TAB
     },
 };
 
+// List of abilities that increase the odds (out of 100) to receive an item from a rock and their percentage increases.
 const RockSmashAbilityOdds RockSmashAbilityOddsTable[] = {
     { ABILITY_SUCTION_CUPS, 5 },
     { ABILITY_MAGNET_PULL,  5 },
     { ABILITY_KEEN_EYE,     5 },
+};
+
+// List of abilities that increase the quality of items received from a rock and their increase amounts.
+// Note: Having any of these abilities active will prevent items of the lowest quality from appearing at all!
+// CURRENTLY DOES NOTHING. TODO: check this via bytereplacement.
+const RockSmashAbilityQuality RockSmashAbilityQualityTable[] = {
+    { ABILITY_SERENE_GRACE, 1 },
+    { ABILITY_SUPER_LUCK,   1 },
 };
 
 // TODO: Move this somewhere better (filesystem.h does not exist).

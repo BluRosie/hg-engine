@@ -21,7 +21,7 @@ int LONG_CALL DrawRockSmashIdx(FieldSystem *fieldSystem);
 
 BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemCheckWork *env) {
     int ability;
-    ROCK_SMASH data;
+    RockSmashMapData data;
 
     int mapID = fieldSystem->location->mapId;
     if (mapID < MAP_ID_MAX)
@@ -31,7 +31,6 @@ BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemChe
     }
     else
     {   
-        debug_printf("CheckRockSmashItemDrop: Custom map detected.\n");
         // It's definitely easier to store that here for now with custom maps.
         switch (mapID)
         {
@@ -77,50 +76,33 @@ BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemChe
     if (odds > 100) {
         odds = 100;
     } else if (odds <= 0) {
-        debug_printf("CheckRockSmashItemDrop: Odds lowered to 0.\n");
         return FALSE;
     }
 
     if (gf_rand() % 100 < odds) {
-        debug_printf("CheckRockSmashItemDrop: Odds met.\n");
         env->rockSmash = data;
         return TRUE;
     }
-    debug_printf("CheckRockSmashItemDrop: Odds not met.\n");
     return FALSE;
 }
 
 // Exposing this lets us mess with the odds and total number of items in the rock smash tables.
 int LONG_CALL DrawRockSmashIdx(UNUSED FieldSystem *fieldSystem) {
     u8 rand = gf_rand() % 100;
-    if (rand < 25) {
-        debug_printf("DrawRockSmashIdx: Item table element 0 selected.\n");
+    if (rand < 25) {        // 25%
         return 0;
-    }
-    if (rand < 45) {
-        debug_printf("DrawRockSmashIdx: Item table element 1 selected.\n");
+    } else if (rand < 45) { // 20%
         return 1;
-    }
-    if (rand < 55) {
-        debug_printf("DrawRockSmashIdx: Item table element 2 selected.\n");
+    } else if (rand < 55) { // 10%
         return 2;
-    }
-    if (rand < 65) {
-        debug_printf("DrawRockSmashIdx: Item table element 3 selected.\n");
+    } else if (rand < 65) { // 10%
         return 3;
-    }
-    if (rand < 75) {
-        debug_printf("DrawRockSmashIdx: Item table element 4 selected.\n");
+    } else if (rand < 75) { // 10%
         return 4;
-    }
-    if (rand < 85) {
-        debug_printf("DrawRockSmashIdx: Item table element 5 selected.\n");
+    } else if (rand < 85) { // 10%
         return 5;
-    }
-    if (rand < 95) {
-        debug_printf("DrawRockSmashIdx: Item table element 6 selected.\n");
+    } else if (rand < 95) { // 10%
         return 6;
     }
-    debug_printf("DrawRockSmashIdx: Item table element 7 selected.\n");
-    return 7;
+    return 7;               // 5%
 }
