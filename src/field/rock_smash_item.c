@@ -3,21 +3,20 @@
 #include "../../include/rock_smash_item.h"
 #include "../../include/types.h"
 
-#include "../../include/constants/ability.h"
 #include "../../include/constants/maps.h"
-#include "../../include/constants/item.h"
 
 u32 DetermineRockSmashItem(u32 tableIndex, u32 index)
 {
-    if (tableIndex >= NELEMS(RockSmashItemTable) || index >= NUM_ROCK_SMASH_ITEMS_PER_TABLE)
+    if (tableIndex >= NELEMS(RockSmashItemTable) || index >= MAX_ROCK_SMASH_ITEMS_PER_TABLE)
     {
+        debug_printf("DetermineRockSmashItem: Index is too high.\n");
         return ITEM_NONE;
     }
+    debug_printf("DetermineRockSmashItem: Index is valid.\n");
     return RockSmashItemTable[tableIndex][index];
 }
 
 BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemCheckWork *env);
-BOOL LONG_CALL Task_GetRockSmashItem(TaskManager *taskman);
 int LONG_CALL DrawRockSmashIdx(FieldSystem *fieldSystem);
 
 BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemCheckWork *env) {
@@ -32,94 +31,62 @@ BOOL LONG_CALL CheckRockSmashItemDrop(FieldSystem *fieldSystem, RockSmashItemChe
     }
     else
     {   
+        debug_printf("CheckRockSmashItemDrop: Custom map detected.\n");
         // It's definitely easier to store that here for now with custom maps.
         switch (mapID)
         {
             default:
-                data.odds = 0;
+                data.odds = 50;
                 data.table = ROCK_SMASH_TABLE_DEFAULT;
                 break;
         }
     }
 
     int odds = data.odds;
-    if (odds == 0) {
+    if (odds == 0 || data.table >= NUM_ROCK_SMASH_TABLES) {
         return FALSE;
     }
-    if (data.table >= NUM_ROCK_SMASH_TABLES) {
-        GF_ASSERT(FALSE);
-        return FALSE;
-    }
-    struct PartyPokemon *mon = Party_GetMonByIndex(SaveData_GetPlayerPartyPtr(fieldSystem->savedata), 0);
-    if (GetMonData(mon, MON_DATA_IS_EGG, NULL) == 0) {
-        ability = GetMonData(mon, MON_DATA_ABILITY, NULL);
-    } else {
-        ability = NUM_ABILITIES;
-    }
-    env->ability = ability;
 
-    switch (ability) {
-    case ABILITY_SUCTION_CUPS:
-        odds += 5;
-        break;
-    case ABILITY_MAGNET_PULL:
-        odds += 5;
-        break;
-    case ABILITY_KEEN_EYE:
-        odds += 5;
-        break;
+    int partySlot = 0;
+    struct Party *party = SaveData_GetPlayerPartyPtr(fieldSystem->savedata);
+#ifdef ENTIRE_PARTY_AFFECTS_ROCK_SMASH
+    for (; partySlot < party->count; partySlot++) {
+#endif
+        struct PartyPokemon *mon = Party_GetMonByIndex(party, partySlot);
+        if (GetMonData(mon, MON_DATA_IS_EGG, NULL) == FALSE) {
+            ability = GetMonData(mon, MON_DATA_ABILITY, NULL);
+        } else {
+            ability = NUM_ABILITIES;
+        }
+        env->ability = ability;
+
+        for (u32 i = 0; i < NELEMS(RockSmashAbilityOddsTable); i++) {
+            if (ability == RockSmashAbilityOddsTable[i].ability) {
+                odds += RockSmashAbilityOddsTable[i].odds;
+                break;
+            }
+        }
+#ifdef ENTIRE_PARTY_AFFECTS_ROCK_SMASH
     }
-    if (env->followMonKnowsHM) {
+#endif
+
+    if (env->followMonKnowsHM) { // TODO: Check interactability with free field moves.
         odds += 5;
     }
+
     if (odds > 100) {
         odds = 100;
+    } else if (odds <= 0) {
+        debug_printf("CheckRockSmashItemDrop: Odds lowered to 0.\n");
+        return FALSE;
     }
 
     if (gf_rand() % 100 < odds) {
+        debug_printf("CheckRockSmashItemDrop: Odds met.\n");
         env->rockSmash = data;
         return TRUE;
     }
-    return FALSE;
-}
-
-// Exposing this allows us to edit item quality abilities.
-BOOL LONG_CALL Task_GetRockSmashItem(TaskManager *taskman) {
-    LocalMapObject *obj;
-
-    u32 *state = &taskman->state;
-    RockSmashItemCheckWork *env = taskman->env;
-    FieldSystem *fieldSystem = taskman->fieldSystem;
-
-    switch (*state) {
-        case 0:
-            if (env->followMonKnowsHM) {
-                obj = fieldSystem->followMon.mapObject;
-            } else {
-                obj = fieldSystem->playerAvatar->mapObject;
-            }
-            env->unk14 = ov01_02200540(obj, 0, 1);
-            ++(*state);
-            break;
-        case 1:
-            if (ov01_022003F4(env->unk14)) {
-                sub_02068B48(env->unk14);
-                ++(*state);
-            }
-            break;
-        case 2: {
-            u32 idx = DrawRockSmashIdx(fieldSystem);
-            if ((env->ability == ABILITY_SERENE_GRACE || env->ability == ABILITY_SUPER_LUCK) && idx < 7) {
-                idx = (u8)(idx + 1);
-            }
-
-            u16 item = DetermineRockSmashItem(env->rockSmash.table, idx);
-            *env->itemFound = TRUE;
-            *env->item = item;
-            sys_FreeMemoryEz(env);
-            return TRUE;
-        }
-    }
+    debug_printf("CheckRockSmashItemDrop: Odds not met.\n");
     return FALSE;
 }
 
@@ -127,25 +94,33 @@ BOOL LONG_CALL Task_GetRockSmashItem(TaskManager *taskman) {
 int LONG_CALL DrawRockSmashIdx(UNUSED FieldSystem *fieldSystem) {
     u8 rand = gf_rand() % 100;
     if (rand < 25) {
+        debug_printf("DrawRockSmashIdx: Item table element 0 selected.\n");
         return 0;
     }
     if (rand < 45) {
+        debug_printf("DrawRockSmashIdx: Item table element 1 selected.\n");
         return 1;
     }
     if (rand < 55) {
+        debug_printf("DrawRockSmashIdx: Item table element 2 selected.\n");
         return 2;
     }
     if (rand < 65) {
+        debug_printf("DrawRockSmashIdx: Item table element 3 selected.\n");
         return 3;
     }
     if (rand < 75) {
+        debug_printf("DrawRockSmashIdx: Item table element 4 selected.\n");
         return 4;
     }
     if (rand < 85) {
+        debug_printf("DrawRockSmashIdx: Item table element 5 selected.\n");
         return 5;
     }
     if (rand < 95) {
+        debug_printf("DrawRockSmashIdx: Item table element 6 selected.\n");
         return 6;
     }
+    debug_printf("DrawRockSmashIdx: Item table element 7 selected.\n");
     return 7;
 }

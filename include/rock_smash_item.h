@@ -3,6 +3,28 @@
 
 #include "battle.h"
 
+#include "constants/ability.h"
+#include "constants/item.h"
+
+typedef struct {
+    u16 odds;
+    u16 table;
+} ROCK_SMASH;
+
+typedef struct {
+    int ability;
+    s16 odds;
+} RockSmashAbilityOdds;
+
+typedef struct {
+    BOOL followMonKnowsHM;
+    int ability;
+    u16 *itemFound; // TODO: bool16
+    u16 *item;
+    ROCK_SMASH rockSmash;
+    u32 unk14;
+} RockSmashItemCheckWork;
+
 enum {
     ROCK_SMASH_TABLE_DEFAULT = 0,
     ROCK_SMASH_TABLE_RUINS_OF_ALPH,
@@ -10,13 +32,13 @@ enum {
     NUM_ROCK_SMASH_TABLES
 };
 
-#define NUM_ROCK_SMASH_ITEMS_PER_TABLE 8
+#define MAX_ROCK_SMASH_ITEMS_PER_TABLE 8
 
 /*
 This table can be expanded as you please.
 Each vanilla header has a file in a253 that has 2 bytes for odds (out of 100) and 2 bytes for the item table below to use.
 */
-const u16 RockSmashItemTable[NUM_ROCK_SMASH_TABLES][NUM_ROCK_SMASH_ITEMS_PER_TABLE] =
+const u16 RockSmashItemTable[NUM_ROCK_SMASH_TABLES][MAX_ROCK_SMASH_ITEMS_PER_TABLE] =
 {
     { // Default:
         ITEM_MAX_ETHER,
@@ -50,19 +72,11 @@ const u16 RockSmashItemTable[NUM_ROCK_SMASH_TABLES][NUM_ROCK_SMASH_ITEMS_PER_TAB
     },
 };
 
-typedef struct {
-    u16 odds;
-    u16 table;
-} ROCK_SMASH;
-
-typedef struct {
-    BOOL followMonKnowsHM;
-    int ability;
-    u16 *itemFound; // TODO: bool16
-    u16 *item;
-    ROCK_SMASH rockSmash;
-    u32 unk14;
-} RockSmashItemCheckWork;
+const RockSmashAbilityOdds RockSmashAbilityOddsTable[] = {
+    { ABILITY_SUCTION_CUPS, 5 },
+    { ABILITY_MAGNET_PULL,  5 },
+    { ABILITY_KEEN_EYE,     5 },
+};
 
 // TODO: Move this somewhere better (filesystem.h does not exist).
 void LONG_CALL ReadWholeNarcMemberByIdPair(void *dest, u32 narc_id, s32 file_id);
