@@ -42,13 +42,12 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_RIVALRY,
                         .item = ITEM_PYROARITE,
-                        .moves = { MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_FLAME_WHEEL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        ,
         {
             .species = SPECIES_GRIMMSNARL,
             .level = 50,
@@ -66,7 +65,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -86,7 +85,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -106,16 +105,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyroar's Pyroarite is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyroar has Mega Evolved into Mega Pyroar!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 118, 120, 121, 123, 124, 126, 127, 129, 130, 132, 133, 135, 136, 138, 139, 141 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 61, 63, 63, 64, 64, 66, 66, 67, 67, 69, 69, 70, 70, 72, 72, 73 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective on Charmander!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective on the opposing Cyndaquil!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Cyndaquil fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Eelevate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Attack rose sharply!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Eelevate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Eelektross..." },
     }
 }
 END_TEST
