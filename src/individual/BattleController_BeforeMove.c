@@ -2030,12 +2030,10 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         || moveEffect == MOVE_EFFECT_PROTECT_USER_SIDE
         || moveEffect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
         if ((ctx->waitingBattlers == 1)
-            || ((BattleRand(bsys) % sProtectSuccessChance[ctx->protectSuccessTurns[ctx->attack_client]] > 0)
+            || (((currentMoveIndex != MOVE_QUICK_GUARD) && (currentMoveIndex != MOVE_WIDE_GUARD)
+                && (currentMoveIndex != MOVE_MAT_BLOCK) && (currentMoveIndex != MOVE_CRAFTY_SHIELD))
                 // Skip RNG check if Quick Guard, Wide Guard, Mat Block or Crafty Shield.
-                && (currentMoveIndex != MOVE_QUICK_GUARD)
-                && (currentMoveIndex != MOVE_WIDE_GUARD)
-                && (currentMoveIndex != MOVE_MAT_BLOCK)
-                && (currentMoveIndex != MOVE_CRAFTY_SHIELD))) {
+                && (BattleRand(bsys) % sProtectSuccessChance[ctx->protectSuccessTurns[ctx->attack_client]] > 0))) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->server_seq_no = CONTROLLER_COMMAND_25;
             ctx->waza_status_flag |= MOVE_STATUS_FLAG_FAILED;
