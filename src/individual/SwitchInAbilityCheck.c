@@ -15,7 +15,7 @@
 
 
 static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
-static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client);
+static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *sp, u32 client);
 
 extern struct ILLUSION_STRUCT gIllusionStruct;
 
@@ -1096,7 +1096,7 @@ static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
  *  @param client battler to check if either opponent is a valid imposter target
  *  @return TRUE if imposter can target the client directly opposite the passed client; FALSE otherwise.  also sets attack_client and defence_client automatically
  */
-static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
+static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *sp, u32 client)
 {
     // double battles need to use BATTLER_ACROSS to get the battler standing visibly across from it.  BATTLER_OPPONENT needs to be used otherwise
     u32 testClient = (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) ? BATTLER_ACROSS(client) : BATTLER_OPPONENT(client);
@@ -1105,9 +1105,8 @@ static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
     if (battleMon->hp != 0
     // can not copy another imposter
      && battleMon->ability != ABILITY_IMPOSTER
-    // can not copy a disguised mon
-     && !(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, testClient))
-       && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, testClient)] == testClient)
+    // can not copy an illusioned mon
+     && !(IS_CLIENT_IN_ILLUSION_NO_ABILITY(bw, testClient))
     // can not copy a substitute or transformed mon
      && ((battleMon->condition2 & (STATUS2_SUBSTITUTE | STATUS2_TRANSFORMED)) == 0))
     {
@@ -1121,8 +1120,7 @@ static BOOL IsValidImposterTarget(void *bw, struct BattleStruct *sp, u32 client)
     //// can not copy another imposter
     // && battleMon->ability != ABILITY_IMPOSTER
     //// can not copy a disguised mon
-    // && !(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, testClient))
-    //   && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, testClient)] == testClient)
+    // && !(IS_CLIENT_IN_ILLUSION_NO_ABILITY(bw, testClient))
     //// can not copy a substitute or transformed mon
     // && ((battleMon->condition2 & (STATUS2_SUBSTITUTE | STATUS2_TRANSFORMED)) == 0))
     //{

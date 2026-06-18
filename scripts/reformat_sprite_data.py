@@ -45,6 +45,8 @@ data/graphics/nidoran_m
   -> front.png
   -> back.png
 -> icon.png
+-> overworld.png
+-> (possible) overworld_female.png (only applies to small subset of mons)
 
 i.e.
 SPECIES_522 corresponds to...
@@ -67,7 +69,9 @@ nclr_back_gen_format = """	if test -s $<; then \\
 	fi
 POKEGRA_DEPENDENCIES += {0}-00.NCGR {0}-01.NCGR {0}-02.NCGR {0}-03.NCGR {0}-04.NCLR {0}-05.NCLR
 """
-icon_format = """\t$(GFX) $< $@ -clobbersize -version101
+btx_gen_format = """	$(BTX) $< $@
+"""
+icon_format = """\t$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += {0}.NCGR
 
@@ -101,6 +105,14 @@ def path_resolver_icons(inputPath: str, speciesDict: dict) -> str:
     return inputPath
 
 
+def path_resolver_btx(inputPath: str, speciesDict: dict) -> str:
+    speciesName = "SPECIES_" + inputPath.upper()
+
+    inputPath = "build/pokemonow/3_{:04d}".format(speciesDict[speciesName])
+
+    return inputPath
+
+
 def GenMakefile(outputPath: str, speciesDict: dict):
     output = open(outputPath, "w")
 # header
@@ -113,7 +125,7 @@ POKEGRA_NARC := $(BUILD_NARC)/pokegra.narc
 POKEGRA_TARGET := $(FILESYS)/a/0/0/4
 PBR_POKEGRA_TARGET := $(FILESYS)/pbr/pokegra.narc
 
-POKEGRA_GFX_FLAGS_SPRITE := -scanfronttoback -handleempty
+POKEGRA_GFX_FLAGS_SPRITE := -scanfronttoback -handleempty -bitdepth 4
 POKEGRA_GFX_FLAGS_PAL := -bitdepth 8 -nopad -comp 10
 
 
@@ -128,15 +140,31 @@ ICONGFX_RAWDATA_DIR := rawdata/files_from_a020
 
 # entries
     for entry in speciesDict:
+        if ("_OVERWORLD_" in entry):
+            continue
         speciesName = entry[len("SPECIES_"):].lower()
         convertedName = path_resolver(speciesName, speciesDict)
         convertedIcon = path_resolver_icons(speciesName, speciesDict)
+        convertedBtx = path_resolver_btx(speciesName, speciesDict)
         output.write(convertedName + "-00.NCGR: data/graphics/sprites/" + speciesName + "/female/back.png\n" + ncgr_gen_format)
         output.write(convertedName + "-01.NCGR: data/graphics/sprites/" + speciesName + "/male/back.png\n" + ncgr_gen_format)
         output.write(convertedName + "-02.NCGR: data/graphics/sprites/" + speciesName + "/female/front.png\n" + ncgr_gen_format)
         output.write(convertedName + "-03.NCGR: data/graphics/sprites/" + speciesName + "/male/front.png\n" + ncgr_gen_format)
         output.write(convertedName + "-04.NCLR: data/graphics/sprites/" + speciesName + "/male/front.png\n" + nclr_front_gen_format)
         output.write(convertedName + "-05.NCLR: data/graphics/sprites/" + speciesName + "/male/back.png\n" + nclr_back_gen_format.format(convertedName))
+        output.write(convertedBtx + ".btx0: data/graphics/sprites/" + speciesName + "/overworld.png\n" + btx_gen_format)
+        btxSrcStr = "ALL_OVERWORLDS_SRCS += data/graphics/sprites/" + speciesName + "/overworld.png"
+        btxDepStr = "ALL_OVERWORLDS_OBJS += " + convertedBtx + ".btx0"
+        filterList = [s for s in speciesDict if s.startswith(entry + "_OVERWORLD_")]
+        for i in range(0, len(filterList)):
+            entrySuffix = filterList[i][len("SPECIES_" + speciesName + "_OVERWORLD_"):]
+            entryName = (speciesName.upper() + "_OVERWORLD_" + entrySuffix)
+            outputNameStr = path_resolver_btx(entryName, speciesDict) + ".btx0"
+            output.write(outputNameStr + ": data/graphics/sprites/" + speciesName + "/overworld_" + entrySuffix.lower() + ".png\n" + btx_gen_format)
+            btxSrcStr = btxSrcStr + " data/graphics/sprites/" + speciesName + "/overworld_" + entrySuffix.lower() + ".png"
+            btxDepStr = btxDepStr + " " + outputNameStr
+        output.write(btxSrcStr + "\n")
+        output.write(btxDepStr + "\n")
         output.write(convertedIcon + ".NCGR: data/graphics/sprites/" + speciesName + "/icon.png\n" + icon_format.format(convertedIcon))
 
 # footer

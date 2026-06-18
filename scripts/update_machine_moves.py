@@ -1,6 +1,5 @@
 """
-Attempts to reconcile TM/HM/TR changes. 
-Reads moves.s and modifies the item sprite and description accordingly.
+Attempts to reconcile TM/HM/TR changes made in item.c to sprites and text archives
 """
 import re
 import argparse
@@ -15,88 +14,64 @@ MAX_ITEM_DESC_WIDTH = 36
 MAX_ITEM_DESC_LINES = 3
 
 
-def parse_moves_descriptions(moves_s: Path):
+def iter_move_entries(moves_file: Path):
+    moves_file = Path(moves_file)
+    current = None
+    depth = 0
+
+    with moves_file.open(encoding="utf-8") as f:
+        for raw in f:
+            line = raw.strip()
+            if current is None:
+                if re.match(r'^\[(MOVE_[A-Z0-9_]+|NUM_OF_MOVES)\]\s*=\s*\{$', line):
+                    current = [line]
+                    depth = line.count("{") - line.count("}")
+                continue
+
+            current.append(line)
+            depth += line.count("{") - line.count("}")
+            if depth == 0:
+                yield current
+                current = None
+
+
+def parse_moves_descriptions(moves_file: Path):
+    moves_file = Path(moves_file)
     """
     Parse single-line movedescription entries, replace literal '\n' sequences with spaces,
     and convert straight apostrophes (') to typographic ones (’).
     We deliberately do NOT unescape backslashes while scanning, so '\n' stays as two
     characters and can be replaced cleanly afterwards.
     """
-    descs = {}  # MOVE_*
-    prefix = re.compile(r'^\s*movedescription\s+(\w+)\s*,\s*')
+    descs = {}
 
-    with moves_s.open(encoding="utf-8") as f:
-        for raw in f:
-            line = raw.rstrip("\n")
-            m = prefix.match(line)
-            if not m:
-                continue
-            move = m.group(1)
-
-            # Find the first quoted string after the prefix (no escape interpretation)
-            i = line.find('"', m.end())
-            if i == -1:
-                continue
-            i += 1
-
-            buf = []
-            while i < len(line):
-                c = line[i]
-                if c == '"':
-                    break
-                buf.append(c)
-                i += 1
-
-            text = "".join(buf)
-            # Replace literal '\n' sequences with spaces
-            text = text.replace(r'\n', " ")
-            # Replace straight apostrophes with typographic ones
-            text = text.replace("'", "’")
-
-            descs[move] = text
+    for entry in iter_move_entries(moves_file):
+        move_match = re.match(r'^\[(MOVE_[A-Z0-9_]+)\]\s*=\s*\{$', entry[0])
+        if move_match is None:
+            continue
+        move = move_match.group(1)
+        text_line = next(line for line in entry if ".description =" in line)
+        text = text_line.split("=", 1)[1].strip().rstrip(",").strip('"')
+        text = text.replace(r'\n', " ")
+        text = text.replace("'", "’")
+        descs[move] = text
 
     return descs
 
 
-def parse_moves_types(moves_s: Path):
+def parse_moves_types(moves_file: Path):
+    moves_file = Path(moves_file)
     """
-    Capture TYPE_* from both `movedata` and `movedatalongname` blocks.
-    Prefer TYPE_FAIRY when multiple appear on the same 'type' line.
+    Capture TYPE_* from the MoveSourceEntry data blocks.
     """
-    moves_to_type = {}   # MOVE_* -> TYPE_*
-    current_move = None
-    current_type = None
-    TYPE_TOKEN_RE = re.compile(r'\bTYPE_[A-Za-z0-9_]+')
-    START_RE = re.compile(r'^\s*(movedata|movedatalongname)\s+(\w+)\s*,')
-
-    with moves_s.open(encoding="utf-8") as f:
-        for raw in f:
-            line = raw.strip()
-            if not line or line.startswith("//"):
-                continue
-
-            # start of a move block (supports both macros)
-            m = START_RE.match(line)
-            if m:
-                current_move = m.group(2)
-                current_type = None
-                continue
-
-            # pick up type lines inside a block (handles ternary, parens, etc.)
-            if current_move and line.startswith("type"):
-                types = TYPE_TOKEN_RE.findall(line)
-                if types:
-                    current_type = "TYPE_FAIRY" if "TYPE_FAIRY" in types else types[0]
-                continue
-
-            # end of block
-            if line.startswith("terminatedata") and current_move:
-                if current_move and current_type:
-                    moves_to_type[current_move] = current_type
-                current_move = None
-                current_type = None
-
-    return moves_to_type
+    move_types = {}
+    for entry in iter_move_entries(moves_file):
+        move_match = re.match(r'^\[(MOVE_[A-Z0-9_]+)\]\s*=\s*\{$', entry[0])
+        if move_match is None:
+            continue
+        type_line = next(line for line in entry if ".type =" in line)
+        move_types[move_match.group(1)] = type_line.split("=", 1)[1].strip().rstrip(",")
+    return move_types
 
 
 def load_machine_move_list(file_path: Path):
@@ -151,7 +126,7 @@ def item_generation(item_id, C):
         return 7
     if item_id <= C["ITEM_LEGEND_PLATE"]: 
         return 8
-    if item_id <= C["ITEM_BAXCALIBRITE"]:  
+    if item_id <= C["ITEM_CANARI_BREAD"]:  
         return 9
     return CUSTOM
 
@@ -167,9 +142,9 @@ def item_msg_offset(item_id, C):
         return item_id - (C["ITEM_EON_FLUTE"] + 1)
     if item_id <= C["ITEM_LEGEND_PLATE"]:
         return item_id - (C["ITEM_UNKNOWN_1073"] + 1)
-    if item_id <= C["ITEM_BAXCALIBRITE"]:
+    if item_id <= C["ITEM_CANARI_BREAD"]:
         return item_id - (C["ITEM_LEGEND_PLATE"] + 1)
-    return item_id - (C["ITEM_BAXCALIBRITE"] + 1)
+    return item_id - (C["ITEM_CANARI_BREAD"] + 1)
 
 
 def build_item_to_index_fn(C):
@@ -456,7 +431,7 @@ def build_parser():
     parser = argparse.ArgumentParser(description="Unified TM/TR/HM tools (descriptions + sprites)")
 
     # input
-    parser.add_argument("--moves", default="armips/data/moves.s", type=Path, help="Path to moves.s")
+    parser.add_argument("--moves", default="data/Moves.c", type=Path, help="Path to shared move data source")
     parser.add_argument("--machines", default="src/item.c", type=Path, help="C file defining sMachineMoves[]")
     parser.add_argument("--items-header", default="include/constants/item.h", type=Path, help="Path to include/constants/item.h")
 

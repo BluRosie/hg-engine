@@ -654,19 +654,19 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents poisoning!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents confusion!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents confusion!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents confusion!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} raised\nthe power of its Fire-type moves!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised the power\fof its Fire-type moves!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} raised the power\fof its Fire-type moves!
+The power of {STRVAR_1 1, 0, 0}’s\nFire-type moves rose!
+The power of the wild {STRVAR_1 1, 0, 0}’s\nFire-type moves rose!
+The power of the opposing {STRVAR_1 1, 0, 0}’s\nFire-type moves rose!
 {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
 The wild {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
 The opposing {STRVAR_1 1, 0, 0}\nis anchored in place\fwith its suction cups!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts {STRVAR_1 1, 2, 0}’s {STRVAR_1 13, 3, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts the wild {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\ncuts the opposing {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cuts {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cuts the wild\f{STRVAR_1 1, 2, 0}’s {STRVAR_1 13, 3, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cuts {STRVAR_1 1, 2, 0}’s\f{STRVAR_1 13, 3, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} cuts the opposing\f{STRVAR_1 1, 2, 0}’s {STRVAR_1 13, 3, 0}!
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
+(Unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents stat loss!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents stat loss!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents stat loss!
@@ -1091,9 +1091,9 @@ The opposing {STRVAR_1 1, 0, 0}\nbreaks the mold!
 {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} is hurt\nby its {STRVAR_1 5, 1, 0}!
-{STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with {STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with {STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0}!
+The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0}!
+The opposing {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0}!
 {STRVAR_1 1, 0, 0} lost some HP\nbecause of its {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} lost some HP\nbecause of its {STRVAR_1 5, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} lost some HP\nbecause of its {STRVAR_1 5, 1, 0}!
@@ -1301,9 +1301,9 @@ The opposing {STRVAR_1 1, 0, 0} is radiating a\nblazing aura!
 {STRVAR_1 1, 0, 0} is radiating a bursting\naura!
 The wild {STRVAR_1 1, 0, 0} is radiating a\nbursting aura!
 The opposing {STRVAR_1 1, 0, 0} is radiating a\nbursting aura!
-{STRVAR_1 1, 0, 0} is hurt by Innards Out!
-The wild {STRVAR_1 1, 0, 0} is hurt by\nInnards Out!
-The opposing {STRVAR_1 1, 0, 0} is hurt by\nInnards Out!
+{STRVAR_1 1, 0, 0} was hurt!
+The wild {STRVAR_1 1, 0, 0} was hurt!
+The opposing {STRVAR_1 1, 0, 0} was hurt!
 {STRVAR_1 1, 0, 0}’s ability became Mummy!
 The wild {STRVAR_1 1, 0, 0}’s ability\nbecame Mummy!
 The opposing {STRVAR_1 1, 0, 0}’s ability\nbecame Mummy!
@@ -1738,3 +1738,20 @@ The wild {STRVAR_1 1, 0, 0} has\nbeen afflicted with an infestation by\f{STRVAR_
 The wild {STRVAR_1 1, 0, 0} has\nbeen afflicted with an infestation by\fthe wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nhas been afflicted with an infestation by\f{STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}\nhas been afflicted with an infestation by\fthe opposing {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the wild {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the opposing {STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the wild {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} received\n{STRVAR_1 8, 2, 0} from the opposing {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
+The wild {STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
+The opposing {STRVAR_1 1, 0, 0} got trapped\nby a snap trap!
+{STRVAR_1 1, 0, 0} trapped {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} trapped\nthe wild {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} trapped\nthe wild {STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!

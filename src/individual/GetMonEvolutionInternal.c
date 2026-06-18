@@ -197,36 +197,36 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                     *method_ret = EVO_LEVEL_FEMALE;
                 }
                 break;
-            case EVO_CORONET: // magnetic field at route 43+kanto power plant
+            case EVO_MAGNETIC_FIELD: // magnetic field at route 43+kanto power plant
                 {
                     u32 location = gFieldSysPtr->location->mapId;
 
                     if (location == 45 || location == 18)
                     {
                         target = evoTable[i].target & 0x7FF;
-                        *method_ret = EVO_CORONET;
+                        *method_ret = EVO_MAGNETIC_FIELD;
                     }
                 }
                 break;
-            case EVO_ETERNA: // mossy rock at ilex+viridian forests
+            case EVO_MOSSY_ROCK: // mossy rock at ilex+viridian forests
                 {
                     u32 location = gFieldSysPtr->location->mapId;
 
                     if (location == 117 || location == 147)
                     {
                         target = evoTable[i].target & 0x7FF;
-                        *method_ret = EVO_ETERNA;
+                        *method_ret = EVO_MOSSY_ROCK;
                     }
                 }
                 break;
-            case EVO_ROUTE217: // icy rock at ice path+seafoam islands
+            case EVO_ICY_ROCK: // icy rock at ice path+seafoam islands
                 {
                     u32 location = gFieldSysPtr->location->mapId;
 
                     if (location == 239 || location == 456)
                     {
                         target = evoTable[i].target & 0x7FF;
-                        *method_ret = EVO_ROUTE217;
+                        *method_ret = EVO_ICY_ROCK;
                     }
                 }
                 break;

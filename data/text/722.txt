@@ -194,7 +194,7 @@ Boosts Defense when\nhit by an attack.
 Wimpily switches out if its\nHP becomes half or less.
 Switches out if its HP\nbecomes half or less.
 Sharply ups Defense when\nhit by a Water-type move.
-Its attacks are critical hits\nwhen it is poisoned.
+Its attacks are critical\nhits if target is poisoned.
 Its shell breaks if its\nHP becomes half or less.
 Deals doubles damage to\na target’s replacement.
 Weakens incoming Fire-type\nmoves and prevents burns.
