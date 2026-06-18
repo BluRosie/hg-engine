@@ -1,5 +1,4 @@
 // Test: Dancer - Doubles random target move
-// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLE,

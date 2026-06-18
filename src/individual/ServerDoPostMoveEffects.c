@@ -669,7 +669,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                                     ctx->dancerContext.extraActions[extraActionSlot].defender = ctx->turnOrder[turnOrderSlot];
                                     break;
                                 case RANGE_RANDOM_OPPONENT:
-                                    // debug_printf("Random opponent\n");
+                                    // gf_rand() % 2 produces garbage values here for some reason
                                     ctx->dancerContext.extraActions[extraActionSlot].defender = gf_rand() % 2 ? BATTLER_OPPONENT(ctx->attack_client) : BATTLER_ACROSS(ctx->attack_client);
                                     break;
                                 default:
