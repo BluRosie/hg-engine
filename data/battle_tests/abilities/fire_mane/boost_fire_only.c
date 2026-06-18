@@ -13,7 +13,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_RIVALRY,
             .item = ITEM_PYROARITE,
-            .moves = { MOVE_FLAMETHROWER, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_FLAMETHROWER, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -42,7 +42,7 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_RIVALRY,
                         .item = ITEM_PYROARITE,
-                        .moves = { MOVE_FLAME_WHEEL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_FLAME_WHEEL, MOVE_SCRATCH, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -66,7 +66,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -76,7 +76,7 @@ BEGIN_TEST
                       },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -86,7 +86,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_SECOND },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -96,7 +96,7 @@ BEGIN_TEST
                      },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -109,6 +109,8 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyroar has Mega Evolved into Mega Pyroar!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 118, 120, 121, 123, 124, 126, 127, 129, 130, 132, 133, 135, 136, 138, 139, 141 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 61, 63, 63, 64, 64, 66, 66, 67, 67, 69, 69, 70, 70, 72, 72, 73 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar used Scratch!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 27, 27, 28, 28, 28, 28, 30, 30, 30, 30, 30, 31, 31, 31, 31, 33 } },
     }
 }
 END_TEST
