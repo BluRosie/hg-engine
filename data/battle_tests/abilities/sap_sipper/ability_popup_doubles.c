@@ -106,12 +106,12 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Miltank's Sap Sipper" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank’s Attack rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank's Attack rose!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Miltank's Sap Sipper" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank’s Attack rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank's Attack rose!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Miltank's Sap Sipper" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank’s Attack rose!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank’s Attack won't go any higher!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank's Attack rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank's Attack won't go any higher!" },
     }
 }
 END_TEST

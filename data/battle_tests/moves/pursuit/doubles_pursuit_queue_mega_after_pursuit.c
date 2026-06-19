@@ -120,7 +120,7 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Attack fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric used Pursuit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium’s Meganiumite is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Meganiumite is reacting to the Key Stone!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric used Sleep Talk!" },
     },
 } END_TEST

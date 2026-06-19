@@ -32,6 +32,8 @@
 #define DUMMY_P2_2_SP_ATTACK_IV_OVERRIDE  (0x0400)
 #define DUMMY_P2_2_SP_DEFENSE_IV_OVERRIDE (0x0800)
 
+#define MOVE_APPEND_FULL 0xFFFFu
+
 // MON_DATA_UNK_121  (8 bits) fields
 
 #define SET_MON_HIDDEN_ABILITY_BIT(mon)                                     \
@@ -1852,5 +1854,13 @@ s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
 BOOL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID);
+
+u16 LONG_CALL Species_LoadLearnsetTable(u16 species, u16 form, u16 *dest);
+
+u16 LONG_CALL ItemToMachineMove(u16 itemId);
+
+BOOL LONG_CALL GetTMHMCompatBySpeciesAndForm(u16 species, u16 form, u8 tmhmIdx);
+
+void LONG_CALL DeleteMonFirstMoveAndAppend(struct PartyPokemon *mon, u16 move);
 
 #endif
