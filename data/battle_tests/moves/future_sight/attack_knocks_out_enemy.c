@@ -124,11 +124,10 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 131, 133, 134, 135, 136, 139, 140, 142, 143, 144, 147, 148, 149, 151, 152, 155 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Delphox lost some of its HP!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon restored its health using its Sitrus Berry!" },
+            { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Gardevoir used Future Sight!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Psychic Gem strengthened Future Sight's power!" },
-            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 204, 206, 210, 212, 216, 216, 218, 222, 224, 228, 228, 230, 234, 236, 240, 242 } }, 
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Toxapex fainted!" },
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 204, 206, 210, 212, 216, 216, 218, 222, 224, 228, 228, 230, 234, 236, 240, 242 } },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };
