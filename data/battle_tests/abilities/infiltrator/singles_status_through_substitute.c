@@ -1,4 +1,4 @@
-// Test: Substitute - Infiltrator goes through Substitute
+// Test: Substitute - Infiltrator goes through Substitute for status moves
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
@@ -37,7 +37,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE }
         },
-        .enemyParty = { 
+        .enemyParty = {
                         {
                             .species = SPECIES_CLEFABLE,
                             .level = 100,

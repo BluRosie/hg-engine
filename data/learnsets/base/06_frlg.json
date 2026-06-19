@@ -33036,7 +33036,7 @@
       "MOVE_SUBSTITUTE"
     ]
   },
-  "SPECIES_DEOXYS_ATTACK": {
+  "SPECIES_496": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -33140,7 +33140,7 @@
       "MOVE_SUBSTITUTE"
     ]
   },
-  "SPECIES_DEOXYS_DEFENSE": {
+  "SPECIES_497": {
     "LevelMoves": [
       {
         "Level": 1,

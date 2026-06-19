@@ -6,16 +6,21 @@ set -e
 
 echo "Running pre-commit checks..."
 
-FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.(c|h)$' || true)
+CLANG_FORMAT_BIN=clang-format
+if command -v clang-format-18 >/dev/null 2>&1; then
+  CLANG_FORMAT_BIN=clang-format-18
+fi
+
+FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^(src/.+\.c|include/.+\.h)$' || true)
 if [ -z "$FILES" ]; then
-  echo "No C/C++ files staged."
+  echo "No matching C/C++ files staged."
   exit 0
 fi
 
 for file in $FILES; do
   if [ -f "$file" ]; then
-    echo "Formatting $file"
-    clang-format -i "$file"
+    echo "Formatting $file with $CLANG_FORMAT_BIN"
+    "$CLANG_FORMAT_BIN" -i "$file"
     git add "$file"
   fi
 done

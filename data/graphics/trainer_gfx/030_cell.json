@@ -1,7 +1,9 @@
 {
 	"labelEnabled":	true,
+	"dontPadKbec":	false,
 	"extended":	true,
 	"vramTransferEnabled":	true,
+	"ucatEnabled":	false,
 	"cellCount":	1,
 	"mappingType":	1,
 	"cells":	[{
@@ -19,7 +21,7 @@
 			"oamCount":	6,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -28,7 +30,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -39,7 +41,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -59,7 +61,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	248,
+						"YCoordinate":	-8,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -88,7 +90,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -108,7 +110,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},

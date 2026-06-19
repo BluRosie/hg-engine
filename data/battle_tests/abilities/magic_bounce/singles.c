@@ -95,7 +95,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Glare was bounced back by Magic Bounce!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Glare back!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok is paralyzed, so it may be unable to move!" },
         },
     },

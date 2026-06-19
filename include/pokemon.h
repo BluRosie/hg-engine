@@ -3,6 +3,8 @@
 
 #include "config.h"
 // #include "save.h"
+#include "constants/pokemon.h"
+
 #include "party_menu.h"
 #include "trainer_data.h"
 #include "types.h"
@@ -628,6 +630,8 @@ struct IconFormChangeData {
 
 struct SAVE_MISC_DATA;
 
+typedef struct MessageFormat MessageFormat;
+
 // defines from pokeheartgold + new ones
 typedef enum EvoMethod {
     EVO_NONE = 0,
@@ -654,9 +658,9 @@ typedef enum EvoMethod {
     EVO_OTHER_PARTY_MON,
     EVO_LEVEL_MALE,
     EVO_LEVEL_FEMALE,
-    EVO_CORONET,
-    EVO_ETERNA,
-    EVO_ROUTE217,
+    EVO_MAGNETIC_FIELD,
+    EVO_MOSSY_ROCK,
+    EVO_ICY_ROCK,
     EVO_LEVEL_DAY,
     EVO_LEVEL_NIGHT,
     EVO_LEVEL_DUSK,
@@ -755,33 +759,6 @@ enum {
     MOVE_DATA_UNK,
 };
 
-// natures
-#define NATURE_HARDY   (0)
-#define NATURE_LONELY  (1)
-#define NATURE_BRAVE   (2)
-#define NATURE_ADAMANT (3)
-#define NATURE_NAUGHTY (4)
-#define NATURE_BOLD    (5)
-#define NATURE_DOCILE  (6)
-#define NATURE_RELAXED (7)
-#define NATURE_IMPISH  (8)
-#define NATURE_LAX     (9)
-#define NATURE_TIMID   (10)
-#define NATURE_HASTY   (11)
-#define NATURE_SERIOUS (12)
-#define NATURE_JOLLY   (13)
-#define NATURE_NAIVE   (14)
-#define NATURE_MODEST  (15)
-#define NATURE_MILD    (16)
-#define NATURE_QUIET   (17)
-#define NATURE_BASHFUL (18)
-#define NATURE_RASH    (19)
-#define NATURE_CALM    (20)
-#define NATURE_GENTLE  (21)
-#define NATURE_SASSY   (22)
-#define NATURE_CAREFUL (23)
-#define NATURE_QUIRKY  (24)
-
 #define FLAVOR_SPICY  0
 #define FLAVOR_DRY    1
 #define FLAVOR_SWEET  2
@@ -794,29 +771,6 @@ enum {
 #define MAX_EVOS_PER_POKE (9)
 
 #define gDimorphismTable ((u8 *)(0x020FECAE))
-
-/**Trainer Data File Bitfield**/
-#define TRAINER_DATA_TYPE_NOTHING          0x00
-#define TRAINER_DATA_TYPE_MOVES            0x01
-#define TRAINER_DATA_TYPE_ITEMS            0x02
-#define TRAINER_DATA_TYPE_ABILITY          0x04
-#define TRAINER_DATA_TYPE_BALL             0x08
-#define TRAINER_DATA_TYPE_IV_EV_SET        0x10
-#define TRAINER_DATA_TYPE_NATURE_SET       0x20
-#define TRAINER_DATA_TYPE_SHINY_LOCK       0x40
-#define TRAINER_DATA_TYPE_ADDITIONAL_FLAGS 0x80 // whether or not to read extra flags in trpoke entry
-
-/**Trainer Pokemon File Extra Bitfield**/
-#define TRAINER_DATA_EXTRA_TYPE_NOTHING   0x00
-#define TRAINER_DATA_EXTRA_TYPE_STATUS    0x01
-#define TRAINER_DATA_EXTRA_TYPE_HP        0x02
-#define TRAINER_DATA_EXTRA_TYPE_ATK       0x04
-#define TRAINER_DATA_EXTRA_TYPE_DEF       0x08
-#define TRAINER_DATA_EXTRA_TYPE_SPEED     0x10
-#define TRAINER_DATA_EXTRA_TYPE_SP_ATK    0x20
-#define TRAINER_DATA_EXTRA_TYPE_SP_DEF    0x40
-#define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x80
-#define TRAINER_DATA_EXTRA_TYPE_NICKNAME  0x100
 
 // kinda weird, specifically tracked in the RAM
 typedef struct WildEncounterWork {
@@ -1441,7 +1395,7 @@ void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u3
  */
 u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
 
-#define gIconPalTable ((u8 *)(0x023D8000 + START_ADDRESS))
+void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 
 // defined in src/pokemon.c
 
@@ -1766,6 +1720,14 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp);
  *  @return .tag entry in gOWTagToFileNum
  */
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale);
+
+/**
+ *  @brief lookup whether or not the species has female overworld form that isn't defined as a completely separate form
+ *
+ *  @param species species index
+ *  @return FALSE if no form or female handling for overworlds; the base index otherwise.  e.g. SPECIES_PICHU would return
+ */
+u32 LONG_CALL OverworldModelLookupHasFemaleForm(u32 species);
 
 /**
  *  @brief give a PartyPokemon to the player given species, level, form, ability, etc.

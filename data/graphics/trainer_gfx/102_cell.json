@@ -1,7 +1,9 @@
 {
 	"labelEnabled":	true,
+	"dontPadKbec":	false,
 	"extended":	true,
 	"vramTransferEnabled":	true,
+	"ucatEnabled":	false,
 	"cellCount":	7,
 	"mappingType":	1,
 	"cells":	[{
@@ -19,7 +21,7 @@
 			"oamCount":	7,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -28,7 +30,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -39,7 +41,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	248,
+						"YCoordinate":	-8,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -48,7 +50,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -59,7 +61,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -99,7 +101,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -108,7 +110,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -128,7 +130,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -148,7 +150,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	1
 					},
@@ -173,7 +175,7 @@
 			"oamCount":	7,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -182,7 +184,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -193,7 +195,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	248,
+						"YCoordinate":	-8,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -202,7 +204,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -213,7 +215,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -253,7 +255,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -262,7 +264,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -282,7 +284,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -302,7 +304,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	1
 					},
@@ -327,7 +329,7 @@
 			"oamCount":	7,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -336,7 +338,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -347,7 +349,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	248,
+						"YCoordinate":	-8,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -356,7 +358,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -367,7 +369,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -407,7 +409,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -416,7 +418,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -436,7 +438,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -456,7 +458,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	1
 					},
@@ -481,7 +483,7 @@
 			"oamCount":	7,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -490,7 +492,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -501,7 +503,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	248,
+						"YCoordinate":	-8,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -510,7 +512,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -521,7 +523,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -530,7 +532,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	511,
+						"XCoordinate":	-1,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -550,7 +552,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	511,
+						"XCoordinate":	-1,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -561,7 +563,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -570,7 +572,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -590,7 +592,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -610,7 +612,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	1
 					},
@@ -635,7 +637,7 @@
 			"oamCount":	7,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -644,7 +646,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -655,7 +657,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	248,
+						"YCoordinate":	-8,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -664,7 +666,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -675,7 +677,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -684,7 +686,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	511,
+						"XCoordinate":	-1,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -704,7 +706,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	511,
+						"XCoordinate":	-1,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -715,7 +717,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -724,7 +726,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -744,7 +746,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -764,7 +766,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	1
 					},
@@ -789,7 +791,7 @@
 			"oamCount":	7,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -798,7 +800,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -809,7 +811,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	248,
+						"YCoordinate":	-8,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -818,7 +820,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -829,7 +831,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -838,7 +840,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	511,
+						"XCoordinate":	-1,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -858,7 +860,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	511,
+						"XCoordinate":	-1,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -869,7 +871,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -878,7 +880,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -898,7 +900,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	472,
+						"XCoordinate":	-40,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -918,7 +920,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	504,
+						"XCoordinate":	-8,
 						"RotationScaling":	0,
 						"Size":	1
 					},
@@ -943,7 +945,7 @@
 			"oamCount":	7,
 			"OAM":	[{
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -952,7 +954,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	503,
+						"XCoordinate":	-9,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -963,7 +965,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	248,
+						"YCoordinate":	-8,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -972,7 +974,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	503,
+						"XCoordinate":	-9,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -983,7 +985,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -992,7 +994,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	511,
+						"XCoordinate":	-1,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -1012,7 +1014,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	511,
+						"XCoordinate":	-1,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -1023,7 +1025,7 @@
 					}
 				}, {
 					"Attr0":	{
-						"YCoordinate":	216,
+						"YCoordinate":	-40,
 						"Rotation":	false,
 						"SizeDisable":	false,
 						"Mode":	0,
@@ -1032,7 +1034,7 @@
 						"Shape":	2
 					},
 					"Attr1":	{
-						"XCoordinate":	471,
+						"XCoordinate":	-41,
 						"RotationScaling":	0,
 						"Size":	3
 					},
@@ -1052,7 +1054,7 @@
 						"Shape":	1
 					},
 					"Attr1":	{
-						"XCoordinate":	471,
+						"XCoordinate":	-41,
 						"RotationScaling":	0,
 						"Size":	2
 					},
@@ -1072,7 +1074,7 @@
 						"Shape":	0
 					},
 					"Attr1":	{
-						"XCoordinate":	503,
+						"XCoordinate":	-9,
 						"RotationScaling":	0,
 						"Size":	1
 					},
@@ -1085,27 +1087,27 @@
 		}],
 	"labels":	["CellAnime1", "CellAnime0"],
 	"labelCount":	2,
-	"vramTransferMaxSize":	3200,
+	"vramTransferMaxSize":	524288,
 	"transferData":	[{
-			"offset":	0,
-			"size":	3200
+			"offset":	209715200,
+			"size":	209715200
 		}, {
-			"offset":	3200,
-			"size":	3200
+			"offset":	209715200,
+			"size":	419430400
 		}, {
-			"offset":	6400,
-			"size":	3200
+			"offset":	209715200,
+			"size":	629145600
 		}, {
-			"offset":	9600,
-			"size":	3200
+			"offset":	209715200,
+			"size":	838860800
 		}, {
-			"offset":	12800,
-			"size":	3200
+			"offset":	209715200,
+			"size":	1048576000
 		}, {
-			"offset":	16000,
-			"size":	3200
+			"offset":	209715200,
+			"size":	1258291200
 		}, {
-			"offset":	19200,
-			"size":	3200
+			"offset":	209715200,
+			"size":	0
 		}]
 }

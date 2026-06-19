@@ -17,6 +17,8 @@
 #define STATE_TEST_INDEX_SHIFT      22
 #define STATE_TEST_INDEX_MASK       0x3FF
 
+#define NUM_FURTHER_TEST_PARAMS 4
+
 // Battle action for scripted tests
 struct PACKED BattleAction {
     u8 action;  // 0-3 = move slot, 4-9 = switch to party slot (action - 4)
@@ -31,10 +33,11 @@ struct PACKED TestBattlePokemon {
     u16 ability;
     u16 item;
     u16 moves[4];
-    u16 hp;              // 0 = full HP
+    u16 hp;              // 0xFFFF = full HP
     u32 status;          // STATUS_BURN, STATUS_POISON, STATUS_SLEEP, etc.
     u32 condition2;      // STATUS2_RECHARGE, STATUS2_CONFUSION, etc. (can be OR'd)
     u32 moveEffectFlags; // MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE, etc. (can be OR'd)
+    u16 furtherParams[NUM_FURTHER_TEST_PARAMS][2]; // pairs of MON_DATA_* constants and the value to set them to.  u32 is thought to be unnecessary
 };
 
 enum ExpectationType {
@@ -43,6 +46,8 @@ enum ExpectationType {
     EXPECTATION_TYPE_MESSAGE_CONTAINS,
     EXPECTATION_TYPE_ATTACK_MESSAGE,
     EXPECTATION_OVERWORLD_FORM,
+    EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN,
+    EXPECTATION_TYPE_NOT_MESSAGE
 };
 
 union ExpectationValue {
@@ -76,10 +81,11 @@ struct PACKED TestBattleScenario {
     struct Expectations expectations[MAX_EXPECTATIONS];
 
     u8 expectationPassCount;
-    u8 knownFailing;
+    u8 knownFailing : 1;
+    u8 markAsFail : 7;
 };
 
-#define FULL_HP 0
+#define FULL_HP (0xFFFF)
 
 // Action type constants
 #define ACTION_MOVE_SLOT_1   0
