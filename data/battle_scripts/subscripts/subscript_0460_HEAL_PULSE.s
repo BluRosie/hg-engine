@@ -8,11 +8,11 @@ _000:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _HealBlockAttacker
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _HealBlockDefender
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MEGA_LAUNCHER, _Heal75Percent
-    DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
+    DivideVarByValueRoundUp BSCRIPT_VAR_HP_CALC, 2
     GoTo _Heal50Percent
 
 _Heal75Percent:
-    DivideVarByValue BSCRIPT_VAR_HP_CALC, 4
+    DivideVarByValueRoundUp BSCRIPT_VAR_HP_CALC, 4
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, 3
 
 _Heal50Percent:

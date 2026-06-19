@@ -117,7 +117,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar's Parting Shot was bounced back by Magic Bounce!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Parting Shot back!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Espeon went back to" },
         },
     },

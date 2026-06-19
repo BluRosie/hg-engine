@@ -102,7 +102,6 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It broke through the opposing Incineroar's protection!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dreepy is hurt by the opposing Incineroar's Rocky Helmet!" },
         },
-        .knownFailing = TRUE,
     },
 #ifndef GET_TEST_CASE_ONLY
 };

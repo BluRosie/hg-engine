@@ -620,7 +620,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
 #else
     // if the capture is successful, and the target species is already registered, use the critical capture animation, otherwise there should still be 0-3 shakes.
     // https://xcancel.com/Sibuna_Switch/status/1847665451809075315#m
-#ifdef IMPLEMENT_CRITICAL_CAPTURE
+#if defined(IMPLEMENT_CRITICAL_CAPTURE) && CRITICAL_CAPTURE_GENERATION >= 9
     if (Battle_CheckIfHasCaughtMon(bw, sp->battlemon[sp->defence_client].species)) {
         return ((i == 4 || i == (1 | CRITICAL_CAPTURE_MASK)) ? (1 | CRITICAL_CAPTURE_MASK) : (i));
     }

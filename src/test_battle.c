@@ -15,6 +15,9 @@
 
 #define TEST_START_INDEX 0
 
+static u32 gTestEndIndex = TEST_BATTLE_TOTAL_TESTS;
+static BOOL overridden = FALSE;
+
 // Layout:
 //   bits 0-3:   scriptIndex[0] (0-8)
 //   bits 4-7:   scriptIndex[1] (0-8)
@@ -101,6 +104,10 @@ void LONG_CALL SendValueThroughCommunicationSendHole(int value) {
     *g_EmulatorCommunicationSendHole = value;
 }
 
+int LONG_CALL ReadValueThroughCommunicationSendHole() {
+    return *g_EmulatorCommunicationSendHole;
+}
+
 struct TestBattleScenario *LONG_CALL TestBattle_GetCurrentScenario()
 {
     return sCurrentScenario;
@@ -128,8 +135,10 @@ BOOL LONG_CALL TestBattle_HasMoreExpectations()
  * @param hp Custom HP (0 = use max)
  * @param status Status condition
  */
-static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 species, u8 level, u8 form, u16 ability, u16 item, u16 moves[4], u16 hp, u32 status)
+static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 species, u8 level, u8 form, u16 ability, u16 item, u16 moves[4], u16 hp, u32 status, const u16 furtherParams[NUM_FURTHER_TEST_PARAMS][2])
 {
+    int i;
+
     PokeParaSet(mon, species, level, 31, FALSE, 0, 0, 0);
     SetMonData(mon, MON_DATA_FORM, &form);
     SetMonData(mon, MON_DATA_ABILITY, &ability);
@@ -137,7 +146,7 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
     SET_MON_NATURE_OVERRIDE(mon, NATURE_HARDY);
 
     // moves
-    for (int i = 0; i < 4; i++) {
+    for (i = 0; i < 4; i++) {
         if (moves[i] != MOVE_NONE) {
             u16 move = moves[i];
             SetMonData(mon, MON_DATA_MOVE1 + i, &move);
@@ -147,7 +156,7 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
         }
     }
 
-    if (hp == 0) {
+    if (hp == FULL_HP) {
         u16 maxHP = (u16)GetMonData(mon, MON_DATA_MAXHP, NULL);
         SetMonData(mon, MON_DATA_HP, &maxHP);
     } else {
@@ -158,6 +167,15 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
 
     u8 friendship = 255;
     SetMonData(mon, MON_DATA_FRIENDSHIP, &friendship);
+
+    for (i = 0; i < NUM_FURTHER_TEST_PARAMS; i++) {
+        if (furtherParams[i][0] == 0) {
+            continue;
+        } else {
+            u16 param = furtherParams[i][1];
+            SetMonData(mon, furtherParams[i][0], &param);
+        }
+    }
     RecalcPartyPokemonStats(mon);
 }
 
@@ -178,7 +196,7 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
  */
 static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
                                u16 species, u8 level, u8 form, u16 ability, u16 item,
-                               u16 moves[4], u16 hp, u32 status)
+                               u16 moves[4], u16 hp, u32 status, const u16 furtherParams[NUM_FURTHER_TEST_PARAMS][2])
 {
     if (bp->poke_party[partyIndex] == NULL) {
         return;
@@ -186,7 +204,7 @@ static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
 
     struct PartyPokemon *mon = Party_GetMonByIndex(bp->poke_party[partyIndex], slot);
     if (mon != NULL) {
-        TestBattle_OverridePokemon(mon, species, level, form, ability, item, moves, hp, status);
+        TestBattle_OverridePokemon(mon, species, level, form, ability, item, moves, hp, status, furtherParams);
     }
 }
 
@@ -200,9 +218,9 @@ static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
  */
 void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
 {
-    int testIndex = GetCurrentTestIndex();
+    u32 testIndex = GetCurrentTestIndex();
     SetTestComplete(FALSE);
-    SetHasMoreTests((testIndex + 1) < TEST_BATTLE_TOTAL_TESTS);
+    SetHasMoreTests((testIndex + 1) < gTestEndIndex);
 
     AllocAndLoadScenario();
     if (sCurrentScenario == NULL) {
@@ -241,7 +259,8 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
                           mon->item,
                           (u16*)mon->moves,
                           mon->hp,
-                          mon->status);
+                          mon->status,
+                          mon->furtherParams);
         playerCount++;
     }
     if (bp->poke_party[0] != NULL) {
@@ -280,7 +299,8 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
                           mon->item,
                           (u16*)mon->moves,
                           mon->hp,
-                          mon->status);
+                          mon->status,
+                          mon->furtherParams);
     }
 }
 
@@ -460,6 +480,15 @@ BOOL LONG_CALL TestBattle_IsComplete()
 
 void LONG_CALL TestBattle_QueueNextTest()
 {
+    if (!overridden) {
+        u32 value = ReadValueThroughCommunicationSendHole();
+        u32 currentIndex = value & 0xFFFF;
+        // debug_printf("First test index: %d\n", currentIndex);
+        SetCurrentTestIndex(currentIndex);
+        gTestEndIndex = value >> 16;
+        // debug_printf("Last test index: %d\n", gTestEndIndex - 1);
+        overridden = TRUE;
+    }
     if (IsTestComplete()) {
         SetCurrentTestIndex(GetCurrentTestIndex() + 1);
         SetTestComplete(FALSE);
@@ -604,7 +633,7 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
 }
 
 // send out pokemon in order
-int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys, int battler)
+int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int battler UNUSED)
 {
     return 6;
 }

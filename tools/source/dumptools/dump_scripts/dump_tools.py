@@ -1,5 +1,6 @@
 import re
 import io
+from pathlib import Path
 from typing import Dict, Set
 import sys
 from typing import Dict, DefaultDict
@@ -7,6 +8,8 @@ from collections import defaultdict
 import ndspy
 import ndspy.rom, ndspy.narc
 import copy
+
+REPO_ROOT = Path(__file__).resolve().parents[4]
 
 PERSONAL_NARC_FORMAT = [[1, "base_hp"],
 [1, "base_atk"],
@@ -49,7 +52,8 @@ MOVE_NARC_FORMAT = [
 [1, "priority"],
 [1, "properties"],
 [1, "appeal"],
-[1, "contest_type"]]
+[1, "contest_type"],
+[2, "contest_padding"]]
 
 # if this is dumping from a vanilla rom, the data structure is much different
 # new format for vanilla learnset len 4 = [bytes, bits for low field, low field, high field]
@@ -214,60 +218,67 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
     for idx, data in enumerate(narc.files):
         flags = bin(trdata_narc[idx]["flags"])[2:].zfill(8)
         num_pokemon = trdata_narc[idx]["num_pokemon"]
-        narc_format = copy.deepcopy(TRPOK_NARC_FORMAT)
-
-        if flags[7] == '0':
-            for n in range(1,5):
-                narc_format.remove([2, f"move_{n}"])
-
-        if flags[6] == '0':
-            narc_format.remove([2, "item_id"])
-
-        if flags[5] == '0':
-            narc_format.remove([2, "custom_ability"])
-
-        if flags[4] == '0':
-            narc_format.remove([2, "ball"])
-
-        if flags[3] == '0':
-            for value_type in ["iv", "ev"]:
-                for stat in ["hp", "atk", "def", "spd", "spatk", "spdef"]:
-                    narc_format.remove([1, f'{stat}_{value_type}'])
-
-        if flags[2] == '0':
-            narc_format.remove([1, "nature"])
-
-        if flags[1] == '0':
-            narc_format.remove([1, "shiny_lock"])
-
-        # for the moment, i do not care about any extra fields.
-        if flags[0] == '0':
-            narc_format.remove([4, "additional_flags"])
-            narc_format.remove([4, "status"])
-            narc_format.remove([2, "hp"])
-            narc_format.remove([2, "atk"])
-            narc_format.remove([2, "def"])
-            narc_format.remove([2, "spd"])
-            narc_format.remove([2, "spatk"])
-            narc_format.remove([2, "spdef"])
-            narc_format.remove([1, "type_1"])
-            narc_format.remove([1, "type_2"])
-            narc_format.remove([1, "move_1_pp"])
-            narc_format.remove([1, "move_2_pp"])
-            narc_format.remove([1, "move_3_pp"])
-            narc_format.remove([1, "move_4_pp"])
-        else:
-            print("Additional flags not currently implemented in the dumper!  Quit.")
-            sys.exit(0)
-
-        #parsed_narc_data.append(read_narc_data(data, narc_format))
-        totalSizePerMon = 0
-        for i in range(0, len(narc_format)):
-            totalSizePerMon += narc_format[i][0]
         parsed_narc_data[idx] = {}
+        stream = io.BytesIO(data)
         for i in range(0, num_pokemon):
-            parsed_narc_data[idx][i] = read_narc_data(data, narc_format)
-            data = data[totalSizePerMon:]
+            mon = {
+                "ivs": read_bytes(stream, 1),
+                "ability": read_bytes(stream, 1),
+                "level": read_bytes(stream, 2),
+                "species_id": read_bytes(stream, 2),
+            }
+
+            if flags[6] == '1':
+                mon["item_id"] = read_bytes(stream, 2)
+
+            if flags[7] == '1':
+                for n in range(1, 5):
+                    mon[f"move_{n}"] = read_bytes(stream, 2)
+
+            if flags[5] == '1':
+                mon["custom_ability"] = read_bytes(stream, 2)
+
+            if flags[4] == '1':
+                mon["ball"] = read_bytes(stream, 2)
+
+            if flags[3] == '1':
+                for stat in ["hp", "atk", "def", "spd", "spatk", "spdef"]:
+                    mon[f"{stat}_iv"] = read_bytes(stream, 1)
+                for stat in ["hp", "atk", "def", "spd", "spatk", "spdef"]:
+                    mon[f"{stat}_ev"] = read_bytes(stream, 1)
+
+            if flags[2] == '1':
+                mon["nature"] = read_bytes(stream, 1)
+
+            if flags[1] == '1':
+                mon["shiny_lock"] = read_bytes(stream, 1)
+
+            if flags[0] == '1':
+                mon["additional_flags"] = read_bytes(stream, 4)
+                additional_flags = mon["additional_flags"]
+
+                if additional_flags & 0x01:
+                    mon["status"] = read_bytes(stream, 4)
+                if additional_flags & 0x02:
+                    mon["hp"] = read_bytes(stream, 2)
+                if additional_flags & 0x04:
+                    mon["atk"] = read_bytes(stream, 2)
+                if additional_flags & 0x08:
+                    mon["def"] = read_bytes(stream, 2)
+                if additional_flags & 0x10:
+                    mon["spd"] = read_bytes(stream, 2)
+                if additional_flags & 0x20:
+                    mon["spatk"] = read_bytes(stream, 2)
+                if additional_flags & 0x40:
+                    mon["spdef"] = read_bytes(stream, 2)
+                if additional_flags & 0x80:
+                    for n in range(1, 5):
+                        mon[f"move_{n}_pp"] = read_bytes(stream, 1)
+                if additional_flags & 0x100:
+                    mon["nickname"] = [read_bytes(stream, 2) for _ in range(11)]
+
+            mon["ballseal"] = read_bytes(stream, 2)
+            parsed_narc_data[idx][i] = mon
     return parsed_narc_data
 
 def get_form(species_id, is_expanded):
@@ -328,6 +339,65 @@ def remove_comments(content: str) -> str:
         i += 1
 
     return ''.join(result)
+
+
+def parse_c_header_defines(header_path: str, prefix: str) -> Dict[int, str]:
+    values: Dict[int, str] = {}
+    known_values: Dict[str, int] = {}
+    with open(REPO_ROOT / header_path, "r", encoding="utf-8") as f:
+        for raw_line in f:
+            line = raw_line.split("//", 1)[0].strip()
+            if not line.startswith("#define "):
+                continue
+            parts = line.split(maxsplit=2)
+            if len(parts) < 3:
+                continue
+            name = parts[1]
+            if "(" in name:
+                continue
+            expr = parts[2].strip()
+            while expr.startswith("(") and expr.endswith(")"):
+                expr = expr[1:-1].strip()
+            try:
+                resolved_expr = expr
+                for identifier in set(re.findall(r"\b[A-Za-z_][A-Za-z0-9_]*\b", expr)):
+                    if identifier in known_values:
+                        resolved_expr = re.sub(rf"\b{re.escape(identifier)}\b", str(known_values[identifier]), resolved_expr)
+                value = int(eval(resolved_expr, {"__builtins__": None}, {}))
+            except Exception:
+                continue
+            known_values[name] = value
+            if name.startswith(prefix):
+                values[value] = name
+    return values
+
+
+def parse_c_enum(header_path: str, enum_name: str, prefix: str) -> Dict[int, str]:
+    values: Dict[int, str] = {}
+    with open(REPO_ROOT / header_path, "r", encoding="utf-8") as f:
+        content = remove_comments(f.read())
+
+    match = re.search(rf"typedef\s+enum\s+{re.escape(enum_name)}\s*\{{(.*?)\}}\s*{re.escape(enum_name)}\s*;", content, re.S)
+    if match is None:
+        return values
+
+    current_value = 0
+    for raw_entry in match.group(1).split(","):
+        entry = raw_entry.strip()
+        if not entry:
+            continue
+        if "=" in entry:
+            name, expr = [part.strip() for part in entry.split("=", 1)]
+            try:
+                current_value = int(expr, 0)
+            except ValueError:
+                continue
+        else:
+            name = entry
+        if name.startswith(prefix):
+            values[current_value] = name
+        current_value += 1
+    return values
 
 def parse_inc_file(file_path: str) -> Dict[str, Dict[int, str]]:
     """
@@ -421,6 +491,7 @@ def parse_inc_file(file_path: str) -> Dict[str, Dict[int, str]]:
                 continue
 
         if not progress and variables:
+            print(variables)
             raise ValueError("Unable to resolve all variable dependencies")
 
     return dict(result)
@@ -451,6 +522,9 @@ class DictWrapper:
             print(f"{key} not found in dict, returning {key} as value")
             return key
 
+    def get(self, key, default=None):
+        return self.dict.get(key, default)
+
 MONS = parse_inc_file("asm/include/species.inc")
 ITEMS = parse_inc_file("asm/include/items.inc")
 MOVES = parse_inc_file("asm/include/moves.inc")
@@ -458,3 +532,39 @@ MOVE_EFFECTS = parse_inc_file("asm/include/move_effects.inc")
 ABILITIES = parse_inc_file("asm/include/abilities.inc")
 CONSTANTS = parse_inc_file("armips/include/constants.s")
 MOVE_MACROS = DictWrapper(parse_inc_file("armips/include/movemacros.s"))
+
+C_CONSTANT_GROUPS = {
+    "SPECIES": parse_c_header_defines("include/constants/species.h", "SPECIES_"),
+    "ITEM": parse_c_header_defines("include/constants/item.h", "ITEM_"),
+    "MOVE": parse_c_header_defines("include/constants/moves.h", "MOVE_"),
+    "ABILITY": parse_c_header_defines("include/constants/ability.h", "ABILITY_"),
+    "TYPE": parse_c_header_defines("include/constants/pokemon.h", "TYPE_"),
+    "GROWTH": parse_c_header_defines("include/constants/pokemon.h", "GROWTH_"),
+    "EGG": parse_c_header_defines("include/constants/pokemon.h", "EGG_GROUP_"),
+    "BODY": parse_c_header_defines("include/constants/pokemon.h", "BODY_COLOR_"),
+    "NATURE": parse_c_header_defines("include/constants/pokemon.h", "NATURE_"),
+    "TRAINERCLASS": parse_c_header_defines("include/constants/trainerclass.h", "TRAINERCLASS_"),
+    "EVO": parse_c_enum("include/pokemon.h", "EvoMethod", "EVO_"),
+}
+
+
+def lookup_const(group, value):
+    if group in C_CONSTANT_GROUPS:
+        return C_CONSTANT_GROUPS[group].get(value, str(value))
+    return CONSTANTS[group].get(value, str(value))
+
+
+def lookup_species(value):
+    return C_CONSTANT_GROUPS["SPECIES"].get(value, str(value))
+
+
+def lookup_move(value):
+    return C_CONSTANT_GROUPS["MOVE"].get(value, str(value))
+
+
+def lookup_item(value):
+    return C_CONSTANT_GROUPS["ITEM"].get(value, str(value))
+
+
+def lookup_ability(value):
+    return C_CONSTANT_GROUPS["ABILITY"].get(value, str(value))

@@ -1,8 +1,6 @@
 # Configuration Options
 
 ### ``armips\include\config.s`` and ``include\config.h``
- ``START_ADDRESS`` is the start address in both of these files for all the armips assembly (primarily tables) that need to be inserted into the arm9 extension, here overlay 129.  By default there are 0x1000 bytes at the beginning of overlay 129 for this.
-
  ``DISALLOW_DEXIT_GEN`` (``armips/include/config.s`` only) controls whether to disallow selection of dexited moves in later generations, or disallow selection of unimplemented moves.
 
  ``FAIRY_TYPE_IMPLEMENTED`` should be set to 0 in both of these files in order to disable the fairy type implementation.  By default, it is 1 to implement the fairy type.

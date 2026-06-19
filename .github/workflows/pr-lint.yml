@@ -20,11 +20,17 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: cpp-linter/cpp-linter-action@v2
+      - name: Install clang-format 18
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format-18
+
+      - uses: cpp-linter/cpp-linter-action@v2.17.1
         id: linter
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          version: '18'
           style: 'file'
           tidy-checks: '-*'
           files-changed-only: true
@@ -34,19 +40,26 @@ jobs:
       - name: Fail if formatting checks fail
         if: ${{ steps.linter.outputs.clang-format-checks-failed != '0' }}
         run: |
+          CLANG_FORMAT_BIN=clang-format-18
           echo "Files needing formatting:"
+          echo "clang-format version:"
+          "$CLANG_FORMAT_BIN" --version
         
           git diff --name-only \
             ${{ github.event.pull_request.base.sha }} \
             ${{ github.event.pull_request.head.sha }} |
           while IFS= read -r f; do
-            case "$f" in
-              src/*.c|include/*.h)
-                if ! clang-format --dry-run --Werror "$f" >/dev/null 2>&1; then
-                  echo "$f"
-                fi
-              ;;
-            esac
+            if [ -f "$f" ] && [[ "$f" =~ ^(src/.+\.c|include/.+\.h)$ ]]; then
+              if ! "$CLANG_FORMAT_BIN" --dry-run --Werror "$f" >/dev/null 2>&1; then
+                echo "$f"
+                echo "--- file info: $f ---"
+                file "$f" || true
+                echo "--- git diff: $f ---"
+                git diff -- "$f" || true
+                echo "--- clang-format diff: $f ---"
+                "$CLANG_FORMAT_BIN" "$f" | diff -u "$f" - || true
+              fi
+            fi
           done
         
           echo "Format failures: ${{ steps.linter.outputs.clang-format-checks-failed }}"

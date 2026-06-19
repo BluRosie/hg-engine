@@ -9,13 +9,11 @@ struct FileAllocationTableEntry
     uint32_t End = 0;
     static std::vector<FileAllocationTableEntry> _make(std::vector<uint32_t> &sizes) {
         std::vector<FileAllocationTableEntry> ret(sizes.size());
+        uint32_t offset = 0;
         for (int i = 0; i < sizes.size(); i++) {
-            if (i == 0) {
-                ret[i].Start = 0;
-            } else {
-                ret[i].Start = ret[i - 1].End;
-            }
-            ret[i].End = (ret[i].Start + sizes[i] + 3) & ~3;
+            ret[i].Start = offset;
+            ret[i].End = ret[i].Start + sizes[i];
+            offset = (ret[i].End + 3) & ~3;
         }
         return ret;
     }

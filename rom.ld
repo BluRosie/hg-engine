@@ -36,9 +36,6 @@ ST_ServerPokeAppearCheck = 0x1B8D4 + 0x022378C1;
 SCIO_StatusEffectSet = 0x2BF88 + 0x022378C1;
 
 /*battle table*/
-SoubiItemWazaTypePowUpTbl = 0x0226CC3A;
-TetsunoKobushiTable = 0x0226CBBE;
-CondChgTable = 0x226CB88;
 ItemDataIndex = 0x2100194;
 
 gf_rand = 0x0201FD44 |1;
@@ -59,6 +56,7 @@ ZeroMonData = 0x0206DCE4 |1;
 PokeParaSet = 0x0206DE38 |1;
 PokeParaSetChr = 0x0206E108 |1;
 PokeParaSetSexChr = 0x0206E14C |1;
+GetMonSpriteCharAndPlttNarcIdsEx = 0x020701E4 |1;
 PokeCopyPPtoPP = 0x0207188C |1;
 GetMonData = 0x0206E540 |1;
 GetBoxMonData = 0x0206E640 |1;
@@ -83,6 +81,9 @@ GetNatureFromPersonality = 0x0206FE2C |1;
 PokeParaLevelExpGet = 0x0206FCDC | 1;
 PokeLevelUpCheck = 0x02070DB4 | 1;
 MonHasMove = 0x02071754 | 1;
+DeleteMonFirstMoveAndAppend = 0x020713EC | 1;
+Species_LoadLearnsetTable = 0x02071900 | 1;
+GetTMHMCompatBySpeciesAndForm = 0x0207227C | 1;
 PartyHasMon = 0x020748CC | 1;
 sub_020720FC = 0x020720FC | 1;
 InitBoxMonMoveset = 0x020712D8 | 1;
@@ -113,10 +114,20 @@ GF_CpuCopy8 = 0x0204D450;
 GetEvScriptWorkMemberAdrs = 0x020402F0 |1;
 WORDSET_RegisterAbilityName = 0x0200C060|1;
 EventSet_Script = 0x0203FE74 |1;
+FieldSysGetAttrAddrInternal = 0x020401B4 | 1;
+FieldSystem_FlagCheck = 0x020403FC | 1;
+Field_GetBgEvents = 0x0203B6D8 | 1;
+Field_GetNumBgEvents = 0x0203B6E0 | 1;
+WildEncounters_ReadFromNarc = 0x0203B88C | 1;
 
 sys_AllocMemory = 0x0201AA8C | 1;
 sys_FreeMemoryEz = 0x0201AB0C | 1;
 sys_AllocMemoryLo = 0x0201AACC | 1;
+Heap_Alloc = 0x0201AA8C | 1;
+PlayerAvatar_GetXCoord = 0x0205C67C | 1;
+PlayerAvatar_GetZCoord = 0x0205C688 | 1;
+HiddenItemScriptNoToFlagId = 0x0204055C | 1;
+HiddenItemScriptNoToHiddenItemIdx = 0x0204056C | 1;
 
 /*TextBox*/
 TalkWinGraphicSet = 0x0200E644 |1;
@@ -240,6 +251,8 @@ HeldItemHealStatusCheck = 0x02254E7C | 1;
 Battle_GetClientPartySize = 0x0223a834 | 1;
 Battle_GetClientPartyMon = 0x0223a880 | 1;
 
+ov12_0223ABB8 = 0x0223ABB8 | 1;
+
 /*Battle Script Functions*/
 IncrementBattleScriptPtr = 0x02245508 | 1;
 /*read_battle_script_param = 0x022454E8 | 1;*/
@@ -267,6 +280,7 @@ ClientCommandReset = 0x02259928 | 1;
 BattleWorkPokePartyGet = 0x0223A7F4 | 1;
 PokeParty_GetPokeCount = 0x02074640 | 1;
 Party_GetMonByIndex = 0x02074644 | 1;
+GetBattlerVar = 0x0224EDE0 | 1;
 SideClientNoGet = 0x0224768C | 1;
 BattleWorkClientNoGet = 0x0223AAD8 | 1;
 BattleWorkPartnerClientNoGet = 0x0223AB6C | 1;
@@ -305,6 +319,7 @@ SetScriptFlagPassSave = 0x0206659C | 1;
 ClearScriptFlagPassSave = 0x020665A4 | 1;
 CheckScriptFlagPassSave = 0x020665AC | 1;
 Sav2_PlayerData_GetProfileAddr = 0x02028E9C | 1;
+Save_PlayerData_GetOptionsAddr = 0x02028EA8 | 1;
 
 /* rtc functions */
 Party_ResetAllShayminToLandForme = 0x02071E2C | 1;
@@ -684,7 +699,6 @@ CanUseItemOnPokemon = 0x0208FD9C | 1;
 
 BagApp_GetSaveRoamers = 0x021F992C | 1;
 
-ov12_022506D4 = 0x022506D4 | 1;
 ov12_02250A18 = 0x02250A18 | 1;
 
 /* Stuff for Battle End Item */
@@ -731,11 +745,10 @@ CanSwitchMon = 0x02252890 | 1;
 BattleMon_AddVar = 0x0224F7AC | 1;
 GetFlavorPreferenceFromPID = 0x020718E8 | 1;
 
-ov12_0224DD74 = 0x0224DD74 | 1;
 ov12_02261258 = 0x02261258 | 1;
 //ov12_02252D14 = 0x02252D14 | 1;
 
-BattleMessage_BufferNickname = 0x0223CDD0 | 1;
+//BattleMessage_BufferNickname = 0x0223CDD0 | 1;
 BattleMessage_BufferMove = 0x0223CDF4 | 1;
 BattleMessage_BufferItem = 0x0223CE00 | 1;
 BattleMessage_BufferNumber = 0x0223CE0C | 1;
@@ -754,6 +767,12 @@ BattleMessage_BufferBoxName = 0x0223CEE4 | 1;
 _GetNpcTradeName = 0x02259C1C | 1;
 MonSetTrainerMemo = 0x0208F260 | 1;
 MapHeader_GetMapSec = 0x0203B36C | 1;
+ChooseStarter_LaunchApp = 0x0203F808 | 1;
+sub_0203E30C = 0x0203E30C | 1;
+FieldSystem_ApplicationIsRunning = 0x020505A0 | 1;
+FieldSystem_LoadFieldOverlay = 0x020505C0 | 1;
+sub_020505C8 = 0x020505C8 | 1;
+BeginNormalPaletteFade = 0x0200FA24 | 1;
 
 OS_DisableInterrupts = 0x020D3A38;
 NNS_FndAllocFromExpHeapEx = 0x020B53A0;
@@ -808,6 +827,8 @@ InitBattleMsg = 0x022479C0 | 1;
 BattleController_EmitPrintMessage = 0x022633F0 | 1;
 BattleController_EmitPrintAttackMessage = 0x022633B8 | 1;
 
+BattleScriptGetVarPointer = 0x02245528 | 1;
+
 Mon_UpdateRotomForm	= 0x02071EC0 | 1;
 
 LoadItemDataOrGfx = 0x02077CE8 | 1;
@@ -844,7 +865,9 @@ UpdateFriendshipFainted = 0x02248558 | 1;
 
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
-
+ov12_02256694 = 0x02256694 | 1;
+sStarterChoiceCries = 0x021E7398;
+BufferBoxMonNickname = 0x0200BF8C | 1;
 
 #roamers
 PlayerLocationHistoryGetBack = 0x0202D9F4 | 1;
