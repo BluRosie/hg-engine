@@ -670,7 +670,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                                     break;
                                 case RANGE_RANDOM_OPPONENT:
                                     // gf_rand() % 2 produces garbage values here for some reason
-                                    ctx->dancerContext.extraActions[extraActionSlot].defender = gf_rand() % 2 ? BATTLER_OPPONENT(ctx->attack_client) : BATTLER_ACROSS(ctx->attack_client);
+                                    // gf_rand();
+                                    // gf_rand();
+                                    // debug_printf("rand: %d\n", rand);
+                                    ctx->dancerContext.extraActions[extraActionSlot].defender = gf_rand() & 1 ? BATTLER_OPPONENT(ctx->attack_client) : BATTLER_ACROSS(ctx->attack_client);
                                     break;
                                 default:
                                     ctx->dancerContext.extraActions[extraActionSlot].defender = BATTLER_OPPONENT(ctx->attack_client);
