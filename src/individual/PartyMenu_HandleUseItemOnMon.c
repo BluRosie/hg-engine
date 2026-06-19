@@ -15,18 +15,27 @@
 #include "../../include/constants/weather_numbers.h"
 #include "../../include/debug.h"
 #include "../../include/overlay.h"
+#include "../../include/party_menu.h"
 #include "../../include/rtc.h"
 #include "../../include/save.h"
 #include "../../include/script.h"
 #include "../../include/sound.h"
 
-u32 UseItemMonAttrChangeCheck_Internal(struct PartyMenu *wk, void *dat);
+int __attribute__((section (".init"))) PartyMenu_HandleUseItemOnMon_Internal(struct PartyMenu *partyMenu);
+u32 UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat);
 BOOL CanUseRevealGlass(struct PartyPokemon *pp);
 BOOL CanUseNectar(struct PartyPokemon *pp, u16 nectar);
 u32 CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party);
 u32 CanUseAbilityCapsule(struct PartyPokemon *pp);
 u32 CanUseAbilityPatch(struct PartyPokemon *pp);
+BOOL CanUseRotomCatalog(struct PartyPokemon *pp);
+void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
 
+extern const u16 sButtonFrameTileOffsets[];
+extern const u8 sButtonRects[][4];
+extern const WindowTemplate sButtonWindowTemplates[];
+
+// mirrors the button layout
 extern u32 partyMenuSignal;
 
 u16 NatureToMintItem[] = {
@@ -53,13 +62,59 @@ u16 NatureToMintItem[] = {
     [NATURE_SERIOUS] = ITEM_SERIOUS_MINT,
 };
 
+int __attribute__((section (".init"))) PartyMenu_HandleUseItemOnMon_Internal(struct PartyMenu *partyMenu)
+{
+    struct ItemData *itemData = LoadItemDataOrGfx(partyMenu->args->itemId, 0, HEAP_ID_PARTY_MENU);
+
+    if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG && CanUseRotomCatalog(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex))) {
+        PartyMenu_ShowRotomCatalogList(partyMenu);
+        sys_FreeMemoryEz(itemData);
+        return PARTY_MENU_STATE_HANDLE_CONTEXT_MENU_INPUT;
+    }
+
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_UP) || GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_MAX)) {
+        sys_FreeMemoryEz(itemData);
+        PartyMenu_SelectMoveForPpRestoreOrPpUp(partyMenu, 0);
+        return PARTY_MENU_STATE_SELECT_MOVE;
+    }
+    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_RECOVERY) && !GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_ALL_PP_RECOVERY)) {
+        sys_FreeMemoryEz(itemData);
+        PartyMenu_SelectMoveForPpRestoreOrPpUp(partyMenu, 1);
+        return PARTY_MENU_STATE_SELECT_MOVE;
+    }
+
+    if (UseItemMonAttrChangeCheck(partyMenu, itemData) == TRUE) {
+        return PARTY_MENU_STATE_FORM_CHANGE_ANIM;
+    }
+
+    if (CanUseItemOnMonInParty(partyMenu->args->party, partyMenu->args->itemId, partyMenu->partyMonIndex, 0, HEAP_ID_PARTY_MENU) == TRUE) {
+        if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_EVOLUTION)) {
+            Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
+            struct PartyPokemon *mon = Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex);
+            partyMenu->args->species = GetMonEvolution(NULL, mon, EVOCTX_ITEM_USE, partyMenu->args->itemId, &partyMenu->args->evoMethod);
+            partyMenu->args->selectedAction = 8;
+            sys_FreeMemoryEz(itemData);
+            return PARTY_MENU_STATE_BEGIN_EXIT;
+        } else {
+            Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
+            PartyMenu_SetItemUseFuncFromBagSelection(partyMenu);
+        }
+    } else {
+        PartyMenu_PrintMessageOnWindow34(partyMenu, 102, TRUE);
+        partyMenu->partyMonIndex = 8;
+        partyMenu->itemUseCallback = PartyMenu_ItemUseFunc_WaitTextPrinterThenExit;
+    }
+    sys_FreeMemoryEz(itemData);
+    return PARTY_MENU_STATE_ITEM_USE_CB;
+}
+
 /**
  *  @brief see if an item changes attributes of the pokémon or not
  *
  *  @param wk work structure
  *  @param dat data structure
  */
-u32 __attribute__((section (".init"))) UNUSED UseItemMonAttrChangeCheck_Internal(struct PartyMenu *wk, void *dat)
+u32 UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
 {
     struct PartyPokemon *pp = Party_GetMonByIndex(wk->args->party, wk->partyMonIndex);
     partyMenuSignal = 0; // ensure it is 0 before potentially queuing up a different message
@@ -308,4 +363,64 @@ u32 CanUseAbilityPatch(struct PartyPokemon *pp)
     u32 hidden_ability = GetMonHiddenAbility(species, form);
 
     return hidden_ability != 0;
+}
+
+void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu)
+{
+
+    ClearFrameAndWindow2(&partyMenu->windows[32], TRUE);
+    sub_0207E068(partyMenu);
+    PartyMenu_PrintMessageOnWindow32(partyMenu, 220, TRUE);
+
+    const int numItems = 6 + 1; // num rotom forms + QUIT
+    partyMenu->listMenuItems = ListMenuItems_New(numItems, HEAP_ID_PARTY_MENU);
+
+    String *s;
+
+    s = NewString_ReadMsgData(partyMenu->msgData, 221);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
+
+    s = NewString_ReadMsgData(partyMenu->msgData, 222);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
+
+    s = NewString_ReadMsgData(partyMenu->msgData, 223);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
+
+    // quit button in 4th slot
+    ListMenuItems_AddItem(partyMenu->listMenuItems, partyMenu->contextMenuStrings[PARTY_MON_CONTEXT_MENU_QUIT], (u32)PartyMonContextMenuAction_QuitToBag);
+
+    s = NewString_ReadMsgData(partyMenu->msgData, 224);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
+
+    s = NewString_ReadMsgData(partyMenu->msgData, 225);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
+
+    s = NewString_ReadMsgData(partyMenu->msgData, 226);
+    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
+
+    String_Delete(s);
+
+    struct PartyMenuContextMenu contextMenu;
+    contextMenu.items = partyMenu->listMenuItems;
+    contextMenu.window = &partyMenu->windows[36];
+    contextMenu.unk_08 = 0;
+    contextMenu.unk_09 = 1;
+    contextMenu.numItems = numItems;
+    contextMenu.unk_0B_0 = 0;
+    contextMenu.unk_0B_4 = 0;
+    contextMenu.scrollEnabled = numItems > 4;
+
+    partyMenu->contextMenuCursor = PartyMenu_CreateContextMenuCursor(partyMenu, &contextMenu, 0, HEAP_ID_PARTY_MENU, /*state=*/0);
+
+    // reframe the window to line up the columns. remove the first 3 windows and recreate one tile down
+    for (int i = 0; i < 3; i++) {
+        WindowTemplate template = sButtonWindowTemplates[i];
+        RemoveWindow(&partyMenu->contextMenuButtonWindows[i]);
+        template.top -= 1;
+        AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[i], &template);
+        FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[i], 4);
+    }
+
+    sub_0207E54C(partyMenu, numItems, 0, /*state=*/0);
+    sub_0207E358(partyMenu, &contextMenu, numItems, 0, 0);
 }

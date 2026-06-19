@@ -773,40 +773,7 @@ BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon)
     }
 }
 
-/**
- *  @brief check if a rotom catalog can be used on a PartyPokemon
- *
- *  @param pp PartyPokemon to check reveal glass against
- *  @return TRUE if rotom catalog can be used; FALSE otherwise
- */
-BOOL LONG_CALL CanUseRotomCatalog(struct PartyPokemon *pp)
-{
-    return GetMonData(pp, MON_DATA_SPECIES, NULL) == SPECIES_ROTOM;
-}
-
 u32 ALIGN4 partyMenuSignal = 0;
-
-/**
- *  @brief see if an item changes attributes of the pokémon or not
- *
- *  @param wk work structure
- *  @param dat data structure
- */
-u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
-{
-    u32 ovyId, target, offset;
-    u16 (*internalFunc)(struct PartyMenu *, void *);
-
-    ovyId = OVERLAY_USEITEMMONATTRCHANGECHECK;
-    offset = 0x023C0400 | 1;
-
-    HandleLoadOverlay(ovyId, 2);
-    internalFunc = (u16(*)(struct PartyMenu *, void *))(offset);
-    target = internalFunc(wk, dat);
-    UnloadOverlayByID(ovyId);
-
-    return target;
-}
 
 void LoadIconChangeAnim(struct IconFormChangeData *work, struct PartyPokemon *mon)
 {

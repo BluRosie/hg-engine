@@ -1575,14 +1575,6 @@ BOOL LONG_CALL CanUseRotomCatalog(struct PartyPokemon *pp);
 #define JUST_SPLICER_POS_MASK (0x7F)
 
 /**
- *  @brief see if an item changes attributes of the pokémon or not
- *
- *  @param wk work structure
- *  @param dat data structure
- */
-u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat);
-
-/**
  *  @brief modify PokeListProc_End to increase party size so that when Reshiram/Zekrom are added back from DNA Splicers there are no crashes
  *
  *  @param proc work structure
