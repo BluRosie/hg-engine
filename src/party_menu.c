@@ -282,13 +282,6 @@ int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
 {
     struct ItemData *itemData = LoadItemDataOrGfx(partyMenu->args->itemId, 0, HEAP_ID_PARTY_MENU);
 
-    if (partyMenu->args->itemId == ITEM_GRACIDEA && Mon_CanUseGracidea(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex)) == TRUE) {
-        partyMenu->args->species = SPECIES_502;
-        sys_FreeMemoryEz(itemData);
-        PartyMenu_FormChangeScene_Begin(partyMenu);
-        return PARTY_MENU_STATE_FORM_CHANGE_ANIM;
-    }
-
     if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG && CanUseRotomCatalog(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex))) {
         PartyMenu_ShowRotomCatalogList(partyMenu);
         sys_FreeMemoryEz(itemData);

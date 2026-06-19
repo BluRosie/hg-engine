@@ -43,7 +43,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     u8 movesplit = damageCalc->movesplit;
     u16 movepower = damageCalc->movepower;
     int damage_power = damageCalc->damage_power;
-    int damage_value = damageCalc->damage_value;
+    // int damage_value = damageCalc->damage_value;
     // u8 magnitude = damageCalc->magnitude;
     BOOL gemBoostingMove = damageCalc->gemBoostingMove;
     BOOL fieldHasFairyAura = damageCalc->fieldHasFairyAura;

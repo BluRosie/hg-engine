@@ -28074,8 +28074,8 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
                 .speed = 0,
             },
             .wildHeldItems = {
-                .common = ITEM_LUM_BERRY,
-                .rare = ITEM_NONE,
+                .common = ITEM_GRACIDEA,
+                .rare = ITEM_GRACIDEA,
             },
             .genderRatio = 255,
             .hatchCycles = 120,
