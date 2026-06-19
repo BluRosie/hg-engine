@@ -15,9 +15,6 @@
 #include "../../include/q412.h"
 #include "../../include/types.h"
 
-// declaration needed for below
-BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
-
 typedef struct
 {
     u8 numerator;
@@ -1988,7 +1985,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
  *  @param msg msg param to fill with values for printing a message that results from running
  *  @return TRUE if the battler can not escape; FALSE if the battler can escape
  */
-BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg)
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg)
 {
     int battlerIdAbility;
     int maxBattlers UNUSED;
