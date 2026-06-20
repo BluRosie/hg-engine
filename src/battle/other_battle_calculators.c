@@ -4054,10 +4054,10 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form)
  *  @param sp global battle structure
  *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
  */
-BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker, int defender)
+BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker UNUSED, int defender)
 {
     u32 item = sp->battlemon[defender].item;
-    u32 ability = GetBattlerAbility(sp, defender);
+    //u32 ability = GetBattlerAbility(sp, defender);
     u32 species = sp->battlemon[defender].species;
     u32 form = sp->battlemon[defender].form_no;
 

@@ -152,7 +152,7 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_TryConversion2 02240C98 3
 0012 BtlCmd_TryConversion2 02240C98 3
 0012 BtlCmd_Transform 02241708 3
-0012 BtlCmd_TryPursuit 0224336C 3 
+0012 BtlCmd_TryPursuit 0224336C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -620,3 +620,17 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 
 0012 BattleMessage_BufferNickname 0223CDD0
 0012 hook_GrabIllusionBoxMonForHpBar 022651AE 3
+
+# roamers
+arm9 Save_CreateRoamerByID 020676EC 2
+arm9 RoamerLocationSetRandom 02067830 3
+arm9 SpeciesToRoamerIdx 020677F4 1
+arm9 ScrCmd_CreateRoamer 02045264 1
+
+
+# encounter
+arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
+arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
+arm9 EncounterSlot_WildMonSlotRoll_Fishing 02247764 1
+arm9 EncounterSlot_WildMonSlotRoll_RockSmash 0224779C 0
+arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0

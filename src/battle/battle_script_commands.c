@@ -5422,7 +5422,7 @@ BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
     return FALSE;
 }
 
-BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     int noPursuit = read_battle_script_param(ctx);
@@ -5436,7 +5436,7 @@ BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys, struct BattleStruct *ctx)
 
 BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    int adrs, battlerId, maxBattlers, moveNo, moveIndex, client_no;
+    int adrs, maxBattlers, moveNo, moveIndex, client_no;
 
     IncrementBattleScriptPtr(ctx, 1);
 

@@ -447,5 +447,7 @@ u32 LONG_CALL GetPartyMenuContextMenuActionFunc(int index);
 void LONG_CALL sub_0207E54C(struct PartyMenu *partyMenu, int numItems, int selection, int state);
 struct PartyMenuContextMenuCursor *LONG_CALL PartyMenu_CreateContextMenuCursor(struct PartyMenu *partyMenu, const struct PartyMenuContextMenu *template, int selection, int heapID, int state);
 void LONG_CALL PartyMenu_DisableMainScreenBlend_AfterYesNo(void);
+void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMenu, int *pState);
+void LONG_CALL PartyMonContextMenuAction_QuitToBag(struct PartyMenu *partyMenu, int *pState);
 
 #endif // POKEHEARTGOLD_PARTY_MENU_H

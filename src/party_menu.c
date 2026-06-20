@@ -1,6 +1,7 @@
 #include "../include/bag.h"
 #include "../include/battle.h"
 #include "../include/config.h"
+#include "../include/overlay.h"
 #include "../include/party_menu.h"
 #include "../include/pokemon.h"
 #include "../include/message.h"
@@ -21,9 +22,7 @@ static const u8 sPartyMenuRotomCatalogFormOrder[] = {3, 4, 5, /*quit*/ 0, 0, 1, 
 
 u32 LONG_CALL getButtonColorDepressed(int selection);
 u32 LONG_CALL getButtonColorRaised(int selection);
-void LONG_CALL PartyMonContextMenuAction_RotomCatalog(struct PartyMenu *partyMenu, int *pState);
-void LONG_CALL PartyMonContextMenuAction_QuitToBag(struct PartyMenu *partyMenu, int *pState);
-static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
+void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu);
 
 u8 LONG_CALL sub_0207B0B0(struct PartyMenu *wk, u8 *buf)
 {
@@ -218,117 +217,20 @@ void LONG_CALL PartyMonContextMenuAction_QuitToBag(struct PartyMenu *partyMenu, 
     *pState = PARTY_MENU_STATE_BEGIN_EXIT;
 }
 
-static void PartyMenu_ShowRotomCatalogList(struct PartyMenu *partyMenu)
-{
-
-    ClearFrameAndWindow2(&partyMenu->windows[32], TRUE);
-    sub_0207E068(partyMenu);
-    PartyMenu_PrintMessageOnWindow32(partyMenu, 220, TRUE);
-
-    const int numItems = 6 + 1; // num rotom forms + QUIT
-    partyMenu->listMenuItems = ListMenuItems_New(numItems, HEAP_ID_PARTY_MENU);
-
-    String *s;
-
-    s = NewString_ReadMsgData(partyMenu->msgData, 221);
-    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
-
-    s = NewString_ReadMsgData(partyMenu->msgData, 222);
-    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
-
-    s = NewString_ReadMsgData(partyMenu->msgData, 223);
-    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
-
-    // quit button in 4th slot
-    ListMenuItems_AddItem(partyMenu->listMenuItems, partyMenu->contextMenuStrings[PARTY_MON_CONTEXT_MENU_QUIT], (u32)PartyMonContextMenuAction_QuitToBag);
-
-    s = NewString_ReadMsgData(partyMenu->msgData, 224);
-    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
-
-    s = NewString_ReadMsgData(partyMenu->msgData, 225);
-    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
-
-    s = NewString_ReadMsgData(partyMenu->msgData, 226);
-    ListMenuItems_AddItem(partyMenu->listMenuItems, s, (u32)PartyMonContextMenuAction_RotomCatalog);
-
-    String_Delete(s);
-
-    struct PartyMenuContextMenu contextMenu;
-    contextMenu.items = partyMenu->listMenuItems;
-    contextMenu.window = &partyMenu->windows[36];
-    contextMenu.unk_08 = 0;
-    contextMenu.unk_09 = 1;
-    contextMenu.numItems = numItems;
-    contextMenu.unk_0B_0 = 0;
-    contextMenu.unk_0B_4 = 0;
-    contextMenu.scrollEnabled = numItems > 4;
-
-    partyMenu->contextMenuCursor = PartyMenu_CreateContextMenuCursor(partyMenu, &contextMenu, 0, HEAP_ID_PARTY_MENU, /*state=*/0);
-
-    // reframe the window to line up the columns. remove the first 3 windows and recreate one tile down
-    for (int i = 0; i < 3; i++) {
-        WindowTemplate template = sButtonWindowTemplates[i];
-        RemoveWindow(&partyMenu->contextMenuButtonWindows[i]);
-        template.top -= 1;
-        AddWindow(partyMenu->bgConfig, &partyMenu->contextMenuButtonWindows[i], &template);
-        FillWindowPixelBuffer(&partyMenu->contextMenuButtonWindows[i], 4);
-    }
-
-    sub_0207E54C(partyMenu, numItems, 0, /*state=*/0);
-    sub_0207E358(partyMenu, &contextMenu, numItems, 0, 0);
-}
-
 int LONG_CALL PartyMenu_HandleUseItemOnMon(struct PartyMenu *partyMenu)
 {
-    struct ItemData *itemData = LoadItemDataOrGfx(partyMenu->args->itemId, 0, HEAP_ID_PARTY_MENU);
+    u32 ovyId, target, offset;
+    u16 (*internalFunc)(struct PartyMenu *);
 
-    if (partyMenu->args->itemId == ITEM_GRACIDEA && Mon_CanUseGracidea(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex)) == TRUE) {
-        partyMenu->args->species = SPECIES_502;
-        sys_FreeMemoryEz(itemData);
-        PartyMenu_FormChangeScene_Begin(partyMenu);
-        return PARTY_MENU_STATE_FORM_CHANGE_ANIM;
-    }
+    ovyId = OVERLAY_PARTY_HANDLEUSEITEMONMON;
+    offset = 0x023C0400 | 1;
 
-    if (partyMenu->args->itemId == ITEM_ROTOM_CATALOG && CanUseRotomCatalog(Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex))) {
-        PartyMenu_ShowRotomCatalogList(partyMenu);
-        sys_FreeMemoryEz(itemData);
-        return PARTY_MENU_STATE_HANDLE_CONTEXT_MENU_INPUT;
-    }
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (u16(*)(struct PartyMenu *))(offset);
+    target = internalFunc(partyMenu);
+    UnloadOverlayByID(ovyId);
 
-    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_UP) || GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_MAX)) {
-        sys_FreeMemoryEz(itemData);
-        PartyMenu_SelectMoveForPpRestoreOrPpUp(partyMenu, 0);
-        return PARTY_MENU_STATE_SELECT_MOVE;
-    }
-    if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_PP_RECOVERY) && !GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_ALL_PP_RECOVERY)) {
-        sys_FreeMemoryEz(itemData);
-        PartyMenu_SelectMoveForPpRestoreOrPpUp(partyMenu, 1);
-        return PARTY_MENU_STATE_SELECT_MOVE;
-    }
-
-    if (UseItemMonAttrChangeCheck(partyMenu, itemData) == TRUE) {
-        return PARTY_MENU_STATE_FORM_CHANGE_ANIM;
-    }
-
-    if (CanUseItemOnMonInParty(partyMenu->args->party, partyMenu->args->itemId, partyMenu->partyMonIndex, 0, HEAP_ID_PARTY_MENU) == TRUE) {
-        if (GetItemAttr_PreloadedItemData(itemData, ITEM_PARAM_EVOLUTION)) {
-            Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
-            struct PartyPokemon *mon = Party_GetMonByIndex(partyMenu->args->party, partyMenu->partyMonIndex);
-            partyMenu->args->species = GetMonEvolution(NULL, mon, EVOCTX_ITEM_USE, partyMenu->args->itemId, &partyMenu->args->evoMethod);
-            partyMenu->args->selectedAction = 8;
-            sys_FreeMemoryEz(itemData);
-            return PARTY_MENU_STATE_BEGIN_EXIT;
-        } else {
-            Bag_TakeItem(partyMenu->args->bag, partyMenu->args->itemId, 1, HEAP_ID_PARTY_MENU);
-            PartyMenu_SetItemUseFuncFromBagSelection(partyMenu);
-        }
-    } else {
-        PartyMenu_PrintMessageOnWindow34(partyMenu, 102, TRUE);
-        partyMenu->partyMonIndex = 8;
-        partyMenu->itemUseCallback = PartyMenu_ItemUseFunc_WaitTextPrinterThenExit;
-    }
-    sys_FreeMemoryEz(itemData);
-    return PARTY_MENU_STATE_ITEM_USE_CB;
+    return target;
 }
 
 void LONG_CALL PartyMenu_PrintContextMenuItemText(struct PartyMenu *partyMenu, struct PartyMenuContextMenu *contextMenu, int numItems, int selection, int state, BOOL depressed)
@@ -447,4 +349,15 @@ void LONG_CALL PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj(struct Pa
     animData->state = cursor->state;
     animData->followUpState = followUpStateTmp;
     animData->active = TRUE;
+}
+
+/**
+ *  @brief check if a rotom catalog can be used on a PartyPokemon
+ *
+ *  @param pp PartyPokemon to check reveal glass against
+ *  @return TRUE if rotom catalog can be used; FALSE otherwise
+ */
+BOOL CanUseRotomCatalog(struct PartyPokemon *pp)
+{
+    return GetMonData(pp, MON_DATA_SPECIES, NULL) == SPECIES_ROTOM;
 }
