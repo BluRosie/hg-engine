@@ -22,10 +22,9 @@ def load_item_id_to_name(constants_path: Path) -> dict[int, str]:
     return items
 
 
-def parse_hidden_item_binary(input_path: Path) -> list[tuple[int, int, int, int, int]]:
-    data = input_path.read_bytes()
+def parse_hidden_item_binary(data: bytes, input_name: str) -> list[tuple[int, int, int, int, int]]:
     if len(data) % HIDDEN_ITEM_STRUCT.size != 0:
-        raise ValueError(f"{input_path} size is not a multiple of {HIDDEN_ITEM_STRUCT.size}")
+        raise ValueError(f"{input_name} size is not a multiple of {HIDDEN_ITEM_STRUCT.size}")
 
     rows = []
     for offset in range(0, len(data), HIDDEN_ITEM_STRUCT.size):
@@ -34,11 +33,9 @@ def parse_hidden_item_binary(input_path: Path) -> list[tuple[int, int, int, int,
     return rows
 
 
-def dump_hidden_items(input_path: Path, output_items_path: Path, output_path: Path) -> None:
-    reference_rows = parse_hidden_item_binary(input_path)
+def dump_hidden_items_c(data: bytes, output_items_path: Path = ITEMS_PATH, input_name: str = "hidden item data") -> str:
+    reference_rows = parse_hidden_item_binary(data, input_name)
     output_item_id_to_name = load_item_id_to_name(output_items_path)
-
-    output_path.parent.mkdir(parents=True, exist_ok=True)
     translated_rows = []
 
     for item_id, quantity, unk3, unk4, index in reference_rows:
@@ -47,24 +44,33 @@ def dump_hidden_items(input_path: Path, output_items_path: Path, output_path: Pa
 
     name_width = max(len(row[0]) for row in translated_rows)
 
+    output_lines = [
+        '#include "../include/constants/item.h"\n',
+        '#include "../include/types.h"\n\n',
+        "typedef struct HiddenItemData {\n",
+        "    u16 itemId;\n",
+        "    u8 quantity;\n",
+        "    u8 unk3;\n",
+        "    u16 unk4;\n",
+        "    u16 index;\n",
+        "} HiddenItemData;\n\n",
+        "const HiddenItemData sHiddenItemParam[] = {\n",
+    ]
+
+    for item_name, quantity, unk3, unk4, index in translated_rows:
+        output_lines.append(
+            f"    {{ {item_name:<{name_width}}, {quantity}, {unk3}, {unk4}, {index:<3} }},\n"
+        )
+
+    output_lines.append("};\n\n")
+    return "".join(output_lines)
+
+
+def dump_hidden_items(input_path: Path, output_items_path: Path, output_path: Path) -> None:
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
     with output_path.open("w", encoding="utf-8") as output:
-        output.write('#include "../include/constants/item.h"\n')
-        output.write('#include "../include/types.h"\n\n')
-        output.write("typedef struct HiddenItemData {\n")
-        output.write("    u16 itemId;\n")
-        output.write("    u8 quantity;\n")
-        output.write("    u8 unk3;\n")
-        output.write("    u16 unk4;\n")
-        output.write("    u16 index;\n")
-        output.write("} HiddenItemData;\n\n")
-        output.write("const HiddenItemData sHiddenItemParam[] = {\n")
-
-        for item_name, quantity, unk3, unk4, index in translated_rows:
-            output.write(
-                f"    {{ {item_name:<{name_width}}, {quantity}, {unk3}, {unk4}, {index:<3} }},\n"
-            )
-
-        output.write("};\n\n")
+        output.write(dump_hidden_items_c(input_path.read_bytes(), output_items_path, str(input_path)))
 
 
 def main() -> None:

@@ -1,4 +1,4 @@
-.PHONY: dumprom dump_prepare dump_learnsets dump_narc_data dump_armips_data dump_hidden_items dump_trainernames dump_clean_work dump_reset check_dump_rom
+.PHONY: dumprom dump_prepare dump_learnsets dump_narc_data dump_armips_data dump_trainernames dump_clean_work dump_reset check_dump_rom
 
 DUMP_SCRIPT_LOCATION := tools/source/dumptools
 DUMP_WORKDIRS := $(BUILD_NARC) $(BUILD)/a028
@@ -41,9 +41,6 @@ dump_narc_data: dump_prepare
 dump_armips_data: dump_trainernames
 	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_narcs.py "$(DUMP_ROM)" armips
 
-dump_hidden_items: dump_prepare
-	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_scripts/hidden_items.py
-
 dump_clean_work:
 	rm -rf $(BUILD)
 
@@ -61,6 +58,5 @@ dumprom: check_dump_rom
 	else \
 		$(MAKE) dump_narc_data DUMP_ROM="$(DUMP_ROM)" DUMP_MODE="$(DUMP_MODE)"; \
 	fi
-	$(MAKE) dump_hidden_items DUMP_ROM="$(DUMP_ROM)"
 	$(MAKE) dump_clean_work
 	@echo "Done. See output in dumped_$(DUMP_MODE)/, learnsets are already in data/learnsets/learnsets.json."
