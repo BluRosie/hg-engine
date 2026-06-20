@@ -42,7 +42,7 @@ dump_armips_data: dump_trainernames
 	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_narcs.py "$(DUMP_ROM)" armips
 
 dump_hidden_items: dump_prepare
-	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_hidden_items.py
+	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_scripts/hidden_items.py
 
 dump_clean_work:
 	rm -rf $(BUILD)
