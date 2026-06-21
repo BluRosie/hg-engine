@@ -66,13 +66,13 @@
 // #define DEBUG_SWITCH_IN_ABILITY_CHECK
 
 // DEBUG_ENDTURN_LOGIC turns on a number of debug prints related to the end-turn logic
-//#define DEBUG_ENDTURN_LOGIC
+#define DEBUG_ENDTURN_LOGIC
 
 // DEBUG_BEFORE_MOVE_LOGIC turns on a number of debug prints related to the before-move logic
 //#define DEBUG_BEFORE_MOVE_LOGIC
 
 // DEBUG_MOVE_PERFORMANCE_LOGIC turns on a number of debug prints related to the move-performance logic
-// #define DEBUG_MOVE_PERFORMANCE_LOGIC
+ #define DEBUG_MOVE_PERFORMANCE_LOGIC
 
 // DEBUG_PRINT_HEAP_CREATION allows for debug prints on heap creation/deletion
 //#define DEBUG_PRINT_HEAP_CREATION
