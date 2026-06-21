@@ -4398,17 +4398,26 @@ void LONG_CALL HandleTransform(struct BattleStruct *sp)
 
 void LONG_CALL BattleControllerPlayer_TurnEnd(struct BattleSystem *bw, struct BattleStruct *ctx)
 {
-    debug_printf("in BattleControllerPlayer_TurnEnd\n");
+    debug_printf("in BattleControllerPlayer_TurnEnd fainted %d, switch %d\n", ctx->fainting_client, ctx->reshuffle_client);
+    for (unsigned i = 0; i < 4; i++) {
+        debug_printf("client_status[%d] %d\n", i, ctx->client_status[i]);
+    }
     if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
+        debug_printf("return ov12_0224DD18 fainted %d, switch %d\n", ctx->fainting_client, ctx->reshuffle_client);
         return;
     }
 
     if (ov12_0224D7EC(bw, ctx) == TRUE) {
+        debug_printf("return ov12_0224D7EC fainted %d, switch %d\n", ctx->fainting_client, ctx->reshuffle_client);
         return;
     }
 
     if (ov12_0224D540(bw, ctx) == TRUE) {
-        debug_printf("return ov12_0224D540\n");
+        debug_printf("return ov12_0224D540 fainted %d, switch %d\n", ctx->fainting_client, ctx->reshuffle_client);
+        for (unsigned i = 0; i < 4; i++) {
+            debug_printf("client_status[%d] %d\n", i, ctx->client_status[i]);
+        }
+        
         return;
     }
 
