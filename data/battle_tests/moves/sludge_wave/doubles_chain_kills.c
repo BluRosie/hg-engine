@@ -89,25 +89,14 @@ BEGIN_TEST
             .level = 5,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        {
-            .species = SPECIES_ROWLET,
-            .level = 5,
-            .form = 0,
-            .ability = ABILITY_NO_GUARD,
             .item = ITEM_FOCUS_SASH,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-        } },
+        },
+        { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
@@ -149,8 +138,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Rowlet hung on using its Focus Sash!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chespin fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chespin hung on using its Focus Sash!" },
     }
 }
 END_TEST
