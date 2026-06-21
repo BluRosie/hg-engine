@@ -9,7 +9,7 @@ _000:
 
 _noPursuit:
     CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_HP, 0, _020
-    GoTo _026
+    GoTo _defenderIsFainting
 
 _020:
     RecallPokemon BATTLER_CATEGORY_SWITCHED_MON
