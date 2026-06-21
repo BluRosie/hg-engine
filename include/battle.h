@@ -4262,4 +4262,10 @@ int LONG_CALL ov12_0223ABB8(struct BattleSystem *bsys, int battlerId, int side);
 
 void LONG_CALL HandleTransform(struct BattleStruct *sp);
 
+
+
+
+BOOL LONG_CALL ov12_0224D540(struct BattleSystem *bsys, struct BattleStruct *sp);
+BOOL LONG_CALL ov12_02251710(struct BattleSystem *bsys, struct BattleStruct *sp);
+
 #endif // BATTLE_H

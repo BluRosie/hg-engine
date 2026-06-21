@@ -4395,3 +4395,28 @@ void LONG_CALL HandleTransform(struct BattleStruct *sp)
         }
     }
 }
+
+void LONG_CALL BattleControllerPlayer_TurnEnd(struct BattleSystem *bw, struct BattleStruct *ctx)
+{
+    debug_printf("in BattleControllerPlayer_TurnEnd\n");
+    if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
+        return;
+    }
+
+    if (ov12_0224D7EC(bw, ctx) == TRUE) {
+        return;
+    }
+
+    if (ov12_0224D540(bw, ctx) == TRUE) {
+        debug_printf("return ov12_0224D540\n");
+        return;
+    }
+
+    ctx->total_turn++;
+    ctx->me_first_total_turns++;
+
+    BattleStructureInit(ctx);
+
+    ov12_02251710(battleSystem, ctx);
+    ctx->server_seq_no = CONTROLLER_COMMAND_TURN_END;
+}

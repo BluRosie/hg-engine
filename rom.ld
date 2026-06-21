@@ -690,6 +690,8 @@ ov12_02250BBC = 0x02250BBC | 1;
 BattleSystem_CheckMoveHit = 0x0224BCC4 | 1;
 ov12_0224B498 = 0x0224B498 | 1;
 ov12_0224BC2C = 0x0224BC2C | 1;
+ov12_0224D540 = 0x0224D540 | 1;
+ov12_02251710 = 0x02251710 | 1;
 
 
 BattleContext_CheckMoveImprisoned = 0x02252C74 | 1;
@@ -711,6 +713,7 @@ sPlayerBattleCommands = 0x0226CA90;
 BattleSystem_GetBattleOutcomeFlags = 0x0223BD14 | 1;
 BattleSystem_SetBattleOutcomeFlags = 0x0223BD20 | 1;
 ov12_022639B8 = 0x022639B8 | 1;
+
 
 FieldSystem_MapIsBattleTowerMultiPartnerSelectRoom = 0x02067584 | 1;
 MoveId_GetFieldEffectId = 0x0207BCC0 | 1;

@@ -21,7 +21,7 @@
  * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
  */
 void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    //debug_printf("In BattleController_MoveEnd\n");
+    debug_printf("In BattleController_MoveEnd\n");
     int script;
     u32 battleType = BattleTypeGet(bsys);
 
@@ -32,6 +32,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->defence_client = ctx->pursuitContext.originalDefender;
         if (ctx->current_move_index == MOVE_PURSUIT
             && ctx->battlemon[ctx->reshuffle_client].hp) {
+            debug_printf("call party script on %d\n", ctx->reshuffle_client);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARTY_LIST);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_BEFORE_TURN;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
