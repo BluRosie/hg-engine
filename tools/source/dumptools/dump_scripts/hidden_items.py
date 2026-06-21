@@ -4,10 +4,14 @@ import re
 import struct
 from pathlib import Path
 
+from dump_scripts.dump_tools import read_arm9_table
+
 
 ITEM_DEFINE_RE = re.compile(r"^#define\s+(ITEM_[A-Z0-9_]+)\s+(\d+)\b")
 HIDDEN_ITEM_STRUCT = struct.Struct("<HBBHH")
-INPUT_PATH = Path("build/a028/8_18")
+ARM9_HIDDEN_ITEMS_OFFSET = 0xFA558
+HIDDEN_ITEM_COUNT = 231
+INPUT_PATH = Path("base/arm9.bin")
 ITEMS_PATH = Path("include/constants/item.h")
 OUTPUT_PATH = Path("dumped_c/HiddenItems.c")
 
@@ -31,6 +35,15 @@ def parse_hidden_item_binary(data: bytes, input_name: str) -> list[tuple[int, in
         item_id, quantity, unk3, unk4, index = HIDDEN_ITEM_STRUCT.unpack_from(data, offset)
         rows.append((item_id, quantity, unk3, unk4, index))
     return rows
+
+
+def read_hidden_items_from_arm9(arm9_data: bytes) -> bytes:
+    table_size = HIDDEN_ITEM_STRUCT.size * HIDDEN_ITEM_COUNT
+    return read_arm9_table(arm9_data, ARM9_HIDDEN_ITEMS_OFFSET, table_size)
+
+
+def dump_hidden_items_from_arm9_c(arm9_data: bytes, output_items_path: Path = ITEMS_PATH) -> str:
+    return dump_hidden_items_c(read_hidden_items_from_arm9(arm9_data), output_items_path, "arm9 hidden item table")
 
 
 def dump_hidden_items_c(data: bytes, output_items_path: Path = ITEMS_PATH, input_name: str = "hidden item data") -> str:
@@ -70,7 +83,7 @@ def dump_hidden_items(input_path: Path, output_items_path: Path, output_path: Pa
     output_path.parent.mkdir(parents=True, exist_ok=True)
 
     with output_path.open("w", encoding="utf-8") as output:
-        output.write(dump_hidden_items_c(input_path.read_bytes(), output_items_path, str(input_path)))
+        output.write(dump_hidden_items_from_arm9_c(input_path.read_bytes(), output_items_path))
 
 
 def main() -> None:

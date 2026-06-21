@@ -10,7 +10,7 @@ from dump_scripts.encounters import dump_encounters_c
 from dump_scripts.evodata import dump_evodata_c
 from dump_scripts.headbutt import dump_headbutt_c
 from dump_scripts.height_table import dump_heighttable_c
-from dump_scripts.hidden_items import dump_hidden_items_c
+from dump_scripts.hidden_items import INPUT_PATH as HIDDEN_ITEMS_ARM9_PATH, dump_hidden_items_from_arm9_c
 from dump_scripts.mondata import dump_mondata
 from dump_scripts.moves import dump_moves_c
 from dump_scripts.pokedex_data import dump_pokedex_area_files, dump_pokedex_sort_files
@@ -88,12 +88,6 @@ def dump_armips_outputs(mondata_narc, rom, expanded):
     return failures
 
 
-def dump_hidden_item_outputs(rom):
-    os.makedirs("dumped_c", exist_ok=True)
-    code_addons_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/2/8"]])
-    write_dump("./dumped_c/HiddenItems.c", dump_hidden_items_c(code_addons_narc.files[18], input_name="a/0/2/8:18"))
-
-
 def dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expanded):
     os.makedirs("dumped_c", exist_ok=True)
     failures = []
@@ -112,7 +106,7 @@ def dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expand
     run_dump("Headbutt.c", failures, lambda: dump_headbutt_c(ndspy.narc.NARC(rom.files[rom.filenames["a/2/5/2"]]).files, "./dumped_c/Headbutt.c"))
     run_dump("SafariEncounters.c", failures, lambda: write_dump("./dumped_c/SafariEncounters.c", dump_safari_encounters_c(ndspy.narc.NARC(rom.files[rom.filenames["a/2/3/0"]]), expanded)))
     run_dump("Trainers.c", failures, lambda: write_dump("./dumped_c/Trainers.c", dump_trainerdata_c(rom, msgdata_narc, expanded)))
-    run_dump("HiddenItems.c", failures, lambda: dump_hidden_item_outputs(rom))
+    run_dump("HiddenItems.c", failures, lambda: write_dump("./dumped_c/HiddenItems.c", dump_hidden_items_from_arm9_c(HIDDEN_ITEMS_ARM9_PATH.read_bytes())))
 
     return failures
 
@@ -135,7 +129,7 @@ def main(argv):
 
     if mode == "armips":
         failures = dump_armips_outputs(mondata_narc, rom, expanded)
-        run_dump("HiddenItems.c", failures, lambda: dump_hidden_item_outputs(rom))
+        run_dump("HiddenItems.c", failures, lambda: write_dump("./dumped_c/HiddenItems.c", dump_hidden_items_from_arm9_c(HIDDEN_ITEMS_ARM9_PATH.read_bytes())))
         if failures:
             print(f"Completed with {len(failures)} failed dump(s): {', '.join(failures)}", file=sys.stderr)
             return 1

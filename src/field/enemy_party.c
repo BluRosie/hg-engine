@@ -86,7 +86,7 @@ void MakeTrainerPokemonParty(struct BATTLE_PARAM *bp, int num, int heapID)
     }
 
     u8 pokecount = bp->trainer_data[num].poke_count;
-    u8 randomorder_flag = pokecount & 0x80;
+    u8 randomorder_flag = pokecount & TRAINER_DATA_RANDOM_PARTY_ORDER;
     pokecount &= 0x7f;
 
     // goal:  get rid of massive switch statement with each individual byte.  make the trainer type a bitfield
