@@ -149,7 +149,13 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chespin hung on using its Focus Sash!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chikorita fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Treecko fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Turtwig!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidoking, switch out! Come back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Nidoqueen!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Turtwig fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Snivy!" },
     }
 }
 END_TEST
