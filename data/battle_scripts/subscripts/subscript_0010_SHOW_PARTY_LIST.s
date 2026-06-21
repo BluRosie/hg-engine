@@ -5,6 +5,8 @@
 _000:
     ShowParty 
     WaitMonSelection 
+
+_001:
     Call BATTLE_SUBSCRIPT_TRY_CLEAR_PRIMAL_WEATHERS
     SwitchAndUpdateMon BATTLER_CATEGORY_SWITCHED_MON
     LoadPartyGaugeGraphics 
