@@ -4416,6 +4416,9 @@ void LONG_CALL BattleControllerPlayer_TurnEnd(struct BattleSystem *bw, struct Ba
         debug_printf("return ov12_0224D540 fainted %d, switch %d\n", ctx->fainting_client, ctx->reshuffle_client);
         for (unsigned i = 0; i < 4; i++) {
             debug_printf("client_status[%d] %d\n", i, ctx->client_status[i]);
+            if (ctx->client_status[i] == 1) {
+                ctx->reshuffle_client = i;
+            }
         }
         
         return;
