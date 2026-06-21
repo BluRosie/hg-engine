@@ -3,6 +3,10 @@
 .data
 
 _000:
+     // {0} was burned!
+    PrintMessage 85, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
+     Wait 
+    WaitButtonABTime 30
     Call BATTLE_SUBSCRIPT_PURSUIT
     IsPursuitActive _noPursuit
     End

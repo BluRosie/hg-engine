@@ -3,6 +3,10 @@
 .data
 
 _000:
+     // {0} was poisoned!
+    PrintMessage 63, TAG_NICKNAME, BATTLER_CATEGORY_FAINTED_MON
+     Wait 
+    WaitButtonABTime 30
     IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_ENEMY, 42
     IncrementGameStat BATTLER_CATEGORY_FAINTED_MON, BATTLER_TYPE_SOLO_PLAYER, 97
     PlayFaintAnimation 

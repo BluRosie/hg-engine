@@ -625,11 +625,13 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_29_0_RESOLVE_PENDING_SWITCH %d\n", ctx->swoam_seq_no);
 #endif
+        debug_printf("switchStatus %d, current_move_index %d, pursuitContext.isActive %d\n", ctx->currentMoveSwitchStatus, ctx->current_move_index, ctx->pursuitContext.isActive);
         ctx->swoam_seq_no++;
         if (ctx->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING
             && ctx->current_move_index != MOVE_PURSUIT
             && ctx->pursuitContext.isActive == FALSE) {
             // ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
+            debug_printf("call party script on %d\n", ctx->reshuffle_client);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARTY_LIST);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
