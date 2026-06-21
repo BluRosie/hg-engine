@@ -3,8 +3,8 @@
 .data
 
 _000:
-    ShowParty
-    WaitMonSelection
+    ShowParty 
+    WaitMonSelection 
     Call BATTLE_SUBSCRIPT_TRY_CLEAR_PRIMAL_WEATHERS
     SwitchAndUpdateMon BATTLER_CATEGORY_SWITCHED_MON
     LoadPartyGaugeGraphics 
