@@ -66,7 +66,7 @@
 // #define DEBUG_SWITCH_IN_ABILITY_CHECK
 
 // DEBUG_ENDTURN_LOGIC turns on a number of debug prints related to the end-turn logic
-#define DEBUG_ENDTURN_LOGIC
+//#define DEBUG_ENDTURN_LOGIC
 
 // DEBUG_BEFORE_MOVE_LOGIC turns on a number of debug prints related to the before-move logic
 //#define DEBUG_BEFORE_MOVE_LOGIC
