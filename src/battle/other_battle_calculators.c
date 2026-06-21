@@ -4417,6 +4417,6 @@ void LONG_CALL BattleControllerPlayer_TurnEnd(struct BattleSystem *bw, struct Ba
 
     BattleStructureInit(ctx);
 
-    ov12_02251710(battleSystem, ctx);
+    ov12_02251710(bw, ctx);
     ctx->server_seq_no = CONTROLLER_COMMAND_TURN_END;
 }
