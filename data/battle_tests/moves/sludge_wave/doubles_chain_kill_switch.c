@@ -96,7 +96,18 @@ BEGIN_TEST
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        { .species = SPECIES_NONE } },
+        {
+            .species = SPECIES_GROOKEY,
+            .level = 5,
+            .form = 0,
+            .ability = ABILITY_NO_GUARD,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
@@ -118,7 +129,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_SWITCH_SLOT_2, 0 },
+                         { ACTION_SWITCH_SLOT_5, 0 },
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
                          { ACTION_NONE, 0 },
@@ -128,7 +139,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_SWITCH_SLOT_3, 0 },
+            { ACTION_SWITCH_SLOT_4, 0 },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_NONE, 0 },
