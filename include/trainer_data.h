@@ -45,6 +45,8 @@ typedef uint32_t u32;
 #define TRAINER_DATA_EXTRA_TYPE_PP_COUNTS 0x80
 #define TRAINER_DATA_EXTRA_TYPE_NICKNAME  0x100
 
+#define TRAINER_DATA_RANDOM_PARTY_ORDER 0x80
+
 #define F_PRIORITIZE_SUPER_EFFECTIVE (1 << 0)
 #define F_EVALUATE_ATTACKS           (1 << 1)
 #define F_EXPERT_ATTACKS             (1 << 2)
