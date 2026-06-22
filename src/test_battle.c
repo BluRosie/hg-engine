@@ -638,6 +638,10 @@ int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int ba
     return 6;
 }
 
+ u32 Options_GetBattleStyle(void *options UNUSED){
+     return 1; // forced set mode
+ }
+
 /**
  * @brief Auto-select moves/switches for player battlers in test scenarios
  *
