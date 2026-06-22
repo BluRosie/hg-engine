@@ -514,8 +514,9 @@
 #define SUB_SEQ_HANDLE_ANGER_POINT                     (505)
 #define SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE             (506)
 #define SUB_SEQ_GIVE_HELD_ITEM                         (507)
+#define SUB_SEQ_CLEAR_AFTER_PURSUIT                    (508)
 
-#define MAX_BASE_SUBSCRIPT_NUM 507
+#define MAX_BASE_SUBSCRIPT_NUM 508
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

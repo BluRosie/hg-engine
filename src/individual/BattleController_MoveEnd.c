@@ -32,7 +32,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->defence_client = ctx->pursuitContext.originalDefender;
         if (ctx->current_move_index == MOVE_PURSUIT
             && ctx->battlemon[ctx->reshuffle_client].hp) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARTY_LIST);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CLEAR_AFTER_PURSUIT);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_BEFORE_TURN;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
