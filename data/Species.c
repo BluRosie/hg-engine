@@ -67988,7 +67988,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 5,
             .weightHectograms = 93,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -68045,7 +68045,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 63,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -68102,7 +68102,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 9,
             .weightHectograms = 299,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -68501,7 +68501,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 6,
             .weightHectograms = 195,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -68558,7 +68558,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 6,
             .weightHectograms = 195,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -68615,7 +68615,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 6,
             .weightHectograms = 195,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -68672,7 +68672,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 19,
             .weightHectograms = 925,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -68729,7 +68729,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 19,
             .weightHectograms = 925,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -68786,7 +68786,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 19,
             .weightHectograms = 925,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69242,7 +69242,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 15,
             .weightHectograms = 825,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69299,7 +69299,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 15,
             .weightHectograms = 825,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69356,7 +69356,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 15,
             .weightHectograms = 825,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69413,7 +69413,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 15,
             .weightHectograms = 825,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69584,7 +69584,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69641,7 +69641,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69698,7 +69698,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69755,7 +69755,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69812,7 +69812,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69869,7 +69869,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69926,7 +69926,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -69983,7 +69983,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70040,7 +70040,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70097,7 +70097,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70154,7 +70154,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70211,7 +70211,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70268,7 +70268,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70325,7 +70325,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70382,7 +70382,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70439,7 +70439,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70496,7 +70496,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70553,7 +70553,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70610,7 +70610,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 170,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70667,7 +70667,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 1,
             .weightHectograms = 1,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70724,7 +70724,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 1,
             .weightHectograms = 1,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70781,7 +70781,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 1,
             .weightHectograms = 1,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70838,7 +70838,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 1,
             .weightHectograms = 1,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70895,7 +70895,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 2,
             .weightHectograms = 9,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -70952,7 +70952,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 2,
             .weightHectograms = 9,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71009,7 +71009,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 2,
             .weightHectograms = 9,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71066,7 +71066,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 2,
             .weightHectograms = 9,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71180,7 +71180,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 11,
             .weightHectograms = 100,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71237,7 +71237,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 11,
             .weightHectograms = 100,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71294,7 +71294,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 11,
             .weightHectograms = 100,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71351,7 +71351,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 11,
             .weightHectograms = 100,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71408,7 +71408,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71465,7 +71465,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71522,7 +71522,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71579,7 +71579,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 1,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71636,7 +71636,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71693,7 +71693,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71750,7 +71750,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71807,7 +71807,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -71864,7 +71864,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 280,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -72320,7 +72320,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 30,
             .weightHectograms = 2150,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -72548,7 +72548,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 1,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 6100,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74486,7 +74486,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 1,
             .weightHectograms = 2,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74543,7 +74543,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 2,
             .weightHectograms = 4,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74600,7 +74600,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 5,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74657,7 +74657,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 5,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74714,7 +74714,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 5,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74771,7 +74771,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 5,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74828,7 +74828,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 5,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74885,7 +74885,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 5,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74942,7 +74942,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 5,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -74999,7 +74999,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 3,
             .weightHectograms = 5,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -75285,7 +75285,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
         .metricsData = {
             .heightDecimetres = 1000,
-            .weightHectograms = 0,
+            .weightHectograms = 9500,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
             .femalePokemonScale = 0,
@@ -76538,7 +76538,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 18,
             .weightHectograms = 889,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -76595,7 +76595,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 11,
             .weightHectograms = 163,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -76652,7 +76652,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 19,
             .weightHectograms = 1548,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -76709,7 +76709,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 665,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -76766,7 +76766,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 20,
             .weightHectograms = 5042,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -76823,7 +76823,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 290,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -76880,7 +76880,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 330,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -76937,7 +76937,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 22,
             .weightHectograms = 1350,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -76994,7 +76994,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 15,
             .weightHectograms = 815,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -78020,7 +78020,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 18,
             .weightHectograms = 1200,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -78077,7 +78077,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 18,
             .weightHectograms = 1200,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -78134,7 +78134,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 18,
             .weightHectograms = 1200,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -78191,7 +78191,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 18,
             .weightHectograms = 1200,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -78248,7 +78248,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 18,
             .weightHectograms = 1200,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -78761,7 +78761,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 1,
             .weightHectograms = 11,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -78818,7 +78818,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 2,
             .weightHectograms = 22,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -79046,7 +79046,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 398,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -79103,7 +79103,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 398,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -79160,7 +79160,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 398,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -79217,7 +79217,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 12,
             .weightHectograms = 398,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
@@ -83093,7 +83093,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
             .flipSprite = 0,
         },
         .metricsData = {
-            .heightDecimetres = 0,
+            .heightDecimetres = 8,
             .weightHectograms = 101,
             .bodyType = DEX_SEARCH_BODYTYPE_QUADRUPED,
             .femaleTrainerScale = 0,
