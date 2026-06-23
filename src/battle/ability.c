@@ -492,7 +492,7 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
             }
             break;
         case ABILITY_UNSEEN_FIST:
-            if (ctx->oneTurnFlag[sp->defence_client].protectFlag
+            if (sp->oneTurnFlag[sp->defence_client].protectFlag
                 && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
                 && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
             ) {

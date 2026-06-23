@@ -104,7 +104,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Urshifu used Brutal Swing!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective on the opposing Wobbuffet!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Urshifu' Unseen Fist" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp couldn't fully protect itself and got hurt!" },
     }
 }
 END_TEST
