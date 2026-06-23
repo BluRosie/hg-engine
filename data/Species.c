@@ -31013,7 +31013,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Victini",
             .pokedexEntry = "When it shares the infinite energy\\nit creates, that being’s entire body\\nwill be overflowing with power.",
-            .classification = "????? Pokémon",
+            .classification = "Victory Pokémon",
             .height = "1’04”",
             .weight = "8.8 lbs.",
         },
@@ -31070,7 +31070,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Snivy",
             .pokedexEntry = "Being exposed to sunlight\\nmakes its movements swifter.\\nIt uses vines more adeptly than its hands.",
-            .classification = "????? Pokémon",
+            .classification = "Grass Snake Pokémon",
             .height = "2’00”",
             .weight = "17.9 lbs.",
         },
@@ -31127,7 +31127,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Servine",
             .pokedexEntry = "When it gets dirty, its leaves\\ncan’t be used in photosynthesis,\\nso it always keeps itself clean.",
-            .classification = "????? Pokémon",
+            .classification = "Grass Snake Pokémon",
             .height = "2’07”",
             .weight = "35.3 lbs.",
         },
@@ -31184,7 +31184,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Serperior",
             .pokedexEntry = "It only gives its all against\\nstrong opponents who are not fazed\\nby the glare from Serperior’s noble eyes.",
-            .classification = "????? Pokémon",
+            .classification = "Regal Pokémon",
             .height = "10’10”",
             .weight = "138.9 lbs.",
         },
@@ -31241,7 +31241,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tepig",
             .pokedexEntry = "It loves to eat roasted berries,\\nbut sometimes it gets too excited\\nand burns them to a crisp.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Pig Pokémon",
             .height = "1’08”",
             .weight = "21.8 lbs.",
         },
@@ -31298,7 +31298,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pignite",
             .pokedexEntry = "The more it eats, the more fuel it has\\nto make the fire in its stomach stronger.\\nThis fills it with even more power.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Pig Pokémon",
             .height = "3’03”",
             .weight = "122.4 lbs.",
         },
@@ -31355,7 +31355,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Emboar",
             .pokedexEntry = "A flaring beard of fire is\\nproof that it is fired up.\\nIt is adept at using many different moves.",
-            .classification = "????? Pokémon",
+            .classification = "Mega Fire Pig Pokémon",
             .height = "5’03”",
             .weight = "330.7 lbs.",
         },
@@ -31412,7 +31412,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Oshawott",
             .pokedexEntry = "The scalchop on its stomach isn’t\\njust used for battle--it can be used\\nto break open hard berries as well.",
-            .classification = "????? Pokémon",
+            .classification = "Sea Otter Pokémon",
             .height = "1’08”",
             .weight = "13.0 lbs.",
         },
@@ -31469,7 +31469,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dewott",
             .pokedexEntry = "As a result of strict training,\\neach Dewott learns different\\nforms for using the scalchops.",
-            .classification = "????? Pokémon",
+            .classification = "Discipline Pokémon",
             .height = "2’07”",
             .weight = "54.0 lbs.",
         },
@@ -31526,7 +31526,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Samurott",
             .pokedexEntry = "In the time it takes a foe to blink,\\nit can draw and sheathe the seamitars\\nattached to its front legs.",
-            .classification = "????? Pokémon",
+            .classification = "Formidable Pokémon",
             .height = "4’11”",
             .weight = "208.6 lbs.",
         },
@@ -31583,7 +31583,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Patrat",
             .pokedexEntry = "Extremely cautious, one of them\\nwill always be on the lookout, but it\\nwon’t notice a foe coming from behind.",
-            .classification = "????? Pokémon",
+            .classification = "Scout Pokémon",
             .height = "1’08”",
             .weight = "25.6 lbs.",
         },
@@ -31640,7 +31640,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Watchog",
             .pokedexEntry = "Using luminescent matter,\\nit makes its eyes and body glow\\nand stuns attacking opponents.",
-            .classification = "????? Pokémon",
+            .classification = "Lookout Pokémon",
             .height = "3’07”",
             .weight = "59.5 lbs.",
         },
@@ -31697,7 +31697,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Lillipup",
             .pokedexEntry = "Though it is a very brave Pokémon,\\nit’s also smart enough to check\\nits foe’s strength and avoid battle.",
-            .classification = "????? Pokémon",
+            .classification = "Puppy Pokémon",
             .height = "1’04”",
             .weight = "9.0 lbs.",
         },
@@ -31754,7 +31754,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Herdier",
             .pokedexEntry = "This very loyal Pokémon helps Trainers,\\nand it also takes care of other Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Loyal Dog Pokémon",
             .height = "2’11”",
             .weight = "32.4 lbs.",
         },
@@ -31811,7 +31811,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Stoutland",
             .pokedexEntry = "Being wrapped in its long fur is so\\ncomfortable that a person would be fine\\neven overnight on a wintry mountain.",
-            .classification = "????? Pokémon",
+            .classification = "Big-Hearted Pokémon",
             .height = "3’11”",
             .weight = "134.5 lbs.",
         },
@@ -31868,7 +31868,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Purrloin",
             .pokedexEntry = "Their cute act is a ruse. They trick\\npeople and steal their valuables\\njust to see the looks on their faces.",
-            .classification = "????? Pokémon",
+            .classification = "Devious Pokémon",
             .height = "1’04”",
             .weight = "22.3 lbs.",
         },
@@ -31925,7 +31925,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Liepard",
             .pokedexEntry = "Their beautiful form comes from\\nthe muscles they have developed.\\nThey run silently in the night.",
-            .classification = "????? Pokémon",
+            .classification = "Cruel Pokémon",
             .height = "3’07”",
             .weight = "82.7 lbs.",
         },
@@ -31982,7 +31982,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pansage",
             .pokedexEntry = "It’s good at finding berries\\nand gathers them from all over.\\nIt’s kind enough to share them with friends.",
-            .classification = "????? Pokémon",
+            .classification = "Grass Monkey Pokémon",
             .height = "2’00”",
             .weight = "23.1 lbs.",
         },
@@ -32039,7 +32039,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Simisage",
             .pokedexEntry = "It strikes its enemies\\nwith a thorn-covered tail.\\nThe leaf on its head is bitter.",
-            .classification = "????? Pokémon",
+            .classification = "Thorn Monkey Pokémon",
             .height = "3’07”",
             .weight = "67.2 lbs.",
         },
@@ -32096,7 +32096,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pansear",
             .pokedexEntry = "Very intelligent, it roasts\\nberries before eating them.\\nIt likes to help people.",
-            .classification = "????? Pokémon",
+            .classification = "High Temp Pokémon",
             .height = "2’00”",
             .weight = "24.3 lbs.",
         },
@@ -32153,7 +32153,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Simisear",
             .pokedexEntry = "When it gets excited, embers rise\\nfrom its head and tail and it gets hot.\\nFor some reason, it loves sweets.",
-            .classification = "????? Pokémon",
+            .classification = "Ember Pokémon",
             .height = "3’03”",
             .weight = "61.7 lbs.",
         },
@@ -32210,7 +32210,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Panpour",
             .pokedexEntry = "The water stored inside the tuft\\non its head is full of nutrients.\\nIt waters plants with it using its tail.",
-            .classification = "????? Pokémon",
+            .classification = "Spray Pokémon",
             .height = "2’00”",
             .weight = "29.8 lbs.",
         },
@@ -32267,7 +32267,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Simipour",
             .pokedexEntry = "It prefers places with clean water.\\nWhen its tuft runs low, it replenishes\\nit by siphoning up water with its tail.",
-            .classification = "????? Pokémon",
+            .classification = "Geyser Pokémon",
             .height = "3’03”",
             .weight = "63.9 lbs.",
         },
@@ -32324,7 +32324,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Munna",
             .pokedexEntry = "This Pokémon appears before people and\\nPokémon who are having nightmares and\\neats those dreams.",
-            .classification = "????? Pokémon",
+            .classification = "Dream Eater Pokémon",
             .height = "2’00”",
             .weight = "51.4 lbs.",
         },
@@ -32381,7 +32381,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Musharna",
             .pokedexEntry = "The dream mist coming from its forehead\\nchanges into many different colors\\ndepending on the dream that was eaten.",
-            .classification = "????? Pokémon",
+            .classification = "Drowsing Pokémon",
             .height = "3’07”",
             .weight = "133.4 lbs.",
         },
@@ -32438,7 +32438,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pidove",
             .pokedexEntry = "This very forgetful Pokémon will\\nwait for a new order from its Trainer\\neven though it already has one.",
-            .classification = "????? Pokémon",
+            .classification = "Tiny Pigeon Pokémon",
             .height = "1’00”",
             .weight = "4.6 lbs.",
         },
@@ -32495,7 +32495,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tranquill",
             .pokedexEntry = "No matter where in the world it goes,\\nit knows where its nest is, so it never\\ngets separated from its Trainer.",
-            .classification = "????? Pokémon",
+            .classification = "Wild Pigeon Pokémon",
             .height = "2’00”",
             .weight = "33.1 lbs.",
         },
@@ -32552,7 +32552,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Unfezant",
             .pokedexEntry = "Males swing the plumage on\\ntheir heads to threaten others,\\nbut females are better at flying.",
-            .classification = "????? Pokémon",
+            .classification = "Proud Pokémon",
             .height = "3’11”",
             .weight = "63.9 lbs.",
         },
@@ -32609,7 +32609,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Blitzle",
             .pokedexEntry = "Its mane shines when it discharges\\nelectricity. They use the frequency and\\nrhythm of these flashes to communicate.",
-            .classification = "????? Pokémon",
+            .classification = "Electrified Pokémon",
             .height = "2’07”",
             .weight = "65.7 lbs.",
         },
@@ -32666,7 +32666,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zebstrika",
             .pokedexEntry = "When this ill-tempered Pokémon\\nruns wild, it shoots lightning\\nfrom its mane in all directions.",
-            .classification = "????? Pokémon",
+            .classification = "Thunderbolt Pokémon",
             .height = "5’03”",
             .weight = "175.3 lbs.",
         },
@@ -32723,7 +32723,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Roggenrola",
             .pokedexEntry = "The hexagonal-shaped hole is its ear.\\nIt has a tendency to walk in the\\ndirection the sound is coming from.",
-            .classification = "????? Pokémon",
+            .classification = "Mantle Pokémon",
             .height = "1’04”",
             .weight = "39.7 lbs.",
         },
@@ -32780,7 +32780,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Boldore",
             .pokedexEntry = "When it is healthy, its core sticks out.\\nAlways facing the same way, it swiftly\\nmoves front to back and left to right.",
-            .classification = "????? Pokémon",
+            .classification = "Ore Pokémon",
             .height = "2’11”",
             .weight = "224.9 lbs.",
         },
@@ -32837,7 +32837,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gigalith",
             .pokedexEntry = "The solar rays it absorbs are\\nprocessed in its energy core\\nand fired as a ball of light.",
-            .classification = "????? Pokémon",
+            .classification = "Compressed Pokémon",
             .height = "5’07”",
             .weight = "573.2 lbs.",
         },
@@ -32894,7 +32894,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Woobat",
             .pokedexEntry = "The heart-shaped mark left on a body\\nafter a Woobat has been attached\\nto it is said to bring good fortune.",
-            .classification = "????? Pokémon",
+            .classification = "Bat Pokémon",
             .height = "1’04”",
             .weight = "4.6 lbs.",
         },
@@ -32951,7 +32951,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Swoobat",
             .pokedexEntry = "It shakes its tail vigorously when it\\nemits ultrasonic waves strong enough\\nto reduce concrete to rubble.",
-            .classification = "????? Pokémon",
+            .classification = "Courting Pokémon",
             .height = "2’11”",
             .weight = "23.1 lbs.",
         },
@@ -33008,7 +33008,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Drilbur",
             .pokedexEntry = "By spinning its body, it can dig\\nstraight through the ground\\nat a speed of 30 mph.",
-            .classification = "????? Pokémon",
+            .classification = "Mole Pokémon",
             .height = "1’00”",
             .weight = "18.7 lbs.",
         },
@@ -33065,7 +33065,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Excadrill",
             .pokedexEntry = "Forming a drill with its steel claws\\nand head, it can bore through a steel\\nplate, no matter how thick it is.",
-            .classification = "????? Pokémon",
+            .classification = "Subterrene Pokémon",
             .height = "2’04”",
             .weight = "89.1 lbs.",
         },
@@ -33122,7 +33122,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Audino",
             .pokedexEntry = "Using the feelers on its ears,\\nit can tell how someone is feeling\\nor when an egg might hatch.",
-            .classification = "????? Pokémon",
+            .classification = "Hearing Pokémon",
             .height = "3’07”",
             .weight = "68.3 lbs.",
         },
@@ -33179,7 +33179,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Timburr",
             .pokedexEntry = "Always carrying squared logs,\\nthey help out with construction.\\nAs they grow, they carry bigger logs.",
-            .classification = "????? Pokémon",
+            .classification = "Muscular Pokémon",
             .height = "2’00”",
             .weight = "27.6 lbs.",
         },
@@ -33236,7 +33236,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gurdurr",
             .pokedexEntry = "With strengthened bodies,\\nthey skillfully wield steel\\nbeams to take down buildings.",
-            .classification = "????? Pokémon",
+            .classification = "Muscular Pokémon",
             .height = "3’11”",
             .weight = "88.2 lbs.",
         },
@@ -33293,7 +33293,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Conkeldurr",
             .pokedexEntry = "Rather than rely on force,\\nthey master moves that utilize the\\ncentrifugal force of spinning concrete.",
-            .classification = "????? Pokémon",
+            .classification = "Muscular Pokémon",
             .height = "4’07”",
             .weight = "191.8 lbs.",
         },
@@ -33350,7 +33350,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tympole",
             .pokedexEntry = "By vibrating its cheeks, it emits\\nsound waves imperceptible to humans\\nand warns others of danger.",
-            .classification = "????? Pokémon",
+            .classification = "Tadpole Pokémon",
             .height = "1’08”",
             .weight = "9.9 lbs.",
         },
@@ -33407,7 +33407,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Palpitoad",
             .pokedexEntry = "It lives in the water and on land.\\nIt uses its long, sticky tongue\\nto immobilize its opponents.",
-            .classification = "????? Pokémon",
+            .classification = "Vibration Pokémon",
             .height = "2’07”",
             .weight = "37.5 lbs.",
         },
@@ -33464,7 +33464,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Seismitoad",
             .pokedexEntry = "By putting power into its bumps,\\nit creates vibrations and\\nincreases the power of its punches.",
-            .classification = "????? Pokémon",
+            .classification = "Vibration Pokémon",
             .height = "4’11”",
             .weight = "136.7 lbs.",
         },
@@ -33521,7 +33521,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Throh",
             .pokedexEntry = "When it encounters a foe bigger\\nthan itself, it wants to throw it.\\nIt changes belts as it gets stronger.",
-            .classification = "????? Pokémon",
+            .classification = "Judo Pokémon",
             .height = "4’03”",
             .weight = "122.4 lbs.",
         },
@@ -33578,7 +33578,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sawk",
             .pokedexEntry = "Desiring the strongest karate chop,\\nthey seclude themselves in mountains\\nand train without sleeping.",
-            .classification = "????? Pokémon",
+            .classification = "Karate Pokémon",
             .height = "4’07”",
             .weight = "112.4 lbs.",
         },
@@ -33635,7 +33635,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sewaddle",
             .pokedexEntry = "Since this Pokémon makes its own clothes\\nout of leaves, it is a popular mascot for\\nfashion designers.",
-            .classification = "????? Pokémon",
+            .classification = "Sewing Pokémon",
             .height = "1’00”",
             .weight = "5.5 lbs.",
         },
@@ -33692,7 +33692,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Swadloon",
             .pokedexEntry = "Preferring dark, damp places,\\nit spends the entire day eating\\nfallen leaves that lie around it.",
-            .classification = "????? Pokémon",
+            .classification = "Leaf-Wrapped Pokémon",
             .height = "1’08”",
             .weight = "16.1 lbs.",
         },
@@ -33749,7 +33749,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Leavanny",
             .pokedexEntry = "Upon finding a small Pokémon, it weaves\\nclothing for it from leaves by using\\nthe sticky silk secreted from its mouth.",
-            .classification = "????? Pokémon",
+            .classification = "Nurturing Pokémon",
             .height = "3’11”",
             .weight = "45.2 lbs.",
         },
@@ -33806,7 +33806,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Venipede",
             .pokedexEntry = "Using the feelers on its head and tail,\\nit picks up vibrations in the air to\\ndetermine its prey’s location and state.",
-            .classification = "????? Pokémon",
+            .classification = "Centipede Pokémon",
             .height = "1’04”",
             .weight = "11.7 lbs.",
         },
@@ -33863,7 +33863,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Whirlipede",
             .pokedexEntry = "Storing energy for evolution, it sits.\\nBut, when predators approach, it moves\\nto stab them with poison spikes.",
-            .classification = "????? Pokémon",
+            .classification = "Curlipede Pokémon",
             .height = "3’11”",
             .weight = "129.0 lbs.",
         },
@@ -33920,7 +33920,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Scolipede",
             .pokedexEntry = "It clasps its prey with the claws\\non its neck until it stops moving.\\nThen it finishes it off with deadly poison.",
-            .classification = "????? Pokémon",
+            .classification = "Megapede Pokémon",
             .height = "8’02”",
             .weight = "442.0 lbs.",
         },
@@ -33977,7 +33977,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cottonee",
             .pokedexEntry = "Perhaps because they feel more at ease\\nin a group, they stick to others they find.\\nThey end up looking like a cloud.",
-            .classification = "????? Pokémon",
+            .classification = "Cotton Puff Pokémon",
             .height = "1’00”",
             .weight = "1.3 lbs.",
         },
@@ -34034,7 +34034,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Whimsicott",
             .pokedexEntry = "They appear along with whirlwinds.\\nThey pull pranks, such as moving furniture\\nand leaving balls of cotton in homes.",
-            .classification = "????? Pokémon",
+            .classification = "Windveiled Pokémon",
             .height = "2’04”",
             .weight = "14.6 lbs.",
         },
@@ -34091,7 +34091,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Petilil",
             .pokedexEntry = "The leaves on its head grow right back\\neven if they fall out. These bitter leaves\\nrefresh those who eat them.",
-            .classification = "????? Pokémon",
+            .classification = "Bulb Pokémon",
             .height = "1’08”",
             .weight = "14.6 lbs.",
         },
@@ -34148,7 +34148,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Lilligant",
             .pokedexEntry = "The fragrance of the garland\\non its head has a relaxing effect,\\nbut taking care of it is very difficult.",
-            .classification = "????? Pokémon",
+            .classification = "Flowering Pokémon",
             .height = "3’07”",
             .weight = "35.9 lbs.",
         },
@@ -34262,7 +34262,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sandile",
             .pokedexEntry = "They live hidden under hot desert sands\\nin order to keep their body temperature\\nfrom dropping.",
-            .classification = "????? Pokémon",
+            .classification = "Desert Croc Pokémon",
             .height = "2’04”",
             .weight = "33.5 lbs.",
         },
@@ -34319,7 +34319,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Krokorok",
             .pokedexEntry = "Protected by thin membranes, their\\neyes can see even in the dead of night.\\nThey live in groups of a few individuals.",
-            .classification = "????? Pokémon",
+            .classification = "Desert Croc Pokémon",
             .height = "3’03”",
             .weight = "73.6 lbs.",
         },
@@ -34376,7 +34376,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Krookodile",
             .pokedexEntry = "Very violent Pokémon, they try\\nto clamp down on anything that\\nmoves in front of their eyes.",
-            .classification = "????? Pokémon",
+            .classification = "Intimidation Pokémon",
             .height = "4’11”",
             .weight = "212.3 lbs.",
         },
@@ -34433,7 +34433,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Darumaka",
             .pokedexEntry = "When it sleeps, it pulls its limbs\\ninto its body and its internal fire\\ngoes down to 1,100 degrees Fahrenheit.",
-            .classification = "????? Pokémon",
+            .classification = "Zen Charm Pokémon",
             .height = "2’00”",
             .weight = "82.7 lbs.",
         },
@@ -34547,7 +34547,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Maractus",
             .pokedexEntry = "When it moves rhythmically, it\\nmakes a sound similar to maracas,\\nmaking the surprised Pokémon flee.",
-            .classification = "????? Pokémon",
+            .classification = "Cactus Pokémon",
             .height = "3’03”",
             .weight = "61.7 lbs.",
         },
@@ -34604,7 +34604,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dwebble",
             .pokedexEntry = "When it finds a stone of a suitable size,\\nit secretes a liquid from its mouth\\nto open up a hole to crawl into.",
-            .classification = "????? Pokémon",
+            .classification = "Rock Inn Pokémon",
             .height = "1’00”",
             .weight = "32.0 lbs.",
         },
@@ -34661,7 +34661,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Crustle",
             .pokedexEntry = "When its boulder is broken in\\nbattles for territory, it feels\\nunsure and begins to weaken.",
-            .classification = "????? Pokémon",
+            .classification = "Stone Home Pokémon",
             .height = "4’07”",
             .weight = "440.9 lbs.",
         },
@@ -34718,7 +34718,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Scraggy",
             .pokedexEntry = "Proud of its sturdy skull, it\\nsuddenly headbutts everything,\\nbut its weight makes it unstable, too.",
-            .classification = "????? Pokémon",
+            .classification = "Shedding Pokémon",
             .height = "2’00”",
             .weight = "26.0 lbs.",
         },
@@ -34775,7 +34775,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Scrafty",
             .pokedexEntry = "It pulls up its shed skin to protect\\nitself while it kicks. The bigger\\nthe crest, the more respected it is.",
-            .classification = "????? Pokémon",
+            .classification = "Hoodlum Pokémon",
             .height = "3’07”",
             .weight = "66.1 lbs.",
         },
@@ -34832,7 +34832,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sigilyph",
             .pokedexEntry = "The guardians of an ancient city,\\nthey always fly the same route\\nwhile keeping watch for invaders.",
-            .classification = "????? Pokémon",
+            .classification = "Avianoid Pokémon",
             .height = "4’07”",
             .weight = "30.9 lbs.",
         },
@@ -34889,7 +34889,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Yamask",
             .pokedexEntry = "These Pokémon arose from the\\nspirits of people interred in graves.\\nEach retains memories of its former life.",
-            .classification = "????? Pokémon",
+            .classification = "Spirit Pokémon",
             .height = "1’08”",
             .weight = "3.3 lbs.",
         },
@@ -34946,7 +34946,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cofagrigus",
             .pokedexEntry = "Grave robbers who mistake them\\nfor real coffins and get too close\\nend up trapped inside their bodies.",
-            .classification = "????? Pokémon",
+            .classification = "Coffin Pokémon",
             .height = "5’07”",
             .weight = "168.7 lbs.",
         },
@@ -35003,7 +35003,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tirtouga",
             .pokedexEntry = "This Pokémon was restored from a fossil.\\nIt swam skillfully and dove\\nto depths beyond half a mile.",
-            .classification = "????? Pokémon",
+            .classification = "Prototurtle Pokémon",
             .height = "2’04”",
             .weight = "36.4 lbs.",
         },
@@ -35060,7 +35060,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Carracosta",
             .pokedexEntry = "It could knock out a foe with a slap from\\none of its developed front appendages\\nand chew it up, shell or bones and all.",
-            .classification = "????? Pokémon",
+            .classification = "Prototurtle Pokémon",
             .height = "3’11”",
             .weight = "178.6 lbs.",
         },
@@ -35117,7 +35117,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Archen",
             .pokedexEntry = "It was revived from an ancient fossil.\\nNot able to fly, it lived in treetops\\nand hopped from one branch to another.",
-            .classification = "????? Pokémon",
+            .classification = "First Bird Pokémon",
             .height = "1’08”",
             .weight = "20.9 lbs.",
         },
@@ -35174,7 +35174,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Archeops",
             .pokedexEntry = "It runs better than it flies.\\nIt takes off into the sky by\\nrunning at a speed of 25 mph.",
-            .classification = "????? Pokémon",
+            .classification = "First Bird Pokémon",
             .height = "4’07”",
             .weight = "70.5 lbs.",
         },
@@ -35231,7 +35231,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Trubbish",
             .pokedexEntry = "Wanting more garbage, they\\nfollow people who litter.\\nThey always belch poison gas.",
-            .classification = "????? Pokémon",
+            .classification = "Trash Bag Pokémon",
             .height = "2’00”",
             .weight = "68.3 lbs.",
         },
@@ -35288,7 +35288,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Garbodor",
             .pokedexEntry = "Consuming garbage makes\\nnew kinds of poison gases\\nand liquids inside their bodies.",
-            .classification = "????? Pokémon",
+            .classification = "Trash Heap Pokémon",
             .height = "6’03”",
             .weight = "236.6 lbs.",
         },
@@ -35345,7 +35345,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zorua",
             .pokedexEntry = "It changes so it looks just like its foe,\\ntricks it, and then uses that opportunity\\nto flee.",
-            .classification = "????? Pokémon",
+            .classification = "Tricky Fox Pokémon",
             .height = "2’04”",
             .weight = "27.6 lbs.",
         },
@@ -35402,7 +35402,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zoroark",
             .pokedexEntry = "Stories say those who tried to catch\\nZoroark were trapped in an illusion\\nand punished.",
-            .classification = "????? Pokémon",
+            .classification = "Illusion Fox Pokémon",
             .height = "5’03”",
             .weight = "178.8 lbs.",
         },
@@ -35459,7 +35459,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Minccino",
             .pokedexEntry = "Minccino greet each other\\nby grooming one another\\nthoroughly with their tails.",
-            .classification = "????? Pokémon",
+            .classification = "Chinchilla Pokémon",
             .height = "1’04”",
             .weight = "12.8 lbs.",
         },
@@ -35516,7 +35516,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cinccino",
             .pokedexEntry = "Cinccino’s body is coated in a\\nspecial oil that helps it deflect\\nattacks, such as punches.",
-            .classification = "????? Pokémon",
+            .classification = "Scarf Pokémon",
             .height = "1’08”",
             .weight = "16.5 lbs.",
         },
@@ -35573,7 +35573,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gothita",
             .pokedexEntry = "It stares intently at everything.\\nIt can become so obsessed with watching\\nthat it doesn’t notice attacks.",
-            .classification = "????? Pokémon",
+            .classification = "Fixation Pokémon",
             .height = "1’04”",
             .weight = "12.8 lbs.",
         },
@@ -35630,7 +35630,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gothorita",
             .pokedexEntry = "According to many old tales, it creates\\nfriends for itself by controlling sleeping\\nchildren on starry nights.",
-            .classification = "????? Pokémon",
+            .classification = "Manipulate Pokémon",
             .height = "2’04”",
             .weight = "39.7 lbs.",
         },
@@ -35687,7 +35687,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gothitelle",
             .pokedexEntry = "It can see the future from the movement\\nof the stars. When it learns its Trainer’s\\nlife span, it cries in sadness.",
-            .classification = "????? Pokémon",
+            .classification = "Astral Body Pokémon",
             .height = "4’11”",
             .weight = "97.0 lbs.",
         },
@@ -35744,7 +35744,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Solosis",
             .pokedexEntry = "Because their bodies are enveloped in\\na special liquid, they are fine in any\\nenvironment, no matter how severe.",
-            .classification = "????? Pokémon",
+            .classification = "Cell Pokémon",
             .height = "1’00”",
             .weight = "2.2 lbs.",
         },
@@ -35801,7 +35801,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Duosion",
             .pokedexEntry = "When their two divided brains think the\\nsame thoughts, their psychic power is\\nmaximized.",
-            .classification = "????? Pokémon",
+            .classification = "Mitosis Pokémon",
             .height = "2’00”",
             .weight = "17.6 lbs.",
         },
@@ -35858,7 +35858,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Reuniclus",
             .pokedexEntry = "They use psychic power to control their\\narms, which are made of a special liquid.\\nThey can crush boulders psychically.",
-            .classification = "????? Pokémon",
+            .classification = "Multiplying Pokémon",
             .height = "3’03”",
             .weight = "44.3 lbs.",
         },
@@ -35915,7 +35915,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Ducklett",
             .pokedexEntry = "They are better at swimming than flying,\\nand they happily eat their favorite food,\\npeat moss, as they dive underwater.",
-            .classification = "????? Pokémon",
+            .classification = "Water Bird Pokémon",
             .height = "1’08”",
             .weight = "12.1 lbs.",
         },
@@ -35972,7 +35972,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Swanna",
             .pokedexEntry = "Despite their elegant appearance,\\nthey can flap their wings strongly\\nand fly for thousands of miles.",
-            .classification = "????? Pokémon",
+            .classification = "White Bird Pokémon",
             .height = "4’03”",
             .weight = "53.4 lbs.",
         },
@@ -36029,7 +36029,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Vanillite",
             .pokedexEntry = "Theoretically, this Pokémon formed from\\nicicles bathed in energy from the morning\\nsun. Their breath is -58 degrees Farenheit.",
-            .classification = "????? Pokémon",
+            .classification = "Fresh Snow Pokémon",
             .height = "1’04”",
             .weight = "12.6 lbs.",
         },
@@ -36086,7 +36086,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Vanillish",
             .pokedexEntry = "They cool down the surrounding air\\nand create ice particles, which\\nthey use to freeze their foes.",
-            .classification = "????? Pokémon",
+            .classification = "Icy Snow Pokémon",
             .height = "3’07”",
             .weight = "90.4 lbs.",
         },
@@ -36143,7 +36143,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Vanilluxe",
             .pokedexEntry = "Swallowing large amounts of water, they\\nmake snow clouds inside their bodies and,\\nwhen angry, cause violent blizzards.",
-            .classification = "????? Pokémon",
+            .classification = "Snowstorm Pokémon",
             .height = "4’03”",
             .weight = "126.8 lbs.",
         },
@@ -36200,7 +36200,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Deerling",
             .pokedexEntry = "Their coloring changes according to the\\nseasons and can be slightly affected\\nby the temperature and humidity as well.",
-            .classification = "????? Pokémon",
+            .classification = "Season Pokémon",
             .height = "2’00”",
             .weight = "43.0 lbs.",
         },
@@ -36257,7 +36257,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sawsbuck",
             .pokedexEntry = "They migrate according to the seasons,\\nso some people call Sawsbuck the\\nharbingers of spring.",
-            .classification = "????? Pokémon",
+            .classification = "Season Pokémon",
             .height = "6’03”",
             .weight = "203.9 lbs.",
         },
@@ -36314,7 +36314,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Emolga",
             .pokedexEntry = "It glides on its outstretched membrane\\nwhile shocking foes with the electricity\\nstored in the pouches on its cheeks.",
-            .classification = "????? Pokémon",
+            .classification = "Sky Squirrel Pokémon",
             .height = "1’04”",
             .weight = "11.0 lbs.",
         },
@@ -36371,7 +36371,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Karrablast",
             .pokedexEntry = "For some reason they evolve when they\\nreceive electrical energy while they\\nare attacking Shelmet.",
-            .classification = "????? Pokémon",
+            .classification = "Clamping Pokémon",
             .height = "1’08”",
             .weight = "13.0 lbs.",
         },
@@ -36428,7 +36428,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Escavalier",
             .pokedexEntry = "Wearing the shell covering they stole\\nfrom Shelmet, they defend themselves\\nand attack with two lances.",
-            .classification = "????? Pokémon",
+            .classification = "Cavalry Pokémon",
             .height = "3’03”",
             .weight = "72.8 lbs.",
         },
@@ -36485,7 +36485,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Foongus",
             .pokedexEntry = "It lures Pokémon with its pattern\\nthat looks just like a Poké Ball\\nthen releases poison spores.",
-            .classification = "????? Pokémon",
+            .classification = "Mushroom Pokémon",
             .height = "0’08”",
             .weight = "2.2 lbs.",
         },
@@ -36542,7 +36542,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Amoonguss",
             .pokedexEntry = "It moves the caps on both arms\\nand does a dance to lure prey.\\nIt prefers damp places.",
-            .classification = "????? Pokémon",
+            .classification = "Mushroom Pokémon",
             .height = "2’00”",
             .weight = "23.1 lbs.",
         },
@@ -36713,7 +36713,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Alomomola",
             .pokedexEntry = "It gently holds injured\\nand weak Pokémon in its fins.\\nIts special membrane heals their wounds.",
-            .classification = "????? Pokémon",
+            .classification = "Caring Pokémon",
             .height = "3’11”",
             .weight = "69.7 lbs.",
         },
@@ -36770,7 +36770,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Joltik",
             .pokedexEntry = "Since it can’t generate its own electricity,\\nit sticks onto large-bodied Pokémon and\\nabsorbs static electricity.",
-            .classification = "????? Pokémon",
+            .classification = "Attaching Pokémon",
             .height = "0’04”",
             .weight = "1.3 lbs.",
         },
@@ -36827,7 +36827,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Galvantula",
             .pokedexEntry = "It creates barriers from\\nelectrified silk that stun foes.\\nThis works as a weapon as well as a defense.",
-            .classification = "????? Pokémon",
+            .classification = "EleSpider Pokémon",
             .height = "2’07”",
             .weight = "31.5 lbs.",
         },
@@ -36884,7 +36884,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Ferroseed",
             .pokedexEntry = "It absorbs the iron it finds in\\nthe rock while clinging to the ceiling.\\nIt shoots spikes when in danger.",
-            .classification = "????? Pokémon",
+            .classification = "Thorn Seed Pokémon",
             .height = "2’00”",
             .weight = "41.4 lbs.",
         },
@@ -36941,7 +36941,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Ferrothorn",
             .pokedexEntry = "By swinging around its three\\nspiky feelers and shooting spikes,\\nit can obliterate an opponent.",
-            .classification = "????? Pokémon",
+            .classification = "Thorn Pod Pokémon",
             .height = "3’03”",
             .weight = "242.5 lbs.",
         },
@@ -36998,7 +36998,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Klink",
             .pokedexEntry = "Two bodies comprise a fixed pair.\\nThey spin around each\\nother to generate energy.",
-            .classification = "????? Pokémon",
+            .classification = "Gear Pokémon",
             .height = "1’00”",
             .weight = "46.3 lbs.",
         },
@@ -37055,7 +37055,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Klang",
             .pokedexEntry = "A minigear and big gear comprise its body.\\nIf the minigear it launches at\\na foe doesn’t return, it will die.",
-            .classification = "????? Pokémon",
+            .classification = "Gear Pokémon",
             .height = "2’00”",
             .weight = "112.4 lbs.",
         },
@@ -37112,7 +37112,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Klinklang",
             .pokedexEntry = "The minigear spins at high speed.\\nThen the energy from the red core charges\\nthe minigear to make it ready to fire.",
-            .classification = "????? Pokémon",
+            .classification = "Gear Pokémon",
             .height = "2’00”",
             .weight = "178.6 lbs.",
         },
@@ -37169,7 +37169,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tynamo",
             .pokedexEntry = "One alone can emit only a trickle of\\nelectricity, so a group of them gathers\\nto unleash a powerful electric shock.",
-            .classification = "????? Pokémon",
+            .classification = "EleFish Pokémon",
             .height = "0’08”",
             .weight = "0.7 lbs.",
         },
@@ -37226,7 +37226,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Eelektrik",
             .pokedexEntry = "It wraps itself around its prey and\\nparalyzes it with electricity from the\\nround spots on its sides. Then it chomps.",
-            .classification = "????? Pokémon",
+            .classification = "EleFish Pokémon",
             .height = "3’11”",
             .weight = "48.5 lbs.",
         },
@@ -37283,7 +37283,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Eelektross",
             .pokedexEntry = "It latches on to prey with its sucker mouth,\\nsinking in its fangs and shocking the prey\\nwith powerful electricity.",
-            .classification = "????? Pokémon",
+            .classification = "EleFish Pokémon",
             .height = "6’11”",
             .weight = "177.5 lbs.",
         },
@@ -37340,7 +37340,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Elgyem",
             .pokedexEntry = "Rumors of its origin are\\nlinked to a UFO crash site\\nin the desert 50 years ago.",
-            .classification = "????? Pokémon",
+            .classification = "Cerebral Pokémon",
             .height = "1’08”",
             .weight = "19.8 lbs.",
         },
@@ -37397,7 +37397,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Beheeyem",
             .pokedexEntry = "Apparently, it communicates by\\nflashing its three fingers, but\\nthose patterns haven’t been decoded.",
-            .classification = "????? Pokémon",
+            .classification = "Cerebral Pokémon",
             .height = "3’03”",
             .weight = "76.1 lbs.",
         },
@@ -37454,7 +37454,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Litwick",
             .pokedexEntry = "Its flame is usually out, but it\\nstarts shining when Litwick absorbs\\nlife-force from people or Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Candle Pokémon",
             .height = "1’00”",
             .weight = "6.8 lbs.",
         },
@@ -37511,7 +37511,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Lampent",
             .pokedexEntry = "The spirits it absorbs fuel its baleful fire.\\nIt hangs around hospitals\\nwaiting for people to pass on.",
-            .classification = "????? Pokémon",
+            .classification = "Lamp Pokémon",
             .height = "2’00”",
             .weight = "28.7 lbs.",
         },
@@ -37568,7 +37568,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Chandelure",
             .pokedexEntry = "The spirits burned up in its\\nominous flame lose their way\\nand wander this world forever.",
-            .classification = "????? Pokémon",
+            .classification = "Luring Pokémon",
             .height = "3’03”",
             .weight = "75.6 lbs.",
         },
@@ -37625,7 +37625,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Axew",
             .pokedexEntry = "Its large tusks have a tendency to break,\\nbut each time they grow back, they grow\\nin harder and sturdier.",
-            .classification = "????? Pokémon",
+            .classification = "Tusk Pokémon",
             .height = "2’00”",
             .weight = "39.7 lbs.",
         },
@@ -37682,7 +37682,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Fraxure",
             .pokedexEntry = "A broken tusk will not grow back,\\nso it diligently sharpens its tusks on\\nriver rocks after the end of a battle.",
-            .classification = "????? Pokémon",
+            .classification = "Axe Jaw Pokémon",
             .height = "3’03”",
             .weight = "79.4 lbs.",
         },
@@ -37739,7 +37739,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Haxorus",
             .pokedexEntry = "Its tusks are incredibly destructive.\\nThey can easily slice through a thick,\\nsturdy steel column every time.",
-            .classification = "????? Pokémon",
+            .classification = "Axe Jaw Pokémon",
             .height = "5’11”",
             .weight = "232.6 lbs.",
         },
@@ -37796,7 +37796,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cubchoo",
             .pokedexEntry = "Their snot is a barometer of health.\\nWhen healthy, their snot is sticky and\\nthe power of their ice moves increases.",
-            .classification = "????? Pokémon",
+            .classification = "Chill Pokémon",
             .height = "1’08”",
             .weight = "18.7 lbs.",
         },
@@ -37853,7 +37853,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Beartic",
             .pokedexEntry = "They love the cold seas of the north.\\nThey create pathways across the\\nocean waters by freezing their own breath.",
-            .classification = "????? Pokémon",
+            .classification = "Freezing Pokémon",
             .height = "8’06”",
             .weight = "573.2 lbs.",
         },
@@ -37910,7 +37910,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cryogonal",
             .pokedexEntry = "They are composed of ice crystals.\\nThey capture prey with chains of ice,\\nfreezing the prey at -148 degrees Fahrenheit.",
-            .classification = "????? Pokémon",
+            .classification = "Crystallizing Pokémon",
             .height = "3’07”",
             .weight = "326.3 lbs.",
         },
@@ -37967,7 +37967,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Shelmet",
             .pokedexEntry = "When it and Karrablast are together, and\\nboth receive electrical stimulation,\\nthey both evolve.",
-            .classification = "????? Pokémon",
+            .classification = "Snail Pokémon",
             .height = "1’04”",
             .weight = "17.0 lbs.",
         },
@@ -38024,7 +38024,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Accelgor",
             .pokedexEntry = "When its body dries out, it weakens.\\nSo it wraps a membrane around itself\\nfor protection while it spits poison.",
-            .classification = "????? Pokémon",
+            .classification = "Shell Out Pokémon",
             .height = "2’07”",
             .weight = "55.8 lbs.",
         },
@@ -38081,7 +38081,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Stunfisk",
             .pokedexEntry = "When its opponent can’t be paralyzed,\\nit contorts itself with unexpected speed\\nand flops away.",
-            .classification = "????? Pokémon",
+            .classification = "Trap Pokémon",
             .height = "2’04”",
             .weight = "24.3 lbs.",
         },
@@ -38138,7 +38138,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mienfoo",
             .pokedexEntry = "It takes pride in the speed at which it\\ncan use moves. What it loses in power,\\nit makes up for in quantity.",
-            .classification = "????? Pokémon",
+            .classification = "Martial Arts Pokémon",
             .height = "2’11”",
             .weight = "44.1 lbs.",
         },
@@ -38195,7 +38195,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mienshao",
             .pokedexEntry = "Using the long fur on its arms like whips,\\nit launches into combo attacks that,\\nonce started, no one can stop.",
-            .classification = "????? Pokémon",
+            .classification = "Martial Arts Pokémon",
             .height = "4’07”",
             .weight = "78.3 lbs.",
         },
@@ -38252,7 +38252,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Druddigon",
             .pokedexEntry = "It runs through the narrow tunnels\\nformed by Excadrill and Onix.\\nIt uses its sharp claws to catch prey.",
-            .classification = "????? Pokémon",
+            .classification = "Cave Pokémon",
             .height = "5’03”",
             .weight = "306.4 lbs.",
         },
@@ -38309,7 +38309,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Golett",
             .pokedexEntry = "Ancient science fashioned\\nthis Pokémon from clay.\\nIt’s been active for thousands of years.",
-            .classification = "????? Pokémon",
+            .classification = "Automaton Pokémon",
             .height = "3’03”",
             .weight = "202.8 lbs.",
         },
@@ -38366,7 +38366,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Golurk",
             .pokedexEntry = "Golurk were created to protect\\npeople and Pokémon.\\nThey run on a mysterious energy.",
-            .classification = "????? Pokémon",
+            .classification = "Automaton Pokémon",
             .height = "9’02”",
             .weight = "727.5 lbs.",
         },
@@ -38423,7 +38423,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pawniard",
             .pokedexEntry = "Ignoring their injuries, groups attack\\nby sinking the blades that cover\\ntheir bodies into their prey.",
-            .classification = "????? Pokémon",
+            .classification = "Sharp Blade Pokémon",
             .height = "1’08”",
             .weight = "22.5 lbs.",
         },
@@ -38480,7 +38480,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bisharp",
             .pokedexEntry = "This pitiless Pokémon commands a group\\nof Pawniard to hound prey into immobility.\\nIt then moves in to finish the prey off.",
-            .classification = "????? Pokémon",
+            .classification = "Sword Blade Pokémon",
             .height = "5’03”",
             .weight = "154.3 lbs.",
         },
@@ -38537,7 +38537,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bouffalant",
             .pokedexEntry = "They are known to charge so wildly that\\nif a train were to enter their territory,\\nthey would send it flying.",
-            .classification = "????? Pokémon",
+            .classification = "Bash Buffalo Pokémon",
             .height = "5’03”",
             .weight = "208.6 lbs.",
         },
@@ -38594,7 +38594,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Rufflet",
             .pokedexEntry = "It stands up to massive opponents, not\\nout of courage, but out of recklessness.\\nBut that is how it gets stronger.",
-            .classification = "????? Pokémon",
+            .classification = "Eaglet Pokémon",
             .height = "1’08”",
             .weight = "23.1 lbs.",
         },
@@ -38651,7 +38651,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Braviary",
             .pokedexEntry = "For the sake of its friends, this\\nbrave warrior of the sky will not\\nstop battling, even if injured.",
-            .classification = "????? Pokémon",
+            .classification = "Valiant Pokémon",
             .height = "4’11”",
             .weight = "90.4 lbs.",
         },
@@ -38708,7 +38708,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Vullaby",
             .pokedexEntry = "Their wings are too tiny to allow them to fly.\\nThey guard their posteriors with bones that\\nwere gathered by Mandibuzz.",
-            .classification = "????? Pokémon",
+            .classification = "Diapered Pokémon",
             .height = "1’08”",
             .weight = "19.8 lbs.",
         },
@@ -38765,7 +38765,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mandibuzz",
             .pokedexEntry = "They fly in circles around the sky.\\nWhen they spot prey, they attack and\\ncarry it back to their nest with ease.",
-            .classification = "????? Pokémon",
+            .classification = "Bone Vulture Pokémon",
             .height = "3’11”",
             .weight = "87.1 lbs.",
         },
@@ -38822,7 +38822,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Heatmor",
             .pokedexEntry = "It draws in air through its tail, transforms\\nit into fire, and uses it like a tongue.\\nIt melts Durant and eats them.",
-            .classification = "????? Pokémon",
+            .classification = "Anteater Pokémon",
             .height = "4’07”",
             .weight = "127.9 lbs.",
         },
@@ -38879,7 +38879,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Durant",
             .pokedexEntry = "Individuals each play different roles in\\ndriving Heatmor, their natural predator,\\naway from their colony.",
-            .classification = "????? Pokémon",
+            .classification = "Iron Ant Pokémon",
             .height = "1’00”",
             .weight = "72.8 lbs.",
         },
@@ -38936,7 +38936,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Deino",
             .pokedexEntry = "Lacking sight, it’s unaware of its\\nsurroundings, so it bumps into\\nthings and eats anything that moves.",
-            .classification = "????? Pokémon",
+            .classification = "Irate Pokémon",
             .height = "2’07”",
             .weight = "38.1 lbs.",
         },
@@ -38993,7 +38993,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zweilous",
             .pokedexEntry = "The two heads do not get along.\\nWhichever head eats more than\\nthe other gets to be the leader.",
-            .classification = "????? Pokémon",
+            .classification = "Hostile Pokémon",
             .height = "4’07”",
             .weight = "110.2 lbs.",
         },
@@ -39050,7 +39050,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Hydreigon",
             .pokedexEntry = "It responds to movement by attacking.\\nThis scary, three-headed Pokémon\\ndevours everything in its path!",
-            .classification = "????? Pokémon",
+            .classification = "Brutal Pokémon",
             .height = "5’11”",
             .weight = "352.7 lbs.",
         },
@@ -39107,7 +39107,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Larvesta",
             .pokedexEntry = "Said to have been born from the sun,\\nit spews fire from its horns and encases\\nitself in a cocoon of fire when it evolves.",
-            .classification = "????? Pokémon",
+            .classification = "Torch Pokémon",
             .height = "3’07”",
             .weight = "63.5 lbs.",
         },
@@ -39164,7 +39164,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Volcarona",
             .pokedexEntry = "Thought to be an embodiment of the sun,\\nit appeared during a bitterly cold winter\\nand saved Pokémon from freezing.",
-            .classification = "????? Pokémon",
+            .classification = "Sun Pokémon",
             .height = "5’03”",
             .weight = "101.4 lbs.",
         },
@@ -39221,7 +39221,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cobalion",
             .pokedexEntry = "It has a body and heart of steel.\\nIt worked with its allies to punish\\npeople when they hurt Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Iron Will Pokémon",
             .height = "6’11”",
             .weight = "551.2 lbs.",
         },
@@ -39278,7 +39278,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Terrakion",
             .pokedexEntry = "Spoken of in legend, this Pokémon\\nused its phenomenal power to destroy a\\ncastle in its effort to protect Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Cavern Pokémon",
             .height = "6’03”",
             .weight = "573.2 lbs.",
         },
@@ -39335,7 +39335,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Virizion",
             .pokedexEntry = "Legends say this Pokémon\\nconfounded opponents\\nwith its swift movements.",
-            .classification = "????? Pokémon",
+            .classification = "Grassland Pokémon",
             .height = "6’07”",
             .weight = "440.9 lbs.",
         },
@@ -39506,7 +39506,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Reshiram",
             .pokedexEntry = "This legendary Pokémon can scorch\\nthe world with fire. It helps those\\nwho want to build a world of truth.",
-            .classification = "????? Pokémon",
+            .classification = "Vast White Pokémon",
             .height = "10’06”",
             .weight = "727.5 lbs.",
         },
@@ -39563,7 +39563,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zekrom",
             .pokedexEntry = "This legendary Pokémon can scorch\\nthe world with lightning. It assists those\\nwho want to build an ideal world.",
-            .classification = "????? Pokémon",
+            .classification = "Deep Black Pokémon",
             .height = "9’06”",
             .weight = "760.6 lbs.",
         },
@@ -39677,7 +39677,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Kyurem",
             .pokedexEntry = "This legendary ice Pokémon waits for\\na hero to fill in the missing parts\\nof its body with truth or ideals.",
-            .classification = "????? Pokémon",
+            .classification = "Boundary Pokémon",
             .height = "9’10”",
             .weight = "716.5 lbs.",
         },
@@ -39848,7 +39848,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Genesect",
             .pokedexEntry = "This Pokémon existed 300 million years ago.\\nTeam Plasma altered it and attached\\na cannon to its back.",
-            .classification = "????? Pokémon",
+            .classification = "Paleozoic Pokémon",
             .height = "4’11”",
             .weight = "181.9 lbs.",
         },
@@ -39905,7 +39905,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Chespin",
             .pokedexEntry = "Such a thick shell of wood covers its\\nhead and back that even a direct hit\\nfrom a truck wouldn’t faze it.",
-            .classification = "????? Pokémon",
+            .classification = "Spiny Nut Pokémon",
             .height = "1’04”",
             .weight = "19.8 lbs.",
         },
@@ -39962,7 +39962,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Quilladin",
             .pokedexEntry = "It relies on its sturdy shell to\\ndeflect predators’ attacks. It\\ncounterattacks with its sharp quills.",
-            .classification = "????? Pokémon",
+            .classification = "Spiny Armor Pokémon",
             .height = "2’04”",
             .weight = "63.9 lbs.",
         },
@@ -40019,7 +40019,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Chesnaught",
             .pokedexEntry = "When it takes a defensive posture with\\nits fists guarding its face, it could\\nwithstand a bomb blast.",
-            .classification = "????? Pokémon",
+            .classification = "Spiny Armor Pokémon",
             .height = "5’03”",
             .weight = "198.4 lbs.",
         },
@@ -40076,7 +40076,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Fennekin",
             .pokedexEntry = "Eating a twig fills it with energy, and\\nits roomy ears give vent to very hot\\nair.",
-            .classification = "????? Pokémon",
+            .classification = "Fox Pokémon",
             .height = "1’04”",
             .weight = "20.7 lbs.",
         },
@@ -40133,7 +40133,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Braixen",
             .pokedexEntry = "With friction from its tail fur, it\\nsets the twig on its tail on fire and\\nlaunches into battle.",
-            .classification = "????? Pokémon",
+            .classification = "Fox Pokémon",
             .height = "3’03”",
             .weight = "32.0 lbs.",
         },
@@ -40190,7 +40190,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Delphox",
             .pokedexEntry = "It gazes into the flame at its branch\\nto achieve a focused state, allowing it\\nto see the future.",
-            .classification = "????? Pokémon",
+            .classification = "Fox Pokémon",
             .height = "4’11”",
             .weight = "86.0 lbs.",
         },
@@ -40247,7 +40247,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Froakie",
             .pokedexEntry = "It secretes bubbles from its chest and\\nback. The bubbles reduce the damage it\\nwould take when attacked.",
-            .classification = "????? Pokémon",
+            .classification = "Bubble Frog Pokémon",
             .height = "1’00”",
             .weight = "15.4 lbs.",
         },
@@ -40304,7 +40304,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Frogadier",
             .pokedexEntry = "Its swiftness is unparalleled. It can\\nscale a tower of more than 2,000 feet in\\na minute’s time.",
-            .classification = "????? Pokémon",
+            .classification = "Bubble Frog Pokémon",
             .height = "2’00”",
             .weight = "24.0 lbs.",
         },
@@ -40361,7 +40361,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Greninja",
             .pokedexEntry = "It creates throwing stars out of\\ncompressed water, that can split metal\\nin two.",
-            .classification = "????? Pokémon",
+            .classification = "Ninja Pokémon",
             .height = "4’11”",
             .weight = "88.2 lbs.",
         },
@@ -40418,7 +40418,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bunnelby",
             .pokedexEntry = "They use their large ears to dig\\nburrows. They will dig the whole night\\nthrough.",
-            .classification = "????? Pokémon",
+            .classification = "Digging Pokémon",
             .height = "1’04”",
             .weight = "11.0 lbs.",
         },
@@ -40475,7 +40475,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Diggersby",
             .pokedexEntry = "As powerful as an excavator, its ears\\ncan reduce dense bedrock to rubble.",
-            .classification = "????? Pokémon",
+            .classification = "Digging Pokémon",
             .height = "3’03”",
             .weight = "93.5 lbs.",
         },
@@ -40532,7 +40532,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Fletchling",
             .pokedexEntry = "When it’s excited, its temperature can\\ndouble, spiking hormone production in\\nits body.",
-            .classification = "????? Pokémon",
+            .classification = "Tiny Robin Pokémon",
             .height = "1’00”",
             .weight = "3.7 lbs.",
         },
@@ -40589,7 +40589,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Flechinder",
             .pokedexEntry = "Its speed right after takeoff already\\nputs it in the top speed class of all\\nbird Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Ember Pokémon",
             .height = "2’04”",
             .weight = "35.3 lbs.",
         },
@@ -40646,7 +40646,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Talonflame",
             .pokedexEntry = "When attacking prey, it can reach\\nspeeds of up to 310 mph. It finishes its\\nprey off with a colossal kick.",
-            .classification = "????? Pokémon",
+            .classification = "Scorching Pokémon",
             .height = "3’11”",
             .weight = "54.0 lbs.",
         },
@@ -40703,7 +40703,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Scatterbug",
             .pokedexEntry = "The powder that covers its body\\nregulates its temperature, so it can\\nlive in any region or climate.",
-            .classification = "????? Pokémon",
+            .classification = "Scatterdust Pokémon",
             .height = "1’00”",
             .weight = "5.5 lbs.",
         },
@@ -40760,7 +40760,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Spewpa",
             .pokedexEntry = "The beaks of birds can’t begin to\\nscratch its stalwart body. To defend\\nitself, it spews powder.",
-            .classification = "????? Pokémon",
+            .classification = "Scatterdust Pokémon",
             .height = "1’00”",
             .weight = "18.5 lbs.",
         },
@@ -40817,7 +40817,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Vivillon",
             .pokedexEntry = "The colorful patterns on this Pokémon’s\\nwings depend on the climate and\\ntopography of its habitat.",
-            .classification = "????? Pokémon",
+            .classification = "Scale Pokémon",
             .height = "3’11”",
             .weight = "37.5 lbs.",
         },
@@ -40874,7 +40874,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Litleo",
             .pokedexEntry = "The stronger the opponent it faces, the\\nmore heat and power flow through its\\nbody.",
-            .classification = "????? Pokémon",
+            .classification = "Lion Cub Pokémon",
             .height = "2’00”",
             .weight = "29.8 lbs.",
         },
@@ -40988,7 +40988,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Flabébé",
             .pokedexEntry = "It draws and controls the hidden power\\nof flowers. The flower it holds is most\\nlikely part of its body.",
-            .classification = "????? Pokémon",
+            .classification = "Single Bloom Pokémon",
             .height = "0’04”",
             .weight = "0.2 lbs.",
         },
@@ -41045,7 +41045,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Floette",
             .pokedexEntry = "When the flowers of a well-tended\\nflower bed bloom, it appears and\\ncelebrates with an elegant dance.",
-            .classification = "????? Pokémon",
+            .classification = "Single Bloom Pokémon",
             .height = "0’08”",
             .weight = "2.0 lbs.",
         },
@@ -41102,7 +41102,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Florges",
             .pokedexEntry = "Its life can span several hundred\\nyears. It’s said to devote its entire\\nlife to protecting gardens.",
-            .classification = "????? Pokémon",
+            .classification = "Garden Pokémon",
             .height = "3’07”",
             .weight = "22.0 lbs.",
         },
@@ -41159,7 +41159,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Skiddo",
             .pokedexEntry = "Thought to be one of the first Pokémon\\nto live in harmony with humans, it has\\na placid disposition.",
-            .classification = "????? Pokémon",
+            .classification = "Mount Pokémon",
             .height = "2’11”",
             .weight = "68.3 lbs.",
         },
@@ -41216,7 +41216,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gogoat",
             .pokedexEntry = "They inhabit mountainous regions. The\\nleader of the herd is decided by a\\nbattle of clashing horns.",
-            .classification = "????? Pokémon",
+            .classification = "Mount Pokémon",
             .height = "5’07”",
             .weight = "200.6 lbs.",
         },
@@ -41273,7 +41273,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pancham",
             .pokedexEntry = "It grows up imitating the behavior of\\nPangoro, which it looks up to as a\\nleader.",
-            .classification = "????? Pokémon",
+            .classification = "Playful Pokémon",
             .height = "2’00”",
             .weight = "17.6 lbs.",
         },
@@ -41330,7 +41330,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pangoro",
             .pokedexEntry = "This Pokémon boasts great physical\\nstrength. Many Trainers are also smitten\\nby its lively character.",
-            .classification = "????? Pokémon",
+            .classification = "Daunting Pokémon",
             .height = "6’11”",
             .weight = "299.8 lbs.",
         },
@@ -41387,7 +41387,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Furfrou",
             .pokedexEntry = "Historically, in the Kalos region,\\nthese Pokémon were the designated\\nguardians of the king.",
-            .classification = "????? Pokémon",
+            .classification = "Poodle Pokémon",
             .height = "3’11”",
             .weight = "61.7 lbs.",
         },
@@ -41444,7 +41444,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Espurr",
             .pokedexEntry = "The organ that emits its intense\\npsychic power is sheltered by its ears\\nto keep power from leaking out.",
-            .classification = "????? Pokémon",
+            .classification = "Restraint Pokémon",
             .height = "1’00”",
             .weight = "7.7 lbs.",
         },
@@ -41558,7 +41558,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Honedge",
             .pokedexEntry = "It is born when a departed spirit\\ninhabits a sword. It attaches to people\\nand drinks their life force.",
-            .classification = "????? Pokémon",
+            .classification = "Sword Pokémon",
             .height = "2’07”",
             .weight = "4.4 lbs.",
         },
@@ -41615,7 +41615,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Doublade",
             .pokedexEntry = "The complex attack patterns of its two\\nswords are unstoppable, even for an\\naccomplished opponent.",
-            .classification = "????? Pokémon",
+            .classification = "Sword Pokémon",
             .height = "2’07”",
             .weight = "9.9 lbs.",
         },
@@ -41729,7 +41729,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Spritzee",
             .pokedexEntry = "It emits a scent that delights those\\nwho smell it. The fragrance changes\\ndepending on what it has eaten.",
-            .classification = "????? Pokémon",
+            .classification = "Perfume Pokémon",
             .height = "0’08”",
             .weight = "1.1 lbs.",
         },
@@ -41786,7 +41786,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Aromatisse",
             .pokedexEntry = "It devises various scents and emits\\nscents that its enemies dislike in order\\nto gain an edge in battle.",
-            .classification = "????? Pokémon",
+            .classification = "Fragrance Pokémon",
             .height = "2’07”",
             .weight = "34.2 lbs.",
         },
@@ -41843,7 +41843,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Swirlix",
             .pokedexEntry = "Because it eats nothing but sweets, its\\nfur is as sticky sweet as cotton\\ncandy.",
-            .classification = "????? Pokémon",
+            .classification = "Cotton Candy Pokémon",
             .height = "1’04”",
             .weight = "7.7 lbs.",
         },
@@ -41900,7 +41900,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Slurpuff",
             .pokedexEntry = "It can distinguish the faintest of\\nscents. It puts its sense of smell to\\nuse by helping pastry chefs.",
-            .classification = "????? Pokémon",
+            .classification = "Meringue Pokémon",
             .height = "2’07”",
             .weight = "11.0 lbs.",
         },
@@ -41957,7 +41957,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Inkay",
             .pokedexEntry = "It draws prey near with its blinking\\nlights and then wraps them up in its\\nlong tentacles.",
-            .classification = "????? Pokémon",
+            .classification = "Revolving Pokémon",
             .height = "1’04”",
             .weight = "7.7 lbs.",
         },
@@ -42014,7 +42014,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Malamar",
             .pokedexEntry = "It wields the most compelling hypnotic\\npowers of any Pokémon, and it forces\\nothers to do anything.",
-            .classification = "????? Pokémon",
+            .classification = "Overturning Pokémon",
             .height = "4’11”",
             .weight = "103.6 lbs.",
         },
@@ -42071,7 +42071,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Binacle",
             .pokedexEntry = "Two Binacle live together on one rock.\\nWhen they fight, one of them will move\\nto a different rock.",
-            .classification = "????? Pokémon",
+            .classification = "Two-Handed Pokémon",
             .height = "1’08”",
             .weight = "68.3 lbs.",
         },
@@ -42128,7 +42128,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Barbaracle",
             .pokedexEntry = "When they evolve, two Binacle multiply\\ninto seven. They fight with the power\\nof seven Binacle.",
-            .classification = "????? Pokémon",
+            .classification = "Collective Pokémon",
             .height = "4’03”",
             .weight = "211.6 lbs.",
         },
@@ -42185,7 +42185,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Skrelp",
             .pokedexEntry = "It looks just like rotten kelp. It\\nhides from foes while storing up power\\nfor its evolution.",
-            .classification = "????? Pokémon",
+            .classification = "Mock Kelp Pokémon",
             .height = "1’08”",
             .weight = "16.1 lbs.",
         },
@@ -42242,7 +42242,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dragalge",
             .pokedexEntry = "Tales are told of ships that wander\\ninto seas where Dragalge live, never to\\nreturn.",
-            .classification = "????? Pokémon",
+            .classification = "Mock Kelp Pokémon",
             .height = "5’11”",
             .weight = "179.7 lbs.",
         },
@@ -42299,7 +42299,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Clauncher",
             .pokedexEntry = "They knock down flying prey by firing\\ncompressed water from their massive\\nclaws like shooting a pistol.",
-            .classification = "????? Pokémon",
+            .classification = "Water Gun Pokémon",
             .height = "1’08”",
             .weight = "18.3 lbs.",
         },
@@ -42356,7 +42356,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Clawitzer",
             .pokedexEntry = "Their enormous claws launch cannonballs\\nof water powerful enough to pierce\\ntanker hulls.",
-            .classification = "????? Pokémon",
+            .classification = "Howitzer Pokémon",
             .height = "4’03”",
             .weight = "77.8 lbs.",
         },
@@ -42413,7 +42413,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Helioptile",
             .pokedexEntry = "The frills on either side of its head\\nhave cells that generate electricity\\nwhen exposed to sunlight.",
-            .classification = "????? Pokémon",
+            .classification = "Generator Pokémon",
             .height = "1’08”",
             .weight = "13.2 lbs.",
         },
@@ -42470,7 +42470,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Heliolisk",
             .pokedexEntry = "It flares its frill and generates\\nenergy. It can generate sufficient\\nelectricity to power a skyscraper.",
-            .classification = "????? Pokémon",
+            .classification = "Generator Pokémon",
             .height = "3’03”",
             .weight = "46.3 lbs.",
         },
@@ -42527,7 +42527,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tyrunt",
             .pokedexEntry = "Its immense jaws have enough destructive\\nforce to chew up an automobile. It lived\\n100 million years ago.",
-            .classification = "????? Pokémon",
+            .classification = "Royal Heir Pokémon",
             .height = "2’07”",
             .weight = "57.3 lbs.",
         },
@@ -42584,7 +42584,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tyrantrum",
             .pokedexEntry = "Nothing could stop this Pokémon 100\\nmillion years ago, so it behaved like a\\nking.",
-            .classification = "????? Pokémon",
+            .classification = "Despot Pokémon",
             .height = "8’02”",
             .weight = "595.2 lbs.",
         },
@@ -42641,7 +42641,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Amaura",
             .pokedexEntry = "This calm Pokémon lived in a cold land\\nwhere there were no violent predators\\nlike Tyrantrum.",
-            .classification = "????? Pokémon",
+            .classification = "Tundra Pokémon",
             .height = "4’03”",
             .weight = "55.6 lbs.",
         },
@@ -42698,7 +42698,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Aurorus",
             .pokedexEntry = "This usually quiet and kindly Pokémon\\nhas a surface temperature of around -240\\ndegrees Fahrenheit.",
-            .classification = "????? Pokémon",
+            .classification = "Tundra Pokémon",
             .height = "8’10”",
             .weight = "496.0 lbs.",
         },
@@ -42755,7 +42755,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sylveon",
             .pokedexEntry = "It sends a soothing aura from its\\nribbonlike feelers to calm fights.",
-            .classification = "????? Pokémon",
+            .classification = "Intertwining Pokémon",
             .height = "3’03”",
             .weight = "51.8 lbs.",
         },
@@ -42812,7 +42812,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Hawlucha",
             .pokedexEntry = "Although its body is small, its\\nproficient fighting skills enable it to\\nkeep up with big bruisers.",
-            .classification = "????? Pokémon",
+            .classification = "Wrestling Pokémon",
             .height = "2’07”",
             .weight = "47.4 lbs.",
         },
@@ -42869,7 +42869,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dedenne",
             .pokedexEntry = "Its upper whiskers are sensors that\\nsurvey its surroundings. Its lower\\nwhiskers shoot electricity.",
-            .classification = "????? Pokémon",
+            .classification = "Antenna Pokémon",
             .height = "0’08”",
             .weight = "4.9 lbs.",
         },
@@ -42926,7 +42926,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Carbink",
             .pokedexEntry = "Born from temperatures and pressures\\ndeep underground, it fires beams from\\nthe stone in its head.",
-            .classification = "????? Pokémon",
+            .classification = "Jewel Pokémon",
             .height = "1’00”",
             .weight = "12.6 lbs.",
         },
@@ -42983,7 +42983,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Goomy",
             .pokedexEntry = "It’s covered in a slimy membrane that\\nmakes any punches or kicks slide off it\\nharmlessly.",
-            .classification = "????? Pokémon",
+            .classification = "Soft Tissue Pokémon",
             .height = "1’00”",
             .weight = "6.2 lbs.",
         },
@@ -43040,7 +43040,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sliggoo",
             .pokedexEntry = "It crawls along sluggishly. The swirly\\nprotrusion on its back is filled with\\nits brain and other organs.",
-            .classification = "????? Pokémon",
+            .classification = "Soft Tissue Pokémon",
             .height = "2’07”",
             .weight = "38.6 lbs.",
         },
@@ -43097,7 +43097,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Goodra",
             .pokedexEntry = "An amazingly friendly Pokémon, but if\\nleft to itself, loneliness overcomes it,\\nand it oozes gooey tears.",
-            .classification = "????? Pokémon",
+            .classification = "Dragon Pokémon",
             .height = "6’07”",
             .weight = "331.8 lbs.",
         },
@@ -43154,7 +43154,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Klefki",
             .pokedexEntry = "These key collectors threaten any\\nattackers by fiercely jingling their\\nkeys at them.",
-            .classification = "????? Pokémon",
+            .classification = "Key Ring Pokémon",
             .height = "0’08”",
             .weight = "6.6 lbs.",
         },
@@ -43211,7 +43211,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Phantump",
             .pokedexEntry = "It is created when a spirit possesses\\nrotten tree stumps. It prefers to live\\nin abandoned forests.",
-            .classification = "????? Pokémon",
+            .classification = "Stump Pokémon",
             .height = "1’04”",
             .weight = "15.4 lbs.",
         },
@@ -43268,7 +43268,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Trevenant",
             .pokedexEntry = "It can control trees at will. It will\\ntrap people who harm the forest, so they\\ncan never leave.",
-            .classification = "????? Pokémon",
+            .classification = "Elder Tree Pokémon",
             .height = "4’11”",
             .weight = "156.5 lbs.",
         },
@@ -43439,7 +43439,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bergmite",
             .pokedexEntry = "It blocks opponents’ attacks with the\\nice that shields its body. It uses cold\\nair to repair any crack.",
-            .classification = "????? Pokémon",
+            .classification = "Ice Chunk Pokémon",
             .height = "3’03”",
             .weight = "219.4 lbs.",
         },
@@ -43496,7 +43496,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Avalugg",
             .pokedexEntry = "The way several Bergmite huddle on its\\nback make it look like an aircraft\\ncarrier made of ice.",
-            .classification = "????? Pokémon",
+            .classification = "Iceberg Pokémon",
             .height = "6’07”",
             .weight = "1113.3 lbs.",
         },
@@ -43553,7 +43553,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Noibat",
             .pokedexEntry = "They live in pitch black caves. Their\\nenormous ears can emit ultrasonic waves\\nof 200,000 hertz.",
-            .classification = "????? Pokémon",
+            .classification = "Sound Wave Pokémon",
             .height = "1’08”",
             .weight = "17.6 lbs.",
         },
@@ -43610,7 +43610,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Noivern",
             .pokedexEntry = "This hot-blooded Pokémon attacks\\nanything it sees with ultrasonic waves\\nthat can crush boulders.",
-            .classification = "????? Pokémon",
+            .classification = "Sound Wave Pokémon",
             .height = "4’11”",
             .weight = "187.4 lbs.",
         },
@@ -43667,7 +43667,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Xerneas",
             .pokedexEntry = "When the horns on its head shine in\\nseven different colors, it is said to be\\nsharing everlasting life.",
-            .classification = "????? Pokémon",
+            .classification = "Life Pokémon",
             .height = "9’10”",
             .weight = "474.0 lbs.",
         },
@@ -43724,7 +43724,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Yveltal",
             .pokedexEntry = "When its life comes to an end, it\\nabsorbs the life energy of every living\\nthing and turns into a cocoon.",
-            .classification = "????? Pokémon",
+            .classification = "Destruction Pokémon",
             .height = "19’00”",
             .weight = "447.5 lbs.",
         },
@@ -43838,7 +43838,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Diancie",
             .pokedexEntry = "It can instantly create many diamonds\\nby compressing the carbon in the air\\nbetween its hands.",
-            .classification = "????? Pokémon",
+            .classification = "Jewel Pokémon",
             .height = "2’04”",
             .weight = "19.4 lbs.",
         },
@@ -43895,7 +43895,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Hoopa",
             .pokedexEntry = "It gathers things it likes and passes\\nthem through its loop to teleport them\\nto a secret place.",
-            .classification = "????? Pokémon",
+            .classification = "Mischief Pokémon",
             .height = "1’08”",
             .weight = "19.8 lbs.",
         },
@@ -43952,7 +43952,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Volcanion",
             .pokedexEntry = "It expels its internal steam from the\\narms on its back. It has enough power to\\nblow away a mountain.",
-            .classification = "????? Pokémon",
+            .classification = "Steam Pokémon",
             .height = "5’07”",
             .weight = "429.9 lbs.",
         },
@@ -44009,7 +44009,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Rowlet",
             .pokedexEntry = "It feels relaxed in tight, dark places\\nand has been known to use its Trainer’s\\npocket or bag as a nest.",
-            .classification = "????? Pokémon",
+            .classification = "Grass Quill Pokémon",
             .height = "1’00”",
             .weight = "3.3 lbs.",
         },
@@ -44066,7 +44066,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dartrix",
             .pokedexEntry = "It throws sharp feathers called blade\\nquills at enemies or prey. It seldom\\nmisses.",
-            .classification = "????? Pokémon",
+            .classification = "Blade Quill Pokémon",
             .height = "2’04”",
             .weight = "35.3 lbs.",
         },
@@ -44123,7 +44123,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Decidueye",
             .pokedexEntry = "Although basically cool and cautious,\\nwhen it’s caught by surprise, it’s\\nseized by panic.",
-            .classification = "????? Pokémon",
+            .classification = "Arrow Quill Pokémon",
             .height = "5’03”",
             .weight = "80.7 lbs.",
         },
@@ -44180,7 +44180,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Litten",
             .pokedexEntry = "It doesn’t allow its emotions to be\\neasily seen. Earning its trust takes\\ntime. It prefers solitude.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Cat Pokémon",
             .height = "1’04”",
             .weight = "9.5 lbs.",
         },
@@ -44237,7 +44237,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Torracat",
             .pokedexEntry = "It boasts powerful front legs. With a\\nsingle punch, it can bend an iron bar\\nright over.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Cat Pokémon",
             .height = "2’04”",
             .weight = "55.1 lbs.",
         },
@@ -44294,7 +44294,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Incineroar",
             .pokedexEntry = "When its fighting spirit is set alight,\\nthe flames around its waist become\\nespecially intense.",
-            .classification = "????? Pokémon",
+            .classification = "Heel Pokémon",
             .height = "5’11”",
             .weight = "183.0 lbs.",
         },
@@ -44351,7 +44351,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Popplio",
             .pokedexEntry = "The balloons it inflates with its nose\\ngrow larger and larger as it practices\\nday by day.",
-            .classification = "????? Pokémon",
+            .classification = "Sea Lion Pokémon",
             .height = "1’04”",
             .weight = "16.5 lbs.",
         },
@@ -44408,7 +44408,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Brionne",
             .pokedexEntry = "It attacks by smacking its enemies with\\nthe exploding water balloons that it\\ncreates.",
-            .classification = "????? Pokémon",
+            .classification = "Pop Star Pokémon",
             .height = "2’00”",
             .weight = "38.6 lbs.",
         },
@@ -44465,7 +44465,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Primarina",
             .pokedexEntry = "To Primarina, every battle is a stage.\\nIt takes down its prey with beautiful\\nsinging and dancing.",
-            .classification = "????? Pokémon",
+            .classification = "Soloist Pokémon",
             .height = "5’11”",
             .weight = "97.0 lbs.",
         },
@@ -44522,7 +44522,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pikipek",
             .pokedexEntry = "It may look spindly, but its neck\\nmuscles are heavy-duty. It can peck at a\\ntree 16 times per second!",
-            .classification = "????? Pokémon",
+            .classification = "Woodpecker Pokémon",
             .height = "1’00”",
             .weight = "2.6 lbs.",
         },
@@ -44579,7 +44579,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Trumbeak",
             .pokedexEntry = "It can bend the tip of its beak to\\nproduce over a hundred different cries\\nat will.",
-            .classification = "????? Pokémon",
+            .classification = "Bugle Beak Pokémon",
             .height = "2’00”",
             .weight = "32.6 lbs.",
         },
@@ -44636,7 +44636,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Toucannon",
             .pokedexEntry = "Known for forming harmonious couples,\\nit is brought to wedding ceremonies as a\\ngood luck charm.",
-            .classification = "????? Pokémon",
+            .classification = "Cannon Pokémon",
             .height = "3’07”",
             .weight = "57.3 lbs.",
         },
@@ -44693,7 +44693,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Yungoos",
             .pokedexEntry = "It prefers to eat fresh living things\\nso it marches down streets in search of\\nprey.",
-            .classification = "????? Pokémon",
+            .classification = "Loitering Pokémon",
             .height = "1’04”",
             .weight = "13.2 lbs.",
         },
@@ -44750,7 +44750,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gumshoos",
             .pokedexEntry = "Patient by nature, it loses control of\\nitself and pounces when it spots its\\nfavorite meal-Rattata!",
-            .classification = "????? Pokémon",
+            .classification = "Stakeout Pokémon",
             .height = "2’04”",
             .weight = "31.3 lbs.",
         },
@@ -44807,7 +44807,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Grubbin",
             .pokedexEntry = "Its strong jaw enables it to scrape\\ntrees and slurp out the sap. It normally\\nlives underground.",
-            .classification = "????? Pokémon",
+            .classification = "Larva Pokémon",
             .height = "1’04”",
             .weight = "9.7 lbs.",
         },
@@ -44864,7 +44864,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Charjabug",
             .pokedexEntry = "From the food it digests, it generates\\nelectricity, and it stores this energy\\nin its electric sac.",
-            .classification = "????? Pokémon",
+            .classification = "Battery Pokémon",
             .height = "1’08”",
             .weight = "23.1 lbs.",
         },
@@ -44921,7 +44921,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Vikavolt",
             .pokedexEntry = "It flusters opponents with acrobatic\\nflying maneuvers. This creates an\\nopening for it to attack.",
-            .classification = "????? Pokémon",
+            .classification = "Stag Beetle Pokémon",
             .height = "4’11”",
             .weight = "99.2 lbs.",
         },
@@ -44978,7 +44978,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Crabrawler",
             .pokedexEntry = "Its hard pincers are well suited to\\nboth offense and defense.",
-            .classification = "????? Pokémon",
+            .classification = "Boxing Pokémon",
             .height = "2’00”",
             .weight = "15.4 lbs.",
         },
@@ -45035,7 +45035,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Crabomnabl",
             .pokedexEntry = "It stores coldness in its pincers and\\npummels its foes. It can even smash\\nthick walls of ice to bits!",
-            .classification = "????? Pokémon",
+            .classification = "Woolly Crab Pokémon",
             .height = "5’07”",
             .weight = "396.8 lbs.",
         },
@@ -45149,7 +45149,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cutiefly",
             .pokedexEntry = "Myriads of Cutiefly flutter above the\\nheads of people who have auras\\nresembling those of flowers.",
-            .classification = "????? Pokémon",
+            .classification = "Bee Fly Pokémon",
             .height = "0’04”",
             .weight = "0.4 lbs.",
         },
@@ -45206,7 +45206,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Ribombee",
             .pokedexEntry = "Some of Ribombee’s pollen puffs are\\nhighly nutritious. They are sometimes\\nsold as supplements.",
-            .classification = "????? Pokémon",
+            .classification = "Bee Fly Pokémon",
             .height = "0’08”",
             .weight = "1.1 lbs.",
         },
@@ -45263,7 +45263,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Rockruff",
             .pokedexEntry = "When it rubs the rocks on its neck\\nagainst you, that’s proof of its love\\nfor you.",
-            .classification = "????? Pokémon",
+            .classification = "Puppy Pokémon",
             .height = "1’08”",
             .weight = "20.3 lbs.",
         },
@@ -45434,7 +45434,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mareanie",
             .pokedexEntry = "Aside from its head, its body parts\\nregenerate quickly if they’re cut off.",
-            .classification = "????? Pokémon",
+            .classification = "Brutal Star Pokémon",
             .height = "1’04”",
             .weight = "17.6 lbs.",
         },
@@ -45491,7 +45491,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Toxapex",
             .pokedexEntry = "It crawls along the ocean floor on its\\n12 legs. It leaves a trail of Corsola\\nbits scattered in its wake.",
-            .classification = "????? Pokémon",
+            .classification = "Brutal Star Pokémon",
             .height = "2’04”",
             .weight = "32.0 lbs.",
         },
@@ -45548,7 +45548,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mudbray",
             .pokedexEntry = "The mud stuck to Mudbray’s hooves\\nenhances its grip and its powerful\\nrunning gait.",
-            .classification = "????? Pokémon",
+            .classification = "Donkey Pokémon",
             .height = "3’03”",
             .weight = "242.5 lbs.",
         },
@@ -45605,7 +45605,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mudsdale",
             .pokedexEntry = "It can trudge mountain roads without\\nrest for three days, all the while\\ndragging a 10-ton load.",
-            .classification = "????? Pokémon",
+            .classification = "Draft Horse Pokémon",
             .height = "8’02”",
             .weight = "2028.3 lbs.",
         },
@@ -45662,7 +45662,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dewpider",
             .pokedexEntry = "It crawls onto the land in search of\\nfood. Its water bubble allows it to\\nbreathe and protects its head.",
-            .classification = "????? Pokémon",
+            .classification = "Water Bubble Pokémon",
             .height = "1’00”",
             .weight = "8.8 lbs.",
         },
@@ -45719,7 +45719,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Araquanid",
             .pokedexEntry = "It delivers headbutts with the bubble\\non its head. Small Pokémon get sucked\\ninto it, where they drown.",
-            .classification = "????? Pokémon",
+            .classification = "Water Bubble Pokémon",
             .height = "5’11”",
             .weight = "180.8 lbs.",
         },
@@ -45776,7 +45776,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Fomantis",
             .pokedexEntry = "It loves the sunshine. When it basks in\\nthe sunlight regularly, it grows up\\nwith vivid coloration.",
-            .classification = "????? Pokémon",
+            .classification = "Sickle Grass Pokémon",
             .height = "1’00”",
             .weight = "3.3 lbs.",
         },
@@ -45833,7 +45833,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Lurantis",
             .pokedexEntry = "For self-protection, it pretends to be\\na bug Pokémon. Both of its arms bear\\nkeen-edged petals.",
-            .classification = "????? Pokémon",
+            .classification = "Bloom Sickle Pokémon",
             .height = "2’11”",
             .weight = "40.8 lbs.",
         },
@@ -45890,7 +45890,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Morelull",
             .pokedexEntry = "It scatters spores that flicker and\\nglow. Anyone seeing these lights falls\\ninto a deep slumber.",
-            .classification = "????? Pokémon",
+            .classification = "Illuminating Pokémon",
             .height = "0’08”",
             .weight = "3.3 lbs.",
         },
@@ -45947,7 +45947,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Shiinotic",
             .pokedexEntry = "When it starts fighting for territory\\nwith Parasect, the entire area gets\\ncompletely coated in spores!",
-            .classification = "????? Pokémon",
+            .classification = "Illuminating Pokémon",
             .height = "3’03”",
             .weight = "25.4 lbs.",
         },
@@ -46004,7 +46004,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Salandit",
             .pokedexEntry = "It burns its bodily fluids to create a\\npoisonous gas. It weakens enemies and\\nsends them reeling with it.",
-            .classification = "????? Pokémon",
+            .classification = "Toxic Lizard Pokémon",
             .height = "2’00”",
             .weight = "10.6 lbs.",
         },
@@ -46061,7 +46061,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Salazzle",
             .pokedexEntry = "It punishes Salandit that couldn’t\\nbring it food with a fierce slap of its\\nflame-spewing palm.",
-            .classification = "????? Pokémon",
+            .classification = "Toxic Lizard Pokémon",
             .height = "3’11”",
             .weight = "48.9 lbs.",
         },
@@ -46118,7 +46118,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Stufful",
             .pokedexEntry = "Stufful hates to be hugged or touched\\nin any way. It will squirm, thrash, and\\nresist with amazing power.",
-            .classification = "????? Pokémon",
+            .classification = "Flailing Pokémon",
             .height = "1’08”",
             .weight = "15.0 lbs.",
         },
@@ -46175,7 +46175,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bewear",
             .pokedexEntry = "It boasts tremendous physical strength.\\nMany people call it the most dangerous\\nPokémon in Alola region.",
-            .classification = "????? Pokémon",
+            .classification = "Strong Arm Pokémon",
             .height = "6’11”",
             .weight = "297.6 lbs.",
         },
@@ -46232,7 +46232,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bounsweet",
             .pokedexEntry = "Because of its sweet, delicious aroma,\\nbird Pokémon are always after it.",
-            .classification = "????? Pokémon",
+            .classification = "Fruit Pokémon",
             .height = "1’00”",
             .weight = "7.1 lbs.",
         },
@@ -46289,7 +46289,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Steenee",
             .pokedexEntry = "It bounces around, swinging the sepals\\non its head with abandon. It’s quite\\npainful when it smacks you!",
-            .classification = "????? Pokémon",
+            .classification = "Fruit Pokémon",
             .height = "2’04”",
             .weight = "18.1 lbs.",
         },
@@ -46346,7 +46346,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tsareena",
             .pokedexEntry = "A master of grand and beautiful kicks,\\nit can knock out even kickboxing\\nchampions with a single blow.",
-            .classification = "????? Pokémon",
+            .classification = "Fruit Pokémon",
             .height = "3’11”",
             .weight = "47.2 lbs.",
         },
@@ -46403,7 +46403,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Comfey",
             .pokedexEntry = "Baths prepared with the flowers from\\nits vine have a relaxing effect so it is\\na hit to many people.",
-            .classification = "????? Pokémon",
+            .classification = "Posy Picker Pokémon",
             .height = "0’04”",
             .weight = "0.7 lbs.",
         },
@@ -46460,7 +46460,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Oranguru",
             .pokedexEntry = "Known for its extreme intelligence, it\\nwill look down on inexperienced\\nTrainers.",
-            .classification = "????? Pokémon",
+            .classification = "Sage Pokémon",
             .height = "4’11”",
             .weight = "167.6 lbs.",
         },
@@ -46517,7 +46517,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Passimian",
             .pokedexEntry = "They form groups of 20 individuals.\\nTheir mutual bond is remarkable-they\\nwill never let down a comrade.",
-            .classification = "????? Pokémon",
+            .classification = "Teamwork Pokémon",
             .height = "6’07”",
             .weight = "182.5 lbs.",
         },
@@ -46574,7 +46574,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Wimpod",
             .pokedexEntry = "An astonishingly coward Pokémon, it\\nwhirs its legs at high speed to run away\\nif anything comes near it.",
-            .classification = "????? Pokémon",
+            .classification = "Turn Tail Pokémon",
             .height = "1’08”",
             .weight = "26.5 lbs.",
         },
@@ -46631,7 +46631,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Golisopod",
             .pokedexEntry = "With a flashing slash of its giant\\nsharp claws, it cleaves seawater-or even\\nair-right in two.",
-            .classification = "????? Pokémon",
+            .classification = "Hard Scale Pokémon",
             .height = "6’07”",
             .weight = "238.1 lbs.",
         },
@@ -46688,7 +46688,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sandygast",
             .pokedexEntry = "Born from a sand mound playfully built\\nby a child, this Pokémon embodies the\\ngrudges of the departed.",
-            .classification = "????? Pokémon",
+            .classification = "Sand Heap Pokémon",
             .height = "1’08”",
             .weight = "154.3 lbs.",
         },
@@ -46745,7 +46745,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Palossand",
             .pokedexEntry = "Buried beneath the castle are masses of\\ndried-up bones from those whose\\nvitality it has drained.",
-            .classification = "????? Pokémon",
+            .classification = "Sand Castle Pokémon",
             .height = "4’03”",
             .weight = "551.2 lbs.",
         },
@@ -46802,7 +46802,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pyukumuku",
             .pokedexEntry = "Its body is covered with slime. If you\\naccidentally step on it, you’ll slip,\\nand it will get mad at you!",
-            .classification = "????? Pokémon",
+            .classification = "Sea Cucumber Pokémon",
             .height = "1’00”",
             .weight = "2.6 lbs.",
         },
@@ -46859,7 +46859,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Type: Null",
             .pokedexEntry = "There’s danger of its going on a\\nrampage, so its true power is sealed\\naway beneath its control mask.",
-            .classification = "????? Pokémon",
+            .classification = "Synthetic Pokémon",
             .height = "6’03”",
             .weight = "265.7 lbs.",
         },
@@ -46916,7 +46916,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Silvally",
             .pokedexEntry = "It destroyed its own control mask. It\\nhas become capable of changing type by\\nequipping special memories.",
-            .classification = "????? Pokémon",
+            .classification = "Synthetic Pokémon",
             .height = "7’07”",
             .weight = "221.6 lbs.",
         },
@@ -47030,7 +47030,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Komala",
             .pokedexEntry = "It stays asleep from the moment it’s\\nborn. When it falls into a deep sleep,\\nit stops moving altogether.",
-            .classification = "????? Pokémon",
+            .classification = "Drowsing Pokémon",
             .height = "1’04”",
             .weight = "43.9 lbs.",
         },
@@ -47087,7 +47087,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Turtonator",
             .pokedexEntry = "It gushes fire and poisonous gases from\\nits nostrils. Its dung is an explosive\\nsubstance.",
-            .classification = "????? Pokémon",
+            .classification = "Blast Turtle Pokémon",
             .height = "6’07”",
             .weight = "467.4 lbs.",
         },
@@ -47144,7 +47144,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Togedemaru",
             .pokedexEntry = "When it’s surprised or agitated, the 14\\nfur spikes on its back will stand up\\ninvoluntarily.",
-            .classification = "????? Pokémon",
+            .classification = "Roly-Poly Pokémon",
             .height = "1’00”",
             .weight = "7.3 lbs.",
         },
@@ -47258,7 +47258,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bruxish",
             .pokedexEntry = "Its skin is thick enough to fend off\\nspikes. With its robust teeth, it\\ncrunches up and eats the spikes.",
-            .classification = "????? Pokémon",
+            .classification = "Gnash Teeth Pokémon",
             .height = "2’11”",
             .weight = "41.9 lbs.",
         },
@@ -47315,7 +47315,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Drampa",
             .pokedexEntry = "It appears in towns and plays with the\\nchildren. Drampa will protect kids when\\nthey’re in danger.",
-            .classification = "????? Pokémon",
+            .classification = "Placid Pokémon",
             .height = "9’10”",
             .weight = "407.9 lbs.",
         },
@@ -47372,7 +47372,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dhelmise",
             .pokedexEntry = "It wraps its prey in green seaweed and\\nsucks away their vitality. It only\\nlikes to go after big prey.",
-            .classification = "????? Pokémon",
+            .classification = "Sea Creeper Pokémon",
             .height = "12’10”",
             .weight = "463.0 lbs.",
         },
@@ -47429,7 +47429,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Jangmo-o",
             .pokedexEntry = "They live in mountains where no trace\\nof humans can be detected. It grows as\\nit battles others.",
-            .classification = "????? Pokémon",
+            .classification = "Scaly Pokémon",
             .height = "2’00”",
             .weight = "65.5 lbs.",
         },
@@ -47486,7 +47486,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Hakamo-o",
             .pokedexEntry = "It leaps at its prey with a courageous\\nshout. Its scaly punches tear its\\nopponents to shreds.",
-            .classification = "????? Pokémon",
+            .classification = "Scaly Pokémon",
             .height = "3’11”",
             .weight = "103.6 lbs.",
         },
@@ -47543,7 +47543,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Kommo-o",
             .pokedexEntry = "It battles valiantly with its fists,\\nwhich are armored in steel scales.\\nKommo-o specializes in uppercuts.",
-            .classification = "????? Pokémon",
+            .classification = "Scaly Pokémon",
             .height = "5’03”",
             .weight = "172.4 lbs.",
         },
@@ -47600,7 +47600,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tapu Koko",
             .pokedexEntry = "This guardian deity of Melemele summons\\nthunderclouds and stores their\\nlightning inside its body.",
-            .classification = "????? Pokémon",
+            .classification = "Land Spirit Pokémon",
             .height = "5’11”",
             .weight = "45.2 lbs.",
         },
@@ -47657,7 +47657,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tapu Lele",
             .pokedexEntry = "This guardian deity of Akala is\\nguilelessly cruel. Its flowers’ fragrant\\naroma is its source of energy.",
-            .classification = "????? Pokémon",
+            .classification = "Land Spirit Pokémon",
             .height = "3’11”",
             .weight = "41.0 lbs.",
         },
@@ -47714,7 +47714,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tapu Bulu",
             .pokedexEntry = "The guardian deity of Ula’ula is a lazy\\nPokémon. It commands plants to\\nimmobilize its foes.",
-            .classification = "????? Pokémon",
+            .classification = "Land Spirit Pokémon",
             .height = "6’03”",
             .weight = "100.3 lbs.",
         },
@@ -47771,7 +47771,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tapu Fini",
             .pokedexEntry = "The guardian deity of Poni can control\\nwater. It can create pure water that\\nwill wash away any impurity.",
-            .classification = "????? Pokémon",
+            .classification = "Land Spirit Pokémon",
             .height = "4’03”",
             .weight = "46.7 lbs.",
         },
@@ -47828,7 +47828,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cosmog",
             .pokedexEntry = "Its body is gaseous and frail. It\\nslowly grows as it collects dust from\\nthe atmosphere.",
-            .classification = "????? Pokémon",
+            .classification = "Nebula Pokémon",
             .height = "0’08”",
             .weight = "0.2 lbs.",
         },
@@ -47885,7 +47885,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cosmoem",
             .pokedexEntry = "As it absorbs light, Cosmoem continues\\nto grow. Its golden shell is\\nsurprisingly solid.",
-            .classification = "????? Pokémon",
+            .classification = "Protostar Pokémon",
             .height = "0’04”",
             .weight = "2204.4 lbs.",
         },
@@ -47942,7 +47942,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Solgaleo",
             .pokedexEntry = "In writings from the distant past, it’s\\ncalled by the name ’the beast that\\ndevours the sun.’.",
-            .classification = "????? Pokémon",
+            .classification = "Sunne Pokémon",
             .height = "11’02”",
             .weight = "507.1 lbs.",
         },
@@ -47999,7 +47999,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Lunala",
             .pokedexEntry = "It sometimes summons unknown powers and\\nlife-forms to this world from holes\\nthat lead to other worlds.",
-            .classification = "????? Pokémon",
+            .classification = "Moone Pokémon",
             .height = "13’01”",
             .weight = "264.6 lbs.",
         },
@@ -48056,7 +48056,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Nihilego",
             .pokedexEntry = "A life-form from another world, it was\\ndubbed a UB and is thought to produce a\\nstrong neurotoxin.",
-            .classification = "????? Pokémon",
+            .classification = "Parasite Pokémon",
             .height = "3’11”",
             .weight = "122.4 lbs.",
         },
@@ -48113,7 +48113,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Buzzwole",
             .pokedexEntry = "Buzzwole goes around showing off its\\nabnormally swollen muscles. It is one\\nkind of Ultra Beast.",
-            .classification = "????? Pokémon",
+            .classification = "Swollen Pokémon",
             .height = "7’10”",
             .weight = "735.5 lbs.",
         },
@@ -48170,7 +48170,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pheromosa",
             .pokedexEntry = "One of the dangerous Ultra Beasts, it\\nhas been spotted running across the land\\nat terrific speeds.",
-            .classification = "????? Pokémon",
+            .classification = "Lissome Pokémon",
             .height = "5’11”",
             .weight = "55.1 lbs.",
         },
@@ -48227,7 +48227,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Xurkitree",
             .pokedexEntry = "It appeared from the Ultra Wormhole. It\\nraided a power plant, so it energizes\\nitself with electricity.",
-            .classification = "????? Pokémon",
+            .classification = "Glowing Pokémon",
             .height = "12’06”",
             .weight = "220.5 lbs.",
         },
@@ -48284,7 +48284,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Celesteela",
             .pokedexEntry = "It appeared from the Ultra Wormhole.\\nWitnesses observed it flying across the\\nsky at high speed.",
-            .classification = "????? Pokémon",
+            .classification = "Launch Pokémon",
             .height = "30’02”",
             .weight = "2204.4 lbs.",
         },
@@ -48341,7 +48341,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Kartana",
             .pokedexEntry = "This Ultra Beast’s body, which is as\\nthin as paper, is like a sharpened\\nsword.",
-            .classification = "????? Pokémon",
+            .classification = "Drawn Sword Pokémon",
             .height = "1’00”",
             .weight = "0.2 lbs.",
         },
@@ -48398,7 +48398,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Guzzlord",
             .pokedexEntry = "An unknown life-form called a UB. It\\nmay be constantly hungry-it is certainly\\nalways devouring something.",
-            .classification = "????? Pokémon",
+            .classification = "Junkivore Pokémon",
             .height = "18’01”",
             .weight = "1957.7 lbs.",
         },
@@ -48455,7 +48455,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Necrozma",
             .pokedexEntry = "Light is the source of its energy. If\\nit isn’t devouring light, impurities\\nbuild up in it.",
-            .classification = "????? Pokémon",
+            .classification = "Prism Pokémon",
             .height = "7’10”",
             .weight = "507.1 lbs.",
         },
@@ -48512,7 +48512,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Magearna",
             .pokedexEntry = "Its mechanized body is merely a vessel.\\nIts true self is its Soul-Heart, an\\nartificial soul.",
-            .classification = "????? Pokémon",
+            .classification = "Artificial Pokémon",
             .height = "3’03”",
             .weight = "177.5 lbs.",
         },
@@ -48569,7 +48569,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Marshadow",
             .pokedexEntry = "It lurks in the shadows of others,\\ncopying their movements and powers. It\\nis craven and cowering.",
-            .classification = "????? Pokémon",
+            .classification = "Gloomdweller Pokémon",
             .height = "2’04”",
             .weight = "48.9 lbs.",
         },
@@ -48626,7 +48626,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Poipole",
             .pokedexEntry = "This Ultra Beast is well enough liked\\nto be chosen as a first partner in its\\nown world.",
-            .classification = "????? Pokémon",
+            .classification = "Poison Pin Pokémon",
             .height = "2’00”",
             .weight = "4.0 lbs.",
         },
@@ -48683,7 +48683,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Naganadel",
             .pokedexEntry = "It stores hundreds of liters of\\npoisonous liquid in its body. It is one\\nof the organisms known as UBs.",
-            .classification = "????? Pokémon",
+            .classification = "Poison Pin Pokémon",
             .height = "11’10”",
             .weight = "330.7 lbs.",
         },
@@ -48740,7 +48740,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Stakataka",
             .pokedexEntry = "When stone walls started moving and\\nattacking, the brute’s true identity was\\nthis mysterious life-form.",
-            .classification = "????? Pokémon",
+            .classification = "Rampart Pokémon",
             .height = "18’01”",
             .weight = "1807.8 lbs.",
         },
@@ -48797,7 +48797,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Blacefalon",
             .pokedexEntry = "It causes explosions, then takes\\nadvantage of opponents’ surprise to rob\\nthem of their vitality.",
-            .classification = "????? Pokémon",
+            .classification = "Fireworks Pokémon",
             .height = "5’11”",
             .weight = "28.7 lbs.",
         },
@@ -48854,7 +48854,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zeraora",
             .pokedexEntry = "It approaches its enemies at the speed\\nof lightning, then tears them limb from\\nlimb with its sharp claws.",
-            .classification = "????? Pokémon",
+            .classification = "Thunderclap Pokémon",
             .height = "4’11”",
             .weight = "98.1 lbs.",
         },
@@ -48911,7 +48911,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Meltan",
             .pokedexEntry = "It melts particles of iron and other\\nmetals found in the subsoil, so it can\\nabsorb theminto its body of molten steel.",
-            .classification = "????? Pokémon",
+            .classification = "Hex Nut Pokémon",
             .height = "0’08”",
             .weight = "17.6 lbs.",
         },
@@ -48968,7 +48968,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Melmetal",
             .pokedexEntry = "Revered long ago for its capacity to\\ncreate iron from nothing, for some reason\\nit has come back to life after 3,000 years.",
-            .classification = "????? Pokémon",
+            .classification = "Hex Nut Pokémon",
             .height = "8’02”",
             .weight = "1763.7 lbs.",
         },
@@ -49025,7 +49025,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Grookey",
             .pokedexEntry = "It attacks with rapid beats of its\\nstick. As it strikes with amazing speed,\\nit gets more and more pumped.",
-            .classification = "????? Pokémon",
+            .classification = "Chimp Pokémon",
             .height = "1’00”",
             .weight = "11.0 lbs.",
         },
@@ -49082,7 +49082,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Thwackey",
             .pokedexEntry = "The faster a Thwackey can beat out a\\nrhythm with its two sticks, the more respect\\nit wins from its peers.",
-            .classification = "????? Pokémon",
+            .classification = "Beat Pokémon",
             .height = "2’04”",
             .weight = "30.9 lbs.",
         },
@@ -49139,7 +49139,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Rillaboom",
             .pokedexEntry = "By drumming, it taps into the power of\\nits special tree stump. The roots of the\\nstump follow its direction in battle.",
-            .classification = "????? Pokémon",
+            .classification = "Drummer Pokémon",
             .height = "6’11”",
             .weight = "198.4 lbs.",
         },
@@ -49196,7 +49196,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Scorbunny",
             .pokedexEntry = "It has special pads on the backs of\\nits feet, and one on its nose. Its\\npads radiate tremendous heat.",
-            .classification = "????? Pokémon",
+            .classification = "Rabbit Pokémon",
             .height = "1’00”",
             .weight = "9.9 lbs.",
         },
@@ -49253,7 +49253,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Raboot",
             .pokedexEntry = "Its thick and fluffy fur protects it\\nfrom the cold and enables it to\\nuse hotter fire moves.",
-            .classification = "????? Pokémon",
+            .classification = "Rabbit Pokémon",
             .height = "2’00”",
             .weight = "19.8 lbs.",
         },
@@ -49310,7 +49310,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cinderace",
             .pokedexEntry = "It gets pumped up when cheered on.\\nBut if it starts showboating, it could put\\nitself in a tough spot.",
-            .classification = "????? Pokémon",
+            .classification = "Striker Pokémon",
             .height = "4’07”",
             .weight = "72.8 lbs.",
         },
@@ -49367,7 +49367,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sobble",
             .pokedexEntry = "When it gets wet, its skin changes\\ncolor, and this Pokémon becomes\\ninvisible as if it were camouflaged.",
-            .classification = "????? Pokémon",
+            .classification = "Water Lizard Pokémon",
             .height = "1’00”",
             .weight = "8.8 lbs.",
         },
@@ -49424,7 +49424,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Drizzile",
             .pokedexEntry = "Highly intelligent but also very lazy,\\nit keeps enemies out of its territory\\nby laying traps everywhere.",
-            .classification = "????? Pokémon",
+            .classification = "Water Lizard Pokémon",
             .height = "2’04”",
             .weight = "25.4 lbs.",
         },
@@ -49481,7 +49481,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Inteleon",
             .pokedexEntry = "It picks out foes’ weak points so it\\ncan precisely blast them with water\\nthat shoots from its fingertips.",
-            .classification = "????? Pokémon",
+            .classification = "Secret Agent Pokémon",
             .height = "6’03”",
             .weight = "99.6 lbs.",
         },
@@ -49538,7 +49538,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Skwovet",
             .pokedexEntry = "This Pokémon becomes uneasy if its\\ncheeks are ever completely empty\\nof berries.",
-            .classification = "????? Pokémon",
+            .classification = "Cheeky Pokémon",
             .height = "1’00”",
             .weight = "5.5 lbs.",
         },
@@ -49595,7 +49595,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Greedent",
             .pokedexEntry = "This Pokémon has strong teeth and\\ncan chew through the toughest of\\nberry shells.",
-            .classification = "????? Pokémon",
+            .classification = "Greedy Pokémon",
             .height = "2’00”",
             .weight = "13.2 lbs.",
         },
@@ -49652,7 +49652,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Rookidee",
             .pokedexEntry = "It will bravely challenge any foe, no\\nmatter how powerful. Even suffering\\na defeat increases its strength a bit.",
-            .classification = "????? Pokémon",
+            .classification = "Tiny Bird Pokémon",
             .height = "0’08”",
             .weight = "4.0 lbs.",
         },
@@ -49709,7 +49709,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Corvsquire",
             .pokedexEntry = "The lessons of many harsh battles\\nhave taught it how to accurately judge\\nan opponent’s strength.",
-            .classification = "????? Pokémon",
+            .classification = "Raven Pokémon",
             .height = "2’07”",
             .weight = "35.3 lbs.",
         },
@@ -49766,7 +49766,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Corviknite",
             .pokedexEntry = "The black luster of its steel body\\ncould drive terror into the heart of\\nany foe.",
-            .classification = "????? Pokémon",
+            .classification = "Raven Pokémon",
             .height = "7’03”",
             .weight = "165.3 lbs.",
         },
@@ -49823,7 +49823,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Blipbug",
             .pokedexEntry = "A constant collector of information,\\nthis Pokémon is very smart. Very\\nstrong is what it isn’t.",
-            .classification = "????? Pokémon",
+            .classification = "Larva Pokémon",
             .height = "1’04”",
             .weight = "17.6 lbs.",
         },
@@ -49880,7 +49880,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dottler",
             .pokedexEntry = "As it grows inside its shell, it uses\\nits psychic abilities to monitor its\\nsurroundings and wait for evolution.",
-            .classification = "????? Pokémon",
+            .classification = "Radome Pokémon",
             .height = "1’04”",
             .weight = "43.0 lbs.",
         },
@@ -49937,7 +49937,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Orbeetle",
             .pokedexEntry = "It’s famous for its high intelligence,\\nand the large size of its brain is proof\\nthat it has immense psychic power.",
-            .classification = "????? Pokémon",
+            .classification = "Seven Spot Pokémon",
             .height = "1’04”",
             .weight = "89.9 lbs.",
         },
@@ -49994,7 +49994,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Nickit",
             .pokedexEntry = "Aided by the soft pads on its feet, it\\nsilently raids the food stores of others.\\nIt survives off its ill-gotten gains.",
-            .classification = "????? Pokémon",
+            .classification = "Fox Pokémon",
             .height = "2’00”",
             .weight = "19.6 lbs.",
         },
@@ -50051,7 +50051,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Thievul",
             .pokedexEntry = "With a lithe body and sharp claws, it\\ngoes around stealing food and eggs.\\nIt secretly marks its future targets.",
-            .classification = "????? Pokémon",
+            .classification = "Fox Pokémon",
             .height = "3’11”",
             .weight = "43.9 lbs.",
         },
@@ -50108,7 +50108,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gossifleur",
             .pokedexEntry = "It anchors itself in the ground and\\nbasks in the sun. After absorbing\\nenough sunlight, it blooms vividly.",
-            .classification = "????? Pokémon",
+            .classification = "Flowering Pokémon",
             .height = "1’04”",
             .weight = "4.9 lbs.",
         },
@@ -50165,7 +50165,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Eldegoss",
             .pokedexEntry = "The seeds attached to its cotton fluff\\nare full of nutrients. It spreads them on\\nthe wind so that others can benefit.",
-            .classification = "????? Pokémon",
+            .classification = "Cotton Bloom Pokémon",
             .height = "1’08”",
             .weight = "5.5 lbs.",
         },
@@ -50222,7 +50222,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Wooloo",
             .pokedexEntry = "If its fleece grows too long, it won’t\\nbe able to move. Cloth made with\\nits wool is surprisingly durable.",
-            .classification = "????? Pokémon",
+            .classification = "Sheep Pokémon",
             .height = "2’00”",
             .weight = "13.2 lbs.",
         },
@@ -50279,7 +50279,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dubwool",
             .pokedexEntry = "Its majestic horns are meant only to\\nimpress the opposite gender. They\\nnever see use in battle.",
-            .classification = "????? Pokémon",
+            .classification = "Sheep Pokémon",
             .height = "4’03”",
             .weight = "94.8 lbs.",
         },
@@ -50336,7 +50336,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Chewtle",
             .pokedexEntry = "Apparently the itch of its teething\\nimpels it to snap its jaws at anything\\nin front of it.",
-            .classification = "????? Pokémon",
+            .classification = "Snapping Pokémon",
             .height = "1’00”",
             .weight = "18.7 lbs.",
         },
@@ -50393,7 +50393,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Drednaw",
             .pokedexEntry = "With jaws that can shear through steel\\nrods, this highly aggressive Pokémon\\nchomps down on its unfortunate prey.",
-            .classification = "????? Pokémon",
+            .classification = "Bite Pokémon",
             .height = "3’03”",
             .weight = "254.6 lbs.",
         },
@@ -50450,7 +50450,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Yamper",
             .pokedexEntry = "This greedy Pokémon only helps people\\nwith their work because it wants treats.\\nAs it runs, it crackles with electricity.",
-            .classification = "????? Pokémon",
+            .classification = "Puppy Pokémon",
             .height = "1’00”",
             .weight = "29.8 lbs.",
         },
@@ -50507,7 +50507,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Boltund",
             .pokedexEntry = "It sends electricity through its legs\\nto boost their strength. Running at\\ntop speed, it easily breaks 50 mph.",
-            .classification = "????? Pokémon",
+            .classification = "Dog Pokémon",
             .height = "3’03”",
             .weight = "75.0 lbs.",
         },
@@ -50564,7 +50564,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Rolycoly",
             .pokedexEntry = "It can race around like a unicycle,\\neven on rough, rocky terrain. Burning\\ncoal sustains it.",
-            .classification = "????? Pokémon",
+            .classification = "Coal Pokémon",
             .height = "1’00”",
             .weight = "26.5 lbs.",
         },
@@ -50621,7 +50621,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Carkol",
             .pokedexEntry = "By rapidly rolling its legs, it can\\neasily travel at over 18 mph. It\\nforms coal inside its body.",
-            .classification = "????? Pokémon",
+            .classification = "Coal Pokémon",
             .height = "3’07”",
             .weight = "172.0 lbs.",
         },
@@ -50678,7 +50678,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Coalossal",
             .pokedexEntry = "While engaged in battle, its mountain\\nof coal will burn bright red, scorching\\nthe surrounding area with sparks.",
-            .classification = "????? Pokémon",
+            .classification = "Coal Pokémon",
             .height = "9’02”",
             .weight = "684.5 lbs.",
         },
@@ -50735,7 +50735,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Applin",
             .pokedexEntry = "As soon as it’s born, it burrows into\\nan apple. the flavor of the apple is\\nwhat determines its evolution.",
-            .classification = "????? Pokémon",
+            .classification = "Apple Core Pokémon",
             .height = "0’08”",
             .weight = "1.1 lbs.",
         },
@@ -50792,7 +50792,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Flapple",
             .pokedexEntry = "It ate a sour apple, which induced its\\nevolution. It stores an acid capable of\\ncausing chemical burns in its cheeks.",
-            .classification = "????? Pokémon",
+            .classification = "Apple Wing Pokémon",
             .height = "1’00”",
             .weight = "2.2 lbs.",
         },
@@ -50849,7 +50849,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Appletun",
             .pokedexEntry = "It ate a sweet apple, which induced\\nits evolution. Back in the day, children\\nused to have it as a snack.",
-            .classification = "????? Pokémon",
+            .classification = "Apple Nectar Pokémon",
             .height = "1’04”",
             .weight = "28.7 lbs.",
         },
@@ -50906,7 +50906,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Silicobra",
             .pokedexEntry = "It spews sand from its nostrils. While\\nthe enemy is blinded, it burrows into\\nthe ground to hide.",
-            .classification = "????? Pokémon",
+            .classification = "Sand Snake Pokémon",
             .height = "7’03”",
             .weight = "16.8 lbs.",
         },
@@ -50963,7 +50963,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sandaconda",
             .pokedexEntry = "When it contracts its body, over 220\\npounds of sand sprays from its nose.\\nIt becomes disheartened if it runs out.",
-            .classification = "????? Pokémon",
+            .classification = "Sand Snake Pokémon",
             .height = "12’06”",
             .weight = "144.4 lbs.",
         },
@@ -51020,7 +51020,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cramorant",
             .pokedexEntry = "This hungry Pokémon swallows Arrokuda\\nwhole. Occasionally, it makes a mistake\\nand tries to swallow other Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Gulp Pokémon",
             .height = "2’07”",
             .weight = "39.7 lbs.",
         },
@@ -51077,7 +51077,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Arrokuda",
             .pokedexEntry = "It becomes extremely sluggish after\\neating its fill. That’s when Cramorant\\nswallows it up.",
-            .classification = "????? Pokémon",
+            .classification = "Rush Pokémon",
             .height = "1’08”",
             .weight = "2.2 lbs.",
         },
@@ -51134,7 +51134,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Baraskewda",
             .pokedexEntry = "Its jaw that’s as sharp as a spear and\\nas strong as steel. It spins its tail fins\\nto surge forward at over 100 knots.",
-            .classification = "????? Pokémon",
+            .classification = "Skewer Pokémon",
             .height = "4’03”",
             .weight = "66.1 lbs.",
         },
@@ -51191,7 +51191,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Toxel",
             .pokedexEntry = "It manipulates the chemical makeup of\\nits poison to produce electricity. Despite\\na weak voltage, it can cause paralysis.",
-            .classification = "????? Pokémon",
+            .classification = "Baby Pokémon",
             .height = "1’04”",
             .weight = "24.3 lbs.",
         },
@@ -51305,7 +51305,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sizzlipede",
             .pokedexEntry = "It stores flammable gas in its body\\nand uses it to generate heat. It then\\ncoils around its prey and cooks it.",
-            .classification = "????? Pokémon",
+            .classification = "Radiator Pokémon",
             .height = "2’04”",
             .weight = "2.2 lbs.",
         },
@@ -51362,7 +51362,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Centskorch",
             .pokedexEntry = "This excessively hostile Pokémon has\\nlarge and very sharp fangs in addition\\nto its dangerous burning body. ",
-            .classification = "????? Pokémon",
+            .classification = "Radiator Pokémon",
             .height = "9’10”",
             .weight = "264.6 lbs.",
         },
@@ -51419,7 +51419,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Clobbopus",
             .pokedexEntry = "It’s very curious, but its means of\\ninvestigating things is to try to punch\\nthem with its tentacles.",
-            .classification = "????? Pokémon",
+            .classification = "Tantrum Pokémon",
             .height = "2’00”",
             .weight = "8.8 lbs.",
         },
@@ -51476,7 +51476,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Grapploct",
             .pokedexEntry = "Searching for an opponent to test its\\nskills against, it emerges onto land. Once\\nthe battle is over, it returns to the sea.",
-            .classification = "????? Pokémon",
+            .classification = "Jujitsu Pokémon",
             .height = "5’03”",
             .weight = "86.0 lbs.",
         },
@@ -51533,7 +51533,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sinistea",
             .pokedexEntry = "This Pokémon is said to have been\\nborn when a lonely spirit possessed\\na cold, leftover cup of tea.",
-            .classification = "????? Pokémon",
+            .classification = "Black Tea Pokémon",
             .height = "0’04”",
             .weight = "0.4 lbs.",
         },
@@ -51590,7 +51590,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Poltegeist",
             .pokedexEntry = "This species lives in antique teapots.\\nMost pots are forgeries, but on rare\\noccasions, an authentic work is found.",
-            .classification = "????? Pokémon",
+            .classification = "Black Tea Pokémon",
             .height = "0’08”",
             .weight = "0.9 lbs.",
         },
@@ -51647,7 +51647,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Hatenna",
             .pokedexEntry = "Via the protrusion on its head, it\\nsenses other creatures’ emotions.\\nIt prefers areas without people.",
-            .classification = "????? Pokémon",
+            .classification = "Calm Pokémon",
             .height = "1’04”",
             .weight = "7.5 lbs.",
         },
@@ -51704,7 +51704,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Hattrem",
             .pokedexEntry = "No matter who you are, if you bring\\nstrong emotions near this Pokémon,\\nit will silence you violently.",
-            .classification = "????? Pokémon",
+            .classification = "Serene Pokémon",
             .height = "2’00”",
             .weight = "10.6 lbs.",
         },
@@ -51761,7 +51761,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Hatterene",
             .pokedexEntry = "Known as the Forest Witch, if you are\\ntoo loud around it, you risk being torn\\napart by the claws on its tentacle.",
-            .classification = "????? Pokémon",
+            .classification = "Silent Pokémon",
             .height = "6’11”",
             .weight = "11.2 lbs.",
         },
@@ -51818,7 +51818,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Impidimp",
             .pokedexEntry = "It sneaks into people’s homes, taking\\nand feasting on the negative energy\\nof the frustrated occupants.",
-            .classification = "????? Pokémon",
+            .classification = "Wily Pokémon",
             .height = "1’04”",
             .weight = "12.1 lbs.",
         },
@@ -51875,7 +51875,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Morgrem",
             .pokedexEntry = "With sly cunning, it lures people into\\nthe woods. Some believe it to have\\nthe power to make crops grow.",
-            .classification = "????? Pokémon",
+            .classification = "Devious Pokémon",
             .height = "2’07”",
             .weight = "27.6 lbs.",
         },
@@ -51932,7 +51932,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Grimmsnarl",
             .pokedexEntry = "Its hairs work like muscle fibers.\\nWhen its hairs unfurl, they latch on to\\nfoes, ensnaring them like tentacles.",
-            .classification = "????? Pokémon",
+            .classification = "Bulk Up Pokémon",
             .height = "4’11”",
             .weight = "134.5 lbs.",
         },
@@ -51989,7 +51989,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Obstagoon",
             .pokedexEntry = "It evolved after experiencing numerous\\nfights. While crossing its arms, it lets out a\\nshout that would make anyone flinch.",
-            .classification = "????? Pokémon",
+            .classification = "Blocking Pokémon",
             .height = "5’03”",
             .weight = "101.4 lbs.",
         },
@@ -52046,7 +52046,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Perrserker",
             .pokedexEntry = "What appears to be an iron helmet is\\nactually hardened hair. This Pokémon\\nlives for the thrill of battle.",
-            .classification = "????? Pokémon",
+            .classification = "Viking Pokémon",
             .height = "2’07”",
             .weight = "61.7 lbs.",
         },
@@ -52103,7 +52103,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cursola",
             .pokedexEntry = "Be cautious of the ectoplasmic body\\nsurrounding its soul. You’ll become stiff\\nas stone if you touch it.",
-            .classification = "????? Pokémon",
+            .classification = "Coral Pokémon",
             .height = "3’03”",
             .weight = "0.9 lbs.",
         },
@@ -52160,7 +52160,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sirfetch’d",
             .pokedexEntry = "After deflecting attacks with its hard\\nleaf shield, it strikes back with its sharp\\nleek stalk. ",
-            .classification = "????? Pokémon",
+            .classification = "Wild Duck Pokémon",
             .height = "2’07”",
             .weight = "257.9 lbs.",
         },
@@ -52217,7 +52217,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mr. Rime",
             .pokedexEntry = "Its amusing movements make it very\\npopular. It releases its psychic power\\nfrom the pattern on its belly.",
-            .classification = "????? Pokémon",
+            .classification = "Comedian Pokémon",
             .height = "4’11”",
             .weight = "128.3 lbs.",
         },
@@ -52274,7 +52274,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Runerigus",
             .pokedexEntry = "Never touch its shadowlike body, or\\nyou’ll be shown the horrific memories\\nbehind the picture carved into it.",
-            .classification = "????? Pokémon",
+            .classification = "Grudge Pokémon",
             .height = "5’03”",
             .weight = "146.8 lbs.",
         },
@@ -52331,7 +52331,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Milcery",
             .pokedexEntry = "They say that any patisserie visited\\nby Milcery is guaranteed success and\\ngood fortune.",
-            .classification = "????? Pokémon",
+            .classification = "Cream Pokémon",
             .height = "0’08”",
             .weight = "0.7 lbs.",
         },
@@ -52388,7 +52388,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Alcremie",
             .pokedexEntry = "It evolved from a Milcery that held\\nonto a Strawberry Sweet. Its flavor\\ndepends on how it was mixed.",
-            .classification = "????? Pokémon",
+            .classification = "Cream Pokémon",
             .height = "1’00”",
             .weight = "1.1 lbs.",
         },
@@ -52445,7 +52445,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Falinks",
             .pokedexEntry = "The six of them work together as one.\\nTeamwork is also their battle strategy, and\\nthey constantly change their formation.",
-            .classification = "????? Pokémon",
+            .classification = "Formation Pokémon",
             .height = "9’10”",
             .weight = "136.7 lbs.",
         },
@@ -52502,7 +52502,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pincurchin",
             .pokedexEntry = "It feeds on seaweed, using its teeth\\nto scrape it off rocks. Electric current\\nflows from the tips of its spines.",
-            .classification = "????? Pokémon",
+            .classification = "Sea Urchin Pokémon",
             .height = "1’00”",
             .weight = "2.2 lbs.",
         },
@@ -52559,7 +52559,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Snom",
             .pokedexEntry = "It eats snow that piles up on the\\nground. The more snow it eats, the\\nbigger its spikes grow.",
-            .classification = "????? Pokémon",
+            .classification = "Worm Pokémon",
             .height = "1’00”",
             .weight = "8.4 lbs.",
         },
@@ -52616,7 +52616,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Frosmoth",
             .pokedexEntry = "Icy scales fall from its wings\\nlike snow as it flies over fields\\nand mountains.",
-            .classification = "????? Pokémon",
+            .classification = "Frost Moth Pokémon",
             .height = "4’03”",
             .weight = "92.6 lbs.",
         },
@@ -52673,7 +52673,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Stonjorner",
             .pokedexEntry = "Once a year, on a specific date and\\nat a specific time, they gather out of\\nnowhere and form up in a circle.",
-            .classification = "????? Pokémon",
+            .classification = "Big Rock Pokémon",
             .height = "8’02”",
             .weight = "1146.4 lbs.",
         },
@@ -52901,7 +52901,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cufant",
             .pokedexEntry = "If a job requires serious strength,\\nCufant will excel at it. Its copper body\\ntarnishes in the rain, turning green.",
-            .classification = "????? Pokémon",
+            .classification = "Copperderm Pokémon",
             .height = "3’11”",
             .weight = "220.5 lbs.",
         },
@@ -52958,7 +52958,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Copperajah",
             .pokedexEntry = "These Pokémon live in herds. Their\\ntrunks have incredible grip strength,\\nstrong enough to crush giant rocks.",
-            .classification = "????? Pokémon",
+            .classification = "Copperderm Pokémon",
             .height = "9’10”",
             .weight = "1433.0 lbs.",
         },
@@ -53015,7 +53015,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dracozolt",
             .pokedexEntry = "The powerful muscles in its tail\\ngenerate its electricity. Its upper half\\nis entirely too small. ",
-            .classification = "????? Pokémon",
+            .classification = "Fossil Pokémon",
             .height = "5’11”",
             .weight = "418.9 lbs.",
         },
@@ -53072,7 +53072,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Arctozolt",
             .pokedexEntry = "The shaking of its freezing upper half\\nis what generates its electricity. It has\\na hard time walking around.",
-            .classification = "????? Pokémon",
+            .classification = "Fossil Pokémon",
             .height = "7’07”",
             .weight = "330.7 lbs.",
         },
@@ -53129,7 +53129,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dracovish",
             .pokedexEntry = "Its mighty legs are capable of running\\nat speeds exceeding 40 mph, but it can’t\\nbreathe unless it’s underwater.",
-            .classification = "????? Pokémon",
+            .classification = "Fossil Pokémon",
             .height = "7’07”",
             .weight = "474.0 lbs.",
         },
@@ -53186,7 +53186,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Arctovish",
             .pokedexEntry = "The skin on its face is impervious\\nto attack, but breathing difficulties\\nmade it go extinct anyway.",
-            .classification = "????? Pokémon",
+            .classification = "Fossil Pokémon",
             .height = "6’07”",
             .weight = "385.8 lbs.",
         },
@@ -53243,7 +53243,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Duraludon",
             .pokedexEntry = "Its body resembles polished metal,\\nand it’s both lightweight and strong.\\nHowever, its body rusts easily.",
-            .classification = "????? Pokémon",
+            .classification = "Alloy Pokémon",
             .height = "5’11”",
             .weight = "88.2 lbs.",
         },
@@ -53300,7 +53300,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dreepy",
             .pokedexEntry = "After being reborn as a ghost, Dreepy\\nwanders the areas it used to inhabit back\\nwhen it was alive in prehistoric seas.",
-            .classification = "????? Pokémon",
+            .classification = "Lingering Pokémon",
             .height = "1’08”",
             .weight = "4.4 lbs.",
         },
@@ -53357,7 +53357,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Drakloak",
             .pokedexEntry = "It’s capable of flying faster than 120\\nmph. It battles alongside Dreepy and\\ndotes on them until they evolve.",
-            .classification = "????? Pokémon",
+            .classification = "Caretaker Pokémon",
             .height = "4’07”",
             .weight = "24.3 lbs.",
         },
@@ -53414,7 +53414,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dragapult",
             .pokedexEntry = "Apparently the Dreepy inside its horns\\neagerly look forward to being launched\\nout at Mach speeds.",
-            .classification = "????? Pokémon",
+            .classification = "Stealth Pokémon",
             .height = "9’10”",
             .weight = "110.2 lbs.",
         },
@@ -53471,7 +53471,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zacian",
             .pokedexEntry = "It  has slumbered for many years. Some\\nsay it is Zamazenta’s elder sister,\\nothers say the two are rivals.",
-            .classification = "????? Pokémon",
+            .classification = "Warrior Pokémon",
             .height = "9’02”",
             .weight = "242.5 lbs.",
         },
@@ -53528,7 +53528,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zamazenta",
             .pokedexEntry = "It slept for aeons while in the form\\nof a statue. It was asleep for so long,\\npeople forgot that it ever existed.",
-            .classification = "????? Pokémon",
+            .classification = "Warrior Pokémon",
             .height = "9’06”",
             .weight = "463.0 lbs.",
         },
@@ -53585,7 +53585,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Eternatus",
             .pokedexEntry = "It was inside a meteorite that fell\\n20,000 years ago. The energy that\\nits core absorbs allows it to live.",
-            .classification = "????? Pokémon",
+            .classification = "Gigantic Pokémon",
             .height = "65’07”",
             .weight = "2094.4 lbs.",
         },
@@ -53642,7 +53642,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Kubfu",
             .pokedexEntry = "If it pulls the long white hair on\\nits head, its fighting spirit heightens and\\npower wells up from deep in its belly.",
-            .classification = "????? Pokémon",
+            .classification = "Wushu Pokémon",
             .height = "2’00”",
             .weight = "26.5 lbs.",
         },
@@ -53756,7 +53756,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Zarude",
             .pokedexEntry = "Once the vines on its body tear off,\\nthey become nutrients in the soil. This helps\\nthe plants of the forest grow.",
-            .classification = "????? Pokémon",
+            .classification = "Rogue Monkey Pokémon",
             .height = "5’11”",
             .weight = "154.3 lbs.",
         },
@@ -53813,7 +53813,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Regieleki",
             .pokedexEntry = "Its entire body is made of an organ\\nthat generates electricity. It is capable of\\ngenerating a region’s worth of electricity.",
-            .classification = "????? Pokémon",
+            .classification = "Electron Pokémon",
             .height = "3’11”",
             .weight = "319.7 lbs.",
         },
@@ -53870,7 +53870,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Regidrago",
             .pokedexEntry = "Its body is composed of crystallized\\ndragon energy. It is said to contain the\\npower of every Dragon Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Dragon Orb Pokémon",
             .height = "6’11”",
             .weight = "440.9 lbs.",
         },
@@ -53927,7 +53927,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Glastrier",
             .pokedexEntry = "Glastrier has tremendous physical\\nstrength. The mask covering its face is\\n100 times stronger than diamond.",
-            .classification = "????? Pokémon",
+            .classification = "Wild Horse Pokémon",
             .height = "7’03”",
             .weight = "1763.7 lbs.",
         },
@@ -53984,7 +53984,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Spectrier",
             .pokedexEntry = "As it dashes through the night, it\\nabsorbs the life energy of sleeping Pokémon. It\\ncraves silence and solitude.",
-            .classification = "????? Pokémon",
+            .classification = "Swift Horse Pokémon",
             .height = "6’07”",
             .weight = "98.1 lbs.",
         },
@@ -54041,7 +54041,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Calyrex",
             .pokedexEntry = "Its every move is filled with grace\\nand dignity. Extremely intelligent, it is said\\nto see past, present, and future events.",
-            .classification = "????? Pokémon",
+            .classification = "King Pokémon",
             .height = "3’07”",
             .weight = "17.0 lbs.",
         },
@@ -54098,7 +54098,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Wyrdeer",
             .pokedexEntry = "The fur shed from its beard retains\\nheat well and is a highly useful\\nmaterial for winter clothing.",
-            .classification = "????? Pokémon",
+            .classification = "Big Horn Pokémon",
             .height = "5’11”",
             .weight = "209.7 lbs.",
         },
@@ -54155,7 +54155,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Kleavor",
             .pokedexEntry = "Parts of its body turned to stone when\\nit evolved thanks to an extremely rare\\nore found in volcanic areas.",
-            .classification = "????? Pokémon",
+            .classification = "Axe Pokémon",
             .height = "5’11”",
             .weight = "196.2 lbs.",
         },
@@ -54212,7 +54212,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Ursaluna",
             .pokedexEntry = "I believe it was Hisui’s swampy terrain that gave Ursaluna its\\nburly physique and newfound capacity to manipulate peat\\nat will.",
-            .classification = "????? Pokémon",
+            .classification = "Peat Pokémon",
             .height = "7’10”",
             .weight = "639.3 lbs.",
         },
@@ -54326,7 +54326,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sneasler",
             .pokedexEntry = "Because of Sneasler’s virulent poison and\\ndaunting physical prowess, no other species\\ncould hope to best it on the frozen highlands.",
-            .classification = "????? Pokémon",
+            .classification = "Free Climb Pokémon",
             .height = "4’03”",
             .weight = "94.8 lbs.",
         },
@@ -54383,7 +54383,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Overqwil",
             .pokedexEntry = "Overqwil’s poisonous spikes will reflexively\\nreact even while Overqwil sleeps, stabbing\\nany moving thing that approaches.",
-            .classification = "????? Pokémon",
+            .classification = "Pin Cluster Pokémon",
             .height = "8’02”",
             .weight = "133.4 lbs.",
         },
@@ -54497,7 +54497,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sprigatito",
             .pokedexEntry = "The sweet scent its body gives off\\nmesmerizes those around it. The scent grows\\nstronger when this Pokémon is in the sun.",
-            .classification = "????? Pokémon",
+            .classification = "Grass Cat Pokémon",
             .height = "1’04”",
             .weight = "9.0 lbs.",
         },
@@ -54554,7 +54554,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Floragato",
             .pokedexEntry = "Floragato deftly wields the vine hidden\\nbeneath its long fur, slamming the hard\\nflower bud against its opponents.",
-            .classification = "????? Pokémon",
+            .classification = "Grass Cat Pokémon",
             .height = "2’11”",
             .weight = "26.9 lbs.",
         },
@@ -54611,7 +54611,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mewscarada",
             .pokedexEntry = "With skillful misdirection, it rigs foes with\\npollen-packed flower bombs, and sets them\\noff before its foes realize what’s going on.",
-            .classification = "????? Pokémon",
+            .classification = "Magician Pokémon",
             .height = "4’11”",
             .weight = "68.8 lbs.",
         },
@@ -54668,7 +54668,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Fuecoco",
             .pokedexEntry = "It lies on warm rocks and uses the\\nheat absorbed by its square-shaped\\nscales to create fire energy.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Croc Pokémon",
             .height = "1’04”",
             .weight = "21.6 lbs.",
         },
@@ -54725,7 +54725,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Crocalor",
             .pokedexEntry = "The combination of Crocalor’s fire energy\\nand overflowing vitality has caused an\\negg-shaped fireball to appear on its head.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Croc Pokémon",
             .height = "3’03”",
             .weight = "67.7 lbs.",
         },
@@ -54782,7 +54782,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Skeledirge",
             .pokedexEntry = "Skeledirge’s gentle singing soothes the souls of all that hear it. It burns its enemies to a crisp with flames of over 5,400 degrees Fahrenheit.",
-            .classification = "????? Pokémon",
+            .classification = "Singer Pokémon",
             .height = "5’03”",
             .weight = "719.8 lbs.",
         },
@@ -54839,7 +54839,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Quaxly",
             .pokedexEntry = "Its strong legs let it easily swim around in\\neven fast-flowing rivers. It likes to keep\\nthings tidy and is prone to overthinking.",
-            .classification = "????? Pokémon",
+            .classification = "Duckling Pokémon",
             .height = "1’08”",
             .weight = "13.4 lbs.",
         },
@@ -54896,7 +54896,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Quaxwell",
             .pokedexEntry = "The hardworking Quaxwell observes people and Pokémon from various regions and incorporates their movements into its own dance routines.",
-            .classification = "????? Pokémon",
+            .classification = "Practicing Pokémon",
             .height = "3’11”",
             .weight = "47.4 lbs.",
         },
@@ -54953,7 +54953,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Quaquaval",
             .pokedexEntry = "Dancing in ways that evoke far-away places, this Pokémon mesmerizes all that see it. Flourishes of its decorative water feathers slice into its foes.",
-            .classification = "????? Pokémon",
+            .classification = "Dancer Pokémon",
             .height = "5’11”",
             .weight = "136.5 lbs.",
         },
@@ -55010,7 +55010,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Lechonk",
             .pokedexEntry = "This Pokémon spurns all but the finest\\nof foods. Its body gives off an herblike\\nscent that bug Pokémon detest.",
-            .classification = "????? Pokémon",
+            .classification = "Hog Pokémon",
             .height = "1’08”",
             .weight = "22.5 lbs.",
         },
@@ -55124,7 +55124,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tarountula",
             .pokedexEntry = "The ball of threads wrapped around its body\\nis elastic enough to deflect the scythes of\\nScyther, this Pokémon’s natural enemy.",
-            .classification = "????? Pokémon",
+            .classification = "String Ball Pokémon",
             .height = "1’00”",
             .weight = "8.8 lbs.",
         },
@@ -55181,7 +55181,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Spidops",
             .pokedexEntry = "It clings to branches and ceilings using its\\nthreads and moves without a sound. It takes\\nout its prey before the prey even notices it.",
-            .classification = "????? Pokémon",
+            .classification = "Trap Pokémon",
             .height = "3’03”",
             .weight = "36.4 lbs.",
         },
@@ -55238,7 +55238,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Nymble",
             .pokedexEntry = "It has its third set of legs folded up. When\\nit’s in a tough spot, this Pokémon jumps\\nover 30 feet using the strength of its legs.",
-            .classification = "????? Pokémon",
+            .classification = "Grasshopper Pokémon",
             .height = "0’08”",
             .weight = "2.2 lbs.",
         },
@@ -55295,7 +55295,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Lokix",
             .pokedexEntry = "It uses its normally folded third set of legs when in Showdown Mode. This places a huge burden on its body, so it can’t stay in this mode for long.",
-            .classification = "????? Pokémon",
+            .classification = "Grasshopper Pokémon",
             .height = "3’03”",
             .weight = "38.6 lbs.",
         },
@@ -55352,7 +55352,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pawmi",
             .pokedexEntry = "The pads of its paws are electricity-discharging organs. Pawmi fires electricity from its forepaws while standing unsteadily on its hind legs.",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "1’00”",
             .weight = "5.5 lbs.",
         },
@@ -55409,7 +55409,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pawmo",
             .pokedexEntry = "Pawmo uses a unique fighting technique in which it uses its forepaws to strike foes and zap them with electricity from its paw pads simultaneously.",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "1’04”",
             .weight = "14.3 lbs.",
         },
@@ -55466,7 +55466,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pawmot",
             .pokedexEntry = "Pawmot’s fluffy fur acts as a battery.\\nIt can store the same amount of\\nelectricity as an electric car.",
-            .classification = "????? Pokémon",
+            .classification = "Hands-On Pokémon",
             .height = "2’11”",
             .weight = "90.4 lbs.",
         },
@@ -55523,7 +55523,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tandemaus",
             .pokedexEntry = "The pair sticks together no matter what.\\nThey split any food they find exactly\\nin half and then eat it together.",
-            .classification = "????? Pokémon",
+            .classification = "Couple Pokémon",
             .height = "1’00”",
             .weight = "4.0 lbs.",
         },
@@ -55637,7 +55637,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Fidough",
             .pokedexEntry = "The yeast in Fidough’s breath is useful\\nfor cooking, so this Pokémon has been\\nprotected by people since long ago.",
-            .classification = "????? Pokémon",
+            .classification = "Puppy Pokémon",
             .height = "1’00”",
             .weight = "24.0 lbs.",
         },
@@ -55694,7 +55694,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dachsbun",
             .pokedexEntry = "The surface of this Pokémon’s skin\\nhardens when exposed to intense heat,\\nand its body has an appetizing aroma.",
-            .classification = "????? Pokémon",
+            .classification = "Dog Pokémon",
             .height = "1’08”",
             .weight = "32.8 lbs.",
         },
@@ -55751,7 +55751,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Smoliv",
             .pokedexEntry = "This Pokémon converts nutrients into oil, which it stores in the fruit on its head. It can easily go a whole week without eating or drinking.",
-            .classification = "????? Pokémon",
+            .classification = "Olive Pokémon",
             .height = "1’00”",
             .weight = "14.3 lbs.",
         },
@@ -55808,7 +55808,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dolliv",
             .pokedexEntry = "Dolliv shares its tasty, fresh-scented oil\\nwith others. This species has coexisted\\nwith humans since times long gone.",
-            .classification = "????? Pokémon",
+            .classification = "Olive Pokémon",
             .height = "2’00”",
             .weight = "26.2 lbs.",
         },
@@ -55865,7 +55865,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Arboliva",
             .pokedexEntry = "This calm Pokémon is very compassionate.\\nIt will share its delicious, nutrient-rich\\noil with weakened Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Olive Pokémon",
             .height = "4’07”",
             .weight = "106.3 lbs.",
         },
@@ -55979,7 +55979,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Nacli",
             .pokedexEntry = "The ground scrapes its body as it travels, causing it to leave salt behind. Salt is constantly being created and replenished inside Nacli’s body.",
-            .classification = "????? Pokémon",
+            .classification = "Rock Salt Pokémon",
             .height = "1’04”",
             .weight = "35.3 lbs.",
         },
@@ -56036,7 +56036,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Naclstack",
             .pokedexEntry = "It compresses rock salt inside its body and shoots out hardened salt pellets with enough force to perforate an iron sheet.",
-            .classification = "????? Pokémon",
+            .classification = "Rock Salt Pokémon",
             .height = "2’00”",
             .weight = "231.5 lbs.",
         },
@@ -56093,7 +56093,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Garganacl",
             .pokedexEntry = "Garganacl will rub its fingertips together\\nand sprinkle injured Pokémon with salt. Even\\nsevere wounds will promptly heal afterward.",
-            .classification = "????? Pokémon",
+            .classification = "Rock Salt Pokémon",
             .height = "7’07”",
             .weight = "529.1 lbs.",
         },
@@ -56150,7 +56150,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Charcadet",
             .pokedexEntry = "Its firepower increases when it fights,\\nreaching over 1,800 degrees Fahrenheit.\\nIt likes berries that are rich in fat.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Child Pokémon",
             .height = "2’00”",
             .weight = "23.1 lbs.",
         },
@@ -56207,7 +56207,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Armarouge",
             .pokedexEntry = "Armarouge evolved through the use of a set\\nof armor that belonged to a distinguished\\nwarrior. This Pokémon is incredibly loyal.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Warrior Pokémon",
             .height = "4’11”",
             .weight = "187.4 lbs.",
         },
@@ -56264,7 +56264,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Ceruledge",
             .pokedexEntry = "An old set of armor steeped in grudges\\ncaused this Pokémon’s evolution. Ceruledge\\ncuts its enemies to pieces without mercy.",
-            .classification = "????? Pokémon",
+            .classification = "Fire Blades Pokémon",
             .height = "5’03”",
             .weight = "136.7 lbs.",
         },
@@ -56321,7 +56321,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tadbulb",
             .pokedexEntry = "Tadbulb shakes its tail to generate\\nelectricity. If it senses danger, it will make\\nits head blink on and off to alert its allies.",
-            .classification = "????? Pokémon",
+            .classification = "EleTadpole Pokémon",
             .height = "1’00”",
             .weight = "0.9 lbs.",
         },
@@ -56378,7 +56378,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bellibolt",
             .pokedexEntry = "What appear to be eyeballs are actually\\norgans for discharging the electricity\\ngenerated by Bellibolt’s belly-button dynamo.",
-            .classification = "????? Pokémon",
+            .classification = "EleFrog Pokémon",
             .height = "3’11”",
             .weight = "249.1 lbs.",
         },
@@ -56435,7 +56435,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Wattrel",
             .pokedexEntry = "These Pokémon make their nests on coastal\\ncliffs. The nests have a strange, crackling\\ntexture, and they’re a popular delicacy.",
-            .classification = "????? Pokémon",
+            .classification = "Storm Petrel Pokémon",
             .height = "1’04”",
             .weight = "7.9 lbs.",
         },
@@ -56492,7 +56492,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Kilowatrel",
             .pokedexEntry = "Kilowattrel inflates its throat sac to\\namplify its electricity. By riding the wind,\\nthis Pokémon can fly over 430 miles in a day.",
-            .classification = "????? Pokémon",
+            .classification = "Frigatebird Pokémon",
             .height = "4’07”",
             .weight = "85.1 lbs.",
         },
@@ -56549,7 +56549,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Maschiff",
             .pokedexEntry = "Its well-developed jaw and fangs are strong\\nenough to crunch through boulders, and its\\nthick fat makes for an excellent defense.",
-            .classification = "????? Pokémon",
+            .classification = "Rascal Pokémon",
             .height = "1’08”",
             .weight = "35.3 lbs.",
         },
@@ -56606,7 +56606,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Mabosstiff",
             .pokedexEntry = "This Pokémon can store energy in its\\nlarge dewlap. Mabosstiff unleashes this\\nenergy all at once to blow away enemies.",
-            .classification = "????? Pokémon",
+            .classification = "Boss Pokémon",
             .height = "3’07”",
             .weight = "134.5 lbs.",
         },
@@ -56663,7 +56663,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Shroodle",
             .pokedexEntry = "To keep enemies away from its territory,\\nit paints markings around its nest using\\na poisonous liquid that has an acrid odor.",
-            .classification = "????? Pokémon",
+            .classification = "Toxic Mouse Pokémon",
             .height = "0’08”",
             .weight = "1.5 lbs.",
         },
@@ -56720,7 +56720,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Grafaiai",
             .pokedexEntry = "Each Grafaiai paints its own individual\\npattern, and it will paint that same pattern\\nover and over again throughout its life.",
-            .classification = "????? Pokémon",
+            .classification = "Toxic Monkey Pokémon",
             .height = "2’04”",
             .weight = "60.0 lbs.",
         },
@@ -56777,7 +56777,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bramblin",
             .pokedexEntry = "Not even Bramblin knows where it is headed\\nas it tumbles across the wilderness, blown\\nby the wind. It loathes getting wet.",
-            .classification = "????? Pokémon",
+            .classification = "Tumbleweed Pokémon",
             .height = "2’00”",
             .weight = "1.3 lbs.",
         },
@@ -56834,7 +56834,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bramblgast",
             .pokedexEntry = "Brambleghast wanders around arid regions.\\nOn rare occasions, mass outbreaks of\\nthese Pokémon will bury an entire town.",
-            .classification = "????? Pokémon",
+            .classification = "Tumbleweed Pokémon",
             .height = "3’11”",
             .weight = "13.2 lbs.",
         },
@@ -56891,7 +56891,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Toedscool",
             .pokedexEntry = "Though it looks like Tentacool, Toedscool is\\na completely different species. Its legs may\\nbe thin, but it can run at a speed of 30 mph.",
-            .classification = "????? Pokémon",
+            .classification = "Woodear Pokémon",
             .height = "2’11”",
             .weight = "72.8 lbs.",
         },
@@ -56948,7 +56948,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Toedscruel",
             .pokedexEntry = "These Pokémon gather into groups and\\nform colonies deep within forests. They\\nabsolutely hate it when strangers approach.",
-            .classification = "????? Pokémon",
+            .classification = "Woodear Pokémon",
             .height = "6’03”",
             .weight = "127.9 lbs.",
         },
@@ -57005,7 +57005,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Klawf",
             .pokedexEntry = "This Pokémon lives on sheer cliffs.\\nIt sidesteps opponents’ attacks, then\\nlunges for their weak spots with its claws.",
-            .classification = "????? Pokémon",
+            .classification = "Ambush Pokémon",
             .height = "4’03”",
             .weight = "174.2 lbs.",
         },
@@ -57062,7 +57062,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Capsakid",
             .pokedexEntry = "The more sunlight this Pokémon bathes in,\\nthe more spicy chemicals are produced by its\\nbody, and thus the spicier its moves become.",
-            .classification = "????? Pokémon",
+            .classification = "Spicy Pepper Pokémon",
             .height = "1’00”",
             .weight = "6.6 lbs.",
         },
@@ -57119,7 +57119,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Scovillain",
             .pokedexEntry = "The red head converts spicy chemicals into\\nfire energy and blasts the surrounding area\\nwith a super spicy stream of flame.",
-            .classification = "????? Pokémon",
+            .classification = "Spicy Pepper Pokémon",
             .height = "2’11”",
             .weight = "33.1 lbs.",
         },
@@ -57176,7 +57176,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Rellor",
             .pokedexEntry = "It rolls its mud ball around while the energy\\nit needs for evolution matures.\\nEventually the time comes for it to evolve.",
-            .classification = "????? Pokémon",
+            .classification = "Rolling Pokémon",
             .height = "0’08”",
             .weight = "2.2 lbs.",
         },
@@ -57233,7 +57233,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Rabsca",
             .pokedexEntry = "The body that supports the ball barely moves.\\nTherefore, it is thought that the true body\\nof this Pokémon is actually inside the ball.",
-            .classification = "????? Pokémon",
+            .classification = "Rolling Pokémon",
             .height = "1’00”",
             .weight = "7.7 lbs.",
         },
@@ -57290,7 +57290,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Flittle",
             .pokedexEntry = "It spends its time running around wastelands.\\nIf anyone steals its beloved berries, it will\\nchase them down and exact its revenge.",
-            .classification = "????? Pokémon",
+            .classification = "Frill Pokémon",
             .height = "0’08”",
             .weight = "3.3 lbs.",
         },
@@ -57347,7 +57347,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Espathra",
             .pokedexEntry = "It emits psychic power from the gaps\\nbetween its multicolored frills and\\nsprints at speeds greater than 120 mph.",
-            .classification = "????? Pokémon",
+            .classification = "Ostrich Pokémon",
             .height = "6’03”",
             .weight = "198.4 lbs.",
         },
@@ -57404,7 +57404,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tinkatink",
             .pokedexEntry = "It swings its handmade hammer around to\\nprotect itself, but the hammer is often\\nstolen by Pokémon that eat metal.",
-            .classification = "????? Pokémon",
+            .classification = "Metalsmith Pokémon",
             .height = "1’04”",
             .weight = "19.6 lbs.",
         },
@@ -57461,7 +57461,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tinkatuff",
             .pokedexEntry = "These Pokémon make their homes in piles of\\nscrap metal. They test the strength of each\\nother’s hammers by smashing them together.",
-            .classification = "????? Pokémon",
+            .classification = "Hammer Pokémon",
             .height = "2’04”",
             .weight = "130.3 lbs.",
         },
@@ -57518,7 +57518,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Tinkaton",
             .pokedexEntry = "This intelligent Pokémon has a very daring\\ndisposition. It knocks rocks into the sky with\\nits hammer, aiming for flying Corviknight.",
-            .classification = "????? Pokémon",
+            .classification = "Hammer Pokémon",
             .height = "2’04”",
             .weight = "248.7 lbs.",
         },
@@ -57575,7 +57575,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Wiglett",
             .pokedexEntry = "This Pokémon can pick up the scent\\nof a Veluza just over 65 feet away\\nand will hide itself in the sand.",
-            .classification = "????? Pokémon",
+            .classification = "Garden Eel Pokémon",
             .height = "3’11”",
             .weight = "4.0 lbs.",
         },
@@ -57632,7 +57632,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Wugtrio",
             .pokedexEntry = "A variety of fish Pokémon,\\nWugtrio was once considered\\nto be a regional form of Dugtrio.",
-            .classification = "????? Pokémon",
+            .classification = "Garden Eel Pokémon",
             .height = "3’11”",
             .weight = "11.9 lbs.",
         },
@@ -57689,7 +57689,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Bombirdier",
             .pokedexEntry = "Bombirdier uses the apron on its chest to bundle up food, which it carries back to its nest. It enjoys dropping things that make loud noises.",
-            .classification = "????? Pokémon",
+            .classification = "Item Drop Pokémon",
             .height = "4’11”",
             .weight = "94.6 lbs.",
         },
@@ -57746,7 +57746,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Finizen",
             .pokedexEntry = "Its water ring is made from seawater\\nmixed with a sticky fluid that Finizen\\nsecretes from its blowhole.",
-            .classification = "????? Pokémon",
+            .classification = "Dolphin Pokémon",
             .height = "4’03”",
             .weight = "132.7 lbs.",
         },
@@ -57860,7 +57860,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Varoom",
             .pokedexEntry = "The steel section is Varoom’s actual body. This Pokémon clings to rocks and converts the minerals within into energy to fuel its activities.",
-            .classification = "????? Pokémon",
+            .classification = "Single-Cyl Pokémon",
             .height = "3’03”",
             .weight = "77.2 lbs.",
         },
@@ -57917,7 +57917,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Revavroom",
             .pokedexEntry = "It creates a gas out of poison and minerals\\nfrom rocks. It then detonates the gas\\nin its eight cylinders to generate energy.",
-            .classification = "????? Pokémon",
+            .classification = "Multi-Cyl Pokémon",
             .height = "5’11”",
             .weight = "264.6 lbs.",
         },
@@ -57974,7 +57974,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cyclizar",
             .pokedexEntry = "It can sprint at over 70 mph while carrying a\\nhuman. The rider’s body heat warms Cyclizar’s\\nback and lifts the Pokémon’s spirit.",
-            .classification = "????? Pokémon",
+            .classification = "Mount Pokémon",
             .height = "5’03”",
             .weight = "138.9 lbs.",
         },
@@ -58031,7 +58031,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Orthworm",
             .pokedexEntry = "When attacked, this Pokémon will wield\\nthe tendrils on its body like fists and pelt\\nthe opponent with a storm of punches.",
-            .classification = "????? Pokémon",
+            .classification = "Earthworm Pokémon",
             .height = "8’02”",
             .weight = "683.4 lbs.",
         },
@@ -58088,7 +58088,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Glimmet",
             .pokedexEntry = "It absorbs nutrients from cave walls.\\nThe petals it wears are made of\\ncrystallized poison.",
-            .classification = "????? Pokémon",
+            .classification = "Ore Pokémon",
             .height = "2’04”",
             .weight = "17.6 lbs.",
         },
@@ -58145,7 +58145,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Glimmora",
             .pokedexEntry = "When this Pokémon detects danger,\\nit will open up its crystalline petals\\nand fire beams from its conical body.",
-            .classification = "????? Pokémon",
+            .classification = "Ore Pokémon",
             .height = "4’11”",
             .weight = "99.2 lbs.",
         },
@@ -58202,7 +58202,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Greavard",
             .pokedexEntry = "It is said that a dog Pokémon that died\\nin the wild without ever interacting with\\na human was reborn as this Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Ghost Dog Pokémon",
             .height = "2’00”",
             .weight = "77.2 lbs.",
         },
@@ -58259,7 +58259,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Houndstone",
             .pokedexEntry = "Houndstone spends most of its time sleeping\\nin graveyards. Among all the dog Pokémon,\\nthis one is most loyal to its master.",
-            .classification = "????? Pokémon",
+            .classification = "Ghost Dog Pokémon",
             .height = "6’07”",
             .weight = "33.1 lbs.",
         },
@@ -58316,7 +58316,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Flamigo",
             .pokedexEntry = "This Pokémon apparently ties the base of its\\nneck into a knot so that the energy stored\\nin its belly does not escape from its beak.",
-            .classification = "????? Pokémon",
+            .classification = "Synchronize Pokémon",
             .height = "5’03”",
             .weight = "81.6 lbs.",
         },
@@ -58373,7 +58373,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cetoddle",
             .pokedexEntry = "It lives in frigid regions in pods of\\nfive or so individuals. It loves the\\nminerals found in snow and ice.",
-            .classification = "????? Pokémon",
+            .classification = "Terra Whale Pokémon",
             .height = "3’11”",
             .weight = "99.2 lbs.",
         },
@@ -58430,7 +58430,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Cetitan",
             .pokedexEntry = "Ice energy builds up in the horn on its upper\\njaw, causing the horn to reach cryogenic\\ntemperatures that freeze its surroundings.",
-            .classification = "????? Pokémon",
+            .classification = "Terra Whale Pokémon",
             .height = "14’09”",
             .weight = "1543.2 lbs.",
         },
@@ -58487,7 +58487,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Veluza",
             .pokedexEntry = "Veluza has excellent regenerative capabilities. It sheds spare flesh from its body to boost its agility, then charges at its prey.",
-            .classification = "????? Pokémon",
+            .classification = "Jettison Pokémon",
             .height = "8’02”",
             .weight = "198.4 lbs.",
         },
@@ -58544,7 +58544,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dondozo",
             .pokedexEntry = "This Pokémon is a glutton,\\nbut it’s bad at getting food.\\nIt teams up with a Tatsugiri to catch prey.",
-            .classification = "????? Pokémon",
+            .classification = "Big Catfish Pokémon",
             .height = "39’04”",
             .weight = "485.0 lbs.",
         },
@@ -58658,7 +58658,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Annihilape",
             .pokedexEntry = "When its anger rose beyond a critical\\npoint, this Pokémon gained power that is\\nunfettered by the limits of its physical body.",
-            .classification = "????? Pokémon",
+            .classification = "Rage Monkey Pokémon",
             .height = "3’11”",
             .weight = "123.5 lbs.",
         },
@@ -58715,7 +58715,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Clodsire",
             .pokedexEntry = "It lives at the bottom of ponds and swamps.\\nIt will carry Wooper on its back and ferry\\nthem across water from shore to shore.",
-            .classification = "????? Pokémon",
+            .classification = "Spiny Fish Pokémon",
             .height = "5’11”",
             .weight = "491.6 lbs.",
         },
@@ -58772,7 +58772,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Farigiraf",
             .pokedexEntry = "The hardened head from the tail protects\\nthe head of the main body as Farigiraf whips\\nits long neck around to headbutt enemies.",
-            .classification = "????? Pokémon",
+            .classification = "Long Neck Pokémon",
             .height = "10’06”",
             .weight = "352.7 lbs.",
         },
@@ -58886,7 +58886,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Kingambit",
             .pokedexEntry = "Only a Bisharp that stands above all\\nothers in its vast army can evolve\\ninto Kingambit.",
-            .classification = "????? Pokémon",
+            .classification = "Big Blade Pokémon",
             .height = "6’07”",
             .weight = "264.6 lbs.",
         },
@@ -58943,7 +58943,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Great Tusk",
             .pokedexEntry = "This creature resembles a mysterious\\nPokémon that, according to a paranormal\\nmagazine, has lived since ancient times.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "7’03”",
             .weight = "705.5 lbs.",
         },
@@ -59000,7 +59000,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "ScreamTail",
             .pokedexEntry = "It resembles a mysterious Pokémon\\ndescribed in a paranormal magazine as a\\nJigglypuff from one billion years ago.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "3’11”",
             .weight = "17.6 lbs.",
         },
@@ -59057,7 +59057,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "BruteBonet",
             .pokedexEntry = "It bears a slight resemblance to a Pokémon\\ndescribed in a dubious magazine as a cross\\nbetween a dinosaur and a mushroom.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "3’11”",
             .weight = "46.3 lbs.",
         },
@@ -59114,7 +59114,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "FluttrMane",
             .pokedexEntry = "It has similar features to a ghostly pterosaur\\nthat was covered in a paranormal magazine,\\nbut the two have little else in common.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "4’07”",
             .weight = "8.8 lbs.",
         },
@@ -59171,7 +59171,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "SlithrWing",
             .pokedexEntry = "This Pokémon somewhat resembles an\\nancient form of Volcarona that was\\nintroduced in a dubious magazine.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "10’06”",
             .weight = "202.8 lbs.",
         },
@@ -59228,7 +59228,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "SandyShock",
             .pokedexEntry = "It slightly resembles a Magneton that\\nlived for 10,000 years and was featured in\\nan article in a paranormal magazine.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "7’07”",
             .weight = "132.3 lbs.",
         },
@@ -59285,7 +59285,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "IronTreads",
             .pokedexEntry = "This Pokémon closely resembles a scientific\\nweapon that a paranormal magazine claimed\\nwas sent to this planet by aliens.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "2’11”",
             .weight = "529.1 lbs.",
         },
@@ -59342,7 +59342,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "IronBundle",
             .pokedexEntry = "Its shape is similar to a robot featured in a\\nparanormal magazine. The robot was said to\\nhave been created by an ancient civilization.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "2’00”",
             .weight = "24.3 lbs.",
         },
@@ -59399,7 +59399,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Iron Hands",
             .pokedexEntry = "It is very similar to a cyborg covered by a\\nparanormal magazine. The cyborg was said to\\nbe the modified form of a certain athlete.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "5’11”",
             .weight = "839.3 lbs.",
         },
@@ -59456,7 +59456,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Iron Neck",
             .pokedexEntry = "It’s possible that Iron Jugulis,\\nan object described in an old book,\\nmay actually be this Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "4’03”",
             .weight = "244.7 lbs.",
         },
@@ -59513,7 +59513,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Iron Moth",
             .pokedexEntry = "This Pokémon resembles an unknown object\\ndescribed in a paranormal magazine\\nas a UFO sent to observe humanity.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "3’11”",
             .weight = "79.4 lbs.",
         },
@@ -59570,7 +59570,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "IronThorns",
             .pokedexEntry = "It has some similarities to a Pokémon\\nintroduced in a dubious magazine as a\\nTyranitar from 1 billion years in the future.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "5’03”",
             .weight = "668.0 lbs.",
         },
@@ -59627,7 +59627,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Frigibax",
             .pokedexEntry = "This Pokémon lives in forests and crags.\\nUsing the power of its dorsal fin, it cools\\nthe inside of its nest like a refrigerator.",
-            .classification = "????? Pokémon",
+            .classification = "Ice Fin Pokémon",
             .height = "1’08”",
             .weight = "37.5 lbs.",
         },
@@ -59684,7 +59684,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Arctibax",
             .pokedexEntry = "Arctibax freezes the air around it,\\nprotecting its face with an ice mask and\\nturning its dorsal fin into a blade of ice.",
-            .classification = "????? Pokémon",
+            .classification = "Ice Fin Pokémon",
             .height = "2’07”",
             .weight = "66.1 lbs.",
         },
@@ -59741,7 +59741,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Baxcalibur",
             .pokedexEntry = "This Pokémon blasts cryogenic air\\nout from its mouth. This air can\\ninstantly freeze even liquid-hot lava.",
-            .classification = "????? Pokémon",
+            .classification = "Ice Dragon Pokémon",
             .height = "6’11”",
             .weight = "463.0 lbs.",
         },
@@ -59798,7 +59798,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gimmighoul",
             .pokedexEntry = "It lives inside an old treasure chest.\\nSometimes it gets left in shop corners since\\nno one realizes it’s actually a Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Coin Chest Pokémon",
             .height = "1’00”",
             .weight = "11.0 lbs.",
         },
@@ -59855,7 +59855,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Gholdengo",
             .pokedexEntry = "Its body seems to be made up of 1,000 coins.\\nThis Pokémon gets along well with others\\nand is quick to make friends with anybody.",
-            .classification = "????? Pokémon",
+            .classification = "Coin Entity Pokémon",
             .height = "3’11”",
             .weight = "66.1 lbs.",
         },
@@ -59912,7 +59912,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Wo-Chien",
             .pokedexEntry = "It drains the life-force from vegetation,\\ncausing nearby forests to instantly wither\\nand fields to turn barren.",
-            .classification = "????? Pokémon",
+            .classification = "Ruinous Pokémon",
             .height = "4’11”",
             .weight = "163.6 lbs.",
         },
@@ -59969,7 +59969,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Chien-Pao",
             .pokedexEntry = "This Pokémon can control 100 tons of fallen\\nsnow. It plays around innocently by leaping\\nin and out of avalanches it has caused.",
-            .classification = "????? Pokémon",
+            .classification = "Ruinous Pokémon",
             .height = "6’03”",
             .weight = "335.5 lbs.",
         },
@@ -60026,7 +60026,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Ting-Lu",
             .pokedexEntry = "The fear poured into an ancient ritual\\nvessel has clad itself in rocks and\\ndirt to become a Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Ruinous Pokémon",
             .height = "8’10”",
             .weight = "1542.6 lbs.",
         },
@@ -60083,7 +60083,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Chi-Yu",
             .pokedexEntry = "The envy accumulated within curved beads\\nthat sparked multiple conflicts has clad\\nitself in fire and become a Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Ruinous Pokémon",
             .height = "1’04”",
             .weight = "10.8 lbs.",
         },
@@ -60140,7 +60140,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "RoarinMoon",
             .pokedexEntry = "According to a dubious magazine,\\nthis Pokémon has some connection to a\\nphenomenon that occurs in a certain region.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "6’07”",
             .weight = "837.8 lbs.",
         },
@@ -60197,7 +60197,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Iron Valor",
             .pokedexEntry = "It has some similarities to a\\nmad scientist’s invention\\ncovered in a paranormal magazine.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "4’07”",
             .weight = "77.2 lbs.",
         },
@@ -60254,7 +60254,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Koraidon",
             .pokedexEntry = "This Pokémon resembles Cyclizar, but it is\\nfar burlier and more ferocious. Nothing is\\nknown about its ecology or other features.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "8’02”",
             .weight = "668.0 lbs.",
         },
@@ -60311,7 +60311,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Miraidon",
             .pokedexEntry = "Much remains unknown about this\\ncreature. It resembles Cyclizar, but\\nit is far more ruthless and powerful.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "11’06”",
             .weight = "529.1 lbs.",
         },
@@ -60368,7 +60368,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "WalkngWake",
             .pokedexEntry = "It resembles an illustration published in\\na paranormal magazine, said to be a\\ndepiction of a super-ancient Suicune.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "11’06”",
             .weight = "617.3 lbs.",
         },
@@ -60425,7 +60425,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "IronLeaves",
             .pokedexEntry = "Many of its physical characteristics match\\nthose of a Virizion from the future that\\nwas covered in a paranormal magazine.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "4’11”",
             .weight = "275.6 lbs.",
         },
@@ -60482,7 +60482,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Dipplin",
             .pokedexEntry = "Dipplin is two creatures in one Pokémon.\\nIts evolution was triggered by a special\\napple grown only in one place.",
-            .classification = "????? Pokémon",
+            .classification = "Candy Apple Pokémon",
             .height = "1’04”",
             .weight = "21.4 lbs.",
         },
@@ -60539,7 +60539,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Polchgeist",
             .pokedexEntry = "Poltchageist looks like a regional form of\\nSinistea, but it was recently discovered\\nthat the two Pokémon are entirely unrelated.",
-            .classification = "????? Pokémon",
+            .classification = "Matcha Pokémon",
             .height = "0’04”",
             .weight = "2.4 lbs.",
         },
@@ -60596,7 +60596,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Sinistcha",
             .pokedexEntry = "It pretends to be tea, trying to fool people\\ninto drinking it so it can drain their life-\\nforce. Its ruse is generally unsuccessful.",
-            .classification = "????? Pokémon",
+            .classification = "Matcha Pokémon",
             .height = "0’08”",
             .weight = "4.9 lbs.",
         },
@@ -60653,7 +60653,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Okidogi",
             .pokedexEntry = "Okidogi is a ruffian with a short temper.\\nIt can pulverize anything by swinging\\naround the chain on its neck.",
-            .classification = "????? Pokémon",
+            .classification = "Retainer Pokémon",
             .height = "5’11”",
             .weight = "203.3 lbs.",
         },
@@ -60710,7 +60710,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Munkidori",
             .pokedexEntry = "Munkidori keeps itself somewhere safe\\nwhile it toys with its foes, using\\npsychokinesis to induce intense dizziness.",
-            .classification = "????? Pokémon",
+            .classification = "Retainer Pokémon",
             .height = "3’03”",
             .weight = "26.9 lbs.",
         },
@@ -60767,7 +60767,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Fezanditi",
             .pokedexEntry = "Fezandipiti beats its glossy wings to\\nscatter pheromones that captivate\\npeople and Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Retainer Pokémon",
             .height = "4’07”",
             .weight = "66.4 lbs.",
         },
@@ -60824,7 +60824,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Ogerpon",
             .pokedexEntry = "This mischief-loving Pokémon is full of\\ncuriosity. It battles by drawing out the type-\\nbased energy contained within its masks.",
-            .classification = "????? Pokémon",
+            .classification = "Mask Pokémon",
             .height = "3’11”",
             .weight = "87.7 lbs.",
         },
@@ -60881,7 +60881,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Archaludon",
             .pokedexEntry = "It digs holes on mountains, searching\\nfor food. It’s so durable that being\\ncaught in a cave-in won’t faze it.",
-            .classification = "????? Pokémon",
+            .classification = "Alloy Pokémon",
             .height = "6’07”",
             .weight = "132.3 lbs.",
         },
@@ -60938,7 +60938,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Hydrapple",
             .pokedexEntry = "These capricious syrpents have banded\\ntogether. On the rare occasion that their\\nmoods align, their true power is unleashed.",
-            .classification = "????? Pokémon",
+            .classification = "Apple Hydra Pokémon",
             .height = "5’11”",
             .weight = "205.0 lbs.",
         },
@@ -60995,7 +60995,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "GouginFire",
             .pokedexEntry = "It resembles a Pokémon once shown in a\\nparanormal magazine. That Pokémon was said\\nto be an Entei regenerated from a fossil.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "11’06”",
             .weight = "1300.7 lbs.",
         },
@@ -61052,7 +61052,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "RagingBolt",
             .pokedexEntry = "It bears resemblance to a Pokémon that\\nbecame a hot topic for a short while after\\nbeing touted it as Raikou’s ancestor.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "17’01”",
             .weight = "1058.2 lbs.",
         },
@@ -61109,7 +61109,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "IronBolder",
             .pokedexEntry = "It resembles a Pokémon described in a\\ndubious magazine as a Terrakion that had\\nbeen modified by an evil organization.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "4’11”",
             .weight = "358.3 lbs.",
         },
@@ -61166,7 +61166,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Iron Crown",
             .pokedexEntry = "It resembles a mysterious object introduced\\nin a paranormal magazine as a cutting-edge\\nweapon shaped like a Cobalion.",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "5’03”",
             .weight = "343.9 lbs.",
         },
@@ -61223,7 +61223,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Terapagos",
             .pokedexEntry = "It’s thought that this Pokémon lived\\nin ancient Paldea until it got caught\\nin seismic shifts and went extinct.",
-            .classification = "????? Pokémon",
+            .classification = "Tera Pokémon",
             .height = "0’08”",
             .weight = "14.3 lbs.",
         },
@@ -61280,7 +61280,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "Pecharunt",
             .pokedexEntry = "Its peach-shaped shell serves as storage\\nfor a potent poison. It makes poisonous\\nmochi and serves it to people and Pokémon.",
-            .classification = "????? Pokémon",
+            .classification = "Subjugation Pokémon",
             .height = "1’00”",
             .weight = "0.7 lbs.",
         },
@@ -64073,7 +64073,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Sea Basin Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -64130,7 +64130,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Continent Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -66980,7 +66980,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67037,7 +67037,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67094,7 +67094,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67151,7 +67151,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67265,7 +67265,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67322,7 +67322,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67379,7 +67379,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67436,7 +67436,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67493,7 +67493,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67550,7 +67550,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67607,7 +67607,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67664,7 +67664,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67721,7 +67721,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mouse Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67778,7 +67778,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Weather Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67835,7 +67835,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Weather Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -67892,7 +67892,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Weather Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -68120,7 +68120,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Temporal Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -68177,7 +68177,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Spatial Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -68234,7 +68234,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Hostile Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -68291,7 +68291,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Hostile Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -68804,7 +68804,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Cyclone Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -68861,7 +68861,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Bolt Strike Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -68918,7 +68918,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Abundance Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -68975,7 +68975,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Boundary Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -69032,7 +69032,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Boundary Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -69089,7 +69089,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Colt Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -69146,7 +69146,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Melody Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -69431,7 +69431,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Ninja Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -69488,7 +69488,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Ninja Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -71882,7 +71882,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Royal Sword Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -71939,7 +71939,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Pumpkin Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -71996,7 +71996,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Pumpkin Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72053,7 +72053,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Pumpkin Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72110,7 +72110,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Pumpkin Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72167,7 +72167,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Pumpkin Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72224,7 +72224,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Pumpkin Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72338,7 +72338,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Order Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72395,7 +72395,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Order Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72452,7 +72452,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Order Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72623,7 +72623,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mischief Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72680,7 +72680,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Dancing Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72737,7 +72737,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Dancing Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72794,7 +72794,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Dancing Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72851,7 +72851,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Puppy Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72908,7 +72908,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Wolf Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -72965,7 +72965,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Wolf Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -73022,7 +73022,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Small Fry Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -73820,7 +73820,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Disguise Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -74105,7 +74105,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Artificial Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -74276,7 +74276,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Gulp Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -74333,7 +74333,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Gulp Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -74390,7 +74390,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Punk Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -75074,7 +75074,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Two-Sided Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -75131,7 +75131,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Warrior Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -75188,7 +75188,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Warrior Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -75245,7 +75245,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Gigantic Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -75302,7 +75302,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Wushu Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -75359,7 +75359,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Rogue Monkey Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -75530,7 +75530,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Love-Hate Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77012,7 +77012,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Constraint Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77069,7 +77069,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Emotion Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77126,7 +77126,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Big Fish Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77183,7 +77183,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Family Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77240,7 +77240,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Parrot Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77297,7 +77297,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Parrot Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77354,7 +77354,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Parrot Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77411,7 +77411,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Dolphin Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77468,7 +77468,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mimicry Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77525,7 +77525,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mimicry Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77582,7 +77582,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Land Snake Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77639,7 +77639,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Coin Chest Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -77924,7 +77924,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Hog Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78266,7 +78266,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78323,7 +78323,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78380,7 +78380,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78437,7 +78437,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78494,7 +78494,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78551,7 +78551,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78608,7 +78608,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78665,7 +78665,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Paradox Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78836,7 +78836,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mask Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78893,7 +78893,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mask Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -78950,7 +78950,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Mask Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -79235,7 +79235,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Peat Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -79292,7 +79292,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Tera Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
@@ -79349,7 +79349,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
-            .classification = "????? Pokémon",
+            .classification = "Tera Pokémon",
             .height = "???’??”",
             .weight = "????.? lbs.",
         },
