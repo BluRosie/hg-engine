@@ -1232,7 +1232,7 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
     u32 ovyId, target, offset;
     u16 (*internalFunc)(struct Party *, struct PartyPokemon *, u8, u16, int *);
 
-    if (IsOverlayLoaded(OVERLAY_BATTLE_EXTENSION)) // during battles it needs to be loaded to a separate location.  we have 2 overlays for this
+    if (IsOverlayLoaded(OVERLAY_BATTLE_EXTENSION) || IsOverlayLoaded(OVERLAY_PARTY_HANDLEUSEITEMONMON)) // during battles it needs to be loaded to a separate location.  we have 2 overlays for this
     {
         ovyId = OVERLAY_GETMONEVOLUTION_BATTLE;
         offset = 0x021FBE60 | 1;

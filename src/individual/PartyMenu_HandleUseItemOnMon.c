@@ -120,13 +120,10 @@ u32 UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat)
     partyMenuSignal = 0; // ensure it is 0 before potentially queuing up a different message
 
     // handle shaymin
-    debug_printf("pp changing form = %08X, form to change into = %d\n", pp, wk->args->species);
-
     if (wk->args->itemId == ITEM_GRACIDEA
         && Mon_CanUseGracidea(pp) == TRUE) {
         wk->args->species = 1; // change to sky forme
         sys_FreeMemoryEz(dat);
-        debug_printf("pp changing form = %08X, form to change into = %d\n", pp, wk->args->species);
         PokeList_FormDemoOverlayLoad(wk);
         ChangePartyPokemonToForm(pp, 1); // this works alright
         return TRUE;
