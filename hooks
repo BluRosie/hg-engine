@@ -618,6 +618,9 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 ov12_0224DD74 0224DD74 3
 0012 GetTypeEffectivenessData 0225260C 3
 
+0001 CheckRockSmashItemDrop 02204CF8 2
+0001 DrawRockSmashIdx 02204E8C 1
+
 0012 BattleMessage_BufferNickname 0223CDD0
 0012 hook_GrabIllusionBoxMonForHpBar 022651AE 3
 
