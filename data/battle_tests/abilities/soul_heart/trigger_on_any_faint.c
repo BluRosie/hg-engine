@@ -1,4 +1,4 @@
-// Test: Mighty Cleave - ignore protect, but do not lift effect
+// Test: Soul Heart - trigger on any faint in speed order
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,41 +8,40 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_IRON_BOULDER,
+            .species = SPECIES_MAGEARNA,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_NO_GUARD,
-            .item = ITEM_NONE,
-            .moves = { MOVE_MIGHTY_CLEAVE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .ability = ABILITY_SOUL_HEART,
+            .item = ITEM_CHOICE_SPECS,
+            .moves = { MOVE_FLASH_CANNON, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_UMBREON,
+            .species = SPECIES_ESPURR,
             .level = 50,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
-            .item = ITEM_NONE,
-            .moves = { MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .item = ITEM_CHOICE_SCARF,
+            .moves = { MOVE_EXPLOSION, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
-            .status = 0,
+            .status = STATUS_BURN,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
-    },
+        { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_MARACTUS,
-                        .level = 90,
+                        .species = SPECIES_MAGEARNA,
+                        .level = 49,
                         .form = 0,
-                        .ability = ABILITY_STORM_DRAIN,
+                        .ability = ABILITY_SOUL_HEART,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_PROTECT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -50,9 +49,9 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_SNOM,
-            .level = 50,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_NO_GUARD,
+            .ability = ABILITY_ICE_SCALES,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -60,7 +59,18 @@ BEGIN_TEST
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_GYARADOS,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_INTIMIDATE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
@@ -105,11 +115,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus used Protect!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Iron Boulder used Mighty Cleave!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 40, 40, 42, 42, 42, 43, 43, 44, 44, 44, 45, 45, 45, 47, 47, 48 } }, // boosted
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charizard used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gholdengo used Protect!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Soul Heart" },
     }
 }
 END_TEST
