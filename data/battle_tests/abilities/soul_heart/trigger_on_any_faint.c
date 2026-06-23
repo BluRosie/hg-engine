@@ -119,10 +119,10 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magearna’s Sp. Atk rose!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magearna’s Soul-Heart" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snom fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Soul Heart" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Soul Heart" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magearna’s Soul-Heart" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magearna’s Soul-Heart" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Magearna fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Soul Heart" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magearna’s Soul-Heart" },
     }
 }
 END_TEST

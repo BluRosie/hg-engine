@@ -106,9 +106,11 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus used Protect!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Iron Boulder used Mighty Cleave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus protected itself!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBolder used Mighty Cleave!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 51, 51, 51, 52, 52, 54, 54, 54, 55, 55, 57, 57, 57, 58, 58, 60 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charizard used Tackle!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon used Tackle!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus protected itself!" },
     }
 }
 END_TEST
