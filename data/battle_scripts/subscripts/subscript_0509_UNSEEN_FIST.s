@@ -5,7 +5,7 @@
 _000:
     AbilityPopup BATTLER_CATEGORY_ATTACKER
     // {0} couldn’t fully protect itself and got hurt!
-    PrintMessage 1758, TAG_NICKNAME_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    PrintMessage 1757, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     Wait 
     WaitButtonABTime 30
     End 
