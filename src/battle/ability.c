@@ -491,7 +491,6 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
                 ret = TRUE;
             }
             break;
-#if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
         case ABILITY_UNSEEN_FIST:
             if (sp->oneTurnFlag[sp->defence_client].protectFlag
                 && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
@@ -502,7 +501,6 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
                 ret = TRUE;
             }
             break;
-#endif
         default:
             break;
     }
