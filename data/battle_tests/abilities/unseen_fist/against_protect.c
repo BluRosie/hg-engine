@@ -105,15 +105,19 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective on the opposing Wobbuffet!" },
+#if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Urshifu's Unseen Fist" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp couldn't fully protect itself and got hurt!" },
+#endif
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp's Rough Skin" },
+#if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Urshifu's Unseen Fist" },
+#endif
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Glimmora's Toxic Debris" },
 #if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
         //{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Spikey Shield effect" },
-#endif
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Urshifu's Unseen Fist" },
+#endif
     }
 }
 END_TEST
