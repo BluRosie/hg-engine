@@ -497,8 +497,6 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
                 && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
             ) {
                 sp->addeffect_type = ADD_STATUS_ABILITY;
-                sp->state_client = sp->defence_client;
-                sp->battlerIdTemp = sp->attack_client;
                 seq_no[0] = SUB_SEQ_UNSEEN_FIST;
                 ret = TRUE;
             }
