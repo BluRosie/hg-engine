@@ -1755,3 +1755,6 @@ The wild {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} trapped\nthe wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} couldn’t\nfully protect itself and got hurt!
+The wild {STRVAR_1 1, 0, 0} couldn’t\nfully protect itself and got hurt!
+The opposing {STRVAR_1 1, 0, 0} couldn’t\nfully protect itself and got hurt!
