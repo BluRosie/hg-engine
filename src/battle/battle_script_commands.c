@@ -5527,41 +5527,40 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
         return FALSE;
     }
 
-    if (BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) {
-        switch (ctx->clientLoopForAbility) {
-        case SPREAD_ABILITY_LOOP_OPPONENT_LEFT:
-            ctx->clientLoopForAbility++;
-            if (ctx->battlemon[BATTLER_OPPONENT_SIDE_LEFT(ctx->defence_client)].species) {
-                ctx->state_client = BATTLER_OPPONENT_SIDE_LEFT(ctx->defence_client);
-                ctx->battlerIdTemp = ctx->state_client;
-                return FALSE;
-            }
-            FALLTHROUGH;
-        case SPREAD_ABILITY_LOOP_OPPONENT_RIGHT:
-            ctx->clientLoopForAbility++;
-            if (ctx->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(ctx->defence_client)].species) {
-                ctx->state_client = BATTLER_OPPONENT_SIDE_RIGHT(ctx->defence_client);
-                ctx->battlerIdTemp = ctx->state_client;
-                return FALSE;
-            }
-            FALLTHROUGH;
-        case SPREAD_ABILITY_LOOP_ALLY:
-            ctx->clientLoopForAbility++;
-            if (ctx->battlemon[BATTLER_ALLY(ctx->defence_client)].species) {
-                ctx->state_client = BATTLER_ALLY(ctx->defence_client);
-                ctx->battlerIdTemp = ctx->state_client;
-                return FALSE;
-            }
-            break;
-        default:
-            IncrementBattleScriptPtr(ctx, endloop);
-            break;
+    switch (ctx->clientLoopForAbility) {
+    case SPREAD_ABILITY_LOOP_OPPONENT_LEFT:
+        ctx->clientLoopForAbility++;
+        int leftSide = BATTLER_OPPONENT_SIDE_LEFT(ctx->defence_client);
+        if (ctx->battlemon[leftSide].species
+            && CheckSubstitute(ctx, leftSide) == FALSE) {
+            ctx->state_client = leftSide;
+            ctx->battlerIdTemp = ctx->state_client;
+            return FALSE;
         }
-    } else {
-        ctx->clientLoopForAbility = SPREAD_ABILITY_LOOP_MAX;
-        ctx->state_client = ctx->attack_client;
-        ctx->battlerIdTemp = ctx->attack_client;
-        return FALSE;
+        FALLTHROUGH;
+    case SPREAD_ABILITY_LOOP_OPPONENT_RIGHT:
+        ctx->clientLoopForAbility++;
+        int rightSide = BATTLER_OPPONENT_SIDE_RIGHT(ctx->defence_client);
+        if (ctx->battlemon[rightSide].species
+            && CheckSubstitute(ctx, rightSide) == FALSE) {
+            ctx->state_client = rightSide;
+            ctx->battlerIdTemp = ctx->state_client;
+            return FALSE;
+        }
+        FALLTHROUGH;
+    case SPREAD_ABILITY_LOOP_ALLY:
+        ctx->clientLoopForAbility++;
+        int ally = BATTLER_ALLY(ctx->defence_client);
+        if (ctx->battlemon[ally].species
+            && CheckSubstitute(ctx, ally) == FALSE) {
+            ctx->state_client = ally;
+            ctx->battlerIdTemp = ctx->state_client;
+            return FALSE;
+        }
+        FALLTHROUGH;
+    default:
+        IncrementBattleScriptPtr(ctx, endloop);
+        break;
     }
 
     ctx->clientLoopForAbility = 0;
