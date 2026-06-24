@@ -23,6 +23,7 @@
  */
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
+    // debug_printf("in btl_scr_cmd_33_statbuffchange %d\n", sp->state_client);
     int address1;
     int address2;
     int address3;
@@ -215,6 +216,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         }
         // debug_printf("sp->addeffect_flag: %d\n", sp->addeffect_flag);
         if ((sp->addeffect_flag & ADD_STATUS_NO_ABILITY) == 0) {
+             // debug_printf("move check\n");
             if (sp->attack_client != sp->state_client 
                 && sp->addeffect_type != ADD_EFFECT_ABILITY
                 && sp->addeffect_type != ADD_EFFECT_PRINT_WORK_ABILITY
@@ -336,57 +338,58 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         } else {
             //debug_printf("in ability checks\n");
 
-            BOOL prevented = FALSE;
-            if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount) {
-                sp->mp.id = BATTLE_MSG_PROTECTED_BY_MIST;
-                sp->mp.tag = TAG_NICKNAME;
-                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                prevented = TRUE;
-            } else if (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_FLOWER_VEIL) != 0 && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
-            {
-                sp->mp.id = BATTLE_MSG_FLOWER_VEIL_PETALS;
-                sp->mp.tag = TAG_NICKNAME;
-                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                prevented = TRUE;
-            } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_CLEAR_BODY)
-                || (GetBattlerAbility(sp, sp->state_client) == ABILITY_WHITE_SMOKE)
-                || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY)) {
-                debug_printf("clear body\n");
-                sp->mp.id = BATTLE_MSG_STATS_NOT_LOWERED;
-                sp->mp.tag = TAG_NICKNAME;
-                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                prevented = TRUE;
-            } else if (HeldItemHoldEffectGet(sp, sp->state_client) == HOLD_EFFECT_PREVENT_STAT_DROPS) {
-                sp->mp.id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
-                sp->mp.tag = TAG_NICKNAME_ITEM_STAT;
-                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                sp->mp.param[1] = CreateNicknameTag(sp, GetBattleMonItem(sp, sp->state_client));
-                sp->mp.param[2] = STAT_ATTACK + stattochange;
-                prevented = TRUE;
-            } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_HYPER_CUTTER) && ((STAT_ATTACK + stattochange) == STAT_ATTACK)) {
-                sp->mp.id = BATTLE_MSG_ATTACK_NOT_LOWERED;
-                sp->mp.tag = TAG_NICKNAME;
-                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                prevented = TRUE;
-            } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_BIG_PECKS) && ((STAT_ATTACK + stattochange) == STAT_DEFENSE)) {
-                sp->mp.id = BATTLE_MSG_DEFENSE_NOT_LOWERED;
-                sp->mp.tag = TAG_NICKNAME;
-                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                prevented = TRUE;
-            } else if (((GetBattlerAbility(sp, sp->state_client) == ABILITY_KEEN_EYE)
-                           || (GetBattlerAbility(sp, sp->state_client) == ABILITY_MINDS_EYE)
-                           || (GetBattlerAbility(sp, sp->state_client) == ABILITY_ILLUMINATE))
-                && ((STAT_ATTACK + stattochange) == STAT_ACCURACY)) {
-                sp->mp.id = BATTLE_MSG_ACCURACY_NOT_LOWERED;
-                sp->mp.tag = TAG_NICKNAME;
-                sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                prevented = TRUE;
-            }
+            if (sp->addeffect_type == ADD_EFFECT_ABILITY || sp->addeffect_type == ADD_EFFECT_PRINT_WORK_ABILITY) {
+                BOOL prevented = FALSE;
+                if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount) {
+                    sp->mp.id = BATTLE_MSG_PROTECTED_BY_MIST;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_FLOWER_VEIL) != 0 && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
+                {
+                    sp->mp.id = BATTLE_MSG_FLOWER_VEIL_PETALS;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_CLEAR_BODY)
+                    || (GetBattlerAbility(sp, sp->state_client) == ABILITY_WHITE_SMOKE)
+                    || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY)) {
+                    sp->mp.id = BATTLE_MSG_STATS_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if (HeldItemHoldEffectGet(sp, sp->state_client) == HOLD_EFFECT_PREVENT_STAT_DROPS) {
+                    sp->mp.id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
+                    sp->mp.tag = TAG_NICKNAME_ITEM_STAT;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    sp->mp.param[1] = CreateNicknameTag(sp, GetBattleMonItem(sp, sp->state_client));
+                    sp->mp.param[2] = STAT_ATTACK + stattochange;
+                    prevented = TRUE;
+                } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_HYPER_CUTTER) && ((STAT_ATTACK + stattochange) == STAT_ATTACK)) {
+                    sp->mp.id = BATTLE_MSG_ATTACK_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_BIG_PECKS) && ((STAT_ATTACK + stattochange) == STAT_DEFENSE)) {
+                    sp->mp.id = BATTLE_MSG_DEFENSE_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if (((GetBattlerAbility(sp, sp->state_client) == ABILITY_KEEN_EYE)
+                               || (GetBattlerAbility(sp, sp->state_client) == ABILITY_MINDS_EYE)
+                               || (GetBattlerAbility(sp, sp->state_client) == ABILITY_ILLUMINATE))
+                    && ((STAT_ATTACK + stattochange) == STAT_ACCURACY)) {
+                    sp->mp.id = BATTLE_MSG_ACCURACY_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                }
 
-            if (prevented) {
-                sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
-                IncrementBattleScriptPtr(sp, abilityBlockAbilityAddress);
-                return FALSE;
+                if (prevented) {
+                    sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+                    IncrementBattleScriptPtr(sp, abilityBlockAbilityAddress);
+                    return FALSE;
+                }
             }
 
             switch (statchange) {
