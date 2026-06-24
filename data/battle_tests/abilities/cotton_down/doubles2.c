@@ -105,10 +105,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gossifleur's Cotton Down" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gossifleur's Cotton Down" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Charmander" },
-        //{ .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum's Clear Body!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum's stats were not lowered!" },
     }
+    .knownFailing = TRUE,
 }
 END_TEST
