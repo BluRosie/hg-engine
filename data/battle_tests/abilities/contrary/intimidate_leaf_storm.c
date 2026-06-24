@@ -12,7 +12,7 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_INTIMIDATE,
-            .item = ITEM_NONE,
+            .item = ITEM_WIDE_LENS,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
