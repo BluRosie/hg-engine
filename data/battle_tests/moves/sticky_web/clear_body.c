@@ -1,46 +1,35 @@
-// Test: Gooey - Doubles
+// Test: Sticky Web - Clear Body
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
+    .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_BELDUM,
+            .species = SPECIES_ARIADOS,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_CLEAR_BODY,
+            .ability = ABILITY_DEFIANT,
             .item = ITEM_NONE,
-            .moves = { MOVE_BULLET_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_STICKY_WEB, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        {
-            .species = SPECIES_CHARMANDER,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_BLAZE,
-            .item = ITEM_NONE,
-            .moves = { MOVE_FLAME_WHEEL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_SLIGGOO,
+                        .species = SPECIES_GYARADOS,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_GOOEY,
+                        .ability = ABILITY_INTIMIDATE,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
@@ -49,10 +38,10 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_SQUIRTLE,
+            .species = SPECIES_BELDUM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_TORRENT,
+            .ability = ABILITY_CLEAR_BODY,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -66,7 +55,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -75,7 +64,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -86,7 +75,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_SWITCH_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -95,7 +84,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -105,14 +94,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum used Bullet Punch!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sliggoo's Gooey" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum’s Clear Body" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum’s stats were not lowered!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander used Flame Wheel!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sliggoo's Gooey" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander's Speed fell!" },
-    },
-    .knownFailing = TRUE,
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ariados’s Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ariados’s Defiant" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ariados’s Attack rose sharply!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ariados used Sticky Web!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Beldum!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Speed" },
+    }
 }
 END_TEST
