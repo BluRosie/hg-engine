@@ -128,6 +128,7 @@ BOOL btl_scr_cmd_11E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct
 BOOL btl_scr_cmd_11F_BatchEffectivenessMessage(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -459,6 +460,7 @@ const u8 *BattleScrCmdNames[] = {
     "BatchEffectivenessMessage",
     "DivideVarByValueRoundUp",
     "IsPursuitActive",
+    "GetMonByCottonDownOrder",
     // "YourCustomCommand",
 };
 
@@ -535,6 +537,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x11F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11F_BatchEffectivenessMessage,
     [0x120 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_120_DivideVarByValueRoundUp,
     [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_IsPursuitActive,
+    [0x122 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_122_GetMonByCottonDownOrder,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -5509,5 +5512,59 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
         */
     }
 
+    return FALSE;
+}
+
+
+BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    endloop = read_battle_script_param(ctx);
+
+    if (ctx->clientLoopForAbility == SPREAD_ABILITY_LOOP_MAX) {
+        IncrementBattleScriptPtr(ctx, endloop);
+        ctx->clientLoopForAbility = 0;
+        return FALSE;
+    }
+
+    if (BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) {
+        switch (sp->clientLoopForAbility) {
+        case SPREAD_ABILITY_LOOP_OPPONENT_LEFT:
+            sp->clientLoopForAbility++;
+            if (sp->battlemon[BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client)].species) {
+                sp->state_client = BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client);
+                sp->battlerIdTemp = sp->defence_client;
+                return FALSE;
+            }
+            FALLTHROUGH;
+        case SPREAD_ABILITY_LOOP_OPPONENT_RIGHT:
+            sp->clientLoopForAbility++;
+            if (sp->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client)].species) {
+                sp->state_client = BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client);
+                sp->battlerIdTemp = sp->defence_client;
+                return FALSE;
+            }
+            FALLTHROUGH;
+        case SPREAD_ABILITY_LOOP_ALLY:
+            sp->clientLoopForAbility++;
+            if (sp->battlemon[BATTLER_ALLY(sp->defence_client)].species) {
+                sp->state_client = BATTLER_ALLY(sp->defence_client);
+                sp->battlerIdTemp = sp->defence_client;
+                return FALSE;
+            }
+            break;
+        default:
+            IncrementBattleScriptPtr(ctx, endloop);
+            break;
+        }
+    } else {
+        ctx->clientLoopForAbility = SPREAD_ABILITY_LOOP_MAX;
+        ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+        ctx->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+        ctx->state_client = ctx->attack_client;
+        ctx->battlerIdTemp = ctx->attack_client;
+    }
+
+    ctx->clientLoopForAbility = 0;
     return FALSE;
 }
