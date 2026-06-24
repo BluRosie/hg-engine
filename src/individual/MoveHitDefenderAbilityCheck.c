@@ -387,7 +387,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             seq_no[0] = SUB_SEQ_HANDLE_ILLUSION_FADED;
             ret = TRUE;
     } else if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_COTTON_DOWN) { //not breakable
-        if ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage) {
+        if (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage) {
             sp->addeffect_type = ADD_STATUS_ABILITY;
             seq_no[0] = SUB_SEQ_COTTON_DOWN;
             ret = TRUE;

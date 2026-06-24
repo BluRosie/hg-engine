@@ -5519,7 +5519,7 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
-    endloop = read_battle_script_param(ctx);
+    int endloop = read_battle_script_param(ctx);
 
     if (ctx->clientLoopForAbility == SPREAD_ABILITY_LOOP_MAX) {
         IncrementBattleScriptPtr(ctx, endloop);
@@ -5528,28 +5528,28 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
     }
 
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) {
-        switch (sp->clientLoopForAbility) {
+        switch (ctx->clientLoopForAbility) {
         case SPREAD_ABILITY_LOOP_OPPONENT_LEFT:
-            sp->clientLoopForAbility++;
-            if (sp->battlemon[BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client)].species) {
-                sp->state_client = BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client);
-                sp->battlerIdTemp = sp->defence_client;
+            ctx->clientLoopForAbility++;
+            if (ctx->battlemon[BATTLER_OPPONENT_SIDE_LEFT(ctx->defence_client)].species) {
+                ctx->state_client = BATTLER_OPPONENT_SIDE_LEFT(ctx->defence_client);
+                ctx->battlerIdTemp = ctx->defence_client;
                 return FALSE;
             }
             FALLTHROUGH;
         case SPREAD_ABILITY_LOOP_OPPONENT_RIGHT:
-            sp->clientLoopForAbility++;
-            if (sp->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client)].species) {
-                sp->state_client = BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client);
-                sp->battlerIdTemp = sp->defence_client;
+            ctx->clientLoopForAbility++;
+            if (ctx->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(ctx->defence_client)].species) {
+                ctx->state_client = BATTLER_OPPONENT_SIDE_RIGHT(ctx->defence_client);
+                ctx->battlerIdTemp = ctx->defence_client;
                 return FALSE;
             }
             FALLTHROUGH;
         case SPREAD_ABILITY_LOOP_ALLY:
-            sp->clientLoopForAbility++;
-            if (sp->battlemon[BATTLER_ALLY(sp->defence_client)].species) {
-                sp->state_client = BATTLER_ALLY(sp->defence_client);
-                sp->battlerIdTemp = sp->defence_client;
+            ctx->clientLoopForAbility++;
+            if (ctx->battlemon[BATTLER_ALLY(ctx->defence_client)].species) {
+                ctx->state_client = BATTLER_ALLY(ctx->defence_client);
+                ctx->battlerIdTemp = ctx->defence_client;
                 return FALSE;
             }
             break;
