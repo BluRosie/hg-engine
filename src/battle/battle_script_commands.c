@@ -5533,7 +5533,7 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
             ctx->clientLoopForAbility++;
             if (ctx->battlemon[BATTLER_OPPONENT_SIDE_LEFT(ctx->defence_client)].species) {
                 ctx->state_client = BATTLER_OPPONENT_SIDE_LEFT(ctx->defence_client);
-                ctx->battlerIdTemp = ctx->defence_client;
+                ctx->battlerIdTemp = ctx->state_client;
                 return FALSE;
             }
             FALLTHROUGH;
@@ -5541,7 +5541,7 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
             ctx->clientLoopForAbility++;
             if (ctx->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(ctx->defence_client)].species) {
                 ctx->state_client = BATTLER_OPPONENT_SIDE_RIGHT(ctx->defence_client);
-                ctx->battlerIdTemp = ctx->defence_client;
+                ctx->battlerIdTemp = ctx->state_client;
                 return FALSE;
             }
             FALLTHROUGH;
@@ -5549,7 +5549,7 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
             ctx->clientLoopForAbility++;
             if (ctx->battlemon[BATTLER_ALLY(ctx->defence_client)].species) {
                 ctx->state_client = BATTLER_ALLY(ctx->defence_client);
-                ctx->battlerIdTemp = ctx->defence_client;
+                ctx->battlerIdTemp = ctx->state_client;
                 return FALSE;
             }
             break;
@@ -5559,10 +5559,9 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
         }
     } else {
         ctx->clientLoopForAbility = SPREAD_ABILITY_LOOP_MAX;
-        ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
-        ctx->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
         ctx->state_client = ctx->attack_client;
         ctx->battlerIdTemp = ctx->attack_client;
+        return FALSE;
     }
 
     ctx->clientLoopForAbility = 0;
