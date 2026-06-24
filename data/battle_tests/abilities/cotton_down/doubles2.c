@@ -110,7 +110,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gossifleur's Cotton Down" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Charmander" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum's stats were not lowered!" },
-    }
+    },
     .knownFailing = TRUE,
 }
 END_TEST

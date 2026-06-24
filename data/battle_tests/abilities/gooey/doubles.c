@@ -111,7 +111,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander used Flame Wheel!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sliggoo's Gooey" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander's Speed fell!" },
-    }
+    },
     .knownFailing = TRUE,
 }
 END_TEST
