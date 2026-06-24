@@ -2226,18 +2226,9 @@ int LONG_CALL MovePerformance_Step_10(void *bsys, struct BattleStruct *ctx, int 
             }
             FALLTHROUGH;
         }
-        case MOVE_PERFORMANCE_SUB_STEP_10_7_COTTON_DOWN: {
+        case MOVE_PERFORMANCE_SUB_STEP_10_7_DAMAGE_REDUCTION_BERRY:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_7_COTTON_DOWN: ctx->swoak_work %d, ctx->clientLoopForAbility %d\n", ctx->swoak_work, ctx->clientLoopForAbility);
-#endif
-            ctx->movePerformanceSubstep++;
-            ctx->clientLoopForAbility = 0;
-            ctx->swoak_work = 0;
-            FALLTHROUGH;
-        }
-        case MOVE_PERFORMANCE_SUB_STEP_10_8_DAMAGE_REDUCTION_BERRY:
-#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_8_DAMAGE_REDUCTION_BERRY %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_7_DAMAGE_REDUCTION_BERRY %d\n", ctx->movePerformanceSubstep);
 #endif
 
             ctx->movePerformanceSubstep++;
@@ -2245,9 +2236,9 @@ int LONG_CALL MovePerformance_Step_10(void *bsys, struct BattleStruct *ctx, int 
                 return TRUE;
             }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_9_DEFENDER_ITEMS_1: {
+        case MOVE_PERFORMANCE_SUB_STEP_10_8_DEFENDER_ITEMS_1: {
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_9_DEFENDER_ITEMS_1 %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_8_DEFENDER_ITEMS_1 %d\n", ctx->movePerformanceSubstep);
 #endif
 
             ctx->movePerformanceSubstep++;
@@ -2260,27 +2251,27 @@ int LONG_CALL MovePerformance_Step_10(void *bsys, struct BattleStruct *ctx, int 
             }
         }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_10_INCINERATE:
+        case MOVE_PERFORMANCE_SUB_STEP_10_9_INCINERATE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_10_INCINERATE %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_9_INCINERATE %d\n", ctx->movePerformanceSubstep);
 #endif
             ctx->movePerformanceSubstep++;
             if (Activate_Incinerate(bsys, ctx) == TRUE) {
                 return TRUE;
             }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP:
+        case MOVE_PERFORMANCE_SUB_STEP_10_10_DEFENDER_ITEMS_2_JABOCA_ROWAP:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_10_DEFENDER_ITEMS_2_JABOCA_ROWAP %d\n", ctx->movePerformanceSubstep);
 #endif
             ctx->movePerformanceSubstep++;
             if (Activate_Rowap_Jaboca(bsys, ctx) == TRUE) {
                 return TRUE;
             }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_12_DISGUISE_ICE_FACE:
+        case MOVE_PERFORMANCE_SUB_STEP_10_11_DISGUISE_ICE_FACE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_12_DISGUISE_ICE_FACE %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_11_DISGUISE_ICE_FACE %d\n", ctx->movePerformanceSubstep);
 #endif
             ctx->movePerformanceSubstep++;
             if (Activate_Disguise_IceFace(bsys, ctx) == TRUE) {
@@ -2288,7 +2279,7 @@ int LONG_CALL MovePerformance_Step_10(void *bsys, struct BattleStruct *ctx, int 
             }
 
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_13_PROTECTION_FROM_Z_MOVE:
+        case MOVE_PERFORMANCE_SUB_STEP_10_12_PROTECTION_FROM_Z_MOVE:
             // TODO
             ctx->movePerformanceSubstep++;
             FALLTHROUGH;
