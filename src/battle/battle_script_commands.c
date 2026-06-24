@@ -5532,9 +5532,9 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
         ctx->clientLoopForAbility++;
         int leftSide = BATTLER_OPPONENT_SIDE_LEFT(ctx->defence_client);
         if (ctx->battlemon[leftSide].species
-            && CheckSubstitute(ctx, leftSide) == FALSE) {
+            && (ctx->battlemon[leftSide].condition2 & STATUS2_SUBSTITUTE) == 0) {
             ctx->state_client = leftSide;
-            ctx->battlerIdTemp = ctx->state_client;
+            ctx->battlerIdTemp = ctx->defence_client;
             return FALSE;
         }
         FALLTHROUGH;
@@ -5542,9 +5542,9 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
         ctx->clientLoopForAbility++;
         int rightSide = BATTLER_OPPONENT_SIDE_RIGHT(ctx->defence_client);
         if (ctx->battlemon[rightSide].species
-            && CheckSubstitute(ctx, rightSide) == FALSE) {
+            && (ctx->battlemon[rightSide].condition2 & STATUS2_SUBSTITUTE) == 0) {
             ctx->state_client = rightSide;
-            ctx->battlerIdTemp = ctx->state_client;
+            ctx->battlerIdTemp = ctx->defence_client;
             return FALSE;
         }
         FALLTHROUGH;
@@ -5552,9 +5552,9 @@ BOOL btl_scr_cmd_122_GetMonByCottonDownOrder(void *bsys, struct BattleStruct *ct
         ctx->clientLoopForAbility++;
         int ally = BATTLER_ALLY(ctx->defence_client);
         if (ctx->battlemon[ally].species
-            && CheckSubstitute(ctx, ally) == FALSE) {
+            && (ctx->battlemon[ally].condition2 & STATUS2_SUBSTITUTE) == 0) {
             ctx->state_client = ally;
-            ctx->battlerIdTemp = ctx->state_client;
+            ctx->battlerIdTemp = ctx->defence_client;
             return FALSE;
         }
         FALLTHROUGH;
