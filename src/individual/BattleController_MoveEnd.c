@@ -40,7 +40,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     }
 
     if (ctx->magicBounceContext.bounceCounter != ctx->magicBounceContext.bounceMaxCounter) {
-        ctx->magicBounceContext.isActive == TRUE;
+        ctx->magicBounceContext.isActive = TRUE;
         ctx->attack_client = ctx->magicBounceContext.bounceClients[ctx->magicBounceContext.bounceCounter];
         ctx->magicBounceContext.bounceCounter++;
         ctx->defence_client = ctx->magicBounceContext.originalAttacker;
