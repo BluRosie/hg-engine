@@ -1,4 +1,4 @@
-// Test: Cotton Down - Doubles
+// Test: Gooey - Doubles
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_SQUIRTLE,
+            .species = SPECIES_BELDUM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_TORRENT,
+            .ability = ABILITY_CLEAR_BODY,
             .item = ITEM_NONE,
-            .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_BULLET_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -25,7 +25,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_FLAME_WHEEL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -37,10 +37,10 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_GOSSIFLEUR,
+                        .species = SPECIES_SLIGGOO,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_COTTON_DOWN,
+                        .ability = ABILITY_GOOEY,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
@@ -49,10 +49,10 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_BELDUM,
+            .species = SPECIES_SQUIRTLE,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_LIGHT_METAL,
+            .ability = ABILITY_TORRENT,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -105,13 +105,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle used Water Gun!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gossifleur's Cotton Down" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum used Bullet Punch!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sliggoo's Gooey" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum’s Clear Body" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beldum’s stats were not lowered!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander used Flame Wheel!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sliggoo's Gooey" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander's Speed fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beldum's Speed fell!" },
-    }
+    },
+    .knownFailing = TRUE,
 }
 END_TEST

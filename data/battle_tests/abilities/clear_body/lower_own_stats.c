@@ -1,4 +1,4 @@
-// Test: Cotton Down - Singles
+// Test: Clear Body - Lower own stats
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_SQUIRTLE,
+            .species = SPECIES_METAGROSS,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_TORRENT,
+            .ability = ABILITY_CLEAR_BODY,
             .item = ITEM_NONE,
-            .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_HAMMER_ARM, MOVE_SCARY_FACE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -26,12 +26,12 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_GOSSIFLEUR,
-                        .level = 50,
+                        .species = SPECIES_METAGROSS,
+                        .level = 49,
                         .form = 0,
-                        .ability = ABILITY_COTTON_DOWN,
+                        .ability = ABILITY_NO_GUARD,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_HAMMER_ARM, MOVE_SCARY_FACE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -44,7 +44,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -64,7 +64,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,11 +83,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle used Water Gun!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gossifleur's Cotton Down" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Metagross's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Metagross's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Metagross's Speed harshly fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Metagross used Scary Face!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Metagross's Clear Body" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Metagross's stats were not lowered!" },
     }
 }
 END_TEST

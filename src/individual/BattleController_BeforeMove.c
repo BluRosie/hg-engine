@@ -3359,6 +3359,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, subscriptToRun);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
+        ctx->battlerIdTemp = defender;
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return subscriptToRun;

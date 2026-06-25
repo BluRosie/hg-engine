@@ -1,46 +1,35 @@
-// Test: Cotton Down - Doubles
+// Test: Magic Bounce - Bounce spread move in singles
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
+    .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_SQUIRTLE,
+            .species = SPECIES_ARBOK,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_TORRENT,
+            .ability = ABILITY_SHED_SKIN,
             .item = ITEM_NONE,
-            .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        {
-            .species = SPECIES_CHARMANDER,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_BLAZE,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_GOSSIFLEUR,
+                        .species = SPECIES_ESPEON,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_COTTON_DOWN,
+                        .ability = ABILITY_MAGIC_BOUNCE,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
@@ -48,18 +37,7 @@ BEGIN_TEST
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        {
-            .species = SPECIES_BELDUM,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_LIGHT_METAL,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -75,7 +53,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -95,7 +73,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -105,13 +83,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle used Water Gun!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 10, 10, 10, 10, 11, 11, 11, 11, 11, 11, 12, 12, 12, 12, 12, 12 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gossifleur's Cotton Down" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle's Speed fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander's Speed fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beldum's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Growl back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
     }
 }
 END_TEST

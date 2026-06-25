@@ -21,7 +21,6 @@ int LONG_CALL ShowDamageReductionBerryMessage(void *bsys UNUSED, struct BattleSt
 
 int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, struct BattleStruct *sp, int *seq_no);
 int LONG_CALL Activate_Clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
-int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_Rowap_Jaboca(void *bw UNUSED, struct BattleStruct *sp);
 int LONG_CALL Activate_Incinerate(void *bw UNUSED, struct BattleStruct *sp);
@@ -894,56 +893,6 @@ int LONG_CALL Activate_Clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
     }
-    return FALSE;
-}
-
-int LONG_CALL CottonDownCheck(void *bsys UNUSED, struct BattleStruct *sp)
-{
-    if ((GetBattlerAbility(sp, sp->defence_client) == ABILITY_COTTON_DOWN)
-        && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-        && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-        && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage)))
-    {
-        for (; sp->clientLoopForAbility <= SPREAD_ABILITY_LOOP_MAX; )
-        {
-
-            switch (sp->clientLoopForAbility) {
-            case SPREAD_ABILITY_LOOP_OPPONENT_LEFT:
-                sp->clientLoopForAbility++;
-                if (sp->battlemon[BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client)].species) {
-                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
-                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
-                    sp->state_client = BATTLER_OPPONENT_SIDE_LEFT(sp->defence_client);
-                    sp->battlerIdTemp = sp->defence_client;
-                    return TRUE;
-                }
-                FALLTHROUGH;
-            case SPREAD_ABILITY_LOOP_OPPONENT_RIGHT:
-                sp->clientLoopForAbility++;
-                if (sp->battlemon[BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client)].species) {
-                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
-                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
-                    sp->state_client = BATTLER_OPPONENT_SIDE_RIGHT(sp->defence_client);
-                    sp->battlerIdTemp = sp->defence_client;
-                    return TRUE;
-                }
-                FALLTHROUGH;
-            case SPREAD_ABILITY_LOOP_ALLY:
-                sp->clientLoopForAbility++;
-                if (sp->battlemon[BATTLER_ALLY(sp->defence_client)].species) {
-                    sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
-                    sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
-                    sp->state_client = BATTLER_ALLY(sp->defence_client);
-                    sp->battlerIdTemp = sp->defence_client;
-                    return TRUE;
-                }
-                break;
-            default:
-                break;
-            }
-        }
-    }
-    sp->clientLoopForAbility = 0;
     return FALSE;
 }
 
@@ -2277,25 +2226,9 @@ int LONG_CALL MovePerformance_Step_10(void *bsys, struct BattleStruct *ctx, int 
             }
             FALLTHROUGH;
         }
-        case MOVE_PERFORMANCE_SUB_STEP_10_7_COTTON_DOWN: {
+        case MOVE_PERFORMANCE_SUB_STEP_10_7_DAMAGE_REDUCTION_BERRY:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_7_COTTON_DOWN: ctx->swoak_work %d, ctx->clientLoopForAbility %d\n", ctx->swoak_work, ctx->clientLoopForAbility);
-#endif
-            if (CottonDownCheck(bsys, ctx) == TRUE) {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
-                ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                return TRUE;
-            }
-
-            ctx->movePerformanceSubstep++;
-            ctx->clientLoopForAbility = 0;
-            ctx->swoak_work = 0;
-            FALLTHROUGH;
-        }
-        case MOVE_PERFORMANCE_SUB_STEP_10_8_DAMAGE_REDUCTION_BERRY:
-#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_8_DAMAGE_REDUCTION_BERRY %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_7_DAMAGE_REDUCTION_BERRY %d\n", ctx->movePerformanceSubstep);
 #endif
 
             ctx->movePerformanceSubstep++;
@@ -2303,9 +2236,9 @@ int LONG_CALL MovePerformance_Step_10(void *bsys, struct BattleStruct *ctx, int 
                 return TRUE;
             }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_9_DEFENDER_ITEMS_1: {
+        case MOVE_PERFORMANCE_SUB_STEP_10_8_DEFENDER_ITEMS_1: {
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_9_DEFENDER_ITEMS_1 %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_8_DEFENDER_ITEMS_1 %d\n", ctx->movePerformanceSubstep);
 #endif
 
             ctx->movePerformanceSubstep++;
@@ -2318,27 +2251,27 @@ int LONG_CALL MovePerformance_Step_10(void *bsys, struct BattleStruct *ctx, int 
             }
         }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_10_INCINERATE:
+        case MOVE_PERFORMANCE_SUB_STEP_10_9_INCINERATE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_10_INCINERATE %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_9_INCINERATE %d\n", ctx->movePerformanceSubstep);
 #endif
             ctx->movePerformanceSubstep++;
             if (Activate_Incinerate(bsys, ctx) == TRUE) {
                 return TRUE;
             }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP:
+        case MOVE_PERFORMANCE_SUB_STEP_10_10_DEFENDER_ITEMS_2_JABOCA_ROWAP:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_11_DEFENDER_ITEMS_2_JABOCA_ROWAP %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_10_DEFENDER_ITEMS_2_JABOCA_ROWAP %d\n", ctx->movePerformanceSubstep);
 #endif
             ctx->movePerformanceSubstep++;
             if (Activate_Rowap_Jaboca(bsys, ctx) == TRUE) {
                 return TRUE;
             }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_12_DISGUISE_ICE_FACE:
+        case MOVE_PERFORMANCE_SUB_STEP_10_11_DISGUISE_ICE_FACE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_12_DISGUISE_ICE_FACE %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_10_11_DISGUISE_ICE_FACE %d\n", ctx->movePerformanceSubstep);
 #endif
             ctx->movePerformanceSubstep++;
             if (Activate_Disguise_IceFace(bsys, ctx) == TRUE) {
@@ -2346,7 +2279,7 @@ int LONG_CALL MovePerformance_Step_10(void *bsys, struct BattleStruct *ctx, int 
             }
 
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_10_13_PROTECTION_FROM_Z_MOVE:
+        case MOVE_PERFORMANCE_SUB_STEP_10_12_PROTECTION_FROM_Z_MOVE:
             // TODO
             ctx->movePerformanceSubstep++;
             FALLTHROUGH;
