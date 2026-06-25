@@ -43,7 +43,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         
         if (ctx->magicBounceContext.bounceCounter != ctx->magicBounceContext.bounceMaxCounter)
         {
-            ctx->attack_client = ctx->bounceClients[ctx->magicBounceContext.bounceCounter];
+            ctx->attack_client = ctx->magicBounceContext.bounceClients[ctx->magicBounceContext.bounceCounter];
             ctx->magicBounceContext.bounceCounter++;
             ctx->defence_client = ctx->magicBounceContext.originalAttacker;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGIC_COAT);
