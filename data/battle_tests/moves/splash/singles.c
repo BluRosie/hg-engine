@@ -21,12 +21,12 @@ const struct TestBattleScenario BattleTests[] = {
         .terrain = TERRAIN_NONE,
         .playerParty = {
             {
-                .species = SPECIES_ARBOK,
+                .species = SPECIES_GYARADOS,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_SHED_SKIN,
+                .ability = ABILITY_MOXIE,
                 .item = ITEM_NONE,
-                .moves = { MOVE_GLARE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -38,12 +38,12 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE } },
         .enemyParty = { {
-                            .species = SPECIES_ESPEON,
+                            .species = SPECIES_MAGIKARP,
                             .level = 50,
                             .form = 0,
                             .ability = ABILITY_MAGIC_BOUNCE,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -95,9 +95,8 @@ const struct TestBattleScenario BattleTests[] = {
                 { ACTION_NONE, 0 },
             } },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Glare back!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok is paralyzed, so it may be unable to move!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But nothing happened!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But nothing happened!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

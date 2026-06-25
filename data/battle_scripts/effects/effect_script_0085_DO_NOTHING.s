@@ -3,5 +3,8 @@
 .data
 
 _000:
-    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_SPLASH
+    // But nothing happened!
+    PrintMessage 795, TAG_NONE
+    Wait 
+    WaitButtonABTime 30
     End 
