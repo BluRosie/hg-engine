@@ -1110,6 +1110,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 
         if (IsAttackerOnField(ctx)
             && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_POWERING_UP_MOVE_ONCE
+            && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)
             && (BattleItemDataGet(ctx, ctx->battlemon[ctx->attack_client].item, 2) == ctx->move_type)
             && (ctx->current_move_index != MOVE_STRUGGLE)
             && (ctx->current_move_index < MOVE_WATER_PLEDGE || ctx->current_move_index > MOVE_GRASS_PLEDGE)
@@ -4246,15 +4247,14 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             && ctx->battlemon[ctx->attack_client].form_no == 2) {
             break;
         }
-        // TODO
         if (attackerItem == ITEM_NONE
-            // || !CanItemBeRemovedFromClient(ctx, ctx->defence_client) // corrosive gas nonsense prevents this rn i think
-            || defenderItem != ITEM_NONE
+            || defenderItem != ITEM_NONE // THIS IS A PROBLEM FOR SOME REASON
             || IS_ITEM_MAIL(attackerItem)
+            || IS_ITEM_MEGA_STONE(attackerItem)
             || IS_ITEM_Z_CRYSTAL(attackerItem)
             || ((attackerSpecies == SPECIES_KYOGRE || defenderSpecies == SPECIES_KYOGRE) && attackerItem == ITEM_BLUE_ORB)
             || ((attackerSpecies == SPECIES_GROUDON || defenderSpecies == SPECIES_GROUDON) && attackerItem == ITEM_RED_ORB)
-            || (CheckMegaData(defenderSpecies, attackerItem))
+            || (CheckMegaData(attackerSpecies, attackerItem) || CheckMegaData(defenderSpecies, attackerItem))
             || ((attackerSpecies == SPECIES_GIRATINA || defenderSpecies == SPECIES_GIRATINA) && attackerItem == ITEM_GRISEOUS_CORE)
             || ((attackerSpecies == SPECIES_ARCEUS || defenderSpecies == SPECIES_ARCEUS) && IS_ITEM_ARCEUS_PLATE(attackerItem))
             || ((attackerSpecies == SPECIES_GENESECT || defenderSpecies == SPECIES_GENESECT) && IS_ITEM_GENESECT_DRIVE(attackerItem))

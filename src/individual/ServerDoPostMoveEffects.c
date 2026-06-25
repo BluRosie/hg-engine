@@ -157,7 +157,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
-        } else if (ctx->multiHitCount <= 1) {
+        } else if (ctx->multiHitCount <= 1 || (ctx->multiHitCount > 1 && ctx->battlemon[ctx->defence_client].hp == 0)) {
             if (ServerWazaStatusMessage(bsys, ctx) == TRUE) {
                 return;
             }
@@ -626,8 +626,10 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_29_0_RESOLVE_PENDING_SWITCH %d\n", ctx->swoam_seq_no);
 #endif
         ctx->swoam_seq_no++;
-        if (ctx->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
-            //ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
+        if (ctx->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING
+            && ctx->current_move_index != MOVE_PURSUIT
+            && ctx->pursuitContext.isActive == FALSE) {
+            // ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARTY_LIST);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;

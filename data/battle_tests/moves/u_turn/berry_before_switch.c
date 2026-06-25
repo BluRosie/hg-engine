@@ -113,7 +113,7 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 24, 24, 24, 24, 24, 25 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ferroseed's Iron Barbs hurt the opposing Beedrill!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ferroseed's Iron Barbs" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beedrill is hurt by Ferroseed's Rocky Helmet!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beedrill restored its health using its Sitrus Berry!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Beedrill went back to" },

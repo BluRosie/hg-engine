@@ -81,6 +81,9 @@ GetNatureFromPersonality = 0x0206FE2C |1;
 PokeParaLevelExpGet = 0x0206FCDC | 1;
 PokeLevelUpCheck = 0x02070DB4 | 1;
 MonHasMove = 0x02071754 | 1;
+DeleteMonFirstMoveAndAppend = 0x020713EC | 1;
+Species_LoadLearnsetTable = 0x02071900 | 1;
+GetTMHMCompatBySpeciesAndForm = 0x0207227C | 1;
 PartyHasMon = 0x020748CC | 1;
 sub_020720FC = 0x020720FC | 1;
 InitBoxMonMoveset = 0x020712D8 | 1;
@@ -866,3 +869,11 @@ ov12_02256694 = 0x02256694 | 1;
 sStarterChoiceCries = 0x021E7398;
 BufferBoxMonNickname = 0x0200BF8C | 1;
 BufferBoxMonSpeciesName = 0x0200BF1C | 1;
+
+#roamers
+PlayerLocationHistoryGetBack = 0x0202D9F4 | 1;
+PlayerProfile_GetTrainerID_VisibleHalf = 0x02028F88 | 1;
+SetRoamerData = 0x0202DAB8 | 1;
+Roamers_GetRoamMonStats = 0x0202DA54 | 1;
+Roamer_GetLocation = 0x0202D9F8 | 1;
+ApplyRoamerLocation = 0x02067914 | 1;

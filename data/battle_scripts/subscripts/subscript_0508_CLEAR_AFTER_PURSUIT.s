@@ -1,0 +1,35 @@
+.include "asm/include/battle_commands.inc"
+
+.data
+
+_000:
+    Call BATTLE_SUBSCRIPT_PURSUIT
+    IsPursuitActive _noPursuit
+    End
+
+_noPursuit:
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SWITCHED_MON, BMON_DATA_HP, 0, _defenderIsFainting
+    GoTo _020
+
+_defenderIsFainting:
+    UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF
+    Wait 
+    DeletePokemon BATTLER_CATEGORY_SWITCHED_MON
+    Wait 
+    HealthbarSlideOut BATTLER_CATEGORY_SWITCHED_MON
+    Wait 
+    UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS_2, BATTLE_STATUS2_UTURN
+    UpdateVar OPCODE_FLAG_OFF, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_SYNCRONIZE
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_MON_SELF_TURN_STATUS_FLAGS, SELF_TURN_FLAG_CLEAR
+    End
+    
+
+_020:
+    RecallPokemon BATTLER_CATEGORY_SWITCHED_MON
+    Wait 
+    HealthbarSlideOut BATTLER_CATEGORY_SWITCHED_MON
+    Wait
+
+_026:
+    Call BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
+    End 

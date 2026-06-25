@@ -163,6 +163,13 @@ def battle_type_expr(value):
     return "DOUBLE_BATTLE" if value != 0 else "SINGLE_BATTLE"
 
 
+def party_size_expr(value):
+    party_size = value & TRAINER_PARTY_SIZE_MASK
+    if value & TRAINER_RANDOM_PARTY_ORDER_FLAG:
+        return f"TRAINER_DATA_RANDOM_PARTY_ORDER | {party_size}"
+    return str(party_size)
+
+
 def ability_slot_expr(value):
     return ABILITY_SLOT_NAMES.get(value, str(value))
 
@@ -274,6 +281,8 @@ def dump_trainerdata_c(rom, msgdata_narc, expanded):
         lines.append("        .data = {")
         lines.append(f"            .trainerType = {trainer_type_expr(trainer['flags'])},")
         lines.append(f"            .trainerClass = {lookup_const('TRAINERCLASS', trainer['class'])},")
+        if trainer["num_pokemon"] & TRAINER_RANDOM_PARTY_ORDER_FLAG:
+            lines.append(f"            .partySize = {party_size_expr(trainer['num_pokemon'])},")
         lines.append(
             "            .items = { "
             + ", ".join(

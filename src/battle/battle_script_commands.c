@@ -127,7 +127,8 @@ BOOL btl_scr_cmd_11D_BatchUpdateHealthBarValue(void *bsys, struct BattleStruct *
 BOOL btl_scr_cmd_11E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_11F_BatchEffectivenessMessage(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_121_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -147,6 +148,7 @@ BOOL BtlCmd_TryBreakScreens(struct BattleSystem *bsys, struct BattleStruct *ctx)
 BOOL BtlCmd_ResetAllStatChanges(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -457,6 +459,7 @@ const u8 *BattleScrCmdNames[] = {
     "BatchFollowupMessage",
     "BatchEffectivenessMessage",
     "DivideVarByValueRoundUp",
+    "IsPursuitActive",
     "GoBackToBeforeMove",
     // "YourCustomCommand",
 };
@@ -533,7 +536,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x11E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11E_BatchFollowupMessage,
     [0x11F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11F_BatchEffectivenessMessage,
     [0x120 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_120_DivideVarByValueRoundUp,
-    [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_GoBackToBeforeMove,
+    [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_IsPursuitActive,
+    [0x122 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_122_GoBackToBeforeMove,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -2985,6 +2989,7 @@ BOOL btl_scr_cmd_FB_switchinabilitycheck(void *bw, struct BattleStruct *sp)
 
     int script;
     int failAddress = read_battle_script_param(sp);
+    sp->temp_work = 0;
 
     script = SwitchInAbilityCheck(bw, sp);
     if (script) {
@@ -3015,6 +3020,7 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
 
     int script = 0;
     int failAddress = read_battle_script_param(sp);
+    sp->temp_work = 0;
 
     if (newBS.needMega[sp->attack_client] == MEGA_NEED && sp->battlemon[sp->attack_client].hp) {
         if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
@@ -3040,6 +3046,8 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
     if (script) {
         // debug_printf("script: %d\n", script);
         sp->temp_work = script;
+        sp->next_server_seq_no = sp->server_seq_no;
+        sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
     } else {
         // debug_printf("no script needed\n");
         IncrementBattleScriptPtr(sp, failAddress);
@@ -5413,7 +5421,28 @@ BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ct
     return FALSE;
 }
 
-BOOL btl_scr_cmd_121_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+	HandleTransform(ctx);
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int noPursuit = read_battle_script_param(ctx);
+
+    if (ctx->pursuitContext.isActive == FALSE) {
+        IncrementBattleScriptPtr(ctx, noPursuit);
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
 
@@ -5429,11 +5458,80 @@ BOOL btl_scr_cmd_121_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *
     return FALSE;
 }
 
-BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
+BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
+    int adrs, maxBattlers, moveNo, moveIndex, client_no;
+
     IncrementBattleScriptPtr(ctx, 1);
 
-	HandleTransform(ctx);
+    adrs = read_battle_script_param(ctx);
+    maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    for (client_no = 0; client_no < maxBattlers; client_no++) {
+        int battlerId = ctx->turnOrder[client_no];
+        if (ctx->battlemon[ctx->reshuffle_client].hp
+            && ctx->playerActions[battlerId][0] != CONTROLLER_COMMAND_40
+            && ctx->battlemon[battlerId].hp
+            //&& !(ctx->battlemon[battlerId].status & 39)
+            && !CheckTruant(ctx, battlerId)
+            && IsClientEnemy(bsys, battlerId) != IsClientEnemy(bsys, ctx->reshuffle_client)) {
+            //&& BattleSystem_GetFieldSide(battleSystem, battlerId) != BattleSystem_GetFieldSide(battleSystem, ctx->battlerIdSwitch)) {
+
+            if ((ctx->battlemon[battlerId].moveeffect.encoredMove)
+                && (ctx->battlemon[battlerId].moveeffect.encoredMove == ctx->battlemon[battlerId].move[ctx->battlemon[battlerId].moveeffect.encoredMoveIndex])) {
+
+                // if (ctx->battleMons[battlerId].unk88.encoredMove && ctx->battleMons[battlerId].unk88.encoredMove == ctx->battleMons[battlerId].moves[ctx->battleMons[battlerId].unk88.encoredMoveIndex]) {
+                moveNo = ctx->battlemon[battlerId].moveeffect.encoredMove;
+            } else {
+                moveNo = GetBattlerSelectedMove(ctx, battlerId);
+            }
+            if (moveNo) {
+                moveIndex = BattleMon_GetMoveIndex(&ctx->battlemon[battlerId], moveNo);
+                if (ctx->moveTbl[moveNo].effect == MOVE_EFFECT_HIT_BEFORE_SWITCH && ctx->battlemon[battlerId].pp[moveIndex]) {
+                    // ctx->battlemon[battlerId].movePPCur[moveIndex]--;
+                    /* if (GetBattlerAbility(ctx, ctx->battlerIdSwitch) == ABILITY_PRESSURE && ctx->battlemon[battlerId].movePPCur[moveIndex]) {
+                       ctx->battlemon[battlerId].movePPCur[moveIndex]--;
+                   }
+                   */
+                    if (ctx->pursuitContext.isActive == FALSE)
+                    {
+                        ctx->pursuitContext.originalAttacker = ctx->attack_client;
+                        ctx->pursuitContext.originalDefender = ctx->defence_client;
+                    }
+                    ctx->pursuitContext.isActive = TRUE;
+                    ov12_02252D14(bsys, ctx);
+                    ctx->attack_client = battlerId;
+                    ctx->defence_client = ctx->reshuffle_client;
+                    ctx->current_move_index = moveNo;
+                    ctx->moveNoTemp = moveNo;
+                    ctx->waza_no_old[ctx->attack_client] = moveNo;
+                    ctx->playerActions[ctx->attack_client][0] = CONTROLLER_COMMAND_40;
+
+                    ctx->moveContext.hitFoesCount = 0;
+                    ctx->moveContext.hitSubstituteCount = 0;
+                    ctx->moveContext.isAllyHit = FALSE;
+                    ctx->moveContext.currentMoveCalcDone = FALSE;
+
+                    CopyBattleMonToPartyMon(bsys, ctx, battlerId);
+                    ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
+                    ctx->server_seq_no = CONTROLLER_COMMAND_23;
+                    break;
+                }
+            }
+        }
+    }
+
+    if (client_no == maxBattlers) {
+        IncrementBattleScriptPtr(ctx, adrs);
+    } else {
+        /* int itemEffect = GetBattlerHeldItemEffect(ctx, ctx->attack_client);
+        GetHeldItemModifier(ctx, ctx->attack_client, 0);
+
+        if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
+            ctx->battlemon[ctx->attack_client].unk88.moveNoChoice = moveNo;
+        }
+        */
+    }
 
     return FALSE;
 }

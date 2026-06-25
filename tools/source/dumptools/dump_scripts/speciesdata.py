@@ -1,4 +1,5 @@
 import io
+from collections import defaultdict
 
 import dump_scripts.dump_tools as dump_tools
 from dump_scripts.dump_tools import *
@@ -99,6 +100,11 @@ def get_text_or_default(lines, index, default):
     return default
 
 
+def get_max_species_including_forms():
+    max_species = dump_tools.parse_c_header_defines("include/constants/species.h", "MAX_SPECIES_INCLUDING_FORMS")
+    return next(iter(max_species.keys()))
+
+
 def _read_metric_values(data, width, signed):
     values = []
     for offset in range(0, len(data), width):
@@ -130,7 +136,10 @@ def dump_species_data(mondata_narc, msgdata_narc, pokedexsort_narc=None):
         mondata_narc = parse_mondata_files(mondata_narc.files)
 
     text_banks = decode_mon_text_banks(msgdata_narc)
-    metrics_by_species = decode_species_metrics(pokedexsort_narc, len(mondata_narc))
+    species_count = max(len(mondata_narc), get_max_species_including_forms() + 1)
+    if len(mondata_narc) < species_count:
+        mondata_narc.extend(defaultdict(int) for _ in range(species_count - len(mondata_narc)))
+    metrics_by_species = decode_species_metrics(pokedexsort_narc, species_count)
 
     lines = [
         '#include "../include/species_data.h"',
