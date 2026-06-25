@@ -3863,7 +3863,7 @@ u8 LONG_CALL ov12_02261258(struct CLIENT_PARAM *opponentData);
 
 void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-#define IS_VALID_MOVE_TARGET(ctx, battlerId) (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0 && !(ctx->moveStatusFlagForSpreadMoves[battlerId] & WAZA_STATUS_FLAG_NO_OUT))
+#define IS_VALID_MOVE_TARGET(ctx, battlerId) (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0 && !(ctx->moveStatusFlagForSpreadMoves[battlerId] & (WAZA_STATUS_FLAG_NO_OUT | MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE)))
 
 #define LoopCheckFunctionForSpreadMove(bsys, ctx, functionToBeCalled)                                                                        \
     {                                                                                                                                        \
