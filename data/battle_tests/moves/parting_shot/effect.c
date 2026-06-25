@@ -1,12 +1,42 @@
-// Test: Magic Bounce - Bounce Parting Shot
-// SKIP
+// Test: Parting Shot - Basic Implementation
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
+
     .playerParty = {
+        {
+            .species = SPECIES_AUDINO,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_HEALER,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_TOTODILE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_TORRENT,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+    },
+    .enemyParty = {
         {
             .species = SPECIES_INCINEROAR,
             .level = 50,
@@ -24,36 +54,6 @@ BEGIN_TEST {
             .level = 50,
             .form = 0,
             .ability = ABILITY_BLAZE,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-    },
-    .enemyParty = {
-        {
-            .species = SPECIES_ESPEON,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_MAGIC_BOUNCE,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        {
-            .species = SPECIES_TOTODILE,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_TORRENT,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -111,8 +111,7 @@ BEGIN_TEST {
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Parting Shot back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Espeon went back to" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Incineroar used Parting Shot!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Incineroar went back to" },
     },
 } END_TEST
