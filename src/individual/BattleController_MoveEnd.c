@@ -39,6 +39,26 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         }
     }
 
+    if (ctx->magicBounceContext.isActive == TRUE) {
+        
+        if (ctx->magicBounceContext.bounceCounter != ctx->magicBounceContext.bounceMaxCounter)
+        {
+            ctx->attack_client = ctx->bounceClients[ctx->magicBounceContext.bounceCounter];
+            ctx->magicBounceContext.bounceCounter++;
+            ctx->defence_client = ctx->magicBounceContext.originalAttacker;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGIC_COAT);
+            ctx->next_server_seq_no = CONTROLLER_COMMAND_BEFORE_TURN;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+        else
+        {
+            ctx->magicBounceContext.isActive = FALSE;
+            ctx->attack_client = ctx->magicBounceContext.originalAttacker;
+            ctx->defence_client = ctx->magicBounceContext.originalDefender;
+        }
+    }
+
     if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_PAL_PARK))) {
         if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
             return;

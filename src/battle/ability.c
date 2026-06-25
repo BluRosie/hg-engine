@@ -1190,30 +1190,39 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
-    if (sp->defence_client == 0xFF)
+    if (sp->defence_client == BATTLER_NONE)
     {
         return FALSE;
     }
 
-    if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-     && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag
-      // if magic bounce then activate only if it hasn't already activated this move
-      || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MAGIC_BOUNCE) && !sp->magicBounceTracker))
-     && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
+    if (!sp->magicBounceContext.isActive
+        && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
     {
-        sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
-        sp->magicBounceTracker = TRUE;
-        sp->moveProtect[sp->attack_client] = 0;
-        sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
-        sp->lastClientMoveType[sp->attack_client] = GetAdjustedMoveType(sp, sp->attack_client, sp->moveNoTemp);
-        sp->waza_no_last = sp->moveNoTemp;
-        sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
-        LoadBattleSubSeqScript(sp, 1, SUB_SEQ_MAGIC_COAT);
-        sp->next_server_seq_no = sp->server_seq_no;
-        sp->server_seq_no = 22;
-        CheckPressureForPPDecrease(sp, sp->defence_client, sp->attack_client);
-        return TRUE;
+        for (i = 0; i < client_set_max; i++) {
+            client_no = sp->turnOrder[i];
+            if (IS_VALID_MOVE_TARGET(ctx, client_no)
+                (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client))
+                && MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE))
+            {
+                sp->magicBounceContext.originalAttacker = sp->attack_client;
+                sp->magicBounceContext.originalDefender = sp->defence_client;
+                sp->magicBounceContext.bounceClients[sp->magicBounceContext.bounceMaxCounter] = client_no;
+                sp->magicBounceContext.bounceMaxCounter++;
+                sp->moveStatusFlagForSpreadMoves[client_no] = MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE;
+            }
+        }
+
+        if (sp->magicBounceContext.bounceMaxCounter == 2)
+        {
+            ctx->wb_seq_no = BEFORE_MOVE_START;
+            ctx->server_seq_no = CONTROLLER_COMMAND_39;
+            ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+            CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+            ctx->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
+            return TRUE;
+        }
     }
+
     for(i = 0; i < client_set_max; i++)
     {
         client_no = sp->turnOrder[i];

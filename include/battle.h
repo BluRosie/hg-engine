@@ -1269,6 +1269,15 @@ typedef struct PursuitContext {
     u8 originalAttacker;
 } PursuitContext;
 
+typedef struct MagicBounceContext {
+    u8 isActive;
+    u8 originalDefender;
+    u8 originalAttacker;
+    u8 bounceClients[2];
+    u8 bounceCounter;
+    u8 bounceMaxCounter;
+} MagicBounceContext;
+
 
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
@@ -1514,6 +1523,8 @@ struct BattleStruct {
     BOOL boosterEnergyActivated[CLIENT_MAX];
     MovePerformanceContext moveContext;
     PursuitContext pursuitContext;
+
+    MagicBounceContext magicBounceContext;
 };
 
 enum {
