@@ -3,6 +3,7 @@
 .data
 
 _000:
+    PrintAttackMessage
     // But nothing happened!
     PrintMessage 795, TAG_NONE
     Wait 
