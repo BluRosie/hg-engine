@@ -1,4 +1,4 @@
-// Test: Magic Bounce - Bounce Toxic Spikes
+// Test: Magic Bounce - Bounce Glare
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"

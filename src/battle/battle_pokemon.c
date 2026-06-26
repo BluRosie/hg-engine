@@ -275,6 +275,10 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
+    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
+    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
+    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
+
     if (
     // mon's ability is illusion
          GetMonData(Party_GetMonByIndex(party, 0), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION
@@ -325,6 +329,10 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
+    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
+    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
+    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
+
     if (
     // mon's ability is illusion
          GetMonData(Party_GetMonByIndex(party, pap->sel_mons_no), MON_DATA_ABILITY, 0) == ABILITY_ILLUSION
@@ -374,6 +382,10 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     u32 side = cp->client_no, newform, newmon, newshiny;
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
+
+    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
+    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
+    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
 
     if (
     // mon's ability is illusion
@@ -452,10 +464,23 @@ void BattleMessage_BufferNickname(struct BattleSystem *battleSystem, int bufferI
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIndex);
     struct BattleStruct *ctx = battleSystem->sp;
 
-    if (GetMonData(mon, MON_DATA_ABILITY, NULL) == ABILITY_ILLUSION && IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
+    if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
         mon = Party_GetMonByIndex(party, Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]));
     }
     BufferBoxMonNickname(battleSystem->msgFormat, bufferIndex, &mon->box);
+}
+
+void BattleMessage_BufferPokemon(struct BattleSystem *battleSystem, int bufferIndex, int param) {
+    int partyIndex = (param & 0xFF00) >> 8;
+    int client = param & 0xFF;
+    struct Party *party = BattleWorkPokePartyGet(battleSystem, client);
+    struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIndex);
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
+        mon = Party_GetMonByIndex(party, Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]));
+    }
+    BufferBoxMonSpeciesName(battleSystem->msgFormat, bufferIndex, &mon->box);
 }
 
 // parameter order is for assembly convenience
@@ -465,7 +490,7 @@ void BattleSystem_GrabIllusionBoxMonNameForHpBar(struct BattleSystem *battleSyst
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIndex);
     struct BattleStruct *ctx = battleSystem->sp;
 
-    if (GetMonData(mon, MON_DATA_ABILITY, NULL) == ABILITY_ILLUSION && IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
+    if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
         mon = Party_GetMonByIndex(party, Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]));
     }
     BufferBoxMonNickname(msgFormat, 0, &mon->box);
@@ -1122,7 +1147,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 /**
  *  @brief moves that soundproof blocks
  */
-u16 SoundProofMovesList[] = {
+u16 SoundBasedMoveList[] = {
     MOVE_ALLURING_VOICE,
     MOVE_BOOMBURST,
     MOVE_BUG_BUZZ,
@@ -1253,7 +1278,7 @@ u32 LONG_CALL GetAdjustedMoveType(struct BattleStruct *sp, u32 client, u32 move)
  */
 BOOL LONG_CALL IsMoveSoundBased(u32 move)
 {
-    return IsElementInArray(SoundProofMovesList, (u16 *)(&move), NELEMS(SoundProofMovesList), sizeof(SoundProofMovesList[0]));
+    return IsElementInArray(SoundBasedMoveList, (u16 *)(&move), NELEMS(SoundBasedMoveList), sizeof(SoundBasedMoveList[0]));
 }
 
 

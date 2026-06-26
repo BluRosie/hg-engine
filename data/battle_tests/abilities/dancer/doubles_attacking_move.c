@@ -1,30 +1,29 @@
-// Test: Magic Bounce - Bounce Parting Shot
-// SKIP
+// Test: Dancer - Doubles attacking move
 #include "../../battle_tests.h"
 BEGIN_TEST {
-    .battleType = BATTLE_TYPE_SINGLE,
+    .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_INCINEROAR,
-            .level = 50,
+            .species = SPECIES_BULBASAUR,
+            .level = 10,
             .form = 0,
-            .ability = ABILITY_BLAZE,
-            .item = ITEM_NONE,
-            .moves = { MOVE_PARTING_SHOT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .ability = ABILITY_OVERGROW,
+            .item = ITEM_FOCUS_SASH,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_CYNDAQUIL,
+            .species = SPECIES_CHARMANDER,
             .level = 50,
             .form = 0,
             .ability = ABILITY_BLAZE,
-            .item = ITEM_NONE,
+            .item = ITEM_FOCUS_SASH,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -38,10 +37,10 @@ BEGIN_TEST {
     },
     .enemyParty = {
         {
-            .species = SPECIES_ESPEON,
-            .level = 50,
+            .species = SPECIES_SQUIRTLE,
+            .level = 90,
             .form = 0,
-            .ability = ABILITY_MAGIC_BOUNCE,
+            .ability = ABILITY_DANCER,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -50,12 +49,12 @@ BEGIN_TEST {
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_TOTODILE,
-            .level = 50,
+            .species = SPECIES_ORICORIO,
+            .level = 100,
             .form = 0,
-            .ability = ABILITY_TORRENT,
+            .ability = ABILITY_DANCER,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_REVELATION_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -68,8 +67,7 @@ BEGIN_TEST {
     },
     .playerScript = {
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -78,7 +76,7 @@ BEGIN_TEST {
             { ACTION_NONE, 0 },
         },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -90,8 +88,7 @@ BEGIN_TEST {
     },
     .enemyScript = {
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -100,7 +97,7 @@ BEGIN_TEST {
             { ACTION_NONE, 0 },
         },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -111,8 +108,8 @@ BEGIN_TEST {
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Parting Shot back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Espeon went back to" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Oricorio used Revelation Dance!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Squirtle used Revelation Dance!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
     },
 } END_TEST

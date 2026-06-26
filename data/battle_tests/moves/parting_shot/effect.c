@@ -1,19 +1,31 @@
-// Test: Illusion - wear off on faint
+// Test: Parting Shot - Basic Implementation
 #include "../../battle_tests.h"
-BEGIN_TEST
-{
+BEGIN_TEST {
     .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
+
     .playerParty = {
         {
-            .species = SPECIES_WEAVILE,
+            .species = SPECIES_AUDINO,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_INNER_FOCUS,
+            .ability = ABILITY_HEALER,
             .item = ITEM_NONE,
-            .moves = { MOVE_REVENGE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_TOTODILE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_TORRENT,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -23,26 +35,25 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
     },
     .enemyParty = {
         {
-            .species = SPECIES_ZORUA,
-            .level = 1,
+            .species = SPECIES_INCINEROAR,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_ILLUSION,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_PARTING_SHOT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_LANDORUS,
+            .species = SPECIES_CYNDAQUIL,
             .level = 50,
-            .form = 1,
-            .ability = ABILITY_INTIMIDATE,
+            .form = 0,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -53,7 +64,8 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE } },
+        { .species = SPECIES_NONE },
+    },
     .playerScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
@@ -64,7 +76,17 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
-        }
+        },
+        {
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        },
     },
     .enemyScript = {
         {
@@ -76,14 +98,20 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
-        }
+        },
+        {
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Landorus used Sleep Talk!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Weavile used Revenge!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Zorua's illusion wore off!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Zorua fainted!" },
-    }
-}
-END_TEST
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Incineroar used Parting Shot!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Incineroar went back to" },
+    },
+} END_TEST

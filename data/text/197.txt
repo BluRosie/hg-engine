@@ -639,9 +639,9 @@ The opposing {STRVAR_1 1, 0, 0} restored HP\nusing its {STRVAR_1 5, 1, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade {STRVAR_1 6, 2, 0} useless!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 6, 2, 0}\fuseless!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 6, 2, 0}\fuseless!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it the {STRVAR_1 15, 2, 0} type!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
+{STRVAR_1 1, 0, 0}’s type\nchanged to {STRVAR_1 15, 2, 0}!
+The wild {STRVAR_1 1, 0, 0}’s type\nchanged to {STRVAR_1 15, 2, 0}!
+The opposing {STRVAR_1 1, 0, 0}’s type\nchanged to {STRVAR_1 15, 2, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents paralysis!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents paralysis!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents paralysis!

@@ -4,8 +4,6 @@
 
 _000:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STOCKPILE_COUNT, 0, _070
-    UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STOCKPILE_COUNT, BSCRIPT_VAR_MOVE_POWER
-    UpdateVar OPCODE_MUL, BSCRIPT_VAR_MOVE_POWER, 100
     GotoIfFirstHitOfParentalBond _063
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STOCKPILE_COUNT, 0
     UpdateMonDataFromVar OPCODE_GET, BATTLER_CATEGORY_ATTACKER, BMON_DATA_STOCKPILE_DEF_BOOSTS, BSCRIPT_VAR_CALC_TEMP
@@ -21,17 +19,17 @@ _000:
 
 _063:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MISS_MESSAGE
-    CalcCrit 
-    CalcDamage 
-    End 
+    CalcCrit
+    CalcDamage
+    End
 
 _070:
-    PrintAttackMessage 
-    Wait 
+    PrintAttackMessage
+    Wait
     WaitButtonABTime 30
     // But it failed to spit up a thing!
     PrintMessage 814, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_NO_MORE_WORK
-    End 
+    End

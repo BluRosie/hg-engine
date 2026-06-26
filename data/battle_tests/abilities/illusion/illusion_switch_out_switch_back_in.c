@@ -1,4 +1,4 @@
-// Test: Illusion - don't wear off if fainting from poison
+// Test: Illusion - Switch out switch back in
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_PIKACHU,
+            .species = SPECIES_WEAVILE,
             .level = 50,
-            .form = 3,
-            .ability = ABILITY_STATIC,
+            .form = 0,
+            .ability = ABILITY_PRESSURE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_TACKLE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -26,22 +26,22 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_ZOROARK,
-                        .level = 1,
-                        .form = 1,
+                        .species = SPECIES_ZORUA,
+                        .level = 50,
+                        .form = 0,
                         .ability = ABILITY_ILLUSION,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = 1,
-                        .status = STATUS_POISON,
+                        .hp = FULL_HP,
+                        .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_RAICHU,
+            .species = SPECIES_LAPRAS,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_STATIC,
+            .ability = ABILITY_WATER_ABSORB,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -49,25 +49,15 @@ BEGIN_TEST
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        {
-            .species = SPECIES_PIKACHU,
-            .level = 50,
-            .form = 3,
-            .ability = ABILITY_STATIC,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
-        { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-        { ACTION_NONE, 0 },
-        { ACTION_NONE, 0 },
+
+        { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+        { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+        { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
         { ACTION_NONE, 0 },
         { ACTION_NONE, 0 },
         { ACTION_NONE, 0 },
@@ -75,9 +65,9 @@ BEGIN_TEST
         { ACTION_NONE, 0 },
     } },
     .enemyScript = { {
-        { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-        { ACTION_NONE, 0 },
-        { ACTION_NONE, 0 },
+        { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+        { ACTION_SWITCH_SLOT_1, 0 },
+        { ACTION_SWITCH_SLOT_0, 0 },
         { ACTION_NONE, 0 },
         { ACTION_NONE, 0 },
         { ACTION_NONE, 0 },
@@ -85,9 +75,10 @@ BEGIN_TEST
         { ACTION_NONE, 0 },
     } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pikachu was hurt by its poisoning!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pikachu fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Raichu!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Lapras!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Zorua's illusion wore off!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Lapras!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Lapras!" },
     }
 }
 END_TEST

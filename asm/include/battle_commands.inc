@@ -1586,7 +1586,11 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 288
+    .macro GoBackToBeforeMove
+    .long 290
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 290
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

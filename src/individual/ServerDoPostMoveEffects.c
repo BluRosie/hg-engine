@@ -65,7 +65,7 @@ int LONG_CALL MovePerformance_HitSubstitute(void *bsys, struct BattleStruct *ctx
 void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsys, struct BattleStruct *ctx)
 {
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-    debug_printf("ServerDoPostMoveEffectsInternal %d: attacker %d, movestatus %d, status %d, ctx->multiHitCount %d\n", ctx->swoam_seq_no, ctx->attack_client, ctx->waza_status_flag, ctx->server_status_flag, ctx->multiHitCount);
+        debug_printf("ServerDoPostMoveEffectsInternal %d: attacker %d, defender %d, movestatus %d, status %d, ctx->multiHitCount %d\n", ctx->swoam_seq_no, ctx->attack_client, ctx->defence_client, ctx->waza_status_flag, ctx->server_status_flag, ctx->multiHitCount);
 #endif
 
     DynamicSortClientExecutionOrder(bsys, ctx, FALSE);
@@ -637,7 +637,95 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_30_0_DANCER:
-        // TODO
+    #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
+            debug_printf("in MOVE_PERFORMANCE_STEP_30_0_DANCER %d\n", ctx->swoam_seq_no);
+    #endif
+        if (!ctx->dancerContext.isActive && IsDanceMove(ctx->current_move_index)) {
+            // debug_printf("Is dance move\n");
+            for (int turnOrderSlot = 0; turnOrderSlot < BattleWorkClientSetMaxGet(bsys); turnOrderSlot++) {
+                // debug_printf("client: %d, ability: %d, hp: %d\n", ctx->turnOrder[turnOrderSlot], GetBattlerAbility(ctx, ctx->turnOrder[turnOrderSlot]), ctx->battlemon[ctx->turnOrder[turnOrderSlot]].hp);
+                if ((ctx->turnOrder[turnOrderSlot] != ctx->attack_client)
+                    && (GetBattlerAbility(ctx, ctx->turnOrder[turnOrderSlot]) == ABILITY_DANCER && ctx->battlemon[ctx->turnOrder[turnOrderSlot]].hp)) {
+                    // debug_printf("Is Dancer\n");
+                    ctx->dancerContext.isActive = TRUE;
+                    ctx->dancerContext.originalAttacker = ctx->attack_client;
+                    ctx->dancerContext.originalDefender = ctx->defence_client;
+                    for (int extraActionSlot = 0; extraActionSlot < CLIENT_MAX; extraActionSlot++) {
+                        if (ctx->dancerContext.extraActions[extraActionSlot].moveNumberOrAction == 0) {
+                            // debug_printf("Has free slot\n");
+                            ctx->dancerContext.extraActions[extraActionSlot].moveNumberOrAction = ctx->current_move_index;
+                            ctx->dancerContext.extraActions[extraActionSlot].attacker = ctx->turnOrder[turnOrderSlot];
+                            // In a Double Battle, if an ally uses a single-target dance move on an opponent, then the copied move will target the same opponent when copied by Dancer. Otherwise, a copied single-target dance move will target the user of the dance move.
+                            // TODO:
+                            // In a Tera Raid Battle, Dancer will not activate if an ally uses a dance move.
+                            if ((BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE))
+                                && (ctx->turnOrder[turnOrderSlot] == BATTLER_ALLY(ctx->attack_client) && ctx->moveTbl[ctx->current_move_index].target == RANGE_SINGLE_TARGET)) {
+                                    // debug_printf("Ally + Single target\n");
+                                    ctx->dancerContext.extraActions[extraActionSlot].defender = ctx->defence_client;
+                            } else {
+                                switch (ctx->moveTbl[ctx->current_move_index].target) {
+                                case RANGE_SINGLE_TARGET:
+                                    ctx->dancerContext.extraActions[extraActionSlot].defender = ctx->attack_client;
+                                    break;
+                                case RANGE_USER:
+                                    ctx->dancerContext.extraActions[extraActionSlot].defender = ctx->turnOrder[turnOrderSlot];
+                                    break;
+                                case RANGE_RANDOM_OPPONENT:
+                                    // gf_rand() % 2 produces garbage values here for some reason
+                                    // gf_rand();
+                                    // gf_rand();
+                                    // debug_printf("rand: %d\n", rand);
+                                    ctx->dancerContext.extraActions[extraActionSlot].defender = gf_rand() & 1 ? BATTLER_OPPONENT(ctx->attack_client) : BATTLER_ACROSS(ctx->attack_client);
+                                    break;
+                                default:
+                                    ctx->dancerContext.extraActions[extraActionSlot].defender = BATTLER_OPPONENT(ctx->attack_client);
+                                    break;
+                                }
+                            }
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+
+        if (ctx->dancerContext.isActive) {
+            for (int i = 0; i < CLIENT_MAX; i++) {
+                if (ctx->dancerContext.extraActions[i].moveNumberOrAction != 0) {
+                    if (ctx->battlemon[ctx->dancerContext.extraActions[i].attacker].hp) {
+                        ov12_02252D14(bsys, ctx);
+                        ctx->attack_client = ctx->dancerContext.extraActions[i].attacker;
+                        ctx->dancerContext.extraActions[i].attacker = 0;
+                        ctx->defence_client = ctx->dancerContext.extraActions[i].defender;
+                        ctx->dancerContext.extraActions[i].defender = 0;
+                        ctx->current_move_index = ctx->dancerContext.extraActions[i].moveNumberOrAction;
+                        ctx->moveNoTemp = ctx->dancerContext.extraActions[i].moveNumberOrAction;
+                        ctx->waza_no_old[ctx->attack_client] = ctx->dancerContext.extraActions[i].moveNumberOrAction;
+                        ctx->dancerContext.extraActions[i].moveNumberOrAction = 0;
+
+                        ctx->moveContext.hitFoesCount = 0;
+                        ctx->moveContext.hitSubstituteCount = 0;
+                        ctx->moveContext.isAllyHit = FALSE;
+                        ctx->moveContext.currentMoveCalcDone = FALSE;
+
+                        CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_DANCER);
+                        ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
+                        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                        ctx->swoam_seq_no = 0;
+                        return;
+                    }
+                    ctx->dancerContext.extraActions[i].attacker = 0;
+                    ctx->dancerContext.extraActions[i].defender = 0;
+                    ctx->dancerContext.extraActions[i].moveNumberOrAction = 0;
+                }
+            }
+            ctx->dancerContext.isActive = FALSE;
+            ctx->attack_client = ctx->dancerContext.originalAttacker;
+            ctx->defence_client = ctx->dancerContext.originalDefender;
+        }
+
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     case MOVE_PERFORMANCE_CLEAR_MAGIC_COAT:
@@ -1823,75 +1911,76 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
             || ((ctx->server_status_flag & SERVER_STATUS_FLAG_x20) != 0)) {
             continue;
         }
-        ctx->defence_client = client_no;
+        // ctx->defence_client = client_no;
 
         // handle berserk
-        if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->defence_client, ABILITY_BERSERK)) {
+        if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, client_no, ABILITY_BERSERK)) {
             if (
-                (ctx->battlemon[ctx->defence_client].hp)
-                && (ctx->battlemon[ctx->defence_client].states[STAT_SPATK] < 12)
-                && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
+                (ctx->battlemon[client_no].hp)
+                && (ctx->battlemon[client_no].states[STAT_SPATK] < 12)
+                && ((ctx->oneSelfFlag[client_no].physical_damage) || (ctx->oneSelfFlag[client_no].special_damage))
                 // berserk doesn't activate if the Pokémon gets attacked by a sheer force boosted move
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 // berserk doesn't activate until the last hit of a multi-hit move
-                && (ctx->battlemon[ctx->defence_client].hp <= (s32)(ctx->battlemon[ctx->defence_client].maxhp / 2))
+                && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
                 && (
                     // checks if the pokémon has gone below half HP from the current damage instance
                     // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
-                    ((ctx->battlemon[ctx->defence_client].hp - (ctx->oneSelfFlag[ctx->defence_client].physical_damage)) > (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
-                    || ((ctx->battlemon[ctx->defence_client].hp - (ctx->oneSelfFlag[ctx->defence_client].special_damage)) > (s32)ctx->battlemon[ctx->defence_client].maxhp / 2))) {
+                    ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].physical_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2)
+                    || ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].special_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2))) {
                 ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
                 ctx->addeffect_type = ADD_EFFECT_ABILITY;
-                ctx->state_client = ctx->defence_client;
-                ctx->battlerIdTemp = ctx->defence_client;
+                ctx->state_client = client_no;
+                ctx->battlerIdTemp = client_no;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
             }
-        } else if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->defence_client, ABILITY_ANGER_SHELL)) {
-            if ((ctx->battlemon[ctx->defence_client].hp)
-                && ((ctx->battlemon[ctx->defence_client].states[STAT_ATTACK] < 12)
-                    || (ctx->battlemon[ctx->defence_client].states[STAT_SPATK] < 12)
-                    || (ctx->battlemon[ctx->defence_client].states[STAT_SPEED] < 12)
-                    || (ctx->battlemon[ctx->defence_client].states[STAT_DEFENSE] > 0)
-                    || (ctx->battlemon[ctx->defence_client].states[STAT_SPDEF] > 0))
-                && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
+        } else if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, client_no, ABILITY_ANGER_SHELL)) {
+            if ((ctx->battlemon[client_no].hp)
+                && ((ctx->battlemon[client_no].states[STAT_ATTACK] < 12)
+                    || (ctx->battlemon[client_no].states[STAT_SPATK] < 12)
+                    || (ctx->battlemon[client_no].states[STAT_SPEED] < 12)
+                    || (ctx->battlemon[client_no].states[STAT_DEFENSE] > 0)
+                    || (ctx->battlemon[client_no].states[STAT_SPDEF] > 0))
+                && ((ctx->oneSelfFlag[client_no].physical_damage) || (ctx->oneSelfFlag[client_no].special_damage))
                 // anger shell doesn't activate if the Pokémon gets attacked by a sheer force boosted move
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 // anger shell doesn't activate until the last hit of a multi-hit move
-                && (ctx->battlemon[ctx->defence_client].hp <= (s32)(ctx->battlemon[ctx->defence_client].maxhp / 2))
+                && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
                 && (
                     // checks if the pokémon has gone below half HP from the current damage instance
                     // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
-                    ((ctx->battlemon[ctx->defence_client].hp - (ctx->oneSelfFlag[ctx->defence_client].physical_damage)) > (s32)ctx->battlemon[ctx->defence_client].maxhp / 2)
-                    || ((ctx->battlemon[ctx->defence_client].hp - (ctx->oneSelfFlag[ctx->defence_client].special_damage)) > (s32)ctx->battlemon[ctx->defence_client].maxhp / 2))) {
+                    ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].physical_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2)
+                    || ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].special_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2))) {
                 ctx->addeffect_type = ADD_EFFECT_ABILITY;
-                ctx->state_client = ctx->defence_client;
-                ctx->battlerIdTemp = ctx->defence_client;
+                ctx->state_client = client_no;
+                ctx->battlerIdTemp = client_no;
 
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_ANGER_SHELL);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
             }
-        } else if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->defence_client, ABILITY_COLOR_CHANGE)) {
+        } else if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, client_no, ABILITY_COLOR_CHANGE)) {
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE && ctx->battlemon[ctx->attack_client].sheer_force_flag == 1) { // sheer force doesn't let color change activate
                 return FALSE;
             }
 
             u8 movetype = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index); // new normalize checks
 
-            if ((ctx->battlemon[ctx->defence_client].hp)
+            if ((ctx->battlemon[client_no].hp)
                 && (ctx->current_move_index != MOVE_STRUGGLE)
                 && (movetype != TYPE_TYPELESS) // Revelation Dance
-                && (!ctx->battlemon[ctx->defence_client].is_currently_terastallized)
-                && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
+                && (!ctx->battlemon[client_no].is_currently_terastallized)
+                && ((ctx->oneSelfFlag[client_no].physical_damage) || (ctx->oneSelfFlag[client_no].special_damage))
                 && (ctx->moveTbl[ctx->current_move_index].power)
-                && (!HasType(ctx, ctx->defence_client, movetype))
-                && (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0) // don't activate until the last hit of a multi-hit move
+                && (!HasType(ctx, client_no, movetype))
+                && (ctx->battlemon[client_no].condition2 & STATUS2_SUBSTITUTE) == 0) // don't activate until the last hit of a multi-hit move
             {
-                ChangeToPureType(ctx, ctx->defence_client, movetype);
+                ChangeToPureType(ctx, client_no, movetype);
+                ctx->battlerIdTemp = client_no;
                 ctx->msg_work = movetype;
 
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_COLOR_CHANGE);

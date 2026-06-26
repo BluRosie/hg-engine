@@ -757,7 +757,7 @@ BattleMessage_BufferType = 0x0223CE50 | 1;
 BattleMessage_BufferAbility = 0x0223CE5C | 1;
 BattleMessage_BufferStat = 0x0223CE68 | 1;
 BattleMessage_BufferStatus = 0x0223CE74 | 1;
-BattleMessage_BufferPokemon = 0x0223CE80 | 1;
+//BattleMessage_BufferPokemon = 0x0223CE80 | 1;
 BattleMessage_BufferPoffin = 0x0223CEA4 | 1;
 BattleMessage_BufferFlavorPreference = 0x0223CEA8 | 1;
 BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
@@ -868,6 +868,7 @@ StringExpandPlaceholders = 0x0200CBBC | 1;
 ov12_02256694 = 0x02256694 | 1;
 sStarterChoiceCries = 0x021E7398;
 BufferBoxMonNickname = 0x0200BF8C | 1;
+BufferBoxMonSpeciesName = 0x0200BF1C | 1;
 
 #roamers
 PlayerLocationHistoryGetBack = 0x0202D9F4 | 1;

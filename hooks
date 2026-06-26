@@ -619,6 +619,7 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 GetTypeEffectivenessData 0225260C 3
 
 0012 BattleMessage_BufferNickname 0223CDD0
+0012 BattleMessage_BufferPokemon 0223CE80
 0012 hook_GrabIllusionBoxMonForHpBar 022651AE 3
 
 # roamers

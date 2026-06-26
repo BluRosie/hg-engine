@@ -128,6 +128,7 @@ BOOL btl_scr_cmd_11E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct
 BOOL btl_scr_cmd_11F_BatchEffectivenessMessage(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -459,6 +460,7 @@ const u8 *BattleScrCmdNames[] = {
     "BatchEffectivenessMessage",
     "DivideVarByValueRoundUp",
     "IsPursuitActive",
+    "GoBackToBeforeMove",
     // "YourCustomCommand",
 };
 
@@ -535,6 +537,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x11F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11F_BatchEffectivenessMessage,
     [0x120 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_120_DivideVarByValueRoundUp,
     [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_IsPursuitActive,
+    [0x122 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_122_GoBackToBeforeMove,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -1216,6 +1219,11 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
 
     IncrementBattleScriptPtr(sp, 1);
     effect = sp->moveTbl[sp->current_move_index].effect;
+
+    // debug_printf("sp->dancerContext.isActive: %d, effect: %d\n", sp->dancerContext.isActive, effect);
+    if (sp->dancerContext.isActive && effect == MOVE_EFFECT_CONTINUE_AND_CONFUSE_SELF) {
+        effect = MOVE_EFFECT_HIT;
+    }
 
     if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE || HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS) {
         // list taken from bulbapedia article on sheer force and the moves affected.
@@ -5430,6 +5438,22 @@ BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys UNUSED, struct BattleStruct *ctx
     if (ctx->pursuitContext.isActive == FALSE) {
         IncrementBattleScriptPtr(ctx, noPursuit);
     }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    // TODO: confirm this is how vanilla does it as well
+    // BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT
+    ctx->add_status_flag_indirect = 0;
+    // BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT
+    ctx->add_status_flag_direct = 0;
+
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
+    ctx->server_seq_no = CONTROLLER_COMMAND_23;
 
     return FALSE;
 }
