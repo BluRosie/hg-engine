@@ -142,7 +142,7 @@ BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender);
 BOOL CheckProtectedByAlly(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 BOOL CheckProtectedBySelf(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 
-void SortPositionBased(int array[2], int size);
+void SortPositionBased(u8 array[2], int size);
 
 /// @brief Check if ability can be suppressed by Neutralizing Gas if value is not the same as CantSuppress.
 /// @param ability
@@ -2604,10 +2604,10 @@ BOOL BattleController_CheckPsychicTerrain(struct BattleSystem *bsys UNUSED, stru
     return FALSE;
 }
 
-void SortPositionBased(int array[2], int size)
+void SortPositionBased(u8 array[2], int size)
 {
     if (size > 1 && array[0] > array[1]) {
-        int temp = array[0];
+        u8 temp = array[0];
         array[0] = array[1];
         array[1] = temp;
     }
