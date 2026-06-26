@@ -1195,13 +1195,15 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
         return FALSE;
     }
 
+    debug_printf("check magic bounce %d, %d\n", sp->magicBounceContext.isActive, sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT);
     if (!sp->magicBounceContext.isActive
         && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
     {
         for (i = 0; i < client_set_max; i++) {
             client_no = sp->turnOrder[i];
+            debug_printf("client %d, enemy %d, bounce %\n", client_no, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)) , MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
             if (//IS_VALID_MOVE_TARGET(sp, client_no)
-                && (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client))
+                && (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client))
                 && MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE))
             {
                 sp->magicBounceContext.originalAttacker = sp->attack_client;
@@ -1217,9 +1219,9 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             sp->wb_seq_no = BEFORE_MOVE_START;
             sp->server_seq_no = CONTROLLER_COMMAND_39;
             sp->next_server_seq_no = CONTROLLER_COMMAND_39;
-            CopyBattleMonToPartyMon(bw, sp, sp->attack_client);
-            sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
-            return TRUE;
+            //CopyBattleMonToPartyMon(bw, sp, sp->attack_client);
+            //sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
+            //return TRUE;
         }
     }
 

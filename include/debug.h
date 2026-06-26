@@ -69,7 +69,7 @@
 //#define DEBUG_ENDTURN_LOGIC
 
 // DEBUG_BEFORE_MOVE_LOGIC turns on a number of debug prints related to the before-move logic
-//#define DEBUG_BEFORE_MOVE_LOGIC
+#define DEBUG_BEFORE_MOVE_LOGIC
 
 // DEBUG_MOVE_PERFORMANCE_LOGIC turns on a number of debug prints related to the move-performance logic
 // #define DEBUG_MOVE_PERFORMANCE_LOGIC
