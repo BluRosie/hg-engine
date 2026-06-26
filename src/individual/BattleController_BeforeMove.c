@@ -206,7 +206,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
     }
 
-    if (ctx->waza_status_flag &WAZA_STATUS_FLAG_NO_OUT && !ctx->magicBounceContext.isActive) {
+    if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT && !ctx->magicBounceContext.isActive) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("WAZA_STATUS_FLAG_NO_OUT set, check Metronome\n");
 #endif

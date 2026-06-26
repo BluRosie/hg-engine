@@ -5523,12 +5523,16 @@ BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
     ctx->attack_client = ctx->magicBounceContext.bounceClients[ctx->magicBounceContext.bounceCounter];
     ctx->magicBounceContext.bounceCounter++;
     ctx->defence_client = ctx->magicBounceContext.originalAttacker;
+
     ov12_02252D14(bsys, ctx);
     for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
         ctx->moveStatusFlagForSpreadMoves[i] = 0;
     }
     ctx->clientLoopForSpreadMoves = 0;
     ctx->movePerformanceSubstep = 0;
+
+    //TODO ignore choice items
+    sp->waza_out_check_on_off |= (SYSCTL_SKIP_STATUS_CHECK | SYSCTL_SKIP_OBEDIENCE_CHECK | SYSCTL_SKIP_PP_DECREMENT);
 
     debug_printf("ctx->attack_client %d, def %d, moveFlag %d\n", ctx->attack_client, ctx->defence_client, ctx->waza_status_flag);
     return FALSE;
