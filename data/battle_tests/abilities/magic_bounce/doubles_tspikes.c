@@ -48,7 +48,8 @@ BEGIN_TEST
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_HATTERENE,
+        {
+            .species = SPECIES_HATTERENE,
             .level = 50,
             .form = 0,
             .ability = ABILITY_MAGIC_BOUNCE,
@@ -58,7 +59,7 @@ BEGIN_TEST
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
-            ,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },

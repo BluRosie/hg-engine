@@ -2071,12 +2071,6 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
             ctx->battlerIdTemp = ctx->attack_client;
             ctx->state_client = ctx->attack_client;
 
-            if (ctx->magicBounceTracker)
-            {
-                ctx->battlerIdTemp = ctx->defence_client;
-                ctx->state_client = ctx->defence_client;
-            }
-
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARTING_SHOT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
