@@ -1,4 +1,4 @@
-// Test: Magic Bounce - Bounce spread move in doubles against two Bouncer
+// Test: Magic Bounce - Bounce spread move in doubles against two Bouncer, slot ordered
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLE,
@@ -35,7 +35,7 @@ BEGIN_TEST {
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_ESPEON,
+                        .species = SPECIES_HATTERENE,
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_MAGIC_BOUNCE,
@@ -47,7 +47,7 @@ BEGIN_TEST {
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_HATTERENE,
+            .species = SPECIES_ESPEON,
             .level = 50,
             .form = 0,
             .ability = ABILITY_MAGIC_BOUNCE,
@@ -105,12 +105,11 @@ BEGIN_TEST {
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Growl!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Attack" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Growl back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene bounced the Growl back!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir’s Hyper Cutter" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hatterene's Magic Bounce" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir’s Hyper Cutter" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
     },
-    .knownFailing = TRUE,
 } END_TEST
