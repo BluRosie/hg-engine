@@ -1197,40 +1197,43 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
 
     debug_printf("check magic bounce %d, %d\n", sp->magicBounceContext.isActive, sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT);
     if (!sp->magicBounceContext.isActive
-        && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
-    {
-        int enemyCounter = 0;
+        && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT)) {
+        int target = sp->moveTbl[sp->current_move_index].target;
+        //int enemyCounter = 0;
         for (i = 0; i < client_set_max; i++) {
             client_no = sp->turnOrder[i];
-            debug_printf("client %d, enemy %d, bounce %d\n", client_no, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)) , MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
+            debug_printf("client %d, enemy %d, bounce %d\n", client_no, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
+
             if (sp->battlemon[client_no].hp
-                && (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)))
+                && (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client))
+                && (MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE)
+                    || sp->oneTurnFlag[client_no].magic_cort_flag)
+                && (((target & RANGE_SINGLE_TARGET | RANGE_OPPONENT_SIDE) && client_no == ctx->defence_client)
+                    || (target & RANGE_ADJACENT_OPPONENTS | RANGE_ALL_ADJACENT)))
             {
-                enemyCounter++;
-                if (MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE)) {
-                    sp->magicBounceContext.originalAttacker = sp->attack_client;
-                    sp->magicBounceContext.originalDefender = sp->defence_client;
-                    sp->magicBounceContext.bounceClients[sp->magicBounceContext.bounceMaxCounter] = client_no;
-                    sp->magicBounceContext.bounceMaxCounter++;
-                    sp->moveStatusFlagForSpreadMoves[client_no] = MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE;
-                    debug_printf("add bouncer %d \n", client_no);
-                    if (sp->moveTbl[sp->current_move_index].target & RANGE_OPPONENT_SIDE) {
-                        break;
-                    }
-                }
+                sp->oneTurnFlag[client_no].magic_cort_flag = 0;
+                sp->magicBounceContext.originalAttacker = sp->attack_client;
+                sp->magicBounceContext.originalDefender = sp->defence_client;
+                sp->magicBounceContext.bounceClients[sp->magicBounceContext.bounceMaxCounter] = client_no;
+                sp->magicBounceContext.bounceMaxCounter++;
+                sp->moveStatusFlagForSpreadMoves[client_no] = MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE;
+                debug_printf("add bouncer %d \n", client_no);
             }
         }
 
-        if (sp->magicBounceContext.bounceMaxCounter == enemyCounter)
-        {
-            //TODO pp decrease?
+        /*
+        if (sp->magicBounceContext.bounceMaxCounter == enemyCounter) {
+            // TODO pp decrease?
             sp->wb_seq_no = BEFORE_MOVE_START;
             sp->server_seq_no = CONTROLLER_COMMAND_39;
             sp->next_server_seq_no = CONTROLLER_COMMAND_39;
             sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
             return TRUE;
         }
+        */
     }
+
+        
 
     for(i = 0; i < client_set_max; i++)
     {
