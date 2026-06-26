@@ -1,8 +1,8 @@
-// Test: Magic Bounce - Bounce single target move
+// Test: Magic Bounce - ignored by Mold Breaker, Protect triggers first
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_SINGLE,
+    .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -105,9 +105,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Glare back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok is paralyzed, so it may be unable to move!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon used Protect!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Haxorus used Leer!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon protected itself!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene's Defence fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Glare!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon protected itself!" },
     }
 }
 END_TEST
