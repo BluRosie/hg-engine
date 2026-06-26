@@ -10,6 +10,7 @@
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
 #include "../../include/constants/weather_numbers.h"
+#include "../../include/constants/system_control.h"
 #include "../../include/debug.h"
 #include "../../include/mega.h"
 #include "../../include/message.h"
