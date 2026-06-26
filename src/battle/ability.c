@@ -1210,8 +1210,10 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
                 && (MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE)
                     || sp->oneTurnFlag[client_no].magic_cort_flag)) {
 
-                if ((target == RANGE_SINGLE_TARGET && client_no != sp->defence_client)
-                    || (endOnFirstBounce && sp->magicBounceContext.bounceMaxCounter)) {
+                if (target == RANGE_SINGLE_TARGET && client_no != sp->defence_client) {
+                    continue;
+                }
+                if (endOnFirstBounce && sp->magicBounceContext.bounceMaxCounter) {
                     endMove = TRUE;
                     continue;
                 }
