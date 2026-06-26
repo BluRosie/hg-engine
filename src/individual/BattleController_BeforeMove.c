@@ -3192,6 +3192,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_ATK_DOWN:
     case MOVE_EFFECT_ATK_DOWN_2:
     case MOVE_EFFECT_ATK_DOWN_3:
+        debug_printf("check hyper cutter on %d\n", defender);
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 0) {
             subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
             break;

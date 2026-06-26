@@ -1221,9 +1221,9 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             sp->wb_seq_no = BEFORE_MOVE_START;
             sp->server_seq_no = CONTROLLER_COMMAND_39;
             sp->next_server_seq_no = CONTROLLER_COMMAND_39;
-            //CopyBattleMonToPartyMon(bw, sp, sp->attack_client);
-            //sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
-            //return TRUE;
+            CopyBattleMonToPartyMon(bw, sp, sp->attack_client);
+            sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
+            return TRUE;
         }
     }
 
