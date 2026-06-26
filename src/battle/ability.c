@@ -1201,7 +1201,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     {
         for (i = 0; i < client_set_max; i++) {
             client_no = sp->turnOrder[i];
-            debug_printf("client %d, enemy %d, bounce %\n", client_no, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)) , MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
+            debug_printf("client %d, enemy %d, bounce %d\n", client_no, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)) , MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
             if (//IS_VALID_MOVE_TARGET(sp, client_no)
                 //&& 
                 (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client))
@@ -1212,6 +1212,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
                 sp->magicBounceContext.bounceClients[sp->magicBounceContext.bounceMaxCounter] = client_no;
                 sp->magicBounceContext.bounceMaxCounter++;
                 sp->moveStatusFlagForSpreadMoves[client_no] = MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE;
+                debug_printf("add bouncer %d \n", client_no);
             }
         }
 
