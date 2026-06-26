@@ -105,7 +105,7 @@ BEGIN_TEST {
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Glare!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Growl back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Glare back!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok is paralyzed, so it may be unable to move!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Spinda used Teeter Dance!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok became confused!" },
