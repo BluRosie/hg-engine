@@ -1246,6 +1246,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     debug_printf("check magic bounce %d, %d\n", sp->magicBounceContext.isActive, sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT);
     if (!sp->magicBounceContext.isActive && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT)) {
         int target = sp->moveTbl[sp->current_move_index].target;
+        int enemies = 0;
         BOOL endMove = FALSE;
         BOOL endOnFirstBounce = ((target & RANGE_OPPONENT_SIDE) != 0);
 
@@ -1257,7 +1258,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             if (sp->battlemon[client_no].hp == 0 || (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client))) {
                 continue;
             }
-
+            enemies++;
             BOOL hasBounceEffect = sp->oneTurnFlag[client_no].magic_cort_flag || MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE);
             if (!hasBounceEffect) {
                 continue;
@@ -1283,7 +1284,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             debug_printf("add bouncer %d \n", client_no);
         }
 
-        if (endMove) {
+        if (endMove || enemies == sp->magicBounceContext.bounceMaxCounter) {
             // TODO: pp decrease?
             sp->wb_seq_no = BEFORE_MOVE_START;
             sp->server_seq_no = CONTROLLER_COMMAND_39;
