@@ -1199,18 +1199,24 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     if (!sp->magicBounceContext.isActive
         && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT)) {
         int target = sp->moveTbl[sp->current_move_index].target;
-        //int enemyCounter = 0;
+        BOOL endMove = FALSE;
+        BOOL checkTarget = (target & RANGE_SINGLE_TARGET);
+        BOOL endOnFirstBounce = (target & RANGE_OPPONENT_SIDE);
         for (i = 0; i < client_set_max; i++) {
             client_no = sp->turnOrder[i];
-            debug_printf("client %d, enemy %d, bounce %d\n", client_no, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
+            debug_printf("client %d, def %d, enemy %d, bounce %d\n", client_no, sp->defence_client, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
 
             if (sp->battlemon[client_no].hp
                 && (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client))
                 && (MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE)
-                    || sp->oneTurnFlag[client_no].magic_cort_flag)
-                && (((target & (RANGE_SINGLE_TARGET | RANGE_OPPONENT_SIDE)) && client_no == sp->defence_client)
-                    || (target & (RANGE_ADJACENT_OPPONENTS | RANGE_ALL_ADJACENT))))
-            {
+                    || sp->oneTurnFlag[client_no].magic_cort_flag)) {
+
+                if ((checkTarget && client_no != sp->defence_client)
+                    || (endOnFirstBounce && sp->magicBounceContext.bounceMaxCounter)) {
+                    endMove = TRUE;
+                    continue;
+                }
+
                 sp->oneTurnFlag[client_no].magic_cort_flag = 0;
                 sp->magicBounceContext.originalAttacker = sp->attack_client;
                 sp->magicBounceContext.originalDefender = sp->defence_client;
@@ -1221,8 +1227,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             }
         }
 
-        /*
-        if (sp->magicBounceContext.bounceMaxCounter == enemyCounter) {
+        if (endMove) {
             // TODO pp decrease?
             sp->wb_seq_no = BEFORE_MOVE_START;
             sp->server_seq_no = CONTROLLER_COMMAND_39;
@@ -1230,7 +1235,6 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
             return TRUE;
         }
-        */
     }
 
         
