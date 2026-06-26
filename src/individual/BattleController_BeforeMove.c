@@ -199,14 +199,14 @@ BOOL LONG_CALL AbilityNoTransform(int ability);
 void __attribute__((section(".init"))) BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-    debug_printf("In BattleController_BeforeMove %d, move %d, attacker %d\n", ctx->wb_seq_no, ctx->current_move_index, ctx->attack_client);
+    debug_printf("In BattleController_BeforeMove %d, move %d, attacker %d, moveFlag %d\n", ctx->wb_seq_no, ctx->current_move_index, ctx->attack_client, ctx->waza_status_flag);
 #endif
 
     if (IsAttackerOnField(ctx)) {
         CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
     }
 
-    if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
+    if (ctx->waza_status_flag &WAZA_STATUS_FLAG_NO_OUT && !ctx->magicBounceContext.isActive) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("WAZA_STATUS_FLAG_NO_OUT set, check Metronome\n");
 #endif
