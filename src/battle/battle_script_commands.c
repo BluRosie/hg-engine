@@ -5514,7 +5514,7 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 }
 
 
-BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
+BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
 
