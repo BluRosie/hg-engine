@@ -1174,9 +1174,8 @@ void ServerWazaOutAfterMessage(void *bsys, struct BattleStruct *ctx)
     */
 }
 
-//TODO: some stack system because need the Magic Coat/Magic Bounce users to reflect the move individually
 /**
- *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
+ *  @brief handle snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1194,107 +1193,6 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
     {
         return FALSE;
     }
-
-    /*
-    debug_printf("check magic bounce %d, %d\n", sp->magicBounceContext.isActive, sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT);
-    if (!sp->magicBounceContext.isActive
-        && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT)) {
-        int target = sp->moveTbl[sp->current_move_index].target;
-        BOOL endMove = FALSE;
-        BOOL endOnFirstBounce = ((target & RANGE_OPPONENT_SIDE) != 0);
-        for (i = 0; i < client_set_max; i++) {
-            client_no = sp->turnOrder[i];
-            debug_printf("client %d, def %d, target %d, enemy %d, bounce %d\n", client_no, sp->defence_client, target, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
-
-            if (sp->battlemon[client_no].hp
-                && (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client))
-                && (MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE)
-                    || sp->oneTurnFlag[client_no].magic_cort_flag)) {
-
-                if (target == RANGE_SINGLE_TARGET){
-                    if (client_no != sp->defence_client)
-                        continue;
-                    else
-                        endMove = TRUE;
-                }
-                if (endOnFirstBounce && sp->magicBounceContext.bounceMaxCounter) {
-                    endMove = TRUE;
-                    continue;
-                }
-
-                sp->oneTurnFlag[client_no].magic_cort_flag = 0;
-                sp->magicBounceContext.originalAttacker = sp->attack_client;
-                sp->magicBounceContext.originalDefender = sp->defence_client;
-                sp->magicBounceContext.bounceClients[sp->magicBounceContext.bounceMaxCounter] = client_no;
-                sp->magicBounceContext.bounceMaxCounter++;
-                sp->moveStatusFlagForSpreadMoves[client_no] = MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE;
-                debug_printf("add bouncer %d \n", client_no);
-            }
-        }
-
-        if (endMove) {
-            // TODO pp decrease?
-            sp->wb_seq_no = BEFORE_MOVE_START;
-            sp->server_seq_no = CONTROLLER_COMMAND_39;
-            sp->next_server_seq_no = CONTROLLER_COMMAND_39;
-            sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
-            return TRUE;
-        }
-    }
-    */
-
-    debug_printf("check magic bounce %d, %d\n", sp->magicBounceContext.isActive, sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT);
-    if (!sp->magicBounceContext.isActive && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT)) {
-        int target = sp->moveTbl[sp->current_move_index].target;
-        int enemies = 0;
-        BOOL endMove = FALSE;
-        BOOL endOnFirstBounce = ((target & RANGE_OPPONENT_SIDE) != 0);
-
-        for (i = 0; i < client_set_max; i++) {
-            client_no = sp->turnOrder[i];
-            debug_printf("client %d, def %d, target %d, enemy %d, bounce %d\n", client_no, sp->defence_client, target, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
-
-
-            if (sp->battlemon[client_no].hp == 0 || (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client))) {
-                continue;
-            }
-            enemies++;
-            BOOL hasBounceEffect = sp->oneTurnFlag[client_no].magic_cort_flag || MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE);
-            if (!hasBounceEffect) {
-                continue;
-            }
-
-            if (target == RANGE_SINGLE_TARGET) { //Glare in Doubles
-                if (client_no != sp->defence_client) {
-                    continue;
-                }
-                endMove = TRUE;
-            }
-
-            if (endOnFirstBounce && sp->magicBounceContext.bounceMaxCounter) { //stealth rocks
-                endMove = TRUE;
-                continue;
-            }
-
-            sp->oneTurnFlag[client_no].magic_cort_flag = 0;
-            sp->magicBounceContext.originalAttacker = sp->attack_client;
-            sp->magicBounceContext.originalDefender = sp->defence_client;
-            sp->magicBounceContext.bounceClients[sp->magicBounceContext.bounceMaxCounter++] = client_no;
-            sp->moveStatusFlagForSpreadMoves[client_no] = MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE;
-            debug_printf("add bouncer %d \n", client_no);
-        }
-
-        if (endMove || enemies == sp->magicBounceContext.bounceMaxCounter) {
-            // TODO: pp decrease?
-            sp->wb_seq_no = BEFORE_MOVE_START;
-            sp->server_seq_no = CONTROLLER_COMMAND_39;
-            sp->next_server_seq_no = CONTROLLER_COMMAND_39;
-            sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
-            return TRUE;
-        }
-    }
-
-        
 
     for(i = 0; i < client_set_max; i++)
     {

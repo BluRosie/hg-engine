@@ -100,6 +100,7 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
 BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckPsychicTerrain(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
+BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckAbilityFailures2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
@@ -801,7 +802,6 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         ctx->wb_seq_no++;
         FALLTHROUGH;
     }
-    // TODO: split ServerWazaKoyuuCheck function, modernise
     case BEFORE_MOVE_STATE_MAGIC_COAT: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_MAGIC_COAT\n");
@@ -819,11 +819,13 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         ctx->wb_seq_no++;
         FALLTHROUGH;
     }
-    // TODO: split ServerWazaKoyuuCheck function, modernise
     case BEFORE_MOVE_STATE_MAGIC_BOUNCE: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_MAGIC_BOUNCE\n");
 #endif
+        if (BattleController_CheckMagicBounceMagicCoat(bsys, ctx) == TRUE) {
+            return;
+        }
 
         ctx->wb_seq_no++;
         FALLTHROUGH;
@@ -2597,6 +2599,65 @@ BOOL BattleController_CheckPsychicTerrain(struct BattleSystem *bsys UNUSED, stru
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
     }
+    return FALSE;
+}
+
+BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem* bw, struct BattleStruct* sp)
+{
+    if (sp->defence_client == BATTLER_NONE) {
+        return FALSE;
+    }
+
+    int client_set_max = BattleWorkClientSetMaxGet(bw);
+    debug_printf("check magic bounce %d, %d\n", sp->magicBounceContext.isActive, sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT);
+    if (!sp->magicBounceContext.isActive && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT)) {
+        int target = sp->moveTbl[sp->current_move_index].target;
+        int enemies = 0;
+        BOOL endMove = FALSE;
+        BOOL endOnFirstBounce = ((target & RANGE_OPPONENT_SIDE) != 0);
+
+        for (i = 0; i < client_set_max; i++) {
+            int client_no = sp->turnOrder[i];
+            debug_printf("client %d, def %d, target %d, enemy %d, bounce %d\n", client_no, sp->defence_client, target, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
+
+            if (sp->battlemon[client_no].hp == 0 || (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client))) {
+                continue;
+            }
+            enemies++;
+            BOOL hasBounceEffect = sp->oneTurnFlag[client_no].magic_cort_flag || MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE);
+            if (!hasBounceEffect || (ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) {
+                continue;
+            }
+
+            if (target == RANGE_SINGLE_TARGET) { // Glare, etc in Doubles
+                if (client_no != sp->defence_client) {
+                    continue;
+                }
+                endMove = TRUE;
+            }
+
+            if (endOnFirstBounce && sp->magicBounceContext.bounceMaxCounter) { // stealth rocks
+                endMove = TRUE;
+                continue;
+            }
+
+            sp->oneTurnFlag[client_no].magic_cort_flag = 0;
+            sp->magicBounceContext.originalAttacker = sp->attack_client;
+            sp->magicBounceContext.originalDefender = sp->defence_client;
+            sp->magicBounceContext.bounceClients[sp->magicBounceContext.bounceMaxCounter++] = client_no;
+            sp->moveStatusFlagForSpreadMoves[client_no] = MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE;
+            debug_printf("add bouncer %d \n", client_no);
+        }
+
+        if (endMove || (enemies == sp->magicBounceContext.bounceMaxCounter && target != RANGE_ALL_ADJACENT)) { //corrosive gas
+            sp->wb_seq_no = BEFORE_MOVE_START;
+            sp->server_seq_no = CONTROLLER_COMMAND_39;
+            sp->next_server_seq_no = CONTROLLER_COMMAND_39;
+            sp->waza_status_flag = MOVE_STATUS_NO_MORE_WORK;
+            return TRUE;
+        }
+    }
+
     return FALSE;
 }
 
