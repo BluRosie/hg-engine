@@ -5522,6 +5522,12 @@ BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
     ctx->attack_client = ctx->magicBounceContext.bounceClients[ctx->magicBounceContext.bounceCounter];
     ctx->magicBounceContext.bounceCounter++;
     ctx->defence_client = ctx->magicBounceContext.originalAttacker;
+    ov12_02252D14(bsys, ctx);
+    for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
+        ctx->moveStatusFlagForSpreadMoves[i] = 0;
+    }
+    ctx->clientLoopForSpreadMoves = 0;
+    ctx->movePerformanceSubstep = 0;
 
     debug_printf("ctx->attack_client %d, def %d \n", ctx->attack_client, ctx->defence_client);
     return FALSE;
