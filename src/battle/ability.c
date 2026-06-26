@@ -1208,7 +1208,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
                 && (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client))
                 && (MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE)
                     || sp->oneTurnFlag[client_no].magic_cort_flag)
-                && (((target & RANGE_SINGLE_TARGET | RANGE_OPPONENT_SIDE) && client_no == ctx->defence_client)
+                && (((target & RANGE_SINGLE_TARGET | RANGE_OPPONENT_SIDE) && client_no == sp->defence_client)
                     || (target & RANGE_ADJACENT_OPPONENTS | RANGE_ALL_ADJACENT)))
             {
                 sp->oneTurnFlag[client_no].magic_cort_flag = 0;
