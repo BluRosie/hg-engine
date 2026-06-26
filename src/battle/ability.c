@@ -1203,7 +1203,8 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             client_no = sp->turnOrder[i];
             debug_printf("client %d, enemy %d, bounce %\n", client_no, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)) , MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
             if (//IS_VALID_MOVE_TARGET(sp, client_no)
-                && (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client))
+                //&& 
+                (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client))
                 && MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE))
             {
                 sp->magicBounceContext.originalAttacker = sp->attack_client;
