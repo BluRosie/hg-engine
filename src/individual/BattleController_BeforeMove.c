@@ -2616,7 +2616,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem* bw, struct 
         BOOL endMove = FALSE;
         BOOL endOnFirstBounce = ((target & RANGE_OPPONENT_SIDE) != 0);
 
-        for (i = 0; i < client_set_max; i++) {
+        for (int i = 0; i < client_set_max; i++) {
             int client_no = sp->turnOrder[i];
             debug_printf("client %d, def %d, target %d, enemy %d, bounce %d\n", client_no, sp->defence_client, target, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
 
@@ -2625,7 +2625,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem* bw, struct 
             }
             enemies++;
             BOOL hasBounceEffect = sp->oneTurnFlag[client_no].magic_cort_flag || MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE);
-            if (!hasBounceEffect || (ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) {
+            if (!hasBounceEffect || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) {
                 continue;
             }
 
@@ -2649,7 +2649,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem* bw, struct 
             debug_printf("add bouncer %d \n", client_no);
         }
 
-        if (endMove || (enemies == sp->magicBounceContext.bounceMaxCounter && target != RANGE_ALL_ADJACENT)) { //corrosive gas
+        if (endMove || enemies == sp->magicBounceContext.bounceMaxCounter) { //corrosive gas  && target != RANGE_ALL_ADJACENT, all those moves are unimplemented
             sp->wb_seq_no = BEFORE_MOVE_START;
             sp->server_seq_no = CONTROLLER_COMMAND_39;
             sp->next_server_seq_no = CONTROLLER_COMMAND_39;
