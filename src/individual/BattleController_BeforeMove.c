@@ -142,6 +142,8 @@ BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender);
 BOOL CheckProtectedByAlly(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 BOOL CheckProtectedBySelf(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 
+void SortPositionBased(int array[2], int size);
+
 /// @brief Check if ability can be suppressed by Neutralizing Gas if value is not the same as CantSuppress.
 /// @param ability
 /// @ref AbilityCantSupress
@@ -2602,6 +2604,15 @@ BOOL BattleController_CheckPsychicTerrain(struct BattleSystem *bsys UNUSED, stru
     return FALSE;
 }
 
+void SortPositionBased(int array[2], int size)
+{
+    if (size > 1 && array[0] > array[1]) {
+        int temp = array[0];
+        array[0] = array[1];
+        array[1] = temp;
+    }
+}
+
 BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem* bw, struct BattleStruct* sp)
 {
     if (sp->defence_client == BATTLER_NONE) {
@@ -2620,7 +2631,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem* bw, struct 
             int client_no = sp->turnOrder[i];
             debug_printf("client %d, def %d, target %d, enemy %d, bounce %d\n", client_no, sp->defence_client, target, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
 
-            if (sp->battlemon[client_no].hp == 0 || (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client))) {
+            if (!IsValidMoveTarget(sp, client_no) || (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client))) {
                 continue;
             }
             enemies++;
@@ -2650,6 +2661,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem* bw, struct 
         }
 
         if (endMove || enemies == sp->magicBounceContext.bounceMaxCounter) { //corrosive gas  && target != RANGE_ALL_ADJACENT, all those moves are unimplemented
+            SortPositionBased(sp->magicBounceContext.bounceClients, sp->magicBounceContext.bounceMaxCounter);
             sp->wb_seq_no = BEFORE_MOVE_START;
             sp->server_seq_no = CONTROLLER_COMMAND_39;
             sp->next_server_seq_no = CONTROLLER_COMMAND_39;
