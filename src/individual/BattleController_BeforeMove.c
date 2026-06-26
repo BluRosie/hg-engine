@@ -3721,7 +3721,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         } else {
             ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] = MOVE_STATUS_FLAG_FAILED;
         }
-        if (IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+        if (IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {
             if (ctx->battlemon[BATTLER_ALLY(ctx->attack_client)].hp < (s32)ctx->battlemon[BATTLER_ALLY(ctx->attack_client)].maxhp) {
                 jungleHealingSelfSuccess = TRUE;
             } else {
@@ -3761,21 +3761,21 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         } else {
             ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] = MOVE_STATUS_FLAG_FAILED;
         }
-        if (IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+        if (IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {
             if (HasType(ctx, BATTLER_ALLY(ctx->attack_client), TYPE_GRASS)) {
                 flowerShieldSuccessCount++;
             } else {
                 ctx->moveStatusFlagForSpreadMoves[BATTLER_ALLY(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;
             }
         }
-        if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
+        if (IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
             if (HasType(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client), TYPE_GRASS)) {
                 flowerShieldSuccessCount++;
             } else {
                 ctx->moveStatusFlagForSpreadMoves[BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client)] = MOVE_STATUS_FLAG_FAILED;
             }
         }
-        if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
+        if (IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
             if (HasType(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client), TYPE_GRASS)) {
                 flowerShieldSuccessCount++;
             } else {

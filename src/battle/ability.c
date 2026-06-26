@@ -1214,6 +1214,9 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
                     sp->magicBounceContext.bounceMaxCounter++;
                     sp->moveStatusFlagForSpreadMoves[client_no] = MOVE_STATUS_FLAG_SPLASH_NOW_MAGIC_BOUNCE;
                     debug_printf("add bouncer %d \n", client_no);
+                    if (sp->moveTbl[sp->current_move_index].target & RANGE_OPPONENT_SIDE) {
+                        break;
+                    }
                 }
             }
         }
