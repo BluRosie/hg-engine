@@ -1,4 +1,4 @@
-// Test: Magic Bounce - Bounce Toxic spikes in singles
+// Test: Magic Bounce - Bounce spread move in singles
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -13,7 +13,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_SHED_SKIN,
             .item = ITEM_NONE,
-            .moves = { MOVE_TOXIC_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -84,8 +84,8 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Toxic Spikes back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "all around your side!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Growl back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
     }
 }
 END_TEST
