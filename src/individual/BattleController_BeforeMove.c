@@ -2649,7 +2649,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
             if (isMagicBounce) {
                 hasBounceEffect = MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE);
             } else {
-                hasBounceEffect = sp->oneTurnFlag[client_no].magic_cort_flag
+                hasBounceEffect = sp->oneTurnFlag[client_no].magic_cort_flag;
             }
             if (!hasBounceEffect || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) {
                 continue;
