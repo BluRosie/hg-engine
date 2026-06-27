@@ -39,6 +39,22 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         }
     }
 
+    debug_printf("should bounce move %d\n", ctx->magicBounceContext.bounceCounter != ctx->magicBounceContext.bounceMaxCounter);
+    if (ctx->magicBounceContext.bounceCounter < ctx->magicBounceContext.bounceMaxCounter) {
+        ctx->defence_client = ctx->magicBounceContext.bounceClients[ctx->magicBounceContext.bounceCounter];
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGIC_COAT);
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        debug_printf("run script for %d\n", ctx->defence_client);
+        return;
+    } else {
+        ctx->magicBounceContext.isActive = FALSE;
+        ctx->attack_client = ctx->magicBounceContext.originalAttacker;
+        ctx->defence_client = ctx->magicBounceContext.originalDefender;
+        ctx->magicBounceContext.bounceCounter = 0;
+        ctx->magicBounceContext.bounceMaxCounter = 0;
+    }
+
     if (!(battleType & (BATTLE_TYPE_SAFARI | BATTLE_TYPE_PAL_PARK))) {
         if (ov12_0224DD18(ctx, ctx->server_seq_no, ctx->server_seq_no) == TRUE) {
             return;
@@ -97,6 +113,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
 
     for (int i = 0; i < client_set_max; i++) {
         ctx->moveStatusFlagForSpreadMoves[i] = 0;
+        ctx->moveStatusFlagForSpreadMoves2[i] = 0;
         ctx->damageForSpreadMoves[i] = 0;
         ctx->store_damage[i] = 0;
     }
@@ -116,6 +133,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->moveContext.currentMoveCalcDone = FALSE;
 
     ctx->pursuitContext.isActive = FALSE;
+
+    ctx->magicBounceContext.isActive = FALSE;
+    ctx->magicBounceContext.bounceCounter = 0;
+    ctx->magicBounceContext.bounceMaxCounter = 0;
 
     ctx->playerActions[ctx->executionOrder[ctx->executionIndex]][0] = CONTROLLER_COMMAND_40;
 

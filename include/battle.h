@@ -98,6 +98,8 @@
 #define ADD_EFFECT_PRINT_WORK_ABILITY 8
 #define ADD_EFFECT_STICKY_WEB         9
 
+#define SPREAD_MOVE_STATUS2_FLAG_MAGIC_BOUNCE     (0x00000001)
+
 /**
  *  @brief move status flag defines for the BattleStruct's waza_status_flag field.
  *  name is left as source define if not sure what it defines
@@ -1269,6 +1271,15 @@ typedef struct PursuitContext {
     u8 originalAttacker;
 } PursuitContext;
 
+typedef struct MagicBounceContext {
+    u8 isActive;
+    u8 originalDefender;
+    u8 originalAttacker;
+    u8 bounceClients[2];
+    u8 bounceCounter;
+    u8 bounceMaxCounter;
+} MagicBounceContext;
+
 
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
@@ -1456,7 +1467,7 @@ struct BattleStruct {
     /*0x315C*/ u8 mons_getting_exp_from_item;
     /*0x315D*/ u8 relic_song_tracker; // bitfield with 1 << client for if it used relic song
     /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
-    /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate
+    /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate //unused
     /*0x3160*/ u8 binding_turns[4]; // turns left for bind
     /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
     /*0x316E*/ u8 protectSuccessTurns[CLIENT_MAX]; // Only need to count up to 6
@@ -1481,6 +1492,7 @@ struct BattleStruct {
     u8 original_bgId : 7;
     u8 hasLoadedBgIdOver : 1;
     u32 moveStatusFlagForSpreadMoves[CLIENT_MAX];
+    u32 moveStatusFlagForSpreadMoves2[CLIENT_MAX];
     u32 moveStatusFlagForSimultaneousDamage[CLIENT_MAX];
     u32 damageForSpreadMoves[CLIENT_MAX]; // u32 or int?
     u32 serverStatusForSpreadMoves[CLIENT_MAX];
@@ -1514,6 +1526,8 @@ struct BattleStruct {
     BOOL boosterEnergyActivated[CLIENT_MAX];
     MovePerformanceContext moveContext;
     PursuitContext pursuitContext;
+
+    MagicBounceContext magicBounceContext;
 };
 
 enum {
@@ -3852,8 +3866,6 @@ u8 LONG_CALL ov12_02261258(struct CLIENT_PARAM *opponentData);
 
 void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-#define IS_VALID_MOVE_TARGET(ctx, battlerId) (!(ctx->no_reshuffle_client & No2Bit(battlerId)) && ctx->battlemon[battlerId].hp != 0 && !(ctx->moveStatusFlagForSpreadMoves[battlerId] & WAZA_STATUS_FLAG_NO_OUT))
-
 #define LoopCheckFunctionForSpreadMove(bsys, ctx, functionToBeCalled)                                                                        \
     {                                                                                                                                        \
         if (IsMoveSpreadMove(bsys, ctx, ctx->current_move_index)) {                                                                          \
@@ -3862,7 +3874,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_ALLY:                                                                                                  \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client) \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {                                                    \
+                        && IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {                                                    \
                         ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);                                                               \
                         if (functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client))) {                                               \
                             return;                                                                                                          \
@@ -3872,7 +3884,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_OPPONENT_LEFT:                                                                                         \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))        \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {                                      \
+                        && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {                                      \
                         ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);                                                 \
                         if (functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {                                 \
                             return;                                                                                                          \
@@ -3882,7 +3894,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:                                                                                        \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))        \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {                                     \
+                        && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {                                     \
                         ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);                                                \
                         if (functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {                                \
                             return;                                                                                                          \
@@ -3893,7 +3905,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
         } else {                                                                                                                             \
             if (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {                                                                     \
                 ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;                                                                    \
-                if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {                                                                        \
+                if (IsValidMoveTarget(ctx, ctx->defence_client)) {                                                                        \
                     if (functionToBeCalled(bsys, ctx, ctx->defence_client)) {                                                                \
                         ctx->wb_seq_no++;                                                                                                    \
                         return;                                                                                                              \
@@ -3916,7 +3928,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_ALLY:                                                                                                  \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client) \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {                                                    \
+                        && IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {                                                    \
                         numClientsChecked++;                                                                                                 \
                         ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);                                                               \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));                             \
@@ -3929,7 +3941,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_OPPONENT_LEFT:                                                                                         \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))        \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {                                      \
+                        && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {                                      \
                         numClientsChecked++;                                                                                                 \
                         ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);                                                 \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));               \
@@ -3942,7 +3954,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:                                                                                        \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))        \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {                                     \
+                        && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {                                     \
                         numClientsChecked++;                                                                                                 \
                         ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);                                                \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));              \
@@ -3968,7 +3980,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
         } else {                                                                                                                             \
             if (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {                                                                     \
                 ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;                                                                    \
-                if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {                                                                        \
+                if (IsValidMoveTarget(ctx, ctx->defence_client)) {                                                                        \
                     int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);                                          \
                     if (failureSubscriptToRun) {                                                                                             \
                         ctx->battlerIdTemp = ctx->defence_client;                                                                            \
@@ -3996,7 +4008,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_ALLY:                                                                                                  \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client) \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {                                                    \
+                        && IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {                                                    \
                         numClientsChecked++;                                                                                                 \
                         ctx->battlerIdTemp = BATTLER_ALLY(ctx->attack_client);                                                               \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_ALLY(ctx->attack_client));                             \
@@ -4009,7 +4021,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_OPPONENT_LEFT:                                                                                         \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))        \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {                                      \
+                        && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {                                      \
                         numClientsChecked++;                                                                                                 \
                         ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);                                                 \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client));               \
@@ -4022,7 +4034,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:                                                                                        \
                     ctx->clientLoopForSpreadMoves++;                                                                                         \
                     if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))        \
-                        && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {                                     \
+                        && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {                                     \
                         numClientsChecked++;                                                                                                 \
                         ctx->battlerIdTemp = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);                                                \
                         failureSubscriptToRun = functionToBeCalled(bsys, ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client));              \
@@ -4048,7 +4060,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
         } else {                                                                                                                             \
             if (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {                                                                     \
                 ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;                                                                    \
-                if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {                                                                        \
+                if (IsValidMoveTarget(ctx, ctx->defence_client)) {                                                                        \
                     int failureSubscriptToRun = functionToBeCalled(bsys, ctx, ctx->defence_client);                                          \
                     if (failureSubscriptToRun == 1) {                                                                                        \
                         LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);                                           \
@@ -4082,7 +4094,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 if (!(IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) && defender == BATTLER_ALLY(ctx->attack_client))) { \
                     continue;                                                                                                     \
                 }                                                                                                                 \
-                if (IS_VALID_MOVE_TARGET(ctx, defender)) {                                                                        \
+                if (IsValidMoveTarget(ctx, defender)) {                                                                        \
                     if (functionToBeCalled(bsys, ctx, defender)) {                                                                \
                         return;                                                                                                   \
                     }                                                                                                             \
@@ -4091,7 +4103,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
         } else {                                                                                                                  \
             if (ctx->clientLoopForSpreadMoves <= SPREAD_MOVE_LOOP_MAX) {                                                          \
                 ctx->clientLoopForSpreadMoves = SPREAD_MOVE_LOOP_MAX + 1;                                                         \
-                if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {                                                             \
+                if (IsValidMoveTarget(ctx, ctx->defence_client)) {                                                             \
                     if (functionToBeCalled(bsys, ctx, ctx->defence_client)) {                                                     \
                         return;                                                                                                   \
                     }                                                                                                             \
@@ -4233,6 +4245,7 @@ BOOL LONG_CALL ServerFlinchCheck(void *bw, struct BattleStruct *sp);
 
 int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
+int LONG_CALL IsValidMoveTarget(struct BattleStruct *ctx, int battlerId);
 int LONG_CALL IsMoveSpreadMove(struct BattleSystem *bsys, struct BattleStruct *ctx, int move);
 int LONG_CALL IsTargetFoesAndAlly(struct BattleSystem *bsys, struct BattleStruct *ctx, int move);
 int LONG_CALL IsTargetFoes(struct BattleSystem *bsys, struct BattleStruct *ctx, int move);
