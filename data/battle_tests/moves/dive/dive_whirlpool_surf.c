@@ -38,7 +38,7 @@ BEGIN_TEST
     },
     .enemyParty = { {
                         .species = SPECIES_GYARADOS,
-                        .level = 20,
+                        .level = 40,
                         .form = 0,
                         .ability = ABILITY_MOXIE,
                         .item = ITEM_NONE,
@@ -50,7 +50,7 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_WAILORD,
-            .level = 20,
+            .level = 40,
             .form = 0,
             .ability = ABILITY_LEVITATE,
             .item = ITEM_NONE,
@@ -105,7 +105,13 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 14, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 20 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Inteleon hid underwater!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados used Surf!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13, 13, 13, 13, 13, 14 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective on the opposing Wailord." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective on Inteleon or Meganium." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wailord used Whirlpool!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 9, 9, 9, 9, 9, 9, 9, 9, 9, 10, 10, 10, 10, 10, 10, 11 } },
     },
     .knownFailing = TRUE,
 }

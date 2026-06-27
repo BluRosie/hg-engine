@@ -39,7 +39,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         }
     }
 
-    debug_printf("should bounce move %d\n", ctx->magicBounceContext.bounceCounter != ctx->magicBounceContext.bounceMaxCounter);
+    debug_printf("should bounce move %d\n", ctx->magicBounceContext.bounceCounter < ctx->magicBounceContext.bounceMaxCounter);
     if (ctx->magicBounceContext.bounceCounter < ctx->magicBounceContext.bounceMaxCounter) {
         ctx->defence_client = ctx->magicBounceContext.bounceClients[ctx->magicBounceContext.bounceCounter];
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGIC_COAT);
@@ -48,6 +48,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         debug_printf("run script for %d\n", ctx->defence_client);
         return;
     } else if (ctx->magicBounceContext.bounceMaxCounter) {
+        debug_printf("reset magic bounce\n", ctx->defence_client);
         ctx->magicBounceContext.isActive = FALSE;
         ctx->attack_client = ctx->magicBounceContext.originalAttacker;
         ctx->defence_client = ctx->magicBounceContext.originalDefender;
