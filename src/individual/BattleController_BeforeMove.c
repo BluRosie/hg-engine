@@ -100,7 +100,7 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
 BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckPsychicTerrain(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
-BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bsys, struct BattleStruct *ctx, BOOL isMagicBounce);
 BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL BattleController_CheckAbilityFailures2(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender);
 BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender);
@@ -809,7 +809,9 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_MAGIC_COAT\n");
 #endif
-
+        if (BattleController_CheckMagicBounceMagicCoat(bsys, ctx, FALSE) == TRUE) {
+            return;
+        }
         ctx->wb_seq_no++;
         FALLTHROUGH;
     }
@@ -826,7 +828,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_MAGIC_BOUNCE\n");
 #endif
-        if (BattleController_CheckMagicBounceMagicCoat(bsys, ctx) == TRUE) {
+        if (BattleController_CheckMagicBounceMagicCoat(bsys, ctx, TRUE) == TRUE) {
             return;
         }
         ctx->wb_seq_no++;
@@ -2620,7 +2622,7 @@ void SortPositionBased(u8 array[2], int size)
     }
 }
 
-BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct BattleStruct *sp)
+BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct BattleStruct *sp, BOOL isMagicBounce)
 {
     if (sp->defence_client == BATTLER_NONE) {
         return FALSE;
@@ -2642,7 +2644,13 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
                 continue;
             }
             enemies++;
-            BOOL hasBounceEffect = sp->oneTurnFlag[client_no].magic_cort_flag || MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE);
+
+            BOOL hasBounceEffect = FALSE;
+            if (isMagicBounce) {
+                hasBounceEffect = MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE);
+            } else {
+                hasBounceEffect = sp->oneTurnFlag[client_no].magic_cort_flag
+            }
             if (!hasBounceEffect || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) {
                 continue;
             }
