@@ -2424,8 +2424,7 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
             break;
         }
 
-        if (defenderInSemiInvulnerability
-            && !CanHitThroughSemiInvulnerability(ctx, ctx->attack_client, defender)
+        if (!CanHitThroughSemiInvulnerability(ctx, ctx->attack_client, defender)
             && (moveCanHit == FALSE)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = WAZA_STATUS_FLAG_KIE_NOHIT;

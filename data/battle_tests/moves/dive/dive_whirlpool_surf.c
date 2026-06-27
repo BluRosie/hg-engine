@@ -1,4 +1,4 @@
-// Test: Dig - Vanish, hit by earthquake
+// Test: Dive - Whirlpool, Surf hit during dive
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,22 +8,22 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_SANDSLASH,
+            .species = SPECIES_INTELEON,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SAND_RUSH,
+            .ability = ABILITY_TORRENT,
             .item = ITEM_NONE,
-            .moves = { MOVE_DIG, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_DIVE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_STARLY,
+            .species = SPECIES_MEGANIUM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_KEEN_EYE,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -42,19 +42,19 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_MOXIE,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_SURF, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_FLYGON,
+            .species = SPECIES_WAILORD,
             .level = 20,
             .form = 0,
             .ability = ABILITY_LEVITATE,
             .item = ITEM_NONE,
-            .moves = { MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_WHIRLPOOL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -105,14 +105,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sandslash burrowed its way under the ground!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Flygon used Earthquake!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Gyarados..." },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Starly..." },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 14, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 18, 20 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The attack of the opposing Gyarados missed!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 7, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10 } },
     },
     .knownFailing = TRUE,
 }
