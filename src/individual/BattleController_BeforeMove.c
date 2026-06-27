@@ -2382,7 +2382,7 @@ BOOL CanHitThroughSemiInvulnerability(struct BattleStruct *ctx, int attacker, in
 {
     if ((ctx->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
         || (GetBattlerAbility(ctx, attacker) == ABILITY_NO_GUARD)
-        || (GetBattlerAbility(ctx, defender) == ABILITY_NO_GUARD)) {
+        || (GetBattlerAbility(ctx, defender) == ABILITY_NO_GUARD) {
         return TRUE;
     }
 
@@ -2396,6 +2396,11 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
     if (defenderInSemiInvulnerability) {
         moveCanHit = FALSE;
         switch (ctx->current_move_index) {
+        case MOVE_TOXIC:
+            if (HasType(ctx, ctx->attack_client, TYPE_POISON)) {
+                moveCanHit = TRUE;
+            }
+            break;
         case MOVE_SURF:
         case MOVE_WHIRLPOOL:
             if (ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING) {
