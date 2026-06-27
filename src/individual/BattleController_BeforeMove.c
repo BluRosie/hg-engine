@@ -2659,7 +2659,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
             debug_printf("add bouncer %d \n", client_no);
         }
 
-        if (endMove || enemies == sp->magicBounceContext.bounceMaxCounter) { // corrosive gas  && target != RANGE_ALL_ADJACENT, all those moves are unimplemented
+        if (endMove || (enemies && enemies == sp->magicBounceContext.bounceMaxCounter)) { // corrosive gas  && target != RANGE_ALL_ADJACENT, all those moves are unimplemented
             SortPositionBased(sp->magicBounceContext.bounceClients, sp->magicBounceContext.bounceMaxCounter);
             sp->wb_seq_no = BEFORE_MOVE_START;
             sp->server_seq_no = CONTROLLER_COMMAND_39;

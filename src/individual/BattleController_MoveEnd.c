@@ -47,7 +47,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         debug_printf("run script for %d\n", ctx->defence_client);
         return;
-    } else {
+    } else if (ctx->magicBounceContext.bounceMaxCounter) {
         ctx->magicBounceContext.isActive = FALSE;
         ctx->attack_client = ctx->magicBounceContext.originalAttacker;
         ctx->defence_client = ctx->magicBounceContext.originalDefender;
