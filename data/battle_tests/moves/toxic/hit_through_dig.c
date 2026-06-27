@@ -85,7 +85,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sandslash burrowed its way under the ground!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Weezing used Toxic!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sandslash was poisoned!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sandslash was badly poisoned!" },
     },
 }
 END_TEST
