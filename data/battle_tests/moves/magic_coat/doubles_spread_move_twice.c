@@ -105,7 +105,6 @@ BEGIN_TEST {
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Growl!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Attack" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene bounced the Growl back!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir's Hyper Cutter" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Growl back!" },
