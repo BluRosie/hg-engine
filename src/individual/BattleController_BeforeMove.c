@@ -2391,8 +2391,10 @@ BOOL CanHitThroughSemiInvulnerability(struct BattleStruct *ctx, int attacker, in
 
 BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
-    BOOL moveCanHit = FALSE;
-    if (ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) {
+    BOOL moveCanHit = TRUE;
+    BOOL defenderInSemiInvulnerability = (ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE);
+    if (defenderInSemiInvulnerability) {
+        moveCanHit = FALSE;
         switch (ctx->current_move_index) {
         case MOVE_SURF:
         case MOVE_WHIRLPOOL:
@@ -2422,8 +2424,8 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
             break;
         }
 
-        if (!CanHitThroughSemiInvulnerability(ctx, ctx->attack_client, defender)
-            && (ctx->moveTbl[ctx->current_move_index].target != RANGE_ADJACENT_OPPONENTS)
+        if (defenderInSemiInvulnerability
+            && !CanHitThroughSemiInvulnerability(ctx, ctx->attack_client, defender)
             && (moveCanHit == FALSE)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = WAZA_STATUS_FLAG_KIE_NOHIT;
