@@ -2382,7 +2382,7 @@ BOOL CanHitThroughSemiInvulnerability(struct BattleStruct *ctx, int attacker, in
 {
     if ((ctx->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
         || (GetBattlerAbility(ctx, attacker) == ABILITY_NO_GUARD)
-        || (GetBattlerAbility(ctx, defender) == ABILITY_NO_GUARD) {
+        || (GetBattlerAbility(ctx, defender) == ABILITY_NO_GUARD)) {
         return TRUE;
     }
 
