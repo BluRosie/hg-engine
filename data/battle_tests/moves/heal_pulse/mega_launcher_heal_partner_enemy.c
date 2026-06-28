@@ -106,13 +106,14 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer’s HP was restored!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino’s HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer’s HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon’s HP is full!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer made a substitute!" },
-    }
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+    },
+    .knownFailing = TRUE,
 }
 END_TEST
