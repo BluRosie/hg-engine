@@ -13,7 +13,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_HEALER,
             .item = ITEM_NONE,
-            .moves = { MOVE_HEAL_PULSE, MOVE_SUBSTITUTE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_HEAL_PULSE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = 1,
             .status = 0,
             .condition2 = 0,
@@ -25,7 +25,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_MEGA_LAUNCHER,
             .item = ITEM_NONE,
-            .moves = { MOVE_HEAL_PULSE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_HEAL_PULSE, MOVE_SUBSTITUTE, MOVE_NONE, MOVE_NONE },
             .hp = 1,
             .status = 0,
             .condition2 = 0,
@@ -66,7 +66,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-                          { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_SECOND },
+                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -76,7 +76,7 @@ BEGIN_TEST
                       },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -85,7 +85,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -105,14 +105,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino’s HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer’s HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino’s HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer’s HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon’s HP is full!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino made a substitute!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer made a substitute!" },
     }
 }
 END_TEST
