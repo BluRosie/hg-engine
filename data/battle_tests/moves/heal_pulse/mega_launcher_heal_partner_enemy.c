@@ -14,7 +14,7 @@ BEGIN_TEST
             .ability = ABILITY_HEALER,
             .item = ITEM_NONE,
             .moves = { MOVE_HEAL_PULSE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
+            .hp = 46,//178
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -107,10 +107,10 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer’s HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino’s HP was restored!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer’s HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon’s HP is full!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino’s HP is full!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer made a substitute!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
     },
