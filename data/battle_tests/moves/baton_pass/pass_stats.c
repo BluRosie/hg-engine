@@ -1,4 +1,4 @@
-// Test: Mega Sol - Electro Slot and Solar Beam
+// Test: Baton Pass - pass stats and switch out
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -11,9 +11,9 @@ BEGIN_TEST
             .species = SPECIES_BLISSEY,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_PRANKSTER,
+            .ability = ABILITY_NATURAL_CURE,
             .item = ITEM_NONE,
-            .moves = { MOVE_RAIN_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -26,18 +26,29 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_ARCHALUDON,
+                        .species = SPECIES_VOLBEAT,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_MEGA_SOL,
-                        .item = ITEM_POWER_HERB,
-                        .moves = { MOVE_ELECTRO_SHOT, MOVE_SOLAR_BEAM, MOVE_NONE, MOVE_NONE },
+                        .ability = ABILITY_PRANKSTER,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_TAIL_GLOW, MOVE_BATON_PASS, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_DEDENNE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_STATIC,
+            .item = ITEM_NONE,
+            .moves = { MOVE_DISCHARGE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -45,7 +56,7 @@ BEGIN_TEST
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -65,7 +76,7 @@ BEGIN_TEST
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                          { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,14 +94,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon used Electro Shot!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon absorbed electricity!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon's Sp. Atk rose!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "fully charged" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon used Solar Beam!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon absorbed light!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Archaludon's Mega Sol" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 63, 64, 65, 66, 66, 67, 68, 69, 69, 70, 71, 72, 72, 73, 74, 75 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Volbeat used Tail Glow!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Volbeat's Sp. Atk rose drastically!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Volbeat used Baton Pass!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Dedenne!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dedenne used Discharge!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 75, 75, 76, 76, 78, 79, 79, 81, 81, 82, 84, 84, 85, 85, 87, 88 } },
     },
 }
 END_TEST

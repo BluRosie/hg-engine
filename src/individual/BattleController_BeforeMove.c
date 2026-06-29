@@ -2184,6 +2184,7 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
 {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     BOOL needToRunScript = FALSE;
+    BOOL continueMoveExecution = FALSE;
     u32 weatherConsideringMegaSol = GetWeather(bsys, ctx, ctx->attack_client);
     u32 weatherIgnoringMegaSol = GetWeather(bsys, ctx, 0xFF);
 
@@ -2208,6 +2209,7 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
         case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
             if (weatherConsideringMegaSol & WEATHER_SUNNY_ANY) {
                 needToRunScript = FALSE;
+                continueMoveExecution = TRUE;
             } else {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_SKIPS_CHARGE_TURN);
                 needToRunScript = TRUE;
@@ -2240,6 +2242,7 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
         case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
             if (weatherIgnoringMegaSol & WEATHER_RAIN_ANY) {
                 needToRunScript = FALSE;
+                continueMoveExecution = TRUE;
             } else {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN);
                 needToRunScript = TRUE;
@@ -2265,7 +2268,7 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
         }
     }
     if (needToRunScript) {
-        if (HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
+        if (continueMoveExecution || HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
             ctx->next_server_seq_no = ctx->server_seq_no;
         } else {
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
