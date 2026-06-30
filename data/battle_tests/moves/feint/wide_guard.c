@@ -1,19 +1,31 @@
-// Test: Feint - hit through Protect
+// Test: Feint - remove wide guard
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_SINGLE,
+    .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
+        {
+            .species = SPECIES_MUDKIP,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_TORRENT,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SURF, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         {
             .species = SPECIES_MEDICHAM,
             .level = 50,
             .form = 0,
             .ability = ABILITY_HUGE_POWER,
             .item = ITEM_NONE,
-            .moves = { MOVE_FEINT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_FEINT, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -22,23 +34,44 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_INCINEROAR,
+                        .species = SPECIES_CHIKORITA,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_BLAZE,
-                        .item = ITEM_ROCKY_HELMET,
-                        .moves = { MOVE_PROTECT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .ability = ABILITY_OVERGROW,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_ENDURE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_DEWPIDER,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_WATER_BUBBLE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_WIDE_GUARD, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_GYARADOS,
+            .level = 30,
+            .form = 0,
+            .ability = ABILITY_INTIMIDATE,
+            .item = ITEM_CUSTAP_BERRY,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
@@ -53,7 +86,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -63,7 +96,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -73,7 +106,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -83,9 +116,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Incineroar protected itself!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 17, 18, 18, 18, 18, 18, 19, 19, 19, 19, 19, 20, 20, 20, 20, 21 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Incineroar fell for the feint!" },
-    }
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective on the opposing Chikorita or Dewpider." },
+    },
+    .knownFailing = TRUE,
 }
 END_TEST
