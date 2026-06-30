@@ -1923,6 +1923,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     }
                     sp->moveConditionsFlags[i].dragonDartsStatus = 0;
                     sp->moveConditionsFlags[i].endure = 0;
+                    sp->moveProtect[i] = 0;
                 }
 
                 sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;
