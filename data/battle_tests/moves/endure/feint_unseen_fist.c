@@ -120,7 +120,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle braced itself!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble endured the hit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dwebble’s Weak Armor" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dwebble’s Weak Armor" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle endured the hit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Urshifu’s Defense fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Crustle’s Weak Armor" },
