@@ -1922,8 +1922,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         sp->moveConditionsFlags[i].throatChopTimer--;
                     }
                     sp->moveConditionsFlags[i].dragonDartsStatus = 0;
-
-                    sp->oneSelfFlag[i].prevent_one_hit_ko_move = FALSE;
+                    sp->moveConditionsFlags[i].endure = 0;
                 }
 
                 sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;

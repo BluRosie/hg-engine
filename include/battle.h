@@ -771,8 +771,7 @@ struct __attribute__((packed)) OneSelfTurnEffect {
     u32 prevent_one_hit_ko_item : 1; /**< a held item prevented OHKO on this pokémon */
     u32 rolloutCount : 3; /**< counter for rollout */
     u32 defiant_flag : 1; /**< flag that signals to activate defiant after a stat is raised */
-    u32 prevent_one_hit_ko_move : 1; /**< counter for endure */
-    u32 : 21;
+    u32 : 22;
 
     /* 0x04 */ int physical_damage; /**< physical damage last taken */
     /* 0x08 */ int physical_damager; /**< last battler that physically damaged this pokémon */
@@ -1234,7 +1233,7 @@ typedef struct OnceOnlyMoveConditionFlags {
 } OnceOnlyMoveConditionFlags;
 
 typedef struct MoveConditionsFlags {
-    u8 unused : 1;
+    u8 endure : 1;
     u8 moveFailureLastTurn : 1;
     u8 moveFailureThisTurn : 1;
     u8 soakFlag : 1;
