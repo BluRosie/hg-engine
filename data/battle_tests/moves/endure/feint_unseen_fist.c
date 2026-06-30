@@ -121,6 +121,5 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble fainted!" },
     },
-    .knownFailing = TRUE,
 }
 END_TEST

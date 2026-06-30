@@ -119,8 +119,9 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wide Guard protected the opposing team!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dewpider fell for the feint!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mudkip used Surf!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 17, 18, 18, 18, 18, 18 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 17, 17, 17, 17, 18 } },    
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on the opposing Chikorita or Dewpider." },
     },
-    .knownFailing = TRUE,
 }
 END_TEST
