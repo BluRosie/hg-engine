@@ -932,6 +932,15 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
     int incomingDamage = sp->damageForSpreadMoves[battler];
 
     {
+        if (sp->oneSelfFlag[battler].prevent_one_hit_ko_move) {
+            sp->oneSelfFlag[battler].prevent_one_hit_ko_move = FALSE;
+            sp->item_work = sp->battlemon[battler].item;
+            seq_no[0] = SUB_SEQ_FOCUS_SASH; //TODO
+            return TRUE;
+        }
+    }
+
+    {
         if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability // already checked by moldbreaker
             && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
             sp->oneTurnFlag[battler].prevent_one_hit_ko_ability = FALSE;
@@ -956,7 +965,8 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
     }
     case HOLD_EFFECT_ENDURE: // Focus Sash
     {
-        if (sp->oneSelfFlag[battler].prevent_one_hit_ko_item && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
+        if (sp->oneSelfFlag[battler].
+            prevent_one_hit_ko_item && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
             sp->oneSelfFlag[battler].prevent_one_hit_ko_item = FALSE;
             sp->item_work = sp->battlemon[battler].item;
             sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;

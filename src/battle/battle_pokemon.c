@@ -1118,6 +1118,8 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].throatChopTimer = 0;
     sp->moveConditionsFlags[client].dragonDartsStatus = 0;
 
+    sp->oneSelfFlag[client].prevent_one_hit_ko_move = FALSE;
+
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;
     sp->protectSuccessTurns[client] = 0;
