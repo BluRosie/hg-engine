@@ -924,7 +924,7 @@ int LONG_CALL ShowDamageReductionBerryMessage(void *bsys UNUSED, struct BattleSt
     return FALSE;
 }
 
-
+//https://github.com/rh-hideout/pokeemerald-expansion/pull/9854
 int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, struct BattleStruct *sp, int *seq_no)
 {
     int battler = sp->defence_client;
@@ -932,21 +932,23 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
     int incomingDamage = sp->damageForSpreadMoves[battler];
 
     {
-        if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability // already checked by moldbreaker
-            && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
-            sp->oneTurnFlag[battler].prevent_one_hit_ko_ability = FALSE;
-            sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
-            seq_no[0] = SUB_SEQ_STURDY;
-            return TRUE;
-        }
-    }
-
-    {
         if (sp->moveConditionsFlags[battler].endure
             && sp->battlemon[battler].hp == 1
             && (sp->oneSelfFlag[battler].physical_damage
                 || sp->oneSelfFlag[battler].special_damage)) {
             seq_no[0] = SUB_SEQ_ENDURE_HIT;
+            return TRUE;
+        }
+    }
+
+    //TODO False Swipe, Hold Back,
+
+    {
+        if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability // already checked by moldbreaker
+            && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
+            sp->oneTurnFlag[battler].prevent_one_hit_ko_ability = FALSE;
+            sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
+            seq_no[0] = SUB_SEQ_STURDY;
             return TRUE;
         }
     }
@@ -980,7 +982,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
         break;
     }
 
-    // TODO: False Swipe, Hold Back, Friendship
+    // TODO:  Friendship
 
     return FALSE;
 }
