@@ -150,6 +150,7 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
 BOOL BtlCmd_TryConversion2(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
+BOOL BtlCmd_TryFeint(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -3736,7 +3737,7 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx)
     }
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
-        ctx->oneTurnFlag[ctx->attack_client].prevent_one_hit_ko_ability = TRUE;
+        ctx->moveConditionsFlags[ctx->attack_client].endure = TRUE;
         ctx->mp.id = BATTLE_MSG_BRACED_ITSELF; // "{0} braced itself!"
         ctx->mp.tag = TAG_NICKNAME;
         ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->attack_client);
@@ -5453,12 +5454,12 @@ BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *
     // BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT
     ctx->add_status_flag_indirect = 0;
     // BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT
-    ctx->add_status_flag_direct = 0;
+ctx->add_status_flag_direct = 0;
 
-    ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
-    ctx->server_seq_no = CONTROLLER_COMMAND_23;
+ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
+ctx->server_seq_no = CONTROLLER_COMMAND_23;
 
-    return FALSE;
+return FALSE;
 }
 
 BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
@@ -5536,5 +5537,52 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
         */
     }
 
+    return FALSE;
+}
+
+
+
+BOOL BtlCmd_TryFeint(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int adrs = read_battle_script_param(ctx);
+    int ally = BATTLER_ALLY(ctx->defence_client);
+
+    if (ctx->oneTurnFlag[ctx->defence_client].protectFlag)
+    {
+        ctx->oneTurnFlag[ctx->defence_client].protectFlag = FALSE;
+
+        if (ctx->oneTurnFlag[ctx->defence_client].gainedProtectFlagFromAlly) {
+            ctx->oneTurnFlag[ctx->defence_client].gainedProtectFlagFromAlly = FALSE;
+            switch (ctx->moveProtect[ally]) {
+            case MOVE_QUICK_GUARD:
+            case MOVE_WIDE_GUARD:
+            case MOVE_MAT_BLOCK:
+            case MOVE_CRAFTY_SHIELD:
+                ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].protectFlag = FALSE;
+                break;
+            default:
+                break;
+            }
+        }
+
+        switch (ctx->moveProtect[ctx->defence_client]) {
+        case MOVE_QUICK_GUARD:
+        case MOVE_WIDE_GUARD:
+        case MOVE_MAT_BLOCK:
+        case MOVE_CRAFTY_SHIELD:
+            if (ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].gainedProtectFlagFromAlly)
+            {
+                ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].gainedProtectFlagFromAlly = FALSE;
+                ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].protectFlag = FALSE;
+            }
+            break;
+        default:
+            break;
+        }
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
     return FALSE;
 }

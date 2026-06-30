@@ -924,12 +924,24 @@ int LONG_CALL ShowDamageReductionBerryMessage(void *bsys UNUSED, struct BattleSt
     return FALSE;
 }
 
-
+//https://github.com/rh-hideout/pokeemerald-expansion/pull/9854
 int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, struct BattleStruct *sp, int *seq_no)
 {
     int battler = sp->defence_client;
     int itemHoldEffect = HeldItemHoldEffectGet(sp, battler);
     int incomingDamage = sp->damageForSpreadMoves[battler];
+
+    {
+        if (sp->moveConditionsFlags[battler].endure
+            && sp->battlemon[battler].hp == 1
+            && (sp->oneSelfFlag[battler].physical_damage
+                || sp->oneSelfFlag[battler].special_damage)) {
+            seq_no[0] = SUB_SEQ_ENDURE_HIT;
+            return TRUE;
+        }
+    }
+
+    //TODO False Swipe, Hold Back,
 
     {
         if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability // already checked by moldbreaker
@@ -956,7 +968,8 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
     }
     case HOLD_EFFECT_ENDURE: // Focus Sash
     {
-        if (sp->oneSelfFlag[battler].prevent_one_hit_ko_item && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
+        if (sp->oneSelfFlag[battler].
+            prevent_one_hit_ko_item && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
             sp->oneSelfFlag[battler].prevent_one_hit_ko_item = FALSE;
             sp->item_work = sp->battlemon[battler].item;
             sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
@@ -969,7 +982,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
         break;
     }
 
-    // TODO: False Swipe, Hold Back, Friendship
+    // TODO:  Friendship
 
     return FALSE;
 }
@@ -1090,6 +1103,7 @@ int LONG_CALL Activate_Rowap_Jaboca(void *bsys UNUSED, struct BattleStruct *ctx)
             case HOLD_EFFECT_RECOIL_SPECIAL: // Rowap Berry
                 // Attacker is alive after the attack
                 if (IsAttackerOnField(ctx)
+                    && !ctx->futureSightHitTurn
                     && (ctx->battlemon[ctx->attack_client].hp)
                     // Attacker does not have Magic Guard
                     && (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD)
@@ -1821,7 +1835,8 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
         switch (itemHeldEffect) {
         case HOLD_EFFECT_SWITCH_OUT_WHEN_HIT: // Eject Button
             // Defender is alive after the attack
-            if ((ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+            if (!ctx->futureSightHitTurn
+                && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))) {
@@ -1839,6 +1854,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
         case HOLD_EFFECT_FORCE_SWITCH_ON_DAMAGE: // Red Card
             // Attacker, Defender is alive after the attack
             if (IsAttackerOnField(ctx)
+                && !ctx->futureSightHitTurn
                 && ctx->battlemon[ctx->attack_client].hp
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 //&& (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
