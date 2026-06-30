@@ -3736,7 +3736,7 @@ BOOL BtlCmd_TryProtection(void *bsys UNUSED, struct BattleStruct *ctx)
     }
 
     if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
-        ctx->moveConditionsFlags[ctx->attack_client].endure = 0;
+        ctx->moveConditionsFlags[ctx->attack_client].endure = TRUE;
         ctx->mp.id = BATTLE_MSG_BRACED_ITSELF; // "{0} braced itself!"
         ctx->mp.tag = TAG_NICKNAME;
         ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->attack_client);
