@@ -1177,6 +1177,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 && (terrainOverlayNumberOfTurnsLeft > 0)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
             }
+
+            //TODO: check place after tests are done
+            // handle Fire Mane
+            if (AttackingMon.ability == ABILITY_FIRE_MANE && (movetype == TYPE_FIRE)) {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
+            }
         }
 
         if (BATTLER_ALLY(attacker) == damageCalc->rawSpeedNonRNGClientOrder[i]) {

@@ -15,9 +15,6 @@
 #include "../../include/q412.h"
 #include "../../include/types.h"
 
-// declaration needed for below
-BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
-
 typedef struct
 {
     u8 numerator;
@@ -2007,7 +2004,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
  *  @param msg msg param to fill with values for printing a message that results from running
  *  @return TRUE if the battler can not escape; FALSE if the battler can escape
  */
-BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg)
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg)
 {
     int battlerIdAbility;
     int maxBattlers UNUSED;
@@ -2041,7 +2038,9 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage 
     battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP);
     if (battlerIdAbility) {
         if (!(sp->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
-            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !HasType(sp, battlerId, TYPE_FLYING)) {
+            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE 
+                && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
+                && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !HasType(sp, battlerId, TYPE_FLYING)) {
                 if (msg == NULL) {
                     return TRUE;
                 }
@@ -2113,7 +2112,8 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId)
         ret = TRUE;
     }
 
-    if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
+    if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE 
+        && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
              && sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
              && !HasType(sp, battlerId, TYPE_FLYING))
             || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SPEED_DOWN_GROUNDED
@@ -3952,8 +3952,12 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
         return ABILITY_NONE;
     } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
         return ABILITY_NONE;
+    } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
+        return ABILITY_BEAST_BOOST;
     } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
         return ABILITY_NONE;
+    } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
+        return ABILITY_BEAST_BOOST;
     } else if (AbilityNoTransform(ctx->battlemon[battlerId].ability) && (ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORMED)) {
         return ABILITY_NONE;
     } else {
