@@ -106,11 +106,11 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle braced itself!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s super effective!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle endured the hit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Crustle's Weak Armor" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle’s Air Balloon popped!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s super effective!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle's Air Balloon popped!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle endured the hit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Crustle's Weak Armor" },
     }
