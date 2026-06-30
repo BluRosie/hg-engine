@@ -5517,7 +5517,6 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
 BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
 {
-    debug_printf("BtlCmd_MagicCoat\n");
     IncrementBattleScriptPtr(ctx, 1);
 
     ctx->magicBounceContext.isActive = TRUE;
@@ -5535,6 +5534,5 @@ BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
 
     ctx->waza_out_check_on_off |= (SYSCTL_SKIP_STATUS_CHECK | SYSCTL_SKIP_OBEDIENCE_CHECK | SYSCTL_SKIP_PP_DECREMENT);
 
-    debug_printf("ctx->attack_client %d, def %d, moveFlag %d\n", ctx->attack_client, ctx->defence_client, ctx->waza_status_flag);
     return FALSE;
 }

@@ -2629,7 +2629,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
     }
 
     int client_set_max = BattleWorkClientSetMaxGet(bw);
-    debug_printf("check magic bounce %d, %d\n", sp->magicBounceContext.isActive, sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT);
+
     if (!sp->magicBounceContext.isActive && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT)) {
         int target = sp->moveTbl[sp->current_move_index].target;
         int enemies = sp->magicBounceContext.bounceMaxCounter;//if there is already a magic coat bouncer
@@ -2638,7 +2638,6 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
 
         for (int i = 0; i < client_set_max; i++) {
             int client_no = sp->turnOrder[i];
-            debug_printf("client %d, def %d, target %d, enemy %d, bounce %d\n", client_no, sp->defence_client, target, (IsClientEnemy(bw, client_no) != IsClientEnemy(bw, sp->attack_client)), MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE));
 
             if (!IsValidMoveTarget(sp, client_no) || (IsClientEnemy(bw, client_no) == IsClientEnemy(bw, sp->attack_client))) {
                 continue;
@@ -2671,7 +2670,6 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
             sp->magicBounceContext.originalDefender = sp->defence_client;
             sp->magicBounceContext.bounceClients[sp->magicBounceContext.bounceMaxCounter++] = client_no;
             sp->moveStatusFlagForSpreadMoves2[client_no] = SPREAD_MOVE_STATUS2_FLAG_MAGIC_BOUNCE;
-            debug_printf("add bouncer %d \n", client_no);
         }
 
         if (endMove || (enemies && enemies == sp->magicBounceContext.bounceMaxCounter)) { // corrosive gas  && target != RANGE_ALL_ADJACENT, all those moves are unimplemented
