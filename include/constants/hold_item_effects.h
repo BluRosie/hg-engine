@@ -73,7 +73,7 @@
 #define HOLD_EFFECT_STRENGTHEN_STEEL                    68
 #define HOLD_EFFECT_HP_RESTORE_GRADUAL                  69
 #define HOLD_EFFECT_EVOLVE_SEADRA                       70
-#define HOLD_EFFECT_PIKA_SPATK_UP                       71
+#define HOLD_EFFECT_PIKA_ATK_SPATK_UP                   71
 #define HOLD_EFFECT_STRENGTHEN_GROUND                   72
 #define HOLD_EFFECT_STRENGTHEN_ROCK                     73
 #define HOLD_EFFECT_STRENGTHEN_GRASS                    74
