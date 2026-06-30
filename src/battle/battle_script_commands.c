@@ -5559,6 +5559,7 @@ BOOL BtlCmd_TryFeint(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx)
             case MOVE_QUICK_GUARD:
             case MOVE_WIDE_GUARD:
             case MOVE_MAT_BLOCK:
+            case MOVE_CRAFTY_SHIELD:
                 ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].protectFlag = FALSE;
                 break;
             default:
@@ -5570,6 +5571,7 @@ BOOL BtlCmd_TryFeint(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx)
         case MOVE_QUICK_GUARD:
         case MOVE_WIDE_GUARD:
         case MOVE_MAT_BLOCK:
+        case MOVE_CRAFTY_SHIELD:
             if (ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].gainedProtectFlagFromAlly)
             {
                 ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].gainedProtectFlagFromAlly = FALSE;
