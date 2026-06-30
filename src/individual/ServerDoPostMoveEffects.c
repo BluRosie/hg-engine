@@ -640,10 +640,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_CLEAR_MAGIC_COAT:
-        ctx->magicBounceTracker = FALSE;
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
     case MOVE_PERFORMANCE_END:
         ctx->swoam_seq_no++;
         break;
@@ -794,7 +790,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         FALLTHROUGH;
     case SWOAK_SEQ_CLEAR_MAGIC_COAT:
-        ctx->magicBounceTracker = FALSE;
         ctx->swoam_seq_no++;
         break;
     default:

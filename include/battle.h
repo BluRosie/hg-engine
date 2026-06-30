@@ -730,7 +730,7 @@ struct __attribute__((packed)) OneTurnEffect {
     u32 pp_dec_flag : 1; /**< pp decreased this turn? */
     u32 protectFlag : 1; /**< pokémon is currently protecting */
     u32 helping_hand_flag : 1; /**< pokémon is being aided by helping hand */
-    u32 magic_cort_flag : 1; /**< pokémon has magic coat active */
+    u32 magicCoatFlag : 1; /**< pokémon has magic coat active */
     u32 snatchFlag : 1;
     u32 roostFlag : 1;
     u32 escape_flag : 2;
@@ -1467,7 +1467,7 @@ struct BattleStruct {
     /*0x315C*/ u8 mons_getting_exp_from_item;
     /*0x315D*/ u8 relic_song_tracker; // bitfield with 1 << client for if it used relic song
     /*0x315E*/ u8 frisk_tracker; // see which clients have been frisked by the frisk client (1 << client)
-    /*0x315F*/ u8 magicBounceTracker; // if any client has already activated magic bounce, another can not activate //unused
+    /*0x315F*/ u8 unused;
     /*0x3160*/ u8 binding_turns[4]; // turns left for bind
     /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
     /*0x316E*/ u8 protectSuccessTurns[CLIENT_MAX]; // Only need to count up to 6
@@ -1983,7 +1983,6 @@ enum {
     MOVE_PERFORMANCE_STEP_28_0_WHITE_HERB_MIRROR_HERB_EJECT_PACK,
     MOVE_PERFORMANCE_STEP_29_0_RESOLVE_PENDING_SWITCH,
     MOVE_PERFORMANCE_STEP_30_0_DANCER,
-    MOVE_PERFORMANCE_CLEAR_MAGIC_COAT,
 
     MOVE_PERFORMANCE_END
 };
