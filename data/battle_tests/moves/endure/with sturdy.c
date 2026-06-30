@@ -1,4 +1,4 @@
-// Test: Endure - Endure at 1 HP
+// Test: Endure - Endure with sturdy
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -40,10 +40,10 @@ BEGIN_TEST
                         .species = SPECIES_CRUSTLE,
                         .level = 30,
                         .form = 0,
-                        .ability = ABILITY_WEAK_ARMOR,
-                        .item = ITEM_AIR_BALLOON,
+                        .ability = ABILITY_STURDY,
+                        .item = ITEM_CUSTAP_BERRY,
                         .moves = { MOVE_ENDURE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = 1,
+                        .hp = 20,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -52,8 +52,8 @@ BEGIN_TEST
             .species = SPECIES_DWEBBLE,
             .level = 30,
             .form = 0,
-            .ability = ABILITY_WEAK_ARMOR,
-            .item = ITEM_KEE_BERRY,
+            .ability = ABILITY_STURDY,
+            .item = ITEM_CUSTAP_BERRY,
             .moves = { MOVE_ENDURE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -108,8 +108,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble braced itself!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle braced itself!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble endured the hit!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dwebble’s Weak Armor" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble’s Kee Berry raised its Defense!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dwebble’s Sturdy" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle endured the hit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Air Balloon" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Crustle’s Weak Armor" },
