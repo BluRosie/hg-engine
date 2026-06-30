@@ -941,7 +941,6 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
         }
     }
 
-    debug_printf("battler %d, endure %d, damage %d\n", battler, sp->moveConditionsFlags[battler].endure, sp->oneSelfFlag[battler].physical_damage);
     {
         if (sp->moveConditionsFlags[battler].endure
             && sp->battlemon[battler].hp == 1

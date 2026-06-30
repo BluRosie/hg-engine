@@ -91,7 +91,7 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = FALSE;
                 }
             }
-            debug_printf("battler %d, endure %d\n", sp->defence_client, sp->moveConditionsFlags[sp->defence_client].endure);
+
             if (sp->moveConditionsFlags[sp->defence_client].endure)
             {
                 if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0) {
