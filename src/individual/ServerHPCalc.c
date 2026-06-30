@@ -91,15 +91,14 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = FALSE;
                 }
             }
-
+            debug_printf("battler %d, endure %d", sp->defence_client, sp->moveConditionsFlags[sp->defence_client].endure);
             if (sp->moveConditionsFlags[sp->defence_client].endure)
             {
                 if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0) {
                     sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
-                    if (sp->damage == 0)
-                    {
-                        negatedDamage = TRUE;
-                    }
+                }
+                if (sp->damage == 0) {
+                    negatedDamage = TRUE;
                 }
             }
 
@@ -127,6 +126,9 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     {
                         sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
                     }
+                }
+                if (sp->damage == 0) {
+                    negatedDamage = TRUE;
                 }
             }
 

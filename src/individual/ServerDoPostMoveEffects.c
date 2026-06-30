@@ -931,6 +931,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
     int itemHoldEffect = HeldItemHoldEffectGet(sp, battler);
     int incomingDamage = sp->damageForSpreadMoves[battler];
 
+    debug_printf("battler %d, endure %d, damage %d", battler, sp->moveConditionsFlags[battler].endure, sp->oneSelfFlag[battler].physical_damage);
     {
         if (sp->moveConditionsFlags[battler].endure
             && sp->battlemon[battler].hp == 1
