@@ -1,4 +1,4 @@
-// Test: Magic Bounce - Bounce Toxic spikes in singles
+// Test: Splash - do nothing
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_ARBOK,
+            .species = SPECIES_MAGIKARP,
             .level = 50,
             .form = 0,
             .ability = ABILITY_SHED_SKIN,
             .item = ITEM_NONE,
-            .moves = { MOVE_TOXIC_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -26,12 +26,12 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_ESPEON,
-                        .level = 50,
+                        .species = SPECIES_GYARADOS,
+                        .level = 100,
                         .form = 0,
-                        .ability = ABILITY_MAGIC_BOUNCE,
+                        .ability = ABILITY_MOXIE,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -83,9 +83,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Toxic Spikes back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "all around your side!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados used Splash!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But nothing happened!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magikarp used Splash!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But nothing happened!" },
     }
 }
 END_TEST

@@ -1,8 +1,7 @@
-// Test: Magic Bounce - Bounce Toxic spikes in singles
+// Test: Magic Bounce - Bounce single target move in doubles, no teeter dance
 #include "../../battle_tests.h"
-BEGIN_TEST
-{
-    .battleType = BATTLE_TYPE_SINGLE,
+BEGIN_TEST {
+    .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -13,7 +12,19 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_SHED_SKIN,
             .item = ITEM_NONE,
-            .moves = { MOVE_TOXIC_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_GLARE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_SPINDA,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_NO_GUARD,
+            .item = ITEM_NONE,
+            .moves = { MOVE_TEETER_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -22,9 +33,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
-    },
+        { .species = SPECIES_NONE } },
     .enemyParty = { {
                         .species = SPECIES_ESPEON,
                         .level = 50,
@@ -37,7 +46,18 @@ BEGIN_TEST
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_HATTERENE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_MAGIC_BOUNCE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -53,7 +73,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -73,7 +93,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -83,9 +103,13 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Glare!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Toxic Spikes back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "all around your side!" },
-    }
-}
-END_TEST
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Glare back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok is paralyzed, so it may be unable to move!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Spinda used Teeter Dance!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok became confused!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon became confused!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Hatterene became confused!" },
+    },
+} END_TEST

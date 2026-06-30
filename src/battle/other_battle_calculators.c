@@ -1576,7 +1576,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
         // hp calc can reduce stored spread damage if sash/sturdy.
         // persist the resolved value for the later batch update
         int ally = BATTLER_ALLY(ctx->attack_client);
-        if ((targetFoesAndAlly || (targetFoes && ally == ctx->defence_client)) && IS_VALID_MOVE_TARGET(ctx, ally)) {
+        if ((targetFoesAndAlly || (targetFoes && ally == ctx->defence_client)) && IsValidMoveTarget(ctx, ally)) {
             ctx->defence_client = ally;
             ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ally];
             ctx->damage = ctx->damageForSpreadMoves[ally];
@@ -1587,7 +1587,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
         if (targetFoes || targetFoesAndAlly) {
             int oppL = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
-            if (IS_VALID_MOVE_TARGET(ctx, oppL)) {
+            if (IsValidMoveTarget(ctx, oppL)) {
                 ctx->defence_client = oppL;
                 ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppL];
                 ctx->damage = ctx->damageForSpreadMoves[oppL];
@@ -1597,7 +1597,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
             }
 
             int oppR = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
-            if (IS_VALID_MOVE_TARGET(ctx, oppR)) {
+            if (IsValidMoveTarget(ctx, oppR)) {
                 ctx->defence_client = oppR;
                 ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppR];
                 ctx->damage = ctx->damageForSpreadMoves[oppR];
@@ -2613,16 +2613,6 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         return TRUE;
     }
 
-    if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
-        && sp->moveTbl[sp->current_move_index].target != RANGE_OPPONENT_SIDE
-        && ((!(sp->server_status_flag & BATTLE_STATUS_HIT_FLY) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
-            || (!(sp->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
-            || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
-            || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIVE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
-        sp->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
-        return TRUE;
-    }
-
     // 2. Check if the move itself is sure-hit (accuracy 101, like Aerial Ace), or if the move was custom-set to be sure-hit: Pursuit and target is switching, Thunder / Hurricane in rain, Blizzard in hail, Stomp / Steamroller / Dragon Rush / Body Slam / Malicious Moonsault / Heavy Slam / Heat Crash / Flying Press vs. Minimize.
     // TODO: modernise flow and Handle Pursuit
 
@@ -2771,6 +2761,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys UNUSED, struct BattleStru
 {
     ctx->waza_status_flag = 0;
     ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = 0;
+    ctx->moveStatusFlagForSpreadMoves2[ctx->defence_client] = 0;
     ctx->critical = 1;
     ctx->server_status_flag &= (0x100000 ^ 0xFFFFFFFF);
 }
@@ -2788,6 +2779,19 @@ enum {
 
     TRY_MOVE_END,
 };
+
+int LONG_CALL IsValidMoveTarget(struct BattleStruct *ctx, int battlerId)
+{
+    if (ctx->moveStatusFlagForSpreadMoves2[battlerId] & SPREAD_MOVE_STATUS2_FLAG_MAGIC_BOUNCE) {
+        return FALSE;
+    }
+    if (!(ctx->no_reshuffle_client & No2Bit(battlerId))
+        && ctx->battlemon[battlerId].hp != 0
+        && !(ctx->moveStatusFlagForSpreadMoves[battlerId] & (WAZA_STATUS_FLAG_NO_OUT))) {
+        return TRUE;
+    }
+    return FALSE;
+}
 
 int LONG_CALL IsMoveSpreadMove(struct BattleSystem *bsys, struct BattleStruct *ctx, int move)
 {
@@ -2828,21 +2832,21 @@ int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct 
         switch (ctx->clientLoopForSpreadMoves) {
         case SPREAD_MOVE_LOOP_ALLY:
             ctx->clientLoopForSpreadMoves++;
-            if (IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+            if (IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) && IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {
                 ctx->defence_client = BATTLER_ALLY(ctx->attack_client);
                 return TRUE;
             }
             FALLTHROUGH;
         case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
             ctx->clientLoopForSpreadMoves++;
-            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
+            if (IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
                 ctx->defence_client = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
                 return TRUE;
             }
             FALLTHROUGH;
         case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
             ctx->clientLoopForSpreadMoves++;
-            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
+            if (IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
                 ctx->defence_client = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
                 return TRUE;
             }
@@ -2864,7 +2868,7 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem *bsys, struct BattleS
             int ally = BATTLER_ALLY(ctx->attack_client);
 
             if (IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index)
-                && IS_VALID_MOVE_TARGET(ctx, ally)) {
+                && IsValidMoveTarget(ctx, ally)) {
                 if (CheckSubstitute(ctx, ally) == TRUE) {
                     ctx->moveContext.hitSubstitute[ctx->moveContext.hitSubstituteCount] = ally;
                     ctx->moveContext.hitSubstituteCount++;
@@ -2873,7 +2877,7 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem *bsys, struct BattleS
                 }
             }
 
-            if (IS_VALID_MOVE_TARGET(ctx, oppLeft)) {
+            if (IsValidMoveTarget(ctx, oppLeft)) {
                 if (CheckSubstitute(ctx, oppLeft) == TRUE) {
                     ctx->moveContext.hitSubstitute[ctx->moveContext.hitSubstituteCount] = oppLeft;
                     ctx->moveContext.hitSubstituteCount++;
@@ -2883,7 +2887,7 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem *bsys, struct BattleS
                 }
             }
 
-            if (IS_VALID_MOVE_TARGET(ctx, oppRight)) {
+            if (IsValidMoveTarget(ctx, oppRight)) {
                 if (CheckSubstitute(ctx, oppRight) == TRUE) {
                     ctx->moveContext.hitSubstitute[ctx->moveContext.hitSubstituteCount] = oppRight;
                     ctx->moveContext.hitSubstituteCount++;
@@ -4086,7 +4090,7 @@ BOOL LONG_CALL IsAnyBattleMonHit(struct BattleSystem *bsys, struct BattleStruct 
             case SPREAD_MOVE_LOOP_ALLY:
                 i++;
                 if ((IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)
-                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+                    && IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {
                     return TRUE;
                 }
                 FALLTHROUGH;
@@ -4094,20 +4098,20 @@ BOOL LONG_CALL IsAnyBattleMonHit(struct BattleSystem *bsys, struct BattleStruct 
             case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
                 i++;
                 if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))
-                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
+                    && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
                     return TRUE;
                 }
                 FALLTHROUGH;
             case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
                 i++;
                 if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))
-                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
+                    && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
                     return TRUE;
                 }
             }
         }
     } else {
-        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {
+        if (IsValidMoveTarget(ctx, ctx->defence_client)) {
             return TRUE;
         }
     }

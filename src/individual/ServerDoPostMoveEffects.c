@@ -640,10 +640,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         // TODO
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_CLEAR_MAGIC_COAT:
-        ctx->magicBounceTracker = FALSE;
-        ctx->swoam_seq_no++;
-        FALLTHROUGH;
     case MOVE_PERFORMANCE_END:
         ctx->swoam_seq_no++;
         break;
@@ -794,7 +790,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         FALLTHROUGH;
     case SWOAK_SEQ_CLEAR_MAGIC_COAT:
-        ctx->magicBounceTracker = FALSE;
         ctx->swoam_seq_no++;
         break;
     default:
@@ -2070,12 +2065,6 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
             ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
             ctx->battlerIdTemp = ctx->attack_client;
             ctx->state_client = ctx->attack_client;
-
-            if (ctx->magicBounceTracker)
-            {
-                ctx->battlerIdTemp = ctx->defence_client;
-                ctx->state_client = ctx->defence_client;
-            }
 
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARTING_SHOT);
             ctx->next_server_seq_no = ctx->server_seq_no;

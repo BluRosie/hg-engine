@@ -1174,9 +1174,8 @@ void ServerWazaOutAfterMessage(void *bsys, struct BattleStruct *ctx)
     */
 }
 
-//TODO: some stack system because need the Magic Coat/Magic Bounce users to reflect the move individually
 /**
- *  @brief handle magic coat and snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
+ *  @brief handle snatch.  load the battle subscript to handle the scenario if necessary and return TRUE to signal to run the script
  *
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
@@ -1190,30 +1189,11 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
-    if (sp->defence_client == 0xFF)
+    if (sp->defence_client == BATTLER_NONE)
     {
         return FALSE;
     }
 
-    if (((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
-     && (sp->oneTurnFlag[sp->defence_client].magic_cort_flag
-      // if magic bounce then activate only if it hasn't already activated this move
-      || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MAGIC_BOUNCE) && !sp->magicBounceTracker))
-     && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT))
-    {
-        sp->oneTurnFlag[sp->defence_client].magic_cort_flag = 0;
-        sp->magicBounceTracker = TRUE;
-        sp->moveProtect[sp->attack_client] = 0;
-        sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
-        sp->lastClientMoveType[sp->attack_client] = GetAdjustedMoveType(sp, sp->attack_client, sp->moveNoTemp);
-        sp->waza_no_last = sp->moveNoTemp;
-        sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
-        LoadBattleSubSeqScript(sp, 1, SUB_SEQ_MAGIC_COAT);
-        sp->next_server_seq_no = sp->server_seq_no;
-        sp->server_seq_no = 22;
-        CheckPressureForPPDecrease(sp, sp->defence_client, sp->attack_client);
-        return TRUE;
-    }
     for(i = 0; i < client_set_max; i++)
     {
         client_no = sp->turnOrder[i];

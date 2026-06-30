@@ -1,8 +1,7 @@
-// Test: Magic Bounce - Bounce Toxic spikes in singles
+// Test: Magic Coat - Bounce spread move in doubles against two Bouncer, slot ordered
 #include "../../battle_tests.h"
-BEGIN_TEST
-{
-    .battleType = BATTLE_TYPE_SINGLE,
+BEGIN_TEST {
+    .battleType = BATTLE_TYPE_DOUBLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -13,7 +12,19 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_SHED_SKIN,
             .item = ITEM_NONE,
-            .moves = { MOVE_TOXIC_SPIKES, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_PINSIR,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_HYPER_CUTTER,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -22,22 +33,31 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
-    },
+        { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_ESPEON,
+                        .species = SPECIES_HATTERENE,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_MAGIC_BOUNCE,
+                        .ability = ABILITY_SYNCHRONIZE,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_MAGIC_COAT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_ESPEON,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SYNCHRONIZE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_MAGIC_COAT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -53,7 +73,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -73,7 +93,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -83,9 +103,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Espeon's Magic Bounce" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Toxic Spikes back!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "all around your side!" },
-    }
-}
-END_TEST
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok used Growl!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Attack" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir's Hyper Cutter" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon bounced the Growl back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pinsir's Hyper Cutter" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Arbok's Attack fell!" },
+    },
+} END_TEST
