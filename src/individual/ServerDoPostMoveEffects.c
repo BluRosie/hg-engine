@@ -931,6 +931,16 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
     int itemHoldEffect = HeldItemHoldEffectGet(sp, battler);
     int incomingDamage = sp->damageForSpreadMoves[battler];
 
+    {
+        if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability // already checked by moldbreaker
+            && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
+            sp->oneTurnFlag[battler].prevent_one_hit_ko_ability = FALSE;
+            sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
+            seq_no[0] = SUB_SEQ_STURDY;
+            return TRUE;
+        }
+    }
+
     debug_printf("battler %d, endure %d, damage %d\n", battler, sp->moveConditionsFlags[battler].endure, sp->oneSelfFlag[battler].physical_damage);
     {
         if (sp->moveConditionsFlags[battler].endure
@@ -938,16 +948,6 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
             && (sp->oneSelfFlag[battler].physical_damage
                 || sp->oneSelfFlag[battler].special_damage)) {
             seq_no[0] = SUB_SEQ_ENDURE_HIT;
-            return TRUE;
-        }
-    }
-
-    {
-        if (sp->oneTurnFlag[battler].prevent_one_hit_ko_ability // already checked by moldbreaker
-            && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
-            sp->oneTurnFlag[battler].prevent_one_hit_ko_ability = FALSE;
-            sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
-            seq_no[0] = SUB_SEQ_STURDY;
             return TRUE;
         }
     }

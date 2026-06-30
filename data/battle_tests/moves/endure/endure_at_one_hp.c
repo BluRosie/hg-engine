@@ -25,7 +25,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_TORRENT,
             .item = ITEM_NONE,
-            .moves = { MOVE_WATERFALL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_WATERFALL, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -110,9 +110,9 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dwebble's Weak Armor" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble's Kee Berry raised its Defense!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle endured the hit!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Air Balloon" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Crustle's Weak Armor" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle's Air Balloon popped!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle fainted!" },
     }
 }
 END_TEST
