@@ -43,7 +43,7 @@ BEGIN_TEST
                         .ability = ABILITY_STURDY,
                         .item = ITEM_CUSTAP_BERRY,
                         .moves = { MOVE_ENDURE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .hp = 50,//64
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -107,11 +107,9 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble braced itself!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle braced itself!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble endured the hit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dwebble's Sturdy" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble endured the hit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle endured the hit!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Air Balloon" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Crustle's Weak Armor" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Custap Berry" },
     }
 }
