@@ -5,14 +5,66 @@
 
 #include "../../include/constants/maps.h"
 
+/*
+This table can be expanded as you please.
+Each vanilla header has a file in a253 that has 2 bytes for odds (out of 100) to receive an item from a rock and 2 bytes for the item table index.
+Items are sorted in ascending order of quality, which affects their individual chance to be received.
+*/
+const u16 RockSmashItemTable[NUM_ROCK_SMASH_TABLES][MAX_ROCK_SMASH_ITEMS_PER_TABLE] =
+{
+    { // Default:
+        ITEM_MAX_ETHER,
+        ITEM_REVIVE,
+        ITEM_HEART_SCALE,
+        ITEM_RED_SHARD,
+        ITEM_BLUE_SHARD,
+        ITEM_GREEN_SHARD,
+        ITEM_YELLOW_SHARD,
+        ITEM_STAR_PIECE,
+    },
+    { // Ruins of Alph:
+        ITEM_RED_SHARD,
+        ITEM_YELLOW_SHARD,
+        ITEM_HELIX_FOSSIL,
+        ITEM_MAX_ETHER,
+        ITEM_BLUE_SHARD,
+        ITEM_GREEN_SHARD,
+        ITEM_OLD_AMBER,
+        ITEM_MAX_REVIVE,
+    },
+    { // Cliff Cave:
+        ITEM_MAX_ETHER,
+        ITEM_PEARL,
+        ITEM_BIG_PEARL,
+        ITEM_RED_SHARD,
+        ITEM_YELLOW_SHARD,
+        ITEM_CLAW_FOSSIL,
+        ITEM_CLAW_FOSSIL,
+        ITEM_RARE_BONE,
+    },
+};
+
+// List of abilities that increase the odds (out of 100) to receive an item from a rock and their percentage increases.
+const RockSmashAbilityOdds RockSmashAbilityOddsTable[] = {
+    { ABILITY_SUCTION_CUPS, 5 },
+    { ABILITY_MAGNET_PULL,  5 },
+    { ABILITY_KEEN_EYE,     5 },
+};
+
+// List of abilities that increase the quality of items received from a rock and their increase amounts.
+// Note: Having any of these abilities active will prevent items of the lowest quality from appearing at all!
+// CURRENTLY DOES NOTHING. TODO: check this via bytereplacement.
+const RockSmashAbilityQuality RockSmashAbilityQualityTable[] = {
+    { ABILITY_SERENE_GRACE, 1 },
+    { ABILITY_SUPER_LUCK,   1 },
+};
+
 u32 DetermineRockSmashItem(u32 tableIndex, u32 index)
 {
     if (tableIndex >= NELEMS(RockSmashItemTable) || index >= MAX_ROCK_SMASH_ITEMS_PER_TABLE)
     {
-        debug_printf("DetermineRockSmashItem: Index is too high.\n");
         return ITEM_NONE;
     }
-    debug_printf("DetermineRockSmashItem: Index is valid.\n");
     return RockSmashItemTable[tableIndex][index];
 }
 
