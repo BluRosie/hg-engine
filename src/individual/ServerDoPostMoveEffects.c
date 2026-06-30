@@ -932,10 +932,10 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
     int incomingDamage = sp->damageForSpreadMoves[battler];
 
     {
-        if (sp->moveConditionsFlags[battler].endure 
-            && sp->battlemon[battler].hp == 1 
+        if (sp->moveConditionsFlags[battler].endure
+            && sp->battlemon[battler].hp == 1
             && (sp->oneSelfFlag[battler].physical_damage
-                || sp->oneSelfFlag[battler].special_damage) {
+                || sp->oneSelfFlag[battler].special_damage)) {
             sp->item_work = sp->battlemon[battler].item;
             seq_no[0] = SUB_SEQ_FOCUS_SASH; // TODO
             return TRUE;
