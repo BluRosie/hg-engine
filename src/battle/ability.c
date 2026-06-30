@@ -615,6 +615,7 @@ BOOL AbilityIsIgnoredByMoldBreaker (int ability) {
         case ABILITY_EARTH_EATER:
         case ABILITY_MINDS_EYE:
         case ABILITY_TERA_SHELL:
+        case ABILITY_EELEVATE:
             return TRUE;
             break;
 

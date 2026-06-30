@@ -15,13 +15,10 @@ _000:
     UpdateMonData OPCODE_FLAG_OFF, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS2, STATUS2_SUBSTITUTE
     PlayMoveAnimationOnMons BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_TEMP
     WaitButtonABTime 15
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_MSG_TEMP, ABILITY_ILLUSION, _skipPopup1
-    AbilityPopup BATTLER_CATEGORY_MSG_TEMP
-_skipPopup1:
     ChangeForm BATTLER_CATEGORY_MSG_TEMP
     HealthbarSlideIn BATTLER_CATEGORY_MSG_TEMP
     Wait
-    // {0}’s illusion faded!
+    // {0}’s illusion wore off!
     PrintMessage 1348, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait
     WaitButtonABTime 30
@@ -40,13 +37,10 @@ _skipPopup1:
 _078:
     PlayMoveAnimationOnMons BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_MSG_TEMP
     WaitButtonABTime 15
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_MSG_TEMP, ABILITY_ILLUSION, _skipPopup2
-    AbilityPopup BATTLER_CATEGORY_MSG_TEMP
-_skipPopup2:
     ChangeForm BATTLER_CATEGORY_MSG_TEMP
     HealthbarSlideIn BATTLER_CATEGORY_MSG_TEMP
     Wait
-    // {0}’s illusion faded!
+    // {0}’s illusion wore off!
     PrintMessage 1348, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     Wait
     WaitButtonABTime 30

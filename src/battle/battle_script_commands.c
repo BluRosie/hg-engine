@@ -128,7 +128,8 @@ BOOL btl_scr_cmd_11E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct
 BOOL btl_scr_cmd_11F_BatchEffectivenessMessage(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_120_DivideVarByValueRoundUp(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_122_MakeTotem(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_123_MakeTotem(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -460,6 +461,7 @@ const u8 *BattleScrCmdNames[] = {
     "BatchEffectivenessMessage",
     "DivideVarByValueRoundUp",
     "IsPursuitActive",
+    "GoBackToBeforeMove",
     "MakeTotem",
     // "YourCustomCommand",
 };
@@ -537,7 +539,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x11F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11F_BatchEffectivenessMessage,
     [0x120 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_120_DivideVarByValueRoundUp,
     [0x121 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_121_IsPursuitActive,
-    [0x122 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_122_MakeTotem,
+    [0x122 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_122_GoBackToBeforeMove,
+    [0x123 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_123_MakeTotem,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -1219,6 +1222,11 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
 
     IncrementBattleScriptPtr(sp, 1);
     effect = sp->moveTbl[sp->current_move_index].effect;
+
+    // debug_printf("sp->dancerContext.isActive: %d, effect: %d\n", sp->dancerContext.isActive, effect);
+    if (sp->dancerContext.isActive && effect == MOVE_EFFECT_CONTINUE_AND_CONFUSE_SELF) {
+        effect = MOVE_EFFECT_HIT;
+    }
 
     if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE || HeldItemHoldEffectGet(sp, sp->defence_client) == HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS) {
         // list taken from bulbapedia article on sheer force and the moves affected.
@@ -2401,7 +2409,9 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no)
 {
     u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
 
-    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
+    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE 
+        && sp->battlemon[client_no].ability != ABILITY_EELEVATE
+        && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
             && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, client_no, TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
@@ -2427,8 +2437,9 @@ BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker
     u8 holdeffect = HeldItemHoldEffectGet(sp, defender);
 
     BOOL hasLevitate = attacker == defender ? GetBattlerAbility(sp, defender) == ABILITY_LEVITATE : MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_LEVITATE);
+    BOOL hasEelevate = attacker == defender ? GetBattlerAbility(sp, defender) == ABILITY_EELEVATE : MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_EELEVATE);
 
-    if ((!hasLevitate && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
+    if ((!hasLevitate && !hasEelevate && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
             && (sp->battlemon[defender].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, defender, TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
@@ -5437,6 +5448,22 @@ BOOL btl_scr_cmd_121_IsPursuitActive(void *bsys UNUSED, struct BattleStruct *ctx
     return FALSE;
 }
 
+BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    // TODO: confirm this is how vanilla does it as well
+    // BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT
+    ctx->add_status_flag_indirect = 0;
+    // BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT
+    ctx->add_status_flag_direct = 0;
+
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
+    ctx->server_seq_no = CONTROLLER_COMMAND_23;
+
+    return FALSE;
+}
+
 BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     int adrs, maxBattlers, moveNo, moveIndex, client_no;
@@ -5517,23 +5544,23 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
 u16 TotemSpecies[][STAT_MAX] = // Species, stat stage increases
 {
-    { SPECIES_RATICATE_ALOLAN_LARGE, 0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
-    { SPECIES_MAROWAK_ALOLAN_LARGE,  0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
-    { SPECIES_GUMSHOOS_LARGE,        0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
-    { SPECIES_VIKAVOLT_LARGE,        1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
-    { SPECIES_RIBOMBEE_LARGE,        2, 2, 2, 2, 2, 0, 0 }, // +2 Omni-boost
-    { SPECIES_ARAQUANID_LARGE,       0, 0, 1, 0, 0, 0, 0 }, // +1 Speed
-    { SPECIES_LURANTIS_LARGE,        0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
-    { SPECIES_SALAZZLE_LARGE,        0, 0, 0, 0, 1, 0, 0 }, // +1 Special Defense
-    { SPECIES_TOGEDEMARU_LARGE,      0, 2, 0, 0, 0, 0, 0 }, // +2 Defense
-    { SPECIES_MIMIKYU_LARGE,         1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
-    { SPECIES_MIMIKYU_BUSTED_LARGE,  0, 0, 0, 0, 0, 0, 0 }, 
+    { SPECIES_RATICATE_ALOLAN_LARGE, 0, 1, 0, 0, 0, 0, 0 },  // +1 Defense
+    { SPECIES_MAROWAK_ALOLAN_LARGE,  0, 0, 2, 0, 0, 0, 0 },  // +2 Speed
+    { SPECIES_GUMSHOOS_LARGE,        0, 1, 0, 0, 0, 0, 0 },  // +1 Defense
+    { SPECIES_VIKAVOLT_LARGE,        1, 1, 1, 1, 1, 0, 0 },  // +1 Omni-boost
+    { SPECIES_RIBOMBEE_LARGE,        2, 2, 2, 2, 2, 0, 0 },  // +2 Omni-boost
+    { SPECIES_ARAQUANID_LARGE,       0, 0, 1, 0, 0, 0, 0 },  // +1 Speed
+    { SPECIES_LURANTIS_LARGE,        0, 0, 2, 0, 0, 0, 0 },  // +2 Speed
+    { SPECIES_SALAZZLE_LARGE,        0, 0, 0, 0, 1, 0, 0 },  // +1 Special Defense
+    { SPECIES_TOGEDEMARU_LARGE,      0, 2, 0, 0, 0, 0, 0 },  // +2 Defense
+    { SPECIES_MIMIKYU_LARGE,         1, 1, 1, 1, 1, 0, 0 },  // +1 Omni-boost
+    { SPECIES_MIMIKYU_BUSTED_LARGE,  0, 0, 0, 0, 0, 0, 0 },
     { SPECIES_KOMMO_O_LARGE,         1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
     // Add your Totem species here.
     // Don't bother making a custom form unless you plan for it to be caught.
 };
 
-BOOL btl_scr_cmd_122_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     s32 battlerID = read_battle_script_param(ctx);

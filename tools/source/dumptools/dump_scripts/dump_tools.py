@@ -7,6 +7,7 @@ from typing import Dict, DefaultDict
 from collections import defaultdict
 import ndspy
 import ndspy.rom, ndspy.narc
+import ndspy.codeCompression
 import copy
 
 REPO_ROOT = Path(__file__).resolve().parents[4]
@@ -142,6 +143,8 @@ ENCOUNTER_NARC_FORMAT = [
     [2, "padding"]]
 
 TRDATA_FLAGS =["has_moves", "has_items", "set_abilities", "set_ball", "set_iv_ev", "set_nature", "shiny_lock", "additional_flags"]
+TRAINER_RANDOM_PARTY_ORDER_FLAG = 0x80
+TRAINER_PARTY_SIZE_MASK = 0x7F
 
 for n in range(0,12):
     ENCOUNTER_NARC_FORMAT.append([1, f'walking_{n}_level'])
@@ -186,6 +189,14 @@ def read_narc_data(data, narc_format):
 def read_bytes(stream, n):
     return int.from_bytes(stream.read(n), 'little')
 
+def read_arm9_table(arm9_data, offset, size):
+    table_end = offset + size
+    if len(arm9_data) < table_end:
+        arm9_data = ndspy.codeCompression.decompress(arm9_data)
+    if len(arm9_data) < table_end:
+        raise ValueError(f"arm9.bin is too small for table at 0x{offset:X}")
+    return arm9_data[offset:table_end]
+
 def dump_narc(rom, narc_path, narc_format):
     parsed_narc_data = []
 
@@ -217,7 +228,7 @@ def dump_trpok_narc(rom, narc_path, trdata_narc):
     # use supplied format to parse each file in narc
     for idx, data in enumerate(narc.files):
         flags = bin(trdata_narc[idx]["flags"])[2:].zfill(8)
-        num_pokemon = trdata_narc[idx]["num_pokemon"]
+        num_pokemon = trdata_narc[idx]["num_pokemon"] & TRAINER_PARTY_SIZE_MASK
         parsed_narc_data[idx] = {}
         stream = io.BytesIO(data)
         for i in range(0, num_pokemon):

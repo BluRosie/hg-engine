@@ -1586,12 +1586,16 @@
     .long (((\arg_0 - .) / 4) - 1)
     .endm
 
-    .macro MakeTotem arg_0
+    .macro GoBackToBeforeMove
     .long 290
+    .endm
+
+    .macro MakeTotem arg_0
+    .long 291
     .long \arg_0
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 290
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 291
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

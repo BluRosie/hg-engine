@@ -1,32 +1,27 @@
 #include "../../include/battle.h"
 #include "../../include/config.h"
-#include "../../include/debug.h"
-#include "../../include/overlay.h"
-#include "../../include/pokemon.h"
-#include "../../include/types.h"
 #include "../../include/constants/ability.h"
-#include "../../include/constants/hold_item_effects.h"
 #include "../../include/constants/file.h"
+#include "../../include/constants/hold_item_effects.h"
 #include "../../include/constants/item.h"
 #include "../../include/constants/move_effects.h"
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
+#include "../../include/debug.h"
+#include "../../include/overlay.h"
+#include "../../include/pokemon.h"
 #include "../../include/q412.h"
-
-
+#include "../../include/types.h"
 
 // function declarations
-int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
-                   u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
-//u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
+int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
+// u16 GetBattleMonItem(struct BattleStruct *sp, int client_no);
 void CalcDamageOverall(void *bw, struct BattleStruct *sp);
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
-
-int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED,
-                   u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
+int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED, u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
-    struct DamageCalcStruct damageCalc = {0};
+    struct DamageCalcStruct damageCalc = { 0 };
 
     BOOL isFutureSightWithoutAttacker = FALSE;
     int moveEffect = sp->moveTbl[moveno].effect;
@@ -48,7 +43,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
     damageCalc.defender = defender;
     damageCalc.critical = critical;
     damageCalc.moveno = moveno;
-    damageCalc.movetype = GetAdjustedMoveType(sp, (isFutureSightWithoutAttacker ? BATTLER_NONE : attacker), moveno);
+    damageCalc.movetype = GetAdjustedMoveType(sp, isFutureSightWithoutAttacker ? BATTLER_NONE : attacker, moveno);
     damageCalc.movesplit = GetMoveSplit(sp, moveno);
     damageCalc.movepower = sp->moveTbl[moveno].power;
     damageCalc.damage_power = sp->damage_power;
@@ -78,9 +73,10 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
     damageCalc.originalMoveType = sp->moveTbl[moveno].type;
     damageCalc.moveEffect = sp->moveTbl[moveno].effect;
     damageCalc.moveFlag = sp->moveTbl[moveno].flag;
+    damageCalc.multiHitCount = sp->multiHitCount;
 
     for (u32 i = 0; i < damageCalc.maxBattlers; i++) {
-        struct sDamageCalc client = {0};
+        struct sDamageCalc client = { 0 };
         client.attack = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_ATK, NULL);
         client.defense = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_DEF, NULL);
         client.sp_attack = BattlePokemonParamGet(sp, i, BATTLE_MON_DATA_SPATK, NULL);
@@ -127,8 +123,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         damageCalc.clients[i] = client;
     }
 
-    if (isFutureSightWithoutAttacker)
-    {
+    if (isFutureSightWithoutAttacker) {
         struct PartyPokemon *pp = Battle_GetClientPartyMon(bw, attacker, sp->fcc.wish_sel_mons[attacker]);
         damageCalc.clients[attacker].attack = GetMonData(pp, MON_DATA_ATTACK, 0);
         damageCalc.clients[attacker].defense = GetMonData(pp, MON_DATA_DEFENSE, 0);
@@ -204,25 +199,21 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
     if (client_no == BATTLER_NONE) {
         return 0;
     }
-    if ((GetBattlerAbility(sp, client_no) == ABILITY_KLUTZ))
-    {
+    if (GetBattlerAbility(sp, client_no) == ABILITY_KLUTZ) {
         return 0;
     }
-    if (sp->battlemon[client_no].moveeffect.embargoFlag)
-    {
+    if (sp->battlemon[client_no].moveeffect.embargoFlag) {
         return 0;
     }
     // handle unnerve:  if an opposing pokemon has unnerve and the item it is holding is a berry, then no item will be read.
     if (((GetBattlerAbility(sp, BATTLER_OPPONENT(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0)
-      || (GetBattlerAbility(sp, BATTLER_ACROSS(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0))
-     && (IS_ITEM_BERRY(sp->battlemon[client_no].item)))
-    {
+            || (GetBattlerAbility(sp, BATTLER_ACROSS(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0))
+        && (IS_ITEM_BERRY(sp->battlemon[client_no].item))) {
         return 0;
     }
 
     return sp->battlemon[client_no].item;
 }
-
 
 /**
  *  @brief calculate overall damage, accounting for critical hits and me first boosts.  passed into damage roller below
@@ -231,7 +222,8 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
  *  @param sp global battle structure
  */
 // This is DamageCalcDefault
-void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
+void CalcDamageOverall(void *bw, struct BattleStruct *sp)
+{
     int type;
 
     type = GetAdjustedMoveType(sp, sp->attack_client, sp->current_move_index);
@@ -257,14 +249,12 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     u32 damage = 0;
 
-
     if ((MoldBreakerAbilityCheckInternal(attacker, defender, attackerAbility, defenderAbility, sp->current_move_index, movesplit, ABILITY_DISGUISE) == TRUE)
         && (sp->battlemon[defender].species == SPECIES_MIMIKYU)
         // Mimikyu or Mimikyu-Large
         && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
         // Not transformed
-        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED))
-        {
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
         sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
         sp->damage = 0;
@@ -285,13 +275,15 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     // Steps 1 - 5
     damage = CalcBaseDamage(bw,
-                            sp,
-                            moveno,
-                            side_cond,
-                            sp->field_condition,
-                            sp->damage_power,
-                            type,
-                            attacker, defender, sp->critical);
+        sp,
+        moveno,
+        side_cond,
+        sp->field_condition,
+        sp->damage_power,
+        type,
+        attacker,
+        defender,
+        sp->critical);
 
     //=====Step 6. General Damage Modifiers=====
 
@@ -322,15 +314,11 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
     }
 
-    if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        IsTargetFoes(bw, sp, moveno) &&
-        (numTargetedFoes >= 2)) {
+    if ((battle_type & BATTLE_TYPE_DOUBLE) && IsTargetFoes(bw, sp, moveno) && (numTargetedFoes >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
-    if ((battle_type & BATTLE_TYPE_DOUBLE) &&
-        IsTargetFoesAndAlly(bw, sp, moveno) &&
-        (numTargetedAll >= 2)) {
+    if ((battle_type & BATTLE_TYPE_DOUBLE) && IsTargetFoesAndAlly(bw, sp, moveno) && (numTargetedAll >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
@@ -353,21 +341,21 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         debug_printf("[CalcBaseDamage] parental_bond_flag: %d\n", sp->oneTurnFlag[attacker].parental_bond_flag);
 #endif
         switch (sp->oneTurnFlag[attacker].parental_bond_flag) {
-            case 1:
-                sp->oneTurnFlag[attacker].parental_bond_flag++;
-                sp->oneTurnFlag[attacker].parental_bond_is_active = TRUE;  // after first hit, set this flag just in case the ability is nullified after the first one
-                break;
-            case 2:
+        case 1:
+            sp->oneTurnFlag[attacker].parental_bond_flag++;
+            sp->oneTurnFlag[attacker].parental_bond_is_active = TRUE; // after first hit, set this flag just in case the ability is nullified after the first one
+            break;
+        case 2:
 #ifdef DEBUG_DAMAGE_CALC
-                debug_printf("[CalcBaseDamage] parental_bond_flag is 2, damage reduction\n");
+            debug_printf("[CalcBaseDamage] parental_bond_flag is 2, damage reduction\n");
 #endif
-                damage = QMul_RoundDown(damage, UQ412__0_25);
-                break;
-            default:
+            damage = QMul_RoundDown(damage, UQ412__0_25);
+            break;
+        default:
 #ifdef DEBUG_DAMAGE_CALC
-                debug_printf("[CalcBaseDamage] Why are we here?\n");
+            debug_printf("[CalcBaseDamage] Why are we here?\n");
 #endif
-                break;
+            break;
         }
 #ifdef DEBUG_DAMAGE_CALC
         debug_printf("[CalcBaseDamage] setting parental_bond_flag to %d\n", sp->oneTurnFlag[attacker].parental_bond_flag);
@@ -441,13 +429,12 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // This breaks BtlCmd_CalcDamageRaw, but we don't seem to use it?
 #ifdef DEBUG_DAMAGE_ROLLS
     s32 predamage[16];
-    for (int u = 0; u < 16; u++)
-    {
+    for (int u = 0; u < 16; u++) {
         predamage[u] = damage * (100 - u) / 100;
     }
-#endif  // DEBUG_DAMAGE_ROLLS
+#endif // DEBUG_DAMAGE_ROLLS
 
-    damage *= (100 - (BattleRand(bw) % 16));  // 85-100% damage roll
+    damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll
     damage /= 100;
 
 #ifdef DEBUG_DAMAGE_CALC
@@ -455,7 +442,6 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     debug_printf("[CalcBaseDamage] 6.5 Random Factor Modifier\n");
     debug_printf("[CalcBaseDamage] damage: %d\n", damage);
 #endif
-
 
     // 6.6 Same-Type Attack Bonus (STAB) Modifier
     int moveEffect = sp->moveTbl[moveno].effect;
@@ -468,23 +454,22 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 #endif // DEBUG_DAMAGE_ROLLS
             damage = QMul_RoundDown(damage, UQ412__1_5);
         }
-    }
-    else if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && HasType(sp, attacker, type)) {
+    } else if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && HasType(sp, attacker, type)) {
         if (attackerAbility == ABILITY_ADAPTABILITY) {
 #ifdef DEBUG_DAMAGE_ROLLS
-        for (int u = 0; u < 16; u++)
-        {
-            predamage[u] = QMul_RoundDown(predamage[u], UQ412__2_0);;
-        }
-#endif  // DEBUG_DAMAGE_ROLLS
+            for (int u = 0; u < 16; u++) {
+                predamage[u] = QMul_RoundDown(predamage[u], UQ412__2_0);
+                ;
+            }
+#endif // DEBUG_DAMAGE_ROLLS
             damage = QMul_RoundDown(damage, UQ412__2_0);
         } else {
 #ifdef DEBUG_DAMAGE_ROLLS
-        for (int u = 0; u < 16; u++)
-        {
-            predamage[u] = QMul_RoundDown(predamage[u], UQ412__1_5);;
-        }
-#endif  // DEBUG_DAMAGE_ROLLS
+            for (int u = 0; u < 16; u++) {
+                predamage[u] = QMul_RoundDown(predamage[u], UQ412__1_5);
+                ;
+            }
+#endif // DEBUG_DAMAGE_ROLLS
             damage = QMul_RoundDown(damage, UQ412__1_5);
         }
     }
@@ -499,74 +484,67 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // TODO: need to factor in Tera Shell
     moveEffectiveness = GetTypeEffectiveness(bw, sp, attacker, defender, type, &flag);
     switch (moveEffectiveness) {
-        case TYPE_MUL_NO_EFFECT:
-            damage = 0;
+    case TYPE_MUL_NO_EFFECT:
+        damage = 0;
 #ifdef DEBUG_DAMAGE_ROLLS
-            for (int u = 0; u < 16; u++)
-            {
-                predamage[u] = 0;
-            }
-#endif  // DEBUG_DAMAGE_ROLLS
-            break;
-        case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
-            damage = damage >> 3;
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = 0;
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+        break;
+    case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
+        damage = damage >> 3;
 #ifdef DEBUG_DAMAGE_ROLLS
-            for (int u = 0; u < 16; u++)
-            {
-                predamage[u] = predamage[u] >> 3;
-            }
-#endif  // DEBUG_DAMAGE_ROLLS
-            break;
-        case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
-            damage = damage >> 2;
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = predamage[u] >> 3;
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+        break;
+    case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
+        damage = damage >> 2;
 #ifdef DEBUG_DAMAGE_ROLLS
-            for (int u = 0; u < 16; u++)
-            {
-                predamage[u] = predamage[u] >> 2;
-            }
-#endif  // DEBUG_DAMAGE_ROLLS
-            break;
-        case TYPE_MUL_NOT_EFFECTIVE:
-            damage = damage >> 1;
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = predamage[u] >> 2;
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+        break;
+    case TYPE_MUL_NOT_EFFECTIVE:
+        damage = damage >> 1;
 #ifdef DEBUG_DAMAGE_ROLLS
-            for (int u = 0; u < 16; u++)
-            {
-                predamage[u] = predamage[u] >> 1;
-            }
-#endif  // DEBUG_DAMAGE_ROLLS
-            break;
-        case TYPE_MUL_NORMAL:
-            break;
-        case TYPE_MUL_SUPER_EFFECTIVE:
-            damage = damage << 1;
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = predamage[u] >> 1;
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+        break;
+    case TYPE_MUL_NORMAL:
+        break;
+    case TYPE_MUL_SUPER_EFFECTIVE:
+        damage = damage << 1;
 #ifdef DEBUG_DAMAGE_ROLLS
-            for (int u = 0; u < 16; u++)
-            {
-                predamage[u] = predamage[u] << 1;
-            }
-#endif  // DEBUG_DAMAGE_ROLLS
-            break;
-        case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
-            damage = damage << 2;
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = predamage[u] << 1;
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+        break;
+    case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
+        damage = damage << 2;
 #ifdef DEBUG_DAMAGE_ROLLS
-            for (int u = 0; u < 16; u++)
-            {
-                predamage[u] = predamage[u] << 2;
-            }
-#endif  // DEBUG_DAMAGE_ROLLS
-            break;
-        case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
-            damage = damage << 3;
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = predamage[u] << 2;
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+        break;
+    case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
+        damage = damage << 3;
 #ifdef DEBUG_DAMAGE_ROLLS
-            for (int u = 0; u < 16; u++)
-            {
-                predamage[u] = predamage[u] << 3;
-            }
-#endif  // DEBUG_DAMAGE_ROLLS
-            break;
-        default:
-            GF_ASSERT_INTERNAL();
-            break;
+        for (int u = 0; u < 16; u++) {
+            predamage[u] = predamage[u] << 3;
+        }
+#endif // DEBUG_DAMAGE_ROLLS
+        break;
+    default:
+        GF_ASSERT_INTERNAL();
+        break;
     }
 
 #ifdef DEBUG_DAMAGE_CALC
@@ -583,11 +561,10 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         if ((sp->battlemon[attacker].condition & STATUS_BURN) && (attackerAbility != ABILITY_GUTS) && (moveno != MOVE_FACADE)) {
             damage = QMul_RoundDown(damage, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_ROLLS
-            for (int u = 0; u < 16; u++)
-            {
+            for (int u = 0; u < 16; u++) {
                 predamage[u] = QMul_RoundDown(predamage[u], UQ412__0_5);
             }
-#endif  // DEBUG_DAMAGE_ROLLS
+#endif // DEBUG_DAMAGE_ROLLS
         }
     }
 
@@ -609,40 +586,40 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZED
         && !sp->battlemon[defender].is_currently_dynamaxed
         && IsMoveInMinimizeVulnerabilityMovesList(moveno)) {
-            finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
+        finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.2 Dig
     if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING
         && moveno == MOVE_EARTHQUAKE) {
-            finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
+        finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.3 Dive
     if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING
         && (moveno == MOVE_SURF || moveno == MOVE_WHIRLPOOL)) {
-            finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
+        finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.4 Behemoth Blade/Behemoth Bash/Dynamax Cannon
     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8319925
     if ((sp->battlemon[defender].is_currently_dynamaxed)
-    && (moveno == MOVE_BEHEMOTH_BLADE || moveno == MOVE_BEHEMOTH_BASH || moveno == MOVE_DYNAMAX_CANNON)) {
+        && (moveno == MOVE_BEHEMOTH_BLADE || moveno == MOVE_BEHEMOTH_BASH || moveno == MOVE_DYNAMAX_CANNON)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_NONE) == 0)) {
         switch (moveEffectiveness) {
-            case TYPE_MUL_SUPER_EFFECTIVE:
-            case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
-            case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
-                // 6.9.14.45 Collision Course/Electro Drift
-                if (moveno == MOVE_COLLISION_COURSE || moveno == MOVE_ELECTRO_DRIFT) {
-                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_3333);
-                }
-                break;
-            default:
-                break;
+        case TYPE_MUL_SUPER_EFFECTIVE:
+        case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
+        case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
+            // 6.9.14.45 Collision Course/Electro Drift
+            if (moveno == MOVE_COLLISION_COURSE || moveno == MOVE_ELECTRO_DRIFT) {
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__1_3333);
+            }
+            break;
+        default:
+            break;
         }
     }
 
@@ -656,11 +633,11 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     // 6.9.1 Screens
     // handle Reflect
     if ((movesplit == SPLIT_PHYSICAL)
-    && ((side_cond & SIDE_STATUS_REFLECT) != 0 || (side_cond & SIDE_STATUS_AURORA_VEIL) != 0)
-    && (sp->critical == 1)
-    && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
+        && ((side_cond & SIDE_STATUS_REFLECT) != 0 || (side_cond & SIDE_STATUS_AURORA_VEIL) != 0)
+        && (sp->critical == 1)
+        && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
         && (attackerAbility != ABILITY_INFILTRATOR)) {
-        if ((battle_type & BATTLE_TYPE_DOUBLE)) {
+        if (battle_type & BATTLE_TYPE_DOUBLE) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_6666);
         } else {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -668,11 +645,11 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     }
     // handle Light Screen
     if ((movesplit == SPLIT_SPECIAL)
-    && ((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0 || (side_cond & SIDE_STATUS_AURORA_VEIL) != 0)
-    && (sp->critical == 1)
-    && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
-    && (attackerAbility != ABILITY_INFILTRATOR)) {
-        if ((battle_type & BATTLE_TYPE_DOUBLE)) {
+        && ((side_cond & SIDE_STATUS_LIGHT_SCREEN) != 0 || (side_cond & SIDE_STATUS_AURORA_VEIL) != 0)
+        && (sp->critical == 1)
+        && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
+        && (attackerAbility != ABILITY_INFILTRATOR)) {
+        if (battle_type & BATTLE_TYPE_DOUBLE) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_6666);
         } else {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -690,53 +667,53 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     for (u32 i = 0; i < maxBattlers; i++) {
         if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_NONE) == 0)) {
             switch (moveEffectiveness) {
-                case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
-                case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
-                case TYPE_MUL_NOT_EFFECTIVE:
-                    // 6.9.4 Tinted Lens
-                    if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
+            case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
+            case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
+            case TYPE_MUL_NOT_EFFECTIVE:
+                // 6.9.4 Tinted Lens
+                if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
                     && attackerAbility == ABILITY_TINTED_LENS) {
-                        finalModifier = QMul_RoundUp(finalModifier, UQ412__1_25);
+                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_25);
 #ifdef DEBUG_DAMAGE_CALC
-                        debug_printf("\n=================\n");
-                        debug_printf("[CalcBaseDamage] 6.9.2 Neuroforce (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
-                        debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+                    debug_printf("\n=================\n");
+                    debug_printf("[CalcBaseDamage] 6.9.2 Neuroforce (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
+                    debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
 #endif
-                    }
-                    break;
-                case TYPE_MUL_SUPER_EFFECTIVE:
-                case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
-                case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
-                    // 6.9.2 Neuroforce
-                    if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
-                    && (attackerAbility == ABILITY_NEUROFORCE)) {
-                        finalModifier = QMul_RoundUp(finalModifier, UQ412__1_25);
-#ifdef DEBUG_DAMAGE_CALC
-                        debug_printf("\n=================\n");
-                        debug_printf("[CalcBaseDamage] 6.9.2 Neuroforce (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
-                        debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
-#endif
-                    }
-
-                    // 6.9.8 Solid Rock / Filter / Prism Armor
-                    if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-                        && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOLID_ROCK) || MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FILTER) || defenderAbility == ABILITY_PRISM_ARMOR)) {
-                        finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
-#ifdef DEBUG_DAMAGE_CALC
-                        debug_printf("\n=================\n");
-                        debug_printf("[CalcBaseDamage] 6.9.8 Solid Rock / Filter / Prism Armor (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
-                        debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
-#endif
-                    }
-                    break;
-                default:
-                    break;
                 }
+                break;
+            case TYPE_MUL_SUPER_EFFECTIVE:
+            case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
+            case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
+                // 6.9.2 Neuroforce
+                if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
+                    && (attackerAbility == ABILITY_NEUROFORCE)) {
+                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_25);
+#ifdef DEBUG_DAMAGE_CALC
+                    debug_printf("\n=================\n");
+                    debug_printf("[CalcBaseDamage] 6.9.2 Neuroforce (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
+                    debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
+                }
+
+                // 6.9.8 Solid Rock / Filter / Prism Armor
+                if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
+                    && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SOLID_ROCK) || MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FILTER) || defenderAbility == ABILITY_PRISM_ARMOR)) {
+                    finalModifier = QMul_RoundUp(finalModifier, UQ412__0_75);
+#ifdef DEBUG_DAMAGE_CALC
+                    debug_printf("\n=================\n");
+                    debug_printf("[CalcBaseDamage] 6.9.8 Solid Rock / Filter / Prism Armor (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
+                    debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
+                }
+                break;
+            default:
+                break;
+            }
         }
 
         // 6.9.3 Sniper
         if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
-         && (attackerAbility == ABILITY_SNIPER) && (sp->critical > 1)) {
+            && (attackerAbility == ABILITY_SNIPER) && (sp->critical > 1)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__1_5);
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");
@@ -746,7 +723,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLUFFY)) {
+            && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLUFFY)) {
             // 6.9.6 Fluffy (contact moves)
             if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), attackerItemHeldEffect, HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
                 finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -769,9 +746,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
         // 6.9.5 Multiscale / Shadow Shield
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MULTISCALE))
-        || (defenderAbility == ABILITY_SHADOW_SHIELD))
-        && (sp->battlemon[defender].hp == (s32)sp->battlemon[defender].maxhp)) {
+            && ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_MULTISCALE))
+                || (defenderAbility == ABILITY_SHADOW_SHIELD))
+            && (sp->battlemon[defender].hp == (s32)sp->battlemon[defender].maxhp)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");
@@ -793,8 +770,8 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         // 6.9.15 Punk Rock
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8291673
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_PUNK_ROCK)
-        && IsMoveSoundBased(moveno)) {
+            && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_PUNK_ROCK)
+            && IsMoveSoundBased(moveno)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");
@@ -823,24 +800,24 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
             && attackerItemHeldEffect == HOLD_EFFECT_BOOST_REPEATED) {
             switch (sp->battlemon[attacker].moveeffect.metronomeTurns) {
-                case 0:
-                    break;
-                case 1:
-                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_2);
-                    break;
-                case 2:
-                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_4);
-                    break;
-                case 3:
-                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_6);
-                    break;
-                case 4:
-                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_8);
-                    break;
-                case 5:
-                default:
-                    finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
-                    break;
+            case 0:
+                break;
+            case 1:
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__1_2);
+                break;
+            case 2:
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__1_4);
+                break;
+            case 3:
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__1_6);
+                break;
+            case 4:
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__1_8);
+                break;
+            case 5:
+            default:
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
+                break;
             }
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");
@@ -850,39 +827,39 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
         }
 
         switch (moveEffectiveness) {
-            case TYPE_MUL_NO_EFFECT:
-            case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
-            case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
-            case TYPE_MUL_NOT_EFFECTIVE:
-            case TYPE_MUL_NORMAL:
-                break;
-            case TYPE_MUL_SUPER_EFFECTIVE:
-            case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
-            case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
-                // 6.9.11 Expert Belt
-                if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
-                    && attackerItemHeldEffect == HOLD_EFFECT_POWER_UP_SE) {
-                    finalModifier = QMul_RoundUp(finalModifier, UQ412__1_2);
+        case TYPE_MUL_NO_EFFECT:
+        case TYPE_MUL_TRIPLE_NOT_EFFECTIVE:
+        case TYPE_MUL_DOUBLE_NOT_EFFECTIVE:
+        case TYPE_MUL_NOT_EFFECTIVE:
+        case TYPE_MUL_NORMAL:
+            break;
+        case TYPE_MUL_SUPER_EFFECTIVE:
+        case TYPE_MUL_DOUBLE_SUPER_EFFECTIVE:
+        case TYPE_MUL_TRIPLE_SUPER_EFFECTIVE:
+            // 6.9.11 Expert Belt
+            if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
+                && attackerItemHeldEffect == HOLD_EFFECT_POWER_UP_SE) {
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__1_2);
 #ifdef DEBUG_DAMAGE_CALC
-                    debug_printf("\n=================\n");
-                    debug_printf("[CalcBaseDamage] 6.9.11 Expert Belt (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
-                    debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+                debug_printf("\n=================\n");
+                debug_printf("[CalcBaseDamage] 6.9.11 Expert Belt (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
+                debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
 #endif
-                }
+            }
 
-                // 6.9.13 Resist Berries
-                if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
+            // 6.9.13 Resist Berries
+            if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
                 && CanActivateDamageReductionBerry(sp, defender)) {
-                    finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
-                    debug_printf("\n=================\n");
-                    debug_printf("[CalcBaseDamage] 6.9.13 Resist Berries (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
-                    debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+                debug_printf("\n=================\n");
+                debug_printf("[CalcBaseDamage] 6.9.13 Resist Berries (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
+                debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
 #endif
-                }
-                break;
-            default:
-                break;
+            }
+            break;
+        default:
+            break;
         }
 
         // 6.9.12 Life Orb
@@ -898,11 +875,10 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 
     damage = QMul_RoundDown(damage, finalModifier);
 #ifdef DEBUG_DAMAGE_ROLLS
-    for (int u = 0; u < 16; u++)
-    {
+    for (int u = 0; u < 16; u++) {
         predamage[u] = QMul_RoundDown(predamage[u], finalModifier);
     }
-#endif  // DEBUG_DAMAGE_ROLLS
+#endif // DEBUG_DAMAGE_ROLLS
 
     // Step 10. Z-move into Protecting Move Modifier
     // Dynamax move Protect 0.25x place is same as Z-move Protect.
@@ -911,11 +887,10 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
     if ((MoveIsZMove(moveno) || MoveIsMaxMove(moveno)) && sp->oneTurnFlag[defender].protectFlag) {
         damage = QMul_RoundDown(damage, UQ412__0_25);
 #ifdef DEBUG_DAMAGE_ROLLS
-        for (int u = 0; u < 16; u++)
-        {
+        for (int u = 0; u < 16; u++) {
             predamage[u] = QMul_RoundDown(predamage[u], UQ412__0_25);
         }
-#endif  // DEBUG_DAMAGE_ROLLS
+#endif // DEBUG_DAMAGE_ROLLS
     }
 
 #ifdef DEBUG_DAMAGE_CALC
@@ -990,24 +965,20 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 #ifdef DEBUG_DAMAGE_ROLLS
     debug_printf("Unrolled damage: %d -- Battler %d hit battler %d for %d damage.\n", predamage[0], attacker, defender, sp->damage);
     debug_printf("[Attacker] stats: ");
-    for (s32 u = 0; u < 5; u++)
-    {
+    for (s32 u = 0; u < 5; u++) {
         debug_printf("%d, ", ((u16 *)&sp->battlemon[attacker].attack)[u]);
     }
     debug_printf("\n[Defender] stats: ");
-    for (s32 u = 0; u < 5; u++)
-    {
+    for (s32 u = 0; u < 5; u++) {
         debug_printf("%d, ", ((u16 *)&sp->battlemon[defender].attack)[u]);
     }
     debug_printf("\n");
-    for (s32 u = 0; u < 16; u++)
-    {
+    for (s32 u = 0; u < 16; u++) {
         debug_printf("  Roll %d: %d\n", u, predamage[u]);
     }
-#endif  // DEBUG_DAMAGE_ROLLS
+#endif // DEBUG_DAMAGE_ROLLS
 #endif
 }
-
 
 /**
  *  @brief do the final 85-100% damage roll to the damage.  output of this is the exact damage done to the opponent
@@ -1020,27 +991,27 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp) {
 // It is neutered because the roll is handled earlier
 int AdjustDamageForRoll(void *bw UNUSED, struct BattleStruct *sp UNUSED, int damage)
 {
-//     // 0 for type is okay because we get adjusted type in the function anyway
-//     // putting ServerDoTypeCalcMod here fixes a bug after the rewrite that we were omitting this function
-//     // this still rather closely matches smogon's damage calculator for gen 4.  may have to refactor down the line
-//     u32 temp = 0;
-//     damage = ServerDoTypeCalcMod(bw, sp, sp->current_move_index, 0, sp->attack_client, sp->defence_client, damage, &temp);
+    //     // 0 for type is okay because we get adjusted type in the function anyway
+    //     // putting ServerDoTypeCalcMod here fixes a bug after the rewrite that we were omitting this function
+    //     // this still rather closely matches smogon's damage calculator for gen 4.  may have to refactor down the line
+    //     u32 temp = 0;
+    //     damage = ServerDoTypeCalcMod(bw, sp, sp->current_move_index, 0, sp->attack_client, sp->defence_client, damage, &temp);
 
-// #ifdef DEBUG_DAMAGE_ROLLS
-//     s32 predamage = damage;
-// #endif // DEBUG_DAMAGE_ROLLS
+    // #ifdef DEBUG_DAMAGE_ROLLS
+    //     s32 predamage = damage;
+    // #endif // DEBUG_DAMAGE_ROLLS
 
-// 	if (damage)
-//     {
-// 		damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll
-// 		damage /= 100;
-// 		if (damage == 0)
-// 			damage = 1;
-// 	}
+    // 	if (damage)
+    //     {
+    // 		damage *= (100 - (BattleRand(bw) % 16)); // 85-100% damage roll
+    // 		damage /= 100;
+    // 		if (damage == 0)
+    // 			damage = 1;
+    // 	}
 
-// #ifdef DEBUG_DAMAGE_ROLLS
-//     debug_printf("Unrolled damage: %d -- Battler %d hit battler %d for %d damage.\n", predamage, sp->attack_client, sp->defence_client, damage+1);
-// #endif // DEBUG_DAMAGE_ROLLS
+    // #ifdef DEBUG_DAMAGE_ROLLS
+    //     debug_printf("Unrolled damage: %d -- Battler %d hit battler %d for %d damage.\n", predamage, sp->attack_client, sp->defence_client, damage+1);
+    // #endif // DEBUG_DAMAGE_ROLLS
 
-	return damage;
+    return damage;
 }

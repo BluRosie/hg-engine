@@ -159,7 +159,7 @@ static void WriteTrainerHeaderMember(const char *dir, int index, const TrainerDa
 
     data[0x00] = entry->data.trainerType;
     WriteLe16(&data[0x01], entry->data.trainerClass);
-    data[0x03] = (uint8_t)partyCount;
+    data[0x03] = (uint8_t)((entry->data.partySize & TRAINER_DATA_RANDOM_PARTY_ORDER) | partyCount);
     for (i = 0; i < 4; i++) {
         WriteLe16(&data[0x04 + (i * 2)], entry->data.items[i]);
     }

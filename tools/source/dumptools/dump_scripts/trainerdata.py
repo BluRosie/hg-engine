@@ -34,6 +34,7 @@ TRAINER_PARTY_MON_FLAG_DEFINES = [
     "TRAINER_DATA_TYPE_IV_EV_SET",
     "TRAINER_DATA_TYPE_NATURE_SET",
     "TRAINER_DATA_TYPE_SHINY_LOCK",
+    "TRAINER_DATA_TYPE_ADDITIONAL_FLAGS",
 ]
 
 TEXT_TYPE_NAMES = {
@@ -160,7 +161,19 @@ def ai_flags_expr(flags):
 
 
 def battle_type_expr(value):
-    return "DOUBLE_BATTLE" if value != 0 else "SINGLE_BATTLE"
+    if value == 2:
+        return "DOUBLE_BATTLE"
+    elif value == 3:
+        return "NO_PARTNER_DOUBLE_BATTLE"
+    else:
+        return "SINGLE_BATTLE"
+
+
+def party_size_expr(value):
+    party_size = value & TRAINER_PARTY_SIZE_MASK
+    if value & TRAINER_RANDOM_PARTY_ORDER_FLAG:
+        return f"TRAINER_DATA_RANDOM_PARTY_ORDER | {party_size}"
+    return str(party_size)
 
 
 def ability_slot_expr(value):
@@ -274,6 +287,8 @@ def dump_trainerdata_c(rom, msgdata_narc, expanded):
         lines.append("        .data = {")
         lines.append(f"            .trainerType = {trainer_type_expr(trainer['flags'])},")
         lines.append(f"            .trainerClass = {lookup_const('TRAINERCLASS', trainer['class'])},")
+        if trainer["num_pokemon"] & TRAINER_RANDOM_PARTY_ORDER_FLAG:
+            lines.append(f"            .partySize = {party_size_expr(trainer['num_pokemon'])},")
         lines.append(
             "            .items = { "
             + ", ".join(
