@@ -63,6 +63,7 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
         }
         else
         {
+            BOOL negatedDamage = FALSE;
             // limit damage value to current hp
             if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0) {
                 sp->damage = (sp->battlemon[sp->defence_client].hp) * -1;
@@ -88,6 +89,17 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                 else
                 {
                     sp->oneSelfFlag[sp->defence_client].prevent_one_hit_ko_item = FALSE;
+                }
+            }
+
+            if (sp->moveConditionsFlags[sp->defence_client].endure)
+            {
+                if ((sp->battlemon[sp->defence_client].hp + sp->damage) <= 0) {
+                    sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
+                    if (sp->damage == 0)
+                    {
+                        negatedDamage = TRUE;
+                    }
                 }
             }
 
@@ -158,20 +170,24 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
             {
                 sp->battlemon[sp->defence_client].hit_count++;
             }
+            int storedDamage = sp->damage;
+            if (storedDamage == 0 && negatedDamage) {
+                storedDamage = 1;
+            }
             if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_PHYSICAL)
             {
-                sp->oneTurnFlag[sp->defence_client].physical_damage[sp->attack_client] = sp->damage;
+                sp->oneTurnFlag[sp->defence_client].physical_damage[sp->attack_client] = storedDamage;
                 sp->oneTurnFlag[sp->defence_client].physical_damager = sp->attack_client;
                 sp->oneTurnFlag[sp->defence_client].physical_damager_bit |= No2Bit(sp->attack_client);
-                sp->oneSelfFlag[sp->defence_client].physical_damage = sp->damage;
+                sp->oneSelfFlag[sp->defence_client].physical_damage = storedDamage;
                 sp->oneSelfFlag[sp->defence_client].physical_damager = sp->attack_client;
             }
             else if(GetMoveSplit(sp, sp->current_move_index) == SPLIT_SPECIAL)
             {
-                sp->oneTurnFlag[sp->defence_client].special_damage[sp->attack_client] = sp->damage;
+                sp->oneTurnFlag[sp->defence_client].special_damage[sp->attack_client] = storedDamage;
                 sp->oneTurnFlag[sp->defence_client].special_damager = sp->attack_client;
                 sp->oneTurnFlag[sp->defence_client].special_damager_bit |= No2Bit(sp->attack_client);
-                sp->oneSelfFlag[sp->defence_client].special_damage = sp->damage;
+                sp->oneSelfFlag[sp->defence_client].special_damage = storedDamage;
                 sp->oneSelfFlag[sp->defence_client].special_damager = sp->attack_client;
             }
 
