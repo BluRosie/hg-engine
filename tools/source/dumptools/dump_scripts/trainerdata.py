@@ -34,6 +34,7 @@ TRAINER_PARTY_MON_FLAG_DEFINES = [
     "TRAINER_DATA_TYPE_IV_EV_SET",
     "TRAINER_DATA_TYPE_NATURE_SET",
     "TRAINER_DATA_TYPE_SHINY_LOCK",
+    "TRAINER_DATA_TYPE_ADDITIONAL_FLAGS",
 ]
 
 TEXT_TYPE_NAMES = {
@@ -160,7 +161,12 @@ def ai_flags_expr(flags):
 
 
 def battle_type_expr(value):
-    return "DOUBLE_BATTLE" if value != 0 else "SINGLE_BATTLE"
+    if value == 2:
+        return "DOUBLE_BATTLE"
+    elif value == 3:
+        return "NO_PARTNER_DOUBLE_BATTLE"
+    else:
+        return "SINGLE_BATTLE"
 
 
 def party_size_expr(value):
