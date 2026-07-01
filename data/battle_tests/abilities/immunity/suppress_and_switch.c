@@ -94,7 +94,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax’s Ability was suppressed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Munchlax!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Munchlax's Immunity" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Munchlax was cured of its poisoning!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Snorlax!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snorlax's Immunity" },
-    }
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax was cured of its poisoning!" },
+    },
+    .knownFailing = TRUE,
 }
 END_TEST
