@@ -3472,6 +3472,10 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         doesNotAffect = TRUE;
     }
 
+    if (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_OBLIVIOUS) && moveEffect == MOVE_EFFECT_TAUNT) {
+        doesNotAffect = TRUE;
+    }
+
     if (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_OWN_TEMPO) && (moveEffect == MOVE_EFFECT_STATUS_CONFUSE)) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
