@@ -5571,7 +5571,7 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
     s32 battlerID = read_battle_script_param(ctx);
     s32 failAddr = read_battle_script_param(ctx);
 
-    // Grab totem ID and handle weight increase.
+    // Grab totem ID.
     u32 totemID;
     u32 adjustedSpecies = PokeOtherFormMonsNoGet(ctx->battlemon[battlerID].species, ctx->battlemon[battlerID].form_no);
     for (totemID = 0; totemID < NELEMS(TotemSpecies); totemID++)
@@ -5581,7 +5581,8 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
             break;
         }
     }
-    ctx->battlemon[battlerID].weight *= 2;
+    // no weight increase because each form has its own weight + wishiwashi doesn't gain weight anyway
+    // ctx->battlemon[battlerID].weight *= 2;
 
     // if not defined in above table, should skip playing stat animation because it can not be found  
     if (totemID == NELEMS(TotemSpecies))
