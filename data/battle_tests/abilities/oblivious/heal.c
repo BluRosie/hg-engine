@@ -49,12 +49,12 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_MEW,
-            .level = 49,
+            .species = SPECIES_MEWTWO,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_MOLD_BREAKER,
+            .ability = ABILITY_PRESSURE,
             .item = ITEM_NONE,
-            .moves = { MOVE_ATTRACT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_TAUNT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -105,11 +105,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke's Oblivious" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Slowpoke..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke fell for the taunt!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke's Oblivious" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke shook off the taunt!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke's Oblivious" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke got over its infatuation!" },
     }
 }
 END_TEST
