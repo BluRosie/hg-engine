@@ -1,4 +1,3 @@
-
 // Test: Insomnia - ignored by Moldbreaker, Berry cures first, Heal
 #include "../../battle_tests.h"
 BEGIN_TEST

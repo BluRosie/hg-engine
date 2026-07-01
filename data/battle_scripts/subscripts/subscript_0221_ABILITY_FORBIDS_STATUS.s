@@ -58,11 +58,11 @@ _taunt:
     PrintMessage 1707, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP
     GoTo _end
 
-_updateHealthbar
+_updateHealthbar:
     UpdateMonData OPCODE_SET, BATTLER_CATEGORY_MSG_TEMP, BMON_DATA_STATUS, STATUS_NONE
     SetHealthbarStatus BATTLER_CATEGORY_MSG_TEMP, BATTLE_ANIMATION_NONE
 
-_end
+_end:
     Wait 
     WaitButtonABTime 30
     End 
