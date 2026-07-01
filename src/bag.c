@@ -570,7 +570,7 @@ u32 IsPlayerOnIce(u32 collision) // run to determine if the player is on ice
     return FALSE;
 }
 
-#ifdef DEBUG_BATTLE_SCENARIOS
+#if defined(DEBUG_BATTLE_SCENARIOS) || defined(DEBUG_AUTO_QUEUE_SCRIPT)
 u8 queueUpAutoBattleScript = 0;
 u8 pendingNextTest = 0;
 #endif
@@ -581,6 +581,13 @@ BOOL IsPlayerOnLadder(void)
         return TRUE;
     u32 collision = GetMetatileBehaviorAt(gFieldSysPtr, gFieldSysPtr->location->x, gFieldSysPtr->location->z);
     u32 mapId = gFieldSysPtr->location->mapId;
+#ifdef DEBUG_AUTO_QUEUE_SCRIPT
+    queueUpAutoBattleScript++;
+    if (queueUpAutoBattleScript == 20) {
+        EventSet_Script(gFieldSysPtr, 2073, NULL);
+        queueUpAutoBattleScript = 21;
+    }
+#else
 #ifdef DEBUG_BATTLE_SCENARIOS
     if (queueUpAutoBattleScript == 0) {
         EventSet_Script(gFieldSysPtr, 2073, NULL);
@@ -594,6 +601,7 @@ BOOL IsPlayerOnLadder(void)
     } else if (TestBattle_HasMoreTests()) {
         pendingNextTest++;
     }
+#endif
 #endif
     // ladder collisions
     // bugsy gym

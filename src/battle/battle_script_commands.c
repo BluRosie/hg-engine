@@ -5569,47 +5569,37 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     s32 battlerID = read_battle_script_param(ctx);
+    s32 failAddr = read_battle_script_param(ctx);
 
     // Grab totem ID and handle weight increase.
     u32 totemID;
-    for (totemID = 0; totemID < MAX_TOTEM_FORMS; totemID++)
+    u32 adjustedSpecies = PokeOtherFormMonsNoGet(ctx->battlemon[battlerID].species, ctx->battlemon[battlerID].form_no);
+    for (totemID = 0; totemID < NELEMS(TotemSpecies); totemID++)
     {
-        if (ctx->battlemon[battlerID].species == TotemSpecies[totemID][0])
+        if (adjustedSpecies == TotemSpecies[totemID][0])
         {
             break;
         }
     }
-    if (totemID == MAX_TOTEM_FORMS)
-    {
-        ctx->battlemon[battlerID].weight *= 2;
+    ctx->battlemon[battlerID].weight *= 2;
 
-        while (totemID < NELEMS(TotemSpecies))
-        {
-            if (ctx->battlemon[battlerID].species == TotemSpecies[totemID][0])
-            {
-                break;
-            }
-            totemID++;
-        }
-    }
-    
+    // if not defined in above table, should skip playing stat animation because it can not be found  
     if (totemID == NELEMS(TotemSpecies))
     {
-        return FALSE; // This should never be reached if you're doing this right, but prevents out-of-bounds errors.
+        IncrementBattleScriptPtr(ctx, failAddr);
+        return FALSE;
     }
 
     // Handle stat boosts.
     u8 totalStatBoosts = 0;
+    u8 raisedStat = 0;
     u8 stat;
     for (stat = STAT_ATTACK; stat < STAT_MAX; stat++)
     {
         if (TotemSpecies[totemID][stat] > 0)
         {
-            if (!totalStatBoosts)
-            {
-                // PlayBattleAnimation BATTLER_CATEGORY_ENEMY, BATTLE_ANIMATION_STAT_BOOST
-            }
             ctx->battlemon[battlerID].states[stat] += TotemSpecies[totemID][stat];
+            raisedStat = stat;
             totalStatBoosts++;
         }
     }
@@ -5619,7 +5609,7 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
         ctx->mp.id = BATTLE_MSG_TOTEM_AURA_SINGLE_STAT; // {0}’s aura flared to life! Its {1} rose!
         ctx->mp.tag = TAG_NICKNAME_STAT;
         ctx->mp.param[0] = CreateNicknameTag(ctx, battlerID);
-        ctx->mp.param[1] = stat;
+        ctx->mp.param[1] = raisedStat;
     }
     else if (totalStatBoosts > 1)
     {

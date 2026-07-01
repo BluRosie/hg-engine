@@ -52,7 +52,7 @@ _TotemEncounter:
     PrintGlobalMessage 1757, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     Wait
     WaitButtonABTime 30
-    MakeTotem BATTLER_ENEMY
+    MakeTotem BATTLER_ENEMY, _SendOutPokemonMessage
     PlayBattleAnimation BATTLER_CATEGORY_ENEMY, BATTLE_ANIMATION_STAT_BOOST
     Wait
     PrintBufferedMessage

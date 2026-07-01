@@ -4241,7 +4241,6 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
 void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
 
 void LONG_CALL SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL canFlee, BOOL shiny);
-void LONG_CALL SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL shiny);
 
 void LONG_CALL InitBattleMsgData(struct BattleStruct *sp, BattleMessageData *msgdata);
 void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessageData *msgdata, BattleMessage *msg);
