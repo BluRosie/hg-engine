@@ -1755,3 +1755,15 @@ The wild {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} trapped\nthe wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!
+{STRVAR_1 1, 0, 0} was cured of its\npoisoning!
+The wild {STRVAR_1 1, 0, 0} was cured\nof its poisoning!
+The opposing {STRVAR_1 1, 0, 0} was cured\nof its poisoning!
+{STRVAR_1 1, 0, 0}’s burn was cured!
+The wild {STRVAR_1 1, 0, 0}’s burn was\ncured!
+The opposing {STRVAR_1 1, 0, 0}’s burn\nwas cured!
+{STRVAR_1 1, 0, 0} was cured of paralysis!
+The wild {STRVAR_1 1, 0, 0} was cured of\nparalysis!
+The opposing {STRVAR_1 1, 0, 0} was cured\nof paralysis!
+{STRVAR_1 1, 0, 0} got over its\ninfatuation.
+The wild {STRVAR_1 1, 0, 0} got over its\ninfatuation.
+The opposing {STRVAR_1 1, 0, 0} got over\nits infatuation.

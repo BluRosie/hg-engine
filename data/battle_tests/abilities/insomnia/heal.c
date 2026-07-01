@@ -1,20 +1,7 @@
-// Test: Moldbreaker - Berry cures first, Insomnia Heal
-#ifndef GET_TEST_CASE_ONLY
-
-#include "../../../../include/battle.h"
-#include "../../../../include/constants/ability.h"
-#include "../../../../include/constants/battle_message_constants.h"
-#include "../../../../include/constants/item.h"
-#include "../../../../include/constants/moves.h"
-#include "../../../../include/constants/species.h"
-#include "../../../../include/test_battle.h"
-
-// each test file is a separate .c file in battle_tests/ for better organization
-const struct TestBattleScenario BattleTests[] = {
-
-#endif
-
-    {
+// Test: Insomnia - ignored by Moldbreaker, Berry cures first, Heal
+#include "../../battle_tests.h"
+BEGIN_TEST
+{
         .battleType = BATTLE_TYPE_SINGLE,
         .weather = WEATHER_NONE,
         .fieldCondition = 0,
@@ -105,9 +92,8 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno fell asleep!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno's Chesto Berry woke it up!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno fell asleep!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno cured its sleep status with its Insomnia!" },
-        }
-    },
-#ifndef GET_TEST_CASE_ONLY
-};
-#endif
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno's Insomnia" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno woke up!" },
+    }
+}
+END_TEST

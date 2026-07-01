@@ -1,4 +1,4 @@
-// Test: Pastel Veil - ignored by Moldbreaker, Heal
+// Test: Oblivious - ignored by Moldbreaker, Heal
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,10 +8,10 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_PONYTA,
+            .species = SPECIES_SLOWPOKE,
             .level = 50,
-            .form = 1,
-            .ability = ABILITY_PASTEL_VEIL,
+            .form = 0,
+            .ability = ABILITY_OBLIVIOUS,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -22,7 +22,7 @@ BEGIN_TEST
         {
             .species = SPECIES_SNOM,
             .level = 50,
-            .form = 1,
+            .form = 0,
             .ability = ABILITY_ICE_SCALES,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
@@ -37,24 +37,24 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_VILEPLUME,
+                        .species = SPECIES_MEW,
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_MOLD_BREAKER,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_TOXIC, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_TAUNT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_ODDISH,
+            .species = SPECIES_MEWTWO,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_CHLOROPHYLL,
+            .ability = ABILITY_PRESSURE,
             .item = ITEM_NONE,
-            .moves = { MOVE_TOXIC, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_TAUNT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -105,11 +105,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta was badly poisoned!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta was cured of its poisoning!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Ponyta..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke's Oblivious" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Slowpoke..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke fell for the taunt!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke's Oblivious" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowpoke shook off the taunt!" },
     }
 }
 END_TEST
