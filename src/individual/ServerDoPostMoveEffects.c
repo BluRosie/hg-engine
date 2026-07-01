@@ -2575,6 +2575,17 @@ u32 LONG_CALL Activate_AbilityHealingStatusCondition(void *bsys, struct BattleSt
             ret = TRUE;
         }
         break;
+
+    case ABILITY_OBLIVIOUS:
+        if (ctx->battlemon[battlerId].condition2 & STATUS2_ATTRACT) {
+            ctx->msg_work = 6;
+            ret = TRUE;
+        }
+        if (ctx->battlemon[battlerId].moveeffect.tauntTurns) {
+            ctx->msg_work = 7;
+            ret = TRUE;
+        }
+        break;
     default:
         break;
     }
