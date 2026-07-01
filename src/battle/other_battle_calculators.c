@@ -4444,7 +4444,8 @@ void LONG_CALL PrintBallBlockedMessage(struct tcb_skill_intp_work *data)
         ov07_02233ECC(data->bms);
         BattleMessage msg;
         BOOL isTrainerBattle = BattleTypeGet(data->bw) & BATTLE_TYPE_TRAINER;
-        msg.id = isTrainerBattle ? 0x35B : 0x35D; // It dodged your thrown Poké Ball! This Pokémon can’t be caught!
+        // It dodged your thrown Poké Ball! This Pokémon can’t be caught!
+        msg.id = isTrainerBattle ? BATTLE_MSG_TRAINER_BLOCKED_BALL : BATTLE_MSG_DODGED_THROWN_BALL;
         msg.tag = TAG_NONE;
         data->work[0] = BattleMSG_Print(data->bw, BattleWorkFightMsgGet(data->bw), &msg, BattleWorkConfigMsgSpeedGet(data->bw));
         data->work[1] = 30;
