@@ -92,23 +92,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoak_work = 0;
         FALLTHROUGH;
     }
-    case MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS:
-#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_3_EXPLOSION_USER_FAINTS %d\n", ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED);
-#endif
-
-        ctx->swoam_seq_no++;
-
-        if (ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) {
-            ctx->fainting_client = ctx->attack_client; // No2Bit((ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) >> BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
-            ctx->server_status_flag &= ~BATTLE_STATUS_SELFDESTRUCTED;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOM);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return;
-        }
-
-        FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_4_DEAL_DAMAGE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_4_DEAL_DAMAGE %d\n", ctx->swoam_seq_no);
@@ -325,21 +308,26 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         FALLTHROUGH;
     }
-    case MOVE_PERFORMANCE_STEP_11_0_FINAL_GAMBIT: {
-
+    case MOVE_PERFORMANCE_STEP_11_0_EXPLOSION_FINAL_GAMBIT:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("in MOVE_PERFORMANCE_STEP_11_0_FINAL_GAMBIT %d\n", ctx->swoam_seq_no);
+        debug_printf("in MOVE_PERFORMANCE_STEP_11_0_EXPLOSION_FINAL_GAMBIT %d\n", ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED);
 #endif
+
         ctx->swoam_seq_no++;
-        if (ctx->current_move_index == MOVE_FINAL_GAMBIT && ctx->battlemon[ctx->attack_client].hp) {
-            ctx->fainting_client = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FAINT);
+
+        if (ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED
+            || (ctx->current_move_index == MOVE_FINAL_GAMBIT && ctx->battlemon[ctx->attack_client].hp)) {
+            ctx->fainting_client = ctx->attack_client; // No2Bit((ctx->server_status_flag & BATTLE_STATUS_SELFDESTRUCTED) >> BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
+            ctx->battlerIdTemp = ctx->attack_client;
+            ctx->hp_calc_work = ctx->battlemon[ctx->attack_client].hp * (-1);
+            ctx->server_status_flag &= ~BATTLE_STATUS_SELFDESTRUCTED;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOM);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
         }
+
         FALLTHROUGH;
-    }
     case MOVE_PERFORMANCE_STEP_11_1_FAINTING: {
 
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC

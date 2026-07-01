@@ -6,3 +6,4 @@ _000:
     CalcCrit 
     CalcDamage 
     End 
+    
