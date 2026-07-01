@@ -496,6 +496,139 @@ void BattleSystem_GrabIllusionBoxMonNameForHpBar(struct BattleSystem *battleSyst
     BufferBoxMonNickname(msgFormat, 0, &mon->box);
 }
 
+void BattleSystem_AdjustMessageForSide(struct BattleSystem *battleSystem, struct BattleMessage *msg) {
+    u32 battleType = BattleTypeGet(battleSystem);
+    // For now, we can cheat needing to do proper Totem prefixes by circumventing this check entirely.
+    // If/when SOS battles are introduced, hooking this func will be a lot more important.
+    if (msg->tag & 0x80 || battleType & BATTLE_TYPE_TOTEM) {
+        return;
+    }
+
+    if (msg->tag & 0x40) {
+        if (IsClientEnemy(battleSystem, msg->battlerId)) {
+            msg->id++;
+        }
+        return;
+    }
+
+    switch (msg->tag & 0x3F) {
+    case TAG_NONE:
+    case TAG_MOVE:
+    case TAG_STAT:
+    case TAG_ITEM:
+    case TAG_NUMBER:
+    case TAG_NUMBERS:
+    case TAG_TRNAME:
+    case TAG_MOVE_MOVE:
+    case TAG_ITEM_MOVE:
+    case TAG_NUMBER_NUMBER:
+    case TAG_TRNAME_TRNAME:
+    case TAG_TRNAME_NICKNAME:
+    case TAG_TRNAME_ITEM:
+    case TAG_TRNAME_NUM:
+    case TAG_TRCLASS_TRNAME:
+    case TAG_TRNAME_NICKNAME_NICKNAME:
+    case TAG_TRCLASS_TRNAME_NICKNAME:
+    case TAG_TRCLASS_TRNAME_ITEM:
+    case TAG_TRNAME_NICKNAME_TRNAME_NICKNAME:
+    case TAG_TRCLASS_TRNAME_NICKNAME_NICKNAME:
+    case TAG_TRCLASS_TRNAME_NICKNAME_TRNAME:
+    case TAG_TRCLASS_TRNAME_TRCLASS_TRNAME:
+    case TAG_TRCLASS_TRNAME_NICKNAME_TRCLASS_TRNAME_NICKNAME:
+        break;
+    case TAG_NONE_SIDE:
+        if (IsClientEnemy(battleSystem, msg->param[0] & 0xFF)) {
+            msg->id++;
+        }
+        break;
+    case TAG_NICKNAME:
+    case TAG_NICKNAME_MOVE:
+    case TAG_NICKNAME_ABILITY:
+    case TAG_NICKNAME_STAT:
+    case TAG_NICKNAME_TYPE:
+    case TAG_NICKNAME_POKE:
+    case TAG_NICKNAME_ITEM:
+    case TAG_NICKNAME_POFFIN:
+    case TAG_NICKNAME_NUM:
+    case TAG_NICKNAME_TRNAME:
+    case TAG_NICKNAME_BOX:
+    case TAG_NICKNAME_MOVE_MOVE:
+    case TAG_NICKNAME_MOVE_NUMBER:
+    case TAG_NICKNAME_ABILITY_MOVE:
+    case TAG_NICKNAME_ABILITY_ITEM:
+    case TAG_NICKNAME_ABILITY_STAT:
+    case TAG_NICKNAME_ABILITY_TYPE:
+    case TAG_NICKNAME_ABILITY_STATUS:
+    case TAG_NICKNAME_ABILITY_NUMBER:
+    case TAG_NICKNAME_ITEM_MOVE:
+    case TAG_NICKNAME_ITEM_STAT:
+    case TAG_NICKNAME_ITEM_STATUS:
+    case TAG_NICKNAME_BOX_BOX:
+        if (IsClientEnemy(battleSystem, msg->param[0] & 0xFF)) {
+            msg->id++;
+            if (battleType & BATTLE_TYPE_TRAINER) {
+                msg->id++;
+            }
+        }
+        break;
+    case TAG_MOVE_SIDE:
+        if (IsClientEnemy(battleSystem, msg->param[1] & 0xFF)) {
+            msg->id++;
+        }
+        break;
+    case TAG_MOVE_NICKNAME:
+    case TAG_ABILITY_NICKNAME:
+    case TAG_ITEM_NICKNAME_FLAVOR:
+        if (IsClientEnemy(battleSystem, msg->param[1] & 0xFF)) {
+            msg->id++;
+            if (battleType & BATTLE_TYPE_TRAINER) {
+                msg->id++;
+            }
+        }
+        break;
+    case TAG_NICKNAME_NICKNAME:
+    case TAG_NICKNAME_NICKNAME_MOVE:
+    case TAG_NICKNAME_NICKNAME_ABILITY:
+    case TAG_NICKNAME_NICKNAME_ITEM:
+        if (IsClientEnemy(battleSystem, msg->param[0] & 0xFF)) {
+            msg->id += 3;
+            if (battleType & BATTLE_TYPE_TRAINER) {
+                msg->id += 2;
+            }
+            if (IsClientEnemy(battleSystem, msg->param[1] & 0xFF)) {
+                msg->id++;
+            }
+        } else if (IsClientEnemy(battleSystem, msg->param[1] & 0xFF)) {
+            msg->id++;
+            if (battleType & BATTLE_TYPE_TRAINER) {
+                msg->id++;
+            }
+        }
+        break;
+    case TAG_NICKNAME_ABILITY_NICKNAME:
+    case TAG_NICKNAME_ITEM_NICKNAME:
+    case TAG_NICKNAME_ABILITY_NICKNAME_MOVE:
+    case TAG_NICKNAME_ABILITY_NICKNAME_ABILITY:
+    case TAG_NICKNAME_ABILITY_NICKNAME_STAT:
+    case TAG_NICKNAME_ITEM_NICKNAME_ITEM:
+        if (IsClientEnemy(battleSystem, msg->param[0] & 0xFF)) {
+            msg->id += 3;
+            if (battleType & BATTLE_TYPE_TRAINER) {
+                msg->id += 2;
+            }
+            if (IsClientEnemy(battleSystem, msg->param[2] & 0xFF)) {
+                msg->id++;
+            }
+        } else if (IsClientEnemy(battleSystem, msg->param[2] & 0xFF)) {
+            msg->id++;
+            if (battleType & BATTLE_TYPE_TRAINER) {
+                msg->id++;
+            }
+        }
+        break;
+    }
+}
+
 /**
  *  @brief create the switch in message
  *

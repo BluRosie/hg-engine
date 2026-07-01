@@ -170,6 +170,10 @@
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
 #define BATTLE_TYPE_CAN_LOSE      0x800
 #define BATTLE_TYPE_BUG_CONTEST   0x1000
+#define BATTLE_TYPE_IMPORTED      0x2000
+#define BATTLE_TYPE_TOTEM         0x4000
+
+#define BATTLE_TYPE_DEBUG (1 << 31)
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_PAL_PARK)
 
@@ -4236,6 +4240,8 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
  */
 void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
 
+void LONG_CALL SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL canFlee, BOOL shiny);
+
 void LONG_CALL InitBattleMsgData(struct BattleStruct *sp, BattleMessageData *msgdata);
 void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessageData *msgdata, BattleMessage *msg);
 void LONG_CALL BattleController_EmitPrintMessage(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessage *msg);
@@ -4280,5 +4286,14 @@ BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
 int LONG_CALL ov12_0223ABB8(struct BattleSystem *bsys, int battlerId, int side);
 
 void LONG_CALL HandleTransform(struct BattleStruct *sp);
+
+struct BattleSetup LONG_CALL *BattleSetup_New(u32 heapID, u32 battleFlags);
+void LONG_CALL BattleSetup_InitFromFieldSystem(BattleSetup *setup, FieldSystem *fieldSystem);
+void LONG_CALL ov02_02247F30(FieldSystem *fieldSystem, u16 mon, u8 level, BOOL shiny, BattleSetup *setup);
+int LONG_CALL BattleSetup_GetWildTransitionEffect(struct BattleSetup *setup);
+int LONG_CALL BattleSetup_GetWildBattleMusic(struct BattleSetup *setup);
+
+BOOL LONG_CALL ShouldPreventMonCapture(struct BattleSystem *bsys);
+void LONG_CALL PrintTotemDodgeMessage(struct tcb_skill_intp_work *data, struct MsgData *msgData);
 
 #endif // BATTLE_H

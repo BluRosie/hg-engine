@@ -4090,7 +4090,7 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form)
 BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker UNUSED, int defender)
 {
     u32 item = sp->battlemon[defender].item;
-    //u32 ability = GetBattlerAbility(sp, defender);
+    // u32 ability = GetBattlerAbility(sp, defender);
     u32 species = sp->battlemon[defender].species;
     u32 form = sp->battlemon[defender].form_no;
 
@@ -4426,5 +4426,30 @@ void LONG_CALL HandleTransform(struct BattleStruct *sp)
         } else {
             sp->battlemon[sp->attack_client].pp[num] = 5;
         }
+    }
+}
+
+BOOL LONG_CALL ShouldPreventMonCapture(struct BattleSystem *bsys)
+{
+    return BattleTypeGet(bsys) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_TOTEM);
+}
+
+BOOL LONG_CALL ov07_02232F60(void *ballData, s32 ballAnim_Unused);
+void LONG_CALL ov07_02233ECC(void *ballData);
+
+void LONG_CALL PrintBallBlockedMessage(struct tcb_skill_intp_work *data)
+{
+    if (!ov07_02232F60(data->bms, 2)) // BALL_ANIM_DEFLECT
+    {
+        ov07_02233ECC(data->bms);
+        BattleMessage msg;
+        BOOL isTrainerBattle = BattleTypeGet(data->bw) & BATTLE_TYPE_TRAINER;
+        // It dodged your thrown Poké Ball! This Pokémon can’t be caught!
+        msg.id = isTrainerBattle ? BATTLE_MSG_TRAINER_BLOCKED_BALL : BATTLE_MSG_DODGED_THROWN_BALL;
+        msg.tag = TAG_NONE;
+        data->work[0] = BattleMSG_Print(data->bw, BattleWorkFightMsgGet(data->bw), &msg, BattleWorkConfigMsgSpeedGet(data->bw));
+        data->work[1] = 30;
+        data->seq_no = isTrainerBattle ? 27 : 28; // STATE_GET_POKEMON_DONE_NO_STEALING
+        // debug_printf("Case: %d\n", data->seq_no);
     }
 }

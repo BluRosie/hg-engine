@@ -112,7 +112,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Eelevate" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Eelektross's Attack rose sharply!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Donphan used Mud-Slap!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s super effective!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
     }
 }
 END_TEST

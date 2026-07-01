@@ -1398,6 +1398,8 @@ u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
 void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 void LONG_CALL BufferBoxMonSpeciesName(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 
+void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
+
 // defined in src/pokemon.c
 
 /**
