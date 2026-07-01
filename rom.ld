@@ -757,7 +757,7 @@ BattleMessage_BufferType = 0x0223CE50 | 1;
 BattleMessage_BufferAbility = 0x0223CE5C | 1;
 BattleMessage_BufferStat = 0x0223CE68 | 1;
 BattleMessage_BufferStatus = 0x0223CE74 | 1;
-BattleMessage_BufferPokemon = 0x0223CE80 | 1;
+//BattleMessage_BufferPokemon = 0x0223CE80 | 1;
 BattleMessage_BufferPoffin = 0x0223CEA4 | 1;
 BattleMessage_BufferFlavorPreference = 0x0223CEA8 | 1;
 BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
@@ -811,9 +811,15 @@ InitMartUI = 0x02256D34 | 1;
 
 sBattleBgProfileTable = 0x0226E70C;
 
-BattleSetup_New_Tutorial = 0x02051AAC | 1;
+BattleSetup_New = 0x020518D8 | 1;
+BattleSetup_InitFromFieldSystem = 0x02051F00 | 1;
+ov02_02247F30 = 0x02247F30 | 1;
 BattleSetup_GetWildTransitionEffect = 0x020517E8 | 1;
 BattleSetup_GetWildBattleMusic = 0x020517FC | 1;
+CallTask_StartEncounter = 0x0205085C | 1;
+SetupAndStartWildBattle = 0x02051020 | 1;
+
+BattleSetup_New_Tutorial = 0x02051AAC | 1;
 Encounter_New = 0x020506BC | 1;
 TaskManager_Call = 0x02050530 | 1;
 Task_TutorialBattle = 0x0205128C | 1;
@@ -863,11 +869,16 @@ PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
 UpdateFriendshipFainted = 0x02248558 | 1;
 
+Save_GameStats_Get = 0x0202CF54 | 1;
+GameStats_Inc = 0x0202D0FC | 1;
+
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
+
 sStarterChoiceCries = 0x021E7398;
 BufferBoxMonNickname = 0x0200BF8C | 1;
+BufferBoxMonSpeciesName = 0x0200BF1C | 1;
 
 #roamers
 PlayerLocationHistoryGetBack = 0x0202D9F4 | 1;
@@ -876,3 +887,6 @@ SetRoamerData = 0x0202DAB8 | 1;
 Roamers_GetRoamMonStats = 0x0202DA54 | 1;
 Roamer_GetLocation = 0x0202D9F8 | 1;
 ApplyRoamerLocation = 0x02067914 | 1;
+
+ov07_02232F60 = 0x02232F60 | 1;
+ov07_02233ECC = 0x02233ECC | 1;

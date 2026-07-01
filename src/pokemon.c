@@ -1304,7 +1304,7 @@ u32 LONG_CALL GetBoxMonSex(struct BoxPokemon *bp)
  */
 u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
 {
-    u32 ret = 1050, formFemaleIndex = 0;
+    u32 ret = MON_OVERWORLD_TAG_START, formFemaleIndex = 0;
 
     formFemaleIndex = OverworldModelLookupHasFemaleForm(species);
 

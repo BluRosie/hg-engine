@@ -376,6 +376,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
         }
 
     } else if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(bw, sp->defence_client)
+            && gIllusionStruct.dontRemoveIllusion == FALSE
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
                 || GetBattlerAbility(sp, sp->defence_client) != ABILITY_ILLUSION)) { // illusion has already activated, but it can be taken away without needing to have the ability
             // handle illusion here so it takes priority over fainting.  notably

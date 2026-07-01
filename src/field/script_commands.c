@@ -19,6 +19,8 @@
 #include "../../include/constants/weather_numbers.h"
 #include "../../include/constants/generated/learnsets.h"
 
+void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL shiny);
+
 /**
  *  @brief script command to give an egg adapted to set the hidden ability
  *
@@ -314,4 +316,100 @@ BOOL ScrCmd_DaycareSanitizeMon(SCRIPTCONTEXT *ctx) {
         }
     }
     return FALSE;
+}
+
+BOOL ScrCmd_WildBattle(SCRIPTCONTEXT *ctx) {
+    u32 *winFlag = FieldSysGetAttrAddr(ctx->fsys, 24); // SCRIPTENV_BATTLE_WIN_FLAG = 24
+    u16 species = ScriptGetVar(ctx);
+    u16 level = ScriptGetVar(ctx);
+    u8 shiny = ScriptReadByte(ctx);
+    // Set this var to 1 in DSPRE just prior to starting a forced wild battle to turn it into a Totem battle.
+    if (GetScriptVar(0x800B))
+    {
+        SetupAndStartTotemBattle(ctx->taskman, species, level, winFlag, shiny);
+    }
+    else
+    {
+        SetupAndStartWildBattle(ctx->taskman, species, level, winFlag, TRUE, shiny);
+    }
+    return TRUE;
+}
+
+void SetupAndStartTotemBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL shiny) {
+    FieldSystem *fieldSystem = taskManager->fieldSystem;
+    struct BattleSetup *setup = BattleSetup_New(HEAPID_WORLD, BATTLE_TYPE_TOTEM);
+    BattleSetup_InitFromFieldSystem(setup, fieldSystem);
+    ov02_02247F30(fieldSystem, species, level, shiny, setup);
+
+    // Uncomment this line if you want to manually adjust specific elements according to Totem Species.
+    // struct PartyPokemon *totem = Party_GetMonByIndex(setup->party[BATTLER_ENEMY], 0);
+
+    switch (species)
+    {
+        // You can use the case below as a template:
+        /*case SPECIES_GYARADOS:
+            // Ability:
+            u16 data_1 = ABILITY_MOXIE;
+            SetMonData(totem, MON_DATA_ABILITY, &data_1);
+
+            // Item:
+            data_1 = ITEM_WACAN_BERRY;
+            SetMonData(totem, MON_DATA_HELD_ITEM, &data_1);
+
+            // Move slot 1:
+            data_1 = MOVE_AQUA_TAIL;
+            SetMonData(totem, MON_DATA_MOVE1, &data_1);
+            data_1 = GetMoveMaxPP(data_1, 0);
+            SetMonData(totem, MON_DATA_MOVE1PP, &data_1);
+            data_1 = 0;
+            SetMonData(totem, MON_DATA_MOVE1PPUP, &data_1);
+
+            // Move slot 2:
+            data_1 = MOVE_ICE_FANG;
+            SetMonData(totem, MON_DATA_MOVE2, &data_1);
+            data_1 = GetMoveMaxPP(data_1, 0);
+            SetMonData(totem, MON_DATA_MOVE2PP, &data_1);
+            data_1 = 0;
+            SetMonData(totem, MON_DATA_MOVE2PPUP, &data_1);
+
+            // Move slot 3:
+            data_1 = MOVE_CRUNCH;
+            SetMonData(totem, MON_DATA_MOVE3, &data_1);
+            data_1 = GetMoveMaxPP(data_1, 0);
+            SetMonData(totem, MON_DATA_MOVE3PP, &data_1);
+            data_1 = 0;
+            SetMonData(totem, MON_DATA_MOVE3PPUP, &data_1);
+
+            // Move slot 4:
+            data_1 = MOVE_DRAGON_DANCE;
+            SetMonData(totem, MON_DATA_MOVE4, &data_1);
+            data_1 = GetMoveMaxPP(data_1, 0);
+            SetMonData(totem, MON_DATA_MOVE4PP, &data_1);
+            data_1 = 0;
+            SetMonData(totem, MON_DATA_MOVE4PPUP, &data_1);
+            break;
+
+            // IVs:
+            data_1 = 20;
+            SetMonData(totem, MON_DATA_HP_IV, &data_1);
+            SetMonData(totem, MON_DATA_ATK_IV, &data_1);
+            SetMonData(totem, MON_DATA_DEF_IV, &data_1);
+            SetMonData(totem, MON_DATA_SPEED_IV, &data_1);
+            SetMonData(totem, MON_DATA_SPATK_IV, &data_1);
+            SetMonData(totem, MON_DATA_SPDEF_IV, &data_1);
+
+            // Nature:
+            data_1 = NATURE_ADAMANT;
+            u32 pid_1 = GetMonData(totem, MON_DATA_PERSONALITY, NULL);
+            u8 currentNature_1 = pid_1 % 25;
+            pid_1 = pid_1 + data_1 - currentNature_1;
+            SetMonData(totem, MON_DATA_PERSONALITY, &pid_1);
+            break;*/
+
+        default: break;
+    }
+
+    GameStats_Inc(Save_GameStats_Get(fieldSystem->savedata), GAME_STAT_WILD_ENCOUNTERS);
+
+    CallTask_StartEncounter(taskManager, setup, BattleSetup_GetWildTransitionEffect(setup), BattleSetup_GetWildBattleMusic(setup), winFlag);
 }

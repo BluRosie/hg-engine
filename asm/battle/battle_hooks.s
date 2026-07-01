@@ -749,3 +749,29 @@ mov r3, r4
 bl BattleSystem_GrabIllusionBoxMonNameForHpBar // (struct BattleSystem *battleSystem, int client, int partyIndex, MessageFormat *msgFormat)
 ldr r1, =0x022651C0 | 1
 bx r1
+
+.global GetPokemon_CheckIfTrainer_hook
+GetPokemon_CheckIfTrainer_hook:
+ldr r0, [r4]
+bl ShouldPreventMonCapture
+cmp r0, #0
+beq _returnTo02246728
+ldr r0, =0x02246710 | 1
+bx r0
+
+_returnTo02246728:
+ldr r0, =0x02246728 | 1
+bx r0
+
+.pool
+
+.global GetPokemon_BallBlocked_hook
+GetPokemon_BallBlocked_hook:
+// no need to preserve original instructions since we are rewriting the case entirely
+mov r0, r4 // data is in r4, move to r0 for positional argument into PrintBallBlockedMessage
+bl PrintBallBlockedMessage // (data, msgData)
+ldr r0, [r4, #0x28] // overwrite r0 with our current state, as it has already been set, to prevent it from getting scrambled.
+ldr r5, = 0x022470CA | 1 // near end of case. r0 and r4 are still in use
+bx r5
+
+.pool

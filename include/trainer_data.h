@@ -16,6 +16,8 @@ typedef enum TrainerGender {
     TRAINER_DOUBLE,
 } TrainerGender;
 
+typedef struct BattleSetup BattleSetup;
+
 #ifndef TYPES_H
 typedef uint8_t u8;
 typedef uint16_t u16;

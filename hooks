@@ -570,6 +570,7 @@ arm9 ScrCmd_MartBuy 02048060 1
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
 arm9 SetupAndStartTutorialBattle 02051334 1
+arm9 ScrCmd_WildBattle 02043E5C 1
 
 # handle missingno in 1vX battles
 0012 BattleControllerPlayer_GetBattleMon 0224873C 2
@@ -619,6 +620,7 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 GetTypeEffectivenessData 0225260C 3
 
 0012 BattleMessage_BufferNickname 0223CDD0
+0012 BattleMessage_BufferPokemon 0223CE80
 0012 hook_GrabIllusionBoxMonForHpBar 022651AE 3
 
 # roamers
@@ -634,3 +636,7 @@ arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
 arm9 EncounterSlot_WildMonSlotRoll_Fishing 02247764 1
 arm9 EncounterSlot_WildMonSlotRoll_RockSmash 0224779C 0
 arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
+
+0012 GetPokemon_CheckIfTrainer_hook 2246704 0
+0012 GetPokemon_BallBlocked_hook 02247094 0
+0012 BattleSystem_AdjustMessageForSide 0223C558 2

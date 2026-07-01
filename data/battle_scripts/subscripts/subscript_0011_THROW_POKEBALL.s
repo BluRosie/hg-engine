@@ -5,9 +5,9 @@
 _000:
     // {0} used one {1}!
     PrintMessage 857, TAG_TRNAME_ITEM, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
+    Wait
     StartCatchMonTask CAPTURE_NORMAL
-    WaitCatchMonTask 
+    WaitCatchMonTask
     UpdateVarFromVar OPCODE_GET, BSCRIPT_VAR_BATTLE_OUTCOME, BSCRIPT_VAR_TEMP_DATA
     UpdateVar OPCODE_BITWISE_AND, BSCRIPT_VAR_TEMP_DATA, 255
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_TEMP_DATA, 4, _029

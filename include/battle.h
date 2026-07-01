@@ -170,6 +170,10 @@
 #define BATTLE_TYPE_CATCHING_DEMO 0x400
 #define BATTLE_TYPE_CAN_LOSE      0x800
 #define BATTLE_TYPE_BUG_CONTEST   0x1000
+#define BATTLE_TYPE_IMPORTED      0x2000
+#define BATTLE_TYPE_TOTEM         0x4000
+
+#define BATTLE_TYPE_DEBUG (1 << 31)
 
 #define BATTLE_TYPE_NO_EXPERIENCE (BATTLE_TYPE_WIRELESS | BATTLE_TYPE_SAFARI | BATTLE_TYPE_BATTLE_TOWER | BATTLE_TYPE_PAL_PARK)
 
@@ -1269,6 +1273,20 @@ typedef struct PursuitContext {
     u8 originalAttacker;
 } PursuitContext;
 
+typedef struct ExtraAction {
+    u8 attacker;
+    u8 defender;
+    u16 type;    // unused for now
+    u32 moveNumberOrAction;
+} ExtraAction;
+
+typedef struct DancerContext {
+    u8 isActive;
+    u8 originalDefender;
+    u8 originalAttacker;
+    ExtraAction extraActions[CLIENT_MAX];
+} DancerContext;
+
 
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
@@ -1502,7 +1520,7 @@ struct BattleStruct {
     u8 enemySideHasFaintedTeammateLastTurn : 2;
 
     u8 gemBoostingMove : 1;
-    u8 futureSightHitTurn: 1;
+    u8 futureSightHitTurn : 1;
     u8 futureSightNoAttacker : 1;
     u8 futureSightSTAB : 1;
     u8 gemBoostingMovePadding : 4;
@@ -1514,6 +1532,7 @@ struct BattleStruct {
     BOOL boosterEnergyActivated[CLIENT_MAX];
     MovePerformanceContext moveContext;
     PursuitContext pursuitContext;
+    DancerContext dancerContext;
 };
 
 enum {
@@ -1858,6 +1877,7 @@ struct ILLUSION_STRUCT {
     u8 illusionPos[4];
     u8 illusionClient[4];
     u8 isSideInIllusion;
+    BOOL dontRemoveIllusion;
 };
 
 struct __attribute__((packed)) SWITCH_MESSAGE_PARAM {
@@ -2068,9 +2088,9 @@ enum {
     BEFORE_MOVE_STATE_UPROAR_STOPPING_MOVES,
     BEFORE_MOVE_STATE_SAFEGUARD,
     BEFORE_MOVE_STATE_TERRAIN_BLOCK,
-    BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,  // sub
+    BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE, // sub
     BEFORE_MOVE_STATE_MIST,
-    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES,  // ability block
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES, // ability block
     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STATUS_BASED_FAILURES,
     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_OTHER_AROMA_VEIL_STRUDY,
     BEFORE_MOVE_STATE_MOVE_ACCURACY,
@@ -2235,6 +2255,7 @@ struct PACKED DamageCalcStruct {
     u8 originalMoveType;
     u16 moveEffect;
     u8 moveFlag;
+    u8 multiHitCount;
     struct sDamageCalc clients[4];
 };
 
@@ -2242,13 +2263,13 @@ extern u8 TypeEffectivenessTable[][3];
 
 extern u8 HeldItemPowerUpTable[36][2];
 
-extern u16 PunchingMovesTable[24];
+extern u16 PunchingMoveTable[24];
 
-extern u16 StrongJawMovesTable[10];
+extern u16 BitingMoveTable[10];
 
-extern u16 MegaLauncherMovesTable[7];
+extern u16 PulseMoveTable[7];
 
-extern u16 SharpnessMovesTable[27];
+extern u16 SlicingMoveTable[31];
 
 extern u16 sLowKickWeightToPower[6][2];
 
@@ -2256,7 +2277,7 @@ extern int typeToBerryMapping[18];
 
 extern u8 StatBoostModifiers[13][2];
 
-extern u16 WeightMoveList[6];
+extern u16 DynamaxBannedWeightMoveList[6];
 
 extern struct newBattleStruct newBS;
 extern struct ILLUSION_STRUCT gIllusionStruct;
@@ -3323,7 +3344,6 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(struct BattleSystem *bw, struct Battl
  */
 u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
-
 /**
  *  @brief chooses actual target from fight input and checks redirect
  * https://github.com/pret/pokeheartgold/blob/3de81013775926f80a5abcc5e4f45f793f0c0af1/src/battle/overlay_12_0224E4FC.c#L1356
@@ -3455,9 +3475,9 @@ BOOL LONG_CALL IsPowderMove(u32 moveIndex);
 /**
  * @brief Check if the current move is a Weight move
  * @param moveIndex move index
- * @return TRUE if it is a Weight move
+ * @return TRUE if it is a Dynamax banned weight move
  */
-BOOL LONG_CALL IsWeightMove(u32 moveIndex);
+BOOL LONG_CALL IsDynamaxBannedWeightMove(u32 moveIndex);
 
 /**
  * @brief Check if the current move is a ball or bomb move
@@ -3465,6 +3485,8 @@ BOOL LONG_CALL IsWeightMove(u32 moveIndex);
  * @return TRUE if it is a Weight move
  */
 BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex);
+
+BOOL LONG_CALL IsDanceMove(u32 moveIndex);
 
 /// @brief Get the priority of the client
 /// @param bsys
@@ -3794,7 +3816,6 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
-
 
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
 void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg);
@@ -4203,7 +4224,9 @@ BOOL LONG_CALL IsAnyBattleMonHit(struct BattleSystem *bsys, struct BattleStruct 
 
 int GetSanitisedType(int type);
 
-BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
+BOOL LONG_CALL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
+
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg);
 
 /**
  * @brief Inject a custom callback function to allow
@@ -4215,6 +4238,8 @@ void LONG_CALL BattleBgExpansionLoader(struct BattleSystem *bsys);
  * @brief Callback for loading custom battle backgrounds
  */
 void LONG_CALL BattleBackgroundCallback(void *unkPtr, UNUSED int unk2, UNUSED int unk3);
+
+void LONG_CALL SetupAndStartWildBattle(TaskManager *taskManager, u16 species, u8 level, u32 *winFlag, BOOL canFlee, BOOL shiny);
 
 void LONG_CALL InitBattleMsgData(struct BattleStruct *sp, BattleMessageData *msgdata);
 void LONG_CALL InitBattleMsg(struct BattleSystem *bw, struct BattleStruct *sp, BattleMessageData *msgdata, BattleMessage *msg);
@@ -4260,5 +4285,14 @@ BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
 int LONG_CALL ov12_0223ABB8(struct BattleSystem *bsys, int battlerId, int side);
 
 void LONG_CALL HandleTransform(struct BattleStruct *sp);
+
+struct BattleSetup LONG_CALL *BattleSetup_New(u32 heapID, u32 battleFlags);
+void LONG_CALL BattleSetup_InitFromFieldSystem(BattleSetup *setup, FieldSystem *fieldSystem);
+void LONG_CALL ov02_02247F30(FieldSystem *fieldSystem, u16 mon, u8 level, BOOL shiny, BattleSetup *setup);
+int LONG_CALL BattleSetup_GetWildTransitionEffect(struct BattleSetup *setup);
+int LONG_CALL BattleSetup_GetWildBattleMusic(struct BattleSetup *setup);
+
+BOOL LONG_CALL ShouldPreventMonCapture(struct BattleSystem *bsys);
+void LONG_CALL PrintTotemDodgeMessage(struct tcb_skill_intp_work *data, struct MsgData *msgData);
 
 #endif // BATTLE_H
