@@ -1,4 +1,4 @@
-// Test: Insomnia - ignored by Moldbreaker, Berry cures first, Heal
+// Test: Immunity - Heal on switch-in, don't heal on switch-out if ability is suppressed
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -94,7 +94,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax’s Ability was suppressed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax's Ability was suppressed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Munchlax!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Munchlax's Immunity" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Munchlax was cured of its poisoning!" },
