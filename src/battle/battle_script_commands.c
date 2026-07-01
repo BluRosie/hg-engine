@@ -4853,7 +4853,8 @@ enum {
     ABILITY_POPUP_SLIDE_IN,
     ABILITY_POPUP_WAIT,
     ABILITY_POPUP_SLIDE_OUT,
-    ABILITY_POPUP_DESTROY
+    ABILITY_POPUP_DESTROY,
+    ABILITY_POPUP_FINISH,
 };
 
 // originally wrote this to be like some kind of task but it was best done through the script command itself
@@ -4946,6 +4947,10 @@ void AbilityPopup_SlideIn(void *data)
         G2_SetBG0Priority(1);
         SetBgPriority(1, 0);
         SetBgPriority(2, 1);
+        work->step++;
+        break;
+    case ABILITY_POPUP_FINISH:
+        work->step = ABILITY_POPUP_INIT_PALETTE;
         break;
     }
 }
@@ -4979,7 +4984,7 @@ BOOL btl_scr_cmd_116_abilitypopup(void *bw, struct BattleStruct *sp)
             work->step = ABILITY_POPUP_INIT_PALETTE;
             sp->battle_progress_flag = 1;
         }
-    } else if (sp->abilityPopupWork != NULL && sp->abilityPopupWork->step >= ABILITY_POPUP_DESTROY) {
+    } else if (sp->abilityPopupWork != NULL && sp->abilityPopupWork->step >= ABILITY_POPUP_FINISH) {
         sys_FreeMemoryEz(sp->abilityPopupWork);
         sp->abilityPopupWork = NULL;
         IncrementBattleScriptPtr(sp, 3);

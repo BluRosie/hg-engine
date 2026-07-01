@@ -639,4 +639,4 @@ arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
 
 0012 GetPokemon_CheckIfTrainer_hook 2246704 0
 0012 GetPokemon_BallBlocked_hook 02247094 0
-0012 BattleSystem_AdjustMessageForSide 0223C558 0
+0012 BattleSystem_AdjustMessageForSide 0223C558 2
