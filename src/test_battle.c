@@ -17,6 +17,7 @@
 
 static u32 gTestEndIndex = TEST_BATTLE_TOTAL_TESTS;
 static BOOL overridden = FALSE;
+static BOOL sTestBattleResultSent = FALSE;
 
 // Layout:
 //   bits 0-3:   scriptIndex[0] (0-8)
@@ -101,6 +102,7 @@ static void FreeCurrentScenario(void)
 static void AllocAndLoadScenario(void)
 {
     FreeCurrentScenario();
+    sTestBattleResultSent = FALSE;
     sCurrentScenario = sys_AllocMemory(HEAPID_DEFAULT, sizeof(struct TestBattleScenario));
     if (sCurrentScenario != NULL) {
         int testIndex = GetCurrentTestIndex();
@@ -132,6 +134,79 @@ BOOL LONG_CALL TestBattle_HasMoreExpectations()
         return FALSE;
     }
     return sCurrentScenario->expectationPassCount != MAX_EXPECTATIONS && sCurrentScenario->expectations[sCurrentScenario->expectationPassCount].expectationType != 0;
+}
+
+static BOOL TestBattle_IsNegativeMessageExpectation(enum ExpectationType expectationType)
+{
+    return expectationType == EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN
+        || expectationType == EXPECTATION_TYPE_NOT_MESSAGE;
+}
+
+u8 LONG_CALL TestBattle_GetActiveExpectationIndex()
+{
+    u8 expectationIndex;
+
+    if (sCurrentScenario == NULL) {
+        return MAX_EXPECTATIONS;
+    }
+
+    expectationIndex = sCurrentScenario->expectationPassCount;
+    while (expectationIndex < MAX_EXPECTATIONS
+        && sCurrentScenario->expectations[expectationIndex].expectationType != 0
+        && TestBattle_IsNegativeMessageExpectation(sCurrentScenario->expectations[expectationIndex].expectationType)) {
+        expectationIndex++;
+    }
+
+    return expectationIndex;
+}
+
+void LONG_CALL TestBattle_PassExpectationAt(u8 expectationIndex)
+{
+    if (sCurrentScenario == NULL || expectationIndex >= MAX_EXPECTATIONS) {
+        return;
+    }
+
+    if (expectationIndex >= sCurrentScenario->expectationPassCount) {
+        sCurrentScenario->expectationPassCount = expectationIndex + 1;
+    }
+}
+
+static void TestBattle_FinalizeNegativeExpectations(void)
+{
+    u8 expectationIndex;
+
+    if (sCurrentScenario == NULL) {
+        return;
+    }
+
+    expectationIndex = TestBattle_GetActiveExpectationIndex();
+    if (expectationIndex == MAX_EXPECTATIONS
+        || sCurrentScenario->expectations[expectationIndex].expectationType == 0) {
+        sCurrentScenario->expectationPassCount = expectationIndex;
+    }
+}
+
+BOOL LONG_CALL TestBattle_ReportResult()
+{
+    if (sCurrentScenario == NULL || sTestBattleResultSent) {
+        return FALSE;
+    }
+
+    TestBattle_FinalizeNegativeExpectations();
+
+    if (sCurrentScenario->markAsFail || TestBattle_HasMoreExpectations()) {
+        debug_printf("expectation[%d] ❌\n", sCurrentScenario->expectationPassCount);
+        if (sCurrentScenario->knownFailing) {
+            SendValueThroughCommunicationSendHole(TEST_CASE_KNOWN_FAILING);
+        } else {
+            SendValueThroughCommunicationSendHole(TEST_CASE_FAIL);
+        }
+    } else {
+        SendValueThroughCommunicationSendHole(TEST_CASE_PASS);
+    }
+
+    sTestBattleResultSent = TRUE;
+    return TRUE;
 }
 
 /**
@@ -436,6 +511,27 @@ static BOOL LONG_CALL TestBattle_TestComplete()
     return TRUE;
 }
 
+static BOOL TestBattle_PlayerScriptsComplete(void)
+{
+    int maxPlayerBattlers;
+
+    if (sCurrentScenario == NULL) {
+        return FALSE;
+    }
+
+    maxPlayerBattlers = (sCurrentScenario->battleType & BATTLE_TYPE_DOUBLE) ? 2 : 1;
+    for (int battler = 0; battler < maxPlayerBattlers; battler++) {
+        int scriptIndex = GetScriptIndex(battler == 0 ? BATTLER_PLAYER_FIRST : BATTLER_PLAYER_SECOND);
+
+        if (scriptIndex < AI_SCRIPT_MAX_MOVES
+            && sCurrentScenario->playerScript[battler][scriptIndex].action != ACTION_NONE) {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
 /**
  * @brief Check if test battle scripts are complete and update completion flag
  *
@@ -449,12 +545,32 @@ static void LONG_CALL TestBattle_CheckScriptCompletion()
     }
 
     if (TestBattle_TestComplete()) {
+        u8 activeExpectationIndex;
+
         SetTestComplete(TRUE);
-        // if (TestBattle_HasMoreExpectations()) {
-        //     *g_EmulatorCommunicationSendHole = TEST_CASE_FAIL;
-        // } else {
-        //     *g_EmulatorCommunicationSendHole = TEST_CASE_PASS;
-        // }
+
+        activeExpectationIndex = TestBattle_GetActiveExpectationIndex();
+        if (activeExpectationIndex >= MAX_EXPECTATIONS
+            || sCurrentScenario->expectations[activeExpectationIndex].expectationType != EXPECTATION_OVERWORLD_FORM) {
+            TestBattle_ReportResult();
+        }
+    }
+}
+
+static void TestBattle_CompleteIfPlayerScriptsFinished(void)
+{
+    u8 activeExpectationIndex;
+
+    if (sCurrentScenario == NULL || IsTestComplete() || !TestBattle_PlayerScriptsComplete()) {
+        return;
+    }
+
+    SetTestComplete(TRUE);
+
+    activeExpectationIndex = TestBattle_GetActiveExpectationIndex();
+    if (activeExpectationIndex >= MAX_EXPECTATIONS
+        || sCurrentScenario->expectations[activeExpectationIndex].expectationType != EXPECTATION_OVERWORLD_FORM) {
+        TestBattle_ReportResult();
     }
 }
 
@@ -798,6 +914,11 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
     }
 
     TestBattle_CheckScriptCompletion();
+    TestBattle_CompleteIfPlayerScriptsFinished();
+
+    if (IsTestComplete()) {
+        return;
+    }
 
     const struct BattleAction *script0 = sCurrentScenario->playerScript[0];
     int scriptIndex0 = GetScriptIndex(0);
