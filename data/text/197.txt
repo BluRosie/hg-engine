@@ -1061,10 +1061,10 @@ The opposing {STRVAR_1 1, 0, 0} can’t use\n{STRVAR_1 6, 2, 0} because of\f{STR
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nwore off!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} wore off!
-Poison spikes were scattered\non the ground all around\fyour side!
-Poison spikes were scattered\non the ground all around\fthe opposing side!
-The poison spikes disappeared from\nthe ground around your side!
-The poison spikes disappeared from\nthe ground around the opposing side!
+Poison spikes were scattered\non the ground all around\fyour team!
+Poison spikes were scattered\non the ground all around\fthe opposing team!
+The poison spikes disappeared from\nthe ground around your team!
+The poison spikes disappeared from\nthe ground around the opposing team!
 {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} went back\nto {STRVAR_1 3, 1, 0}!
