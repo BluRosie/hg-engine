@@ -866,6 +866,10 @@ UpdateFriendshipFainted = 0x02248558 | 1;
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
+BattleBuffer_GetNext = 0x0225682C | 1;
+BattleController_EmitShowMonList = 0x022632DC | 1;
+BattleController_EmitShowWaitMessage = 0x02263F30 | 1;
+ov12_0223BDDC = 0x0223BDDC | 1;
 sStarterChoiceCries = 0x021E7398;
 BufferBoxMonNickname = 0x0200BF8C | 1;
 

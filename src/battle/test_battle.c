@@ -47,6 +47,30 @@ static BOOL MessageContains(const char *message, const char *substring)
     return FALSE;
 }
 
+static BOOL MessageEquals(const char *a, const char *b)
+{
+    for (int i = 0; i < TEST_BATTLE_MESSAGE_LEN; i++) {
+        if (a[i] != b[i]) {
+            return FALSE;
+        }
+        if (a[i] == '\0') {
+            return TRUE;
+        }
+    }
+
+    return TRUE;
+}
+
+static void CopyExpectedMessage(char *dest, const struct Expectations *expectation)
+{
+    for (int i = 0; i < TEST_BATTLE_MESSAGE_LEN - 1; i++) {
+        dest[i] = expectation->expectationValue.message[i];
+        if (dest[i] == '\0') {
+            break;
+        }
+    }
+}
+
 #endif // DEBUG_BATTLE_SCENARIOS
 
 void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSystem, MsgData *data, BattleMessage *msg)
@@ -142,62 +166,63 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
         return;
     }
 
-    enum ExpectationType expectationType = scenario->expectations[scenario->expectationPassCount].expectationType;
+    NormalizeMessage(actualMessage);
+
+    u8 activeExpectationIndex = TestBattle_GetActiveExpectationIndex();
+
+    for (u8 i = scenario->expectationPassCount; i < activeExpectationIndex; i++) {
+        enum ExpectationType negativeExpectationType = scenario->expectations[i].expectationType;
+        char forbiddenMessage[TEST_BATTLE_MESSAGE_LEN] = { 0 };
+        BOOL forbiddenMatch;
+
+        CopyExpectedMessage(forbiddenMessage, &scenario->expectations[i]);
+        NormalizeMessage(forbiddenMessage);
+
+        if (negativeExpectationType == EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN) {
+            forbiddenMatch = MessageContains(actualMessage, forbiddenMessage);
+        } else {
+            forbiddenMatch = MessageEquals(actualMessage, forbiddenMessage);
+        }
+
+        if (forbiddenMatch && !scenario->markAsFail) {
+            debug_printf(" ❌");
+            scenario->markAsFail = TRUE;
+        }
+    }
+
+    if (scenario->markAsFail
+        || activeExpectationIndex == MAX_EXPECTATIONS
+        || scenario->expectations[activeExpectationIndex].expectationType == 0) {
+        debug_printf("\n");
+        return;
+    }
+
+    enum ExpectationType expectationType = scenario->expectations[activeExpectationIndex].expectationType;
     if (expectationType != EXPECTATION_TYPE_MESSAGE
         && expectationType != EXPECTATION_TYPE_MESSAGE_CONTAINS
-        && expectationType != EXPECTATION_TYPE_ATTACK_MESSAGE
-        && expectationType != EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN
-        && expectationType != EXPECTATION_TYPE_NOT_MESSAGE) {
+        && expectationType != EXPECTATION_TYPE_ATTACK_MESSAGE) {
         debug_printf("\n");
         return;
     }
 
     char expectedMessage[TEST_BATTLE_MESSAGE_LEN] = { 0 };
-    for (int i = 0; i < TEST_BATTLE_MESSAGE_LEN - 1; i++) {
-        expectedMessage[i] = scenario->expectations[scenario->expectationPassCount].expectationValue.message[i];
-        if (expectedMessage[i] == '\0') {
-            break;
-        }
-    }
-
-    NormalizeMessage(actualMessage);
+    CopyExpectedMessage(expectedMessage, &scenario->expectations[activeExpectationIndex]);
     NormalizeMessage(expectedMessage);
 
     BOOL messageMatch = FALSE;
     if (expectationType == EXPECTATION_TYPE_MESSAGE_CONTAINS) {
         messageMatch = MessageContains(actualMessage, expectedMessage);
-    }
-    else if (expectationType == EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN){
-        messageMatch = !MessageContains(actualMessage, expectedMessage);
-    }
-    else {
-        messageMatch = TRUE;
-        for (int i = 0; i < TEST_BATTLE_MESSAGE_LEN; i++) {
-            if (actualMessage[i] != expectedMessage[i]) {
-                messageMatch = FALSE;
-                break;
-            }
-            if (actualMessage[i] == '\0') {
-                break;
-            }
-        }
-        if (expectationType == EXPECTATION_TYPE_NOT_MESSAGE){
-            messageMatch = !messageMatch;
-        }
+    } else {
+        messageMatch = MessageEquals(actualMessage, expectedMessage);
     }
 
-    if (messageMatch && !scenario->markAsFail) {
+    if (messageMatch) {
         if (expectationType == EXPECTATION_TYPE_MESSAGE || EXPECTATION_TYPE_MESSAGE_CONTAINS) {
             debug_printf(" ✅");
         } else {
             debug_printf(" ✔️");
         }
-        scenario->expectationPassCount++;
-    } else {
-        if ((expectationType == EXPECTATION_TYPE_NOT_MESSAGE || expectationType == EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN) && !scenario->markAsFail) {
-            debug_printf(" ❌");
-            scenario->markAsFail = TRUE;
-        }
+        TestBattle_PassExpectationAt(activeExpectationIndex);
     }
     debug_printf("\n");
 #endif // DEBUG_BATTLE_SCENARIOS

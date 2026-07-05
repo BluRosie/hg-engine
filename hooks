@@ -589,6 +589,8 @@ arm9 SetupAndStartTutorialBattle 02051334 1
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
 0012 TestBattle_PostKOSwitchIn 02258800 2
+0012 TestBattle_ShowParty 0223E8A0 2
+0012 TestBattle_WaitMonSelection 0223E978 2
 0012 CheckTrainerMessage 02250D4C 2
 0012 BattleMessage_ExpandPlaceholders 0223CEF4
 #endif

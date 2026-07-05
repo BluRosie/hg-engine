@@ -1,22 +1,23 @@
-#include "../include/types.h"
 #include "../include/config.h"
 #include "../include/debug.h"
+#include "../include/types.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 
 #include "../include/battle.h"
-#include "../include/pokemon.h"
-#include "../include/test_battle.h"
 #include "../include/constants/file.h"
 #include "../include/constants/generated/test_battle.h"
 #include "../include/constants/item.h"
 #include "../include/constants/moves.h"
 #include "../include/constants/species.h"
+#include "../include/pokemon.h"
+#include "../include/test_battle.h"
 
 #define TEST_START_INDEX 0
 
 static u32 gTestEndIndex = TEST_BATTLE_TOTAL_TESTS;
 static BOOL overridden = FALSE;
+static BOOL sTestBattleResultSent = FALSE;
 
 // Layout:
 //   bits 0-3:   scriptIndex[0] (0-8)
@@ -31,32 +32,39 @@ static u32 gTestBattleState = (TEST_START_INDEX << 22);
 
 static struct TestBattleScenario *sCurrentScenario = NULL;
 
-static int GetScriptIndex(int battler) {
+static int GetScriptIndex(int battler)
+{
     return (gTestBattleState >> (battler * 4)) & STATE_SCRIPT_IDX_MASK;
 }
 
-static void SetScriptIndex(int battler, int value) {
+static void SetScriptIndex(int battler, int value)
+{
     int shift = battler * 4;
     gTestBattleState = (gTestBattleState & ~(STATE_SCRIPT_IDX_MASK << shift)) | ((value & STATE_SCRIPT_IDX_MASK) << shift);
 }
 
-static void IncrementScriptIndex(int battler) {
+static void IncrementScriptIndex(int battler)
+{
     SetScriptIndex(battler, GetScriptIndex(battler) + 1);
 }
 
-static int GetCurrentTestIndex(void) {
+static int GetCurrentTestIndex(void)
+{
     return (gTestBattleState >> STATE_TEST_INDEX_SHIFT) & STATE_TEST_INDEX_MASK;
 }
 
-static void SetCurrentTestIndex(int value) {
+static void SetCurrentTestIndex(int value)
+{
     gTestBattleState = (gTestBattleState & ~(STATE_TEST_INDEX_MASK << STATE_TEST_INDEX_SHIFT)) | ((value & STATE_TEST_INDEX_MASK) << STATE_TEST_INDEX_SHIFT);
 }
 
-static BOOL IsTestComplete(void) {
+static BOOL IsTestComplete(void)
+{
     return (gTestBattleState & STATE_COMPLETE_BIT) != 0;
 }
 
-static void SetTestComplete(BOOL complete) {
+static void SetTestComplete(BOOL complete)
+{
     if (complete) {
         gTestBattleState |= STATE_COMPLETE_BIT;
     } else {
@@ -64,11 +72,13 @@ static void SetTestComplete(BOOL complete) {
     }
 }
 
-static BOOL HasMoreTests(void) {
+static BOOL HasMoreTests(void)
+{
     return (gTestBattleState & STATE_HAS_MORE_BIT) != 0;
 }
 
-static void SetHasMoreTests(BOOL hasMore) {
+static void SetHasMoreTests(BOOL hasMore)
+{
     if (hasMore) {
         gTestBattleState |= STATE_HAS_MORE_BIT;
     } else {
@@ -76,35 +86,40 @@ static void SetHasMoreTests(BOOL hasMore) {
     }
 }
 
-static void ResetScriptIndices(void) {
-    gTestBattleState &= ~0xFFFF;  // Clear bits 0-15 (all 4 script indices)
+static void ResetScriptIndices(void)
+{
+    gTestBattleState &= ~0xFFFF; // Clear bits 0-15 (all 4 script indices)
 }
 
-static void FreeCurrentScenario(void) {
+static void FreeCurrentScenario(void)
+{
     if (sCurrentScenario != NULL) {
         sys_FreeMemoryEz(sCurrentScenario);
         sCurrentScenario = NULL;
     }
 }
 
-static void AllocAndLoadScenario(void) {
+static void AllocAndLoadScenario(void)
+{
     FreeCurrentScenario();
+    sTestBattleResultSent = FALSE;
     sCurrentScenario = sys_AllocMemory(HEAPID_DEFAULT, sizeof(struct TestBattleScenario));
     if (sCurrentScenario != NULL) {
-    int testIndex = GetCurrentTestIndex();
-    ArchiveDataLoadOfs(sCurrentScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS,
-                           testIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
+        int testIndex = GetCurrentTestIndex();
+        ArchiveDataLoadOfs(sCurrentScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS, testIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
     }
 }
 
 // TODO: there is definitely some better way to do this, so that we don't need to worry if somehow this address is used by something else
-int *g_EmulatorCommunicationSendHole = (int*)0x02FFF81C;
+int *g_EmulatorCommunicationSendHole = (int *)0x02FFF81C;
 
-void LONG_CALL SendValueThroughCommunicationSendHole(int value) {
+void LONG_CALL SendValueThroughCommunicationSendHole(int value)
+{
     *g_EmulatorCommunicationSendHole = value;
 }
 
-int LONG_CALL ReadValueThroughCommunicationSendHole() {
+int LONG_CALL ReadValueThroughCommunicationSendHole()
+{
     return *g_EmulatorCommunicationSendHole;
 }
 
@@ -118,8 +133,80 @@ BOOL LONG_CALL TestBattle_HasMoreExpectations()
     if (sCurrentScenario == NULL) {
         return FALSE;
     }
-    return sCurrentScenario->expectationPassCount != MAX_EXPECTATIONS &&
-           sCurrentScenario->expectations[sCurrentScenario->expectationPassCount].expectationType != 0;
+    return sCurrentScenario->expectationPassCount != MAX_EXPECTATIONS && sCurrentScenario->expectations[sCurrentScenario->expectationPassCount].expectationType != 0;
+}
+
+static BOOL TestBattle_IsNegativeMessageExpectation(enum ExpectationType expectationType)
+{
+    return expectationType == EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN
+        || expectationType == EXPECTATION_TYPE_NOT_MESSAGE;
+}
+
+u8 LONG_CALL TestBattle_GetActiveExpectationIndex()
+{
+    u8 expectationIndex;
+
+    if (sCurrentScenario == NULL) {
+        return MAX_EXPECTATIONS;
+    }
+
+    expectationIndex = sCurrentScenario->expectationPassCount;
+    while (expectationIndex < MAX_EXPECTATIONS
+        && sCurrentScenario->expectations[expectationIndex].expectationType != 0
+        && TestBattle_IsNegativeMessageExpectation(sCurrentScenario->expectations[expectationIndex].expectationType)) {
+        expectationIndex++;
+    }
+
+    return expectationIndex;
+}
+
+void LONG_CALL TestBattle_PassExpectationAt(u8 expectationIndex)
+{
+    if (sCurrentScenario == NULL || expectationIndex >= MAX_EXPECTATIONS) {
+        return;
+    }
+
+    if (expectationIndex >= sCurrentScenario->expectationPassCount) {
+        sCurrentScenario->expectationPassCount = expectationIndex + 1;
+    }
+}
+
+static void TestBattle_FinalizeNegativeExpectations(void)
+{
+    u8 expectationIndex;
+
+    if (sCurrentScenario == NULL) {
+        return;
+    }
+
+    expectationIndex = TestBattle_GetActiveExpectationIndex();
+    if (expectationIndex == MAX_EXPECTATIONS
+        || sCurrentScenario->expectations[expectationIndex].expectationType == 0) {
+        sCurrentScenario->expectationPassCount = expectationIndex;
+    }
+}
+
+BOOL LONG_CALL TestBattle_ReportResult()
+{
+    if (sCurrentScenario == NULL || sTestBattleResultSent) {
+        return FALSE;
+    }
+
+    TestBattle_FinalizeNegativeExpectations();
+
+    if (sCurrentScenario->markAsFail || TestBattle_HasMoreExpectations()) {
+        debug_printf("expectation[%d] ❌\n", sCurrentScenario->expectationPassCount);
+        if (sCurrentScenario->knownFailing) {
+            SendValueThroughCommunicationSendHole(TEST_CASE_KNOWN_FAILING);
+        } else {
+            SendValueThroughCommunicationSendHole(TEST_CASE_FAIL);
+        }
+    } else {
+        SendValueThroughCommunicationSendHole(TEST_CASE_PASS);
+    }
+
+    sTestBattleResultSent = TRUE;
+    return TRUE;
 }
 
 /**
@@ -194,9 +281,7 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
  * @param hp Custom HP (0 = use max)
  * @param status Status condition
  */
-static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot,
-                               u16 species, u8 level, u8 form, u16 ability, u16 item,
-                               u16 moves[4], u16 hp, u32 status, const u16 furtherParams[NUM_FURTHER_TEST_PARAMS][2])
+static void OverridePartySlot(struct BATTLE_PARAM *bp, int partyIndex, int slot, u16 species, u8 level, u8 form, u16 ability, u16 item, u16 moves[4], u16 hp, u32 status, const u16 furtherParams[NUM_FURTHER_TEST_PARAMS][2])
 {
     if (bp->poke_party[partyIndex] == NULL) {
         return;
@@ -248,19 +333,10 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
         const struct TestBattlePokemon *mon = &scenario->playerParty[slot];
 
         if (mon->species == 0) {
-            break;  // Stop at first empty slot
+            break; // Stop at first empty slot
         }
 
-        OverridePartySlot(bp, 0, slot,
-                          mon->species,
-                          mon->level,
-                          mon->form,
-                          mon->ability,
-                          mon->item,
-                          (u16*)mon->moves,
-                          mon->hp,
-                          mon->status,
-                          mon->furtherParams);
+        OverridePartySlot(bp, 0, slot, mon->species, mon->level, mon->form, mon->ability, mon->item, (u16 *)mon->moves, mon->hp, mon->status, mon->furtherParams);
         playerCount++;
     }
     if (bp->poke_party[0] != NULL) {
@@ -291,16 +367,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
             break;
         }
 
-        OverridePartySlot(bp, 1, slot,
-                          mon->species,
-                          mon->level,
-                          mon->form,
-                          mon->ability,
-                          mon->item,
-                          (u16*)mon->moves,
-                          mon->hp,
-                          mon->status,
-                          mon->furtherParams);
+        OverridePartySlot(bp, 1, slot, mon->species, mon->level, mon->form, mon->ability, mon->item, (u16 *)mon->moves, mon->hp, mon->status, mon->furtherParams);
     }
 }
 
@@ -351,11 +418,10 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
             sp->battlemon[battlerId].condition2 |= mon->condition2;
 
             if (mon->condition2 & STATUS2_RECHARGE) {
-                sp->battlemon[battlerId].moveeffect.rechargeCount = 2;  // Skip 1 turn
+                sp->battlemon[battlerId].moveeffect.rechargeCount = 2; // Skip 1 turn
 
                 // lock choice item to first move
-                if (mon->item == ITEM_CHOICE_BAND || mon->item == ITEM_CHOICE_SPECS || mon->item == ITEM_CHOICE_SCARF)
-                {
+                if (mon->item == ITEM_CHOICE_BAND || mon->item == ITEM_CHOICE_SPECS || mon->item == ITEM_CHOICE_SCARF) {
                     sp->battlemon[battlerId].moveeffect.moveNoChoice = mon->moves[0];
                 }
             }
@@ -383,11 +449,10 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
             sp->battlemon[battlerId].condition2 |= mon->condition2;
 
             if (mon->condition2 & STATUS2_RECHARGE) {
-                sp->battlemon[battlerId].moveeffect.rechargeCount = 2;  // Skip 1 turn
+                sp->battlemon[battlerId].moveeffect.rechargeCount = 2; // Skip 1 turn
 
                 // lock choice item to first move
-                if (mon->item == ITEM_CHOICE_BAND || mon->item == ITEM_CHOICE_SPECS || mon->item == ITEM_CHOICE_SCARF)
-                {
+                if (mon->item == ITEM_CHOICE_BAND || mon->item == ITEM_CHOICE_SPECS || mon->item == ITEM_CHOICE_SCARF) {
                     sp->battlemon[battlerId].moveeffect.moveNoChoice = mon->moves[0];
                 }
             }
@@ -446,6 +511,27 @@ static BOOL LONG_CALL TestBattle_TestComplete()
     return TRUE;
 }
 
+static BOOL TestBattle_PlayerScriptsComplete(void)
+{
+    int maxPlayerBattlers;
+
+    if (sCurrentScenario == NULL) {
+        return FALSE;
+    }
+
+    maxPlayerBattlers = (sCurrentScenario->battleType & BATTLE_TYPE_DOUBLE) ? 2 : 1;
+    for (int battler = 0; battler < maxPlayerBattlers; battler++) {
+        int scriptIndex = GetScriptIndex(battler == 0 ? BATTLER_PLAYER_FIRST : BATTLER_PLAYER_SECOND);
+
+        if (scriptIndex < AI_SCRIPT_MAX_MOVES
+            && sCurrentScenario->playerScript[battler][scriptIndex].action != ACTION_NONE) {
+            return FALSE;
+        }
+    }
+
+    return TRUE;
+}
+
 /**
  * @brief Check if test battle scripts are complete and update completion flag
  *
@@ -459,12 +545,32 @@ static void LONG_CALL TestBattle_CheckScriptCompletion()
     }
 
     if (TestBattle_TestComplete()) {
+        u8 activeExpectationIndex;
+
         SetTestComplete(TRUE);
-        // if (TestBattle_HasMoreExpectations()) {
-        //     *g_EmulatorCommunicationSendHole = TEST_CASE_FAIL;
-        // } else {
-        //     *g_EmulatorCommunicationSendHole = TEST_CASE_PASS;
-        // }
+
+        activeExpectationIndex = TestBattle_GetActiveExpectationIndex();
+        if (activeExpectationIndex >= MAX_EXPECTATIONS
+            || sCurrentScenario->expectations[activeExpectationIndex].expectationType != EXPECTATION_OVERWORLD_FORM) {
+            TestBattle_ReportResult();
+        }
+    }
+}
+
+static void TestBattle_CompleteIfPlayerScriptsFinished(void)
+{
+    u8 activeExpectationIndex;
+
+    if (sCurrentScenario == NULL || IsTestComplete() || !TestBattle_PlayerScriptsComplete()) {
+        return;
+    }
+
+    SetTestComplete(TRUE);
+
+    activeExpectationIndex = TestBattle_GetActiveExpectationIndex();
+    if (activeExpectationIndex >= MAX_EXPECTATIONS
+        || sCurrentScenario->expectations[activeExpectationIndex].expectationType != EXPECTATION_OVERWORLD_FORM) {
+        TestBattle_ReportResult();
     }
 }
 
@@ -562,12 +668,13 @@ void LONG_CALL TestBattle_GetAIScriptedMove(int battlerId, u8 *moveSlot, u8 *tar
 
 /**
  * @brief AI move selection for test battles
-  *
+ *
  * @param bsys Battle system pointer
  * @param battler The battler making the decision (1 or 3 for enemies in doubles)
  * @return The move slot (0-3) to use
  */
-u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
+u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler)
+{
     u8 moveSlot = 0;
     u8 target = 0;
     TestBattle_GetAIScriptedMove(battler, &moveSlot, &target);
@@ -586,16 +693,16 @@ u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler) {
 int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
 {
     if (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) {
-        return 1;  // FIGHT
+        return 1; // FIGHT
     }
 
     if (sCurrentScenario == NULL) {
-        return 1;  // FIGHT
+        return 1; // FIGHT
     }
 
     // Add safety check for bsys and sp
     if (bsys == NULL || bsys->sp == NULL) {
-        return 1;  // FIGHT
+        return 1; // FIGHT
     }
 
     // Determine which script array and index to use
@@ -611,13 +718,13 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
     TestBattle_CheckScriptCompletion();
 
     if (IsTestComplete()) {
-        return 1;  // will be ignored as battle ends
+        return 1; // will be ignored as battle ends
     }
 
     int scriptIndex = GetScriptIndex(battler);
 
     if (scriptIndex >= AI_SCRIPT_MAX_MOVES) {
-        return 1;  // FIGHT
+        return 1; // FIGHT
     }
 
     struct BattleAction action = script[scriptIndex];
@@ -626,16 +733,161 @@ int LONG_CALL TestBattle_AIPickCommand(struct BattleSystem *bsys, int battler)
         u8 partySlot = action.action - ACTION_SWITCH_SLOT_0;
         bsys->sp->ai_reshuffle_sel_mons_no[battler] = partySlot;
         IncrementScriptIndex(battler);
-        return 3;  // SWITCH
+        return 3; // SWITCH
     }
 
-    return 1;  // FIGHT
+    return 1; // FIGHT
 }
 
 // send out pokemon in order
 int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int battler UNUSED)
 {
     return 6;
+}
+
+static BOOL TestBattle_IsPartySlotAlreadyActive(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler, int partySlot)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    u8 side = IsClientEnemy(bsys, battler);
+
+    for (int other = 0; other < maxBattlers; other++) {
+        if (other != battler && IsClientEnemy(bsys, other) == side && ctx->sel_mons_no[other] == partySlot) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static int TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    int partyCount = BattleWorkPokeCountGet(bsys, battler);
+
+    for (int partySlot = 0; partySlot < partyCount; partySlot++) {
+        struct PartyPokemon *mon = BattleWorkPokemonParamGet(bsys, battler, partySlot);
+
+        if (GetMonData(mon, MON_DATA_HP, NULL) == 0) {
+            continue;
+        }
+
+        if (GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_NONE) {
+            continue;
+        }
+
+        if (GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_EGG) {
+            continue;
+        }
+
+        if (TestBattle_IsPartySlotAlreadyActive(bsys, ctx, battler, partySlot)) {
+            continue;
+        }
+
+        return partySlot;
+    }
+
+    return 6;
+}
+
+static BOOL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    return sCurrentScenario != NULL
+        && (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND)
+        && (ctx->client_status[battler] & 1)
+        && TestBattle_FindNextLivePartySlot(bsys, ctx, battler) != 6;
+}
+
+BOOL LONG_CALL TestBattle_ShowParty(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int promptedBattlers = 0;
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            promptedBattlers |= MaskOfFlagNo(battler);
+            if (!TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
+                BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
+            }
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (BattleTypeGet(bsys) == (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLE | BATTLE_TYPE_WIRELESS)) {
+            int partner = BattleWorkPartnerClientNoGet(bsys, battler);
+            if (!(promptedBattlers & MaskOfFlagNo(battler)) && !(promptedBattlers & MaskOfFlagNo(partner))) {
+                promptedBattlers |= MaskOfFlagNo(battler);
+                BattleController_EmitShowWaitMessage(bsys, battler);
+            }
+        } else {
+            if (!(promptedBattlers & MaskOfFlagNo(battler))) {
+                BattleController_EmitShowWaitMessage(bsys, battler);
+            }
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            ctx->reshuffle_client = battler;
+            break;
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL LONG_CALL TestBattle_WaitMonSelection(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    int switchCnt = 0;
+    u8 autoSelected[CLIENT_MAX] = { 0 };
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            switchCnt++;
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (!(ctx->client_status[battler] & 1)) {
+            continue;
+        }
+
+        int selectedSlot = TestBattle_FindNextLivePartySlot(bsys, ctx, battler);
+        if (TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
+            ctx->reshuffle_sel_mons_no[battler] = selectedSlot;
+            autoSelected[battler] = TRUE;
+            switchCnt--;
+            continue;
+        }
+
+        if (BattleBuffer_GetNext(ctx, battler)) {
+            ctx->reshuffle_sel_mons_no[battler] = ctx->server_buffer[battler][0] - 1;
+            switchCnt--;
+            if (!(ctx->server_status_flag2 & (MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT))) {
+                ctx->server_status_flag2 |= MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT;
+                BattleController_EmitShowWaitMessage(bsys, battler);
+            }
+        }
+    }
+
+    if (switchCnt == 0) {
+        for (int battler = 0; battler < maxBattlers; battler++) {
+            if (ctx->client_status[battler] & 1) {
+                if (autoSelected[battler]) {
+                    ov12_0223BDDC(bsys, battler, ctx->reshuffle_sel_mons_no[battler] + 1);
+                } else if (BattleBuffer_GetNext(ctx, battler)) {
+                    ov12_0223BDDC(bsys, battler, ctx->server_buffer[battler][0]);
+                }
+            }
+        }
+        ctx->server_status_flag2 &= 0xf0ffffff;
+        IncrementBattleScriptPtr(ctx, 1);
+    }
+
+    ctx->battle_progress_flag = 1;
+
+    return FALSE;
 }
 
 /**
@@ -650,11 +902,11 @@ int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int ba
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     if (ctx->server_seq_no != CONTROLLER_COMMAND_SELECTION_SCREEN_INPUT) {
-        return;  // Not in input phase
+        return; // Not in input phase
     }
 
     if (ctx->com_seq_no[0] != SSI_STATE_SELECT_COMMAND_INIT) {
-        return;  // Already processed or not ready
+        return; // Already processed or not ready
     }
 
     if (sCurrentScenario == NULL) {
@@ -662,6 +914,11 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
     }
 
     TestBattle_CheckScriptCompletion();
+    TestBattle_CompleteIfPlayerScriptsFinished();
+
+    if (IsTestComplete()) {
+        return;
+    }
 
     const struct BattleAction *script0 = sCurrentScenario->playerScript[0];
     int scriptIndex0 = GetScriptIndex(0);

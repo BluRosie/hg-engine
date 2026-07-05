@@ -18,6 +18,10 @@ g_EmulatorCommunicationSendHoleAddress = 0x02FFF81C
 TEST_CASE_PASS = -1
 TEST_CASE_FAIL = -2
 TEST_CASE_KNOWN_FAILING = -3
+EMULATOR_CRASH_PATTERNS = (
+    "ARM9: Undefined instruction",
+    "ARM7: Undefined instruction",
+)
 
 
 # https://stackoverflow.com/questions/287871/how-do-i-print-colored-text-to-the-terminal
@@ -42,6 +46,16 @@ parser.add_argument(
     type=int,
     default=1,
     help="Number of parallel headless partitions to run",
+)
+parser.add_argument(
+    "--restart-on-crash",
+    action="store_true",
+    help="Experimental: restart a parallel partition after an emulator crash and attribute the crash to the current test",
+)
+parser.add_argument(
+    "--restart-on-timeout",
+    action="store_true",
+    help="Experimental: restart a parallel partition after a test timeout and attribute the timeout to the current test",
 )
 
 ci = False
@@ -108,6 +122,16 @@ def get_partition_index() -> int:
     return int(os.environ.get("TEST_RUNNER_PARTITION_INDEX", "0"))
 
 
+def get_start_index_override() -> int | None:
+    value = os.environ.get("TEST_RUNNER_START_INDEX")
+    return int(value) if value is not None else None
+
+
+def get_end_index_override() -> int | None:
+    value = os.environ.get("TEST_RUNNER_END_INDEX")
+    return int(value) if value is not None else None
+
+
 def get_result_file() -> str | None:
     return os.environ.get("TEST_RUNNER_RESULT_FILE")
 
@@ -121,7 +145,7 @@ def should_suppress_partition_summary() -> bool:
 
 
 def get_idle_timeout_seconds(partition_count: int) -> int:
-    return BASE_IDLE_TIMEOUT_SECONDS * max(1, partition_count)
+    return BASE_IDLE_TIMEOUT_SECONDS
 
 
 def read_communication_hole_value():
@@ -285,6 +309,79 @@ def mark_result_error(payload: dict, error_type: str, error_message: str) -> dic
     return payload
 
 
+def detect_emulator_crash(text: str) -> str | None:
+    for line in text.splitlines():
+        if any(pattern in line for pattern in EMULATOR_CRASH_PATTERNS):
+            return line.strip()
+    return None
+
+
+def strip_ansi(text: str) -> str:
+    return re.sub(r"\x1b\[[0-9;]*m", "", text)
+
+
+def parse_live_partition_results(live_result_path: pathlib.Path) -> tuple[list[str], list[str], list[str]]:
+    passed: list[str] = []
+    failed: list[str] = []
+    known_failing: list[str] = []
+
+    if not live_result_path.exists():
+        return passed, failed, known_failing
+
+    for line in live_result_path.read_text(encoding="utf-8").splitlines():
+        clean_line = strip_ansi(line)
+        if clean_line.startswith("[Pass] "):
+            passed.append(clean_line[len("[Pass] "):])
+        elif clean_line.startswith("[Fail] "):
+            failed.append(clean_line[len("[Fail] "):])
+        elif clean_line.startswith("[Known Failing] "):
+            known_failing.append(clean_line[len("[Known Failing] "):])
+
+    return passed, failed, known_failing
+
+
+def write_partition_crash_result(
+    result_path: pathlib.Path,
+    live_result_path: pathlib.Path,
+    partition_count: int,
+    partition_index: int,
+    start_index: int,
+    end_index: int,
+    all_test_names: list[str],
+    skipped_names: list[str],
+    crash_line: str,
+) -> dict:
+    passed, failed, known_failing = parse_live_partition_results(live_result_path)
+    current_global_index = min(start_index + len(passed) + len(failed) + len(known_failing), end_index - 1)
+    current_test_name = None
+    if 0 <= current_global_index < len(all_test_names):
+        current_test_name = all_test_names[current_global_index]
+
+    error_message = f"[Crash] {crash_line}"
+    if current_test_name is not None:
+        error_message += f" Near test {current_global_index}: {current_test_name}"
+
+    payload = {
+        "partition_count": partition_count,
+        "partition_index": partition_index,
+        "start_index": start_index,
+        "end_index": end_index,
+        "total_tests": end_index - start_index,
+        "passed": passed,
+        "failed": failed,
+        "known_failing": known_failing,
+        "skipped": skipped_names,
+        "return_value": len(failed) + 1,
+        "status": "error",
+        "error_type": "emulator_crash",
+        "error_message": error_message,
+        "current_test_name": current_test_name,
+        "current_global_test_index": current_global_index,
+    }
+    write_result_payload(str(result_path), payload)
+    return payload
+
+
 def reset_partition_state() -> None:
     global current_test_case
     global return_value
@@ -326,6 +423,8 @@ def run_single_partition(args) -> int:
     TEST_START_INDEX, TEST_END_INDEX = get_partition_bounds(
         total_test_count, partition_count, partition_index
     )
+    TEST_START_INDEX = get_start_index_override() or TEST_START_INDEX
+    TEST_END_INDEX = get_end_index_override() or TEST_END_INDEX
     TOTAL_NUMBER_OF_TESTS = TEST_END_INDEX - TEST_START_INDEX
     test_case_names = test_case_names[TEST_START_INDEX:TEST_END_INDEX]
 
@@ -497,31 +596,29 @@ def run_parallel_partitions(args) -> int:
     print(f"Running {worker_count} test partitions. Logs will be printed in order after completion.")
 
     with tempfile.TemporaryDirectory(prefix="battle-test-partitions-") as temp_dir:
-        processes: list[tuple[int, pathlib.Path, pathlib.Path, subprocess.Popen, object]] = list()
-        live_result_offsets: dict[int, int] = {}
+        all_test_names, skipped_names = get_test_names()
+        states = {}
+        active = {}
+        log_sections = []
 
-        for partition_index in range(worker_count):
-            result_path = pathlib.Path(temp_dir, f"partition_{partition_index}.json")
-            output_path = pathlib.Path(temp_dir, f"partition_{partition_index}.log")
-            live_result_path = pathlib.Path(temp_dir, f"partition_{partition_index}.results.log")
-            start_index, end_index = get_partition_bounds(
-                total_test_count, worker_count, partition_index
-            )
+        def start_worker(partition_index: int, start_index: int, end_index: int) -> None:
+            run_id = states[partition_index]["runs"]
+            states[partition_index]["runs"] += 1
+            result_path = pathlib.Path(temp_dir, f"partition_{partition_index}_{run_id}.json")
+            output_path = pathlib.Path(temp_dir, f"partition_{partition_index}_{run_id}.log")
+            live_result_path = pathlib.Path(temp_dir, f"partition_{partition_index}_{run_id}.results.log")
+            output_file = open(output_path, "w", encoding="utf-8")
             env = os.environ.copy()
             env["TEST_RUNNER_PARTITION_COUNT"] = str(worker_count)
             env["TEST_RUNNER_PARTITION_INDEX"] = str(partition_index)
+            env["TEST_RUNNER_START_INDEX"] = str(start_index)
+            env["TEST_RUNNER_END_INDEX"] = str(end_index)
             env["TEST_RUNNER_RESULT_FILE"] = str(result_path)
             env["TEST_RUNNER_LIVE_RESULT_FILE"] = str(live_result_path)
             env["TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY"] = "1"
-            cmd = [
-                sys.executable,
-                "-u",
-                str(script_path),
-            ]
+            cmd = [sys.executable, "-u", str(script_path)]
             if args.continuous_integration:
                 cmd.append("-c")
-
-            output_file = open(output_path, "w", encoding="utf-8")
             process = subprocess.Popen(
                 cmd,
                 env=env,
@@ -529,62 +626,179 @@ def run_parallel_partitions(args) -> int:
                 stderr=subprocess.STDOUT,
                 bufsize=0,
             )
-            processes.append((partition_index, result_path, output_path, process, output_file))
-            live_result_offsets[partition_index] = 0
+            active[partition_index] = {
+                "process": process,
+                "result_path": result_path,
+                "output_path": output_path,
+                "live_result_path": live_result_path,
+                "output_file": output_file,
+                "live_offset": 0,
+                "raw_offset": 0,
+                "start_index": start_index,
+                "end_index": end_index,
+                "run_id": run_id,
+            }
             print(
                 f"Started partition {partition_index + 1}/{worker_count} "
                 f"(tests {start_index}..{max(start_index, end_index) - 1})"
             )
 
+        for partition_index in range(worker_count):
+            start_index, end_index = get_partition_bounds(
+                total_test_count, worker_count, partition_index
+            )
+            states[partition_index] = {
+                "partition_count": worker_count,
+                "partition_index": partition_index,
+                "start_index": start_index,
+                "end_index": end_index,
+                "total_tests": end_index - start_index,
+                "next_start": start_index,
+                "passed": [],
+                "failed": [],
+                "known_failing": [],
+                "skipped": skipped_names,
+                "return_value": 0,
+                "status": "ok",
+                "error_type": None,
+                "error_message": None,
+                "current_test_name": None,
+                "current_global_test_index": None,
+                "runs": 0,
+            }
+            if start_index < end_index:
+                start_worker(partition_index, start_index, end_index)
+
         exit_code = 0
-        for partition_index, result_path, output_path, process, output_file in processes:
-            live_result_path = pathlib.Path(temp_dir, f"partition_{partition_index}.results.log")
-            while process.poll() is None:
+        while active:
+            for partition_index in list(active.keys()):
+                info = active[partition_index]
+                process = info["process"]
+                output_path = info["output_path"]
+                live_result_path = info["live_result_path"]
+
+                if output_path.exists() and process.poll() is None:
+                    with open(output_path, "r", encoding="utf-8") as file:
+                        file.seek(info["raw_offset"])
+                        raw_output = file.read()
+                        info["raw_offset"] = file.tell()
+                    crash_line = detect_emulator_crash(raw_output)
+                    if crash_line is not None:
+                        payload = write_partition_crash_result(
+                            info["result_path"],
+                            live_result_path,
+                            worker_count,
+                            partition_index,
+                            info["start_index"],
+                            info["end_index"],
+                            all_test_names,
+                            skipped_names,
+                            crash_line,
+                        )
+                        state = states[partition_index]
+                        state["passed"].extend(payload["passed"])
+                        state["failed"].extend(payload["failed"])
+                        state["known_failing"].extend(payload["known_failing"])
+                        state["return_value"] += len(payload["failed"])
+                        state["status"] = payload["status"]
+                        state["error_type"] = payload["error_type"]
+                        state["error_message"] = payload["error_message"]
+                        state["current_test_name"] = payload["current_test_name"]
+                        state["current_global_test_index"] = payload["current_global_test_index"]
+                        crash_message = payload["error_message"]
+                        print(f"{bcolors.FAIL}{crash_message}{bcolors.ENDC}", flush=True)
+                        append_live_result_line(f"{bcolors.FAIL}{crash_message}{bcolors.ENDC}")
+                        process.terminate()
+                        try:
+                            process.wait(timeout=2)
+                        except subprocess.TimeoutExpired:
+                            process.kill()
+                            process.wait()
+                        info["output_file"].close()
+                        with open(output_path, "r", encoding="utf-8") as file:
+                            log_sections.append(
+                                f"== Partition {partition_index + 1}/{worker_count}, run {info['run_id']} ==\n{file.read()}".rstrip()
+                            )
+                        del active[partition_index]
+                        if args.restart_on_crash:
+                            crash_index = payload["current_global_test_index"]
+                            crash_name = payload["current_test_name"] or f"test {crash_index}"
+                            state["failed"].append(f"{crash_name} ({payload['error_message']})")
+                            state["return_value"] += 1
+                            state["status"] = "ok"
+                            state["error_type"] = None
+                            state["error_message"] = None
+                            state["next_start"] = min(crash_index + 1, state["end_index"])
+                        else:
+                            state["next_start"] = state["end_index"]
+                        if state["next_start"] < state["end_index"]:
+                            start_worker(partition_index, state["next_start"], state["end_index"])
+                        break
+
+                if partition_index not in active:
+                    continue
+
                 if live_result_path.exists():
                     with open(live_result_path, "r", encoding="utf-8") as file:
-                        file.seek(live_result_offsets[partition_index])
+                        file.seek(info["live_offset"])
                         new_output = file.read()
-                        live_result_offsets[partition_index] = file.tell()
+                        info["live_offset"] = file.tell()
                     if new_output:
                         print(new_output, end="", flush=True)
-                time.sleep(0.1)
-            if live_result_path.exists():
-                with open(live_result_path, "r", encoding="utf-8") as file:
-                    file.seek(live_result_offsets[partition_index])
-                    new_output = file.read()
-                    live_result_offsets[partition_index] = file.tell()
-                if new_output:
-                    print(new_output, end="", flush=True)
-            output_file.close()
-            if process.returncode != 0:
-                exit_code = 1
-            if not result_path.exists():
-                raise RuntimeError(
-                    f"Partition {partition_index} did not write results to {result_path}"
-                )
 
-        results = list()
-        log_sections = list()
-        replay_sections = list()
-        for partition_index, result_path, output_path, process, output_file in processes:
-            del process
-            del output_file
-            with open(result_path, "r", encoding="utf-8") as file:
-                result = json.load(file)
-                if result["partition_index"] != partition_index:
-                    raise RuntimeError(
-                        f"Partition result mismatch for {result_path}: "
-                        f"expected index {partition_index}, got {result['partition_index']}"
-                    )
-                results.append(result)
-            with open(output_path, "r", encoding="utf-8") as file:
-                raw_section = (
-                    f"== Partition {partition_index + 1}/{worker_count} ==\n{file.read()}".rstrip()
-                )
-                log_sections.append(raw_section)
-                replay_sections.append(filter_replayed_stdout_section(raw_section))
+                if process.poll() is not None:
+                    if live_result_path.exists():
+                        with open(live_result_path, "r", encoding="utf-8") as file:
+                            file.seek(info["live_offset"])
+                            new_output = file.read()
+                            info["live_offset"] = file.tell()
+                        if new_output:
+                            print(new_output, end="", flush=True)
+                    info["output_file"].close()
+                    result_path = info["result_path"]
+                    if process.returncode != 0 and not result_path.exists():
+                        exit_code = 1
+                        raise RuntimeError(
+                            f"Partition {partition_index} exited without results: {process.returncode}"
+                        )
+                    if not result_path.exists():
+                        raise RuntimeError(
+                            f"Partition {partition_index} did not write results to {result_path}"
+                        )
+                    with open(result_path, "r", encoding="utf-8") as file:
+                        payload = json.load(file)
+                    state = states[partition_index]
+                    state["passed"].extend(payload["passed"])
+                    state["failed"].extend(payload["failed"])
+                    state["known_failing"].extend(payload["known_failing"])
+                    state["return_value"] += payload["return_value"]
+                    if payload.get("status") != "ok":
+                        if payload.get("error_type") == "timeout" and args.restart_on_timeout:
+                            timeout_index = payload["current_global_test_index"]
+                            timeout_name = payload["current_test_name"] or f"test {timeout_index}"
+                            state["failed"].append(f"{timeout_name} ({payload['error_message']})")
+                            state["return_value"] += 1
+                            state["next_start"] = min(timeout_index + 1, state["end_index"])
+                        else:
+                            state["status"] = payload["status"]
+                            state["error_type"] = payload["error_type"]
+                            state["error_message"] = payload["error_message"]
+                            state["current_test_name"] = payload["current_test_name"]
+                            state["current_global_test_index"] = payload["current_global_test_index"]
+                            state["next_start"] = info["end_index"]
+                    else:
+                        state["next_start"] = info["end_index"]
+                    with open(output_path, "r", encoding="utf-8") as file:
+                        log_sections.append(
+                            f"== Partition {partition_index + 1}/{worker_count}, run {info['run_id']} ==\n{file.read()}".rstrip()
+                        )
+                    del active[partition_index]
+                    if state["next_start"] < state["end_index"]:
+                        start_worker(partition_index, state["next_start"], state["end_index"])
+            time.sleep(0.1)
 
-        results.sort(key=lambda item: item["partition_index"])
+        results = [states[index] for index in sorted(states)]
+        replay_sections = [filter_replayed_stdout_section(section) for section in log_sections]
         summary = format_aggregate_results(results)
         total_failed = sum(len(result["failed"]) for result in results)
         total_partition_errors = sum(1 for result in results if result.get("status") != "ok")
