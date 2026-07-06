@@ -47,6 +47,7 @@ ArchiveDataLoadMalloc = 0x02007524 | 1;
 ArchiveDataLoad = 0x02007509;
 ArchiveDataLoadMallocOfs = 0x0200757C | 1;
 NARC_ctor = 0x02007688 | 1;
+NARC_Delete = 0x0200770C | 1;
 ArchiveDataLoadOfs = 0x02007560 | 1;
 /*sqrt = 0x0200048A | 1;*/
 
@@ -866,6 +867,12 @@ UpdateFriendshipFainted = 0x02248558 | 1;
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
+BattleSystem_GetMaxBattlers = 0x0223A7F0 | 1;
+BattleSystem_GetFieldSide = 0x0223AB1C | 1;
+ov12_0223BB88 = 0x0223BB88 | 1;
+ov12_0223BB94 = 0x0223BB94 | 1;
+ov12_022600F0 = 0x022600F0 | 1;
+Pokepic_StartAnim = 0x02008550 | 1;
 sStarterChoiceCries = 0x021E7398;
 BufferBoxMonNickname = 0x0200BF8C | 1;
 
@@ -876,3 +883,7 @@ SetRoamerData = 0x0202DAB8 | 1;
 Roamers_GetRoamMonStats = 0x0202DA54 | 1;
 Roamer_GetLocation = 0x0202D9F8 | 1;
 ApplyRoamerLocation = 0x02067914 | 1;
+
+BattleSystem_GetPokepicManager = 0x0223A8D4 | 1;
+ov12_0223B750 = 0x0223B750 | 1;
+sub_0207294C = 0x0207294C | 1;

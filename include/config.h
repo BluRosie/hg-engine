@@ -240,4 +240,8 @@
 #define CHAMPIONS_PP_CHANGES            0
 #define CHAMPIONS_EFFECT_CHANCE_CHANGES 1
 
+// PLAY_MON_VICTORY_POSE enables the victory pose for Pokémon when fainting an opponent.
+// Comment out this define if you want to disable this feature.
+#define PLAY_MON_VICTORY_POSE
+
 #endif

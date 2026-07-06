@@ -6,6 +6,7 @@
 
 #include "item.h"
 #include "pokemon.h"
+#include "pokepic.h"
 #include "save.h"
 #include "sprite.h"
 #include "task.h"
@@ -1269,7 +1270,6 @@ typedef struct PursuitContext {
     u8 originalAttacker;
 } PursuitContext;
 
-
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
 /**
@@ -1502,7 +1502,7 @@ struct BattleStruct {
     u8 enemySideHasFaintedTeammateLastTurn : 2;
 
     u8 gemBoostingMove : 1;
-    u8 futureSightHitTurn: 1;
+    u8 futureSightHitTurn : 1;
     u8 futureSightNoAttacker : 1;
     u8 futureSightSTAB : 1;
     u8 gemBoostingMovePadding : 4;
@@ -2069,9 +2069,9 @@ enum {
     BEFORE_MOVE_STATE_UPROAR_STOPPING_MOVES,
     BEFORE_MOVE_STATE_SAFEGUARD,
     BEFORE_MOVE_STATE_TERRAIN_BLOCK,
-    BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE,  // sub
+    BEFORE_MOVE_STATE_SUBSTITUTE_BLOCKING_STAT_DROPS_DECORATE, // sub
     BEFORE_MOVE_STATE_MIST,
-    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES,  // ability block
+    BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STAT_BASED_FAILURES, // ability block
     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_STATUS_BASED_FAILURES,
     BEFORE_MOVE_STATE_ABILITY_FAILURES_4_OTHER_AROMA_VEIL_STRUDY,
     BEFORE_MOVE_STATE_MOVE_ACCURACY,
@@ -2262,11 +2262,10 @@ extern u16 WeightMoveList[6];
 extern struct newBattleStruct newBS;
 extern struct ILLUSION_STRUCT gIllusionStruct;
 
-#define IS_CLIENT_IN_ILLUSION_NO_ABILITY(bsys, client) ( \
-   gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bsys, client)) \
-&& gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bsys, client)] == client \
-&& gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bsys, client)] == bsys->sp->sel_mons_no[client] \
-)
+#define IS_CLIENT_IN_ILLUSION_NO_ABILITY(bsys, client) (                                   \
+    gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bsys, client))   \
+    && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bsys, client)] == client \
+    && gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bsys, client)] == bsys->sp->sel_mons_no[client])
 
 #define IS_CLIENT_IN_ILLUSION(bsys, client) (IS_CLIENT_IN_ILLUSION_NO_ABILITY(bsys, client) && GetBattlerAbility(bsys->sp, client) == ABILITY_ILLUSION)
 
@@ -3324,7 +3323,6 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(struct BattleSystem *bw, struct Battl
  */
 u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp);
 
-
 /**
  *  @brief chooses actual target from fight input and checks redirect
  * https://github.com/pret/pokeheartgold/blob/3de81013775926f80a5abcc5e4f45f793f0c0af1/src/battle/overlay_12_0224E4FC.c#L1356
@@ -3796,7 +3794,6 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond,
 
 int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
-
 void LONG_CALL ov12_02250A18(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u16 a3);
 void LONG_CALL BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg);
 
@@ -4261,5 +4258,9 @@ BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx);
 int LONG_CALL ov12_0223ABB8(struct BattleSystem *bsys, int battlerId, int side);
 
 void LONG_CALL HandleTransform(struct BattleStruct *sp);
+
+PokepicManager LONG_CALL *BattleSystem_GetPokepicManager(struct BattleSystem *battleSystem);
+void LONG_CALL *ov12_0223B750(struct BattleSystem *battleSystem);
+void LONG_CALL ov12_022600F0(SysTask *task, void *data); // Task_PlayFaintingSequence
 
 #endif // BATTLE_H
