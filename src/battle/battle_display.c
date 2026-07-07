@@ -4,6 +4,7 @@
 #include "../../include/pokepic.h"
 #include "../../include/task.h"
 #include "../../include/types.h"
+#include "../../include/sound.h"
 
 typedef struct FaintingSequenceData {
     struct BattleSystem *battleSys;
@@ -50,6 +51,7 @@ void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
                         0,
                         FALSE,
                         i);
+                    PlayCry(battleCtx->battlemon[i].species, battleCtx->battlemon[i].form_no);
                 }
             }
         } else {
@@ -66,6 +68,7 @@ void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
                         1,
                         FALSE,
                         i);
+                    PlayCry(battleCtx->battlemon[i].species, battleCtx->battlemon[i].form_no);
                 }
             }
         }
