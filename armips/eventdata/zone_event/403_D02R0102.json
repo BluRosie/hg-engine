@@ -1,0 +1,48 @@
+{
+  "header": "armips/scr_seq/event_D02R0102.inc",
+  "eventId": "403",
+  "warps": [
+    {
+      "x": 5,
+      "z": 4,
+      "header": "MAP_D02R0101",
+      "anchor": 2,
+      "y": 0
+    },
+    {
+      "x": 5,
+      "z": 6,
+      "header": "MAP_D02R0103",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 5,
+      "z": 25,
+      "header": "MAP_D02R0103",
+      "anchor": 1,
+      "y": 0
+    },
+    {
+      "x": 5,
+      "z": 23,
+      "header": "MAP_D02R0101",
+      "anchor": 3,
+      "y": 0
+    },
+    {
+      "x": 9,
+      "z": 7,
+      "header": "MAP_D02R0104",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 9,
+      "z": 26,
+      "header": "MAP_D02R0104",
+      "anchor": 1,
+      "y": 0
+    }
+  ]
+}

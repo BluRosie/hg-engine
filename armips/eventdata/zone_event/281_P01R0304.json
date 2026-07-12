@@ -1,0 +1,90 @@
+{
+  "header": "armips/scr_seq/event_P01R0304.inc",
+  "eventId": "281",
+  "objects": [
+    {
+      "id": "obj_P01R0304_mount_2",
+      "spriteId": "SPRITE_MOUNT_2",
+      "movement": 14,
+      "type": 1,
+      "eventFlag": "FLAG_UNK_22A",
+      "scriptId": "TRAINER_HIKER_NOLAND - 1 + _std_npc_trainer",
+      "facingDirection": 0,
+      "param0": 4,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 21,
+      "z": 8,
+      "y": 0
+    },
+    {
+      "id": "obj_P01R0304_gsman3",
+      "spriteId": "SPRITE_GSMAN3",
+      "movement": 0,
+      "type": 1,
+      "eventFlag": "FLAG_UNK_22B",
+      "scriptId": "TRAINER_ACE_TRAINER_M_SHAYE - 1 + _std_npc_trainer",
+      "facingDirection": 3,
+      "param0": 4,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 5,
+      "z": 4,
+      "y": 0
+    },
+    {
+      "id": "obj_P01R0304_gswoman3",
+      "spriteId": "SPRITE_GSWOMAN3",
+      "movement": 0,
+      "type": 1,
+      "eventFlag": "FLAG_UNK_22B",
+      "scriptId": "TRAINER_ACE_TRAINER_F_CAROL - 1 + _std_npc_trainer",
+      "facingDirection": 0,
+      "param0": 5,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 10,
+      "z": 8,
+      "y": 0
+    },
+    {
+      "id": "obj_P01R0304_mania",
+      "spriteId": "SPRITE_MANIA",
+      "movement": 0,
+      "type": 1,
+      "eventFlag": "FLAG_UNK_22C",
+      "scriptId": "TRAINER_POKE_MANIAC_MORGAN - 1 + _std_npc_trainer",
+      "facingDirection": 2,
+      "param0": 0,
+      "param1": 0,
+      "param2": 0,
+      "xRange": 0,
+      "yRange": 0,
+      "x": 10,
+      "z": 9,
+      "y": 0
+    }
+  ],
+  "warps": [
+    {
+      "x": 9,
+      "z": 2,
+      "header": "MAP_P01R0301",
+      "anchor": 1,
+      "y": 0
+    },
+    {
+      "x": 23,
+      "z": 2,
+      "header": "MAP_P01R0301",
+      "anchor": 2,
+      "y": 0
+    }
+  ]
+}

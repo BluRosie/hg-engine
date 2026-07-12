@@ -1,0 +1,1028 @@
+.nds
+.thumb
+
+.include "armips/include/scriptmacros.s"
+.include "armips/include/flags.s"
+.include "armips/include/soundeffects.s"
+.include "armips/include/vars.s"
+
+.include "asm/include/battle_constants.inc"
+.include "asm/include/events.inc"
+.include "asm/include/game_stats.inc"
+.include "asm/include/items.inc"
+.include "asm/include/maps.inc"
+.include "asm/include/map_sections.inc"
+.include "asm/include/moves.inc"
+.include "asm/include/movements.inc"
+.include "asm/include/rankings.inc"
+.include "asm/include/spawns.inc"
+.include "asm/include/species.inc"
+.include "asm/include/std_scripts.inc"
+.include "asm/include/trainers.inc"
+
+.include "armips/scr_seq/event_D32.inc"
+
+
+// text archive to grab from: 100.txt
+
+.create "build/a012/2_076", 0
+
+
+scrdef scr_seq_D32_000
+scrdef scr_seq_D32_001
+scrdef scr_seq_D32_002
+scrdef scr_seq_D32_003
+scrdef scr_seq_D32_004
+scrdef scr_seq_D32_005
+scrdef scr_seq_D32_006
+scrdef scr_seq_D32_007
+scrdef scr_seq_D32_008
+scrdef scr_seq_D32_009
+scrdef scr_seq_D32_010
+scrdef scr_seq_D32_011
+scrdef scr_seq_D32_012
+scrdef scr_seq_D32_013
+scrdef scr_seq_D32_014
+scrdef scr_seq_D32_015
+scrdef scr_seq_D32_016
+scrdef scr_seq_D32_017
+scrdef scr_seq_D32_018
+scrdef scr_seq_D32_019
+scrdef scr_seq_D32_020
+scrdef scr_seq_D32_021
+scrdef scr_seq_D32_022
+scrdef scr_seq_D32_023
+scrdef scr_seq_D32_024
+scrdef scr_seq_D32_025
+scrdef scr_seq_D32_026
+scrdef scr_seq_D32_027
+scrdef scr_seq_D32_028
+scrdef scr_seq_D32_029
+scrdef scr_seq_D32_030
+scrdef scr_seq_D32_031
+scrdef scr_seq_D32_032
+scrdef scr_seq_D32_033
+scrdef scr_seq_D32_034
+scrdef scr_seq_D32_035
+scrdef scr_seq_D32_036
+scrdef scr_seq_D32_037
+scrdef scr_seq_D32_038
+scrdef_end
+
+scr_seq_D32_037:
+	goto_if_unset FLAG_UNK_189, _00AF
+	clearflag FLAG_UNK_189
+	end
+
+_00AF:
+	get_weekday VAR_TEMP_x4000
+	compare VAR_TEMP_x4000, 3
+	goto_if_eq _00D7
+	compare VAR_TEMP_x4000, 5
+	goto_if_eq _00D7
+	setflag FLAG_HIDE_CAMERON
+	goto _00DB
+
+_00D7:
+	setflag FLAG_HIDE_CAMERON
+_00DB:
+	setflag FLAG_UNK_234
+	end
+
+scr_seq_D32_038:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	get_std_msg_naix 2, VAR_SPECIAL_RESULT
+	msgbox_extern VAR_SPECIAL_RESULT, 0
+	touchscreen_menu_hide
+	getmenuchoice VAR_SPECIAL_RESULT
+	touchscreen_menu_show
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_eq _0209
+	photo_album_is_full VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_eq _021D
+	get_std_msg_naix 2, VAR_SPECIAL_RESULT
+	msgbox_extern VAR_SPECIAL_RESULT, 1
+	closemsg
+	toggle_following_pokemon_movement 0
+	wait_following_pokemon_movement
+	following_pokemon_movement 55
+	get_player_facing VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_ne _015A
+	apply_movement obj_player, _0234
+	apply_movement obj_D32_gsmiddleman1_2, _0280
+	goto _01A8
+
+_015A:
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_ne _0175
+	apply_movement obj_player, _024C
+	goto _01A8
+
+_0175:
+	compare VAR_SPECIAL_RESULT, 3
+	goto_if_ne _0198
+	apply_movement obj_player, _026C
+	apply_movement obj_D32_gsmiddleman1_2, _0280
+	goto _01A8
+
+_0198:
+	apply_movement obj_player, _0258
+	apply_movement obj_D32_gsmiddleman1_2, _0280
+_01A8:
+	wait_movement
+	wait_following_pokemon_movement
+	toggle_following_pokemon_movement 1
+	following_pokemon_movement 48
+	scrcmd_729 VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_ne _01CF
+	apply_movement obj_partner_poke, _028C
+	wait_movement
+_01CF:
+	setflag FLAG_UNK_189
+	fade_screen 6, 1, 0, RGB_BLACK
+	wait_fade
+	cameron_photo 31
+	lockall
+	fade_screen 6, 1, 1, RGB_BLACK
+	wait_fade
+	clearflag FLAG_UNK_189
+	get_std_msg_naix 2, VAR_SPECIAL_RESULT
+	msgbox_extern VAR_SPECIAL_RESULT, 2
+	wait_button_or_walk_away
+	closemsg
+	releaseall
+	end
+
+_0209:
+	get_std_msg_naix 2, VAR_SPECIAL_RESULT
+	msgbox_extern VAR_SPECIAL_RESULT, 5
+	wait_button_or_walk_away
+	closemsg
+	releaseall
+	end
+
+_021D:
+	get_std_msg_naix 2, VAR_SPECIAL_RESULT
+	msgbox_extern VAR_SPECIAL_RESULT, 3
+	wait_button_or_walk_away
+	closemsg
+	releaseall
+	end
+
+	.align 4
+_0234:
+
+	step 15, 1
+	step 12, 2
+	step 14, 1
+	step 12, 3
+	step 33, 1
+	step_end
+	.align 4
+_024C:
+
+	step 12, 3
+	step 33, 1
+	step_end
+	.align 4
+_0258:
+
+	step 12, 1
+	step 14, 1
+	step 12, 3
+	step 33, 1
+	step_end
+	.align 4
+_026C:
+
+	step 12, 1
+	step 15, 1
+	step 12, 3
+	step 33, 1
+	step_end
+	.align 4
+_0280:
+
+	step 63, 1
+	step 32, 1
+	step_end
+	.align 4
+_028C:
+
+	step 15, 1
+	step 12, 1
+	step 1, 1
+	step_end
+scr_seq_D32_001:
+	simple_npc_msg 0
+	end
+
+scr_seq_D32_002:
+	simple_npc_msg 1
+	end
+
+scr_seq_D32_003:
+	simple_npc_msg 2
+	end
+
+scr_seq_D32_004:
+	simple_npc_msg 3
+	end
+
+scr_seq_D32_005:
+	simple_npc_msg 4
+	end
+
+scr_seq_D32_006:
+	simple_npc_msg 5
+	end
+
+scr_seq_D32_007:
+	simple_npc_msg 6
+	end
+
+scr_seq_D32_008:
+	simple_npc_msg 7
+	end
+
+scr_seq_D32_009:
+	simple_npc_msg 8
+	end
+
+scr_seq_D32_010:
+	simple_npc_msg 9
+	end
+
+scr_seq_D32_011:
+	simple_npc_msg 10
+	end
+
+scr_seq_D32_012:
+	simple_npc_msg 11
+	end
+
+scr_seq_D32_013:
+	simple_npc_msg 12
+	end
+
+scr_seq_D32_014:
+	simple_npc_msg 13
+	end
+
+scr_seq_D32_015:
+	simple_npc_msg 14
+	end
+
+scr_seq_D32_016:
+	simple_npc_msg 15
+	end
+
+scr_seq_D32_017:
+	simple_npc_msg 16
+	end
+
+scr_seq_D32_018:
+	simple_npc_msg 17
+	end
+
+scr_seq_D32_019:
+	simple_npc_msg 18
+	end
+
+scr_seq_D32_020:
+	simple_npc_msg 19
+	end
+
+scr_seq_D32_021:
+	simple_npc_msg 20
+	end
+
+scr_seq_D32_022:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	setvar VAR_SPECIAL_x8000, 0
+	script_overlay_cmd 3, 0
+	scrcmd_116 1, 21, 1
+	npc_msg 21
+	touchscreen_menu_hide
+	getmenuchoice VAR_SPECIAL_RESULT
+	closemsg
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_eq _0B02
+_045C:
+	npc_msg 31
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 347, 255, 0
+	menu_item_add 348, 255, 1
+	menu_item_add 349, 255, 2
+	menu_item_add 350, 255, 3
+	menu_item_add 439, 255, 4
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _04D1
+	case 1, _0630
+	case 2, _0762
+	case 3, _08C1
+	goto _0B02
+
+_04D1:
+	setvar VAR_SPECIAL_x8007, 0
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 354, 396, 0
+	menu_item_add 355, 397, 1
+	menu_item_add 356, 398, 2
+	menu_item_add 357, 399, 3
+	menu_item_add 358, 400, 4
+	menu_item_add 359, 401, 5
+	menu_item_add 379, 402, 6
+	menu_item_add 440, 438, 7
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _0588
+	case 1, _05A0
+	case 2, _05B8
+	case 3, _05D0
+	case 4, _05E8
+	case 5, _0600
+	case 6, _0618
+	goto _045C
+
+_0588:
+	setvar VAR_SPECIAL_x8004, 46
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 1
+	goto _09F3
+
+_05A0:
+	setvar VAR_SPECIAL_x8004, 49
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 1
+	goto _09F3
+
+_05B8:
+	setvar VAR_SPECIAL_x8004, 47
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 1
+	goto _09F3
+
+_05D0:
+	setvar VAR_SPECIAL_x8004, 52
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 1
+	goto _09F3
+
+_05E8:
+	setvar VAR_SPECIAL_x8004, 48
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 1
+	goto _09F3
+
+_0600:
+	setvar VAR_SPECIAL_x8004, 45
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 1
+	goto _09F3
+
+_0618:
+	setvar VAR_SPECIAL_x8004, 50
+	setvar VAR_SPECIAL_x8005, 48
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_0630:
+	setvar VAR_SPECIAL_x8007, 1
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 360, 403, 0
+	menu_item_add 361, 404, 1
+	menu_item_add 362, 405, 2
+	menu_item_add 363, 406, 3
+	menu_item_add 364, 407, 4
+	menu_item_add 365, 408, 5
+	menu_item_add 440, 438, 6
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _06D2
+	case 1, _06EA
+	case 2, _0702
+	case 3, _071A
+	case 4, _0732
+	case 5, _074A
+	goto _045C
+
+_06D2:
+	setvar VAR_SPECIAL_x8004, 289
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 16
+	goto _09F3
+
+_06EA:
+	setvar VAR_SPECIAL_x8004, 290
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 16
+	goto _09F3
+
+_0702:
+	setvar VAR_SPECIAL_x8004, 291
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 16
+	goto _09F3
+
+_071A:
+	setvar VAR_SPECIAL_x8004, 292
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 16
+	goto _09F3
+
+_0732:
+	setvar VAR_SPECIAL_x8004, 293
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 16
+	goto _09F3
+
+_074A:
+	setvar VAR_SPECIAL_x8004, 294
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 16
+	goto _09F3
+
+_0762:
+	setvar VAR_SPECIAL_x8007, 2
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 366, 409, 0
+	menu_item_add 367, 410, 1
+	menu_item_add 368, 411, 2
+	menu_item_add 369, 412, 3
+	menu_item_add 370, 413, 4
+	menu_item_add 372, 415, 5
+	menu_item_add 375, 418, 6
+	menu_item_add 440, 438, 7
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _0819
+	case 1, _0831
+	case 2, _0849
+	case 3, _0861
+	case 4, _0879
+	case 5, _0891
+	case 6, _08A9
+	goto _045C
+
+_0819:
+	setvar VAR_SPECIAL_x8004, 272
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 16
+	goto _09F3
+
+_0831:
+	setvar VAR_SPECIAL_x8004, 273
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 16
+	goto _09F3
+
+_0849:
+	setvar VAR_SPECIAL_x8004, 214
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 32
+	goto _09F3
+
+_0861:
+	setvar VAR_SPECIAL_x8004, 271
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 32
+	goto _09F3
+
+_0879:
+	setvar VAR_SPECIAL_x8004, 213
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_0891:
+	setvar VAR_SPECIAL_x8004, 230
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_08A9:
+	setvar VAR_SPECIAL_x8004, 275
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_08C1:
+	setvar VAR_SPECIAL_x8007, 3
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 371, 414, 0
+	menu_item_add 376, 419, 1
+	menu_item_add 373, 416, 2
+	menu_item_add 374, 417, 3
+	menu_item_add 377, 420, 4
+	menu_item_add 378, 421, 5
+	menu_item_add 440, 438, 7
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _0963
+	case 1, _097B
+	case 2, _0993
+	case 3, _09AB
+	case 4, _09C3
+	case 5, _09DB
+	goto _045C
+
+_0963:
+	setvar VAR_SPECIAL_x8004, 220
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_097B:
+	setvar VAR_SPECIAL_x8004, 287
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_0993:
+	setvar VAR_SPECIAL_x8004, 232
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_09AB:
+	setvar VAR_SPECIAL_x8004, 266
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_09C3:
+	setvar VAR_SPECIAL_x8004, 326
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_09DB:
+	setvar VAR_SPECIAL_x8004, 327
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	goto _09F3
+
+_09F3:
+	buffer_item_name 0, VAR_SPECIAL_x8004
+	buffer_int 1, VAR_SPECIAL_x8006
+	npc_msg 23
+	getmenuchoice VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _0A24
+	compare VAR_SPECIAL_x8000, 0
+	goto_if_eq _0AB1
+	goto _0F76
+
+_0A24:
+	check_battle_points VAR_SPECIAL_x8006, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _0A9B
+	hasspaceforitem VAR_SPECIAL_x8004, VAR_SPECIAL_x8005, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _0A85
+	scrcmd_556 VAR_SPECIAL_x8006
+	scrcmd_118 1
+	play_se SEQ_SE_DP_REGI
+	buffer_item_name 0, VAR_SPECIAL_x8004
+	getitempocket VAR_SPECIAL_x8004, VAR_SPECIAL_RESULT
+	buffer_pocket_name 1, VAR_SPECIAL_RESULT
+	npc_msg 26
+	giveitem VAR_SPECIAL_x8004, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_x8000, 0
+	goto_if_eq _0AB1
+	goto _0F76
+
+_0A85:
+	npc_msg 29
+	compare VAR_SPECIAL_x8000, 0
+	goto_if_eq _0AB1
+	goto _0F76
+
+_0A9B:
+	npc_msg 27
+	compare VAR_SPECIAL_x8000, 0
+	goto_if_eq _0AB1
+	goto _0F76
+
+_0AB1:
+	compare VAR_SPECIAL_x8007, 0
+	goto_if_ne _0ACA
+	goto _04D1
+
+_0ACA:
+	compare VAR_SPECIAL_x8007, 1
+	goto_if_ne _0AE3
+	goto _0630
+
+_0AE3:
+	compare VAR_SPECIAL_x8007, 2
+	goto_if_ne _0AFC
+	goto _0762
+
+_0AFC:
+	goto _08C1
+
+_0B02:
+	scrcmd_117
+	touchscreen_menu_show
+	npc_msg 22
+	wait_button_or_walk_away
+	closemsg
+	releaseall
+	script_overlay_cmd 3, 1
+	end
+
+scr_seq_D32_024:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	setvar VAR_SPECIAL_x8000, 1
+	script_overlay_cmd 3, 0
+	scrcmd_116 1, 21, 1
+	npc_msg 21
+	touchscreen_menu_hide
+	getmenuchoice VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_eq _0B02
+_0B44:
+	npc_msg 30
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 351, 255, 0
+	menu_item_add 352, 255, 1
+	menu_item_add 353, 255, 2
+	menu_item_add 439, 255, 4
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _0BA4
+	case 1, _0CFA
+	case 2, _0DEA
+	goto _0B02
+
+_0BA4:
+	setvar VAR_SPECIAL_x8007, 0
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 380, 422, 0
+	menu_item_add 381, 423, 1
+	menu_item_add 382, 424, 2
+	menu_item_add 383, 425, 3
+	menu_item_add 384, 426, 4
+	menu_item_add 385, 427, 5
+	menu_item_add 440, 438, 6
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _0C46
+	case 1, _0C64
+	case 2, _0C82
+	case 3, _0CA0
+	case 4, _0CBE
+	case 5, _0CDC
+	goto _0B44
+
+_0C46:
+	setvar VAR_SPECIAL_x8004, 367
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 40
+	setvar VAR_SPECIAL_x8001, 332
+	goto _0F40
+
+_0C64:
+	setvar VAR_SPECIAL_x8004, 358
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 40
+	setvar VAR_SPECIAL_x8001, 280
+	goto _0F40
+
+_0C82:
+	setvar VAR_SPECIAL_x8004, 416
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 40
+	setvar VAR_SPECIAL_x8001, 369
+	goto _0F40
+
+_0CA0:
+	setvar VAR_SPECIAL_x8004, 408
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 64
+	setvar VAR_SPECIAL_x8001, 404
+	goto _0F40
+
+_0CBE:
+	setvar VAR_SPECIAL_x8004, 398
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 80
+	setvar VAR_SPECIAL_x8001, 444
+	goto _0F40
+
+_0CDC:
+	setvar VAR_SPECIAL_x8004, 353
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 80
+	setvar VAR_SPECIAL_x8001, 89
+	goto _0F40
+
+_0CFA:
+	setvar VAR_SPECIAL_x8007, 1
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 386, 428, 0
+	menu_item_add 387, 429, 1
+	menu_item_add 388, 430, 2
+	menu_item_add 389, 431, 3
+	menu_item_add 440, 438, 4
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _0D72
+	case 1, _0D90
+	case 2, _0DAE
+	case 3, _0DCC
+	goto _0B44
+
+_0D72:
+	setvar VAR_SPECIAL_x8004, 357
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 64
+	setvar VAR_SPECIAL_x8001, 247
+	goto _0F40
+
+_0D90:
+	setvar VAR_SPECIAL_x8004, 380
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 64
+	setvar VAR_SPECIAL_x8001, 412
+	goto _0F40
+
+_0DAE:
+	setvar VAR_SPECIAL_x8004, 363
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 80
+	setvar VAR_SPECIAL_x8001, 188
+	goto _0F40
+
+_0DCC:
+	setvar VAR_SPECIAL_x8004, 386
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 80
+	setvar VAR_SPECIAL_x8001, 406
+	goto _0F40
+
+_0DEA:
+	setvar VAR_SPECIAL_x8007, 2
+	menu_init_std_gmm 1, 1, 0, 1, VAR_SPECIAL_RESULT
+	menu_item_add 390, 432, 0
+	menu_item_add 391, 433, 1
+	menu_item_add 392, 434, 2
+	menu_item_add 393, 435, 3
+	menu_item_add 394, 436, 4
+	menu_item_add 395, 437, 5
+	menu_item_add 440, 438, 6
+	menu_exec
+	switch VAR_SPECIAL_RESULT
+	case 0, _0E8C
+	case 1, _0EAA
+	case 2, _0EC8
+	case 3, _0EE6
+	case 4, _0F04
+	case 5, _0F22
+	goto _0B44
+
+_0E8C:
+	setvar VAR_SPECIAL_x8004, 333
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 32
+	setvar VAR_SPECIAL_x8001, 92
+	goto _0F40
+
+_0EAA:
+	setvar VAR_SPECIAL_x8004, 400
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 32
+	setvar VAR_SPECIAL_x8001, 86
+	goto _0F40
+
+_0EC8:
+	setvar VAR_SPECIAL_x8004, 388
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 32
+	setvar VAR_SPECIAL_x8001, 261
+	goto _0F40
+
+_0EE6:
+	setvar VAR_SPECIAL_x8004, 372
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 32
+	setvar VAR_SPECIAL_x8001, 213
+	goto _0F40
+
+_0F04:
+	setvar VAR_SPECIAL_x8004, 335
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	setvar VAR_SPECIAL_x8001, 339
+	goto _0F40
+
+_0F22:
+	setvar VAR_SPECIAL_x8004, 331
+	setvar VAR_SPECIAL_x8005, 1
+	setvar VAR_SPECIAL_x8006, 48
+	setvar VAR_SPECIAL_x8001, 347
+	goto _0F40
+
+_0F40:
+	buffer_item_name 0, VAR_SPECIAL_x8004
+	buffer_move_name 1, VAR_SPECIAL_x8001
+	buffer_int 2, VAR_SPECIAL_x8006
+	npc_msg 24
+	getmenuchoice VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 0
+	goto_if_eq _0A24
+	compare VAR_SPECIAL_x8000, 0
+	goto_if_eq _0AB1
+	goto _0F76
+
+_0F76:
+	compare VAR_SPECIAL_x8007, 0
+	goto_if_ne _0F8F
+	goto _0BA4
+
+_0F8F:
+	compare VAR_SPECIAL_x8007, 1
+	goto_if_ne _0FA8
+	goto _0CFA
+
+_0FA8:
+	goto _0DEA
+
+scr_seq_D32_023:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	fade_screen 6, 1, 0, RGB_BLACK
+	wait_fade
+	scratch_off_card
+	restore_overworld
+	fade_screen 6, 1, 1, RGB_BLACK
+	wait_fade
+	releaseall
+	end
+
+scr_seq_D32_025:
+	scrcmd_055 3, 0
+	scrcmd_057 3
+	scrcmd_058
+	trainer_tips 34, VAR_SPECIAL_RESULT
+	callstd std_signpost
+	end
+
+scr_seq_D32_026:
+	scrcmd_055 3, 0
+	scrcmd_057 3
+	scrcmd_058
+	trainer_tips 35, VAR_SPECIAL_RESULT
+	callstd std_signpost
+	end
+
+scr_seq_D32_027:
+	scrcmd_055 3, 0
+	scrcmd_057 3
+	scrcmd_058
+	trainer_tips 36, VAR_SPECIAL_RESULT
+	callstd std_signpost
+	end
+
+scr_seq_D32_028:
+	scrcmd_055 3, 0
+	scrcmd_057 3
+	scrcmd_058
+	trainer_tips 37, VAR_SPECIAL_RESULT
+	callstd std_signpost
+	end
+
+scr_seq_D32_029:
+	scrcmd_055 3, 0
+	scrcmd_057 3
+	scrcmd_058
+	trainer_tips 38, VAR_SPECIAL_RESULT
+	callstd std_signpost
+	end
+
+scr_seq_D32_030:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	npc_msg 39
+	wait_button_or_walk_away
+	closemsg
+	releaseall
+	end
+
+scr_seq_D32_031:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	npc_msg 40
+	wait_button_or_walk_away
+	closemsg
+	releaseall
+	end
+
+scr_seq_D32_032:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	npc_msg 41
+	wait_button_or_walk_away
+	closemsg
+	releaseall
+	end
+
+scr_seq_D32_033:
+	scrcmd_609
+	lockall
+	scrcmd_600
+	apply_movement obj_player, _10B0
+	wait_movement
+	play_se SEQ_SE_DP_KAIDAN2
+	fade_screen 6, 1, 0, RGB_BLACK
+	wait_fade
+	warp MAP_D32R0401, 0, 25, 9, DIR_WEST
+	fade_screen 6, 1, 1, RGB_BLACK
+	wait_fade
+	releaseall
+	end
+
+	.align 4
+_10B0:
+
+	step 18, 5
+	step_end
+scr_seq_D32_034:
+	scrcmd_609
+	lockall
+	scrcmd_600
+	apply_movement obj_player, _10F4
+	wait_movement
+	play_se SEQ_SE_DP_KAIDAN2
+	fade_screen 6, 1, 0, RGB_BLACK
+	wait_fade
+	warp MAP_D32R0501, 0, 21, 9, DIR_WEST
+	fade_screen 6, 1, 1, RGB_BLACK
+	wait_fade
+	releaseall
+	end
+
+	.align 4
+_10F4:
+
+	step 18, 6
+	step_end
+scr_seq_D32_035:
+	scrcmd_609
+	lockall
+	scrcmd_600
+	apply_movement obj_player, _1138
+	wait_movement
+	play_se SEQ_SE_DP_KAIDAN2
+	fade_screen 6, 1, 0, RGB_BLACK
+	wait_fade
+	warp MAP_D32R0601, 0, 1, 6, DIR_EAST
+	fade_screen 6, 1, 1, RGB_BLACK
+	wait_fade
+	releaseall
+	end
+
+	.align 4
+_1138:
+
+	step 19, 5
+	step_end
+scr_seq_D32_036:
+	scrcmd_609
+	lockall
+	scrcmd_600
+	apply_movement obj_player, _117C
+	wait_movement
+	play_se SEQ_SE_DP_KAIDAN2
+	fade_screen 6, 1, 0, RGB_BLACK
+	wait_fade
+	warp MAP_D32R0301, 0, 1, 7, DIR_EAST
+	fade_screen 6, 1, 1, RGB_BLACK
+	wait_fade
+	releaseall
+	end
+
+	.align 4
+_117C:
+
+	step 19, 6
+	step_end
+scr_seq_D32_000:
+	end
+	.align 4
+
+
+.close

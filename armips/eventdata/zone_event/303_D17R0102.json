@@ -1,0 +1,27 @@
+{
+  "header": "armips/scr_seq/event_D17R0102.inc",
+  "eventId": "303",
+  "warps": [
+    {
+      "x": 9,
+      "z": 8,
+      "header": "MAP_D17R0101",
+      "anchor": 1,
+      "y": 0
+    },
+    {
+      "x": 15,
+      "z": 25,
+      "header": "MAP_D17R0103",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 15,
+      "z": 24,
+      "header": "MAP_D17R0103",
+      "anchor": 0,
+      "y": 0
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "header": "armips/scr_seq/event_T10.inc",
+  "eventId": "055",
+  "bgs": [
+    {
+      "scriptId": "_EV_scr_seq_T10_000 + 1",
+      "type": 1,
+      "x": 914,
+      "z": 202,
+      "y": 0,
+      "dir": 4
+    },
+    {
+      "scriptId": "std_hiddenitem_t10_rare_candy",
+      "type": 2,
+      "x": 910,
+      "z": 209,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "warps": [
+    {
+      "x": 912,
+      "z": 218,
+      "header": "MAP_D43R0103",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 912,
+      "z": 200,
+      "header": "MAP_T10R0101",
+      "anchor": 0,
+      "y": 0
+    }
+  ]
+}

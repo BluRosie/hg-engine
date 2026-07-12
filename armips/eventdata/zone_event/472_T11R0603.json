@@ -1,0 +1,13 @@
+{
+  "header": "armips/scr_seq/event_T11R0603.inc",
+  "eventId": "472",
+  "warps": [
+    {
+      "x": 21,
+      "z": 14,
+      "header": "MAP_T11R0601",
+      "anchor": 2,
+      "y": 0
+    }
+  ]
+}

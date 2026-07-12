@@ -1,0 +1,13 @@
+{
+  "header": "armips/scr_seq/event_T07R0206.inc",
+  "eventId": "398",
+  "warps": [
+    {
+      "x": 3,
+      "z": 6,
+      "header": 4095,
+      "anchor": 256,
+      "y": 0
+    }
+  ]
+}

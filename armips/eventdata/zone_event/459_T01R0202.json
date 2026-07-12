@@ -1,0 +1,31 @@
+{
+  "header": "armips/scr_seq/event_T01R0202.inc",
+  "eventId": "459",
+  "bgs": [
+    {
+      "scriptId": "_EV_scr_seq_T01R0202_001 + 1",
+      "type": 0,
+      "x": 5,
+      "z": 3,
+      "y": 0,
+      "dir": 0
+    },
+    {
+      "scriptId": "_EV_scr_seq_T01R0202_000 + 1",
+      "type": 0,
+      "x": 7,
+      "z": 3,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "warps": [
+    {
+      "x": 3,
+      "z": 3,
+      "header": "MAP_T01R0201",
+      "anchor": 1,
+      "y": 0
+    }
+  ]
+}

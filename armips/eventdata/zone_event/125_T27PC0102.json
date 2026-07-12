@@ -1,0 +1,16 @@
+{
+  "header": "armips/scr_seq/event_T27PC0102.inc",
+  "eventId": "125",
+  "coords": [
+    {
+      "scriptId": 0,
+      "x": 8,
+      "z": 14,
+      "w": 1,
+      "h": 1,
+      "y": 0,
+      "val": 1,
+      "var": "VAR_TEMP_x4001"
+    }
+  ]
+}

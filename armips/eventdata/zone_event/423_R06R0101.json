@@ -1,0 +1,34 @@
+{
+  "header": "armips/scr_seq/event_R06R0101.inc",
+  "eventId": "423",
+  "warps": [
+    {
+      "x": 5,
+      "z": 9,
+      "header": "MAP_R06",
+      "anchor": 2,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "z": 3,
+      "header": "MAP_R05R0202",
+      "anchor": 3,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "z": 4,
+      "header": "MAP_R05R0202",
+      "anchor": 3,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "z": 5,
+      "header": "MAP_R05R0202",
+      "anchor": 3,
+      "y": 0
+    }
+  ]
+}

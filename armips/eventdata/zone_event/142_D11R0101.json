@@ -1,0 +1,58 @@
+{
+  "header": "armips/scr_seq/event_D11R0101.inc",
+  "eventId": "142",
+  "bgs": [
+    {
+      "scriptId": "std_hiddenitem_d11r0101_escape_rope",
+      "type": 2,
+      "x": 56,
+      "z": 19,
+      "y": 0,
+      "dir": 4
+    }
+  ],
+  "warps": [
+    {
+      "x": 55,
+      "z": 28,
+      "header": "MAP_W20",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 8,
+      "z": 12,
+      "header": "MAP_W20",
+      "anchor": 1,
+      "y": 0
+    },
+    {
+      "x": 52,
+      "z": 20,
+      "header": "MAP_D11R0102",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 11,
+      "z": 4,
+      "header": "MAP_D11R0102",
+      "anchor": 1,
+      "y": 0
+    },
+    {
+      "x": 55,
+      "z": 24,
+      "header": "MAP_D11R0106",
+      "anchor": 0,
+      "y": 0
+    },
+    {
+      "x": 55,
+      "z": 23,
+      "header": "MAP_D11R0106",
+      "anchor": 0,
+      "y": 0
+    }
+  ]
+}

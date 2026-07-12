@@ -1,0 +1,20 @@
+{
+  "header": "armips/scr_seq/event_D47R0102.inc",
+  "eventId": "314",
+  "warps": [
+    {
+      "x": 79,
+      "z": 100,
+      "header": 4095,
+      "anchor": 256,
+      "y": 0
+    },
+    {
+      "x": 80,
+      "z": 100,
+      "header": 4095,
+      "anchor": 256,
+      "y": 0
+    }
+  ]
+}
