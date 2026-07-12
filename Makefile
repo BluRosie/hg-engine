@@ -118,6 +118,7 @@ NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
+JSONPROC := tools/jsonproc
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
@@ -255,6 +256,12 @@ $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/
 
 TOOLS += $(O2NARC)
 
+$(JSONPROC): $(wildcard tools/source/jsonproc/*.cpp) $(wildcard tools/source/jsonproc/*.h) $(wildcard tools/source/jsonproc/*.hpp) $(wildcard tools/source/jsonproc/nlohmann/*.hpp)
+	cd tools/source/jsonproc ; $(MAKE)
+	mv tools/source/jsonproc/jsonproc $(JSONPROC)
+
+TOOLS += $(JSONPROC)
+
 $(ENCODEPWIMG):
 	cd tools/source/DECODEIMG ; $(MAKE)
 	mv tools/source/DECODEIMG/ENCODE_IMG $(ENCODEPWIMG)
@@ -357,6 +364,9 @@ CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8
 CODE_ADDON_ARTIFACTS := $(filter-out $(BUILD)/a028/8_1 $(BUILD)/a028/8_2 $(BUILD)/a028/8_3 $(BUILD)/a028/8_4 $(BUILD)/a028/8_5 $(BUILD)/a028/8_6, $(CODE_ADDON_ARTIFACTS))
 
 move_narc: $(NARC_FILES)
+	@echo "zone events:"
+	cp $(ZONE_EVENT_NARC) $(ZONE_EVENT_TARGET)
+
 	@echo "battle hud layout:"
 	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
 

@@ -38,6 +38,7 @@ dumpitem.py
 /tools/gengfxicons.exe
 /tools/genevodatatxt
 /tools/armips
+/tools/jsonproc
 /tools/genmonareadexdata
 /tools/geneggmovedata
 /tools/gengfxdata.exe

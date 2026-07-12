@@ -1,0 +1,88 @@
+{{ doNotModifyHeader }}
+
+.nds
+.thumb
+
+.include "armips/include/flags.s"
+.include "armips/include/scriptmacros.s"
+.include "armips/include/vars.s"
+
+.include "asm/include/maps.inc"
+.include "asm/include/sprites.inc"
+.include "asm/include/std_scripts.inc"
+.include "asm/include/trainers.inc"
+
+{% if exists("header") %}.include "{{ header }}"{% endif %}
+
+
+{% if exists("eventId") %}.create "build/a032/2_{{ eventId }}", 0{% endif %}
+
+
+## if exists("bgs")
+	.word {{ length(bgs) }};
+## for bg in bgs
+	.halfword {{ bg.scriptId }}
+	.halfword {{ bg.type }}
+	.word {{ bg.x }}
+	.word {{ bg.z }}
+	.word {{ bg.y }}
+	.word {{ bg.dir }}
+## endfor
+## else
+	.word 0
+## endif
+## if exists("objects")
+	.word {{ length(objects) }}
+## for object in objects
+	.halfword {{ object.id }}
+	.halfword {{ object.spriteId }}
+	.halfword {{ object.movement }}
+	.halfword {{ object.type }}
+	.halfword {{ object.eventFlag }}
+	.halfword {{ object.scriptId }}
+	.halfword {{ object.facingDirection }}
+	.halfword {{ object.param0 }}
+	.halfword {{ object.param1 }}
+	.halfword {{ object.param2 }}
+	.halfword {{ object.xRange }}
+	.halfword {{ object.yRange }}
+	.halfword {{ object.x }}
+	.halfword {{ object.z }}
+	.word {{ object.y }}
+## endfor
+## else
+	.word 0
+## endif
+## if exists("warps")
+	.word {{ length(warps) }}
+## for warp in warps
+	.halfword {{ warp.x }}
+	.halfword {{ warp.z }}
+	.halfword {{ warp.header }}
+	.halfword {{ warp.anchor }}
+	.word {{ warp.y }}
+## endfor
+## else
+	.word 0
+## endif
+## if exists("coords")
+	.word {{ length(coords) }}
+## for coord in coords
+	.halfword {{ coord.scriptId }}
+	.halfword {{ coord.x }}
+	.halfword {{ coord.z }}
+	.halfword {{ coord.w }}
+	.halfword {{ coord.h }}
+	.halfword {{ coord.y }}
+	.halfword {{ coord.val }}
+	.halfword {{ coord.var }}
+## endfor
+## else
+	.word 0
+## endif
+
+
+
+
+
+.close

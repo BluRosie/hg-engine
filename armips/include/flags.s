@@ -166,7 +166,7 @@ FLAG_UNK_097                                               equ 151
 FLAG_UNK_098                                               equ 152
 FLAG_MET_PASSERBY_BOY                                      equ 153
 FLAG_UNK_09A                                               equ 154
-FLAG_UNK_09B                                               equ 155
+FLAG_OPENED_GOLDENROD_PURPLE_GATE                          equ 155
 FLAG_GOT_POKEGEAR                                          equ 156
 FLAG_UNK_09D                                               equ 157
 FLAG_UNK_09E                                               equ 158
@@ -304,7 +304,7 @@ FLAG_TRADE_POWER_PLANT_DUGTRIO_MAGNETON                    equ 289
 FLAG_GOT_NUGGET_FROM_ACE_TRAINER_M_KEVIN                   equ 290
 FLAG_UNK_123                                               equ 291
 FLAG_GOT_TM19_FROM_ERIKA                                   equ 292
-FLAG_UNK_125                                               equ 293
+FLAG_FARFETCHD_NOTICED_YOU                                 equ 293
 FLAG_UNK_126                                               equ 294
 FLAG_UNK_127                                               equ 295
 FLAG_UNK_128                                               equ 296
@@ -334,8 +334,8 @@ FLAG_UNK_13F                                               equ 319
 FLAG_UNK_140                                               equ 320
 FLAG_WON_THIS_BUG_CONTEST                                  equ 321
 FLAG_UNK_142                                               equ 322
-FLAG_UNK_143                                               equ 323
-FLAG_UNK_144                                               equ 324
+FLAG_SAW_JOHTO_DEX_CERTIFICATE                             equ 323
+FLAG_SAW_NATIONAL_DEX_CERTIFICATE                          equ 324
 FLAG_UNK_145                                               equ 325
 FLAG_UNK_146                                               equ 326
 FLAG_UNK_147                                               equ 327
@@ -364,7 +364,7 @@ FLAG_UNK_15D                                               equ 349
 FLAG_MET_MOVE_MANIAC                                       equ 350
 FLAG_BUG_CONTEST_OTHER_POKES_HELD                          equ 351
 FLAG_ELMS_LAB_PREVENT_PLAYER_ESCAPE                        equ 352
-FLAG_UNK_161                                               equ 353
+FLAG_SHOWED_FRIEND_A_SHINY_LEAF                            equ 353
 FLAG_TRADE_LT_SURGE_PIKACHU                                equ 354
 FLAG_GOT_RAGECANDYBAR                                      equ 355
 FLAG_UNK_164                                               equ 356
@@ -478,7 +478,7 @@ FLAG_HIDE_BURNED_TOWER_B1F_SUICUNE                        equ 459
 FLAG_HIDE_BURNED_TOWER_1F_MORTY                           equ 460
 FLAG_UNK_1CD                                              equ 461
 FLAG_UNK_1CE                                              equ 462
-FLAG_UNK_1CF                                              equ 463
+FLAG_HIDE_ROUTE_36_FLOWERSHOP_GIRL                        equ 463
 FLAG_HIDE_GOLDENROD_FLOWERSHOP_GIRL                       equ 464
 FLAG_UNK_1D1                                              equ 465
 FLAG_UNK_1D2                                              equ 466
