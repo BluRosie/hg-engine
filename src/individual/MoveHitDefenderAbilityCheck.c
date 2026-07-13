@@ -376,6 +376,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
         }
 
     } else if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(bw, sp->defence_client)
+            && gIllusionStruct.dontRemoveIllusion == FALSE
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
                 || GetBattlerAbility(sp, sp->defence_client) != ABILITY_ILLUSION)) { // illusion has already activated, but it can be taken away without needing to have the ability
             // handle illusion here so it takes priority over fainting.  notably
@@ -386,6 +387,14 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = SUB_SEQ_HANDLE_ILLUSION_FADED;
             ret = TRUE;
+    } else if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_COTTON_DOWN) { //not breakable
+        if (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage) {
+            sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+            sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+            sp->battlerIdTemp = sp->defence_client;
+            seq_no[0] = SUB_SEQ_COTTON_DOWN;
+            ret = TRUE;
+        }
     }
 
     return ret;

@@ -1176,7 +1176,7 @@
 #define SPECIES_EXEGGUTOR_ALOLAN (SPECIES_ALOLAN_REGIONAL_START + 16)
 #define SPECIES_MAROWAK_ALOLAN   (SPECIES_ALOLAN_REGIONAL_START + 17)
 
-// totems
+// Totems
 #define SPECIES_RATICATE_ALOLAN_LARGE (SPECIES_ALOLAN_REGIONAL_START + 18)
 #define SPECIES_MAROWAK_ALOLAN_LARGE  (SPECIES_ALOLAN_REGIONAL_START + 19)
 #define SPECIES_GUMSHOOS_LARGE        (SPECIES_ALOLAN_REGIONAL_START + 20)
@@ -1192,7 +1192,7 @@
 
 #define MAX_ALOLAN_REGIONAL_NUM (SPECIES_KOMMO_O_LARGE)
 
-// galarians
+//galarians
 #define SPECIES_GALARIAN_REGIONAL_START (MAX_ALOLAN_REGIONAL_NUM + 1) // 1156
 
 #define SPECIES_MEOWTH_GALARIAN     (SPECIES_GALARIAN_REGIONAL_START)
@@ -1604,6 +1604,10 @@
 
 #define MAX_SPECIES_INCLUDING_FORMS (MAX_SPECIES_CANONICAL_FORM_NUM) // 1476
 
+#define MAX_TOTEM_FORMS_CANONICAL ((SPECIES_KOMMO_O_LARGE - SPECIES_RATICATE_ALOLAN_LARGE) + 1)
+// Add the amount of custom Totem forms to this constant to make sure they use the appropriate weight in battle. 
+// Don't bother making custom forms unless you want them to be caught.
+#define MAX_TOTEM_FORMS (MAX_TOTEM_FORMS_CANONICAL)
 
 
 // these forms are not "real forms" that need full movesets,

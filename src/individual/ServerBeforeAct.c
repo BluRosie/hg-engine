@@ -423,6 +423,10 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
                 newBS.PlayerMegaed = TRUE;
             }
 
+            if (IS_CLIENT_IN_ILLUSION(bsys, client_no)) {
+                gIllusionStruct.dontRemoveIllusion = TRUE;
+            }
+
             ctx->battlemon[client_no].form_no = GrabMegaTargetForm(ctx->battlemon[client_no].species, ctx->battlemon[client_no].item);
 
             // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9458017

@@ -44,7 +44,7 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
     typeLocal = GetAdjustedMoveTypeBasics(sp, move, atkAbility, type); // not just normalize, now others
 
     if ((atkAbility != ABILITY_MOLD_BREAKER)
-     && (defAbility == ABILITY_LEVITATE)
+     && (defAbility == ABILITY_LEVITATE || defAbility == ABILITY_EELEVATE)
      && (typeLocal == TYPE_GROUND)
      && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
      && (held_effect != HOLD_EFFECT_SPEED_DOWN_GROUNDED))

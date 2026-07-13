@@ -7,7 +7,7 @@ _000:
     Wait 
     WaitButtonABTime 30
 
-    // ability popup
+    AbilityPopup BATTLER_CATEGORY_MSG_TEMP
 
     // It doesn’t affect {0}...
     PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP

@@ -23,10 +23,12 @@
  */
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
+    // debug_printf("in btl_scr_cmd_33_statbuffchange %d\n", sp->state_client);
     int address1;
     int address2;
     int address3;
     int abilityBlockAddress;
+    int abilityBlockAbilityAddress;
     int stattochange;
     int statchange;
     int flag;
@@ -38,6 +40,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     address2 = read_battle_script_param(sp);
     address3 = read_battle_script_param(sp);
     abilityBlockAddress = read_battle_script_param(sp);
+    abilityBlockAbilityAddress = read_battle_script_param(sp);
 
     flag = 0;
 
@@ -206,14 +209,18 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             }
         }
     } else {
-        sp->moveConditionsFlags[sp->state_client].anyStatLoweredThisTurn = TRUE;
         // Cap stat change here so that message below is correct
         if (battlemon->states[STAT_ATTACK + stattochange] + statchange < 0) {
             // debug_printf("\n\nCapped\n\n");
             statchange = battlemon->states[STAT_ATTACK + stattochange];
         }
+        // debug_printf("sp->addeffect_flag: %d\n", sp->addeffect_flag);
         if ((sp->addeffect_flag & ADD_STATUS_NO_ABILITY) == 0) {
-            if (sp->attack_client != sp->state_client) {
+             // debug_printf("move check\n");
+            if (sp->attack_client != sp->state_client 
+                && sp->addeffect_type != ADD_EFFECT_ABILITY
+                && sp->addeffect_type != ADD_EFFECT_PRINT_WORK_ABILITY
+                ) {
                 // infiltrator bypasses mist
                 if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount && GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR) {
                     sp->mp.id = BATTLE_MSG_PROTECTED_BY_MIST;
@@ -260,10 +267,10 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                                || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_MINDS_EYE) == TRUE)
                                || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_ILLUMINATE) == TRUE))
                     && ((STAT_ATTACK + stattochange) == STAT_ACCURACY)) {
-                        sp->mp.id = BATTLE_MSG_ACCURACY_NOT_LOWERED;
-                        sp->mp.tag = TAG_NICKNAME;
-                        sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-                        flag = 3;
+                    sp->mp.id = BATTLE_MSG_ACCURACY_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    flag = 3;
                 } else if (battlemon->states[STAT_ATTACK + stattochange] == 0) {
                     sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
                     if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
@@ -323,23 +330,68 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             }
         }
         if (sp->addeffect_type == ADD_EFFECT_ABILITY && sp->battlerIdTemp == sp->state_client) {
+            //debug_printf("in self stat drop check\n");
             sp->mp.id = BATTLE_MSG_STAT_FELL;
             sp->mp.tag = TAG_NICKNAME_STAT;
             sp->mp.param[0] = CreateNicknameTag(sp, sp->battlerIdTemp);
             sp->mp.param[1] = STAT_ATTACK + stattochange;
-        } else if (sp->addeffect_type == ADD_EFFECT_ABILITY) {
-            sp->mp.id = BATTLE_MSG_STAT_FELL;
-            sp->mp.tag = TAG_NICKNAME_STAT;
-            sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-            sp->mp.param[1] = STAT_ATTACK + stattochange;
-        }
-        // certain abilities fuck it up.  this fixes them
-        else if (sp->addeffect_type == ADD_EFFECT_PRINT_WORK_ABILITY) {
-            sp->mp.id = BATTLE_MSG_STAT_FELL;
-            sp->mp.tag = TAG_NICKNAME_STAT;
-            sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
-            sp->mp.param[1] = STAT_ATTACK + stattochange;
         } else {
+            //debug_printf("in ability checks\n");
+
+            if (sp->addeffect_type == ADD_EFFECT_ABILITY || sp->addeffect_type == ADD_EFFECT_PRINT_WORK_ABILITY) {
+                BOOL prevented = FALSE;
+                if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount) {
+                    sp->mp.id = BATTLE_MSG_PROTECTED_BY_MIST;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_FLOWER_VEIL) != 0 && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
+                {
+                    sp->mp.id = BATTLE_MSG_FLOWER_VEIL_PETALS;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_CLEAR_BODY)
+                    || (GetBattlerAbility(sp, sp->state_client) == ABILITY_WHITE_SMOKE)
+                    || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY)) {
+                    sp->mp.id = BATTLE_MSG_STATS_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if (HeldItemHoldEffectGet(sp, sp->state_client) == HOLD_EFFECT_PREVENT_STAT_DROPS) {
+                    sp->mp.id = BATTLE_MSG_ITEM_PREVENTS_STAT_LOSS;
+                    sp->mp.tag = TAG_NICKNAME_ITEM_STAT;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    sp->mp.param[1] = CreateNicknameTag(sp, GetBattleMonItem(sp, sp->state_client));
+                    sp->mp.param[2] = STAT_ATTACK + stattochange;
+                    prevented = TRUE;
+                } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_HYPER_CUTTER) && ((STAT_ATTACK + stattochange) == STAT_ATTACK)) {
+                    sp->mp.id = BATTLE_MSG_ATTACK_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_BIG_PECKS) && ((STAT_ATTACK + stattochange) == STAT_DEFENSE)) {
+                    sp->mp.id = BATTLE_MSG_DEFENSE_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                } else if (((GetBattlerAbility(sp, sp->state_client) == ABILITY_KEEN_EYE)
+                               || (GetBattlerAbility(sp, sp->state_client) == ABILITY_MINDS_EYE)
+                               || (GetBattlerAbility(sp, sp->state_client) == ABILITY_ILLUMINATE))
+                    && ((STAT_ATTACK + stattochange) == STAT_ACCURACY)) {
+                    sp->mp.id = BATTLE_MSG_ACCURACY_NOT_LOWERED;
+                    sp->mp.tag = TAG_NICKNAME;
+                    sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
+                    prevented = TRUE;
+                }
+
+                if (prevented) {
+                    sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
+                    IncrementBattleScriptPtr(sp, abilityBlockAbilityAddress);
+                    return FALSE;
+                }
+            }
+
             switch (statchange) {
             case -1:
                 sp->mp.id = BATTLE_MSG_STAT_FELL;
@@ -360,6 +412,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         if (battlemon->states[STAT_ATTACK + stattochange] < 0) {
             battlemon->states[STAT_ATTACK + stattochange] = 0;
         }
+
+        sp->moveConditionsFlags[sp->state_client].anyStatLoweredThisTurn = TRUE;
     }
 
     // debug_printf("Final: %d\n", battlemon->states[STAT_ATTACK + stattochange]);

@@ -104,8 +104,8 @@
 #define NATURE_CAREFUL (23)
 #define NATURE_QUIRKY  (24)
 
-// start of the overworld tags for mon followers
-#define MON_OVERWORLD_TAG_START (1050)
+// start of the overworld tags for mon followers - really high value i should never reach
+#define MON_OVERWORLD_TAG_START (2500)
 #define OW_FEMALE_MASK 0x8000
 
 #endif

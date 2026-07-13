@@ -12,6 +12,22 @@ enum {
     TRAINER_TEXT_ENTRY_SIZE = 4,
 };
 
+static uint16_t EncodeNicknameChar(char c) {
+    if (c >= '0' && c <= '9') {
+        return 0x0121 + (uint16_t)(c - '0');
+    }
+
+    if (c >= 'A' && c <= 'Z') {
+        return 0x012B + (uint16_t)(c - 'A');
+    }
+
+    if (c >= 'a' && c <= 'z') {
+        return 0x0145 + (uint16_t)(c - 'a');
+    }
+
+    return 0;
+}
+
 static void BuildRawTextPath(char *path, size_t pathSize, const char *dir, int index) {
     size_t dirLen;
 
@@ -295,9 +311,30 @@ static void WriteTrainerPartyMember(const char *dir, int index, const TrainerDat
                 }
             }
             if (mon->additionalFlags & TRAINER_DATA_EXTRA_TYPE_NICKNAME) {
-                for (j = 0; j < 11; j++) {
-                    WriteLe16(&data[size], mon->nickname[j]);
-                    size += 2;
+                if (mon->nicknameStr != NULL) {
+                    int nicknameLen = strlen(mon->nicknameStr);
+                    if (nicknameLen > 10) {
+                        fprintf(stderr, "Nickname \"%s\" is too long; max is 10 characters\n", mon->nicknameStr);
+                        exit(EXIT_FAILURE);
+                    }
+
+                    for (j = 0; j < 11; j++) {
+                        if (j < nicknameLen) {
+                            WriteLe16(&data[size], EncodeNicknameChar(mon->nicknameStr[j]));
+                            size += 2;
+                        } else if (j == nicknameLen) {
+                            WriteLe16(&data[size], 0xFFFF);
+                            size += 2;
+                        } else {
+                            WriteLe16(&data[size], 0);
+                            size += 2;
+                        }
+                    }
+                } else {
+                    for (j = 0; j < 11; j++) {
+                        WriteLe16(&data[size], mon->nickname[j]);
+                        size += 2;
+                    }
                 }
             }
         }

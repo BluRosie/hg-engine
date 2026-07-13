@@ -408,8 +408,9 @@
 #define MOVE_EFFECT_FINAL_GAMBIT                            402
 #define MOVE_EFFECT_RECOIL_HALF_MAX_HP                      403
 #define MOVE_EFFECT_GIVE_HELD_ITEM                          404
+#define MOVE_EFFECT_IGNORE_PROTECT                          405
 
-#define MAX_BASE_MOVE_EFFECT_NUM                            404
+#define MAX_BASE_MOVE_EFFECT_NUM                            405
 
 // define your custom move effects below like this
 // #define MOVE_EFFECT_CUSTOM_1 (MAX_BASE_MOVE_EFFECT_NUM + 1)

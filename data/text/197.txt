@@ -639,9 +639,9 @@ The opposing {STRVAR_1 1, 0, 0} restored HP\nusing its {STRVAR_1 5, 1, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade {STRVAR_1 6, 2, 0} useless!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 6, 2, 0}\fuseless!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made {STRVAR_1 6, 2, 0}\fuseless!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nmade it the {STRVAR_1 15, 2, 0} type!
-The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
-The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} made it the\f{STRVAR_1 15, 2, 0} type!
+{STRVAR_1 1, 0, 0}’s type\nchanged to {STRVAR_1 15, 2, 0}!
+The wild {STRVAR_1 1, 0, 0}’s type\nchanged to {STRVAR_1 15, 2, 0}!
+The opposing {STRVAR_1 1, 0, 0}’s type\nchanged to {STRVAR_1 15, 2, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents paralysis!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents paralysis!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents paralysis!
@@ -1468,7 +1468,7 @@ Fog crept up as thick as soup!
 A veil of water restored\n{STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe wild {STRVAR_1 1, 0, 0}’s HP!
 A veil of water restored\nthe opposing {STRVAR_1 1, 0, 0}’s HP!
-The effects of the weather\ndisappeared.
+The effects of the weather disappeared.
 {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The wild {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
 The opposing {STRVAR_1 1, 0, 0}\nis protected by the Psychic Terrain!
@@ -1755,3 +1755,26 @@ The wild {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} trapped\nthe wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!
+You are challenged by Totem\n{STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
+The wild {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
+The opposing {STRVAR_1 1, 0, 0}’s aura flared\nto life!\fIts {STRVAR_1 13, 1, 0} rose!
+{STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
+The wild {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts stats rose!
+The opposing {STRVAR_1 1, 0, 0}’s aura flared\nto life!\fIts stats rose!
+Can’t flee this fight!
+{STRVAR_1 1, 0, 0} couldn’t\nfully protect itself and got hurt!
+The wild {STRVAR_1 1, 0, 0} couldn’t\nfully protect itself and got hurt!
+The opposing {STRVAR_1 1, 0, 0} couldn’t\nfully protect itself and got hurt!
+{STRVAR_1 1, 0, 0} was cured of its\npoisoning!
+The wild {STRVAR_1 1, 0, 0} was cured\nof its poisoning!
+The opposing {STRVAR_1 1, 0, 0} was cured\nof its poisoning!
+{STRVAR_1 1, 0, 0}’s burn was cured!
+The wild {STRVAR_1 1, 0, 0}’s burn was\ncured!
+The opposing {STRVAR_1 1, 0, 0}’s burn\nwas cured!
+{STRVAR_1 1, 0, 0} was cured of paralysis!
+The wild {STRVAR_1 1, 0, 0} was cured of\nparalysis!
+The opposing {STRVAR_1 1, 0, 0} was cured\nof paralysis!
+{STRVAR_1 1, 0, 0} got over its\ninfatuation.
+The wild {STRVAR_1 1, 0, 0} got over its\ninfatuation.
+The opposing {STRVAR_1 1, 0, 0} got over\nits infatuation.

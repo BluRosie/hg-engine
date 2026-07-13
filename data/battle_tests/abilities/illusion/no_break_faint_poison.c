@@ -25,16 +25,27 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
-    .enemyParty = {
+    .enemyParty = { {
+                        .species = SPECIES_ZOROARK,
+                        .level = 1,
+                        .form = 1,
+                        .ability = ABILITY_ILLUSION,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = 1,
+                        .status = STATUS_POISON,
+                        .condition2 = 0,
+                        .moveEffectFlags = 0,
+                    },
         {
-            .species = SPECIES_ZOROARK,
-            .level = 1,
-            .form = 1,
-            .ability = ABILITY_ILLUSION,
+            .species = SPECIES_RAICHU,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_STATIC,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
-            .status = STATUS_POISON,
+            .hp = FULL_HP,
+            .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
@@ -52,35 +63,31 @@ BEGIN_TEST
         },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
-    .playerScript = {
-        {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-        }
-    },
-    .enemyScript = {
-        {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-        }
-    },
+    .playerScript = { {
+        { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+    } },
+    .enemyScript = { {
+        { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+        { ACTION_NONE, 0 },
+    } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pikachu was hurt by its poisoning!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pikachu fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Raichu!" },
     }
 }
 END_TEST

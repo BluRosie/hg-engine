@@ -24659,7 +24659,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Mighty Cleave",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_IGNORE_PROTECT,
             .split = SPLIT_PHYSICAL,
             .power = 95,
             .type = TYPE_ROCK,

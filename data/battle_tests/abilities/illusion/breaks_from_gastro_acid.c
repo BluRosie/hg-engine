@@ -82,7 +82,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Cradily used Gastro Acid!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro's Ability was suppressed!" },
-        // i do not think popup happens because the ability is suppressed.  message still plays but that can be changed too
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zoroark's illusion wore off!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zoroark used Sleep Talk!" },
     },
