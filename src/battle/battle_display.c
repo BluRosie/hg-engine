@@ -2,9 +2,9 @@
 #include "../../include/config.h"
 #include "../../include/constants/file.h"
 #include "../../include/pokepic.h"
+#include "../../include/sound.h"
 #include "../../include/task.h"
 #include "../../include/types.h"
-#include "../../include/sound.h"
 
 typedef struct FaintingSequenceData {
     struct BattleSystem *battleSys;
@@ -23,6 +23,15 @@ typedef struct FaintingSequenceData {
     u16 isTransformed;
 } FaintingSequenceData;
 
+static BOOL ShouldPlayVictoryPoseForBattler(struct BattleSystem *battleSystem, struct BattleStruct *battleCtx, u32 battler)
+{
+    if (!IsBattlerSlotValid(battleSystem, battler)) {
+        return FALSE;
+    }
+
+    return !(battleCtx->no_reshuffle_client & No2Bit(battler));
+}
+
 void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
 {
     FaintingSequenceData *faintingSequenceData = data;
@@ -40,7 +49,7 @@ void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
         if (IsClientEnemy(battleSystem, faintingSequenceData->battler)) {
             // victory pose for player side mons
             for (u32 i = BATTLER_PLAYER; i <= BATTLER_PLAYER2; i += 2) {
-                if (!(battleCtx->no_reshuffle_client & No2Bit(i))) {
+                if (ShouldPlayVictoryPoseForBattler(battleSystem, battleCtx, i)) {
                     Pokepic *pokepic = &monSpriteMan->pics[i];
                     Pokepic_StartAnim(pokepic);
                     sub_0207294C(
@@ -57,7 +66,7 @@ void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
         } else {
             // victory pose for enemy side mons
             for (u32 i = BATTLER_ENEMY; i <= BATTLER_ENEMY2; i += 2) {
-                if (!(battleCtx->no_reshuffle_client & No2Bit(i))) {
+                if (ShouldPlayVictoryPoseForBattler(battleSystem, battleCtx, i)) {
                     Pokepic *pokepic = &monSpriteMan->pics[i];
                     Pokepic_StartAnim(pokepic);
                     sub_0207294C(
@@ -79,8 +88,21 @@ void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
         return;
     }
 
-    // if we reach our fake "11" state, decrement back to 10 before calling the original task
+    // if we reach our fake "11" state, decrement back to 10 before calling the original task for cleanup
     if (faintingSequenceData->state == 11) {
+        struct BattleSystem *battleSystem = faintingSequenceData->battleSys;
+        struct BattleStruct *battleCtx = battleSystem->sp;
+        void *monAnimMan = ov12_0223B750(battleSystem);
+
+        BOOL side = IsClientEnemy(battleSystem, faintingSequenceData->battler);
+        u32 firstBattler = side ? BATTLER_PLAYER : BATTLER_ENEMY;
+        for (u32 i = firstBattler; i <= firstBattler + 2; i += 2) {
+            if (ShouldPlayVictoryPoseForBattler(battleSystem, battleCtx, i) && !sub_02017068(monAnimMan, i)) {
+                // if any pending tasks then don't run the original task yet
+                return;
+            }
+        }
+
         faintingSequenceData->state--;
     }
 #endif // PLAY_MON_VICTORY_POSE
