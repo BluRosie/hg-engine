@@ -38,6 +38,9 @@ MSGDATA_NARC = "a/0/2/7"
 # the macro table the build assembles the dumped scripts back with
 SCRIPT_MACROS = "asm/include/scriptmacros.inc"
 
+# each text archive's original 16-bit key, so msgenc re-encrypts headers exactly as the rom had them
+MSGDATA_KEYS = "data/text/keys.csv"
+
 # script narc subfiles whose tracked sources are engine customizations, not dumps - see the module docstring
 ENGINE_MANAGED_SCRIPTS = {"0003", "0953"}
 
@@ -1046,6 +1049,7 @@ def dump_text(msg_members, repo_root, msgenc, charmap, include_generated):
     os.makedirs(os.path.join(repo_root, "data", "text"), exist_ok = True)
 
     skipped = 0
+    keys = {}
 
     for i, member in enumerate(msg_members):
         if i in GENERATED_TEXT_ARCHIVES and not include_generated:
@@ -1059,9 +1063,18 @@ def dump_text(msg_members, repo_root, msgenc, charmap, include_generated):
 
         out_file = os.path.join(repo_root, "data", "text", f"{i:03d}.txt")
 
-        subprocess.run([msgenc, "-d", "-c", charmap, member_file, out_file], check = True)
+        proc = subprocess.run([msgenc, "-d", "-c", charmap, member_file, out_file],
+                              check = True, capture_output = True, text = True)
+
+        if m := re.search(r"^Key:\s*([0-9a-fA-F]+)$", proc.stdout, re.M):
+            keys[i] = int(m[1], 16)
+        else:
+            raise ValueError(f"msgenc -d printed no key for text archive {i:03d}")
 
     shutil.rmtree(workdir)
+
+    with open(os.path.join(repo_root, MSGDATA_KEYS), "w", newline = "") as fp:
+        csv.writer(fp).writerows([f"{i:03d}", f"0x{key:04x}"] for i, key in sorted(keys.items()))
 
     print(f"dumped {len(msg_members) - skipped} text archives to data/text/" + (f" (skipped {skipped} build-generated archives)" if skipped else ""))
 

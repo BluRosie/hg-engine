@@ -18,8 +18,12 @@ MSGDATA_DIR := $(BUILD)/text
 MSGDATA_NARC := $(BUILD_NARC)/msg_data.narc
 MSGDATA_TARGET := $(FILESYS)/a/0/2/7
 MSGDATA_DEPENDENCIES_DIR := data/text
-MSGDATA_DEPENDENCIES := $(wildcard $(MSGDATA_DEPENDENCIES_DIR)/*)
+
+# each archive's original encryption key so msgenc reproduces the rom's headers
+MSGDATA_KEYS := $(MSGDATA_DEPENDENCIES_DIR)/keys.csv
+MSGDATA_DEPENDENCIES := $(filter-out $(MSGDATA_KEYS),$(wildcard $(MSGDATA_DEPENDENCIES_DIR)/*))
 MSGDATA_COMPILETIME_DEPENDENCIES_DIR := $(BUILD)/rawtext
+
 #MSGDATA_COMPILETIME_DEPENDENCIES := $(wildcard $(MSGDATA_COMPILETIME_DEPENDENCIES_DIR)/*.txt)
 CHARMAP := charmap.txt
 
@@ -833,8 +837,12 @@ clean_trgfx:
 	rm -rf $(TRAINER_GFX_DIR) $(TRAINER_GFX_NARC) $(TRAINER_GFX_BACK_DIR) $(TRAINER_GFX_BACK_NARC)
 
 
-$(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES)
+$(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES) $(MSGDATA_KEYS)
 	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
 	for file in $(MSGDATA_DEPENDENCIES); do $(PYTHON) tools/source/dumptools/validate_text_archive.py $(CHARMAP) $$file || exit 1; done
-	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
+	for file in $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES); do \
+		archive=$$(basename $$file .txt); \
+		key=$$(sed -n "s/^$$archive,//p" $(MSGDATA_KEYS)); \
+		$(MSGENC) -e -c $(CHARMAP) $${key:+-k $$key} $$file $(MSGDATA_DIR)/7_$$archive; \
+	done
 	$(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
