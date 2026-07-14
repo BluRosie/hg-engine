@@ -1,0 +1,60 @@
+.ifndef SCR_SEQ_T25_H_
+.definelabel SCR_SEQ_T25_H_, 0
+
+.equ _EV_scr_seq_T25_000, 0
+.equ _EV_scr_seq_T25_001, 1
+.equ _EV_scr_seq_T25_002, 2
+.equ _EV_scr_seq_T25_003, 3
+.equ _EV_scr_seq_T25_004, 4
+.equ _EV_scr_seq_T25_005, 5
+.equ _EV_scr_seq_T25_006, 6
+.equ _EV_scr_seq_T25_007, 7
+.equ _EV_scr_seq_T25_008, 8
+.equ _EV_scr_seq_T25_009, 9
+.equ _EV_scr_seq_T25_010, 10
+.equ _EV_scr_seq_T25_011, 11
+.equ _EV_scr_seq_T25_012, 12
+.equ _EV_scr_seq_T25_013, 13
+.equ _EV_scr_seq_T25_014, 14
+.equ _EV_scr_seq_T25_015, 15
+.equ _EV_scr_seq_T25_016, 16
+.equ _EV_scr_seq_T25_017, 17
+.equ _EV_scr_seq_T25_018, 18
+.equ _EV_scr_seq_T25_019, 19
+.equ _EV_scr_seq_T25_020, 20
+.equ _EV_scr_seq_T25_021, 21
+.equ _EV_scr_seq_T25_022, 22
+.equ _EV_scr_seq_T25_023, 23
+.equ _EV_scr_seq_T25_024, 24
+.equ _EV_scr_seq_T25_025, 25
+.equ _EV_scr_seq_T25_026, 26
+.equ _EV_scr_seq_T25_027, 27
+.equ _EV_scr_seq_T25_028, 28
+.equ _EV_scr_seq_T25_029, 29
+.equ _EV_scr_seq_T25_030, 30
+.equ _EV_scr_seq_T25_031, 31
+.equ _EV_scr_seq_T25_032, 32
+
+.equ obj_T25_gswoman2, 0
+.equ obj_T25_gsoldman1, 1
+.equ obj_T25_gsboy1, 2
+.equ obj_T25_gsboy1_2, 3
+.equ obj_T25_rocketm, 4
+.equ obj_T25_gsmiddleman1, 5
+.equ obj_T25_gswoman2_2, 6
+.equ obj_T25_gsgirl1, 7
+.equ obj_T25_rocketm_2, 8
+.equ obj_T25_rocketm_3, 9
+.equ obj_T25_rocketm_4, 10
+.equ obj_T25_rocketm_5, 11
+.equ obj_T25_rocketm_6, 12
+.equ obj_T25_rocketm_7, 13
+.equ obj_T25_rocketm_8, 14
+.equ obj_T25_rocketm_9, 15
+.equ obj_T25_rocketm_10, 16
+.equ obj_T25_rocketm_11, 17
+.equ obj_T25_rocketm_12, 18
+.equ obj_T25_gswoman2_3, 19
+.equ obj_T25_gswoman2_4, 20
+
+.endif //SCR_SEQ_T25_H_
