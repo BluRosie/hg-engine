@@ -657,46 +657,80 @@ NARC_FILES += $(PW_POKEICON_NARC)
 REQUIRED_DIRECTORIES += $(PW_POKEICON_DIR) $(PW_POKEICON_ART_DIR)
 
 
+# field scripts and zone event data are plain GNU as sources
+# they only emit pc-relative references, so linker.ld's nonzero base does not reach the output
+SCRIPT_LD := $(C_SUBDIR)/linker.ld
+SCRIPT_INCLUDES := $(wildcard asm/include/*.inc) $(SCRIPT_LD)
+
 SCR_SEQ_DIR := $(BUILD)/a012
+SCR_SEQ_OBJ_DIR := $(BUILD)/scr_seq
 SCR_SEQ_NARC := $(BUILD_NARC)/scr_seq.narc
 SCR_SEQ_TARGET := $(FILESYS)/a/0/1/2
-SCR_SEQ_DEPENDENCIES_DIR := armips/scr_seq
-SCR_SEQ_DEPENDENCIES := $(SCR_SEQ_DEPENDENCIES_DIR)/*.s
+SCR_SEQ_DEPENDENCIES_DIR := asm/scr_seq
+SCR_SEQ_SRCS := $(sort $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.s))
+SCR_SEQ_DEPS := $(SCRIPT_INCLUDES) $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.inc)
 
-$(SCR_SEQ_NARC): $(SCR_SEQ_DEPENDENCIES)
-	$(NARCHIVE) extract $(SCR_SEQ_TARGET) -o $(SCR_SEQ_DIR) -nf
-	for file in $^; do $(ARMIPS) $$file || exit 1; done
+# scr_seq_0168_R01.s -> 2_168, scr_seq_00003_commonscript.s -> 2_003
+SCR_SEQ_MEMBERS := $(shell for f in $(SCR_SEQ_SRCS); do \
+	printf '2_%03d ' "$$(basename $$f .s | sed -E 's/^scr_seq_0*([0-9]+).*/\1/')"; done)
+SCR_SEQ_OBJS := $(addprefix $(SCR_SEQ_DIR)/,$(SCR_SEQ_MEMBERS))
+
+# one rule per script so that a single edited script only reassembles itself, and so that -j works
+define SCR_SEQ_RULE
+$(SCR_SEQ_DIR)/$(2): $(1) $$(SCR_SEQ_DEPS) | $(SCR_SEQ_DIR) $(SCR_SEQ_OBJ_DIR)
+	$$(AS) $$(ASFLAGS) -I. -c $(1) -o $(SCR_SEQ_OBJ_DIR)/$(2).o
+	$$(LD) -T $$(SCRIPT_LD) -o $(SCR_SEQ_OBJ_DIR)/$(2).elf $(SCR_SEQ_OBJ_DIR)/$(2).o
+	$$(OBJCOPY) -O binary $(SCR_SEQ_OBJ_DIR)/$(2).elf $$@
+endef
+$(foreach i,$(shell seq 1 $(words $(SCR_SEQ_SRCS))),\
+	$(eval $(call SCR_SEQ_RULE,$(word $(i),$(SCR_SEQ_SRCS)),$(word $(i),$(SCR_SEQ_MEMBERS)))))
+
+$(SCR_SEQ_NARC): $(SCR_SEQ_OBJS)
 	$(NARCHIVE) create $@ $(SCR_SEQ_DIR) -nf
 
 # for convenience, rebuild SCR_SEQ_NARC every build so that DSPRE changes are not overwritten
 .PHONY: $(SCR_SEQ_NARC)
 
 NARC_FILES += $(SCR_SEQ_NARC)
+REQUIRED_DIRECTORIES += $(SCR_SEQ_DIR) $(SCR_SEQ_OBJ_DIR)
 
 
 ZONE_EVENT_DIR := $(BUILD)/a032
+ZONE_EVENT_OBJ_DIR := $(BUILD)/zone_event
 ZONE_EVENT_NARC := $(BUILD_NARC)/zone_event.narc
 ZONE_EVENT_TARGET := $(FILESYS)/a/0/3/2
-ZONE_EVENT_DEPENDENCIES_DIR := armips/eventdata/zone_event
+ZONE_EVENT_DEPENDENCIES_DIR := data/eventdata/zone_event
 ZONE_EVENT_JSONS := $(sort $(wildcard $(ZONE_EVENT_DEPENDENCIES_DIR)/*.json))
 ZONE_EVENT_TEMPL := $(ZONE_EVENT_DEPENDENCIES_DIR).json.txt
-ZONE_EVENT_S_DIR := $(BUILD)/zone_event
+ZONE_EVENT_DEPS := $(SCRIPT_INCLUDES) $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.inc) $(ZONE_EVENT_TEMPL)
 
-$(ZONE_EVENT_NARC): $(ZONE_EVENT_JSONS) $(ZONE_EVENT_TEMPL)
-	rm -rf $(ZONE_EVENT_S_DIR)
-	@mkdir -p $(ZONE_EVENT_S_DIR)
-	@for file in $(ZONE_EVENT_JSONS); do \
-		base=$$(basename $$file .json); \
-		$(JSONPROC) $$file $(ZONE_EVENT_TEMPL) $(ZONE_EVENT_S_DIR)/$$base.s || exit 1; \
-	done
-	$(NARCHIVE) extract $(ZONE_EVENT_TARGET) -o $(ZONE_EVENT_DIR) -nf
-	for file in $(ZONE_EVENT_S_DIR)/*.s; do [ -e "$$file" ] || continue; $(ARMIPS) $$file || exit 1; done
+# the json is already named after its NARC member: 006_R01.json -> 2_006
+ZONE_EVENT_MEMBERS := $(foreach json,$(ZONE_EVENT_JSONS),2_$(firstword $(subst _, ,$(basename $(notdir $(json))))))
+ZONE_EVENT_OBJS := $(addprefix $(ZONE_EVENT_DIR)/,$(ZONE_EVENT_MEMBERS))
+
+# jsonproc renders each map's event data to an asm source, which then assembles like a script
+define ZONE_EVENT_RULE
+$(ZONE_EVENT_DIR)/$(2): $(1) $$(ZONE_EVENT_DEPS) $$(JSONPROC) | $(ZONE_EVENT_DIR) $(ZONE_EVENT_OBJ_DIR)
+	$$(JSONPROC) $(1) $$(ZONE_EVENT_TEMPL) $(ZONE_EVENT_OBJ_DIR)/$(2).s
+	$$(AS) $$(ASFLAGS) -I. -c $(ZONE_EVENT_OBJ_DIR)/$(2).s -o $(ZONE_EVENT_OBJ_DIR)/$(2).o
+	$$(LD) -T $$(SCRIPT_LD) -o $(ZONE_EVENT_OBJ_DIR)/$(2).elf $(ZONE_EVENT_OBJ_DIR)/$(2).o
+	$$(OBJCOPY) -O binary $(ZONE_EVENT_OBJ_DIR)/$(2).elf $$@
+endef
+$(foreach i,$(shell seq 1 $(words $(ZONE_EVENT_JSONS))),\
+	$(eval $(call ZONE_EVENT_RULE,$(word $(i),$(ZONE_EVENT_JSONS)),$(word $(i),$(ZONE_EVENT_MEMBERS)))))
+
+$(ZONE_EVENT_NARC): $(ZONE_EVENT_OBJS)
 	$(NARCHIVE) create $@ $(ZONE_EVENT_DIR) -nf
 
 # for convenience, rebuild ZONE_EVENT_NARC every build so that DSPRE changes are not overwritten
 .PHONY: $(ZONE_EVENT_NARC)
 
 NARC_FILES += $(ZONE_EVENT_NARC)
+REQUIRED_DIRECTORIES += $(ZONE_EVENT_DIR) $(ZONE_EVENT_OBJ_DIR)
+
+
+$(SCR_SEQ_DIR) $(SCR_SEQ_OBJ_DIR) $(ZONE_EVENT_DIR) $(ZONE_EVENT_OBJ_DIR):
+	@mkdir -p $@
 
 
 HEADBUTT_NARC := $(BUILD_NARC)/headbutt.narc

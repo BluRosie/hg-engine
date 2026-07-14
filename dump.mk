@@ -64,4 +64,4 @@ dumprom: check_dump_rom
 # Dumps field scripts, zone event data, and message text from an explicit ROM.
 dump_scripts: check_dump_rom $(VENV_ACTIVATE) $(MSGENC)
 	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_event_scripts.py "$(DUMP_ROM)" $(DUMP_FLAGS)
-	@echo "Done. Review the diff in armips/scr_seq/, armips/eventdata/zone_event/, and data/text/ with git."
+	@echo "Done. Review the diff in asm/scr_seq/, data/eventdata/zone_event/, and data/text/ with git."

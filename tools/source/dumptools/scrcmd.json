@@ -5373,13 +5373,13 @@
     "argtypes": {
         "var": {
             "sources": [
-                "armips/include/vars.s"
+                "asm/include/vars.inc"
             ],
             "prefix": "VAR_"
         },
         "flag": {
             "sources": [
-                "armips/include/flags.s"
+                "asm/include/flags.inc"
             ],
             "prefix": "FLAG_"
         },
@@ -5403,20 +5403,20 @@
         },
         "sound": {
             "sources": [
-                "armips/include/soundeffects.s"
+                "asm/include/soundeffects.inc"
             ],
             "prefix": "SEQ_"
         },
         "ribbon": {
             "sources": [
-                "armips/include/scriptmacros.s"
+                "asm/include/scriptmacros.inc"
             ],
             "prefix": "RIBBON_"
         },
         "stdscr": {
             "sources": [
                 "asm/include/std_scripts.inc",
-                "armips/include/scriptmacros.s"
+                "asm/include/scriptmacros.inc"
             ],
             "prefix": "std_"
         },
@@ -5440,7 +5440,7 @@
         },
         "phone_contact": {
             "sources": [
-                "armips/include/scriptmacros.s"
+                "asm/include/scriptmacros.inc"
             ],
             "prefix": "PHONE_CONTACT_"
         },
@@ -5452,19 +5452,19 @@
         },
         "badge": {
             "sources": [
-                "armips/include/scriptmacros.s"
+                "asm/include/scriptmacros.inc"
             ],
             "prefix": "BADGE_"
         },
         "player_transition": {
             "sources": [
-                "armips/include/scriptmacros.s"
+                "asm/include/scriptmacros.inc"
             ],
             "prefix": "PLAYER_TRANSITION_"
         },
         "direction": {
             "sources": [
-                "armips/include/scriptmacros.s"
+                "asm/include/scriptmacros.inc"
             ],
             "prefix": "DIR_"
         },

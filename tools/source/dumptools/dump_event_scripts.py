@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Reads the script narc (a/0/1/2), the zone event narc (a/0/3/2), and the message narc (a/0/2/7) straight out of the ROM and regenerates armips/scr_seq/scr_seq_*.s, armips/scr_seq/event_*.inc, armips/eventdata/zone_event/*.json, and data/text/*.txt.
+Reads the script narc (a/0/1/2), the zone event narc (a/0/3/2), and the message narc (a/0/2/7) straight out of the ROM and regenerates asm/scr_seq/scr_seq_*.s, asm/scr_seq/event_*.inc, data/eventdata/zone_event/*.json, and data/text/*.txt.
 
 The mapping between narc subfiles and source file names ships in event_mapping.csv and the script command table lives in scrcmd.json. Symbol names are resolved from the repo's own constant includes. Command names, constants, and event data layouts follow the pret/pokeheartgold decompilation (https://github.com/pret/pokeheartgold), which this tool was templated on.
 
@@ -44,7 +44,7 @@ GENERATED_TEXT_ARCHIVES = {
 
 _CONSTANT_PATTERNS = (
     r"^\s*\.(?:equ|definelabel)\s+({prefix}\w+)\s*,\s*(\d+|0x[0-9a-fA-F]+)\s*$", # .equ NAME, VALUE / .definelabel NAME, VALUE (asm/include/*.inc)
-    r"^\s*({prefix}\w+)\s+equ\s+(\d+|0x[0-9a-fA-F]+)\s*$", # NAME equ VALUE (armips/include/*.s)
+    r"^\s*({prefix}\w+)\s+equ\s+(\d+|0x[0-9a-fA-F]+)\s*$", # NAME equ VALUE (armips syntax)
     r"^#define\s+({prefix}\w+)\s+(\d+|0x[0-9a-fA-F]+)\s*$", # #define NAME VALUE
 )
 
@@ -215,10 +215,12 @@ class ScriptCommandsData:
         return copy.deepcopy(cls._stdscr_plain)
 
 COMMON_INCLUDES = (
-    '.include "armips/include/scriptmacros.s"\n'
-    '.include "armips/include/flags.s"\n'
-    '.include "armips/include/soundeffects.s"\n'
-    '.include "armips/include/vars.s"\n'
+    '.include "asm/include/interop_macros.inc"\n'
+    '\n'
+    '.include "asm/include/scriptmacros.inc"\n'
+    '.include "asm/include/flags.inc"\n'
+    '.include "asm/include/soundeffects.inc"\n'
+    '.include "asm/include/vars.inc"\n'
     '\n'
     '.include "asm/include/battle_constants.inc"\n'
     '.include "asm/include/events.inc"\n'
@@ -234,6 +236,9 @@ COMMON_INCLUDES = (
     '.include "asm/include/std_scripts.inc"\n'
     '.include "asm/include/trainers.inc"\n'
 )
+
+# scripts are data, and gas pads alignment in a code section with thumb nops instead of zeroes
+SECTION = ".data\n"
 
 class NormalScriptParser:
     """
@@ -399,7 +404,7 @@ class NormalScriptParser:
             return id_
 
         ret = {
-            "header": f"armips/scr_seq/{self.inc_name}",
+            "header": f"asm/scr_seq/{self.inc_name}",
             "eventId": self.event_id,
         }
 
@@ -697,7 +702,7 @@ class NormalScriptParser:
             if pc == nextpc:
                 return s
 
-        # remaining gap bytes are dead padding and are dropped; .align 4 re-pads on assembly
+        # remaining gap bytes are dead padding and are dropped; .balign 4 re-pads on assembly
         if pc & 15:
             gap = min(16 - (pc & 15), nextpc - pc)
             pc += gap
@@ -717,7 +722,7 @@ class NormalScriptParser:
 
         for x, y in zip(labels[:-1], labels[1:]):
             if (label := self.make_label(x)) is not None:
-                s += f"\t.align 4\n{label}:\n"
+                s += f"\t.balign 4\n{label}:\n"
 
             s += self.make_gap_internal(x, y)
 
@@ -734,14 +739,11 @@ class NormalScriptParser:
         if not self.is_parsed:
             return repr(self)
 
-        s = ".nds\n"
-        s += ".thumb\n"
-        s += "\n"
-        s += COMMON_INCLUDES
+        s = COMMON_INCLUDES
         s += "\n"
 
         if self.event_id:
-            s += f'.include "armips/scr_seq/{self.inc_name}"\n'
+            s += f'.include "asm/scr_seq/{self.inc_name}"\n'
             s += "\n\n"
         else:
             s += "\n"
@@ -750,7 +752,7 @@ class NormalScriptParser:
             s += f"// text archive to grab from: {self.text}.txt\n"
 
         s += "\n"
-        s += f'.create "build/a012/2_{self.script[1:]}", 0\n'
+        s += SECTION
         s += "\n\n"
 
         for i, addr in enumerate(self.exported):
@@ -790,9 +792,7 @@ class NormalScriptParser:
                 if nextpc != lines[i + 1][0]:
                     s += self.make_gap(nextpc, lines[i + 1][0])
 
-        s += "\t.align 4\n"
-        s += "\n\n"
-        s += ".close\n"
+        s += "\t.balign 4\n"
 
         for pattern, replacement in self.macros:
             s = pattern.sub(replacement, s)
@@ -883,17 +883,11 @@ class SpecialScriptParser:
         if not self.is_parsed:
             return repr(self)
 
-        s = ".nds\n"
-        s += ".thumb\n"
+        s = COMMON_INCLUDES
         s += "\n"
-        s += COMMON_INCLUDES
-        s += "\n"
-        s += f'.include "armips/scr_seq/{self.inc_name}"\n'
+        s += f'.include "asm/scr_seq/{self.inc_name}"\n'
         s += "\n\n"
-
-        if self.script is not None:
-            s += f'.create "build/a012/2_{self.script[1:]}", 0\n'
-
+        s += SECTION
         s += "\n\n"
 
         for kind, val1, val2 in self.table:
@@ -901,7 +895,7 @@ class SpecialScriptParser:
                 s += f"\t.byte 1\n\t.word {self.prefix}_map_scripts_2-.-4\n"
             else:
                 val1 = self.get_script(val1)
-                s += f"\t.byte {kind}\n\t.halfword {val1}, {val2}\n"
+                s += f"\t.byte {kind}\n\t.hword {val1}, {val2}\n"
 
         s += "\t.byte 0\n\n"
 
@@ -910,13 +904,11 @@ class SpecialScriptParser:
 
             for flex1, flex2, script in self.init_vars:
                 script = self.get_script(script)
-                s += f"\t.halfword {self.vars.get(flex1, flex1)}, {self.vars.get(flex2, flex2)}, {script}\n"
+                s += f"\t.hword {self.vars.get(flex1, flex1)}, {self.vars.get(flex2, flex2)}, {script}\n"
 
-            s += "\t.halfword 0\n\n"
+            s += "\t.hword 0\n\n"
 
-        s += "\t.align 4\n"
-        s += "\n\n"
-        s += ".close\n"
+        s += "\t.balign 4\n"
 
         return s
 
@@ -957,8 +949,14 @@ class MapParser:
 
         return self
 
+    def _open(self, relpath):
+        path = os.path.join(self.repo_root, relpath)
+        os.makedirs(os.path.dirname(path), exist_ok = True)
+
+        return open(path, "w", encoding = "utf-8", newline = "\n")
+
     def _write(self, relpath, content):
-        with open(os.path.join(self.repo_root, relpath), "w", encoding = "utf-8", newline = "\n") as ofp:
+        with self._open(relpath) as ofp:
             ofp.write(content)
 
     def dump_script_asm(self):
@@ -969,13 +967,13 @@ class MapParser:
     def dump_script_header(self):
         # only written when something will include it: the script itself (when the map has zone event data) or the trigger table
         if self.events or self.header:
-            self._write(os.path.join("armips/scr_seq", self.inc_name), self.parser.make_inc())
+            self._write(os.path.join("asm/scr_seq", self.inc_name), self.parser.make_inc())
 
         return self
 
     def dump_events_json(self):
         if self.parser.events_data is not None:
-            with open(os.path.join(self.repo_root, self.events), "w", encoding = "utf-8", newline = "\n") as ofp:
+            with self._open(self.events) as ofp:
                 json.dump(self.parser.events_data, ofp, indent = 2)
 
         return self
@@ -1079,7 +1077,7 @@ def main(argv = None):
 
             row_parser.parse().dump()
 
-        print(f"dumped {len(rows) - len(skipped)} maps to armips/scr_seq/ and armips/eventdata/zone_event/")
+        print(f"dumped {len(rows) - len(skipped)} maps to asm/scr_seq/ and data/eventdata/zone_event/")
 
         if skipped:
             print(f'skipped engine-managed scripts: {", ".join(skipped)} (--include-engine-managed overrides)')

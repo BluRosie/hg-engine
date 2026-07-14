@@ -1,0 +1,79 @@
+{{ doNotModifyHeader }}
+
+.include "asm/include/interop_macros.inc"
+
+.include "asm/include/flags.inc"
+.include "asm/include/scriptmacros.inc"
+.include "asm/include/vars.inc"
+
+.include "asm/include/maps.inc"
+.include "asm/include/sprites.inc"
+.include "asm/include/std_scripts.inc"
+.include "asm/include/trainers.inc"
+
+{% if exists("header") %}.include "{{ header }}"{% endif %}
+
+.data
+
+## if exists("bgs")
+	.word {{ length(bgs) }}
+## for bg in bgs
+	.hword {{ bg.scriptId }}
+	.hword {{ bg.type }}
+	.word {{ bg.x }}
+	.word {{ bg.z }}
+	.word {{ bg.y }}
+	.word {{ bg.dir }}
+## endfor
+## else
+	.word 0
+## endif
+## if exists("objects")
+	.word {{ length(objects) }}
+## for object in objects
+	.hword {{ object.id }}
+	.hword {{ object.spriteId }}
+	.hword {{ object.movement }}
+	.hword {{ object.type }}
+	.hword {{ object.eventFlag }}
+	.hword {{ object.scriptId }}
+	.hword {{ object.facingDirection }}
+	.hword {{ object.param0 }}
+	.hword {{ object.param1 }}
+	.hword {{ object.param2 }}
+	.hword {{ object.xRange }}
+	.hword {{ object.yRange }}
+	.hword {{ object.x }}
+	.hword {{ object.z }}
+	.word {{ object.y }}
+## endfor
+## else
+	.word 0
+## endif
+## if exists("warps")
+	.word {{ length(warps) }}
+## for warp in warps
+	.hword {{ warp.x }}
+	.hword {{ warp.z }}
+	.hword {{ warp.header }}
+	.hword {{ warp.anchor }}
+	.word {{ warp.y }}
+## endfor
+## else
+	.word 0
+## endif
+## if exists("coords")
+	.word {{ length(coords) }}
+## for coord in coords
+	.hword {{ coord.scriptId }}
+	.hword {{ coord.x }}
+	.hword {{ coord.z }}
+	.hword {{ coord.w }}
+	.hword {{ coord.h }}
+	.hword {{ coord.y }}
+	.hword {{ coord.val }}
+	.hword {{ coord.var }}
+## endfor
+## else
+	.word 0
+## endif
