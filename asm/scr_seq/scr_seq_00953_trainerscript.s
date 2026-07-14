@@ -1,12 +1,27 @@
-.nds
-.thumb
+.include "asm/include/interop_macros.inc"
 
-.include "armips/include/scriptmacros.s"
-.include "armips/include/flags.s"
-.include "armips/include/soundeffects.s"
-.include "armips/include/vars.s"
+.include "asm/include/scriptmacros.inc"
+.include "asm/include/flags.inc"
+.include "asm/include/soundeffects.inc"
+.include "asm/include/vars.inc"
 
-.create "build/a012/2_953", 0
+.include "asm/include/battle_constants.inc"
+.include "asm/include/events.inc"
+.include "asm/include/game_stats.inc"
+.include "asm/include/items.inc"
+.include "asm/include/maps.inc"
+.include "asm/include/map_sections.inc"
+.include "asm/include/moves.inc"
+.include "asm/include/movements.inc"
+.include "asm/include/rankings.inc"
+.include "asm/include/spawns.inc"
+.include "asm/include/species.inc"
+.include "asm/include/std_scripts.inc"
+.include "asm/include/trainers.inc"
+
+
+.data
+
 
 /* Trainer   0 */ scrdef scr_seq_0953_normalTrainer
 /* Trainer   1 */ scrdef scr_seq_0953_normalTrainer
@@ -969,7 +984,7 @@ _0EB3:
 	scrcmd_109 VAR_SPECIAL_LAST_TALKED, 16
 	return
 
-	.align 4
+	.balign 4
 _0EBC:
     step WaitJumpSite, 1
     step_end
@@ -1133,5 +1148,4 @@ _1176:
 	releaseall
 	end
 
-.align 4
-.close
+.balign 4

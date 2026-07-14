@@ -1,17 +1,28 @@
-.nds
-.thumb
+.include "asm/include/interop_macros.inc"
 
-.include "armips/include/scriptmacros.s"
-.include "armips/include/flags.s"
-.include "armips/include/soundeffects.s"
-.include "armips/include/vars.s"
+.include "asm/include/scriptmacros.inc"
+.include "asm/include/flags.inc"
+.include "asm/include/soundeffects.inc"
+.include "asm/include/vars.inc"
 
+.include "asm/include/battle_constants.inc"
+.include "asm/include/events.inc"
+.include "asm/include/game_stats.inc"
 .include "asm/include/items.inc"
+.include "asm/include/maps.inc"
+.include "asm/include/map_sections.inc"
+.include "asm/include/moves.inc"
+.include "asm/include/movements.inc"
+.include "asm/include/rankings.inc"
+.include "asm/include/spawns.inc"
+.include "asm/include/species.inc"
+.include "asm/include/std_scripts.inc"
+.include "asm/include/trainers.inc"
 
 
 // text archive to grab from: 040.txt
 
-.create "build/a012/2_003", 0
+.data
 
 
 scrdef scr_seq_0003_000
@@ -325,7 +336,7 @@ _0445:
     setvar VAR_SPECIAL_x8004, 1
     goto _01AA
 
-.align 4
+.balign 4
 
 _0454:
     step 100, 1
@@ -1180,7 +1191,7 @@ _104A:
     setvar VAR_SPECIAL_x8007, 3
     return
 
-.align 4
+.balign 4
 
 _1054:
     step 0, 1
@@ -1740,7 +1751,3 @@ scr_seq_0003_073_autobattle_testing:
     trainer_battle 1, 0, 0, 0
     releaseall
     end
-
-
-
-.close

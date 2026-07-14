@@ -5,7 +5,9 @@ Reads the script narc (a/0/1/2), the zone event narc (a/0/3/2), and the message 
 
 The mapping between narc subfiles and source file names ships in event_mapping.csv and the script command table lives in scrcmd.json. Symbol names are resolved from the repo's own constant includes. Command names, constants, and event data layouts follow the pret/pokeheartgold decompilation (https://github.com/pret/pokeheartgold), which this tool was templated on.
 
-Two script narc subfiles are managed by the engine itself and are skipped unless --include-engine-managed is given: 2_003 and 2_953. Text archives that the build generates from other sources are likewise skipped unless --include-generated-text is given.
+Two script narc subfiles are hand-maintained instead of dumped: 2_003 (commonscript) and 2_953 (trainerscript). They are skipped unless --include-engine-managed is given.
+
+Engine-maintained text archives are also skipped unless --include-generated-text is given.
 
     make dump_scripts DUMP_ROM=path/to/rom.nds
 """
