@@ -750,16 +750,21 @@ class NormalScriptParser:
             if pc == nextpc:
                 return s
 
-        # remaining gap bytes are dead padding and are dropped; .balign 4 re-pads on assembly
+        # unreachable bytes from the original dump, kept for byte-reproducibility
         if pc & 15:
             gap = min(16 - (pc & 15), nextpc - pc)
+            s += self.make_bytes(pc, gap)
             pc += gap
 
         while pc < nextpc:
             gap = min(16, nextpc - pc)
+            s += self.make_bytes(pc, gap)
             pc += gap
 
         return s
+
+    def make_bytes(self, pc, gap):
+        return "\t.byte " + ", ".join(f"0x{x:02x}" for x in self.raw[pc:pc + gap]) + "\n"
 
     def make_gap(self, pc, nextpc):
         if pc == nextpc or (nextpc == len(self.raw) and all(x == 0 for x in self.raw[pc:nextpc])):
