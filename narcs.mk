@@ -837,12 +837,13 @@ clean_trgfx:
 	rm -rf $(TRAINER_GFX_DIR) $(TRAINER_GFX_NARC) $(TRAINER_GFX_BACK_DIR) $(TRAINER_GFX_BACK_NARC)
 
 
-$(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES) $(MSGDATA_KEYS)
+# if no keys.csv, fall back to msgenc's own key as before
+$(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES) $(wildcard $(MSGDATA_KEYS))
 	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
 	for file in $(MSGDATA_DEPENDENCIES); do $(PYTHON) tools/source/dumptools/validate_text_archive.py $(CHARMAP) $$file || exit 1; done
 	for file in $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES); do \
 		archive=$$(basename $$file .txt); \
-		key=$$(sed -n "s/^$$archive,//p" $(MSGDATA_KEYS)); \
+		key=$$(sed -n "s/^$$archive,//p" $(MSGDATA_KEYS) 2>/dev/null); \
 		$(MSGENC) -e -c $(CHARMAP) $${key:+-k $$key} $$file $(MSGDATA_DIR)/7_$$archive; \
 	done
 	$(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
