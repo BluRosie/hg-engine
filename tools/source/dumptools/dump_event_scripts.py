@@ -33,6 +33,9 @@ SCRIPT_NARC = "a/0/1/2"
 ZONE_EVENT_NARC = "a/0/3/2"
 MSGDATA_NARC = "a/0/2/7"
 
+# the macro table the build assembles the dumped scripts back with
+SCRIPT_MACROS = "asm/include/scriptmacros.inc"
+
 # script narc subfiles whose tracked sources are engine customizations, not dumps - see the module docstring
 ENGINE_MANAGED_SCRIPTS = {"0003", "0953"}
 
@@ -69,6 +72,44 @@ def parse_constants(filenames, prefix = ""):
                         break
 
     return out
+
+_MACRO_DEF = re.compile(r"^\.macro\s+(\w+)[^\n]*\n(.*?)^\.endm", re.M | re.S)
+_MACRO_OPCODE = re.compile(r"^\s*\.hword\s+(\d+|0x[0-9a-fA-F]+)\s*$", re.M)
+_MACRO_ALIAS = re.compile(r"^\s*(\w+)\s*$", re.M) # a body that just invokes another macro
+
+def check_command_opcodes(commands, repo_root):
+    """
+    Raise if a scrcmd.json command name assembles back to a different opcode.
+    """
+
+    with open(os.path.join(repo_root, SCRIPT_MACROS), encoding = "utf-8") as fp:
+        bodies = dict(_MACRO_DEF.findall(fp.read()))
+
+    def opcode(name, depth = 0):
+        body = bodies.get(name)
+
+        if body is None or depth > 4:
+            return None
+
+        if m := _MACRO_OPCODE.search(body):
+            return int(m[1], 0)
+
+        if m := _MACRO_ALIAS.search(body):
+            return opcode(m[1], depth + 1)
+
+        return None
+
+    mismatched = [
+        f"  command {i} is {cmd['name']!r}, but that macro assembles to {op}"
+        for i, cmd in enumerate(commands)
+        if (op := opcode(cmd["name"])) is not None and op != i
+    ]
+
+    if mismatched:
+        raise ValueError(
+            f"scrcmd.json disagrees with {SCRIPT_MACROS} on {len(mismatched)} command name(s); "
+            f"dumping now would silently miscompile them:\n" + "\n".join(mismatched)
+        )
 
 class NamedStruct(struct.Struct):
     def __init__(self, cls_name, _format, fields):
@@ -191,6 +232,8 @@ class ScriptCommandsData:
         cls._commands = scrcmds.get("commands", [])
         cls._commands_d = {x["name"]: x for x in cls._commands}
         cls._movement_cmds = scrcmds.get("movement_commands", [])
+
+        check_command_opcodes(cls._commands, repo_root)
 
         cls._is_init = True
 
@@ -358,7 +401,7 @@ class NormalScriptParser:
                 r"\tlockall\n"
                 r"\tfaceplayer\n"
                 r"\tnpc_msg (\w+)\n"
-                r"\twait_button_or_walk_away\n"
+                r"\twait_button\n"
                 r"\tclosemsg\n"
                 r"\treleaseall\n"
             ), r"\tsimple_npc_msg \1\n"),
