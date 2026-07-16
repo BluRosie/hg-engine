@@ -15,9 +15,6 @@
 #include "q412.h"
 #include "types.h"
 
-// declaration needed for below
-BOOL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
-
 typedef struct
 {
     u8 numerator;
@@ -82,7 +79,7 @@ u8 HeldItemPowerUpTable[36][2] = {
 #endif
 };
 
-const u16 PowderMovesList[] = {
+const u16 PowderMoveList[] = {
     MOVE_COTTON_SPORE,
     MOVE_POISON_POWDER,
     MOVE_SLEEP_POWDER,
@@ -127,7 +124,7 @@ const u16 TriageMovesList[] = {
     MOVE_WISH,
 };
 
-const u16 BulletproofMoveList[] = {
+const u16 BallAndBombMoveList[] = {
     MOVE_ACID_SPRAY,
     MOVE_AURA_SPHERE,
     MOVE_BARRAGE,
@@ -156,7 +153,7 @@ const u16 BulletproofMoveList[] = {
     MOVE_ZAP_CANNON,
 };
 
-const u16 WindMovesTable[] = {
+const u16 WindMoveTable[] = {
     MOVE_AEROBLAST,
     MOVE_AIR_CUTTER,
     MOVE_BLEAKWIND_STORM,
@@ -409,16 +406,14 @@ const u16 MaxMoveList[] = {
     MOVE_MAX_STEELSPIKE,
 };
 
-u16 WeightMoveList[6] = {
+u16 DynamaxBannedWeightMoveList[6] = {
     MOVE_LOW_KICK,
     MOVE_GRASS_KNOT,
-    MOVE_AUTOTOMIZE,
     MOVE_HEAVY_SLAM,
-    MOVE_SKY_DROP,
     MOVE_HEAT_CRASH,
 };
 
-u16 PunchingMovesTable[24] = {
+u16 PunchingMoveTable[24] = {
     MOVE_BULLET_PUNCH,
     MOVE_COMET_PUNCH,
     MOVE_DIZZY_PUNCH,
@@ -445,7 +440,7 @@ u16 PunchingMovesTable[24] = {
     MOVE_WICKED_BLOW,
 };
 
-u16 StrongJawMovesTable[10] = {
+u16 BitingMoveTable[10] = {
     MOVE_BITE,
     MOVE_CRUNCH,
     MOVE_FIRE_FANG,
@@ -458,7 +453,7 @@ u16 StrongJawMovesTable[10] = {
     MOVE_THUNDER_FANG,
 };
 
-u16 MegaLauncherMovesTable[7] = {
+u16 PulseMoveTable[7] = {
     MOVE_AURA_SPHERE,
     MOVE_DARK_PULSE,
     MOVE_DRAGON_PULSE,
@@ -468,7 +463,7 @@ u16 MegaLauncherMovesTable[7] = {
     MOVE_WATER_PULSE,
 };
 
-u16 SharpnessMovesTable[27] = {
+u16 SlicingMoveTable[31] = {
     MOVE_AERIAL_ACE,
     MOVE_AIR_CUTTER,
     MOVE_AIR_SLASH,
@@ -477,26 +472,47 @@ u16 SharpnessMovesTable[27] = {
     MOVE_BITTER_BLADE,
     MOVE_CEASELESS_EDGE,
     MOVE_CROSS_POISON,
+    MOVE_CRUSH_CLAW,
     MOVE_CUT,
+    MOVE_DIRE_CLAW,
+    MOVE_DRAGON_CLAW,
     MOVE_FURY_CUTTER,
     MOVE_KOWTOW_CLEAVE,
     MOVE_LEAF_BLADE,
+    MOVE_METAL_CLAW,
+    MOVE_MIGHTY_CLEAVE,
     MOVE_NIGHT_SLASH,
     MOVE_POPULATION_BOMB,
     MOVE_PSYBLADE,
     MOVE_PSYCHO_CUT,
-    MOVE_RAZOR_SHELL,
     MOVE_RAZOR_LEAF,
+    MOVE_RAZOR_SHELL,
     MOVE_SACRED_SWORD,
     MOVE_SECRET_SWORD,
+    MOVE_SHADOW_CLAW,
     MOVE_SLASH,
     MOVE_SOLAR_BLADE,
     MOVE_STONE_AXE,
+    MOVE_TACHYON_CUTTER,
     MOVE_X_SCISSOR,
-    MOVE_SHADOW_CLAW,
-    MOVE_DRAGON_CLAW,
-    MOVE_DIRE_CLAW,
 };
+
+u16 DanceMoveTable[] = {
+    MOVE_SWORDS_DANCE,
+    MOVE_PETAL_DANCE,
+    MOVE_FEATHER_DANCE,
+    MOVE_TEETER_DANCE,
+    MOVE_DRAGON_DANCE,
+    MOVE_LUNAR_DANCE,
+    MOVE_QUIVER_DANCE,
+    MOVE_FIERY_DANCE,
+    MOVE_REVELATION_DANCE,
+    MOVE_CLANGOROUS_SOUL,
+    MOVE_VICTORY_DANCE,
+    MOVE_AQUA_STEP,
+};
+
+// TODO: code table to store the above, as well as Explosive, Mental, Healing moves list
 
 u16 sLowKickWeightToPower[6][2] = {
     { 100, 20 }, //   0- 10 kg ->  20 bp
@@ -1576,7 +1592,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
         // hp calc can reduce stored spread damage if sash/sturdy.
         // persist the resolved value for the later batch update
         int ally = BATTLER_ALLY(ctx->attack_client);
-        if ((targetFoesAndAlly || (targetFoes && ally == ctx->defence_client)) && IS_VALID_MOVE_TARGET(ctx, ally)) {
+        if ((targetFoesAndAlly || (targetFoes && ally == ctx->defence_client)) && IsValidMoveTarget(ctx, ally)) {
             ctx->defence_client = ally;
             ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[ally];
             ctx->damage = ctx->damageForSpreadMoves[ally];
@@ -1587,7 +1603,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
         if (targetFoes || targetFoesAndAlly) {
             int oppL = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
-            if (IS_VALID_MOVE_TARGET(ctx, oppL)) {
+            if (IsValidMoveTarget(ctx, oppL)) {
                 ctx->defence_client = oppL;
                 ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppL];
                 ctx->damage = ctx->damageForSpreadMoves[oppL];
@@ -1597,7 +1613,7 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
             }
 
             int oppR = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
-            if (IS_VALID_MOVE_TARGET(ctx, oppR)) {
+            if (IsValidMoveTarget(ctx, oppR)) {
                 ctx->defence_client = oppR;
                 ctx->waza_status_flag = ctx->moveStatusFlagForSpreadMoves[oppR];
                 ctx->damage = ctx->damageForSpreadMoves[oppR];
@@ -1988,7 +2004,7 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
  *  @param msg msg param to fill with values for printing a message that results from running
  *  @return TRUE if the battler can not escape; FALSE if the battler can escape
  */
-BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg)
+BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg)
 {
     int battlerIdAbility;
     int maxBattlers UNUSED;
@@ -2022,7 +2038,9 @@ BOOL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage 
     battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP);
     if (battlerIdAbility) {
         if (!(sp->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
-            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !HasType(sp, battlerId, TYPE_FLYING)) {
+            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE 
+                && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
+                && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !HasType(sp, battlerId, TYPE_FLYING)) {
                 if (msg == NULL) {
                     return TRUE;
                 }
@@ -2094,7 +2112,8 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId)
         ret = TRUE;
     }
 
-    if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
+    if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE 
+        && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
              && sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
              && !HasType(sp, battlerId, TYPE_FLYING))
             || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SPEED_DOWN_GROUNDED
@@ -2344,8 +2363,8 @@ BOOL LONG_CALL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL c
 BOOL LONG_CALL IsPowderMove(u32 moveIndex)
 {
     u8 output = FALSE;
-    for (u16 i = 0; i < NELEMS(PowderMovesList); i++) {
-        if (moveIndex == PowderMovesList[i]) {
+    for (u16 i = 0; i < NELEMS(PowderMoveList); i++) {
+        if (moveIndex == PowderMoveList[i]) {
             output = TRUE;
             break;
         }
@@ -2356,12 +2375,12 @@ BOOL LONG_CALL IsPowderMove(u32 moveIndex)
 /**
  * @brief Check if the current move is a Weight move
  * @param moveIndex move index
- * @return TRUE if it is a Weight move
+ * @return TRUE if it is a Dynamax banned weight move
  */
-BOOL LONG_CALL IsWeightMove(u32 moveIndex)
+BOOL LONG_CALL IsDynamaxBannedWeightMove(u32 moveIndex)
 {
-    for (u16 i = 0; i < NELEMS(WeightMoveList); i++) {
-        if (moveIndex == WeightMoveList[i]) {
+    for (u16 i = 0; i < NELEMS(DynamaxBannedWeightMoveList); i++) {
+        if (moveIndex == DynamaxBannedWeightMoveList[i]) {
             return TRUE;
         }
     }
@@ -2375,8 +2394,18 @@ BOOL LONG_CALL IsWeightMove(u32 moveIndex)
  */
 BOOL LONG_CALL IsBallOrBombMove(u32 moveIndex)
 {
-    for (u16 i = 0; i < NELEMS(BulletproofMoveList); i++) {
-        if (moveIndex == BulletproofMoveList[i]) {
+    for (u16 i = 0; i < NELEMS(BallAndBombMoveList); i++) {
+        if (moveIndex == BallAndBombMoveList[i]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
+BOOL LONG_CALL IsDanceMove(u32 moveIndex)
+{
+    for (u16 i = 0; i < NELEMS(DanceMoveTable); i++) {
+        if (moveIndex == DanceMoveTable[i]) {
             return TRUE;
         }
     }
@@ -2613,16 +2642,6 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         return TRUE;
     }
 
-    if (!(sp->waza_status_flag & MOVE_STATUS_FLAG_LOCK_ON)
-        && sp->moveTbl[sp->current_move_index].target != RANGE_OPPONENT_SIDE
-        && ((!(sp->server_status_flag & BATTLE_STATUS_HIT_FLY) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_FLYING_IN_AIR)
-            || (!(sp->server_status_flag & BATTLE_STATUS_SHADOW_FORCE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_SHADOW_FORCE)
-            || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIG) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING)
-            || (!(sp->server_status_flag & BATTLE_STATUS_HIT_DIVE) && sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING))) {
-        sp->waza_status_flag |= WAZA_STATUS_FLAG_KIE_NOHIT;
-        return TRUE;
-    }
-
     // 2. Check if the move itself is sure-hit (accuracy 101, like Aerial Ace), or if the move was custom-set to be sure-hit: Pursuit and target is switching, Thunder / Hurricane in rain, Blizzard in hail, Stomp / Steamroller / Dragon Rush / Body Slam / Malicious Moonsault / Heavy Slam / Heat Crash / Flying Press vs. Minimize.
     // TODO: modernise flow and Handle Pursuit
 
@@ -2718,7 +2737,7 @@ void LONG_CALL BattleController_MoveEnd(struct BattleSystem *bsys, struct Battle
  */
 BOOL LONG_CALL IsMovePunchingMove(u16 move)
 {
-    return IsElementInArray(PunchingMovesTable, (u16 *)&move, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]));
+    return IsElementInArray(PunchingMoveTable, (u16 *)&move, NELEMS(PunchingMoveTable), sizeof(PunchingMoveTable[0]));
 }
 
 /**
@@ -2728,7 +2747,7 @@ BOOL LONG_CALL IsMovePunchingMove(u16 move)
  */
 BOOL LONG_CALL IsMoveWindMove(u16 move)
 {
-    return IsElementInArray(WindMovesTable, (u16 *)&move, NELEMS(WindMovesTable), sizeof(WindMovesTable[0]));
+    return IsElementInArray(WindMoveTable, (u16 *)&move, NELEMS(WindMoveTable), sizeof(WindMoveTable[0]));
 }
 
 /**
@@ -2771,6 +2790,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys UNUSED, struct BattleStru
 {
     ctx->waza_status_flag = 0;
     ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = 0;
+    ctx->moveStatusFlagForSpreadMoves2[ctx->defence_client] = 0;
     ctx->critical = 1;
     ctx->server_status_flag &= (0x100000 ^ 0xFFFFFFFF);
 }
@@ -2788,6 +2808,19 @@ enum {
 
     TRY_MOVE_END,
 };
+
+int LONG_CALL IsValidMoveTarget(struct BattleStruct *ctx, int battlerId)
+{
+    if (ctx->moveStatusFlagForSpreadMoves2[battlerId] & SPREAD_MOVE_STATUS2_FLAG_MAGIC_BOUNCE) {
+        return FALSE;
+    }
+    if (!(ctx->no_reshuffle_client & No2Bit(battlerId))
+        && ctx->battlemon[battlerId].hp != 0
+        && !(ctx->moveStatusFlagForSpreadMoves[battlerId] & (WAZA_STATUS_FLAG_NO_OUT))) {
+        return TRUE;
+    }
+    return FALSE;
+}
 
 int LONG_CALL IsMoveSpreadMove(struct BattleSystem *bsys, struct BattleStruct *ctx, int move)
 {
@@ -2828,21 +2861,21 @@ int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct 
         switch (ctx->clientLoopForSpreadMoves) {
         case SPREAD_MOVE_LOOP_ALLY:
             ctx->clientLoopForSpreadMoves++;
-            if (IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+            if (IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) && IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {
                 ctx->defence_client = BATTLER_ALLY(ctx->attack_client);
                 return TRUE;
             }
             FALLTHROUGH;
         case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
             ctx->clientLoopForSpreadMoves++;
-            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
+            if (IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
                 ctx->defence_client = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
                 return TRUE;
             }
             FALLTHROUGH;
         case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
             ctx->clientLoopForSpreadMoves++;
-            if (IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
+            if (IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
                 ctx->defence_client = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
                 return TRUE;
             }
@@ -2864,7 +2897,7 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem *bsys, struct BattleS
             int ally = BATTLER_ALLY(ctx->attack_client);
 
             if (IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index)
-                && IS_VALID_MOVE_TARGET(ctx, ally)) {
+                && IsValidMoveTarget(ctx, ally)) {
                 if (CheckSubstitute(ctx, ally) == TRUE) {
                     ctx->moveContext.hitSubstitute[ctx->moveContext.hitSubstituteCount] = ally;
                     ctx->moveContext.hitSubstituteCount++;
@@ -2873,7 +2906,7 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem *bsys, struct BattleS
                 }
             }
 
-            if (IS_VALID_MOVE_TARGET(ctx, oppLeft)) {
+            if (IsValidMoveTarget(ctx, oppLeft)) {
                 if (CheckSubstitute(ctx, oppLeft) == TRUE) {
                     ctx->moveContext.hitSubstitute[ctx->moveContext.hitSubstituteCount] = oppLeft;
                     ctx->moveContext.hitSubstituteCount++;
@@ -2883,7 +2916,7 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem *bsys, struct BattleS
                 }
             }
 
-            if (IS_VALID_MOVE_TARGET(ctx, oppRight)) {
+            if (IsValidMoveTarget(ctx, oppRight)) {
                 if (CheckSubstitute(ctx, oppRight) == TRUE) {
                     ctx->moveContext.hitSubstitute[ctx->moveContext.hitSubstituteCount] = oppRight;
                     ctx->moveContext.hitSubstituteCount++;
@@ -3923,8 +3956,12 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
         return ABILITY_NONE;
     } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
         return ABILITY_NONE;
+    } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
+        return ABILITY_BEAST_BOOST;
     } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
         return ABILITY_NONE;
+    } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
+        return ABILITY_BEAST_BOOST;
     } else if (AbilityNoTransform(ctx->battlemon[battlerId].ability) && (ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORMED)) {
         return ABILITY_NONE;
     } else {
@@ -4054,25 +4091,15 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form)
  *  @param sp global battle structure
  *  @return TRUE if knock off can remove the mon's item; FALSE otherwise
  */
-BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker, int defender)
+BOOL LONG_CALL CanKnockOffApply(struct BattleStruct *sp, int attacker UNUSED, int defender)
 {
     u32 item = sp->battlemon[defender].item;
-    u32 ability = GetBattlerAbility(sp, defender);
+    // u32 ability = GetBattlerAbility(sp, defender);
     u32 species = sp->battlemon[defender].species;
     u32 form = sp->battlemon[defender].form_no;
 
     if (CanActivateDamageReductionBerry(sp, defender)) {
         // the berry activated already
-        return FALSE;
-    }
-
-    // if the user is about to die because of an opponent's rough skin, iron barbs, or rocky helmet, then do not proc knock off's item removal
-    // abilities do 1/8th total hp as damage
-    if ((((ability == ABILITY_ROUGH_SKIN || ability == ABILITY_IRON_BARBS) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 8)
-            // rocky helmet does 1/6th total hp as damage
-            || ((item == ITEM_ROCKY_HELMET) && sp->battlemon[attacker].hp <= (s32)(sp->battlemon[attacker].maxhp) / 6))
-        && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
-        && (sp->waza_status_flag & MOVE_STATUS_FLAG_FAILURE_ANY) == 0) {
         return FALSE;
     }
 
@@ -4096,7 +4123,7 @@ BOOL LONG_CALL IsAnyBattleMonHit(struct BattleSystem *bsys, struct BattleStruct 
             case SPREAD_MOVE_LOOP_ALLY:
                 i++;
                 if ((IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index) || BATTLER_ALLY(ctx->attack_client) == ctx->defence_client)
-                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_ALLY(ctx->attack_client))) {
+                    && IsValidMoveTarget(ctx, BATTLER_ALLY(ctx->attack_client))) {
                     return TRUE;
                 }
                 FALLTHROUGH;
@@ -4104,20 +4131,20 @@ BOOL LONG_CALL IsAnyBattleMonHit(struct BattleSystem *bsys, struct BattleStruct 
             case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
                 i++;
                 if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))
-                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
+                    && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
                     return TRUE;
                 }
                 FALLTHROUGH;
             case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
                 i++;
                 if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))
-                    && IS_VALID_MOVE_TARGET(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
+                    && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
                     return TRUE;
                 }
             }
         }
     } else {
-        if (IS_VALID_MOVE_TARGET(ctx, ctx->defence_client)) {
+        if (IsValidMoveTarget(ctx, ctx->defence_client)) {
             return TRUE;
         }
     }
@@ -4403,5 +4430,30 @@ void LONG_CALL HandleTransform(struct BattleStruct *sp)
         } else {
             sp->battlemon[sp->attack_client].pp[num] = 5;
         }
+    }
+}
+
+BOOL LONG_CALL ShouldPreventMonCapture(struct BattleSystem *bsys)
+{
+    return BattleTypeGet(bsys) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_TOTEM);
+}
+
+BOOL LONG_CALL ov07_02232F60(void *ballData, s32 ballAnim_Unused);
+void LONG_CALL ov07_02233ECC(void *ballData);
+
+void LONG_CALL PrintBallBlockedMessage(struct tcb_skill_intp_work *data)
+{
+    if (!ov07_02232F60(data->bms, 2)) // BALL_ANIM_DEFLECT
+    {
+        ov07_02233ECC(data->bms);
+        BattleMessage msg;
+        BOOL isTrainerBattle = BattleTypeGet(data->bw) & BATTLE_TYPE_TRAINER;
+        // It dodged your thrown Poké Ball! This Pokémon can’t be caught!
+        msg.id = isTrainerBattle ? BATTLE_MSG_TRAINER_BLOCKED_BALL : BATTLE_MSG_DODGED_THROWN_BALL;
+        msg.tag = TAG_NONE;
+        data->work[0] = BattleMSG_Print(data->bw, BattleWorkFightMsgGet(data->bw), &msg, BattleWorkConfigMsgSpeedGet(data->bw));
+        data->work[1] = 30;
+        data->seq_no = isTrainerBattle ? 27 : 28; // STATE_GET_POKEMON_DONE_NO_STEALING
+        // debug_printf("Case: %d\n", data->seq_no);
     }
 }

@@ -130,12 +130,14 @@ void* LONG_CALL sys_AllocMemory(u32,u32);
 u32 LONG_CALL GF_ExpHeap_FndGetTotalFreeSize(u32 heapId);
 
 void LONG_CALL ArcUtil_PalSet(u32 fileIdx, u32 dataIdx, u8 palType, u32 offs, u32 transSize, u32 heapID);
-void *LONG_CALL ArchiveDataLoadMalloc(int arcID, int datID, int heapID);
-void LONG_CALL ArchiveDataLoad(void *data, int arcID, int datID);
-void *LONG_CALL ArchiveDataLoadMallocOfs(int arcID, int datID, int heapID, int ofs, int size);
-void LONG_CALL ArchiveDataLoadOfs(void *data, int arcID, int datID, int ofs, int size);
+
+void *LONG_CALL AllocAndReadWholeNarcMemberByIdPair(int narcID, int fileID, int heapID);
+void LONG_CALL ReadWholeNarcMemberByIdPair(void *data, int narcID, int fileID);
+void *LONG_CALL AllocAndReadFromNarcMemberByIdPair(int narcID, int fileID, int heapID, int ofs, int size);
+void LONG_CALL ReadFromNarcMemberByIdPair(void *data, int narcID, int fileID, int ofs, int size);
+
 void *LONG_CALL sys_AllocMemoryLo(u32 heap_id, u32 size);
-void *LONG_CALL NARC_ctor(u32 narc_id, u32 heap_id);
+void *LONG_CALL NARC_New(u32 narc_id, u32 heap_id);
 
 void LONG_CALL MIi_CpuClearFast(u32 value, void *dest, u32 size);
 u16 LONG_CALL GF_CalcCRC16(const void *data, u32 size);

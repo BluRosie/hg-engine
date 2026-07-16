@@ -915,6 +915,6 @@ u16 LONG_CALL ov07_0221FB7C(u32 backgroundId, u32 assetIndex)
 {
     u16 ret;
 
-    ArchiveDataLoadOfs(&ret, ARC_CODE_ADDONS, CODE_ADDON_BACKGROUND_GFX_IDS, (backgroundId * 5 + assetIndex) * sizeof(u16), sizeof(ret));
+    ReadFromNarcMemberByIdPair(&ret, ARC_CODE_ADDONS, CODE_ADDON_BACKGROUND_GFX_IDS, (backgroundId * 5 + assetIndex) * sizeof(u16), sizeof(ret));
     return ret;
 }

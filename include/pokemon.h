@@ -32,6 +32,8 @@
 #define DUMMY_P2_2_SP_ATTACK_IV_OVERRIDE  (0x0400)
 #define DUMMY_P2_2_SP_DEFENSE_IV_OVERRIDE (0x0800)
 
+#define MOVE_APPEND_FULL 0xFFFFu
+
 // MON_DATA_UNK_121  (8 bits) fields
 
 #define SET_MON_HIDDEN_ABILITY_BIT(mon)                                     \
@@ -1394,6 +1396,9 @@ void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u3
 u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
 
 void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
+void LONG_CALL BufferBoxMonSpeciesName(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
+
+void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 
 // defined in src/pokemon.c
 
@@ -1554,23 +1559,6 @@ void LONG_CALL ArceusBoxPokemonFormeChange(struct BoxPokemon *bp);
 BOOL LONG_CALL HandleBoxPokemonFormeChanges(struct BoxPokemon *bp);
 
 /**
- *  @brief check if a reveal glass can be used on a PartyPokemon
- *
- *  @param pp PartyPokemon to check reveal glass against
- *  @return TRUE if reveal glass can be used; FALSE otherwise
- */
-BOOL LONG_CALL CanUseRevealGlass(struct PartyPokemon *pp);
-
-/**
- *  @brief check if a certain type of nectar can be used on a PartyPokemon
- *
- *  @param pp PartyPokemon to check the nectar against
- *  @param nectar Nectar item id to check for
- *  @return TRUE if nectar can be used; FALSE otherwise
- */
-BOOL LONG_CALL CanUseNectar(struct PartyPokemon *pp, u16 nectar);
-
-/**
  *  @brief check if the Gracidea can be used on a PartyPokemon
  *
  *  @param pp PartyPokemon to check the nectar against
@@ -1579,29 +1567,15 @@ BOOL LONG_CALL CanUseNectar(struct PartyPokemon *pp, u16 nectar);
 BOOL LONG_CALL Mon_CanUseGracidea(struct PartyPokemon *mon);
 
 /**
- *  @brief check if DNA splicers can be used, return position in party if so
- *
- *  @param pp PartyPokemon to check for
- *  @param party Party to search through for matching DNA splicers pokémon
- *  @return party position of pokémon that can be stored by the DNA splicers or'd with RESHIRAM_MASK if reshiram is the first pokémon found
- */
-u32 LONG_CALL CanUseDNASplicersGrabSplicerPos(struct PartyPokemon *pp, struct Party *party);
-
-/**
  *  @brief check if a rotom catalog can be used on a PartyPokemon
  *
  *  @param pp PartyPokemon to check reveal glass against
  *  @return TRUE if rotom catalog can be used; FALSE otherwise
  */
-BOOL CanUseRotomCatalog(struct PartyPokemon *pp);
+BOOL LONG_CALL CanUseRotomCatalog(struct PartyPokemon *pp);
 
-/**
- *  @brief see if an item changes attributes of the pokémon or not
- *
- *  @param wk work structure
- *  @param dat data structure
- */
-u32 LONG_CALL UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat);
+#define RESHIRAM_MASK         (0x80)
+#define JUST_SPLICER_POS_MASK (0x7F)
 
 /**
  *  @brief modify PokeListProc_End to increase party size so that when Reshiram/Zekrom are added back from DNA Splicers there are no crashes
@@ -1852,5 +1826,13 @@ s8 LONG_CALL GetFlavorPreferenceFromPID(u32 personality, int flavor);
 BOOL Mon_UpdateRotomForm(struct PartyPokemon *mon, int form, int defaultSlot);
 
 BOOL LONG_CALL CanUseItemOnMonInParty(struct Party *party, u16 itemID, s32 partyIdx, s32 moveIdx, u32 heapID);
+
+u16 LONG_CALL Species_LoadLearnsetTable(u16 species, u16 form, u16 *dest);
+
+u16 LONG_CALL ItemToMachineMove(u16 itemId);
+
+BOOL LONG_CALL GetTMHMCompatBySpeciesAndForm(u16 species, u16 form, u8 tmhmIdx);
+
+void LONG_CALL DeleteMonFirstMoveAndAppend(struct PartyPokemon *mon, u16 move);
 
 #endif

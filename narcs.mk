@@ -485,7 +485,10 @@ BATTLEWEATHERGFX_DEPENDENCIES_DIR := rawdata/weather_icons
 BATTLEGFX_DEPENDENCIES := $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*) $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*)
 
 ITEM_STYLE_DEPENDENCIES := $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_hud.png)
-BATTLEGFX_NOITEM_DEPENDENCIES := $(filter-out $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*),$(filter-out $(ITEM_STYLE_DEPENDENCIES),$(BATTLEGFX_DEPENDENCIES)))
+
+# terrain art are only 8bpp pngs and are compressed
+TERRAIN_DEPENDENCIES := $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_terrain.png)
+BATTLEGFX_NOITEM_DEPENDENCIES := $(filter-out $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*),$(filter-out $(ITEM_STYLE_DEPENDENCIES) $(TERRAIN_DEPENDENCIES),$(BATTLEGFX_DEPENDENCIES)))
 
 $(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES)
 	$(NARCHIVE) extract $(BATTLEGFX_TARGET) -o $(BATTLEGFX_DIR) -nf
@@ -495,7 +498,14 @@ $(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES)
 	cp -r $(BATTLEGFX_DEPENDENCIES_DIR)/. $(BATTLEGFX_DIR)
 	for file in $(ITEM_STYLE_DEPENDENCIES); do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR -clobbersize -version101 -bitdepth 4; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -ir -bitdepth 4; done
 	for file in $(BATTLEGFX_NOITEM_DEPENDENCIES); do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; done
-	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_terrain.png; do $(GFX) $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR.lz; rm $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; done
+
+# pack pngs as 8bpp so it matches source
+	for file in $(TERRAIN_DEPENDENCIES); do \
+		$(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR -bitdepth 8; \
+		$(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; \
+		$(GFX) $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR.lz; \
+		rm $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; \
+	done
 	$(NARCHIVE) create $@ $(BATTLEGFX_DIR) -nf
 
 NARC_FILES += $(BATTLEGFX_NARC)

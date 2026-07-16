@@ -27,7 +27,7 @@ arm9 IconPalGet 08074364 2
 arm9 ItemDataTableLoad 08078138 1
 arm9 CreateBoxMonData 0206DED0
 arm9 LoadEggMoves 0806C488 2
-#arm9 InheritMoves 0206C510 3 # come back later for egg move expansion
+arm9 InheritMoves 0206C510 3
 arm9 GetMonEvolution 02070E34
 0007 hook_7_spriteOffsetSpecies 08018A48 3
 0007 ov07_0221FB7C 0221FB7C 2
@@ -40,7 +40,7 @@ arm9 GetMonEvolution 02070E34
 
 #expand items
 arm9 GetItemIndex 08077C18 2
-arm9 GetItemArcData 08077CE8 3
+arm9 GetItemNarcData 08077CE8 3
 
 #mon expansion
 arm9 GetPokemonOwNum 0206A304 1
@@ -150,7 +150,11 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_TryFaintMon 0223E22C 3
 0012 BtlCmd_TryRestoreStatusOnSwitch 022450B0 3
 0012 BtlCmd_TryConversion2 02240C98 3
+0012 BtlCmd_TryConversion2 02240C98 3
 0012 BtlCmd_Transform 02241708 3
+0012 BtlCmd_TryPursuit 0224336C 3
+0012 BtlCmd_MagicCoat 02242CDC 3
+0012 BtlCmd_TryFeint 02243D20 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -568,6 +572,7 @@ arm9 ScrCmd_MartBuy 02048060 1
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
 arm9 SetupAndStartTutorialBattle 02051334 1
+arm9 ScrCmd_WildBattle 02043E5C 1
 
 # handle missingno in 1vX battles
 0012 BattleControllerPlayer_GetBattleMon 0224873C 2
@@ -616,5 +621,27 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 ov12_0224DD74 0224DD74 3
 0012 GetTypeEffectivenessData 0225260C 3
 
+0001 CheckRockSmashItemDrop 02204CF8 2
+0001 DrawRockSmashIdx 02204E8C 1
+
 0012 BattleMessage_BufferNickname 0223CDD0
+0012 BattleMessage_BufferPokemon 0223CE80
 0012 hook_GrabIllusionBoxMonForHpBar 022651AE 3
+
+# roamers
+arm9 Save_CreateRoamerByID 020676EC 2
+arm9 RoamerLocationSetRandom 02067830 3
+arm9 SpeciesToRoamerIdx 020677F4 1
+arm9 ScrCmd_CreateRoamer 02045264 1
+
+
+# encounter
+arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
+arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
+arm9 EncounterSlot_WildMonSlotRoll_Fishing 02247764 1
+arm9 EncounterSlot_WildMonSlotRoll_RockSmash 0224779C 0
+arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
+
+0012 GetPokemon_CheckIfTrainer_hook 2246704 0
+0012 GetPokemon_BallBlocked_hook 02247094 0
+0012 BattleSystem_AdjustMessageForSide 0223C558 2

@@ -107,6 +107,7 @@
 // heap IDs
 #define HEAPID_DEFAULT     0
 #define HEAPID_MAIN_HEAP   3
+#define HEAPID_FIELD1      4
 #define HEAPID_BATTLE_HEAP 5
 #define HEAPID_WORLD       11
 #define HEAP_ID_PARTY_MENU 12
@@ -141,6 +142,7 @@
 #define OVERLAY_SERVERBEFOREACT                      146
 #define OVERLAY_SERVERDOPOSTMOVEEFFECTS              147
 #define OVERLAY_CALCULATEBALLSHAKES                  148
+#define OVERLAY_PARTY_HANDLEUSEITEMONMON             149
 
 #define MAX_ACTIVE_OVERLAYS 8
 

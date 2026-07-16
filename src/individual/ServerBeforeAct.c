@@ -49,6 +49,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
     debug_printf("In ServerBeforeActInternal\n");
 #endif
+
     ret = 0;
     u32 flag = FALSE;
     client_set_max = BattleWorkClientSetMaxGet(bw);
@@ -420,6 +421,10 @@ static BOOL MegaEvolutionOrUltraBurst(struct BattleSystem *bsys, struct BattleSt
                     newBS.PlayerMegaed = TRUE;
             } else if (client_no == 0 || client_no == 2) {
                 newBS.PlayerMegaed = TRUE;
+            }
+
+            if (IS_CLIENT_IN_ILLUSION(bsys, client_no)) {
+                gIllusionStruct.dontRemoveIllusion = TRUE;
             }
 
             ctx->battlemon[client_no].form_no = GrabMegaTargetForm(ctx->battlemon[client_no].species, ctx->battlemon[client_no].item);

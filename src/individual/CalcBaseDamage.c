@@ -43,7 +43,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     u8 movesplit = damageCalc->movesplit;
     u16 movepower = damageCalc->movepower;
     int damage_power = damageCalc->damage_power;
-    int damage_value = damageCalc->damage_value;
+    // int damage_value = damageCalc->damage_value;
     // u8 magnitude = damageCalc->magnitude;
     BOOL gemBoostingMove = damageCalc->gemBoostingMove;
     BOOL fieldHasFairyAura = damageCalc->fieldHasFairyAura;
@@ -57,6 +57,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     u8 originalMoveType = damageCalc->originalMoveType;
     u16 moveEffect = damageCalc->moveEffect;
     u8 moveFlag = damageCalc->moveFlag;
+    u8 multiHitCount = damageCalc->multiHitCount;
     u32 weather = GetWeather(bw, sp, attacker);
 
     for (u32 i = 0; i < damageCalc->maxBattlers; i++) {
@@ -252,6 +253,11 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             movepower *= 2;
         }
         break;
+    case MOVE_PURSUIT:
+        if (sp->pursuitContext.isActive) {
+            movepower *= 2;
+        }
+        break;
     case MOVE_WATER_PLEDGE:
     case MOVE_FIRE_PLEDGE:
     case MOVE_GRASS_PLEDGE:
@@ -274,10 +280,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (IsMovingAfterClient(sp, defender) == TRUE) { // as of Gen5 no longer doubles on switching
             movepower *= 2;
         }
-        break;
-    case MOVE_PURSUIT:
-        // TODO: Handle this massive headache later
-        movepower = movepower * damage_value / 10;
         break;
     case MOVE_ROUND:
         // TODO: Implement Round
@@ -359,7 +361,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         movepower = damage_power;
         break;
     case MOVE_TRIPLE_KICK:
-        movepower = damage_power;
+        movepower = 10 * (4 - multiHitCount);
+        break;
+    case MOVE_TRIPLE_AXEL:
+        movepower = 20 * (4 - multiHitCount);
         break;
     case MOVE_TRUMP_CARD:
         movepower = damage_power;
@@ -370,6 +375,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             && IsClientGrounded(sp, attacker)) {
             movepower *= 2;
         }
+        break;
+    case MOVE_PSYBLADE:
+        if (sp->terrainOverlay.numberOfTurnsLeft > 0 && sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
+            movepower = 120;
+        }
+        break;
     default:
         break;
     }
@@ -665,7 +676,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
             // handle Iron Fist
             if ((AttackingMon.ability == ABILITY_IRON_FIST)
-                && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]))) {
+                && IsElementInArray(PunchingMoveTable, (u16 *)&moveno, NELEMS(PunchingMoveTable), sizeof(PunchingMoveTable[0]))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_2);
                 continue;
             }
@@ -743,21 +754,21 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
             // handle Strong Jaw
             if ((AttackingMon.ability == ABILITY_STRONG_JAW)
-                && IsElementInArray(StrongJawMovesTable, (u16 *)&moveno, NELEMS(StrongJawMovesTable), sizeof(StrongJawMovesTable[0]))) {
+                && IsElementInArray(BitingMoveTable, (u16 *)&moveno, NELEMS(BitingMoveTable), sizeof(BitingMoveTable[0]))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
                 continue;
             }
 
             // handle Mega Launcher
             if ((AttackingMon.ability == ABILITY_MEGA_LAUNCHER)
-                && IsElementInArray(MegaLauncherMovesTable, (u16 *)&moveno, NELEMS(MegaLauncherMovesTable), sizeof(MegaLauncherMovesTable[0]))) {
+                && IsElementInArray(PulseMoveTable, (u16 *)&moveno, NELEMS(PulseMoveTable), sizeof(PulseMoveTable[0]))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
                 continue;
             }
 
             // handle Sharpness
             if ((AttackingMon.ability == ABILITY_SHARPNESS)
-                && IsElementInArray(SharpnessMovesTable, (u16 *)&moveno, NELEMS(SharpnessMovesTable), sizeof(SharpnessMovesTable[0]))) {
+                && IsElementInArray(SlicingMoveTable, (u16 *)&moveno, NELEMS(SlicingMoveTable), sizeof(SlicingMoveTable[0]))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
                 continue;
             }
@@ -898,7 +909,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle Punching Glove
-            if ((AttackingMon.item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(PunchingMovesTable, (u16 *)&moveno, NELEMS(PunchingMovesTable), sizeof(PunchingMovesTable[0]))) {
+            if ((AttackingMon.item_held_effect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && IsElementInArray(PunchingMoveTable, (u16 *)&moveno, NELEMS(PunchingMoveTable), sizeof(PunchingMoveTable[0]))) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_1_BUT_HIGHER);
                 continue;
             }
@@ -1165,6 +1176,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 && (terrainOverlayType == ELECTRIC_TERRAIN)
                 && (terrainOverlayNumberOfTurnsLeft > 0)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
+            }
+
+            //TODO: check place after tests are done
+            // handle Fire Mane
+            if (AttackingMon.ability == ABILITY_FIRE_MANE && (movetype == TYPE_FIRE)) {
+                attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
         }
 
@@ -1464,7 +1481,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
                 struct Evolution *evoTable;
                 evoTable = sys_AllocMemory(0, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
-                ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, speciesWithForm);
+                ReadWholeNarcMemberByIdPair(evoTable, ARC_EVOLUTIONS, speciesWithForm);
 
                 // If a Pokémon has any evolutions, there should be an entry at the top that isn't EVO_NONE.
                 // In that case, the Pokémon is capable of evolving, and so the effect of Eviolite should apply.

@@ -82,7 +82,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sprigatito used Worry Seed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro acquired Insomnia!" },
-        // i do not think popup happens because the ability is changed.  message still plays but that can be changed too
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zoroark's illusion wore off!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zoroark used Sleep Talk!" },
     },

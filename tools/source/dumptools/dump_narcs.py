@@ -10,6 +10,7 @@ from dump_scripts.encounters import dump_encounters_c
 from dump_scripts.evodata import dump_evodata_c
 from dump_scripts.headbutt import dump_headbutt_c
 from dump_scripts.height_table import dump_heighttable_c
+from dump_scripts.hidden_items import INPUT_PATH as HIDDEN_ITEMS_ARM9_PATH, dump_hidden_items_from_arm9_c
 from dump_scripts.mondata import dump_mondata
 from dump_scripts.moves import dump_moves_c
 from dump_scripts.pokedex_data import dump_pokedex_area_files, dump_pokedex_sort_files
@@ -54,69 +55,60 @@ def remove_stale_outputs(paths):
             os.remove(stale_path)
 
 
+def run_dump(name, failures, callback):
+    try:
+        callback()
+    except Exception as error:
+        failures.append(name)
+        print(f"Failed to dump {name}: {error}", file=sys.stderr)
+
+
+def write_dump(path, contents):
+    with open(path, "w", encoding="utf-8") as file:
+        file.write(contents)
+
+
+def dump_armips_trainers(rom, expanded):
+    trdata_narc = dump_narc(rom, "a/0/5/5", TRDATA_NARC_FORMAT)
+    trpok_narc = dump_trpok_narc(rom, "a/0/5/6", trdata_narc)
+    write_dump("./dumped_armips/trainers.s", dump_trainerdata(trdata_narc, trpok_narc, expanded))
+
+
 def dump_armips_outputs(mondata_narc, rom, expanded):
     os.makedirs("dumped_armips", exist_ok=True)
     remove_stale_outputs(ARMIPS_STALE_PATHS)
+    failures = []
 
     if not os.path.exists("build/trainernames.txt"):
         print("armips mode requires build/trainernames.txt; run dump_trainernames first", file=sys.stderr)
         raise SystemExit(1)
 
-    with open("./dumped_armips/mondata.s", "w", encoding="utf-8") as file:
-        file.write(dump_mondata(mondata_narc))
-
-    trdata_narc = dump_narc(rom, "a/0/5/5", TRDATA_NARC_FORMAT)
-    trpok_narc = dump_trpok_narc(rom, "a/0/5/6", trdata_narc)
-    with open("./dumped_armips/trainers.s", "w", encoding="utf-8") as file:
-        file.write(dump_trainerdata(trdata_narc, trpok_narc, expanded))
+    run_dump("mondata.s", failures, lambda: write_dump("./dumped_armips/mondata.s", dump_mondata(mondata_narc)))
+    run_dump("trainers.s", failures, lambda: dump_armips_trainers(rom, expanded))
+    return failures
 
 
 def dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expanded):
     os.makedirs("dumped_c", exist_ok=True)
+    failures = []
 
-    with open("./dumped_c/Species.c", "w", encoding="utf-8") as file:
-        file.write(dump_species_data(mondata_raw_narc, msgdata_narc, pokedexsort_narc))
+    # callback wrapper around each dump so we don't fast-fail on first error
+    run_dump("Species.c", failures, lambda: write_dump("./dumped_c/Species.c", dump_species_data(mondata_raw_narc, msgdata_narc, pokedexsort_narc)))
+    run_dump("Moves.c", failures, lambda: write_dump("./dumped_c/Moves.c", dump_moves_c(dump_narc(rom, "a/0/1/1", MOVE_NARC_FORMAT), msgdata_narc)))
+    run_dump("Encounters.c", failures, lambda: write_dump("./dumped_c/Encounters.c", dump_encounters_c(dump_narc(rom, "a/0/3/7", ENCOUNTER_NARC_FORMAT), expanded)))
+    run_dump("Evolutions.c", failures, lambda: write_dump("./dumped_c/Evolutions.c", dump_evodata_c(dump_narc(rom, "a/0/3/4", EXPANDED_EVO_NARC_FORMAT if expanded else EVO_NARC_FORMAT), expanded)))
+    run_dump("RegionalDex.c", failures, lambda: write_dump("./dumped_c/RegionalDex.c", dump_regionaldex_c(ndspy.narc.NARC(rom.files[rom.filenames["a/1/3/8"]]).files[0])))
+    run_dump("BabyMons.c", failures, lambda: write_dump("./dumped_c/BabyMons.c", dump_babymons_c(rom.files[rom.filenames["poketool/personal/pms.narc"]])))
+    run_dump("HeightTable.c", failures, lambda: dump_heighttable_c(ndspy.narc.NARC(rom.files[rom.filenames["a/0/0/5"]]).files, "./dumped_c/HeightTable.c"))
+    run_dump("SpriteOffsets.c", failures, lambda: write_dump("./dumped_c/SpriteOffsets.c", dump_spriteoffsets_c(ndspy.narc.NARC(rom.files[rom.filenames["a/1/8/0"]]).files[0])))
+    run_dump("PokedexSort.c", failures, lambda: dump_pokedex_sort_files(pokedexsort_narc.files, "./dumped_c"))
+    run_dump("PokedexArea.c", failures, lambda: dump_pokedex_area_files(ndspy.narc.NARC(rom.files[rom.filenames["a/1/3/3"]]).files, "./dumped_c"))
+    run_dump("Headbutt.c", failures, lambda: dump_headbutt_c(ndspy.narc.NARC(rom.files[rom.filenames["a/2/5/2"]]).files, "./dumped_c/Headbutt.c"))
+    run_dump("SafariEncounters.c", failures, lambda: write_dump("./dumped_c/SafariEncounters.c", dump_safari_encounters_c(ndspy.narc.NARC(rom.files[rom.filenames["a/2/3/0"]]), expanded)))
+    run_dump("Trainers.c", failures, lambda: write_dump("./dumped_c/Trainers.c", dump_trainerdata_c(rom, msgdata_narc, expanded)))
+    run_dump("HiddenItems.c", failures, lambda: write_dump("./dumped_c/HiddenItems.c", dump_hidden_items_from_arm9_c(HIDDEN_ITEMS_ARM9_PATH.read_bytes())))
 
-    moves_narc = dump_narc(rom, "a/0/1/1", MOVE_NARC_FORMAT)
-    with open("./dumped_c/Moves.c", "w", encoding="utf-8") as file:
-        file.write(dump_moves_c(moves_narc, msgdata_narc))
-
-    encounters_narc = dump_narc(rom, "a/0/3/7", ENCOUNTER_NARC_FORMAT)
-    with open("./dumped_c/Encounters.c", "w", encoding="utf-8") as file:
-        file.write(dump_encounters_c(encounters_narc, expanded))
-
-    evodata_narc = dump_narc(rom, "a/0/3/4", EXPANDED_EVO_NARC_FORMAT if expanded else EVO_NARC_FORMAT)
-    with open("./dumped_c/Evolutions.c", "w", encoding="utf-8") as file:
-        file.write(dump_evodata_c(evodata_narc, expanded))
-
-    regionaldex_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/1/3/8"]])
-    with open("./dumped_c/RegionalDex.c", "w", encoding="utf-8") as file:
-        file.write(dump_regionaldex_c(regionaldex_narc.files[0]))
-
-    with open("./dumped_c/BabyMons.c", "w", encoding="utf-8") as file:
-        file.write(dump_babymons_c(rom.files[rom.filenames["poketool/personal/pms.narc"]]))
-
-    heighttable_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/0/5"]])
-    dump_heighttable_c(heighttable_narc.files, "./dumped_c/HeightTable.c")
-
-    spriteoffsets_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/1/8/0"]])
-    with open("./dumped_c/SpriteOffsets.c", "w", encoding="utf-8") as file:
-        file.write(dump_spriteoffsets_c(spriteoffsets_narc.files[0]))
-
-    dump_pokedex_sort_files(pokedexsort_narc.files, "./dumped_c")
-
-    pokedexarea_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/1/3/3"]])
-    dump_pokedex_area_files(pokedexarea_narc.files, "./dumped_c")
-
-    headbutt_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/5/2"]])
-    dump_headbutt_c(headbutt_narc.files, "./dumped_c/Headbutt.c")
-
-    safari_encounters_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/3/0"]])
-    with open("./dumped_c/SafariEncounters.c", "w", encoding="utf-8") as file:
-        file.write(dump_safari_encounters_c(safari_encounters_narc, expanded))
-
-    with open("./dumped_c/Trainers.c", "w", encoding="utf-8") as file:
-        file.write(dump_trainerdata_c(rom, msgdata_narc, expanded))
+    return failures
 
 
 def main(argv):
@@ -136,12 +128,27 @@ def main(argv):
         print("HG Engine Rom detected")
 
     if mode == "armips":
-        dump_armips_outputs(mondata_narc, rom, expanded)
+        failures = dump_armips_outputs(mondata_narc, rom, expanded)
+        run_dump("HiddenItems.c", failures, lambda: write_dump("./dumped_c/HiddenItems.c", dump_hidden_items_from_arm9_c(HIDDEN_ITEMS_ARM9_PATH.read_bytes())))
+        if failures:
+            print(f"Completed with {len(failures)} failed dump(s): {', '.join(failures)}", file=sys.stderr)
+            return 1
         return 0
 
-    msgdata_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/2/7"]])
-    pokedexsort_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/1/4"]])
-    dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expanded)
+    msgdata_narc = None
+    pokedexsort_narc = None
+    try:
+        msgdata_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/0/2/7"]])
+    except Exception as error:
+        print(f"Failed to load msg_data.narc: {error}", file=sys.stderr)
+    try:
+        pokedexsort_narc = ndspy.narc.NARC(rom.files[rom.filenames["a/2/1/4"]])
+    except Exception as error:
+        print(f"Failed to load pokedex sort narc: {error}", file=sys.stderr)
+    failures = dump_c_outputs(rom, mondata_raw_narc, msgdata_narc, pokedexsort_narc, expanded)
+    if failures:
+        print(f"Completed with {len(failures)} failed dump(s): {', '.join(failures)}", file=sys.stderr)
+        return 1
     return 0
 
 

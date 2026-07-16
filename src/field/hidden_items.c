@@ -40,7 +40,7 @@ static BOOL HiddenItemFindByIndex(u16 index, HiddenItemData *out)
     u32 i;
 
     for (i = 0; i < HIDDEN_ITEM_PARAM_COUNT; i++) {
-        ArchiveDataLoadOfs(&hiddenItem, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ITEM_PARAMS, i * sizeof(HiddenItemData), sizeof(HiddenItemData));
+        ReadFromNarcMemberByIdPair(&hiddenItem, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ITEM_PARAMS, i * sizeof(HiddenItemData), sizeof(HiddenItemData));
         if (hiddenItem.index == index) {
             *out = hiddenItem;
             return TRUE;

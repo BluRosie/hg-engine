@@ -226,12 +226,13 @@ u16 move_effect_to_subscripts[] =
     [ADD_STATUS_EFF_STUFF_CHEEKS]                   = SUB_SEQ_STUFF_CHEEKS,
     [ADD_STATUS_EFF_POWDER]                         = SUB_SEQ_POWDER,
     [ADD_STATUS_EFF_LASER_FOCUS]                    = SUB_SEQ_LASER_FOCUS,
+    [ADD_STATUS_EFF_GIVE_HELD_ITEM]                 = SUB_SEQ_GIVE_HELD_ITEM,
 };
 
 
 void GetMoveDataTable(void *dest)
 {
-    ArchiveDataLoadOfs(dest, ARC_MOVE_DATA, 0, 0, sizeof(struct BattleMove)*(NUM_OF_MOVES+1));
+    ReadFromNarcMemberByIdPair(dest, ARC_MOVE_DATA, 0, 0, sizeof(struct BattleMove)*(NUM_OF_MOVES+1));
 }
 
 
@@ -245,7 +246,7 @@ void GetMoveDataTable(void *dest)
 u32 LONG_CALL GetMoveData(u16 id, u32 field)
 {
     struct BattleMove *bm = sys_AllocMemory(0, sizeof(struct BattleMove));
-    ArchiveDataLoad(bm, ARC_MOVE_DATA, id);
+    ReadWholeNarcMemberByIdPair(bm, ARC_MOVE_DATA, id);
     u32 ret = 0;
 
     switch (field)

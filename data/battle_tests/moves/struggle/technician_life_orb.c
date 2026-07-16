@@ -1,15 +1,15 @@
 // Test: Struggle - Technician, Life Orb chip
 #ifndef GET_TEST_CASE_ONLY
 
-#include "include/battle.h"
-#include "include/constants/ability.h"
-#include "include/constants/battle_message_constants.h"
-#include "include/constants/item.h"
-#include "include/constants/moves.h"
-#include "include/constants/species.h"
-#include "include/test_battle.h"
+#include "../../../../include/battle.h"
+#include "../../../../include/constants/ability.h"
+#include "../../../../include/constants/battle_message_constants.h"
+#include "../../../../include/constants/item.h"
+#include "../../../../include/constants/moves.h"
+#include "../../../../include/constants/species.h"
+#include "../../../../include/test_battle.h"
 
-// each test file is a separate .c file in ../../battle_tests/ for better organization
+// each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {
 
 #endif
@@ -96,7 +96,7 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 49, 49, 51, 51, 52, 52, 52, 53, 53, 55, 55, 56, 56, 57, 57, 58 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Garchomp's Rough Skin hurt Scizor!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Garchomp's Rough Skin" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Scizor lost some of its HP!" },
         },
     },

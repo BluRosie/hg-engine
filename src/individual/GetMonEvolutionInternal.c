@@ -73,7 +73,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
     species = PokeOtherFormMonsNoGet(species, form); // factor in form into species to cover shit like galarian corsola + cap pikachu that can't evolve
 
     evoTable = sys_AllocMemory(3, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
-    ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, species);
+    ReadWholeNarcMemberByIdPair(evoTable, ARC_EVOLUTIONS, species);
 
     switch (context) {
     case EVOCTX_LEVELUP:

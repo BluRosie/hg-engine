@@ -92,7 +92,7 @@ static void AllocAndLoadScenario(void) {
     sCurrentScenario = sys_AllocMemory(HEAPID_DEFAULT, sizeof(struct TestBattleScenario));
     if (sCurrentScenario != NULL) {
     int testIndex = GetCurrentTestIndex();
-    ArchiveDataLoadOfs(sCurrentScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS,
+    ReadFromNarcMemberByIdPair(sCurrentScenario, ARC_CODE_ADDONS, CODE_ADDON_BATTLE_TESTS,
                            testIndex * sizeof(struct TestBattleScenario), sizeof(struct TestBattleScenario));
     }
 }

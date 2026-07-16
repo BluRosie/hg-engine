@@ -106,7 +106,7 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 56, 58, 58, 58, 60, 60, 60, 62, 62, 62, 64, 64, 64, 66, 66, 68 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ferroseed's Iron Barbs hurt Beedrill!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ferroseed's Iron Barbs" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ferroseed is switched out with the Eject Button!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beedrill lost some of its HP!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Beedrill's Attack fell!" },

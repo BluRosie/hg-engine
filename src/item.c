@@ -365,7 +365,7 @@ static const u16 sMachineMoves[] = {
 };
 
 u16 GetItemIndex(u16 item, u16 type);
-void *GetItemArcData(u16 item, u16 type, u32 heap_id);
+void *GetItemNarcData(u16 item, u16 type, u32 heap_id);
 u16 ItemToMachineMove(u16 itemId);
 // void *LONG_CALL ItemDataTableLoad(int heapID);
 void ItemMenuUseFunc_RevealGlass(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2);
@@ -464,21 +464,21 @@ u16 GetItemIndex(u16 item, u16 type)
     return 0;
 }
 
-void *GetItemArcData(u16 item, u16 type, u32 heap_id)
+void *GetItemNarcData(u16 item, u16 type, u32 heapID)
 {
-    int dataid, picid, palid;
+    int dataID, picID, palID;
 
-    dataid = item;
-    picid = item * 2 + 2;
-    palid = item * 2 + 3;
+    dataID = item;
+    picID = item * 2 + 2;
+    palID = item * 2 + 3;
 
     switch (type) {
     case ITEM_GET_DATA:
-        return ArchiveDataLoadMalloc(ARC_ITEM_DATA, dataid, heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(ARC_ITEM_DATA, dataID, heapID);
     case ITEM_GET_ICON_CGX:
-        return ArchiveDataLoadMalloc(ARC_ITEM_GFX_DATA, picid, heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(ARC_ITEM_GFX_DATA, picID, heapID);
     case ITEM_GET_ICON_PAL:
-        return ArchiveDataLoadMalloc(ARC_ITEM_GFX_DATA, palid, heap_id);
+        return AllocAndReadWholeNarcMemberByIdPair(ARC_ITEM_GFX_DATA, palID, heapID);
     }
     return NULL;
 }
@@ -501,7 +501,7 @@ void *LONG_CALL ItemDataTableLoad(int heapID)
 
     max = GetItemIndex(MAX_TOTAL_ITEM_NUM, ITEM_GET_DATA);
 
-    return ArchiveDataLoadMallocOfs(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max); // 800757Ch
+    return AllocAndReadFromNarcMemberByIdPair(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max); // 800757Ch
 }
 
 /**

@@ -1,15 +1,15 @@
 // Test: Wake Up Slap - Wake Up Target
 #ifndef GET_TEST_CASE_ONLY
 
-#include "include/battle.h"
-#include "include/constants/ability.h"
-#include "include/constants/battle_message_constants.h"
-#include "include/constants/item.h"
-#include "include/constants/moves.h"
-#include "include/constants/species.h"
-#include "include/test_battle.h"
+#include "../../../../include/battle.h"
+#include "../../../../include/constants/ability.h"
+#include "../../../../include/constants/battle_message_constants.h"
+#include "../../../../include/constants/item.h"
+#include "../../../../include/constants/moves.h"
+#include "../../../../include/constants/species.h"
+#include "../../../../include/test_battle.h"
 
-// each test file is a separate .c file in ../../battle_tests/ for better organization
+// each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {
 
 #endif
@@ -37,7 +37,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE }
         },
-        .enemyParty = { 
+        .enemyParty = {
                         {
                             .species = SPECIES_MEGANIUM,
                             .level = 75,
@@ -102,7 +102,7 @@ const struct TestBattleScenario BattleTests[] = {
         },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 82, 83, 83, 86, 86, 87, 87, 90, 90, 91, 91, 94, 94, 95, 95, 97 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Iron Barbs hurt Hariyama!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meganium's Iron Barbs" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium woke up!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hariyama lost some of its HP!" },
         },

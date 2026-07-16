@@ -2,9 +2,27 @@ from pathlib import Path
 
 from dump_scripts.dump_tools import lookup_species
 
+HEADBUTT_DATA_PATH = Path("data/Headbutt.c")
+
 
 def _species_name(species):
     return lookup_species(species)
+
+
+def load_headbutt_file_names(path, expected_count):
+    if not path.exists():
+        return None
+
+    names = []
+    for line in path.read_text(encoding="ascii").splitlines():
+        line = line.strip()
+        prefix = "typedef struct PACKED HeadbuttFile_"
+        if line.startswith(prefix):
+            names.append(line[len(prefix):line.index(" {")])
+
+    if len(names) != expected_count:
+        return None
+    return names
 
 
 def dump_headbutt(files):
@@ -108,15 +126,19 @@ def dump_headbutt_single_c(files, output_path, file_names=None):
     used_field_names = set()
 
     for index, data in enumerate(files):
-        stem = f"{index:03d}" if file_names is None else file_names[index]
-        type_name = f"HeadbuttFile_{stem}"
-        raw_name = stem.split("_", 1)[1] if "_" in stem else stem
-        parts = [part for part in raw_name.split("_") if part]
-        if not parts:
+        if file_names is None:
+            stem = f"{index:03d}"
             field_name = f"entry{index:03d}"
         else:
-            field_name = parts[0].lower() + "".join(part[:1].upper() + part[1:] for part in parts[1:])
-            field_name = field_name.replace("Pokmon", "Pokemon")
+            stem = file_names[index]
+            raw_name = stem.split("_", 1)[1] if "_" in stem else stem
+            parts = [part for part in raw_name.split("_") if part]
+            if not parts:
+                field_name = f"entry{index:03d}"
+            else:
+                field_name = parts[0].lower() + "".join(part[:1].upper() + part[1:] for part in parts[1:])
+                field_name = field_name.replace("Pokmon", "Pokemon")
+        type_name = f"HeadbuttFile_{stem}"
         if field_name in used_field_names:
             field_name = f"{field_name}{index:03d}"
         used_field_names.add(field_name)
@@ -169,6 +191,7 @@ def dump_headbutt_single_c(files, output_path, file_names=None):
         lines.append("")
 
     lines.extend([
+        "",
         "typedef struct PACKED HeadbuttArchiveData {",
     ])
 
@@ -177,6 +200,7 @@ def dump_headbutt_single_c(files, output_path, file_names=None):
 
     lines.extend([
         "} HeadbuttArchiveData;",
+        "",
         "",
     ])
 
@@ -244,4 +268,4 @@ def dump_headbutt_single_c(files, output_path, file_names=None):
 
 
 def dump_headbutt_c(files, output_path):
-    dump_headbutt_single_c(files, output_path)
+    dump_headbutt_single_c(files, output_path, load_headbutt_file_names(HEADBUTT_DATA_PATH, len(files)))

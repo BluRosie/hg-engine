@@ -12,7 +12,7 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_PARENTAL_BOND,
-            .item = ITEM_NONE,
+            .item = ITEM_WIDE_LENS,
             .moves = { MOVE_MAKE_IT_RAIN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,

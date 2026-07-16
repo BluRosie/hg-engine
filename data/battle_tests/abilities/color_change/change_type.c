@@ -1,15 +1,15 @@
 // Test: Color Change - Trigger Paralysis, Heal with berry, get STAB
 #ifndef GET_TEST_CASE_ONLY
 
-#include "include/battle.h"
-#include "include/constants/ability.h"
-#include "include/constants/battle_message_constants.h"
-#include "include/constants/item.h"
-#include "include/constants/moves.h"
-#include "include/constants/species.h"
-#include "include/test_battle.h"
+#include "../../../../include/battle.h"
+#include "../../../../include/constants/ability.h"
+#include "../../../../include/constants/battle_message_constants.h"
+#include "../../../../include/constants/item.h"
+#include "../../../../include/constants/moves.h"
+#include "../../../../include/constants/species.h"
+#include "../../../../include/test_battle.h"
 
-// each test file is a separate .c file in ../../battle_tests/ for better organization
+// each test file is a separate .c file in battle_tests/ for better organization
 const struct TestBattleScenario BattleTests[] = {
 
 #endif
@@ -104,7 +104,7 @@ const struct TestBattleScenario BattleTests[] = {
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 10, 10, 10, 10, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 13 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Kecleon's Cheri Berry cured its paralysis!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Kecleon's Color Change made it the Electric type!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Kecleon's type changed to Electric!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 39, 39, 39, 40, 41, 41, 42, 42, 42, 43, 43, 44, 45, 45, 45, 46 } },
         }
     },

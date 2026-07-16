@@ -5,8 +5,6 @@
 #include "message.h"
 
 
-#define OT_ID_PRESET 1
-
 
 typedef enum NpcTradeNum {
     NPC_TRADE_ROCKY_ONIX,
