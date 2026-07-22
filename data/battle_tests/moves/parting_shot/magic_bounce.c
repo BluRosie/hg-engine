@@ -1,5 +1,4 @@
 // Test: Magic Bounce - Bounce Parting Shot
-// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_SINGLE,

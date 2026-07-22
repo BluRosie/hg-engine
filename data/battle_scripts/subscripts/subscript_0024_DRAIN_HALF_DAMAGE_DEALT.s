@@ -19,7 +19,6 @@ DrainHealth:
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_MSG_BATTLER_TEMP, BSCRIPT_VAR_BATTLER_ATTACKER
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_DEFENDER, ABILITY_LIQUID_OOZE, DamageInstead
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, PreventHealing
     UpdateVar OPCODE_MUL, BSCRIPT_VAR_HP_CALC, -1
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // {0} had its energy drained!
@@ -28,16 +27,9 @@ DrainHealth:
     WaitButtonABTime 30
     End 
 
-PreventHealing:
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_HEAL_BLOCK
-    // {0} was prevented from healing due to {1}!
-    PrintMessage 1054, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
-    WaitButtonABTime 30
-    End 
-
 DamageInstead:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, EndScript
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE

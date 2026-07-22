@@ -228,7 +228,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
                 sp->addeffect_type = ADD_EFFECT_ABILITY;
                 sp->battlerIdTemp = sp->attack_client;
-                sp->battlemon[sp->attack_client].ability = GetBattlerAbility(sp, sp->defence_client); // spread defender ability to attacker
+                //sp->battlemon[sp->attack_client].ability = GetBattlerAbility(sp, sp->defence_client); // moved to subscript to handle popup
                 seq_no[0] = SUB_SEQ_HANDLE_MUMMY_MESSAGE;
                 ret = TRUE;
             }
@@ -393,6 +393,14 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = SUB_SEQ_COTTON_DOWN;
+            ret = TRUE;
+        }
+    } else if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_PERISH_BODY) { // not breakable
+        //defender does not need to be alive
+        if ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
+            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))){
+            sp->addeffect_type = ADD_EFFECT_PRINT_WORK_ABILITY;
+            seq_no[0] = SUB_SEQ_PERISH_BODY;
             ret = TRUE;
         }
     }

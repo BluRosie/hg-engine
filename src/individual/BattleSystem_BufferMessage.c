@@ -81,7 +81,8 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg) {
     case TAG_NICKNAME_ITEM:
         BattleMessage_BufferNickname(bsys, 0, msg->param[0]);
         if (((msg->id >= BATTLE_MSG_OBTAINED_ITEM) && (msg->id < (BATTLE_MSG_OBTAINED_ITEM + 3)))
-         || ((msg->id >= BATTLE_MSG_PICKED_UP_ITEM) && (msg->id < (BATTLE_MSG_PICKED_UP_ITEM + 3))))
+            || ((msg->id >= BATTLE_MSG_HARVESTED_ITEM) && (msg->id < (BATTLE_MSG_HARVESTED_ITEM + 3)))
+            || ((msg->id >= BATTLE_MSG_PICKED_UP_ITEM) && (msg->id < (BATTLE_MSG_PICKED_UP_ITEM + 3))))
         { // get article added to each of these
             BufferItemNameWithIndefArticle(bsys->msgFormat, 1, msg->param[1]);
         } else {

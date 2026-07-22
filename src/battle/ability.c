@@ -96,7 +96,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
      && (sp->moveTbl[sp->current_move_index].target & (RANGE_USER)) == 0
      && IsMoveSoundBased(sp->current_move_index))
     {
-        scriptnum = SUB_SEQ_SOUNDPROOF;
+        scriptnum = SUB_SEQ_DOESNT_AFFECT_ABILITY;
     }
 
     // 02252FDC

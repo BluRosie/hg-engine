@@ -155,6 +155,7 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryFeint(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
+BOOL BtlCmd_TryPerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintAttackMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL LONG_CALL BtlCmd_PrintGlobalMessage(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -5764,5 +5765,40 @@ BOOL BtlCmd_TryFeint(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx)
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }
+    return FALSE;
+}
+
+
+BOOL BtlCmd_TryPerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int adrs = read_battle_script_param(ctx);
+
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    ctx->calc_work = maxBattlers;
+
+    int cnt = 0;
+
+    for (int battlerId = 0; battlerId < maxBattlers; battlerId++) {
+        if (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE
+            || ctx->battlemon[battlerId].hp == 0 
+            || (ctx->addeffect_type != ADD_EFFECT_ABILITY && MoldBreakerAbilityCheck(ctx, ctx->attack_client, battlerId, ABILITY_SOUNDPROOF) == TRUE)) {
+            cnt++;
+        } else {
+            if (ctx->addeffect_type == ADD_EFFECT_ABILITY
+                && battlerId != ctx->attack_client
+                && battlerId != ctx->defence_client)
+            {
+                continue;
+            }
+            ctx->battlemon[battlerId].effect_of_moves |= MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE;
+            ctx->battlemon[battlerId].moveeffect.perishSongTurns = 3;
+        }
+    }
+    if (cnt == maxBattlers) {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
     return FALSE;
 }

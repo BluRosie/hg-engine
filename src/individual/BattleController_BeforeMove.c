@@ -1378,6 +1378,22 @@ void BattleController_CheckHealBlock(struct BattleSystem *bsys, struct BattleStr
         ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
     }
+
+    if ((ctx->current_move_index == MOVE_HEAL_PULSE && ctx->battlemon[ctx->defence_client].moveeffect.healBlockTurns)
+        || (ctx->current_move_index == MOVE_POLLEN_PUFF
+            && ctx->battlemon[ctx->defence_client].moveeffect.healBlockTurns
+            && ctx->defence_client == BATTLER_ALLY(ctx->attack_client)))
+    {
+        ctx->moveOutCheck[ctx->attack_client].stoppedFromHealBlock = TRUE;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAILED_HEAL_BLOCK);
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
+        CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
+        ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
+        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+    }
+
 }
 
 // TODO: Gravity ban list and Throat Chop
@@ -3827,6 +3843,17 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         break;
     }
+    case MOVE_LIFE_DEW: { //only self
+        if (ctx->battlemon[ctx->attack_client].hp == (s32)ctx->battlemon[ctx->attack_client].maxhp) {
+            ctx->battlerIdTemp = ctx->attack_client;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
+            ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] = MOVE_STATUS_FLAG_FAILED;
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    }
     case MOVE_POLLEN_PUFF: {
         if ((ctx->battlemon[ctx->defence_client].hp == (s32)ctx->battlemon[ctx->defence_client].maxhp)
             && (ctx->defence_client == BATTLER_ALLY(ctx->attack_client))) {
@@ -4393,8 +4420,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
     switch (ctx->current_move_index) {
-    // temporarily handled in the life dew subscript because otherwise it doesn't fallthrough on the ally
-    /* case MOVE_LIFE_DEW: {
+    case MOVE_LIFE_DEW: { //only ally
         if (ctx->battlemon[defender].hp == (s32)ctx->battlemon[defender].maxhp) {
             ctx->battlerIdTemp = defender;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
@@ -4404,7 +4430,7 @@ BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bs
             return TRUE;
         }
         break;
-    } */
+    }
     case MOVE_CORROSIVE_GAS: {
         if (ctx->battlemon[defender].item == ITEM_NONE
 #if CORROSIVE_GAS_IMPLIED_BEHAVIOUR == TRUE

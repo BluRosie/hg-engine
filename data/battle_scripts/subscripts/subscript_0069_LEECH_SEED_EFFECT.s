@@ -44,6 +44,7 @@ _083:
 
 _096:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_MSG_ATTACKER, ABILITY_MAGIC_GUARD, _110
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE

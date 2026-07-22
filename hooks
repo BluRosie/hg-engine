@@ -155,6 +155,7 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_TryPursuit 0224336C 3
 0012 BtlCmd_MagicCoat 02242CDC 3
 0012 BtlCmd_TryFeint 02243D20 3
+0012 BtlCmd_TryPerishSong 02241A04 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -645,3 +646,5 @@ arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
 0012 GetPokemon_CheckIfTrainer_hook 2246704 0
 0012 GetPokemon_BallBlocked_hook 02247094 0
 0012 BattleSystem_AdjustMessageForSide 0223C558 2
+
+0012 PlayerTrainerVictoryBGM_hook 0224DA9E 3

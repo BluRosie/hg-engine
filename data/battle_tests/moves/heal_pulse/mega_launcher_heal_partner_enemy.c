@@ -112,8 +112,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon's HP is full!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Audino's HP is full!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clawitzer made a substitute!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Espeon's HP is full!" },
     },
-    .knownFailing = TRUE,
 }
 END_TEST

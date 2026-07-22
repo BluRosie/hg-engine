@@ -605,7 +605,9 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->attack_client = client_no;            // attack transforms into defence
                             sp->current_move_index = MOVE_TRANSFORM;  // force move anim to play
 
+
                             HandleTransform(sp);
+                            sp->battlemon[sp->attack_client].ability = ABILITY_IMPOSTER; // override and set in subscript to allow for popup to show correctly
                             break;
                         }
                     }

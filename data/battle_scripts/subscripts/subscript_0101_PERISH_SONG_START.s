@@ -4,6 +4,7 @@
 .data
 
 _000:
+    UpdateVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_MOVE_EFFECT
     TryPerishSong _045
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     // All Pokémon hearing the song will faint in three turns!

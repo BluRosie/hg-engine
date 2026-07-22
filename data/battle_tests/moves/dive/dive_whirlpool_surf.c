@@ -52,7 +52,7 @@ BEGIN_TEST
             .species = SPECIES_WAILORD,
             .level = 40,
             .form = 0,
-            .ability = ABILITY_LEVITATE,
+            .ability = ABILITY_COMPOUND_EYES,
             .item = ITEM_NONE,
             .moves = { MOVE_WHIRLPOOL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,

@@ -37,6 +37,7 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
 int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp);
 int LONG_CALL Activate_Disguise_IceFace(void *bsys, struct BattleStruct *sp);
 int LONG_CALL Activate_SecondaryEffects(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL Activate_HowlLifeDew(void *bsys, struct BattleStruct *ctx);
 
 int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx);
 
@@ -2204,24 +2205,26 @@ int LONG_CALL MovePerformance_Step_9(void* bsys, struct BattleStruct* ctx, int* 
             }
         }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_9_3_FLAME_BURST:
+        case MOVE_PERFORMANCE_SUB_STEP_9_3_HOWL_LIFE_DEW: {
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_9_3_FLAME_BURST %d\n", ctx->movePerformanceSubstep);
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_9_3_HOWL_LIFE_DEW %d\n", ctx->movePerformanceSubstep);
+#endif
+            ctx->movePerformanceSubstep++;
+            if (Activate_HowlLifeDew(bsys, ctx) == TRUE) {
+                return TRUE;
+            }
+        }
+            FALLTHROUGH;
+        case MOVE_PERFORMANCE_SUB_STEP_9_4_FLAME_BURST:
+#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
+            debug_printf("in MOVE_PERFORMANCE_SUB_STEP_9_4_FLAME_BURST %d\n", ctx->movePerformanceSubstep);
 #endif
             ctx->movePerformanceSubstep++;
             if (Activate_FlameBurstHit(bsys, ctx) == TRUE) {
                 return TRUE;
             }
             FALLTHROUGH;
-        case MOVE_PERFORMANCE_SUB_STEP_9_4_DYNAMAX_MOVE_EFFECTS:
-
-            //TODO
-            if (ctx->server_status_flag2 & BATTLE_STATUS2_MAGIC_COAT) {
-                ctx->server_status_flag2 &= ~BATTLE_STATUS2_MAGIC_COAT;
-                ctx->defence_client = ctx->attack_client;
-                ctx->attack_client = ctx->magic_cort_client;
-            }
-
+        case MOVE_PERFORMANCE_SUB_STEP_9_5_DYNAMAX_MOVE_EFFECTS:
 
             // TODO
             ctx->movePerformanceSubstep++;
@@ -2547,6 +2550,42 @@ int LONG_CALL Activate_SecondaryEffects(void *bsys, struct BattleStruct *ctx)
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
+    }
+    return FALSE;
+}
+int LONG_CALL Activate_HowlLifeDew(void *bsys, struct BattleStruct *ctx)
+{
+    switch (ctx->current_move_index) {
+    case MOVE_HOWL: {
+        int ally = BATTLER_ALLY(ctx->attack_client);
+        if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)
+            && IsValidMoveTarget(ctx, ally)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ally;
+            ctx->battlerIdTemp = ally;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HOWL);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    }
+    case MOVE_LIFE_DEW: {
+        int ally = BATTLER_ALLY(ctx->attack_client);
+        if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)
+            && IsValidMoveTarget(ctx, ally)) {
+            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->state_client = ally;
+            ctx->battlerIdTemp = ally;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LIFE_DEW);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+        break;
+    }
+    default:
+        break;
     }
     return FALSE;
 }

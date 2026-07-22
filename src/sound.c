@@ -3,7 +3,6 @@
 #include "../include/debug.h"
 #include "../include/sound.h"
 
-
 BOOL LONG_CALL GF_Snd_LoadSeq(int seqNo) {
     BOOL ret;
     struct SND_WORK *work;
