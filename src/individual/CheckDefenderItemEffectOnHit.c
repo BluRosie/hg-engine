@@ -49,7 +49,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
                 // Attacker used a move that makes contact
                 && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
-                seq_no[0] = SUB_SEQ_ITEM_GIVE_STICKY_BARB;
+                seq_no[0] = BATTLE_SUBSCRIPT_TRANSFER_STICKY_BARB;
                 ret       = TRUE;
             }
             break;
@@ -61,7 +61,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)) {
                 sp->battlerIdTemp = sp->defence_client;
                 sp->item_work   = sp->battlemon[sp->defence_client].item;
-                seq_no[0]       = SUB_SEQ_ITEM_HP_RESTORE;
+                seq_no[0]       = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
                 ret             = TRUE;
             }
             break;
@@ -81,7 +81,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0)))) {
                 sp->state_client     = sp->defence_client;
-                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_SPECIAL_ATTACK_ON_HIT;
+                seq_no[0]            = BATTLE_SUBSCRIPT_HANDLE_RAISE_SPECIAL_ATTACK_ON_HIT;
                 ret                  = TRUE;
             }
             break;
@@ -92,7 +92,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
-                seq_no[0] = SUB_SEQ_HANDLE_AIR_BALLOON_POP;
+                seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_AIR_BALLOON_POP;
                 ret       = TRUE;
             }
             break;
@@ -111,7 +111,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)))) {
                 sp->state_client     = sp->defence_client;
-                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_ATTACK_ON_HIT;
+                seq_no[0]            = BATTLE_SUBSCRIPT_HANDLE_RAISE_ATTACK_ON_HIT;
                 ret                  = TRUE;
             }
             break;
@@ -126,7 +126,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker is not holding an item that prevents contact effects, e.g. Protective Pads
                 && (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS)
                 // punching glove & punching move foundation
-                // && ((HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) && 
+                // && ((HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) &&
                 // IsElementInArray(IronFistMovesTable, (u16 *)&moveno, NELEMS(IronFistMovesTable), sizeof(IronFistMovesTable[0]))))
                 // Damage was dealt
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
@@ -134,7 +134,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 // Attacker used a move that makes contact
                 && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
                 sp->hp_calc_work         = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
-                seq_no[0]                = SUB_SEQ_ITEM_DAMAGE_BACK;
+                seq_no[0]                = BATTLE_SUBSCRIPT_HELD_ITEM_RECOIL_WHEN_HIT;
                 ret                      = TRUE;
                 //sp->itemActivatedTracker = TRUE; // signal that this shouldn't happen for the rest of the hit
             }
@@ -155,7 +155,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_SPDEF] > 0)))) {
                 sp->state_client     = sp->defence_client;
-                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT;
+                seq_no[0]            = BATTLE_SUBSCRIPT_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT;
                 ret                  = TRUE;
             }
             break;
@@ -174,7 +174,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                     || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)))) {
                 sp->state_client     = sp->defence_client;
-                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_ATTACK_ON_HIT;
+                seq_no[0]            = BATTLE_SUBSCRIPT_HANDLE_RAISE_ATTACK_ON_HIT;
                 ret                  = TRUE;
             }
             break;
@@ -192,7 +192,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                         && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)
                             || (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0))))) {
                 sp->state_client     = sp->defence_client;
-                seq_no[0]            = SUB_SEQ_HANDLE_RAISE_ATTACK_AND_SP_ATK_ON_HIT;
+                seq_no[0]            = BATTLE_SUBSCRIPT_HANDLE_RAISE_ATTACK_AND_SP_ATK_ON_HIT;
                 ret                  = TRUE;
             }
             break;

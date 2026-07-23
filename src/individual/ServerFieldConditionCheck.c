@@ -145,7 +145,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 if (sp->field_condition & WEATHER_RAIN) {
                     if (--sp->fcc.weather_count == 0) {
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAIN_END);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RAINING_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->temp_work = 19;
@@ -155,7 +155,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 if (sp->field_condition & WEATHER_SANDSTORM) {
                     if (--sp->fcc.weather_count == 0) {
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SANDSTORM_END);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SANDSTORM_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->temp_work = 21;
@@ -165,7 +165,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 if (sp->field_condition & WEATHER_SUNNY) {
                     if (--sp->fcc.weather_count == 0) {
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_END);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SUNNY_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->temp_work = 22;
@@ -175,7 +175,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 if (sp->field_condition & WEATHER_HAIL) {
                     if (--sp->fcc.weather_count == 0) {
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HAIL_END);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HAILING_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         sp->temp_work = 20;
@@ -185,7 +185,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 if (sp->field_condition & WEATHER_SNOW) {
                     if (--sp->fcc.weather_count == 0) {
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SNOW_END);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SNOW_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         // TODO: Reuse same animation for now
@@ -206,7 +206,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 if (sp->field_condition & WEATHER_RAIN_ANY) {
                     sp->mp.id = BATTLE_MSG_RAIN_CONTINUES_TO_FALL;  // Rain continues to fall.
                     sp->mp.tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     sp->temp_work = 19;
@@ -216,7 +216,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 if (sp->field_condition & WEATHER_SANDSTORM_ANY) {
                     sp->mp.id = BATTLE_MSG_SANDSTORM_RAGES;  // The sandstorm rages.
                     sp->mp.tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     sp->temp_work = 21;
@@ -226,7 +226,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 if (sp->field_condition & WEATHER_SUNNY_ANY) {
                     sp->mp.id = BATTLE_MSG_SUNLIGHT_IS_STRONG;  // The sunlight is strong.
                     sp->mp.tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     sp->temp_work = 22;
@@ -236,7 +236,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 if (sp->field_condition & WEATHER_HAIL_ANY) {
                     sp->mp.id = BATTLE_MSG_HAIL_CONTINUES_TO_FALL;  // Hail continues to fall.
                     sp->mp.tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     sp->temp_work = 20;
@@ -244,7 +244,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 }
 
                 if (sp->field_condition & WEATHER_SNOW_ANY) {
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     // Reuse same animation for now
@@ -255,7 +255,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 if (sp->field_condition & FIELD_STATUS_FOG) {
                     sp->mp.id = BATTLE_MSG_FOG_IS_DEEP;  // The fog is deep...
                     sp->mp.tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     sp->temp_work = 18;  // signifies fog i guess -- subanimation?
@@ -265,7 +265,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 if (sp->field_condition & WEATHER_STRONG_WINDS) {
                     sp->mp.id = BATTLE_MSG_STRONG_WINDS_BLOW_ON;  // The strong winds blow on!
                     sp->mp.tag = TAG_NONE;
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEATHER_EOT_EFFECT);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
                     ret = 1;
@@ -361,7 +361,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     int side = IsClientEnemy(bw, sp->defence_client);
                                     sp->side_condition[side] |= SIDE_STATUS_FUTURE_SIGHT;
 
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FUTURE_SIGHT_HIT);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FUTURE_SIGHT_HIT);
                                     sp->waza_out_check_on_off |= (SYSCTL_SKIP_STATUS_CHECK | SYSCTL_SKIP_OBEDIENCE_CHECK | SYSCTL_SKIP_PP_DECREMENT);
                                     sp->next_server_seq_no = CONTROLLER_COMMAND_23;
                                     //sp->wb_seq_no = BEFORE_MOVE_STATE_TYPE_CHART_IMMUNITY;
@@ -390,7 +390,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                         sp->mp.id = BATTLE_MSG_WISH_CAME_TRUE;  // "{STRVAR_1 1, 0, 0}’s wish\ncame true!"
                                         sp->mp.param[0] = futureCondition.defenderSlot | (sp->fcc.wish_sel_mons[futureCondition.defenderSlot] << 8);
                                         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[futureCondition.defenderSlot].maxhp, 2);
-                                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WISH_HEAL);
+                                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WISH_HEAL);
                                         sp->next_server_seq_no = sp->server_seq_no;
                                         sp->server_seq_no = 22;
                                         ret = 1;
@@ -489,7 +489,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             && IsClientGrounded(sp, battlerId)) {
                                 sp->battlerIdTemp = battlerId;
                                 sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
-                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_FIELD_EFFECTS_END_OF_TURN);
+                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_FIELD_EFFECTS_END_OF_TURN);
                                 sp->next_server_seq_no = sp->server_seq_no;
                                 sp->server_seq_no = 22;
                                 ret = 1;
@@ -514,7 +514,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     && GetWeather(bw, sp, 0xFF) & WEATHER_RAIN_ANY
                                     && sp->battlemon[battlerId].hp
                                     && (u8)sp->battlemon[battlerId].condition)) {
-                                        seq_no = SUB_SEQ_SHED_SKIN;
+                                        seq_no = BATTLE_SUBSCRIPT_ABILITY_RESTORE_STATUS;
                                         ret = TRUE;
                                     }
                                     break;
@@ -525,7 +525,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     && (BattleRand(bw) % 10 < 3)) // 30% chance
                                     {
                                         battlerId = BATTLER_ALLY(battlerId);
-                                        seq_no = SUB_SEQ_HANDLE_HEALER;
+                                        seq_no = BATTLE_SUBSCRIPT_HANDLE_HEALER;
                                         ret = TRUE;
                                     }
                                     break;
@@ -641,12 +641,12 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_AQUA_RING) && (u32)sp->battlemon[battlerId].hp != sp->battlemon[battlerId].maxhp && sp->battlemon[battlerId].hp != 0) {
                         if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_HEAL);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_HEAL);
                         } else {
                             sp->battlerIdTemp = battlerId;
                             sp->waza_work = MOVE_AQUA_RING;
                             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_AQUA_RING_HEAL);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_AQUA_RING_HEAL);
                         }
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
@@ -676,10 +676,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     && sp->battlemon[battlerId].hp != 0) {
                         if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_HEAL);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_HEAL);
                         } else {
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_INGRAIN_HEAL);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_INGRAIN_HEAL);
                         }
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
@@ -710,7 +710,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     && (GetBattlerAbility(sp, battlerId) != ABILITY_MAGIC_GUARD && sp->battlemon[battlerId].hp != 0)) {
                         sp->attack_client_work = sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_LEECH_SEED_BATTLER;
                         sp->defence_client_work = battlerId;
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LEECH_SEED_DAMAGE);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LEECH_SEED_EFFECT);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
@@ -737,7 +737,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     if ((sp->battlemon[battlerId].condition & STATUS_POISON) && sp->battlemon[battlerId].hp != 0) {
                         sp->battlerIdTemp = battlerId;
                         sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_POISON_DAMAGE);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_POISON_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
@@ -749,7 +749,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         }
                         sp->hp_calc_work *= ((sp->battlemon[battlerId].condition & STATUS_POISON_COUNT) >> 8);
                         sp->hp_calc_work *= -1;
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_POISON_DAMAGE);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_POISON_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
@@ -776,7 +776,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                     if ((sp->battlemon[battlerId].condition & STATUS_BURN) && sp->battlemon[battlerId].hp != 0) {
                         sp->battlerIdTemp = battlerId;
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BURN_DAMAGE);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BURN_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
@@ -804,7 +804,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     if ((sp->battlemon[battlerId].condition2 & STATUS2_NIGHTMARE) && sp->battlemon[battlerId].hp != 0) {
                         if (sp->battlemon[battlerId].condition & STATUS_SLEEP) {
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_NIGHTMARE_DAMAGE);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_NIGHTMARE_EFFECT);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -834,7 +834,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                     if ((sp->battlemon[battlerId].condition2 & STATUS2_CURSE) && sp->battlemon[battlerId].hp != 0) {
                         sp->battlerIdTemp = battlerId;
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CURSE_DAMAGE);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CURSE_DAMAGE);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
@@ -864,9 +864,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         sp->binding_turns[battlerId]--;
                         if (sp->binding_turns[battlerId]) {
                             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp * -1, 8);
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BIND_DAMAGE);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BIND_EFFECT);
                         } else {
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BIND_END);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BIND_END);
                         }
                         sp->waza_work = sp->battlemon[battlerId].moveeffect.bindingMove;
                         sp->battlerIdTemp = battlerId;
@@ -908,7 +908,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         sp->battlemon[battlerId].moveeffect.tauntTurns--;
                         if (sp->battlemon[battlerId].moveeffect.tauntTurns == 0) {
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAUNT_END);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_TAUNT_END);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -958,7 +958,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         } else {
                             sp->battlemon[battlerId].moveeffect.encoredMove = 0;
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ENCORE_END);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ENCORE_END);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -998,7 +998,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         } else {
                             sp->battlemon[battlerId].moveeffect.disabledMove = 0;
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DISABLE_END);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DISABLE_END);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -1027,7 +1027,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     if (sp->battlemon[battlerId].moveeffect.magnetRiseTurns) {
                         if (--sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0) {
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGNET_RISE_END);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MAGNET_RISE_END);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -1066,7 +1066,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     if (sp->battlemon[battlerId].moveeffect.healBlockTurns) {
                         if (--sp->battlemon[battlerId].moveeffect.healBlockTurns == 0) {
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_BLOCK_END);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_BLOCK_END);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -1095,7 +1095,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     if (sp->battlemon[battlerId].moveeffect.embargoFlag) {
                         if (--sp->battlemon[battlerId].moveeffect.embargoFlag == 0) {
                             sp->battlerIdTemp = battlerId;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_EMBARGO_END);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_EMBARGO_END);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -1126,7 +1126,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_YAWN_COUNTER) == 0) {
                             sp->state_client = battlerId;
                             sp->addeffect_type = 4;
-                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_SLEEP);
+                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FALL_ASLEEP);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
                             ret = 1;
@@ -1261,7 +1261,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 if (--sp->scw[side].reflectCount == 0) {
                                     sp->side_condition[side] &= ~(SIDE_STATUS_REFLECT);
                                     sp->waza_work = MOVE_REFLECT;
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAR_OFF);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_EFFECT_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -1286,7 +1286,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 if (--sp->scw[side].lightScreenCount == 0) {
                                     sp->side_condition[side] &= ~(SIDE_STATUS_LIGHT_SCREEN);
                                     sp->waza_work = MOVE_LIGHT_SCREEN;
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAR_OFF);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_EFFECT_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -1307,7 +1307,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 if (--sp->scw[side].safeguardCount == 0) {
                                     sp->side_condition[side] &= ~(SIDE_STATUS_SAFEGUARD);
                                     sp->battlerIdTemp = sp->scw[side].safeguardBattler;
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_END_SAFEGUARD);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SAFEGUARD_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -1327,7 +1327,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 if (--sp->scw[side].mistCount == 0) {
                                     sp->side_condition[side] &= ~(SIDE_STATUS_MIST);
                                     sp->waza_work = MOVE_MIST;
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MIST_END);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MIST_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -1347,7 +1347,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             if (sp->tailwindCount[side])  // update tailwind to use a separate counter so it can be larger
                             {
                                 if (--sp->tailwindCount[side] == 0) {
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAILWIND_END);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_TAILWIND_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -1376,7 +1376,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             if (sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) {
                                 sp->side_condition[side] -= (1 << 12);
                                 if ((sp->side_condition[side] & SIDE_STATUS_LUCKY_CHANT) == 0) {
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LUCKY_CHANT_END);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LUCKY_CHANT_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -1435,7 +1435,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 if (--sp->scw[side].auroraVeilCount == 0) {
                                     sp->side_condition[side] &= ~(SIDE_STATUS_AURORA_VEIL);
                                     sp->waza_work = MOVE_AURORA_VEIL;
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAR_OFF);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_EFFECT_END);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                     sp->battlerIdTemp = ST_ServerDir2ClientNoGet(bw, sp, side);
@@ -1495,7 +1495,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 if (sp->field_condition & FIELD_STATUS_GRAVITY) {
                     sp->field_condition -= (1 << 12);
                     if ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0) {
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_GRAVITY_END);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_GRAVITY_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
@@ -1555,7 +1555,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         sp->terrainOverlay.numberOfTurnsLeft--;
                     }
                     if (sp->terrainOverlay.numberOfTurnsLeft <= 0) {
-                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_TERRAIN_END);
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_TERRAIN_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
                         ret = 1;
@@ -1588,7 +1588,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 sp->battlemon[battlerId].condition2 &= ~STATUS2_UPROAR;
                                 sp->field_condition &= (No2Bit(battlerId) << 8) ^ 0xFFFFFFFF;
                                 sp->battlerIdTemp = battlerId;
-                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_UPROAR_END);
+                                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UPROAR_END);
                                 sp->next_server_seq_no = sp->server_seq_no;
                                 sp->server_seq_no = 22;
                                 flag = 1;
@@ -1599,7 +1599,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 for (battlerIdSleep = 0; battlerIdSleep < client_set_max; battlerIdSleep++) {
                                     if ((sp->battlemon[battlerIdSleep].condition & STATUS_SLEEP) && sp->battlemon[battlerIdSleep].hp != 0 && GetBattlerAbility(sp, battlerIdSleep) != ABILITY_SOUNDPROOF) {
                                         sp->battlerIdTemp = battlerIdSleep;
-                                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WAKE_UP);
+                                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WAKE_UP);
                                         sp->next_server_seq_no = sp->server_seq_no;
                                         sp->server_seq_no = 22;
                                         break;
@@ -1612,13 +1612,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 }
                                 sp->battlemon[battlerId].condition2 -= 1 << 4;
                                 if (ov12_02252218(sp, battlerId)) {  // come back to this
-                                    i = SUB_SEQ_UPROAR_END;
+                                    i = BATTLE_SUBSCRIPT_UPROAR_END;
                                     sp->battlemon[battlerId].condition2 &= ~STATUS2_UPROAR;
                                     sp->field_condition &= (No2Bit(battlerId) << 8) ^ 0xFFFFFFFF;
                                 } else if (sp->battlemon[battlerId].condition2 & STATUS2_UPROAR) {
-                                    i = SUB_SEQ_MAKING_AN_UPROAR;
+                                    i = BATTLE_SUBSCRIPT_UPROAR_CONTINUES;
                                 } else {
-                                    i = SUB_SEQ_UPROAR_END;
+                                    i = BATTLE_SUBSCRIPT_UPROAR_END;
                                     sp->battlemon[battlerId].condition2 &= ~STATUS2_UPROAR;
                                     sp->field_condition &= (No2Bit(battlerId) << 8) ^ 0xFFFFFFFF;
                                 }
@@ -1642,10 +1642,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                             switch (GetBattlerAbility(sp, battlerId)) {
                                 case ABILITY_SPEED_BOOST: {
                                     if ((sp->battlemon[battlerId].hp) && (sp->battlemon[battlerId].states[STAT_SPEED] < 12) && (sp->battlemon[battlerId].moveeffect.fakeOutCount != (sp->total_turn + 1))) {
-                                        sp->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_UP;
-                                        sp->addeffect_type = ADD_EFFECT_ABILITY;
+                                        sp->addeffect_param = MOVE_SUBSCRIPT_PTR_SPEED_UP_1_STAGE;
+                                        sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                                         sp->state_client = battlerId;
-                                        seq_no = SUB_SEQ_BOOST_STATS;
+                                        seq_no = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
                                         ret = TRUE;
                                     }
                                     break;
@@ -1659,7 +1659,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                         sp->recycle_item[battlerId] = 0;
                                         sp->battlemon[battlerId].item = sp->item_work;
                                         sp->battlerIdTemp = battlerId;
-                                        seq_no = SUB_SEQ_HANDLE_HARVEST;
+                                        seq_no = BATTLE_SUBSCRIPT_HANDLE_HARVEST;
                                         ret = TRUE;
                                     }
                                     break;
@@ -1694,7 +1694,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                                         sp->battlerIdTemp = battlerId;
                                         sp->state_client = battlerId;
-                                        seq_no = SUB_SEQ_HANDLE_MOODY;
+                                        seq_no = BATTLE_SUBSCRIPT_HANDLE_MOODY;
                                         ret = TRUE;
                                     }
                                     break;
@@ -1703,7 +1703,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     if ((sp->battlemon[battlerId].slow_start_end_flag == 0) && (sp->battlemon[battlerId].hp) && (GetBattlerAbility(sp, battlerId) == ABILITY_SLOW_START) && ((sp->total_turn - sp->battlemon[battlerId].moveeffect.slowStartTurns) == 5)) {
                                         sp->battlemon[battlerId].slow_start_end_flag = 1;
                                         sp->battlerIdTemp = battlerId;
-                                        seq_no = SUB_SEQ_HANDLE_SLOW_START_END;
+                                        seq_no = BATTLE_SUBSCRIPT_SLOW_START_END;
                                         ret = TRUE;
                                     }
                                     break;
@@ -1714,7 +1714,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                         (sp->battlemon[sp->updateMonConditionData].condition & STATUS_SLEEP) &&
                                         GetBattlerAbility(sp, sp->updateMonConditionData) != ABILITY_MAGIC_GUARD &&
                                         sp->battlemon[sp->updateMonConditionData].hp != 0) {
-                                            seq_no = SUB_SEQ_BAD_DREAMS;
+                                            seq_no = BATTLE_SUBSCRIPT_BAD_DREAMS;
                                             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->updateMonConditionData].maxhp * -1, 8); // 1/8 health drop, can probably put binding band in here too soon
 #ifdef DEBUG_ENDTURN_LOGIC
                                             debug_printf("\n\nhp_calc_work: %d\n\n", sp->hp_calc_work);
@@ -1768,7 +1768,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                             }
                                         }
                                         if (ret == TRUE) {
-                                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_RECOVER_STAT_DROP);
+                                            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HELD_ITEM_STATDOWN_RESTORE);
                                             sp->next_server_seq_no = sp->server_seq_no;
                                             sp->server_seq_no = 22;
                                         }
@@ -1861,7 +1861,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     }
                                 }
                                 if (ret == TRUE) {
-                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_SWITCHING_ITEMS);
+                                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_SWITCHING_ITEMS);
                                     sp->next_server_seq_no = sp->server_seq_no;
                                     sp->server_seq_no = 22;
                                 }

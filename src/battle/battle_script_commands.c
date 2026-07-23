@@ -1167,7 +1167,7 @@ BOOL btl_scr_cmd_17_playanimation(void *bw, struct BattleStruct *sp)
         SCIO_QueueMoveAnimation(bw, sp, move);
     }
     if (CheckBattleAnimationsOption(bw) == FALSE) {
-        SkillSequenceGosub(sp, 1, SUB_SEQ_WAIT_FOR_UNPLAYED_ANIMATION);
+        SkillSequenceGosub(sp, 1, BATTLE_SUBSCRIPT_WAIT_MOVE_ANIMATION);
     }
 
     return FALSE;
@@ -1208,7 +1208,7 @@ BOOL btl_scr_cmd_18_playanimation2(void *bw, struct BattleStruct *sp)
         SCIO_QueueMoveAnimationConsiderAttackerDefender(bw, sp, move, cli_a, cli_d);
     }
     if (CheckBattleAnimationsOption(bw) == FALSE) {
-        SkillSequenceGosub(sp, 1, SUB_SEQ_WAIT_FOR_UNPLAYED_ANIMATION);
+        SkillSequenceGosub(sp, 1, BATTLE_SUBSCRIPT_WAIT_MOVE_ANIMATION);
     }
 
     return FALSE;
@@ -1409,7 +1409,7 @@ BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     if (ctx->defence_client == BATTLER_NONE) {
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
-        JumpToMoveEffectScript(ctx, 1, SUB_SEQ_NO_TARGET);
+        JumpToMoveEffectScript(ctx, 1, BATTLE_SUBSCRIPT_NO_TARGET);
     } else {
         JumpToMoveEffectScript(ctx, 0, ctx->current_move_index);
     }
@@ -2437,7 +2437,7 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no)
 {
     u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
 
-    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE 
+    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE
         && sp->battlemon[client_no].ability != ABILITY_EELEVATE
         && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
             && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, client_no, TYPE_FLYING))
@@ -3071,9 +3071,9 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
         newBS.needMega[sp->attack_client] = MEGA_NO_NEED;
         sp->battlerIdTemp = sp->attack_client;
         if (CheckCanSpeciesMegaEvolveByMove(sp, sp->attack_client)) {
-            script = SUB_SEQ_HANDLE_MOVE_MEGA_EVOLUTION;
+            script = BATTLE_SUBSCRIPT_HANDLE_MOVE_MEGA_EVOLUTION;
         } else {
-            script = SUB_SEQ_HANDLE_MEGA_EVOLUTION;
+            script = BATTLE_SUBSCRIPT_HANDLE_MEGA_EVOLUTION;
         }
     }
 
@@ -3193,14 +3193,14 @@ BOOL btl_scr_cmd_FF_checkcanactivatedefiantorcompetitive(void *bsys UNUSED, stru
         switch (GetBattlerAbility(ctx, ctx->state_client)) {
         case ABILITY_DEFIANT:
             if (ctx->battlemon[ctx->state_client].states[STAT_ATTACK] < 12) {
-                ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 IncrementBattleScriptPtr(ctx, handleDefiantAddress);
                 return FALSE;
             }
             break;
         case ABILITY_COMPETITIVE:
             if (ctx->battlemon[ctx->state_client].states[STAT_SPATK] < 12) {
-                ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 IncrementBattleScriptPtr(ctx, handleCompetitiveAddress);
                 return FALSE;
             }
@@ -3382,16 +3382,16 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
         case MOVE_KINGS_SHIELD:
             if (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] > 0) {
                 // King's Shield lowers Attack by two stages in Generation 6 and 7.
-                ctx->addeffect_param = (GEN_LATEST > 7) ? ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN : ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_2;
+                ctx->addeffect_param = (GEN_LATEST > 7) ? MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_1_STAGE : MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_2_STAGES;
                 ctx->state_client = ctx->attack_client;
-                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
             }
             break;
         case MOVE_SPIKY_SHIELD:
             if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD) {
                 ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * -1, 8);
                 ctx->battlerIdTemp = ctx->attack_client;
-                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SPIKY_SHIELD);
+                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SPIKY_SHIELD);
             }
             break;
         case MOVE_BANEFUL_BUNKER:
@@ -3400,28 +3400,28 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
                 ctx->state_client = ctx->attack_client;
                 // Swap atk client to defender so it checks the protect users ability for Corrosion
                 ctx->attack_client = ctx->defence_client;
-                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_POISON);
+                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_POISON);
             }
             break;
         case MOVE_OBSTRUCT:
             if (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0) {
-                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_DEFENSE_DOWN_2;
+                ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_DEFENSE_DOWN_2_STAGES;
                 ctx->state_client = ctx->attack_client;
-                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
             }
             break;
         case MOVE_SILK_TRAP:
             if (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] > 0) {
-                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SPEED_DOWN;
+                ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_SPEED_DOWN_1_STAGE;
                 ctx->state_client = ctx->attack_client;
-                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
             }
             break;
         case MOVE_BURNING_BULWARK:
             if (ctx->battlemon[ctx->attack_client].condition == 0) {
                 ctx->addeffect_type = ADD_STATUS_MOVE_EFFECT;
                 ctx->state_client = ctx->attack_client;
-                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_APPLY_BURN);
+                SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BURN);
             }
             break;
         default:
@@ -3821,7 +3821,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
         sp->binding_turns[sp->attack_client] = 0;
         sp->battlerIdTemp = sp->battlemon[sp->attack_client].moveeffect.battlerIdBinding;
         sp->waza_work = sp->battlemon[sp->attack_client].moveeffect.bindingMove;
-        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BREAK_CLAMP);
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BREAK_BIND_EFFECT);
         return FALSE;
     }
 
@@ -3830,7 +3830,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
         sp->battlemon[sp->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE;
         sp->battlemon[sp->attack_client].effect_of_moves &= ~MOVE_EFFECT_LEECH_SEED_BATTLER;
         sp->waza_work = MOVE_LEECH_SEED;
-        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BLOW_AWAY_HAZARDS);
         return FALSE;
     }
 
@@ -3839,7 +3839,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
         sp->side_condition[side] &= ~SIDE_STATUS_SPIKES;
         sp->scw[side].spikesLayers = 0;
         sp->waza_work = MOVE_SPIKES;
-        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BLOW_AWAY_HAZARDS);
         return FALSE;
     }
 
@@ -3848,7 +3848,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
         sp->side_condition[side] &= ~SIDE_STATUS_TOXIC_SPIKES;
         sp->scw[side].toxicSpikesLayers = 0;
         sp->waza_work = MOVE_TOXIC_SPIKES;
-        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BLOW_AWAY_HAZARDS);
         return FALSE;
     }
 
@@ -3856,7 +3856,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
     if (sp->side_condition[side] & SIDE_STATUS_STEALTH_ROCK) {
         sp->side_condition[side] &= ~SIDE_STATUS_STEALTH_ROCK;
         sp->waza_work = MOVE_STEALTH_ROCK;
-        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BLOW_AWAY_HAZARDS);
         return FALSE;
     }
 
@@ -3864,7 +3864,7 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
     if (sp->side_condition[side] & SIDE_STATUS_STICKY_WEB) {
         sp->side_condition[side] &= ~SIDE_STATUS_STICKY_WEB;
         sp->waza_work = MOVE_STICKY_WEB;
-        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BLOW_AWAY_HAZARDS_MESSAGE);
+        SkillSequenceGosub(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BLOW_AWAY_HAZARDS);
         return FALSE;
     }
 
@@ -4740,8 +4740,8 @@ BOOL btl_scr_cmd_117_activateparadoxability(void *bsys, struct BattleStruct *ctx
             // this function will do the other checks (Sunny/Elec Terrain or Booster Energy)
             seq_no = ActivateParadoxAbility(bsys, ctx, client);
         }
-        if (seq_no == SUB_SEQ_FIELD_CONDITION_PARADOX_ABILITY
-            || seq_no == SUB_SEQ_BOOSTER_ENERGY) {
+        if (seq_no == BATTLE_SUBSCRIPT_FIELD_CONDITION_PARADOX_ABILITY
+            || seq_no == BATTLE_SUBSCRIPT_BOOSTER_ENERGY) {
             // debug_printf("[Paradox Abilities] Activation via Battle Command\n");
             // Jump back to instruction to rerun this command on the next client
             IncrementBattleScriptPtr(ctx, -2);
@@ -4784,7 +4784,7 @@ BOOL btl_scr_cmd_118_resetparadoxability(void *bsys, struct BattleStruct *ctx)
             IncrementBattleScriptPtr(ctx, -2);
             ctx->paradoxBoostedStat[client] = 0;
             ctx->battlerIdTemp = client;
-            SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARADOX_ABILITY_END);
+            SkillSequenceGosub(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PARADOX_ABILITY_END);
             return FALSE;
         }
     }
@@ -4862,10 +4862,10 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     if (ctx->scw[fieldSide].toxicSpikesLayers) {
         ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;
-        ctx->addeffect_type = ADD_EFFECT_TOXIC_SPIKES;
+        ctx->addeffect_type = SIDE_EFFECT_TYPE_TOXIC_SPIKES;
         ctx->state_client = battlerID;
         if (HasType(ctx, battlerID, TYPE_POISON)) {
-            ctx->side_condition[fieldSide] &= ~SIDE_STATUS_TOXIC_SPIKES;
+            ctx->side_condition[fieldSide] &= ~SIDE_EFFECT_TYPE_TOXIC_SPIKES;
             ctx->scw[fieldSide].toxicSpikesLayers = 0;
             ctx->calc_work = 0;
         }
@@ -5043,35 +5043,35 @@ BOOL btl_scr_cmd_114_stuffCheeks(void *bsys, struct BattleStruct *ctx)
     switch (itemHeldEffect) {
     case HOLD_EFFECT_HP_RESTORE: // oran berry
         ctx->hp_calc_work = boost;
-        script = SUB_SEQ_ITEM_HP_RESTORE;
+        script = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
         break;
     case HOLD_EFFECT_HP_PCT_RESTORE: // sitrus berry
         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * boost, 100);
-        script = SUB_SEQ_ITEM_HP_RESTORE;
+        script = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
         break;
     case HOLD_EFFECT_PRZ_RESTORE: // cheri berry
         if (ctx->battlemon[ctx->attack_client].condition & STATUS_PARALYSIS) {
-            script = SUB_SEQ_ITEM_RECOVER_PRZ;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_PRZ_RESTORE;
         }
         break;
     case HOLD_EFFECT_SLP_RESTORE: // chesto berry
         if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
-            script = SUB_SEQ_ITEM_RECOVER_SLP;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_SLP_RESTORE;
         }
         break;
     case HOLD_EFFECT_PSN_RESTORE: // pecha berry
         if (ctx->battlemon[ctx->attack_client].condition & STATUS_POISON_ALL) {
-            script = SUB_SEQ_ITEM_RECOVER_PSN;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_PSN_RESTORE;
         }
         break;
     case HOLD_EFFECT_BRN_RESTORE: // rawst berry
         if (ctx->battlemon[ctx->attack_client].condition & STATUS_BURN) {
-            script = SUB_SEQ_ITEM_RECOVER_BRN;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_BRN_RESTORE;
         }
         break;
     case HOLD_EFFECT_FRZ_RESTORE: // aspear berry
         if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
-            script = SUB_SEQ_ITEM_RECOVER_FRZ;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_FRZ_RESTORE;
         }
         break;
     case HOLD_EFFECT_PP_RESTORE: // leppa berry
@@ -5086,37 +5086,37 @@ BOOL btl_scr_cmd_114_stuffCheeks(void *bsys, struct BattleStruct *ctx)
             BattleMon_AddVar(&ctx->battlemon[ctx->attack_client], MON_DATA_MOVE1PP + index, boost);
             CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
             ctx->waza_work = ctx->battlemon[ctx->attack_client].move[index];
-            script = SUB_SEQ_ITEM_PP_RESTORE;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_PP_RESTORE;
         }
         break;
     }
     case HOLD_EFFECT_CONFUSE_RESTORE: // persim berry
         if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION) {
-            script = SUB_SEQ_ITEM_RECOVER_CNF;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_CNF_RESTORE;
         }
         break;
     case HOLD_EFFECT_STATUS_RESTORE: // lum berry
         if ((ctx->battlemon[ctx->attack_client].condition & STATUS_ALL) || (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
             if (ctx->battlemon[ctx->attack_client].condition & STATUS_PARALYSIS) {
-                script = SUB_SEQ_ITEM_RECOVER_PRZ;
+                script = BATTLE_SUBSCRIPT_HELD_ITEM_PRZ_RESTORE;
             }
             if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
-                script = SUB_SEQ_ITEM_RECOVER_SLP;
+                script = BATTLE_SUBSCRIPT_HELD_ITEM_SLP_RESTORE;
             }
             if (ctx->battlemon[ctx->attack_client].condition & STATUS_POISON_ALL) {
-                script = SUB_SEQ_ITEM_RECOVER_PSN;
+                script = BATTLE_SUBSCRIPT_HELD_ITEM_PSN_RESTORE;
             }
             if (ctx->battlemon[ctx->attack_client].condition & STATUS_BURN) {
-                script = SUB_SEQ_ITEM_RECOVER_BRN;
+                script = BATTLE_SUBSCRIPT_HELD_ITEM_BRN_RESTORE;
             }
             if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
-                script = SUB_SEQ_ITEM_RECOVER_FRZ;
+                script = BATTLE_SUBSCRIPT_HELD_ITEM_FRZ_RESTORE;
             }
             if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION) {
-                script = SUB_SEQ_ITEM_RECOVER_CNF;
+                script = BATTLE_SUBSCRIPT_HELD_ITEM_CNF_RESTORE;
             }
             if ((ctx->battlemon[ctx->attack_client].condition & STATUS_ALL) && (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
-                script = SUB_SEQ_ITEM_RECOVER_ALL;
+                script = BATTLE_SUBSCRIPT_HELD_ITEM_MULTI_RESTORE;
             }
         }
         break;
@@ -5124,96 +5124,96 @@ BOOL btl_scr_cmd_114_stuffCheeks(void *bsys, struct BattleStruct *ctx)
         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
         ctx->msg_work = 0;
         if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_SPICY) == -1) {
-            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
         } else {
-            script = SUB_SEQ_ITEM_HP_RESTORE;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
         }
         break;
     case HOLD_EFFECT_HP_RESTORE_DRY: // wiki berry
         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
         ctx->msg_work = 1;
         if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_DRY) == -1) {
-            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
         } else {
-            script = SUB_SEQ_ITEM_HP_RESTORE;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
         }
         break;
     case HOLD_EFFECT_HP_RESTORE_SWEET: // mago berry
         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
         ctx->msg_work = 2;
         if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_SWEET) == -1) {
-            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
         } else {
-            script = SUB_SEQ_ITEM_HP_RESTORE;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
         }
         break;
     case HOLD_EFFECT_HP_RESTORE_BITTER: // aguav berry
         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
         ctx->msg_work = 3;
         if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_BITTER) == -1) {
-            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
         } else {
-            script = SUB_SEQ_ITEM_HP_RESTORE;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
         }
         break;
     case HOLD_EFFECT_HP_RESTORE_SOUR: // iapapa berry
         ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, boost);
         ctx->msg_work = 4;
         if (GetFlavorPreferenceFromPID(ctx->battlemon[ctx->attack_client].personal_rnd, FLAVOR_SOUR) == -1) {
-            script = SUB_SEQ_ITEM_HP_RESTORE_CNF;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
         } else {
-            script = SUB_SEQ_ITEM_HP_RESTORE;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
         }
         break;
     case HOLD_EFFECT_PINCH_ATK_UP: // liechi berry
-        if (ctx->battlemon[ctx->attack_client].states[1] < SUB_SEQ_BOOST_STATS) {
+        if (ctx->battlemon[ctx->attack_client].states[1] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
             ctx->msg_work = 1;
-            script = SUB_SEQ_ITEM_STAT_BOOST;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         break;
     case HOLD_EFFECT_PINCH_DEF_UP: // ganlon berry
-        if (ctx->battlemon[ctx->attack_client].states[2] < SUB_SEQ_BOOST_STATS) {
+        if (ctx->battlemon[ctx->attack_client].states[2] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
             ctx->msg_work = 2;
-            script = SUB_SEQ_ITEM_STAT_BOOST;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         break;
     case HOLD_EFFECT_PINCH_SPEED_UP: // salac berry
-        if (ctx->battlemon[ctx->attack_client].states[3] < SUB_SEQ_BOOST_STATS) {
+        if (ctx->battlemon[ctx->attack_client].states[3] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
             ctx->msg_work = 3;
-            script = SUB_SEQ_ITEM_STAT_BOOST;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         break;
     case HOLD_EFFECT_PINCH_SPATK_UP: // petaya berry
-        if (ctx->battlemon[ctx->attack_client].states[4] < SUB_SEQ_BOOST_STATS) {
+        if (ctx->battlemon[ctx->attack_client].states[4] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
             ctx->msg_work = 4;
-            script = SUB_SEQ_ITEM_STAT_BOOST;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         break;
     case HOLD_EFFECT_PINCH_SPDEF_UP: // apicot berry
-        if (ctx->battlemon[ctx->attack_client].states[5] < SUB_SEQ_BOOST_STATS) {
+        if (ctx->battlemon[ctx->attack_client].states[5] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
             ctx->msg_work = 5;
-            script = SUB_SEQ_ITEM_STAT_BOOST;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         break;
     case HOLD_EFFECT_PINCH_CRITRATE_UP: // lansat berry
         if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_FOCUS_ENERGY)) {
-            script = SUB_SEQ_ITEM_STAT_BOOST_2;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_SHARPLY_RAISE_STAT;
         }
         break;
     case HOLD_EFFECT_PINCH_RANDOM_UP: // starf berry
     {
         int stat;
         for (stat = 0; stat < 5; stat++) {
-            if (ctx->battlemon[ctx->attack_client].states[1 + stat] < SUB_SEQ_BOOST_STATS) {
+            if (ctx->battlemon[ctx->attack_client].states[1 + stat] < BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE) {
                 break;
             }
         }
         if (stat != 5) {
             do {
                 stat = BattleRand(bsys) % 5;
-            } while (ctx->battlemon[ctx->attack_client].states[1 + stat] == SUB_SEQ_BOOST_STATS);
+            } while (ctx->battlemon[ctx->attack_client].states[1 + stat] == BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
             ctx->msg_work = stat + 1;
-            script = SUB_SEQ_ITEM_STAT_BOOST_2;
+            script = BATTLE_SUBSCRIPT_HELD_ITEM_SHARPLY_RAISE_STAT;
         }
     } break;
     // TODO: confirm these do nothing
@@ -5338,7 +5338,7 @@ BOOL BtlCmd_TryFaintMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     // fix for bad egg fainting from spread moves issue 770
 
-    if (ctx->skill_arc_kind == ARC_BATTLE_SUB_SEQ && ctx->skill_arc_index == SUB_SEQ_BATCH_FOLLOWUP) {
+    if (ctx->skill_arc_kind == ARC_BATTLE_SUB_SEQ && ctx->skill_arc_index == BATTLE_SUBSCRIPT_BATCH_FOLLOWUP) {
         if (!IsBattlerSlotValid(bsys, battlerId) || ctx->damageForSpreadMoves[battlerId] == 0) {
             return FALSE;
         }
@@ -5612,7 +5612,7 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
     // no weight increase because each form has its own weight + wishiwashi doesn't gain weight anyway
     // ctx->battlemon[battlerID].weight *= 2;
 
-    // if not defined in above table, should skip playing stat animation because it can not be found  
+    // if not defined in above table, should skip playing stat animation because it can not be found
     if (totemID == NELEMS(TotemSpecies))
     {
         IncrementBattleScriptPtr(ctx, failAddr);
@@ -5782,11 +5782,11 @@ BOOL BtlCmd_TryPerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     for (int battlerId = 0; battlerId < maxBattlers; battlerId++) {
         if (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE
-            || ctx->battlemon[battlerId].hp == 0 
-            || (ctx->addeffect_type != ADD_EFFECT_ABILITY && MoldBreakerAbilityCheck(ctx, ctx->attack_client, battlerId, ABILITY_SOUNDPROOF) == TRUE)) {
+            || ctx->battlemon[battlerId].hp == 0
+            || (ctx->addeffect_type != SIDE_EFFECT_TYPE_ABILITY && MoldBreakerAbilityCheck(ctx, ctx->attack_client, battlerId, ABILITY_SOUNDPROOF) == TRUE)) {
             cnt++;
         } else {
-            if (ctx->addeffect_type == ADD_EFFECT_ABILITY
+            if (ctx->addeffect_type == SIDE_EFFECT_TYPE_ABILITY
                 && battlerId != ctx->attack_client
                 && battlerId != ctx->defence_client)
             {

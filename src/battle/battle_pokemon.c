@@ -208,6 +208,15 @@ u8 TypeEffectivenessTable[][3] =
 };
 
 /**
+ *  @brief get total entries in TypeEffectivenessTable
+ *
+ *  @return number of entries in TypeEffectivenessTable
+ */
+u32 LONG_CALL TypeEffectivenessTable_GetTotalEntries(void) {
+    return NELEMS(TypeEffectivenessTable);
+}
+
+/**
  *  @brief check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
  *
  *  @see BattleFormChange

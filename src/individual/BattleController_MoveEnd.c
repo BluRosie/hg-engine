@@ -32,7 +32,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->defence_client = ctx->pursuitContext.originalDefender;
         if (ctx->current_move_index == MOVE_PURSUIT
             && ctx->battlemon[ctx->reshuffle_client].hp) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CLEAR_AFTER_PURSUIT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CLEAR_AFTER_PURSUIT);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_BEFORE_TURN;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
@@ -41,7 +41,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
 
     if (ctx->magicBounceContext.bounceCounter < ctx->magicBounceContext.bounceMaxCounter) {
         ctx->defence_client = ctx->magicBounceContext.bounceClients[ctx->magicBounceContext.bounceCounter];
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGIC_COAT);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MAGIC_COAT);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return;

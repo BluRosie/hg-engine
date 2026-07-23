@@ -80,7 +80,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             if (((ctx->battlemon[ctx->swoak_work].effect_of_moves & (MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) == 0)
                 && (ctx->battlemon[ctx->swoak_work].effect_of_moves_temp & (MOVE_EFFECT_FLAG_SEMI_INVULNERABLE))) {
                 ctx->battlemon[ctx->swoak_work].effect_of_moves_temp &= ~(MOVE_EFFECT_FLAG_SEMI_INVULNERABLE);
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_VANISH_OFF);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_VANISH_OFF);
                 ctx->battlerIdTemp = ctx->swoak_work;
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -102,13 +102,13 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             if (IsMoveSpreadMove(bsys, ctx, ctx->current_move_index)
                 && (ctx->moveContext.isAllyHit
                 || ctx->moveContext.hitFoesCount)) {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_UPDATE_HP);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BATCH_UPDATE_HP);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             } else if (ctx->damage != 0 && CheckSubstitute(ctx, ctx->defence_client) == FALSE){
                 ctx->battlerIdTemp = ctx->defence_client;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HP_CHANGE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UPDATE_HP);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
@@ -135,7 +135,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         if (IsMoveSpreadMove(bsys, ctx, ctx->current_move_index)) {
             if ((ctx->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT) != 0) {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_EFFECTIVENESS);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BATCH_EFFECTIVENESS);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
@@ -164,7 +164,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             ctx->defence_client = BATTLER_ALLY(ctx->attack_client);
 
             if ((ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] & WAZA_STATUS_FLAG_CRITICAL) != 0) {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CRITICAL_HIT_SPREAD);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CRITICAL_HIT_SPREAD);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
@@ -181,9 +181,9 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             ctx->defence_client = ctx->moveContext.hitFoes[ctx->clientLoopForSpreadMoves];
             ctx->clientLoopForSpreadMoves++;
             if ((ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] & WAZA_STATUS_FLAG_CRITICAL) != 0) {
-                int seq_no = SUB_SEQ_CRITICAL_HIT;
+                int seq_no = BATTLE_SUBSCRIPT_CRITICAL_HIT;
                 if (IsMoveSpreadMove(bsys, ctx, ctx->current_move_index)) {
-                    seq_no = SUB_SEQ_CRITICAL_HIT_SPREAD;
+                    seq_no = BATTLE_SUBSCRIPT_CRITICAL_HIT_SPREAD;
                 }
 
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
@@ -197,7 +197,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoam_seq_no++;
         if (IsMoveSpreadMove(bsys, ctx, ctx->current_move_index)
          && (ctx->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT) != 0) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATCH_FOLLOWUP);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BATCH_FOLLOWUP);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
@@ -321,7 +321,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             ctx->battlerIdTemp = ctx->attack_client;
             ctx->hp_calc_work = ctx->battlemon[ctx->attack_client].hp * (-1);
             ctx->server_status_flag &= ~BATTLE_STATUS_SELFDESTRUCTED;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOM);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_AFTER_SELFDESTRUCT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
@@ -584,7 +584,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
             int client_no = ctx->turnOrder[battler];
             if (Activate_AbilityHealingStatusCondition(bsys, ctx, client_no, 1) == TRUE) { // TODO check if flag is 0 here
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ABILITY_RECOVER_CND);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ABILITY_FORBIDS_STATUS);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
@@ -618,7 +618,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             && ctx->current_move_index != MOVE_PURSUIT
             && ctx->pursuitContext.isActive == FALSE) {
             // ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PARTY_LIST);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
@@ -698,7 +698,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 
                         CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
 
-                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_DANCER);
+                        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_DANCER);
                         ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
                         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                         ctx->swoam_seq_no = 0;
@@ -738,7 +738,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                  && (ctx->battlemon[ctx->swoak_work].effect_of_moves_temp & (MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)))
                 {
                     ctx->battlemon[ctx->swoak_work].effect_of_moves_temp &= ~(MOVE_EFFECT_FLAG_SEMI_INVULNERABLE);
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_VANISH_OFF);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_VANISH_OFF);
                     ctx->battlerIdTemp = ctx->swoak_work;
                     ctx->next_server_seq_no = ctx->server_seq_no;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -822,7 +822,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
                  && ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag == 0)
                 {
                     ctx->battlerIdTemp = ctx->defence_client;
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
                     ctx->next_server_seq_no = ctx->server_seq_no;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     return;
@@ -898,7 +898,7 @@ int LONG_CALL ShowDamageReductionBerryMessage(void *bsys UNUSED, struct BattleSt
         {
             sp->item_work = GetBattleMonItem(sp, sp->defence_client);
             sp->battlerIdTemp = sp->defence_client;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TYPE_RESIST_BERRIES_MESSAGE);
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_TYPE_RESIST_BERRIES_MESSAGE);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -919,7 +919,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
             && sp->battlemon[battler].hp == 1
             && (sp->oneSelfFlag[battler].physical_damage
                 || sp->oneSelfFlag[battler].special_damage)) {
-            seq_no[0] = SUB_SEQ_ENDURE_HIT;
+            seq_no[0] = BATTLE_SUBSCRIPT_ENDURE_HIT;
             return TRUE;
         }
     }
@@ -931,7 +931,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
             && sp->battlemon[battler].hp == 1 && (sp->battlemon[battler].maxhp + incomingDamage /*negative value*/) == 1) {
             sp->oneTurnFlag[battler].prevent_one_hit_ko_ability = FALSE;
             sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
-            seq_no[0] = SUB_SEQ_STURDY;
+            seq_no[0] = BATTLE_SUBSCRIPT_STURDY;
             return TRUE;
         }
     }
@@ -943,7 +943,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
             sp->oneSelfFlag[battler].prevent_one_hit_ko_item = FALSE;
             sp->item_work = sp->battlemon[battler].item;
             sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
-            seq_no[0] = SUB_SEQ_FOCUS_SASH;
+            seq_no[0] = BATTLE_SUBSCRIPT_FOCUS_SASH;
             return TRUE;
         }
 
@@ -956,7 +956,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
             sp->oneSelfFlag[battler].prevent_one_hit_ko_item = FALSE;
             sp->item_work = sp->battlemon[battler].item;
             sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
-            seq_no[0] = SUB_SEQ_FOCUS_SASH;
+            seq_no[0] = BATTLE_SUBSCRIPT_FOCUS_SASH;
             return TRUE;
         }
         break;
@@ -973,7 +973,7 @@ int LONG_CALL Activate_Sturdy_FocusSash_FocusBand_Message(void *bsys UNUSED, str
 int LONG_CALL Activate_Clearsmog(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->current_move_index == MOVE_CLEAR_SMOG) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_CLEAR_SMOG);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_CLEAR_SMOG);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -989,12 +989,12 @@ int LONG_CALL Activate_FlameBurstHit(void *bsys UNUSED, struct BattleStruct *ctx
             && (GetBattlerAbility(ctx, ally) != ABILITY_MAGIC_GUARD)
             && ((ctx->battlemon[ally].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0)
             && ctx->oneSelfFlag[ctx->defence_client].special_damager == ctx->attack_client) {
-            ctx->addeffect_param = ADD_STATUS_EFF_FLAME_BURST_HIT;
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_FLAME_BURST_HIT;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->state_client = ally;
             ctx->battlerIdTemp = ally;
             ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ally].maxhp * -1, 16);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_FLAME_BURST_HIT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_FLAME_BURST_HIT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1026,7 +1026,7 @@ int LONG_CALL Activate_Rowap_Jaboca(void *bsys UNUSED, struct BattleStruct *ctx)
                     // Attacker dealt physical damage
                     && (ctx->oneSelfFlag[client_no].physical_damage)) {
                     ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * -1, itemPower);
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_DAMAGE_BACK);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HELD_ITEM_RECOIL_WHEN_HIT);
                     ctx->next_server_seq_no = ctx->server_seq_no;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     return TRUE;
@@ -1043,7 +1043,7 @@ int LONG_CALL Activate_Rowap_Jaboca(void *bsys UNUSED, struct BattleStruct *ctx)
                     // Attacker dealt special damage
                     && (ctx->oneSelfFlag[client_no].special_damage)) {
                     ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp * -1, itemPower);
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_DAMAGE_BACK);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HELD_ITEM_RECOIL_WHEN_HIT);
                     ctx->next_server_seq_no = ctx->server_seq_no;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     return TRUE;
@@ -1065,7 +1065,7 @@ int LONG_CALL Activate_Incinerate(void *bsys UNUSED, struct BattleStruct *ctx)
         return FALSE;
     }
 
-    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_INCINERATE);
+    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_INCINERATE);
     ctx->next_server_seq_no = ctx->server_seq_no;
     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
     return TRUE;
@@ -1089,8 +1089,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
             && (ctx->battlemon[ctx->attack_client].hp != 0)
             && ctx->defence_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp != 0)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BIND_START);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BIND_START);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1099,8 +1099,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
     case MOVE_EFFECT_STEALTH_ROCK_HIT: // https://discord.com/channels/419213663107416084/1368163973366681712/1392652799686348912
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->attack_client].hp != 0)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SET_STEALTH_ROCK);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SET_STEALTH_ROCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1109,8 +1109,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
     case MOVE_EFFECT_SET_SPIKES_HIT:
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->attack_client].hp != 0)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SET_SPIKES);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SET_SPIKES);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1122,8 +1122,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
             && ctx->defence_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp != 0)
             && (ctx->battlemon[ctx->defence_client].condition & STATUS_SLEEP)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_WAKE_UP);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_SLEEP);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1135,8 +1135,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
             && ctx->defence_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp != 0)
             && (ctx->battlemon[ctx->defence_client].condition & STATUS_PARALYSIS)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_PARALYSIS);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_PARALYSIS);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1146,8 +1146,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
     case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: // rapid spin
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->attack_client].hp != 0)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RAPID_SPIN);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RAPID_SPIN);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1158,8 +1158,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
             && (ctx->battlemon[ctx->attack_client].hp != 0)
             && ctx->defence_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp != 0)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_JAW_LOCK);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_JAW_LOCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1169,8 +1169,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         if (ctx->attack_client != BATTLER_NONE // TODO confirm
             && ctx->defence_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp != 0)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MEAN_LOOK);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MEAN_LOOK);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1180,10 +1180,10 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         if (ctx->attack_client != BATTLER_NONE
             && (ctx->battlemon[ctx->defence_client].hp == 0)
             && (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12)) {
-            ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_3_STAGES;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOOST_STATS);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1198,8 +1198,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
                 || ctx->oneSelfFlag[ctx->defence_client].special_damage)
             //&& ((ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) == 0)
             && CheckSubstitute(ctx, ctx->defence_client) == FALSE) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_OUT); // checks suction cup/ingrain
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORCE_TARGET_TO_SWITCH_OR_FLEE); // checks suction cup/ingrain
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1209,8 +1209,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
             && CheckSubstitute(ctx, ctx->defence_client) == FALSE) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_KNOCK_OFF);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_KNOCK_OFF);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1223,8 +1223,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
             && CheckSubstitute(ctx, ctx->defence_client) == FALSE)
         // if (ctx->battlemon[ctx->attack_client].item == ITEM_NONE)
         {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THIEF);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_STEAL_ITEM);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1233,8 +1233,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
     case MOVE_EFFECT_EAT_BERRY: // pluck, bug bite
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLUCK);
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PLUCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1250,9 +1250,9 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         if ((ctx->attack_client != BATTLER_NONE)
             && (ctx->battlemon[ctx->attack_client].states[STAT_DEFENSE] > 0)
             && (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] < 12)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USER_DEF_DOWN_1_SPEED_UP_1);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_USER_DEF_DOWN_1_SPEED_UP_1);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1294,7 +1294,7 @@ int LONG_CALL Activate_SparklingAria(void *bsys, struct BattleStruct *ctx)
                             && HeldItemHoldEffectGet(ctx, client_no) != HOLD_EFFECT_PREVENT_SECONDARY_EFFECTS))
                         {
                             ctx->battlerIdTemp = client_no;
-                            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_BURN);
+                            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_BURN);
                             ctx->next_server_seq_no = ctx->server_seq_no;
                             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                             return TRUE;
@@ -1341,7 +1341,7 @@ int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStru
             && ((movetype == TYPE_FIRE) || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)))) // scald can also melt opponents as of gen 6
             && ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag == 0) {
             ctx->battlerIdTemp = ctx->defence_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1366,7 +1366,7 @@ int LONG_CALL Activate_SkillEffects(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_BURN_UP:
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_REMOVE_USER_FIRE_TYPE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_REMOVE_USER_FIRE_TYPE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1375,7 +1375,7 @@ int LONG_CALL Activate_SkillEffects(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_DOUBLE_SHOCK:
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_REMOVE_USER_ELECTRIC_TYPE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_REMOVE_USER_ELECTRIC_TYPE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1389,7 +1389,7 @@ int LONG_CALL Activate_SkillEffects(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_STEEL_ROLLER:
         if (ctx->terrainOverlay.type != TERRAIN_NONE)
         {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_TERRAIN_END);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_TERRAIN_END);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1419,7 +1419,7 @@ int LONG_CALL Activate_ThroatSpray_BlunderPolicy(void *bsys, struct BattleStruct
                 BattleMon_AddVar(&ctx->battlemon[ctx->attack_client], MON_DATA_MOVE1PP + index, boost);
                 CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
                 ctx->waza_work = ctx->battlemon[ctx->attack_client].move[index];
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_PP_RESTORE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HELD_ITEM_PP_RESTORE);
                 return TRUE;
             }
             break;
@@ -1428,10 +1428,10 @@ int LONG_CALL Activate_ThroatSpray_BlunderPolicy(void *bsys, struct BattleStruct
         {
             if (IsMoveSoundBased(ctx->current_move_index)) {
                 ctx->item_work = ctx->battlemon[ctx->attack_client].item;
-                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
-                ctx->addeffect_type = ADD_EFFECT_HELD_ITEM;
+                ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_SP_ATTACK_UP_1_STAGE;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_HELD_ITEM;
                 ctx->state_client = ctx->attack_client;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_THROAT_SPRAY);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_THROAT_SPRAY);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1458,7 +1458,7 @@ int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *
             ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RAMPAGE_TURNS;
         } else if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAMPAGE_TURNS) && !(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_CONFUSION)) {
             ctx->state_client = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THRASH_END);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THRASH_END);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1490,7 +1490,7 @@ int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *s
             && (sp->battlemon[sp->attack_client].hp)) {
             sp->hp_calc_work = BattleDamageDivide(sp->oneSelfFlag[sp->attack_client].shell_bell_damage * -1, hold_effect_param);
             sp->battlerIdTemp = sp->attack_client;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_GRADUAL);
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RESTORE_A_LITTLE_HP);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1505,7 +1505,7 @@ int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *s
             && (sp->battlemon[sp->attack_client].hp)) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
             sp->battlerIdTemp = sp->attack_client;
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_HP_LOSS);
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LOSE_HP_FROM_ITEM);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -1552,9 +1552,9 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
                 if ((ctx->oneSelfFlag[client_no].physical_damage
                         || ctx->oneSelfFlag[client_no].special_damage)
                     && CanTrickHeldItem(ctx, ctx->attack_client, client_no)) {
-                    ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                    ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                     ctx->defence_client = client_no;
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PICKPOCKET_ATK);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_PICKPOCKET_ATK);
                     ctx->next_server_seq_no = ctx->server_seq_no;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     return TRUE;
@@ -1570,22 +1570,22 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
             if ((ctx->battlemon[ctx->attack_client].states[STAT_ATTACK + stat] < 12) && (ctx->battlemon[ctx->attack_client].moveeffect.fakeOutCount != (ctx->total_turn + 1))) {
                 switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                 case 1:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP + stat;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE + stat;
                     break;
                 case 2:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2 + stat;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_2_STAGES + stat;
                     break;
                 case 3:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3 + stat;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_3_STAGES + stat;
                     break;
 
                 default:
                     break;
                 }
-                ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 ctx->state_client = ctx->attack_client;
                 ctx->battlerIdTemp = ctx->attack_client;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
@@ -1600,22 +1600,22 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
             if (ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] < 12) {
                 switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                 case 1:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE;
                     break;
                 case 2:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_2_STAGES;
                     break;
                 case 3:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_3_STAGES;
                     break;
 
                 default:
                     break;
                 }
-                ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 ctx->state_client = ctx->attack_client;
                 ctx->battlerIdTemp = ctx->attack_client;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
@@ -1629,22 +1629,22 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
             if (ctx->battlemon[ctx->attack_client].states[STAT_SPATK] < 12) {
                 switch (ctx->oneTurnFlag[ctx->attack_client].numberOfKOs) {
                 case 1:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_SP_ATTACK_UP_1_STAGE;
                     break;
                 case 2:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP_2;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_SP_ATTACK_UP_2_STAGES;
                     break;
                 case 3:
-                    ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP_3;
+                    ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_SP_ATTACK_UP_3_STAGES;
                     break;
 
                 default:
                     break;
                 }
-                ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 ctx->state_client = ctx->attack_client;
                 ctx->battlerIdTemp = ctx->attack_client;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
@@ -1670,7 +1670,7 @@ int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx)
     switch (ctx->battlemon[ctx->attack_client].species) {
     // case SPECIES_MELOETTA
     case SPECIES_SHAYMIN: {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHAYMIN_FORM_CHECK);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CHECK_SHAYMIN_FORM);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -1685,7 +1685,7 @@ int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx)
                 ctx->battlerIdTemp = ctx->attack_client;
                 ctx->battlemon[ctx->attack_client].form_no = 2;
                 BattleFormChange(ctx->battlerIdTemp, ctx->battlemon[ctx->battlerIdTemp].form_no, bsys, ctx, 0);
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORM_CHANGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
@@ -1714,11 +1714,11 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
                 // Any Sat lowered
                 && ctx->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
 
-                ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
                 ctx->battlerIdTemp = client_no;
                 ctx->state_client = client_no;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_SWITCHING_ITEMS);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_SWITCHING_ITEMS);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1738,7 +1738,7 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
             if (ret == TRUE) {
                 ctx->battlerIdTemp = client_no;
                 ctx->item_work = GetBattleMonItem(ctx, client_no);
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_RECOVER_STAT_DROP);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HELD_ITEM_STATDOWN_RESTORE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1777,7 +1777,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
                 ctx->battlerIdTemp = client_no;
                 ctx->state_client = client_no;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_SWITCHING_ITEMS);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_SWITCHING_ITEMS);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1799,7 +1799,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
                 ctx->attack_client = ctx->state_client;
                 ctx->battlerIdTemp = client_no;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_RED_CARD);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_RED_CARD);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1817,7 +1817,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
                         && (ctx->battlemon[client_no].states[STAT_DEFENSE] > 0)))) {
                 ctx->state_client = client_no;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_RAISE_DEFENSE_ON_HIT);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_RAISE_DEFENSE_ON_HIT);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1834,7 +1834,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
                         && (ctx->battlemon[client_no].states[STAT_SPDEF] > 0)))) {
                 ctx->state_client = client_no;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1878,11 +1878,11 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
                     // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
                     ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].physical_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2)
                     || ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].special_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2))) {
-                ctx->addeffect_param = ADD_STATUS_EFF_BOOST_STATS_SP_ATK_UP;
-                ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                ctx->addeffect_param = MOVE_SUBSCRIPT_PTR_SP_ATTACK_UP_1_STAGE;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 ctx->state_client = client_no;
                 ctx->battlerIdTemp = client_no;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_ABILITY_STAT_CHANGE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1904,11 +1904,11 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
                     // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
                     ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].physical_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2)
                     || ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].special_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2))) {
-                ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 ctx->state_client = client_no;
                 ctx->battlerIdTemp = client_no;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_ANGER_SHELL);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_ANGER_SHELL);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1933,7 +1933,7 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
                 ctx->battlerIdTemp = client_no;
                 ctx->msg_work = movetype;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_COLOR_CHANGE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_COLOR_CHANGE);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -1971,7 +1971,7 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
                 && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) {
 
                 sp->defence_client = client_no;
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PICKPOCKET_DEF);
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_PICKPOCKET_DEF);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -2001,7 +2001,7 @@ int LONG_CALL Activate_Disguise_IceFace(void *bw, struct BattleStruct *sp)
             sp->battlerIdTemp = sp->defence_client;
             sp->battlemon[sp->defence_client].form_no = 1;
 
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_DISGUISE_ICE_FACE);
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_DISGUISE_ICE_FACE);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2017,7 +2017,7 @@ int LONG_CALL Activate_Disguise_IceFace(void *bw, struct BattleStruct *sp)
             sp->battlerIdTemp = sp->defence_client;
             sp->battlemon[sp->defence_client].form_no = 1;
 
-            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_DISGUISE_ICE_FACE);
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_DISGUISE_ICE_FACE);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2040,18 +2040,18 @@ int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     switch (moveEffect) {
     case MOVE_EFFECT_RECOIL_QUARTER: // wild charge
-        seq_no = SUB_SEQ_RECOIL_1_4;
+        seq_no = BATTLE_SUBSCRIPT_RECOIL_1_4;
         break;
     case MOVE_EFFECT_RECOIL_PARALYZE_HIT: // volt tackle
     case MOVE_EFFECT_RECOIL_BURN_HIT: // flare blitz
     case MOVE_EFFECT_RECOIL_THIRD: // double edge, brave bird
-        seq_no = SUB_SEQ_RECOIL_1_3;
+        seq_no = BATTLE_SUBSCRIPT_RECOIL_1_3;
         break;
     case MOVE_EFFECT_RECOIL_HALF: // head smash, light of ruin
-        seq_no = SUB_SEQ_RECOIL_1_2;
+        seq_no = BATTLE_SUBSCRIPT_RECOIL_1_2;
         break;
     case MOVE_EFFECT_RECOIL_HALF_MAX_HP: //chloroplast
-        seq_no = SUB_SEQ_RECOIL_HALF_MAX_HP;
+        seq_no = BATTLE_SUBSCRIPT_RECOIL_HALF_MAX_HP;
         break;
     default:
         break;
@@ -2062,7 +2062,7 @@ int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
         debug_printf("in ActivateRecoilDamage (%d)\n", ctx->store_damage[ctx->attack_client]);
 #endif
 
-        ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+        ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2080,9 +2080,9 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
             && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PIVOT_ATTACK);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ATTACK_THEN_SWITCH_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2092,10 +2092,10 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
             && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->battlerIdTemp = ctx->attack_client;
             ctx->state_client = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARTING_SHOT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_PARTING_SHOT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2105,11 +2105,11 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
             && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->battlerIdTemp = ctx->attack_client;
             ctx->state_client = ctx->attack_client;
 
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PARTING_SHOT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_PARTING_SHOT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2400,7 +2400,7 @@ int LONG_CALL MovePerformance_HitSubstitute(void *bsys, struct BattleStruct *ctx
             ctx->movePerformanceSubstep++;
 
             ctx->battlerIdTemp = ctx->defence_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIT_SUBSTITUTE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HIT_SUBSTITUTE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2416,7 +2416,7 @@ int LONG_CALL MovePerformance_HitSubstitute(void *bsys, struct BattleStruct *ctx
 #endif
             ctx->movePerformanceSubstep++;
             if ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_SUBSTITUTE) == 0) {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUBSTITUTE_FADES);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SUBSTITUTE_FADES);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -2461,7 +2461,7 @@ int LONG_CALL MovePerformance_HitSubstitute(void *bsys, struct BattleStruct *ctx
               //  && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage)
               //      || (ctx->oneSelfFlag[ctx->defence_client].special_damage)))
             {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_AIR_BALLOON_POP);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_AIR_BALLOON_POP);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;
@@ -2560,10 +2560,10 @@ int LONG_CALL Activate_HowlLifeDew(void *bsys, struct BattleStruct *ctx)
         int ally = BATTLER_ALLY(ctx->attack_client);
         if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)
             && IsValidMoveTarget(ctx, ally)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->state_client = ally;
             ctx->battlerIdTemp = ally;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HOWL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HOWL);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2574,10 +2574,10 @@ int LONG_CALL Activate_HowlLifeDew(void *bsys, struct BattleStruct *ctx)
         int ally = BATTLER_ALLY(ctx->attack_client);
         if (BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)
             && IsValidMoveTarget(ctx, ally)) {
-            ctx->addeffect_type = ADD_EFFECT_MOVE_EFFECT;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->state_client = ally;
             ctx->battlerIdTemp = ally;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LIFE_DEW);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LIFE_DEW);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2617,11 +2617,11 @@ int LONG_CALL Activate_WimpOut_EmergencyExit(void *bsys, struct BattleStruct *ct
                     ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].physical_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2)
                     || ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].special_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2)))
             {
-                ctx->addeffect_type = ADD_EFFECT_ABILITY;
+                ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 ctx->state_client = client_no;
                 ctx->battlerIdTemp = client_no;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_WIMP_OUT);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;

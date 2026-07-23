@@ -1,6 +1,7 @@
 #ifndef BATTLE_H
 #define BATTLE_H
 
+#include "constants/battle_constants.h"
 #include "constants/moves.h"
 #include "constants/pokemon.h"
 
@@ -13,65 +14,6 @@
 
 #define CLIENT_MAX 4
 
-#define TYPE_NORMAL_INTERNAL   0
-#define TYPE_FIGHTING_INTERNAL 1
-#define TYPE_FLYING_INTERNAL   2
-#define TYPE_POISON_INTERNAL   3
-#define TYPE_GROUND_INTERNAL   4
-#define TYPE_ROCK_INTERNAL     5
-#define TYPE_BUG_INTERNAL      6
-#define TYPE_GHOST_INTERNAL    7
-#define TYPE_STEEL_INTERNAL    8
-#define TYPE_FIRE_INTERNAL     9
-#define TYPE_WATER_INTERNAL    10
-#define TYPE_GRASS_INTERNAL    11
-#define TYPE_ELECTRIC_INTERNAL 12
-#define TYPE_PSYCHIC_INTERNAL  13
-#define TYPE_ICE_INTERNAL      14
-#define TYPE_DRAGON_INTERNAL   15
-#define TYPE_DARK_INTERNAL     16
-#define TYPE_FAIRY_INTERNAL    17
-#define TYPE_TYPELESS_INTERNAL 18
-#define TYPE_STELLAR_INTERNAL  99
-
-// Type effectiveness
-#define TYPE_MUL_NO_EFFECT 0
-// #define TYPE_MUL_QUADRUPLE_NOT_EFFECTIVE   2
-#define TYPE_MUL_TRIPLE_NOT_EFFECTIVE   3
-#define TYPE_MUL_DOUBLE_NOT_EFFECTIVE   4
-#define TYPE_MUL_NOT_EFFECTIVE          5
-#define TYPE_MUL_NORMAL                 10
-#define TYPE_MUL_SUPER_EFFECTIVE        20
-#define TYPE_MUL_DOUBLE_SUPER_EFFECTIVE 30
-#define TYPE_MUL_TRIPLE_SUPER_EFFECTIVE 40
-// #define TYPE_MUL_QUADRUPLE_SUPER_EFFECTIVE 50
-
-// #define EFFECTIVENESS_MULT_QUADRUPLE_NOT_EFFECTIVE   62500
-#define EFFECTIVENESS_MULT_TRIPLE_NOT_EFFECTIVE   125000
-#define EFFECTIVENESS_MULT_DOUBLE_NOT_EFFECTIVE   250000
-#define EFFECTIVENESS_MULT_NOT_EFFECTIVE          500000
-#define EFFECTIVENESS_MULT_NORMAL                 1000000
-#define EFFECTIVENESS_MULT_SUPER_EFFECTIVE        2000000
-#define EFFECTIVENESS_MULT_DOUBLE_SUPER_EFFECTIVE 4000000
-#define EFFECTIVENESS_MULT_TRIPLE_SUPER_EFFECTIVE 8000000
-// #define EFFECTIVENESS_MULT_QUADRUPLE_SUPER_EFFECTIVE 160000000
-
-// Special type table IDs
-#define TYPE_RING_TARGET 0xFD
-#define TYPE_FORESIGHT   0xFE
-#define TYPE_ENDTABLE    0xFF
-
-// Used in place of NELEMS
-#if (FAIRY_TYPE_IMPLEMENTED == 1 && TYPE_EFFECTIVENESS_GEN >= 6) // Gen VI+ vanilla typechart.
-#define TYPE_EFFECTIVENESS_ENTRIES 122
-#elif (FAIRY_TYPE_IMPLEMENTED == 1 && TYPE_EFFECTIVENESS_GEN < 6) // Weird config combination.
-#define TYPE_EFFECTIVENESS_ENTRIES 124
-#elif (FAIRY_TYPE_IMPLEMENTED != 1 && TYPE_EFFECTIVENESS_GEN >= 6) // Weird config combination.
-#define TYPE_EFFECTIVENESS_ENTRIES 112
-#else
-#define TYPE_EFFECTIVENESS_ENTRIES 110 // Gen IV vanilla typechart.
-#endif
-
 // Contest types
 #define COOL   0
 #define BEAUTY 1
@@ -79,24 +21,6 @@
 #define SMART  3
 #define TOUGH  4
 
-#define SELECT_FIGHT_COMMAND   1
-#define SELECT_ITEM_COMMAND    2
-#define SELECT_POKEMON_COMMAND 3
-#define SELECT_ESCAPE_COMMAND  4
-
-// add effect defines
-#define ADD_STATUS_NO_ABILITY (0x08000000)
-
-#define ADD_EFFECT_DIRECT       1
-#define ADD_EFFECT_INDIRECT     2
-#define ADD_EFFECT_ABILITY      3
-#define ADD_EFFECT_MOVE_EFFECT  4
-#define ADD_EFFECT_HELD_ITEM    5
-#define ADD_EFFECT_TOXIC_SPIKES 6
-#define ADD_EFFECT_VARIOUS      7
-// new
-#define ADD_EFFECT_PRINT_WORK_ABILITY 8
-#define ADD_EFFECT_STICKY_WEB         9
 
 #define SPREAD_MOVE_STATUS2_FLAG_MAGIC_BOUNCE     (0x00000001)
 
@@ -740,11 +664,7 @@ struct __attribute__((packed)) OneTurnEffect {
     u32 escape_flag : 2;
     u32 prevent_one_hit_ko_ability : 1; /**< pokémon has damp active */
     // begin custom flags
-    enum ForceExecutionOrder {
-        EXECUTION_ORDER_NORMAL,
-        EXECUTION_ORDER_AFTER_YOU,
-        EXECUTION_ORDER_QUASH
-    } forceExecutionOrderFlag : 2;
+    u32 forceExecutionOrderFlag : 2; // EXECUTION_ORDER_*
     u32 parental_bond_flag : 2;
     u32 parental_bond_is_active : 1;
     u32 rampageProcessedFlag : 1;
@@ -1053,14 +973,6 @@ struct __attribute__((packed)) BattleAIWorkTable {
 
     // length is 0x1DE0
     // the end of this struct is at 0x2134 in the BattleStruct
-};
-
-enum TerrainOverlayType {
-    TERRAIN_NONE,
-    GRASSY_TERRAIN,
-    MISTY_TERRAIN,
-    ELECTRIC_TERRAIN,
-    PSYCHIC_TERRAIN
 };
 
 /**
@@ -3071,6 +2983,13 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
 // defined in battle_pokemon.c
 /**
+ *  @brief get total entries in TypeEffectivenessTable
+ *
+ *  @return number of entries in TypeEffectivenessTable
+ */
+u32 LONG_CALL TypeEffectivenessTable_GetTotalEntries(void);
+
+/**
  *  @brief check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
  *
  *  @see BattleFormChange
@@ -3584,86 +3503,12 @@ typedef struct BattleBGStorage {
     u16 hasPlatforms : 1;
 } BattleBGStorage;
 
-typedef enum BattleBg {
-    BATTLE_BG_GENERAL,
-    BATTLE_BG_OCEAN,
-    BATTLE_BG_CITY,
-    BATTLE_BG_FOREST,
-    BATTLE_BG_MOUNTAIN,
-    BATTLE_BG_SNOW,
-    BATTLE_BG_BUILDING_1,
-    BATTLE_BG_BUILDING_2,
-    BATTLE_BG_BUILDING_3,
-    BATTLE_BG_CAVE_1,
-    BATTLE_BG_CAVE_2,
-    BATTLE_BG_CAVE_3,
-    BATTLE_BG_WILL,
-    BATTLE_BG_KOGA,
-    BATTLE_BG_BRUNO,
-    BATTLE_BG_KAREN,
-    BATTLE_BG_LANCE,
-    BATTLE_BG_DISTORTION_WORLD,
-    BATTLE_BG_BATTLE_TOWER,
-    BATTLE_BG_BATTLE_FACTORY,
-    BATTLE_BG_BATTLE_ARCADE,
-    BATTLE_BG_BATTLE_CASTLE,
-    BATTLE_BG_BATTLE_HALL,
-    NUM_VANILLA_BATTLE_BACKGROUNDS,
-    BATTLE_BG_ELECTRIC_TERRAIN = 23,
-    BATTLE_BG_MISTY_TERRAIN,
-    BATTLE_BG_GRASSY_TERRAIN,
-    BATTLE_BG_PSYCHIC_TERRAIN,
-} BattleBg;
-
 typedef struct PACKED BattleBgProfile {
     u8 header[0x28];
     void (*callback)(void *unkPtr, int bgId, int flag); // 0x28
     void *extraFn; // 0x2C
 } BattleBgProfile;
 
-typedef enum Terrain {
-    TERRAIN_PLAIN,
-    TERRAIN_SAND,
-    TERRAIN_GRASS,
-    TERRAIN_PUDDLE,
-    TERRAIN_MOUNTAIN,
-    TERRAIN_CAVE,
-    TERRAIN_SNOW,
-    TERRAIN_WATER,
-    TERRAIN_ICE,
-    TERRAIN_BUILDING,
-    TERRAIN_GREAT_MARSH, // unused
-    TERRAIN_UNKNOWN, // unused
-    TERRAIN_WILL,
-    TERRAIN_KOGA,
-    TERRAIN_BRUNO,
-    TERRAIN_KAREN,
-    TERRAIN_LANCE,
-    TERRAIN_DISTORTION_WORLD, // unused
-    TERRAIN_BATTLE_TOWER,
-    TERRAIN_BATTLE_FACTORY,
-    TERRAIN_BATTLE_ARCADE,
-    TERRAIN_BATTLE_CASTLE,
-    TERRAIN_BATTLE_HALL,
-    TERRAIN_GIRATINA, // unused
-    TERRAIN_ELECTRIC_TERRAIN,
-    TERRAIN_MISTY_TERRAIN,
-    TERRAIN_GRASSY_TERRAIN,
-    TERRAIN_PSYCHIC_TERRAIN,
-    TERRAIN_MAX,
-} Terrain;
-
-// This is a catch-all terrain that includes Pokemon League, Distortion World
-// and Battle Frontier.
-#define TERRAIN_OTHERS (TERRAIN_WILL)
-
-// Battler IDs
-#define BATTLER_NONE    0xFF
-#define BATTLER_PLAYER  0
-#define BATTLER_ENEMY   1
-#define BATTLER_PLAYER2 2
-#define BATTLER_ENEMY2  3
-#define BATTLER_MAX     4
 
 // For setting a Bitmask to flag trainer position on enemy/player side
 #define TRAINER_1    1 // 0b01
@@ -3992,7 +3837,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 return;                                                                                                                      \
             }                                                                                                                                \
             if (numClientsFailed > 0 && numClientsFailed == numClientsChecked) {                                                             \
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);                                               \
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);                                               \
                 ctx->next_server_seq_no = ctx->server_seq_no;                                                                                \
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;                                                                          \
                 return;                                                                                                                      \
@@ -4073,7 +3918,7 @@ void LONG_CALL ov12_02252D14(struct BattleSystem *bsys, struct BattleStruct *ctx
                 return;                                                                                                                      \
             }                                                                                                                                \
             if (numClientsFailed > 0 && numClientsFailed == numClientsChecked) {                                                             \
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);                                               \
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);                                               \
                 ctx->next_server_seq_no = ctx->server_seq_no;                                                                                \
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;                                                                          \
                 return;                                                                                                                      \

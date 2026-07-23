@@ -646,7 +646,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 #if PROTEAN_GENERATION >= 9
             ctx->battlemon[ctx->attack_client].ability_activated_flag = 1;
 #endif
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PROTEAN_MESSAGE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_PROTEAN_MESSAGE);
             ctx->msg_work = ctx->battlemon[ctx->attack_client].type1;
             ctx->battlerIdTemp = ctx->attack_client;
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -679,7 +679,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         }
         FALLTHROUGH;
     }
-    // TODO: modernise ServerWazaKoyuuCheck 
+    // TODO: modernise ServerWazaKoyuuCheck
     case BEFORE_MOVE_STATE_CHECK_STOLEN_BY_SNATCH: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_CHECK_STOLEN_BY_SNATCH\n");
@@ -1126,7 +1126,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
             ctx->mp.id = BATTLE_MSG_GEM_ACTIVATION;
             ctx->mp.param[0] = ctx->battlemon[ctx->attack_client].item;
             ctx->mp.param[1] = ctx->current_move_index;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_GEM_ACTIVATION_MESSAGE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_GEM_ACTIVATION_MESSAGE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->gemBoostingMove = TRUE;
@@ -1205,7 +1205,7 @@ void BattleController_CheckRecharge(struct BattleSystem *bsys, struct BattleStru
 {
     if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RECHARGE) {
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RECHARGE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RECHARGE_TURN);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RECHARGE_TURN);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1222,7 +1222,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
         if (ctx->field_condition & FIELD_STATUS_UPROAR && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_SOUNDPROOF) {
             ctx->battlerIdTemp = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WAKE_UP);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WAKE_UP);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
@@ -1242,7 +1242,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
 
             if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
                 if (ctx->current_move_index != MOVE_SNORE && ctx->moveNoTemp != MOVE_SLEEP_TALK) {
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SLEEPING);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SLEEPING);
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
                     ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1253,7 +1253,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
                 }
             } else {
                 ctx->battlerIdTemp = ctx->attack_client;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WAKE_UP);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WAKE_UP);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
@@ -1264,7 +1264,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
         if (BattleRand(bsys) % 5 != 0) {
             if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT && effect != MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FROZEN);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FROZEN);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
                 ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1275,7 +1275,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
             }
         } else {
             ctx->battlerIdTemp = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
@@ -1292,7 +1292,7 @@ void BattleController_CheckPP(struct BattleSystem *bsys, struct BattleStruct *ct
     }
 
     if (ctx->battlemon[ctx->attack_client].pp[index] == 0) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_NO_PP_LEFT);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_NO_PP);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1305,7 +1305,7 @@ void BattleController_CheckPP(struct BattleSystem *bsys, struct BattleStruct *ct
 void BattleController_CheckTruant(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     if (CheckTruant(ctx, ctx->attack_client) == TRUE) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LOAFING);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LOAFING_AROUND);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1326,7 +1326,7 @@ BOOL BattleController_CheckFocusPunch(struct BattleSystem *bsys UNUSED, struct B
         //  The "Pokemon will flinch" flag and the "Focus Punch will lose focus" flag are dichotomous.
         //  idk what dichotomous means, but this seems to be aligned with the video evidence
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_FLINCH;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LOST_FOCUS);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LOST_FOCUS);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -1341,7 +1341,7 @@ void BattleController_CheckFlinch(struct BattleSystem *bsys, struct BattleStruct
     if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_FLINCH) {
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_FLINCH;
         ctx->moveOutCheck[ctx->attack_client].stoppedFromFlinch = TRUE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAIL_FLINCHED);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FLINCHED);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1355,7 +1355,7 @@ void BattleController_CheckDisabled(struct BattleSystem *bsys, struct BattleStru
 {
     if (ctx->battlemon[ctx->attack_client].moveeffect.disabledMove == ctx->moveNoTemp) {
         ctx->moveOutCheck[ctx->attack_client].stoppedFromDisable = TRUE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_IS_DISABLED);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_IS_DISABLED);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1370,7 +1370,7 @@ void BattleController_CheckHealBlock(struct BattleSystem *bsys, struct BattleStr
 {
     if (BattleContext_CheckMoveHealBlocked(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
         ctx->moveOutCheck[ctx->attack_client].stoppedFromHealBlock = TRUE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAILED_HEAL_BLOCK);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_IS_HEAL_BLOCKED);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1385,7 +1385,7 @@ void BattleController_CheckHealBlock(struct BattleSystem *bsys, struct BattleStr
             && ctx->defence_client == BATTLER_ALLY(ctx->attack_client)))
     {
         ctx->moveOutCheck[ctx->attack_client].stoppedFromHealBlock = TRUE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAILED_HEAL_BLOCK);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_IS_HEAL_BLOCKED);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1401,7 +1401,7 @@ void BattleController_CheckGravityOrThroatChop(struct BattleSystem *bsys, struct
 {
     if (BattleContext_CheckMoveUnuseableInGravity(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
         ctx->moveOutCheck[ctx->attack_client].stoppedFromGravity = TRUE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAIL_GRAVITY);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_FAIL_GRAVITY);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1410,7 +1410,7 @@ void BattleController_CheckGravityOrThroatChop(struct BattleSystem *bsys, struct
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
     }
     if (ctx->moveConditionsFlags[ctx->attack_client].throatChopTimer && IsMoveSoundBased(ctx->current_move_index)) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAIL_THROAT_CHOP);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_FAIL_THROAT_CHOP);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1424,7 +1424,7 @@ void BattleController_CheckTaunt(struct BattleSystem *bsys, struct BattleStruct 
 {
     if (ctx->battlemon[ctx->attack_client].moveeffect.tauntTurns && ctx->moveTbl[ctx->current_move_index].power == 0) {
         ctx->moveOutCheck[ctx->attack_client].stoppedFromTaunt = TRUE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FAIL_TAUNTED);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_FAIL_TAUNTED);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1441,7 +1441,7 @@ void BattleController_CheckImprison(struct BattleSystem *bsys, struct BattleStru
     }
     if (BattleContext_CheckMoveImprisoned(bsys, ctx, ctx->attack_client, ctx->current_move_index)) {
         ctx->moveOutCheck[ctx->attack_client].stoppedFromImprison = TRUE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_IS_IMPRISONED);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_IS_IMPRISONED);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1467,11 +1467,11 @@ void BattleController_CheckConfusion(struct BattleSystem *bsys, struct BattleStr
             // modernised to 33%
             if (BattleRand(bsys) % 3 != 0) {
 #endif
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CONFUSED);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CONFUSED);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             } else {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CONFUSED_SELF_HIT);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HURT_SELF_IN_CONFUSION);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_34;
                 ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1480,7 +1480,7 @@ void BattleController_CheckConfusion(struct BattleSystem *bsys, struct BattleStr
                 ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
             }
         } else {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CONFUSED_NO_MORE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SNAP_OUT_OF_CONFUSION);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         }
@@ -1492,7 +1492,7 @@ void BattleController_CheckParalysis(struct BattleSystem *bsys, struct BattleStr
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_PARALYSIS) {
         if (BattleRand(bsys) % 4 == 0) {
             ctx->moveOutCheck[ctx->attack_client].stoppedFromParalysis = TRUE;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FULLY_PARALYZED);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FULLY_PARALYZED);
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
             ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1508,12 +1508,12 @@ void BattleController_CheckInfatuation(struct BattleSystem *bsys, struct BattleS
     if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_ATTRACT) {
         ctx->battlerIdTemp = LowestFlagNo((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_ATTRACT) >> STATUS2_ATTRACT_SHIFT);
         if (BattleRand(bsys) & 1) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_INFATUATED);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_INFATUATED);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         } else {
             ctx->moveOutCheck[ctx->attack_client].stoppedFromAttract = TRUE;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_IMMOBILIZED_BY_LOVE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_IMMOBILIZED_BY_LOVE);
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
             ctx->wb_seq_no = BEFORE_MOVE_START;
@@ -1527,7 +1527,7 @@ void BattleController_CheckInfatuation(struct BattleSystem *bsys, struct BattleS
 // void BattleController_CheckSleepAnnouncement(struct BattleSystem *bsys, struct BattleStruct *ctx) {
 //     if (ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) {
 //         if (ctx->current_move_index == MOVE_SNORE || ctx->moveNoTemp == MOVE_SLEEP_TALK) {
-//             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SLEEPING);
+//             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SLEEPING);
 //             ctx->next_server_seq_no = ctx->server_seq_no;
 //             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
 //             return;
@@ -1543,13 +1543,13 @@ void BattleController_CheckStanceChange(struct BattleSystem *bsys, struct Battle
         if (ctx->current_move_index == MOVE_KINGS_SHIELD && ctx->battlemon[ctx->attack_client].form_no == 1) {
             ctx->battlemon[ctx->battlerIdTemp].form_no = 0;
             BattleFormChange(ctx->battlerIdTemp, ctx->battlemon[ctx->battlerIdTemp].form_no, bsys, ctx, 0);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORM_CHANGE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         } else if (ctx->moveTbl[ctx->current_move_index].power != 0 && ctx->battlemon[ctx->attack_client].form_no == 0) {
             ctx->battlemon[ctx->battlerIdTemp].form_no = 1;
             BattleFormChange(ctx->battlerIdTemp, ctx->battlemon[ctx->battlerIdTemp].form_no, bsys, ctx, 0);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORM_CHANGE);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         }
@@ -1669,7 +1669,7 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
 
     if (!(ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) && ctx->oneSelfFlag[ctx->defence_client].lightningRodFlag) {
         ctx->oneSelfFlag[ctx->defence_client].lightningRodFlag = FALSE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LIGHTNING_ROD);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LIGHTNING_ROD_REDIRECTED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ret = TRUE;
@@ -1677,7 +1677,7 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
 
     if (!(ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) && ctx->oneSelfFlag[ctx->defence_client].stormDrainFlag) {
         ctx->oneSelfFlag[ctx->defence_client].stormDrainFlag = FALSE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LIGHTNING_ROD);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LIGHTNING_ROD_REDIRECTED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ret = TRUE;
@@ -1801,7 +1801,7 @@ void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct Batt
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
         if (effect == MOVE_EFFECT_THAW_AND_BURN_HIT || effect == MOVE_EFFECT_RECOIL_BURN_HIT || effect == MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
             ctx->battlerIdTemp = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_THAW_OUT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
@@ -1840,7 +1840,7 @@ BOOL BattleController_CheckPrimalWeather(struct BattleSystem *bsys, struct Battl
 
     // Handle Extremely Harsh Sunlight and Heavy Rain
     if ((weather & WEATHER_EXTREMELY_HARSH_SUNLIGHT) && (ctx->move_type == TYPE_WATER) && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANCEL_WATER_MOVE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANCEL_WATER_MOVE);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -1849,7 +1849,7 @@ BOOL BattleController_CheckPrimalWeather(struct BattleSystem *bsys, struct Battl
     }
 
     if ((weather & WEATHER_HEAVY_RAIN) && (ctx->move_type == TYPE_FIRE) && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANCEL_FIRE_MOVE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANCEL_FIRE_MOVE);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -1878,7 +1878,7 @@ BOOL BattleController_CheckBurnUpOrDoubleShock(struct BattleSystem *bsys UNUSED,
 
     if (!HasType(ctx, ctx->attack_client, typeToCheck)) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -1914,7 +1914,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         // Aura Wheel when user isn't Morpeko
         || (currentMoveIndex == MOVE_AURA_WHEEL && attackClient.species != SPECIES_MORPEKO)) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANT_USE_MOVE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANT_USE_MOVE);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -1926,7 +1926,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         && attackClient.species == SPECIES_HOOPA
         && attackClient.form_no == 0) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANT_USE_MOVE_HOOPA_CONFINED);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANT_USE_MOVE_HOOPA_CONFINED);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -1984,7 +1984,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         ctx->mp.tag = TAG_NICKNAME;
         ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->attack_client);
 
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_BELCH);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_BELCH);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -2036,7 +2036,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     // Weight moves into Dynamax
     if (IsDynamaxBannedWeightMove(currentMoveIndex) && defenceClient.is_currently_dynamaxed) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANT_USE_MOVE_DYNAMAX_TARGET);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANT_USE_MOVE_DYNAMAX_TARGET);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -2072,7 +2072,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         // Rest while user is at full HP
         if (attackClient.hp == (s32)attackClient.maxhp) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_RESTORE_HP_FULL_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RESTORE_HP_FULL_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -2084,7 +2084,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             // TODO: test
             ctx->battlerIdTemp = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_STAYED_AWAKE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_STAYED_AWAKE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -2106,7 +2106,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
 
         ctx->battlerIdTemp = ctx->attack_client;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TAKE_POWDER_DAMAGE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_TAKE_POWDER_DAMAGE);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -2127,13 +2127,13 @@ void BattleController_CheckBide(struct BattleSystem *bsys, struct BattleStruct *
             } else {
                 ctx->defence_client = Battler_GetRandomOpposingBattlerId(bsys, ctx, ctx->attack_client);
                 if (ctx->battlemon[ctx->defence_client].hp == 0) {
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BIDE_END_NO_TARGET);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BIDE_NO_TARGET);
                     ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 }
             }
         }
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_END_BIDE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BIDE_END);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
     }
@@ -2156,7 +2156,7 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
         if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, defender, ABILITY_DAMP)
             && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_USE_MOVE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -2176,7 +2176,7 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
         && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
         if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CANNOT_USE_MOVE);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -2217,15 +2217,15 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
             return TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HIGH_CRIT_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HIGH_CRIT_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SKY_ATTACK_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SKY_ATTACK_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_DEF_UP:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DEF_UP_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DEF_UP_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_SUN_SKIPS:
@@ -2233,32 +2233,32 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
                 needToRunScript = FALSE;
                 continueMoveExecution = TRUE;
             } else {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUN_SKIPS_CHARGE_TURN);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SUN_SKIPS_CHARGE_TURN);
                 needToRunScript = TRUE;
             }
             break;
         case MOVE_EFFECT_FLY:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FLY_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FLY_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_DIVE:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DIVE_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DIVE_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_DIG:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DIG_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DIG_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_BOUNCE:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BOUNCE_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BOUNCE_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_SHADOW_FORCE:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SHADOW_FORCE_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHADOW_FORCE_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_GEOMANCY_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_GEOMANCY_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
@@ -2266,20 +2266,20 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
                 needToRunScript = FALSE;
                 continueMoveExecution = TRUE;
             } else {
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRO_SHOT_CHARGE_TURN);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ELECTRO_SHOT_CHARGE_TURN);
                 needToRunScript = TRUE;
             }
             break;
         case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_METEOR_BEAM_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_METEOR_BEAM_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_BURN_HIT:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ICE_BURN_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ICE_BURN_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_PARALYZE_HIT:
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FREEZE_SHOCK_CHARGE_TURN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FREEZE_SHOCK_CHARGE_TURN);
             needToRunScript = TRUE;
             break;
             // case MOVE_EFFECT_SKY_DROP:
@@ -2355,7 +2355,7 @@ BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct Ba
     if (needToRunScript) {
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ITEM_SKIP_CHARGE_TURN_NEW);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ITEM_SKIP_CHARGE_TURN_NEW);
         return TRUE;
     }
 
@@ -2386,7 +2386,7 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
                 sp->waza_no_last = sp->moveNoTemp;
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
             }
-            LoadBattleSubSeqScript(sp, 1, SUB_SEQ_SNATCH);
+            LoadBattleSubSeqScript(sp, 1, BATTLE_SUBSCRIPT_SNATCH);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = 22;
             CheckPressureForPPDecrease(sp, client_no, sp->attack_client);
@@ -2453,7 +2453,7 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
             && (moveCanHit == FALSE)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = WAZA_STATUS_FLAG_KIE_NOHIT;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ATTACK_MISSED);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ATTACK_MISSED);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -2587,7 +2587,7 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruc
             UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_PROTECTED;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PROTECTED);
 
             if (protectedMoveMessage > 0) {
                 ctx->mp.id = BATTLE_MSG_MOVE_PROTECTED_SIDE;
@@ -2623,7 +2623,7 @@ BOOL BattleController_CheckPsychicTerrain(struct BattleSystem *bsys UNUSED, stru
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_MORE_WORK;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HANDLE_PSYCHIC_TERRAIN_PROTECTION);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_PSYCHIC_TERRAIN_PROTECTION);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2716,7 +2716,7 @@ BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct 
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2765,7 +2765,7 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
     if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_NOT_EFFECTIVE) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2783,7 +2783,7 @@ BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct Bat
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_LEVITATE_MISS;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_LEVITATE_FAIL);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LEVITATE_FAIL);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2809,7 +2809,7 @@ BOOL BattleController_CheckAirBalloonTelekinesisMagnetRise(struct BattleSystem *
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_MAGNET_RISE_MISS;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT_ABILITY);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2824,7 +2824,7 @@ BOOL BattleController_CheckSafetyGoggles(struct BattleSystem *bsys UNUSED, struc
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SAFETY_GOGGLES);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SAFETY_GOGGLES);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2842,7 +2842,7 @@ BOOL BattleController_CheckAbilityFailures3(struct BattleSystem *bsys UNUSED, st
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT_ABILITY);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2870,7 +2870,7 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities1(struct BattleSystem
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2904,7 +2904,7 @@ BOOL BattleController_CheckMoveFailures2(struct BattleSystem *bsys UNUSED, struc
 int BattleController_CheckMoveFailures2_VenomDrench(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int defender UNUSED)
 {
     // BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-    //  return SUB_SEQ_BUT_IT_FAILED_SPREAD;
+    //  return BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD;
     return 0;
 }
 
@@ -2917,7 +2917,7 @@ BOOL BattleController_CheckWhirlwindFailures(struct BattleSystem *bsys UNUSED, s
         if (ctx->battlemon[defender].is_currently_dynamaxed) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_SWITCH_FAIL_DYNAMAX);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORCE_SWITCH_FAIL_DYNAMAX);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_MORE_WORK;
@@ -2928,7 +2928,7 @@ BOOL BattleController_CheckWhirlwindFailures(struct BattleSystem *bsys UNUSED, s
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_SUCTION_CUPS)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_SWITCH_FAIL_SUCTION_CUPS);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORCE_SWITCH_FAIL_SUCTION_CUPS);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_MORE_WORK;
@@ -2939,7 +2939,7 @@ BOOL BattleController_CheckWhirlwindFailures(struct BattleSystem *bsys UNUSED, s
         if (ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORCE_SWITCH_FAIL_INGRAIN);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORCE_SWITCH_FAIL_INGRAIN);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_MORE_WORK;
@@ -2965,7 +2965,7 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities2(struct BattleSystem
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2981,7 +2981,7 @@ BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UN
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_UPROAR_STOPPING_SLEEP_MOVES);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UPROAR_STOPPING_SLEEP_MOVES);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -2991,7 +2991,7 @@ BOOL BattleController_CheckUproarStoppingSleepMoves(struct BattleSystem *bsys UN
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_UPROAR_STOPPING_REST);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UPROAR_STOPPING_REST);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -3014,7 +3014,7 @@ BOOL BattleController_CheckSafeguard(struct BattleSystem *bsys UNUSED, struct Ba
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PROTECTED_BY_SAFEGUARD);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PROTECTED_BY_SAFEGUARD);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -3037,7 +3037,7 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
             if ((moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
                 ctx->battlerIdTemp = defender;
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, moveEffect != MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP);
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ELECTRIC_TERRAIN_PROTECTION);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ELECTRIC_TERRAIN_PROTECTION);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
@@ -3049,7 +3049,7 @@ BOOL BattleController_CheckTerrainBlock(struct BattleSystem *bsys UNUSED, struct
             if ((moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_STATUS_PARALYZE || moveEffect == MOVE_EFFECT_STATUS_POISON || moveEffect == MOVE_EFFECT_STATUS_BADLY_POISON || moveEffect == MOVE_EFFECT_STATUS_BURN || moveEffect == MOVE_EFFECT_STATUS_CONFUSE) && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)) {
                 ctx->battlerIdTemp = defender;
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, moveEffect != MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP);
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MISTY_TERRAIN_PROTECTION);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MISTY_TERRAIN_PROTECTION);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
@@ -3095,7 +3095,7 @@ int BattlerController_CheckSubstituteBlockingStatDropsOrDecorate(struct BattleSy
             case MOVE_EFFECT_SP_DEF_DOWN_3:
             case MOVE_EFFECT_DECORATE:
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-                return SUB_SEQ_DOESNT_AFFECT;
+                return BATTLE_SUBSCRIPT_DOESNT_AFFECT;
                 break;
 
             default:
@@ -3166,7 +3166,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         // case MOVE_EFFECT_HOWL: needs a dedicated case checking both it & partner, temp handled in effect
         // case MOVE_EFFECT_ATK_UP_2_STATUS_CONFUSION: //handled below
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_DEF_UP:
@@ -3175,14 +3175,14 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_DEF_UP_DOUBLE_ROLLOUT_POWER:
     case MOVE_EFFECT_STUFF_CHEEKS:
         if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_SPEED_UP:
     case MOVE_EFFECT_SPEED_UP_2:
     case MOVE_EFFECT_SPEED_UP_3:
         if (ctx->battlemon[defender].states[STAT_SPEED] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_SP_ATK_UP:
@@ -3190,7 +3190,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_SP_ATK_UP_3:
         // case MOVE_EFFECT_SP_ATK_UP_CAUSE_CONFUSION: // handled below
         if (ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_SP_DEF_UP:
@@ -3198,48 +3198,48 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_SP_DEF_UP_3:
         // case MOVE_EFFECT_SP_DEF_UP_DOUBLE_ELECTRIC_POWER: // charge would work even if stats are maxed
         if (ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_ACC_UP:
     case MOVE_EFFECT_ACC_UP_2:
         if (ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_EVA_UP:
     case MOVE_EFFECT_EVA_UP_2:
     case MOVE_EFFECT_EVA_UP_2_MINIMIZE:
         if (ctx->battlemon[defender].states[STAT_EVASION] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_ATK_DEF_UP:
     case MOVE_EFFECT_COACHING:
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_DEFENSE] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_DECORATE:
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_STOCKPILE:
     case MOVE_EFFECT_DEF_SP_DEF_UP:
         if (ctx->battlemon[defender].states[STAT_DEFENSE] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_SP_ATK_SP_DEF_UP:
         if (ctx->battlemon[defender].states[STAT_SPATK] == 12 && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_ATK_SPEED_UP:
     case MOVE_EFFECT_SPEED_UP_2_ATK_UP:
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_RANDOM_STAT_UP_2:
@@ -3251,26 +3251,26 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             && ctx->battlemon[defender].states[STAT_SPDEF] == 12
             && ctx->battlemon[defender].states[STAT_ACCURACY] == 12
             && ctx->battlemon[defender].states[STAT_EVASION] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_ATK_ACC_UP:
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 12 && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP:
         if (ctx->battlemon[defender].states[STAT_SPEED] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12
             && ctx->battlemon[defender].states[STAT_SPDEF] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_ATK_DEF_ACC_UP:
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
             && ctx->battlemon[defender].states[STAT_ACCURACY] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN:
@@ -3278,39 +3278,39 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_SPEED] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_ATK_SP_ATK_UP:
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_SPATK] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2:
         if (ctx->battlemon[defender].states[STAT_SPATK] == 12
             && ctx->battlemon[defender].states[STAT_SPDEF] == 12
             && ctx->battlemon[defender].states[STAT_SPEED] == 12) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER;
         }
         break;
     case MOVE_EFFECT_ATK_DOWN:
     case MOVE_EFFECT_ATK_DOWN_2:
     case MOVE_EFFECT_ATK_DOWN_3:
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
             break;
         }
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_HYPER_CUTTER)) {
-            subscriptToRun = SUB_SEQ_ATTACK_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_ATTACK_NOT_LOWERED;
             break;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
@@ -3318,19 +3318,19 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_DEF_DOWN_2:
     case MOVE_EFFECT_DEF_DOWN_3:
         if (ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
             break;
         }
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_BIG_PECKS)) {
-            subscriptToRun = SUB_SEQ_DEFENSE_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_DEFENSE_NOT_LOWERED;
             break;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
@@ -3339,14 +3339,14 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         // If the move is Tickle, first Hyper Cutter will block the Attack drop, then Defense will drop.
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 0
             && ctx->battlemon[defender].states[STAT_DEFENSE] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
@@ -3354,15 +3354,15 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_SPEED_DOWN_2:
     case MOVE_EFFECT_SPEED_DOWN_3:
         if (ctx->battlemon[defender].states[STAT_SPEED] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
             break;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
@@ -3371,14 +3371,14 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_SP_ATK_DOWN_2_OPPOSITE_GENDER:
     case MOVE_EFFECT_SP_ATK_DOWN_3:
         if (ctx->battlemon[defender].states[STAT_SPATK] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
@@ -3386,46 +3386,46 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
     case MOVE_EFFECT_SP_DEF_DOWN_2:
     case MOVE_EFFECT_SP_DEF_DOWN_3:
         if (ctx->battlemon[defender].states[STAT_SPDEF] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
     case MOVE_EFFECT_ACC_DOWN:
     case MOVE_EFFECT_ACC_DOWN_2:
         if (ctx->battlemon[defender].states[STAT_ACCURACY] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
         }
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_KEEN_EYE)) {
-            subscriptToRun = SUB_SEQ_ACCURACY_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_ACCURACY_NOT_LOWERED;
             break;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
     case MOVE_EFFECT_EVA_DOWN:
     case MOVE_EFFECT_EVA_DOWN_2:
         if (ctx->battlemon[defender].states[STAT_EVASION] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
@@ -3434,24 +3434,24 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
             && ctx->battlemon[defender].states[STAT_ATTACK] == 12
             && ctx->battlemon[defender].states[STAT_DEFENSE] == 12
             && ctx->battlemon[defender].states[STAT_SPEED] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_HIGHER; // TODO: Champions modernisation since this is much more obvious
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_HIGHER; // TODO: Champions modernisation since this is much more obvious
         }
         break;
     case MOVE_EFFECT_PARTING_SHOT:
         if (ctx->battlemon[defender].states[STAT_ATTACK] == 0
             && ctx->battlemon[defender].states[STAT_SPATK] == 0) {
-            subscriptToRun = SUB_SEQ_STAT_WONT_GO_LOWER;
+            subscriptToRun = BATTLE_SUBSCRIPT_STAT_WONT_GO_LOWER;
         }
         if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_HYPER_CUTTER) && ctx->battlemon[defender].states[STAT_SPATK] == 0) {
-            subscriptToRun = SUB_SEQ_ATTACK_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_ATTACK_NOT_LOWERED;
             break;
         }
         if (hasFlowerVeil) {
-            subscriptToRun = SUB_SEQ_FLOWER_VEIL_FAIL;
+            subscriptToRun = BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL;
             break;
         }
         if (hasClearBodyOrFullMetalBodyOrWhiteSmoke) {
-            subscriptToRun = SUB_SEQ_STATS_NOT_LOWERED;
+            subscriptToRun = BATTLE_SUBSCRIPT_STATS_NOT_LOWERED;
             break;
         }
         break;
@@ -3496,7 +3496,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FLOWER_VEIL_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -3514,7 +3514,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SWEET_VEIL_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SWEET_VEIL_FAIL);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -3531,7 +3531,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT_ABILITY);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -3544,7 +3544,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SWEET_VEIL_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SWEET_VEIL_FAIL);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return TRUE;
@@ -3583,7 +3583,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_OWN_TEMPO_FAIL);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_OWN_TEMPO_FAIL);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -3615,7 +3615,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT_ABILITY);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -3633,7 +3633,7 @@ BOOL BattleController_CheckAbilityFailures4_OtherAromaVeilSturdy(struct BattleSy
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = MOVE_STATUS_FLAG_FAILED;
         ctx->battlerIdTemp = ctx->defence_client;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT_ABILITY);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -3672,7 +3672,7 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
         ctx->waza_status_flag = 0;
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_MISS;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ATTACK_MISSED);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ATTACK_MISSED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -3708,7 +3708,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
             case MOVE_EFFECT_HEAL_TARGET:
                 if (GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_INFILTRATOR) {
                     BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
                     ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -3720,7 +3720,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
             //case MOVE_EFFECT_TRANSFORM:
             case MOVE_EFFECT_SET_ABILITY_TO_INSOMNIA:
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
                 ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -3815,7 +3815,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         if (ctx->battlemon[ctx->defence_client].hp == (s32)ctx->battlemon[ctx->defence_client].maxhp) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->battlerIdTemp = ctx->defence_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_HP_FULL_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -3846,7 +3846,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     case MOVE_LIFE_DEW: { //only self
         if (ctx->battlemon[ctx->attack_client].hp == (s32)ctx->battlemon[ctx->attack_client].maxhp) {
             ctx->battlerIdTemp = ctx->attack_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_HP_FULL_FAIL);
             ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] = MOVE_STATUS_FLAG_FAILED;
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -3859,7 +3859,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
             && (ctx->defence_client == BATTLER_ALLY(ctx->attack_client))) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->battlerIdTemp = ctx->defence_client;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_HP_FULL_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4175,7 +4175,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_USE_WEATHER_MOVE_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4194,7 +4194,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_USE_WEATHER_MOVE_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4213,7 +4213,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_USE_WEATHER_MOVE_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4232,7 +4232,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_USE_WEATHER_MOVE_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4256,7 +4256,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         if ((ctx->field_condition & WEATHER_EXTREMELY_HARSH_SUNLIGHT) || (ctx->field_condition & WEATHER_HEAVY_RAIN) || (ctx->field_condition & WEATHER_STRONG_WINDS)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_USE_WEATHER_MOVE_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_USE_WEATHER_MOVE_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4404,7 +4404,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     if (butItFailedFlag) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
         ctx->battlerIdTemp = ctx->defence_client;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4423,7 +4423,7 @@ BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bs
     case MOVE_LIFE_DEW: { //only ally
         if (ctx->battlemon[defender].hp == (s32)ctx->battlemon[defender].maxhp) {
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_HEAL_TARGET_HP_FULL_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_HP_FULL_FAIL);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -4447,7 +4447,7 @@ BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bs
             || (ctx->battlemon[defender].species == SPECIES_OGERPON && IS_ITEM_MASK(ctx->battlemon[defender].item))) {
             ctx->battlerIdTemp = defender;
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FAILED_TO_AFFECT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FAILED_TO_AFFECT);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -4484,7 +4484,7 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4498,7 +4498,7 @@ BOOL BattleController_CheckMoveFailures5(struct BattleSystem *bsys UNUSED, struc
         if (ctx->battlemon[ctx->attack_client].hp <= BattleDamageDivide(ctx->battlemon[ctx->attack_client].maxhp, 4)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->battlerIdTemp = defender;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_SUBSTITUTE_FAIL);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SUBSTITUTE_FAIL);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4564,7 +4564,7 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -4578,7 +4578,7 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_NOT_EFFECTIVE;
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_DOESNT_AFFECT);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -4590,7 +4590,7 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_OHKO_HIT_NOHIT;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_UNAFFECTED);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_UNAFFECTED);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -4606,7 +4606,7 @@ BOOL BattleController_CheckMoveFailures3(struct BattleSystem *bsys UNUSED, struc
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FLAG_FAILED;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_ALREADY_HAS_SAME_STATUS);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ALREADY_HAS_SAME_STATUS);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
@@ -4622,7 +4622,7 @@ BOOL BattleController_CheckMoveFailures3_PerishSong(struct BattleSystem *bsys, s
 {
     if (IfAllClientsHavePerishSong(bsys, ctx) && ctx->current_move_index == MOVE_PERISH_SONG) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BUT_IT_FAILED_SPREAD);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
@@ -4875,7 +4875,7 @@ BOOL BattleController_CheckStrongWindsWeaken(struct BattleSystem *bw, struct Bat
                 if ((GetWeather(bw, sp, sp->attack_client) & WEATHER_STRONG_WINDS)
                     && (TypeEffectivenessTable[i][2] == 20)
                     && (HasType(sp, defender, TYPE_FLYING))) {
-                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, SUB_SEQ_WEAKEN_MOVES_STRONG_WINDS);
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEAKEN_MOVES_STRONG_WINDS);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                     return TRUE;
@@ -4899,7 +4899,7 @@ BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys U
     if (CanActivateDamageReductionBerry(ctx, defender)) {
         ctx->item_work = GetBattleMonItem(ctx, defender);
         ctx->battlerIdTemp = defender;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_PLAY_EAT_BERRY_ANIMATION);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PLAY_EAT_BERRY_ANIMATION);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, defender)][ctx->sel_mons_no[defender]].berryEatenAndCanBelch = TRUE;
