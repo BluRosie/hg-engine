@@ -3,7 +3,7 @@ name: Sync GitHub Wiki
 on:
   push:
     branches:
-      - wiki #TODO
+      - main
     paths:
       - "documentation/wiki/**"
       - ".github/workflows/wiki.yml"
@@ -19,6 +19,7 @@ concurrency:
 
 jobs:
   sync:
+    if: ${{ github.repository == 'BluRosie/hg-engine' }}
     runs-on: ubuntu-latest
 
     steps:
