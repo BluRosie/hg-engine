@@ -9,8 +9,8 @@
 #include "../../include/constants/move_effects.h"
 #include "../../include/constants/moves.h"
 #include "../../include/constants/species.h"
-#include "../../include/constants/weather_numbers.h"
 #include "../../include/constants/system_control.h"
+#include "../../include/constants/weather_numbers.h"
 #include "../../include/debug.h"
 #include "../../include/mega.h"
 #include "../../include/message.h"
@@ -106,8 +106,8 @@ BOOL btl_scr_cmd_107_clearauroraveil(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_108_strengthsapcalc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_109_checktargetispartner(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_10A_clearsmog(void *bsys UNUSED, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_10B_ifthirdtype(void* bw, struct BattleStruct* sp);
-BOOL btl_scr_cmd_10C_ifterastallized(void* bw, struct BattleStruct* sp);
+BOOL btl_scr_cmd_10B_ifthirdtype(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_10C_ifterastallized(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_10D_HandleRoost(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10E_HandleSoak(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_10F_HandleMagicPowder(void *bsys UNUSED, struct BattleStruct *ctx);
@@ -2437,9 +2437,9 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no)
 {
     u8 holdeffect = HeldItemHoldEffectGet(sp, client_no);
 
-    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE 
-        && sp->battlemon[client_no].ability != ABILITY_EELEVATE
-        && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
+    if ((sp->battlemon[client_no].ability != ABILITY_LEVITATE
+            && sp->battlemon[client_no].ability != ABILITY_EELEVATE
+            && holdeffect != HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT // not holding Air Balloon
             && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, client_no, TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
@@ -4888,19 +4888,19 @@ enum {
 // originally wrote this to be like some kind of task but it was best done through the script command itself
 
 // in tiles
-#define ABILITY_POPUP_TEXTBOX_WIDTH  10
-#define ABILITY_POPUP_TEXTBOX_HEIGHT 4
+#define ABILITY_POPUP_TEXTBOX_WIDTH  16
+#define ABILITY_POPUP_TEXTBOX_HEIGHT 8
 
-#define ABILITY_POPUP_TEXTBOX_WIDTH_PIXELS      (8 * (ABILITY_POPUP_TEXTBOX_WIDTH))
-#define ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION (ABILITY_POPUP_TEXTBOX_WIDTH_PIXELS + 16)
+#define ABILITY_POPUP_TEXTBOX_SLIDE_PX     (8 * ABILITY_POPUP_TEXTBOX_WIDTH + 8)
+#define ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT (-248 + ABILITY_POPUP_TEXTBOX_SLIDE_PX)
+#define ABILITY_POPUP_FRAMES_TO_SHIFT      4
+#define ABILITY_POPUP_PIXELS_PER_FRAME     (ABILITY_POPUP_TEXTBOX_SLIDE_PX / ABILITY_POPUP_FRAMES_TO_SHIFT)
 
-#define ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT (-256 + ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION)
-
-#define ABILITY_POPUP_FRAMES_TO_SHIFT  4
-#define ABILITY_POPUP_PIXELS_PER_FRAME (ABILITY_POPUP_TEXTBOX_FINAL_DESTINATION / ABILITY_POPUP_FRAMES_TO_SHIFT)
-
-#define ABILITY_POPUP_Y_COORD_PLAYER 8
-#define ABILITY_POPUP_Y_COORD_ENEMY  1
+// continuing from WEATHER_ICON_CELL_ANIM_TAG ...
+#define ABILITY_POPUP_ICON_CHAR_TAG      22060
+#define ABILITY_POPUP_ICON_PLTT_TAG      22061
+#define ABILITY_POPUP_ICON_CELL_TAG      22062
+#define ABILITY_POPUP_ICON_CELL_ANIM_TAG 22063
 
 void AbilityPopup_SlideIn(void *data)
 {
@@ -4912,22 +4912,58 @@ void AbilityPopup_SlideIn(void *data)
     void *palette = bsys->palette;
     int side = work->side;
 
+    int abilityPopupPaletteSlot = 12;
+    int negative = (side == 0 ? -1 : 1);
+    int sideShift = (side == 0 ? ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT : 0);
+    int edgeOffset = (side == 0 ? 2 : -4);
+
     switch (work->step) {
     case ABILITY_POPUP_INIT_PALETTE:
-        PaletteData_LoadNarc(palette, 38 /*NARC_a_0_3_8*/, sub_0200E3D8(), HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, 8 * 0x10);
+        PaletteData_LoadNarc(palette, 7, 363, HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, abilityPopupPaletteSlot * 0x10);
         work->step++;
         break;
-    case ABILITY_POPUP_INIT:
+    case ABILITY_POPUP_INIT: {
+        struct {
+            u16 height;
+            u16 width;
+            u32 pixelFormat;
+            u32 mappingType;
+            u32 characterFormat;
+            u32 size;
+            void *rawData;
+        } *characterData;
+
         G2_SetBG0Priority(2);
         SetBgPriority(1, 1);
         SetBgPriority(2, 0);
 
         sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
 
-        AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, (side & 1) ? ABILITY_POPUP_Y_COORD_ENEMY : ABILITY_POPUP_Y_COORD_PLAYER /*y*/, ABILITY_POPUP_TEXTBOX_WIDTH /*width*/, ABILITY_POPUP_TEXTBOX_HEIGHT /*height*/, 11, 9 + 1); // we initially print to the right of the screen where it is not visible at all
+        AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, (side & 1) ? 1 : 8 /*y*/, ABILITY_POPUP_TEXTBOX_WIDTH /*width*/, ABILITY_POPUP_TEXTBOX_HEIGHT /*height*/, abilityPopupPaletteSlot, 9 + 1); // we initially print to the right of the screen where it is not visible at all
 
-        FillWindowPixelBuffer(window, 0xFF);
-        DrawFrameAndWindow1(window, FALSE, 1, 8);
+        void *characterFile = GfGfxLoader_GetCharData(7, 362, TRUE, (void **)&characterData, HEAPID_BATTLE_HEAP);
+        u8 *source = characterData->rawData;
+        u8 *destination = window->pixelBuffer;
+        memset(destination, 0, characterData->size);
+        u32 yOffset = 8;
+        for (u32 y = 0; y < ABILITY_POPUP_TEXTBOX_HEIGHT * 8 - yOffset; y++) {
+            for (u32 x = 0; x < ABILITY_POPUP_TEXTBOX_WIDTH * 8; x++) {
+                u32 sourceY = y + yOffset;
+                u32 sourceTile = (sourceY / 8) * ABILITY_POPUP_TEXTBOX_WIDTH + (x / 8);
+                u32 sourceByte = sourceTile * 32 + (sourceY % 8) * 4 + (x % 8) / 2;
+                u32 destinationTile = (y / 8) * ABILITY_POPUP_TEXTBOX_WIDTH + (x / 8);
+                u32 destinationByte = destinationTile * 32 + (y % 8) * 4 + (x % 8) / 2;
+                u8 color = (x & 1) ? source[sourceByte] >> 4 : source[sourceByte] & 0xF;
+
+                if (x & 1) {
+                    destination[destinationByte] = (destination[destinationByte] & 0x0F) | (color << 4);
+                } else {
+                    destination[destinationByte] = (destination[destinationByte] & 0xF0) | color;
+                }
+            }
+        }
+        sys_FreeMemoryEz(characterFile);
+
         BattleMessage mp;
         mp.id = BATTLE_MSG_ABILITY_POPUP;
         mp.tag = TAG_NICKNAME_ABILITY;
@@ -4937,35 +4973,87 @@ void AbilityPopup_SlideIn(void *data)
 
         BattleSystem_BufferMessage(bsys, &mp);
         BattleMessage_ExpandPlaceholders(bsys, bsys->msgData, &mp);
-        AddTextPrinterParameterized(window, 0, bsys->msgBuffer, (side != 0) ? 0 : 2, 0, 0, 0);
-        DrawFrameAndWindow1(window, FALSE, 1, 8);
+        AddTextPrinterParameterizedWithColor(window, 0, bsys->msgBuffer, 3, 0, 0, (15 << 16) | (14 << 8), NULL);
+        CopyWindowToVram(window);
+        ScheduleBgTilemapBufferTransfer(bgConfig, 2);
         G2_SetBG2Offset(0, 0);
         work->step++;
-        break;
+    } break;
     case ABILITY_POPUP_SLIDE_IN: {
-        int negative = (side == 0 ? -1 : 1);
-        int sideShift = (side == 0 ? ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT : 0);
         if (work->frames++ >= ABILITY_POPUP_FRAMES_TO_SHIFT) {
+            struct BattlePokemon *battleMon = &bsys->sp->battlemon[work->battler];
+            void *csp = BattleWorkCATS_SYS_PTRGet(bsys);
+            void *crp = BattleWorkCATS_RES_PTRGet(bsys);
+            void *pfd = BattleWorkPfdGet(bsys);
+
+            if (csp != NULL && crp != NULL && pfd != NULL) {
+                OAMSpriteTemplate iconTemplate = {
+                    (work->side & 1) ? 240 : 108,
+                    (work->side & 1) ? 24 : 80,
+                    0,
+                    0,
+                    100,
+                    GetMonIconPalette(battleMon->species, battleMon->form_no, battleMon->is_egg),
+                    NNS_G2D_VRAM_TYPE_2DMAIN,
+                    {
+                        ABILITY_POPUP_ICON_CHAR_TAG,
+                        ABILITY_POPUP_ICON_PLTT_TAG,
+                        ABILITY_POPUP_ICON_CELL_TAG,
+                        ABILITY_POPUP_ICON_CELL_ANIM_TAG,
+                        CLACT_U_HEADER_DATA_NONE,
+                        CLACT_U_HEADER_DATA_NONE,
+                    },
+                    0,
+                    0,
+                };
+                u32 iconIndex = PokeIconIndexGetByMonsNumber(battleMon->species, battleMon->is_egg, battleMon->form_no);
+
+                OAM_LoadResourcePlttWorkArc(pfd, FADE_MAIN_OBJ, csp, crp, ARC_POKEICON, PokeIconPalArcIndexGet(), FALSE, 3, NNS_G2D_VRAM_TYPE_2DMAIN, ABILITY_POPUP_ICON_PLTT_TAG);
+                OAM_LoadResourceCellArc(csp, crp, ARC_POKEICON, 6, FALSE, ABILITY_POPUP_ICON_CELL_TAG);
+                OAM_LoadResourceCellAnmArc(csp, crp, ARC_POKEICON, 5, FALSE, ABILITY_POPUP_ICON_CELL_ANIM_TAG);
+                work->iconResourcesLoaded = TRUE;
+                SpriteSystem_LoadCharResObjAtEndWithHardwareMappingType(csp, crp, ARC_POKEICON, iconIndex, FALSE, NNS_G2D_VRAM_TYPE_2DMAIN, ABILITY_POPUP_ICON_CHAR_TAG);
+                work->icon = OAM_ObjectAdd_S(csp, crp, &iconTemplate);
+                if (work->icon != NULL) {
+                    Sprite_SetDrawFlag(work->icon->act, FALSE);
+                    OAM_ObjectUpdate(work->icon->act);
+                }
+            }
             work->step++;
             work->frames = 0;
         } else {
-            G2_SetBG2Offset(sideShift + negative * (work->frames * ABILITY_POPUP_PIXELS_PER_FRAME), 0);
+            G2_SetBG2Offset(sideShift + negative * (work->frames * ABILITY_POPUP_PIXELS_PER_FRAME) + edgeOffset, 0);
         }
     } break;
     case ABILITY_POPUP_WAIT: {
+        if (work->icon != NULL && work->frames == 0) {
+            Sprite_SetDrawFlag(work->icon->act, TRUE);
+            OAM_ObjectUpdate(work->icon->act);
+        }
         if (work->frames++ > 60) {
+            void *crp = BattleWorkCATS_RES_PTRGet(work->bsys);
+
+            if (work->icon != NULL) {
+                CATS_ActorPointerDelete_S(work->icon);
+                work->icon = NULL;
+            }
+            if (crp != NULL && work->iconResourcesLoaded) {
+                OAM_FreeResourceChar(crp, ABILITY_POPUP_ICON_CHAR_TAG);
+                OAM_FreeResourceCell(crp, ABILITY_POPUP_ICON_CELL_TAG);
+                OAM_FreeResourceCellAnm(crp, ABILITY_POPUP_ICON_CELL_ANIM_TAG);
+                OAM_FreeResourcePltt(crp, ABILITY_POPUP_ICON_PLTT_TAG);
+                work->iconResourcesLoaded = FALSE;
+            }
             work->frames = 0;
             work->step++;
         }
     } break;
     case ABILITY_POPUP_SLIDE_OUT: {
-        int negative = (side == 0 ? -1 : 1);
-        int sideShift = (side == 0 ? ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT : 0);
         if (work->frames++ >= ABILITY_POPUP_FRAMES_TO_SHIFT) {
             work->step++;
             work->frames = 0;
         } else {
-            G2_SetBG2Offset(sideShift + negative * ((ABILITY_POPUP_FRAMES_TO_SHIFT - work->frames) * ABILITY_POPUP_PIXELS_PER_FRAME), 0);
+            G2_SetBG2Offset(sideShift + negative * ((ABILITY_POPUP_FRAMES_TO_SHIFT - work->frames) * ABILITY_POPUP_PIXELS_PER_FRAME) + edgeOffset, 0);
         }
     } break;
     case ABILITY_POPUP_DESTROY:
@@ -5010,6 +5098,8 @@ BOOL btl_scr_cmd_116_abilitypopup(void *bw, struct BattleStruct *sp)
             work->side = side;
             work->frames = 0;
             work->step = ABILITY_POPUP_INIT_PALETTE;
+            work->icon = NULL;
+            work->iconResourcesLoaded = FALSE;
             sp->battle_progress_flag = 1;
         }
     } else if (sp->abilityPopupWork != NULL && sp->abilityPopupWork->step >= ABILITY_POPUP_FINISH) {
@@ -5464,7 +5554,7 @@ BOOL BtlCmd_Transform(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
 {
     IncrementBattleScriptPtr(ctx, 1);
 
-	HandleTransform(ctx);
+    HandleTransform(ctx);
 
     return FALSE;
 }
@@ -5489,12 +5579,12 @@ BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *
     // BSCRIPT_VAR_SIDE_EFFECT_FLAGS_DIRECT
     ctx->add_status_flag_indirect = 0;
     // BSCRIPT_VAR_SIDE_EFFECT_FLAGS_INDIRECT
-ctx->add_status_flag_direct = 0;
+    ctx->add_status_flag_direct = 0;
 
-ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
-ctx->server_seq_no = CONTROLLER_COMMAND_23;
+    ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
+    ctx->server_seq_no = CONTROLLER_COMMAND_23;
 
-return FALSE;
+    return FALSE;
 }
 
 BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
@@ -5532,8 +5622,7 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
                        ctx->battlemon[battlerId].movePPCur[moveIndex]--;
                    }
                    */
-                    if (ctx->pursuitContext.isActive == FALSE)
-                    {
+                    if (ctx->pursuitContext.isActive == FALSE) {
                         ctx->pursuitContext.originalAttacker = ctx->attack_client;
                         ctx->pursuitContext.originalDefender = ctx->defence_client;
                     }
@@ -5576,22 +5665,22 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
 }
 
 u16 TotemSpecies[][STAT_MAX] = // Species, stat stage increases
-{
-    { SPECIES_RATICATE_ALOLAN_LARGE, 0, 1, 0, 0, 0, 0, 0 },  // +1 Defense
-    { SPECIES_MAROWAK_ALOLAN_LARGE,  0, 0, 2, 0, 0, 0, 0 },  // +2 Speed
-    { SPECIES_GUMSHOOS_LARGE,        0, 1, 0, 0, 0, 0, 0 },  // +1 Defense
-    { SPECIES_VIKAVOLT_LARGE,        1, 1, 1, 1, 1, 0, 0 },  // +1 Omni-boost
-    { SPECIES_RIBOMBEE_LARGE,        2, 2, 2, 2, 2, 0, 0 },  // +2 Omni-boost
-    { SPECIES_ARAQUANID_LARGE,       0, 0, 1, 0, 0, 0, 0 },  // +1 Speed
-    { SPECIES_LURANTIS_LARGE,        0, 0, 2, 0, 0, 0, 0 },  // +2 Speed
-    { SPECIES_SALAZZLE_LARGE,        0, 0, 0, 0, 1, 0, 0 },  // +1 Special Defense
-    { SPECIES_TOGEDEMARU_LARGE,      0, 2, 0, 0, 0, 0, 0 },  // +2 Defense
-    { SPECIES_MIMIKYU_LARGE,         1, 1, 1, 1, 1, 0, 0 },  // +1 Omni-boost
-    { SPECIES_MIMIKYU_BUSTED_LARGE,  0, 0, 0, 0, 0, 0, 0 },
-    { SPECIES_KOMMO_O_LARGE,         1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
-    // Add your Totem species here.
-    // Don't bother making a custom form unless you plan for it to be caught.
-};
+    {
+        { SPECIES_RATICATE_ALOLAN_LARGE, 0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
+        { SPECIES_MAROWAK_ALOLAN_LARGE, 0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
+        { SPECIES_GUMSHOOS_LARGE, 0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
+        { SPECIES_VIKAVOLT_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+        { SPECIES_RIBOMBEE_LARGE, 2, 2, 2, 2, 2, 0, 0 }, // +2 Omni-boost
+        { SPECIES_ARAQUANID_LARGE, 0, 0, 1, 0, 0, 0, 0 }, // +1 Speed
+        { SPECIES_LURANTIS_LARGE, 0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
+        { SPECIES_SALAZZLE_LARGE, 0, 0, 0, 0, 1, 0, 0 }, // +1 Special Defense
+        { SPECIES_TOGEDEMARU_LARGE, 0, 2, 0, 0, 0, 0, 0 }, // +2 Defense
+        { SPECIES_MIMIKYU_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+        { SPECIES_MIMIKYU_BUSTED_LARGE, 0, 0, 0, 0, 0, 0, 0 },
+        { SPECIES_KOMMO_O_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+        // Add your Totem species here.
+        // Don't bother making a custom form unless you plan for it to be caught.
+    };
 
 BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
 {
@@ -5602,19 +5691,16 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
     // Grab totem ID.
     u32 totemID;
     u32 adjustedSpecies = PokeOtherFormMonsNoGet(ctx->battlemon[battlerID].species, ctx->battlemon[battlerID].form_no);
-    for (totemID = 0; totemID < NELEMS(TotemSpecies); totemID++)
-    {
-        if (adjustedSpecies == TotemSpecies[totemID][0])
-        {
+    for (totemID = 0; totemID < NELEMS(TotemSpecies); totemID++) {
+        if (adjustedSpecies == TotemSpecies[totemID][0]) {
             break;
         }
     }
     // no weight increase because each form has its own weight + wishiwashi doesn't gain weight anyway
     // ctx->battlemon[battlerID].weight *= 2;
 
-    // if not defined in above table, should skip playing stat animation because it can not be found  
-    if (totemID == NELEMS(TotemSpecies))
-    {
+    // if not defined in above table, should skip playing stat animation because it can not be found
+    if (totemID == NELEMS(TotemSpecies)) {
         IncrementBattleScriptPtr(ctx, failAddr);
         return FALSE;
     }
@@ -5623,25 +5709,20 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
     u8 totalStatBoosts = 0;
     u8 raisedStat = 0;
     u8 stat;
-    for (stat = STAT_ATTACK; stat < STAT_MAX; stat++)
-    {
-        if (TotemSpecies[totemID][stat] > 0)
-        {
+    for (stat = STAT_ATTACK; stat < STAT_MAX; stat++) {
+        if (TotemSpecies[totemID][stat] > 0) {
             ctx->battlemon[battlerID].states[stat] += TotemSpecies[totemID][stat];
             raisedStat = stat;
             totalStatBoosts++;
         }
     }
 
-    if (totalStatBoosts == 1)
-    {
+    if (totalStatBoosts == 1) {
         ctx->mp.id = BATTLE_MSG_TOTEM_AURA_SINGLE_STAT; // {0}’s aura flared to life! Its {1} rose!
         ctx->mp.tag = TAG_NICKNAME_STAT;
         ctx->mp.param[0] = CreateNicknameTag(ctx, battlerID);
         ctx->mp.param[1] = raisedStat;
-    }
-    else if (totalStatBoosts > 1)
-    {
+    } else if (totalStatBoosts > 1) {
         ctx->mp.id = BATTLE_MSG_TOTEM_AURA_MULTI_STAT; // {0}’s aura flared to life! Its stats rose!
         ctx->mp.tag = TAG_NICKNAME;
         ctx->mp.param[0] = CreateNicknameTag(ctx, battlerID);
@@ -5723,15 +5804,14 @@ BOOL BtlCmd_MagicCoat(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
     return FALSE;
 }
 
-BOOL BtlCmd_TryFeint(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx)
+BOOL BtlCmd_TryFeint(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
 
     int adrs = read_battle_script_param(ctx);
     int ally = BATTLER_ALLY(ctx->defence_client);
 
-    if (ctx->oneTurnFlag[ctx->defence_client].protectFlag)
-    {
+    if (ctx->oneTurnFlag[ctx->defence_client].protectFlag) {
         ctx->oneTurnFlag[ctx->defence_client].protectFlag = FALSE;
 
         if (ctx->oneTurnFlag[ctx->defence_client].gainedProtectFlagFromAlly) {
@@ -5753,8 +5833,7 @@ BOOL BtlCmd_TryFeint(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx)
         case MOVE_WIDE_GUARD:
         case MOVE_MAT_BLOCK:
         case MOVE_CRAFTY_SHIELD:
-            if (ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].gainedProtectFlagFromAlly)
-            {
+            if (ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].gainedProtectFlagFromAlly) {
                 ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].gainedProtectFlagFromAlly = FALSE;
                 ctx->oneTurnFlag[BATTLER_ALLY(ctx->defence_client)].protectFlag = FALSE;
             }
@@ -5767,7 +5846,6 @@ BOOL BtlCmd_TryFeint(struct BattleSystem* bsys UNUSED, struct BattleStruct* ctx)
     }
     return FALSE;
 }
-
 
 BOOL BtlCmd_TryPerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
@@ -5782,14 +5860,13 @@ BOOL BtlCmd_TryPerishSong(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     for (int battlerId = 0; battlerId < maxBattlers; battlerId++) {
         if (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE
-            || ctx->battlemon[battlerId].hp == 0 
+            || ctx->battlemon[battlerId].hp == 0
             || (ctx->addeffect_type != ADD_EFFECT_ABILITY && MoldBreakerAbilityCheck(ctx, ctx->attack_client, battlerId, ABILITY_SOUNDPROOF) == TRUE)) {
             cnt++;
         } else {
             if (ctx->addeffect_type == ADD_EFFECT_ABILITY
                 && battlerId != ctx->attack_client
-                && battlerId != ctx->defence_client)
-            {
+                && battlerId != ctx->defence_client) {
                 continue;
             }
             ctx->battlemon[battlerId].effect_of_moves |= MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE;

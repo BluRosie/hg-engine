@@ -41,9 +41,11 @@ BATTLEHUD_DEPENDENCIES := $(wildcard $(BATTLEHUD_DEPENDENCIES_DIR)/*)
 $(BATTLEHUD_NARC): $(BATTLEHUD_DEPENDENCIES)
 	$(NARCHIVE) extract $(BATTLEHUD_TARGET) -o $(BATTLEHUD_DIR) -nf
 	for file in $(BATTLEHUD_DEPENDENCIES_DIR)/*.png; do \
-		$(GFX) $$file $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR -bitdepth 8; \
+		BITDEPTH=8; \
+		if [ "$$(basename $$file)" = "7_362.png" ]; then BITDEPTH=4; fi; \
+		$(GFX) $$file $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR -bitdepth $$BITDEPTH; \
 		$(GFX) $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR.lz; \
-		$(GFX) $$file $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCLR -bitdepth 8; \
+		$(GFX) $$file $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCLR -bitdepth $$BITDEPTH; \
 		mv $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCGR.lz $(BATTLEHUD_DIR)/$$(basename $$file .png); \
 		export FILENAME_TEMP=$$(basename $$file); \
 		mv $(BATTLEHUD_DEPENDENCIES_DIR)/$$(basename $$file .png).NCLR $(BATTLEHUD_DIR)/7_$$(($$(basename $${FILENAME_TEMP#*_} .png)+1)); \
