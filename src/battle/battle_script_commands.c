@@ -4902,7 +4902,7 @@ enum {
 #define ABILITY_POPUP_ICON_CELL_TAG      22062
 #define ABILITY_POPUP_ICON_CELL_ANIM_TAG 22063
 
-void AbilityPopup_SlideIn(void *data)
+static void AbilityPopup_SlideIn(void *data)
 {
     struct ABILITY_POPUP_WORK *work = (struct ABILITY_POPUP_WORK *)data;
     struct BattleSystem *bsys = work->bsys;
@@ -4919,19 +4919,11 @@ void AbilityPopup_SlideIn(void *data)
 
     switch (work->step) {
     case ABILITY_POPUP_INIT_PALETTE:
-        PaletteData_LoadNarc(palette, 7, 363, HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, abilityPopupPaletteSlot * 0x10);
+        PaletteData_LoadNarc(palette, 7 /* battle_sprite */, 363, HEAPID_BATTLE_HEAP, 0 /*PLTTBUF_MAIN_BG*/, 0x20, abilityPopupPaletteSlot * 0x10);
         work->step++;
         break;
     case ABILITY_POPUP_INIT: {
-        struct {
-            u16 height;
-            u16 width;
-            u32 pixelFormat;
-            u32 mappingType;
-            u32 characterFormat;
-            u32 size;
-            void *rawData;
-        } *characterData;
+        NNSG2dCharacterData *characterData;
 
         G2_SetBG0Priority(2);
         SetBgPriority(1, 1);
@@ -4939,12 +4931,13 @@ void AbilityPopup_SlideIn(void *data)
 
         sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
 
-        AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, (side & 1) ? 1 : 8 /*y*/, ABILITY_POPUP_TEXTBOX_WIDTH /*width*/, ABILITY_POPUP_TEXTBOX_HEIGHT /*height*/, abilityPopupPaletteSlot, 9 + 1); // we initially print to the right of the screen where it is not visible at all
+        // we initially print to the right of the screen where it is not visible at all
+        AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, (side & 1) ? 1 : 8 /*y*/, ABILITY_POPUP_TEXTBOX_WIDTH /*width*/, ABILITY_POPUP_TEXTBOX_HEIGHT /*height*/, abilityPopupPaletteSlot, 9 + 1);
 
         void *characterFile = GfGfxLoader_GetCharData(7, 362, TRUE, (void **)&characterData, HEAPID_BATTLE_HEAP);
-        u8 *source = characterData->rawData;
+        u8 *source = characterData->pRawData;
         u8 *destination = window->pixelBuffer;
-        memset(destination, 0, characterData->size);
+        memset(destination, 0, characterData->szByte);
         u32 yOffset = 8;
         for (u32 y = 0; y < ABILITY_POPUP_TEXTBOX_HEIGHT * 8 - yOffset; y++) {
             for (u32 x = 0; x < ABILITY_POPUP_TEXTBOX_WIDTH * 8; x++) {
