@@ -1680,12 +1680,23 @@ int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx)
             if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_BATTLE_BOND
                 && ctx->battlemon[ctx->attack_client].form_no == 1
                 && ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag == FALSE) {
-                ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag = TRUE;
                 ctx->state_client = ctx->attack_client;
                 ctx->battlerIdTemp = ctx->attack_client;
+#if BATTLE_BOND_GENERATION < 9
                 ctx->battlemon[ctx->attack_client].form_no = 2;
+                
                 BattleFormChange(ctx->battlerIdTemp, ctx->battlemon[ctx->battlerIdTemp].form_no, bsys, ctx, 0);
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+#else 
+                if ((ctx->battlemon[ctx->attack_client].states[STAT_ATTACK] >= 12)
+                    && (ctx->battlemon[ctx->attack_client].states[STAT_SPATK] >= 12)
+                    && (ctx->battlemon[ctx->attack_client].states[STAT_SPEED] >= 12))
+                {
+                    break;
+                }
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+#endif //BATTLE_BOND_GENERATION
+                ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag = TRUE;
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;

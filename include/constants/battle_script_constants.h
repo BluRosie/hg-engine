@@ -521,8 +521,9 @@
 #define SUB_SEQ_COTTON_DOWN                            (512)
 #define SUB_SEQ_ENDURE_HIT                             (513)
 #define SUB_SEQ_PERISH_BODY                            (514)
+#define SUB_SEQ_BATTLE_BOND_BOOST                      (515)
 
-#define MAX_BASE_SUBSCRIPT_NUM 514
+#define MAX_BASE_SUBSCRIPT_NUM 515
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
