@@ -1652,6 +1652,8 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
             }
         }
         break;
+    case ABILITY_BATTLE_BOND:
+        break;
     default:
         ctx->oneTurnFlag[ctx->attack_client].numberOfKOs = 0;
         break;
@@ -1694,7 +1696,7 @@ int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx)
                 {
                     break;
                 }
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FORM_CHANGE);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_BATTLE_BOND_BOOST);
 #endif //BATTLE_BOND_GENERATION
                 ctx->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bsys, ctx->attack_client)][ctx->sel_mons_no[ctx->attack_client]].battleBondFlag = TRUE;
                 ctx->next_server_seq_no = ctx->server_seq_no;

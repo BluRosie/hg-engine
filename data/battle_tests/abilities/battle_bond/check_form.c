@@ -118,6 +118,17 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja used Night Slash!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Ekans fainted!" },
+#if BATTLE_BOND_GENERATION < 9
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja transformed!" },
+#else
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Battle Bond" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Attack rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Sp. Atk rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Speed rose!" },
+#endif
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Greninja fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Greninja's Battle Bond" },
     }
 }
 END_TEST
