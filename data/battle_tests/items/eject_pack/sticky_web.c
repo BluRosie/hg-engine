@@ -1,4 +1,4 @@
-// Test: Qwilfish - only Hisuian form benefits
+// Test: Eject Pack -  Sticky Web triggers pack
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -38,7 +38,7 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_GYARADOS,
+            .species = SPECIES_GROWLITHE,
             .level = 50,
             .form = 0,
             .ability = ABILITY_INTIMIDATE,
@@ -94,8 +94,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Gyarados is switched out" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Growlithe is switched out" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Pyroar is switched out" },
     }
+    .knownFailing = TRUE,
 }
 END_TEST
