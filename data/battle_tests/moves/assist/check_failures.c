@@ -108,8 +108,10 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Infernape used Assist!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Infernape used Thunder Wave!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Glameow's Limber" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Glameow..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Glameow used Assist!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Glameow used Will-O-Wisp!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Infernape..." },
     }
 }
 END_TEST
