@@ -5612,13 +5612,9 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
             continue;
         }
         */
-      //  if (CheckLegalMetronomeMove(bsys, ctx, ctx->attack_client, moveNo) == FALSE) {
-      //      continue;
-      //  }
-
+        ctx->waza_work = moveNo;
         ctx->moveNoTemp = moveNo;
         ctx->current_move_index = moveNo;
-        ctx->defence_client = ctx->attack_client;
 
         break;
     }

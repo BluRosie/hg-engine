@@ -4265,7 +4265,20 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg)
     HandleLoadOverlay(6, 2); // reload 6 so things are okay
 }
 
-// banlist is handled in original function, no need to include it here
+BOOL LONG_CALL CheckLegalMimicMove(u16 moveNo)
+{
+    int i = 0;
+
+    do {
+        if (sMetronomeMimicMoveBanList[i] == moveNo) {
+            break;
+        }
+        i++;
+    } while (sMetronomeMimicMoveBanList[i] != 0xFFFE);
+
+    return sMetronomeMimicMoveBanList[i] == 0xFFFE;
+}
+
 u32 LONG_CALL RollValidMetronomeMove(struct BattleSystem *bsys)
 {
     BOOL valid = TRUE;
