@@ -66,7 +66,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_UNAWARE,
             .item = ITEM_NONE,
-            .moves = { MOVE_METRONOME, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
