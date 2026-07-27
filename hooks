@@ -101,6 +101,7 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 ov12_022506D4 022506D4
 
 0012 CheckLegalMimicMove 02257D6C 1
+0012 CheckLegalMetronomeMove 02257DA4 4
 
 
 #battle script command hooks

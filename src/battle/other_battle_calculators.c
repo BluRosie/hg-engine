@@ -4279,31 +4279,24 @@ BOOL LONG_CALL CheckLegalMimicMove(u16 moveNo)
     return sMetronomeMimicMoveBanList[i] == 0xFFFE;
 }
 
-u32 LONG_CALL RollValidMetronomeMove(struct BattleSystem *bsys)
+
+BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battlerId UNUSED, u16 moveNo)
 {
-    BOOL valid = TRUE;
-    u32 move = MOVE_NONE;
+    int i = 0;
+
     do {
-
-        valid = TRUE;
-        move = (BattleRand(bsys) % NUM_OF_MOVES) + 1;
-#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-        debug_printf("rolled move %d\n", move);
-#endif
-        for (unsigned i = 0; sMetronomeMimicMoveBanList[i] != 0xFFFF; ++i)
-        {
-            if (move == sMetronomeMimicMoveBanList[i]) {
-#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
-                debug_printf("in ban list\n");
-#endif
-                valid = FALSE;
-                break;
-            }
+        if (sMetronomeMimicMoveBanList[i] == moveNo) {
+            break;
         }
+        i++;
+    } while (sMetronomeMimicMoveBanList[i] != 0xFFFF);
 
-    } while (valid == FALSE);
+    return sMetronomeMimicMoveBanList[i] == 0xFFFF;
+}
 
-    return move;
+u32 LONG_CALL RollMetronomeMove(struct BattleSystem *bsys)
+{
+    return (BattleRand(bsys) % NUM_OF_MOVES) + 1;
 }
 
 /**

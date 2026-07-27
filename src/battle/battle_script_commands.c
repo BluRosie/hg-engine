@@ -5600,7 +5600,7 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
     IncrementBattleScriptPtr(ctx, 1);
 
     while (TRUE) {
-        moveNo = RollValidMetronomeMove(bsys);
+        moveNo = RollMetronomeMove(bsys);
 
        /* for (metronomeIndex = 0; metronomeIndex < MAX_MON_MOVES; metronomeIndex++) {
            if (ctx->battlemon[ctx->attack_client].moves[metronomeIndex] == moveNo) {
@@ -5612,6 +5612,10 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
             continue;
         }
         */
+        if (CheckLegalMetronomeMove(bsys, ctx, ctx->attack_client, moveNo) == FALSE) {
+            continue;
+        }
+
         ctx->waza_work = moveNo;
         ctx->moveNoTemp = moveNo;
         ctx->current_move_index = moveNo;
