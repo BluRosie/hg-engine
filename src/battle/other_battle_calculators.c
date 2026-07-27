@@ -4287,11 +4287,15 @@ u32 LONG_CALL RollValidMetronomeMove(struct BattleSystem *bsys)
 
         valid = TRUE;
         move = (BattleRand(bsys) % NUM_OF_MOVES) + 1;
+#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
         debug_printf("rolled move %d\n", move);
+#endif
         for (unsigned i = 0; sMetronomeMimicMoveBanList[i] != 0xFFFF; ++i)
         {
             if (move == sMetronomeMimicMoveBanList[i]) {
+#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
                 debug_printf("in ban list\n");
+#endif
                 valid = FALSE;
                 break;
             }
