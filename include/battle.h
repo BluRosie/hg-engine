@@ -1256,7 +1256,8 @@ typedef struct MoveConditionsFlags {
     u8 throatChopTimer : 2;
 
     u8 dragonDartsStatus : 3;
-    u8 padding : 5;
+    u8 anyStatLoweredThisMoveExecution : 1;
+    u8 padding : 4;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -1538,6 +1539,7 @@ struct BattleStruct {
     u8 gemBoostingMovePadding : 4;
 
     int currentMoveSwitchStatus;
+    u8 canEjectPackActivate;
 
     MoveConditionsFlags moveConditionsFlags[CLIENT_MAX];
     u8 paradoxBoostedStat[CLIENT_MAX];

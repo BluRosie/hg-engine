@@ -1919,6 +1919,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         sp->moveConditionsFlags[i].laserFocusTimer--;
                     }
                     sp->moveConditionsFlags[i].anyStatLoweredThisTurn = 0;
+                    sp->moveConditionsFlags[i].anyStatLoweredThisMoveExecution = 0;
                     if (sp->moveConditionsFlags[i].throatChopTimer > 0) {
                         sp->moveConditionsFlags[i].throatChopTimer--;
                     }

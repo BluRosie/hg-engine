@@ -124,6 +124,8 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->futureSightNoAttacker = FALSE;
     ctx->futureSightSTAB = 0;
     ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
+    ctx->ejectPackActivated = FALSE;
+    ctx->anyStatLoweredThisMoveExecution = FALSE;
 
     ctx->moveContext.hitFoesCount = 0;
     ctx->moveContext.hitSubstituteCount = 0;
