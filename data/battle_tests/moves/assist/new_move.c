@@ -1,8 +1,8 @@
-// Test: Assist - can call old and new moves
+// Test: Assist - can call old and new moves, bans copycat
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
+    .battleType = BATTLE_TYPE_SINGLE,
     .weather = WEATHER_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -12,7 +12,7 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
-            .item = ITEM_NONE,
+            .item = ITEM_CHERI_BERRY,
             .moves = { MOVE_ASSIST, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -25,7 +25,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_POISON_STING, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_POISON_STING, MOVE_COPYCAT, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -54,7 +54,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_NUZZLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_NUZZLE, MOVE_COPYCAT, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -75,7 +75,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -95,7 +95,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -105,12 +105,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus used Protect!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus protected itself!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBolder used Mighty Cleave!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 51, 51, 51, 52, 52, 54, 54, 54, 55, 55, 57, 57, 57, 58, 58, 60 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Umbreon used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus protected itself!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Infernape used Assist!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Infernape used Nuzzle!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Glameow is paralyzed, so it may be unable to move!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Glameow used Assist!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Glameow used Poison Sting!" },
     }
 }
 END_TEST

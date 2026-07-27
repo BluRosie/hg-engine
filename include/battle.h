@@ -4311,6 +4311,6 @@ BOOL LONG_CALL ShouldPreventMonCapture(struct BattleSystem *bsys);
 
 
 u32 LONG_CALL RollMetronomeMove(struct BattleSystem *bsys);
-BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battlerId UNUSED, u16 moveNo)
+BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battlerId UNUSED, u16 moveNo);
 
 #endif // BATTLE_H
