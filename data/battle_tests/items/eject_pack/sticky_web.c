@@ -96,7 +96,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Growlithe is switched out" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Pyroar is switched out" },
-    }
+    },
     .knownFailing = TRUE,
 }
 END_TEST
