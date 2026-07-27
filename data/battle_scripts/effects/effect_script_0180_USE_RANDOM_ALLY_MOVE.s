@@ -12,6 +12,7 @@ _000:
     GotoIfCurrentMoveIsValidForParentalBond _016
 
 _009:
+    GoBackToBeforeMove
     GoToMoveScript FALSE
     End
 
