@@ -5601,7 +5601,7 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     while (TRUE) {
         moveNo = RollValidMetronomeMove(bsys);
-
+        debug_printf("metronome move %d\n", moveNo);
        /* for (metronomeIndex = 0; metronomeIndex < MAX_MON_MOVES; metronomeIndex++) {
            if (ctx->battlemon[ctx->attack_client].moves[metronomeIndex] == moveNo) {
                break;

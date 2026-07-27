@@ -4274,30 +4274,19 @@ u32 LONG_CALL RollValidMetronomeMove(struct BattleSystem *bsys)
 
         valid = TRUE;
         move = (BattleRand(bsys) % NUM_OF_MOVES) + 1;
+        debug_printf("rolled move %d\n", move);
         for (unsigned i = 0; sMetronomeMimicMoveBanList[i] != 0xFFFF; ++i)
         {
             if (move == sMetronomeMimicMoveBanList[i]) {
+                debug_printf("in ban list\n");
                 valid = FALSE;
                 break;
             }
         }
+
     } while (valid == FALSE);
 
     return move;
-}
-
-BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 moveNo)
-{
-    int i = 0;
-
-    do {
-        if (moveNo == sMetronomeMimicMoveBanList[i]) {
-            break;
-        }
-        i++;
-    } while (sMetronomeMimicMoveBanList[i] != 0xFFFF);
-
-    return sMetronomeMimicMoveBanList[i] == 0xFFFF;
 }
 
 /**

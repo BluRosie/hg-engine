@@ -4310,7 +4310,6 @@ int LONG_CALL BattleSetup_GetWildBattleMusic(struct BattleSetup *setup);
 BOOL LONG_CALL ShouldPreventMonCapture(struct BattleSystem *bsys);
 
 
-u32 LONG_CALL RollMetronomeMove(struct BattleSystem *bsys);
-BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u32 moveNo);
+u32 LONG_CALL RollValidMetronomeMove(struct BattleSystem *bsys);
 
 #endif // BATTLE_H
