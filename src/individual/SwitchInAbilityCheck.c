@@ -1018,7 +1018,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 debug_printf("faintClient %d, switchClient %d\n", sp->fainting_client, sp->reshuffle_client);
 #endif
                 // only one eject pack can activate
-                sp->switch_in_check_seq_no++;
                  for (i = 0; i < client_set_max; i++) {
                     client_no = sp->turnOrder[i];
 
@@ -1038,7 +1037,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
 
                 if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
-                    sp->switch_in_check_seq_no = 0;
+                    sp->switch_in_check_seq_no++;
                     break;
                 }
                
