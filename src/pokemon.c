@@ -22,6 +22,7 @@
 #include "../include/types.h"
 
 extern u32 word_to_store_form_at;
+struct OVERWORLD_TAG *LONG_CALL ObjectEvent_GetGraphicsInfo(u32 spriteId);
 // [preevo] = {species, form}, [postevo] = {species, form},
 u16 ALIGN4 gEvolutionSceneOverride[2][2];
 
@@ -1251,6 +1252,10 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
         }
     } else {
         ret += GetSpeciesBasedOnForm(species, form);
+    }
+
+    if (form != 0 && ObjectEvent_GetGraphicsInfo(ret) == NULL) {
+        return get_mon_ow_tag(species, 0, isFemale);
     }
 
     return ret;
