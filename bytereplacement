@@ -409,6 +409,7 @@ arm9 0204B94C FC
 0012 0224655C FC
 0012 02246560 FC
 
+#ifdef EXPAND_MUSIC_TABLES
 # MainMusicComboTable combo range
 arm9 080517AA 2D
 arm9 080517D4 2D
@@ -421,11 +422,14 @@ arm9 080518CA 0B
 
 # sTrainerEncounterMusicParam table range
 arm9 080550D4 2C
+#endif
 
+#ifdef EXPAND_TRAINER_PRIZE_MONEY
 # PrizeMoney table range
 0012 0223FBD0 81
 0012 0223FBD4 81
 0012 0223FBDC 81
+#endif
 
 #ifdef STATIC_HP_BAR
 

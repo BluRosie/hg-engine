@@ -150,6 +150,7 @@ CopyWindowToVram = 0x0201D578 |1;
 
 /*ItemUse*/
 SetUpItemScript = 0x02064A8C |1;
+sItemFieldUseFuncs = 0x020FE264;
 
 /*OAM*/
 OAM_LoadResourceCharArcH = 0x0200D504 | 1;
