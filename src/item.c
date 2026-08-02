@@ -546,7 +546,7 @@ u16 ItemToMachineMove(u16 itemId)
     }
 
     u16 index = ItemToMachineMoveIndex(itemId);
-    if (index >= sizeof(sMachineMoves) + 1) {
+    if (index >= NELEMS(sMachineMoves)) {
         return MOVE_NONE;
     }
     return sMachineMoves[index];
