@@ -228,7 +228,9 @@ void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStru
     int moveType = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
 
     // Update Mirror Move vars.
-    if (ctx->aiWorkTable.old_moveTbl[ctx->moveNoTemp].flag & FLAG_MIRROR_MOVE
+    // old_moveTbl is the vanilla AI's table, declared [467 + 1]; expanded move
+    // ids index past it. moveTbl is the full-size table used everywhere else.
+    if (ctx->moveTbl[ctx->moveNoTemp].flag & FLAG_MIRROR_MOVE
     && !(ctx->server_status_flag & BATTLE_STATUS_NO_MOVE_SET)
     && ctx->defence_client != BATTLER_NONE
     && ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE)
@@ -267,7 +269,7 @@ void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStru
 
             if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FAILED))
             {
-                switch (ctx->aiWorkTable.old_moveTbl[ctx->current_move_index].target)
+                switch (ctx->moveTbl[ctx->current_move_index].target)
                 {
                     case RANGE_USER:
                     case RANGE_USER_SIDE:
