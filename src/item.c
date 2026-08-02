@@ -491,8 +491,10 @@ void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId)
         : MSG_DATA_ITEM_FILE(MSG_DATA_ITEM_DESCRIPTION_GEN4, gen);
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, fileId, heapId);
     u32 offset = ITEM_MSG_OFFSET(itemId);
-    ReadMsgDataIntoString(msgData, offset, dest);
-    DestroyMsgData(msgData);
+    if (msgData != NULL) {
+        ReadMsgDataIntoString(msgData, offset, dest);
+        DestroyMsgData(msgData);
+    }
 }
 
 void *LONG_CALL ItemDataTableLoad(int heapID)
