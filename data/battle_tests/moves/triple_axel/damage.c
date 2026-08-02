@@ -2,9 +2,9 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_SINGLE,
-    .weather = WEATHER_NONE,
-    .fieldCondition = FIELD_STATUS_GRAVITY,
+    .battleType = BATTLE_TYPE_TRAINER,
+    .weather = FIELD_CONDITION_NONE,
+    .fieldCondition = FIELD_CONDITION_GRAVITY,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {

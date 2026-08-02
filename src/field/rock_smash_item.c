@@ -1,10 +1,10 @@
-#include "../../include/debug.h"
-#include "../../include/map_events_internal.h"
-#include "../../include/rock_smash_item.h"
-#include "../../include/script.h"
-#include "../../include/types.h"
+#include "types.h"
+#include "debug.h"
+#include "map_events_internal.h"
+#include "rock_smash_item.h"
+#include "script.h"
 
-#include "../../include/constants/maps.h"
+#include "constants/maps.h"
 
 /*
 This table can be expanded as you please.
