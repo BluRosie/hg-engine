@@ -499,7 +499,8 @@ void *LONG_CALL ItemDataTableLoad(int heapID)
 {
     int max;
 
-    max = GetItemIndex(MAX_TOTAL_ITEM_NUM, ITEM_GET_DATA);
+    // MAX_TOTAL_ITEM_NUM is the last valid item id, so the table needs id + 1 entries
+    max = GetItemIndex(MAX_TOTAL_ITEM_NUM, ITEM_GET_DATA) + 1;
 
     return AllocAndReadFromNarcMemberByIdPair(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max); // 800757Ch
 }
