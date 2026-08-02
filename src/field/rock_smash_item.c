@@ -80,7 +80,7 @@ u32 DetermineRockSmashItem(u32 tableIndex, u32 quality)
             ability = NUM_ABILITIES;
         }
 
-        for (u32 i = 0; i < NELEMS(RockSmashAbilityOddsTable); i++) {
+        for (u32 i = 0; i < NELEMS(RockSmashAbilityQualityTable); i++) {
             if (ability == RockSmashAbilityQualityTable[i].ability) {
                 quality += RockSmashAbilityQualityTable[i].quality;
                 break;
