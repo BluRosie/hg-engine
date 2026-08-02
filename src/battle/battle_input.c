@@ -198,13 +198,13 @@ void Sub_PokeIconResourceLoad(struct BI_PARAM *bip)
 
     // weather
     if (bip->bw->sp->field_condition & WEATHER_ANY_ICONS) {
-        if (bip->bw->sp->field_condition & WEATHER_SUNNY_ANY) {
+        if (bip->bw->sp->field_condition & FIELD_CONDITION_SUN_ALL) {
             nclr = BATTLE_GFX_SUN_NCLR;
-        } else if (bip->bw->sp->field_condition & WEATHER_RAIN_ANY) {
+        } else if (bip->bw->sp->field_condition & FIELD_CONDITION_RAIN_ALL) {
             nclr = BATTLE_GFX_RAIN_NCLR;
-        } else if (bip->bw->sp->field_condition & WEATHER_SANDSTORM_ANY) {
+        } else if (bip->bw->sp->field_condition & FIELD_CONDITION_SANDSTORM_ALL) {
             nclr = BATTLE_GFX_SANDSTORM_NCLR;
-        } else if (bip->bw->sp->field_condition & WEATHER_HAIL_ANY) {
+        } else if (bip->bw->sp->field_condition & FIELD_CONDITION_HAIL_ALL) {
             nclr = BATTLE_GFX_HAIL_NCLR;
         } else // fog
         {
@@ -325,13 +325,13 @@ void LoadMegaIcon(struct BI_PARAM *bip)
         csp = BattleWorkCATS_SYS_PTRGet(bip->bw);
         crp = BattleWorkCATS_RES_PTRGet(bip->bw);
 
-        if (bip->bw->sp->field_condition & WEATHER_SUNNY_ANY) {
+        if (bip->bw->sp->field_condition & FIELD_CONDITION_SUN_ALL) {
             ncgr = BATTLE_GFX_SUN_NCGR;
-        } else if (bip->bw->sp->field_condition & WEATHER_RAIN_ANY) {
+        } else if (bip->bw->sp->field_condition & FIELD_CONDITION_RAIN_ALL) {
             ncgr = BATTLE_GFX_RAIN_NCGR;
-        } else if (bip->bw->sp->field_condition & WEATHER_SANDSTORM_ANY) {
+        } else if (bip->bw->sp->field_condition & FIELD_CONDITION_SANDSTORM_ALL) {
             ncgr = BATTLE_GFX_SANDSTORM_NCGR;
-        } else if (bip->bw->sp->field_condition & WEATHER_HAIL_ANY) {
+        } else if (bip->bw->sp->field_condition & FIELD_CONDITION_HAIL_ALL) {
             ncgr = BATTLE_GFX_HAIL_NCGR;
         } else // fog
         {

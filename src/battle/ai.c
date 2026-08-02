@@ -46,16 +46,16 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
     if ((atkAbility != ABILITY_MOLD_BREAKER)
      && (defAbility == ABILITY_LEVITATE || defAbility == ABILITY_EELEVATE)
      && (typeLocal == TYPE_GROUND)
-     && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
+     && ((sp->field_condition & FIELD_CONDITION_GRAVITY) == 0)
      && (held_effect != HOLD_EFFECT_SPEED_DOWN_GROUNDED))
     {
-        flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE; // not "not very effective", ineffective
+        flag[0] |= MOVE_STATUS_NO_EFFECT; // not "not very effective", ineffective
     }
     else if ((typeLocal == TYPE_GROUND)
-          && ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0)
+          && ((sp->field_condition & FIELD_CONDITION_GRAVITY) == 0)
           && (held_effect == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT))
     {
-        flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE; // not "not very effective", ineffective
+        flag[0] |= MOVE_STATUS_NO_EFFECT; // not "not very effective", ineffective
     }
     else
     {
@@ -121,9 +121,9 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
     if ((atkAbility != ABILITY_MOLD_BREAKER)
      && (defAbility == ABILITY_WONDER_GUARD)
      && (ShouldDelayTurnEffectivenessChecking(sp, move))
-     && (((flag[0] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) == 0) || ((flag[0] & (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE)) == (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE))))
+     && (((flag[0] & MOVE_STATUS_SUPER_EFFECTIVE) == 0) || ((flag[0] & (MOVE_STATUS_SUPER_EFFECTIVE | MOVE_STATUS_NOT_VERY_EFFECTIVE)) == (MOVE_STATUS_SUPER_EFFECTIVE | MOVE_STATUS_NOT_VERY_EFFECTIVE))))
     {
-        flag[0] |= MOVE_STATUS_FLAG_NOT_EFFECTIVE; // not "not very effective", ineffective
+        flag[0] |= MOVE_STATUS_NO_EFFECT; // not "not very effective", ineffective
     }
 
     return;

@@ -238,7 +238,7 @@ void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp)
         }
     }
 
-    if (scenario->battleType & BATTLE_TYPE_DOUBLE) {
+    if (scenario->battleType & BATTLE_TYPE_DOUBLES) {
         bp->fight_type = BATTLE_TYPE_TRAINER | scenario->battleType;
     }
 
@@ -320,7 +320,7 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
     }
 
     // In doubles, we need to ensure both battlers are properly linked to party slots
-    if (sCurrentScenario->battleType & BATTLE_TYPE_DOUBLE) {
+    if (sCurrentScenario->battleType & BATTLE_TYPE_DOUBLES) {
         // Player
         sp->sel_mons_no[BATTLER_PLAYER_FIRST] = 0;
         if (sCurrentScenario->playerParty[1].species != 0) {
@@ -426,7 +426,7 @@ static BOOL LONG_CALL TestBattle_TestComplete()
         return FALSE;
     }
 
-    int maxBattlers = (sCurrentScenario->battleType & BATTLE_TYPE_DOUBLE) ? 4 : 2;
+    int maxBattlers = (sCurrentScenario->battleType & BATTLE_TYPE_DOUBLES) ? 4 : 2;
     for (int i = 0; i < maxBattlers; i++) {
         const struct BattleAction *script;
         int battlerIndex = (i == BATTLER_PLAYER_FIRST || i == BATTLER_ENEMY_FIRST) ? 0 : 1;
@@ -699,7 +699,7 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
         }
     }
 
-    if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLE) {
+    if (BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLES) {
         const struct BattleAction *script1 = sCurrentScenario->playerScript[1];
         int scriptIndex2 = GetScriptIndex(2);
 

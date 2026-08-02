@@ -58,7 +58,7 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Defender was hit by a Super Effective attack
-                && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)) {
+                && (sp->waza_status_flag & MOVE_STATUS_SUPER_EFFECTIVE)) {
                 sp->battlerIdTemp = sp->defence_client;
                 sp->item_work   = sp->battlemon[sp->defence_client].item;
                 seq_no[0]       = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
@@ -76,10 +76,10 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
                 // Defender has less than +6 stages to Special Attack
-                && ((sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12)
+                && ((sp->battlemon[sp->defence_client].states[STAT_SPECIAL_ATTACK] < 12)
                     // Or the defender has Contrary and more than -6 stages to Special Attack
                     || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
-                        && (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0)))) {
+                        && (sp->battlemon[sp->defence_client].states[STAT_SPECIAL_ATTACK] > 0)))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = BATTLE_SUBSCRIPT_HANDLE_RAISE_SPECIAL_ATTACK_ON_HIT;
                 ret                  = TRUE;
@@ -150,10 +150,10 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                     || (sp->oneSelfFlag[sp->defence_client].special_damage))
                 // Defender has less than +6 stages to Special Defense
-                && ((sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12)
+                && ((sp->battlemon[sp->defence_client].states[STAT_SPECIAL_DEFENSE] < 12)
                     // Or the defender has Contrary and more than -6 stages to Special Defense
                     || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
-                        && (sp->battlemon[sp->defence_client].states[STAT_SPDEF] > 0)))) {
+                        && (sp->battlemon[sp->defence_client].states[STAT_SPECIAL_DEFENSE] > 0)))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = BATTLE_SUBSCRIPT_HANDLE_RAISE_SPECIAL_DEFENSE_ON_HIT;
                 ret                  = TRUE;
@@ -183,14 +183,14 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             // Defender is alive after the attack
             if ((sp->battlemon[sp->defence_client].hp)
                 // Defender was hit by a Super Effective attack
-                && (sp->waza_status_flag & MOVE_STATUS_FLAG_SUPER_EFFECTIVE)
+                && (sp->waza_status_flag & MOVE_STATUS_SUPER_EFFECTIVE)
                 // Defender has less than +6 stages to either of Attack or Special Attack
                 && (((sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)
-                     || (sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12))
+                     || (sp->battlemon[sp->defence_client].states[STAT_SPECIAL_ATTACK] < 12))
                     // Or the defender has Contrary and more than -6 stages to either of Attack or Special Attack
                     || ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_CONTRARY))
                         && ((sp->battlemon[sp->defence_client].states[STAT_ATTACK] > 0)
-                            || (sp->battlemon[sp->defence_client].states[STAT_SPATK] > 0))))) {
+                            || (sp->battlemon[sp->defence_client].states[STAT_SPECIAL_ATTACK] > 0))))) {
                 sp->state_client     = sp->defence_client;
                 seq_no[0]            = BATTLE_SUBSCRIPT_HANDLE_RAISE_ATTACK_AND_SP_ATK_ON_HIT;
                 ret                  = TRUE;

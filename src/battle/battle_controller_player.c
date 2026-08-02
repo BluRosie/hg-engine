@@ -265,7 +265,7 @@ void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStru
                 ctx->waza_no_last = MOVE_NONE;
             }
 
-            if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FAILED))
+            if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED && !(ctx->waza_status_flag & MOVE_STATUS_FAILED))
             {
                 switch (ctx->aiWorkTable.old_moveTbl[ctx->current_move_index].target)
                 {

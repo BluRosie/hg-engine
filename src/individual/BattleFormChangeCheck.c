@@ -45,7 +45,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
              && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
             {
                 // Snow does not affect Castform in SV, since it cannot enter Paldea, Kitakami nor Blueberry Academy there is no way to confirm
-                if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
+                if (((sp->field_condition & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_HAIL_ALL)) == 0)
                  && (sp->battlemon[client].form_no != 0))
                 {
                     sp->battlemon[client].form_no = 0;
@@ -54,7 +54,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_SUNNY_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_SUN_ALL)
                       && (sp->battlemon[client].form_no != 1))
                 {
                     sp->battlemon[client].form_no = 1;
@@ -63,7 +63,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_RAIN_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_RAIN_ALL)
                       && (sp->battlemon[client].form_no != 2))
                 {
                     sp->battlemon[client].form_no = 2;
@@ -72,7 +72,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_HAIL_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_HAIL_ALL)
                       && (sp->battlemon[client].form_no != 3))
                 {
                     sp->battlemon[client].form_no = 3;
@@ -111,7 +111,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
              && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
             {
                 // Same with Forecast, unknown interaction with Snow
-                if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
+                if (((sp->field_condition & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_HAIL_ALL)) == 0)
                  && (sp->battlemon[client].form_no == 1))
                 {
                     sp->battlemon[client].form_no = 0;
@@ -119,7 +119,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_SUNNY_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_SUN_ALL)
                       && (sp->battlemon[client].form_no == 0))
                 {
                     sp->battlemon[client].form_no = 1;
@@ -127,7 +127,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_RAIN_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_RAIN_ALL)
                       && (sp->battlemon[client].form_no == 1))
                 {
                     sp->battlemon[client].form_no = 0;
@@ -135,7 +135,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_HAIL_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_HAIL_ALL)
                       && (sp->battlemon[client].form_no == 1))
                 {
                     sp->battlemon[client].form_no = 0;
@@ -191,18 +191,18 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
          && (sp->battlemon[client].hp)
          && (sp->battlemon[client].form_no == 1))
         {
-            if ((sp->battlemon[client].condition2 & STATUS2_TRANSFORMED)
+            if ((sp->battlemon[client].condition2 & STATUS2_TRANSFORM)
              || (((BattleWorkBattleStatusFlagGet(bw) & 0x80) == 0) // probably distortion world check
               && (sp->battlemon[client].item != ITEM_GRISEOUS_ORB)))
             {
-                if(sp->battlemon[client].condition2 & STATUS2_TRANSFORMED)
+                if(sp->battlemon[client].condition2 & STATUS2_TRANSFORM)
                 {
                     struct PartyPokemon *pp;
                     int defence;
                     int work;
 
                     pp = AllocMonZeroed(5);
-                    if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE)
+                    if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLES)
                     {
                         defence = sp->playerActions[client][1];
                     }
@@ -266,7 +266,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         // handle meloetta - change to/from pirouette form when using relic song
         if ((sp->battlemon[client].species == SPECIES_MELOETTA)
          && (sp->battlemon[client].hp)
-         && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
+         && !(sp->waza_status_flag & MOVE_STATUS_FAILED)
          && (sp->current_move_index == MOVE_RELIC_SONG && sp->waza_no_old[client] == MOVE_RELIC_SONG)
          && (sp->battlemon[client].form_no < 2)
          && (sp->relic_song_tracker & No2Bit(client)) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen

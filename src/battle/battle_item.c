@@ -788,14 +788,14 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
         }
         break;
     case STEAL_EFFECT_SPATK_UP: // Petaya Berry
-        if (sp->battlemon[sp->defence_client].states[STAT_SPATK] < 12) {
-            sp->msg_work = STAT_SPATK;
+        if (sp->battlemon[sp->defence_client].states[STAT_SPECIAL_ATTACK] < 12) {
+            sp->msg_work = STAT_SPECIAL_ATTACK;
             sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         break;
     case STEAL_EFFECT_SPDEF_UP: // Apicot Berry, Maranga Berry
-        if (sp->battlemon[sp->defence_client].states[STAT_SPDEF] < 12) {
-            sp->msg_work = STAT_SPDEF;
+        if (sp->battlemon[sp->defence_client].states[STAT_SPECIAL_DEFENSE] < 12) {
+            sp->msg_work = STAT_SPECIAL_DEFENSE;
             sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
         }
         break;

@@ -143,7 +143,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 #endif
 
-                if (sp->field_condition & WEATHER_RAIN) {
+                if (sp->field_condition & FIELD_CONDITION_RAIN) {
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RAINING_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -153,7 +153,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     }
                 }
 
-                if (sp->field_condition & WEATHER_SANDSTORM) {
+                if (sp->field_condition & FIELD_CONDITION_SANDSTORM) {
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SANDSTORM_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -163,7 +163,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     }
                 }
 
-                if (sp->field_condition & WEATHER_SUNNY) {
+                if (sp->field_condition & FIELD_CONDITION_SUN) {
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SUNNY_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -173,7 +173,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     }
                 }
 
-                if (sp->field_condition & WEATHER_HAIL) {
+                if (sp->field_condition & FIELD_CONDITION_HAIL) {
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HAILING_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -183,7 +183,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     }
                 }
 
-                if (sp->field_condition & WEATHER_SNOW) {
+                if (sp->field_condition & FIELD_CONDITION_SNOW_TEMP) {
                     if (--sp->fcc.weather_count == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SNOW_END);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -203,7 +203,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 #endif
 
-                if (sp->field_condition & WEATHER_RAIN_ANY) {
+                if (sp->field_condition & FIELD_CONDITION_RAIN_ALL) {
                     sp->mp.id = BATTLE_MSG_RAIN_CONTINUES_TO_FALL;  // Rain continues to fall.
                     sp->mp.tag = TAG_NONE;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
@@ -213,7 +213,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     ret = 1;
                 }
 
-                if (sp->field_condition & WEATHER_SANDSTORM_ANY) {
+                if (sp->field_condition & FIELD_CONDITION_SANDSTORM_ALL) {
                     sp->mp.id = BATTLE_MSG_SANDSTORM_RAGES;  // The sandstorm rages.
                     sp->mp.tag = TAG_NONE;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
@@ -223,7 +223,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     ret = 1;
                 }
 
-                if (sp->field_condition & WEATHER_SUNNY_ANY) {
+                if (sp->field_condition & FIELD_CONDITION_SUN_ALL) {
                     sp->mp.id = BATTLE_MSG_SUNLIGHT_IS_STRONG;  // The sunlight is strong.
                     sp->mp.tag = TAG_NONE;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
@@ -233,7 +233,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     ret = 1;
                 }
 
-                if (sp->field_condition & WEATHER_HAIL_ANY) {
+                if (sp->field_condition & FIELD_CONDITION_HAIL_ALL) {
                     sp->mp.id = BATTLE_MSG_HAIL_CONTINUES_TO_FALL;  // Hail continues to fall.
                     sp->mp.tag = TAG_NONE;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
@@ -243,7 +243,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     ret = 1;
                 }
 
-                if (sp->field_condition & WEATHER_SNOW_ANY) {
+                if (sp->field_condition & FIELD_CONDITION_SNOW_ALL) {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;
@@ -252,7 +252,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     ret = 1;
                 }
 
-                if (sp->field_condition & FIELD_STATUS_FOG) {
+                if (sp->field_condition & FIELD_CONDITION_FOG) {
                     sp->mp.id = BATTLE_MSG_FOG_IS_DEEP;  // The fog is deep...
                     sp->mp.tag = TAG_NONE;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
@@ -262,7 +262,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                     ret = 1;
                 }
 
-                if (sp->field_condition & WEATHER_STRONG_WINDS) {
+                if (sp->field_condition & FIELD_CONDITION_STRONG_WINDS) {
                     sp->mp.id = BATTLE_MSG_STRONG_WINDS_BLOW_ON;  // The strong winds blow on!
                     sp->mp.tag = TAG_NONE;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEATHER_CONTINUES);
@@ -345,7 +345,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     if (sp->fcc.wish_sel_mons[attackerSlot] == sp->sel_mons_no[attackerSlot])
                                     {
                                         sp->attack_client = attackerSlot;
-                                    } else if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI))
+                                    } else if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI))
                                         && (sp->fcc.wish_sel_mons[attackerSlot] == sp->sel_mons_no[attackerAlly]))
                                     {
                                         sp->attack_client = attackerAlly;
@@ -511,7 +511,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                     && sp->battlemon[battlerId].hp
                                     && (BattleRand(bw) % 3 == 0))  // Generation V onward: Shed Skin has a 1/3 chance of curing the Pokémon.
                                     || (GetBattlerAbility(sp, battlerId) == ABILITY_HYDRATION
-                                    && GetWeather(bw, sp, 0xFF) & WEATHER_RAIN_ANY
+                                    && GetWeather(bw, sp, 0xFF) & FIELD_CONDITION_RAIN_ALL
                                     && sp->battlemon[battlerId].hp
                                     && (u8)sp->battlemon[battlerId].condition)) {
                                         seq_no = BATTLE_SUBSCRIPT_ABILITY_RESTORE_STATUS;
@@ -705,10 +705,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 while (sp->scc_work < client_set_max) {
                     battlerId = sp->turnOrder[sp->scc_work];
 
-                    if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_ACTIVE)
-                    && (sp->battlemon[sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_LEECH_SEED_BATTLER].hp != 0)
+                    if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED)
+                    && (sp->battlemon[sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_RECIPIENT].hp != 0)
                     && (GetBattlerAbility(sp, battlerId) != ABILITY_MAGIC_GUARD && sp->battlemon[battlerId].hp != 0)) {
-                        sp->attack_client_work = sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_LEECH_SEED_BATTLER;
+                        sp->attack_client_work = sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_LEECH_SEED_RECIPIENT;
                         sp->defence_client_work = battlerId;
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LEECH_SEED_EFFECT);
                         sp->next_server_seq_no = sp->server_seq_no;
@@ -1121,9 +1121,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                 while (sp->scc_work < client_set_max) {
                     battlerId = sp->turnOrder[sp->scc_work];
 
-                    if (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_YAWN_COUNTER) {
+                    if (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_YAWN) {
                         sp->battlemon[battlerId].effect_of_moves -= 1 << 11;
-                        if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_YAWN_COUNTER) == 0) {
+                        if ((sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_YAWN) == 0) {
                             sp->state_client = battlerId;
                             sp->addeffect_type = 4;
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FALL_ASLEEP);
@@ -1157,9 +1157,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                         continue;
                     }
                     sp->scc_work++;
-                    if (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE) {
+                    if (sp->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG) {
                         if (sp->battlemon[battlerId].moveeffect.perishSongTurns == 0) {
-                            sp->battlemon[battlerId].effect_of_moves &= ~MOVE_EFFECT_FLAG_PERISH_SONG_ACTIVE;
+                            sp->battlemon[battlerId].effect_of_moves &= ~MOVE_EFFECT_FLAG_PERISH_SONG;
                             sp->msg_work = sp->battlemon[battlerId].moveeffect.perishSongTurns;
                             sp->hp_calc_work = sp->battlemon[battlerId].hp * -1;
                             sp->server_status_flag |= BATTLE_STATUS_NO_BLINK;
@@ -1473,9 +1473,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
 #endif
 
-                if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
+                if (sp->field_condition & FIELD_CONDITION_TRICK_ROOM) {
                     sp->field_condition -= 1 << FIELD_CONDITION_TRICK_ROOM_SHIFT;
-                    if (!(sp->field_condition & FIELD_STATUS_TRICK_ROOM)) {
+                    if (!(sp->field_condition & FIELD_CONDITION_TRICK_ROOM)) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, 251);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1492,9 +1492,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 #endif
 
-                if (sp->field_condition & FIELD_STATUS_GRAVITY) {
+                if (sp->field_condition & FIELD_CONDITION_GRAVITY) {
                     sp->field_condition -= (1 << 12);
-                    if ((sp->field_condition & FIELD_STATUS_GRAVITY) == 0) {
+                    if ((sp->field_condition & FIELD_CONDITION_GRAVITY) == 0) {
                         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_GRAVITY_END);
                         sp->next_server_seq_no = sp->server_seq_no;
                         sp->server_seq_no = 22;
@@ -1653,7 +1653,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
                                 case ABILITY_HARVEST: {
                                     if ((sp->battlemon[battlerId].hp)
                                         && IS_ITEM_BERRY(sp->recycle_item[battlerId])
-                                        && ((GetWeather(bw, sp, 0xFF) & WEATHER_SUNNY_ANY) /* OR sun is active + abilities are not fucking it */
+                                        && ((GetWeather(bw, sp, 0xFF) & FIELD_CONDITION_SUN_ALL) /* OR sun is active + abilities are not fucking it */
                                             || (BattleRand(bw) % 2 == 0) /* 50% chance */)) {
                                         sp->item_work = sp->recycle_item[battlerId];
                                         sp->recycle_item[battlerId] = 0;
@@ -1896,7 +1896,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp) {
 
                 #endif
 
-                sp->field_condition &= ~FIELD_STATUS_ION_DELUGE;
+                sp->field_condition &= ~FIELD_CONDITION_ION_DELUGE;
 
                 sp->fcc_seq_no++;
                 break;

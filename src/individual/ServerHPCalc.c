@@ -23,7 +23,7 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
     int eqp;
     int atk;
 
-    if (sp->waza_status_flag & MOVE_STATUS_FLAG_OHKO_HIT)
+    if (sp->waza_status_flag & MOVE_STATUS_ONE_HIT_KO)
     {
         sp->damage = sp->battlemon[sp->defence_client].maxhp * -1;
     }
@@ -120,11 +120,11 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
                     if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability)
                     {
-                        sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
+                        sp->waza_status_flag |= MOVE_STATUS_ENDURED;
                     }
                     else
                     {
-                        sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
+                        sp->waza_status_flag |= MOVE_STATUS_ENDURED_ITEM;
                     }
                 }
                 if (sp->damage == 0) {

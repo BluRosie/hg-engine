@@ -48,7 +48,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
     if (IsAttackerOnField(sp)
      && (sp->battlemon[attacker].species == SPECIES_MELOETTA)
      && (sp->battlemon[attacker].hp)
-     && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
+     && !(sp->waza_status_flag & MOVE_STATUS_FAILED)
      && (sp->battlemon[attacker].form_no < 2))
     {
         sp->relic_song_tracker |= No2Bit(attacker);
@@ -370,14 +370,14 @@ u16 LONG_CALL ActivateParadoxAbility(void *bsys, struct BattleStruct *ctx, u8 cl
      && (ctx->boosterEnergyActivated[client] == FALSE)
      && (ctx->battlemon[client].hp)
      // Transformed Paradox Pokémon cannot activate their Paradox ability
-     && !(ctx->battlemon[client].condition2 & STATUS2_TRANSFORMED)) {
+     && !(ctx->battlemon[client].condition2 & STATUS2_TRANSFORM)) {
         switch (GetBattlerAbility(ctx, client)) {
         case ABILITY_PROTOSYNTHESIS:
             // Desolate Land doesn't activate Protosynthesis, but whether or not this is intentional or desired is another question.
-            // Just change to WEATHER_SUNNY_ANY if you want Desolate Land to activate this
+            // Just change to FIELD_CONDITION_SUN_ALL if you want Desolate Land to activate this
             if ((CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
              && (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)
-             && (ctx->field_condition & WEATHER_SUNNY_NOT_EXTREMELY_HARSH)) {
+             && (ctx->field_condition & FIELD_CONDITION_SUN_NOT_EXTREMELY_HARSH)) {
                 isHarshSunlight = TRUE;
             }
 

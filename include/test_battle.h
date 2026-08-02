@@ -67,7 +67,7 @@ struct Expectations {
 
 // Complete test scenario definition
 struct PACKED TestBattleScenario {
-    u32 battleType;                           // BATTLE_TYPE_SINGLE, BATTLE_TYPE_DOUBLE, etc.
+    u32 battleType;                           // BATTLE_TYPE_SINGLE, BATTLE_TYPE_DOUBLES, etc.
     u32 weather;                              // WEATHER_RAIN, WEATHER_SANDSTORM, etc.
     u32 fieldCondition;                       // FIELD_CONDITION_TRICK_ROOM_INIT, etc.
     u8 terrain;                               // GRASSY_TERRAIN, MISTY_TERRAIN, etc.

@@ -270,7 +270,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             }
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_ANGER_POINT)) {
-        if (((sp->moveStatusFlagForSpreadMoves[sp->defence_client] & WAZA_STATUS_FLAG_CRITICAL) != 0)
+        if (((sp->moveStatusFlagForSpreadMoves[sp->defence_client] & MOVE_STATUS_CRITICAL_HIT) != 0)
             && (sp->battlemon[sp->defence_client].hp)
             && (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12)) {
             sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;

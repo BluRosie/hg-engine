@@ -1,8 +1,8 @@
 // Test: Trick can take away Booster Energy on some Paradox Pokemon (Raging Bolt, Gouging Fire, Iron Boulder and Iron Crown)
 // https://x.com/DaWoblefet/status/1737659599480565762
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
-    .weather = WEATHER_SUNNY,
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_SUN,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 

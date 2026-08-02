@@ -10,8 +10,8 @@ This directory contains individual battle test scenario files. Each test is a se
 // Test: Brief description of what this test validates
 #include "../../battle_tests.h"
 BEGIN_TEST {
-    .battleType = BATTLE_TYPE_SINGLE, // or BATTLE_TYPE_DOUBLE
-    .weather = WEATHER_NONE, // See constants/battle.h for weather types
+    .battleType = BATTLE_TYPE_TRAINER, // or BATTLE_TYPE_DOUBLES
+    .weather = FIELD_CONDITION_NONE, // See constants/battle.h for weather types
     .fieldCondition = 0, // Field conditions like FIELD_CONDITION_TRICK_ROOM
     .terrain = TERRAIN_NONE, // ELECTRIC_TERRAIN, GRASSY_TERRAIN, etc.
     .playerParty = {

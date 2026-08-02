@@ -128,7 +128,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                             }
                             // ai requests mega
                             else {
-                                if (CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_BATTLE_TOWER))) {
+                                if (CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER))) {
                                     sp->battlemon[client_no].canMega = 1;
                                     newBS.SideMega[client_no] = TRUE;
                                     flag = TRUE;
@@ -146,7 +146,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                             }
                             // ai requests mega
                             else {
-                                if (CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_BATTLE_TOWER))) {
+                                if (CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER))) {
                                     sp->battlemon[client_no].canMega = 1;
                                     newBS.SideMega[1] = TRUE;
                                     newBS.SideMega[3] = TRUE;
