@@ -2758,7 +2758,8 @@ BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStr
 // TODO: check message/subscript correctness, move damage out, handle Thousand Arrows
 BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender)
 {
-    if (!(ctx->waza_out_check_on_off & 2) && ctx->defence_client != BATTLER_NONE && CalcDamageAndSetMoveStatusFlags(bsys, ctx, defender) == TRUE) {
+    if ((ctx->current_move_index == MOVE_POLLEN_PUFF && defender == BATTLER_ALLY(ctx->attack_client))
+        || (!(ctx->waza_out_check_on_off & 2) && ctx->defence_client != BATTLER_NONE && CalcDamageAndSetMoveStatusFlags(bsys, ctx, defender) == TRUE)) {
         return FALSE;
     }
     if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_NO_EFFECT) {

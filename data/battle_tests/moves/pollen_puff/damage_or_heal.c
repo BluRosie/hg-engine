@@ -2,8 +2,8 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
@@ -106,11 +106,11 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ribombee used Pollen Puff!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Amoonguss’s HP is full!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Amoonguss's HP is full!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Beedrill used Pollen Puff!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 33, 34, 34, 34, 36, 36, 36, 36, 37, 37, 37, 37, 39, 39, 39, 40 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Amoonguss used Pollen Puff!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ribombee’s HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ribombee's HP was restored!" },
     }
 }
 END_TEST
