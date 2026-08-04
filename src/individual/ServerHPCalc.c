@@ -1,21 +1,21 @@
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/debug.h"
-#include "../../include/pokemon.h"
-#include "../../include/types.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/constants/file.h"
-#include "../../include/overlay.h"
+#include "battle.h"
+#include "config.h"
+#include "debug.h"
+#include "pokemon.h"
+#include "types.h"
+#include "constants/ability.h"
+#include "constants/hold_item_effects.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "constants/file.h"
+#include "overlay.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-#include "../../include/test_battle.h"
+#include "test_battle.h"
 #endif
 
 void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
@@ -23,7 +23,7 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
     int eqp;
     int atk;
 
-    if (sp->waza_status_flag & MOVE_STATUS_FLAG_OHKO_HIT)
+    if (sp->waza_status_flag & MOVE_STATUS_ONE_HIT_KO)
     {
         sp->damage = sp->battlemon[sp->defence_client].maxhp * -1;
     }
@@ -120,11 +120,11 @@ void ServerHPCalc(struct BattleSystem *bw, struct BattleStruct *sp)
                     sp->damage = (sp->battlemon[sp->defence_client].hp - 1) * -1;
                     if (sp->oneTurnFlag[sp->defence_client].prevent_one_hit_ko_ability)
                     {
-                        sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ABILITY;
+                        sp->waza_status_flag |= MOVE_STATUS_ENDURED;
                     }
                     else
                     {
-                        sp->waza_status_flag |= MOVE_STATUS_FLAG_HELD_ON_ITEM;
+                        sp->waza_status_flag |= MOVE_STATUS_ENDURED_ITEM;
                     }
                 }
                 if (sp->damage == 0) {

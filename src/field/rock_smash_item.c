@@ -1,10 +1,10 @@
-#include "../../include/debug.h"
-#include "../../include/map_events_internal.h"
-#include "../../include/rock_smash_item.h"
-#include "../../include/script.h"
-#include "../../include/types.h"
+#include "types.h"
+#include "debug.h"
+#include "map_events_internal.h"
+#include "rock_smash_item.h"
+#include "script.h"
 
-#include "../../include/constants/maps.h"
+#include "constants/maps.h"
 
 /*
 This table can be expanded as you please.
@@ -54,7 +54,6 @@ const RockSmashAbilityOdds RockSmashAbilityOddsTable[] = {
 
 // List of abilities that increase the quality of items received from a rock and their increase amounts.
 // Note: Having any of these abilities active will prevent items of the lowest quality from appearing at all!
-// CURRENTLY DOES NOTHING. TODO: check this via bytereplacement.
 const RockSmashAbilityQuality RockSmashAbilityQualityTable[] = {
     { ABILITY_SERENE_GRACE, 1 },
     { ABILITY_SUPER_LUCK,   1 },
@@ -80,7 +79,7 @@ u32 DetermineRockSmashItem(u32 tableIndex, u32 quality)
             ability = NUM_ABILITIES;
         }
 
-        for (u32 i = 0; i < NELEMS(RockSmashAbilityOddsTable); i++) {
+        for (u32 i = 0; i < NELEMS(RockSmashAbilityQualityTable); i++) {
             if (ability == RockSmashAbilityQualityTable[i].ability) {
                 quality += RockSmashAbilityQualityTable[i].quality;
                 break;

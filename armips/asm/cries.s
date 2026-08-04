@@ -16,7 +16,7 @@
     mov r0, r5 // species
     bl 0x02006A0C // (species, form), return r0 = cry number "species" - come after the end of the old cries
     mov r5, r0
-    ldr r2, =SPECIES_SHAYMIN
+    ldr r2, =492 // SPECIES_SHAYMIN
 //    cmp r5, r2
 //    bne _check_normal
 //    cmp r1, #1

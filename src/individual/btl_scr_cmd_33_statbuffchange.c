@@ -1,18 +1,18 @@
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/constants/weather_numbers.h"
-#include "../../include/debug.h"
-#include "../../include/pokemon.h"
-#include "../../include/save.h"
-#include "../../include/types.h"
+#include "battle.h"
+#include "config.h"
+#include "constants/ability.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "constants/weather_numbers.h"
+#include "debug.h"
+#include "pokemon.h"
+#include "save.h"
+#include "types.h"
 
 /**
  *  @brief script command to set up the stat boost animation/message
@@ -49,50 +49,50 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     // debug_printf("\naddeffect_param: %d\n", sp->addeffect_param);
 
     // 6 steps up
-    if (sp->addeffect_param == ADD_STATUS_EFF_BOOST_STATS_SPEED_UP_6) {
+    if (sp->addeffect_param == MOVE_SUBSCRIPT_PTR_BOOST_STATS_SPEED_UP_6) {
         stattochange = STAT_SPEED - STAT_ATTACK;
         statchange = 6;
         sp->temp_work = STATUS_EFF_UP;
         // debug_printf("6 steps up\n");
     }
     // 3 steps down
-    else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_3) {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_3;
+    else if (sp->addeffect_param >= MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_3_STAGES) {
+        stattochange = sp->addeffect_param - MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_3_STAGES;
         statchange = -3;
         sp->temp_work = STATUS_EFF_DOWN;
         // debug_printf("3 steps down\n");
     }
     // 3 steps up
-    else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3) {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_3;
+    else if (sp->addeffect_param >= MOVE_SUBSCRIPT_PTR_ATTACK_UP_3_STAGES) {
+        stattochange = sp->addeffect_param - MOVE_SUBSCRIPT_PTR_ATTACK_UP_3_STAGES;
         statchange = 3;
         sp->temp_work = STATUS_EFF_UP;
         // debug_printf("3 steps up\n");
     }
     // 2 steps down
-    else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_2) {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN_2;
+    else if (sp->addeffect_param >= MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_2_STAGES) {
+        stattochange = sp->addeffect_param - MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_2_STAGES;
         statchange = -2;
         sp->temp_work = STATUS_EFF_DOWN;
         // debug_printf("2 steps down\n");
     }
     // 2 steps up
-    else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2) {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP_2;
+    else if (sp->addeffect_param >= MOVE_SUBSCRIPT_PTR_ATTACK_UP_2_STAGES) {
+        stattochange = sp->addeffect_param - MOVE_SUBSCRIPT_PTR_ATTACK_UP_2_STAGES;
         statchange = 2;
         sp->temp_work = STATUS_EFF_UP;
         // debug_printf("2 steps up\n");
     }
     // 1 step down
-    else if (sp->addeffect_param >= ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN) {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_DOWN;
+    else if (sp->addeffect_param >= MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_1_STAGE) {
+        stattochange = sp->addeffect_param - MOVE_SUBSCRIPT_PTR_ATTACK_DOWN_1_STAGE;
         statchange = -1;
         sp->temp_work = STATUS_EFF_DOWN;
         // debug_printf("1 step down\n");
     }
     // 1 step up
     else {
-        stattochange = sp->addeffect_param - ADD_STATUS_EFF_BOOST_STATS_ATTACK_UP;
+        stattochange = sp->addeffect_param - MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE;
         statchange = 1;
         sp->temp_work = STATUS_EFF_UP;
         // debug_printf("1 step up\n");
@@ -118,7 +118,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     if ((GetBattlerAbility(sp, sp->state_client) == ABILITY_DEFIANT || GetBattlerAbility(sp, sp->state_client) == ABILITY_COMPETITIVE)
         && sp->oneSelfFlag[sp->state_client].defiant_flag == 0
         && statchange < 0
-        && (sp->addeffect_type == ADD_EFFECT_STICKY_WEB
+        && (sp->addeffect_type == SIDE_EFFECT_TYPE_STICKY_WEB
             || (sp->state_client != sp->attack_client // can't raise own stats
                 && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
@@ -136,8 +136,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         if (battlemon->states[STAT_ATTACK + stattochange] == 12) {
             sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
 
-            if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
-                || (sp->addeffect_type == ADD_EFFECT_ABILITY)) {
+            if ((sp->addeffect_type == SIDE_EFFECT_TYPE_INDIRECT)
+                || (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY)) {
                 IncrementBattleScriptPtr(sp, address2);
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 return FALSE;
@@ -156,7 +156,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 // debug_printf("\n\nCapped\n\n");
                 statchange = 12 - battlemon->states[STAT_ATTACK + stattochange];
             }
-            if (sp->addeffect_type == ADD_EFFECT_ABILITY) {
+            if (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY) {
                 switch (statchange) {
                 case 1:
                     sp->mp.id = BATTLE_MSG_STAT_RAISED;
@@ -171,7 +171,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 sp->mp.tag = TAG_NICKNAME_STAT;
                 sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
                 sp->mp.param[1] = STAT_ATTACK + stattochange;
-            } else if (sp->addeffect_type == ADD_EFFECT_HELD_ITEM) {
+            } else if (sp->addeffect_type == SIDE_EFFECT_TYPE_HELD_ITEM) {
                 switch (statchange) {
                 case 1:
                     sp->mp.id = BATTLE_MSG_ITEM_RAISED_STAT;
@@ -215,11 +215,11 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             statchange = battlemon->states[STAT_ATTACK + stattochange];
         }
         // debug_printf("sp->addeffect_flag: %d\n", sp->addeffect_flag);
-        if ((sp->addeffect_flag & ADD_STATUS_NO_ABILITY) == 0) {
+        if ((sp->addeffect_flag & SIDE_EFFECT_NO_ABILITY) == 0) {
              // debug_printf("move check\n");
-            if (sp->attack_client != sp->state_client 
-                && sp->addeffect_type != ADD_EFFECT_ABILITY
-                && sp->addeffect_type != ADD_EFFECT_PRINT_WORK_ABILITY
+            if (sp->attack_client != sp->state_client
+                && sp->addeffect_type != SIDE_EFFECT_TYPE_ABILITY
+                && sp->addeffect_type != SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY
                 ) {
                 // infiltrator bypasses mist
                 if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount && GetBattlerAbility(sp, sp->attack_client) != ABILITY_INFILTRATOR) {
@@ -231,7 +231,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                                || MoldBreakerAbilityCheck(sp, sp->attack_client, BATTLER_ALLY(sp->state_client), ABILITY_FLOWER_VEIL) == TRUE) // any enemy has flower veil (accounting for mold breaker, otherwise would just CheckSideAbility)
                     && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
                 {
-                    if (sp->addeffect_type == ADD_EFFECT_ABILITY) {
+                    if (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY) {
                         sp->mp.id = BATTLE_MSG_FLOWER_VEIL_PETALS;
                         sp->mp.tag = TAG_NICKNAME;
                         sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
@@ -273,8 +273,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     flag = 3;
                 } else if (battlemon->states[STAT_ATTACK + stattochange] == 0) {
                     sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
-                    if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
-                        || (sp->addeffect_type == ADD_EFFECT_ABILITY)) {
+                    if ((sp->addeffect_type == SIDE_EFFECT_TYPE_INDIRECT)
+                        || (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY)) {
                         sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                         IncrementBattleScriptPtr(sp, address2);
                         return FALSE;
@@ -288,15 +288,15 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                         return FALSE;
                     }
                 } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_SHIELD_DUST) == TRUE)
-                    && (sp->addeffect_type == ADD_EFFECT_INDIRECT)) {
+                    && (sp->addeffect_type == SIDE_EFFECT_TYPE_INDIRECT)) {
                     flag = 1;
                 } else if (CheckSubstitute(sp, sp->state_client) == TRUE) {
                     flag = 2;
                 }
             } else if (battlemon->states[STAT_ATTACK + stattochange] == 0) {
                 sp->server_status_flag |= SERVER_STATUS_FLAG_STAT_CHANGE_NEGATIVE;
-                if ((sp->addeffect_type == ADD_EFFECT_INDIRECT)
-                    || (sp->addeffect_type == ADD_EFFECT_ABILITY)) {
+                if ((sp->addeffect_type == SIDE_EFFECT_TYPE_INDIRECT)
+                    || (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY)) {
                     sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                     IncrementBattleScriptPtr(sp, address2);
                     return FALSE;
@@ -319,7 +319,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address3);
                 return FALSE;
-            } else if ((flag) && (sp->addeffect_type == ADD_EFFECT_INDIRECT)) {
+            } else if ((flag) && (sp->addeffect_type == SIDE_EFFECT_TYPE_INDIRECT)) {
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
                 IncrementBattleScriptPtr(sp, address2);
                 return FALSE;
@@ -329,7 +329,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                 return FALSE;
             }
         }
-        if (sp->addeffect_type == ADD_EFFECT_ABILITY && sp->battlerIdTemp == sp->state_client) {
+        if (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY && sp->battlerIdTemp == sp->state_client) {
             //debug_printf("in self stat drop check\n");
             sp->mp.id = BATTLE_MSG_STAT_FELL;
             sp->mp.tag = TAG_NICKNAME_STAT;
@@ -338,7 +338,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         } else {
             //debug_printf("in ability checks\n");
 
-            if (sp->addeffect_type == ADD_EFFECT_ABILITY || sp->addeffect_type == ADD_EFFECT_PRINT_WORK_ABILITY) {
+            if (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY || sp->addeffect_type == SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY) {
                 BOOL prevented = FALSE;
                 if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount) {
                     sp->mp.id = BATTLE_MSG_PROTECTED_BY_MIST;

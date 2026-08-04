@@ -1,15 +1,15 @@
-#include "../../include/battle.h"
-#include "../../include/battle_controller_player.h"
-#include "../../include/config.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/item.h"
+#include "battle.h"
+#include "battle_controller_player.h"
+#include "config.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/move_effects.h"
+#include "constants/hold_item_effects.h"
+#include "constants/file.h"
+#include "constants/item.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-#include "../../include/test_battle.h"
+#include "test_battle.h"
 #endif // DEBUG_BATTLE_SCENARIOS
 
 #if defined (DISABLE_ITEMS_IN_TRAINER_BATTLE)
@@ -165,7 +165,7 @@ BOOL LONG_CALL BattleContext_ShouldPrintFollowupMessage(struct BattleSystem *bat
     }
 
     if (ret == TRUE && !(ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE)) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MOVE_FOLLOWUP_MESSAGE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_FOLLOWUP_MESSAGE);
         ctx->next_server_seq_no  = ctx->server_seq_no;
         ctx->server_seq_no  = CONTROLLER_COMMAND_RUN_SCRIPT;
     }
@@ -265,7 +265,7 @@ void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStru
                 ctx->waza_no_last = MOVE_NONE;
             }
 
-            if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FAILED))
+            if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED && !(ctx->waza_status_flag & MOVE_STATUS_FAILED))
             {
                 switch (ctx->aiWorkTable.old_moveTbl[ctx->current_move_index].target)
                 {

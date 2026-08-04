@@ -1,15 +1,15 @@
-#include "../../include/types.h"
-#include "../../include/bag.h"
-#include "../../include/battle.h"
-#include "../../include/pokemon.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/game.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
+#include "types.h"
+#include "bag.h"
+#include "battle.h"
+#include "pokemon.h"
+#include "constants/ability.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/file.h"
+#include "constants/game.h"
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/species.h"
 
 /**
  *  @brief check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
@@ -45,39 +45,39 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
              && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
             {
                 // Snow does not affect Castform in SV, since it cannot enter Paldea, Kitakami nor Blueberry Academy there is no way to confirm
-                if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
+                if (((sp->field_condition & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_HAIL_ALL)) == 0)
                  && (sp->battlemon[client].form_no != 0))
                 {
                     sp->battlemon[client].form_no = 0;
                     BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_SUNNY_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_SUN_ALL)
                       && (sp->battlemon[client].form_no != 1))
                 {
                     sp->battlemon[client].form_no = 1;
                     BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_RAIN_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_RAIN_ALL)
                       && (sp->battlemon[client].form_no != 2))
                 {
                     sp->battlemon[client].form_no = 2;
                     BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_HAIL_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_HAIL_ALL)
                       && (sp->battlemon[client].form_no != 3))
                 {
                     sp->battlemon[client].form_no = 3;
                     BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -86,7 +86,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             {
                 sp->battlemon[client].form_no = 0;
                 BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-                *seq_no = SUB_SEQ_FORM_CHANGE;
+                *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -98,7 +98,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[client].form_no = 0;
             BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
+            *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
             ret = TRUE;
             break;
         }
@@ -111,35 +111,35 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
              && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0))
             {
                 // Same with Forecast, unknown interaction with Snow
-                if (((sp->field_condition & (WEATHER_RAIN_ANY | WEATHER_SUNNY_ANY | WEATHER_HAIL_ANY)) == 0)
+                if (((sp->field_condition & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_HAIL_ALL)) == 0)
                  && (sp->battlemon[client].form_no == 1))
                 {
                     sp->battlemon[client].form_no = 0;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_SUNNY_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_SUN_ALL)
                       && (sp->battlemon[client].form_no == 0))
                 {
                     sp->battlemon[client].form_no = 1;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_RAIN_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_RAIN_ALL)
                       && (sp->battlemon[client].form_no == 1))
                 {
                     sp->battlemon[client].form_no = 0;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
-                else if ((sp->field_condition & WEATHER_HAIL_ANY)
+                else if ((sp->field_condition & FIELD_CONDITION_HAIL_ALL)
                       && (sp->battlemon[client].form_no == 1))
                 {
                     sp->battlemon[client].form_no = 0;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -149,7 +149,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                 if (sp->battlemon[client].form_no == 1)
                 {
                     sp->battlemon[client].form_no = 0;
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -165,7 +165,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[client].form_no != form_no)
             {
                 sp->battlemon[client].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
+                *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -180,7 +180,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[client].form_no != form_no)
             {
                 sp->battlemon[client].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
+                *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -191,18 +191,18 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
          && (sp->battlemon[client].hp)
          && (sp->battlemon[client].form_no == 1))
         {
-            if ((sp->battlemon[client].condition2 & STATUS2_TRANSFORMED)
+            if ((sp->battlemon[client].condition2 & STATUS2_TRANSFORM)
              || (((BattleWorkBattleStatusFlagGet(bw) & 0x80) == 0) // probably distortion world check
               && (sp->battlemon[client].item != ITEM_GRISEOUS_ORB)))
             {
-                if(sp->battlemon[client].condition2 & STATUS2_TRANSFORMED)
+                if(sp->battlemon[client].condition2 & STATUS2_TRANSFORM)
                 {
                     struct PartyPokemon *pp;
                     int defence;
                     int work;
 
                     pp = AllocMonZeroed(5);
-                    if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE)
+                    if (BattleTypeGet(bw) & BATTLE_TYPE_DOUBLES)
                     {
                         defence = sp->playerActions[client][1];
                     }
@@ -226,13 +226,13 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
                     sp->server_status_flag2 |= SERVER_STATUS_FLAG2_FORM_CHANGE;
                     SCIO_PSPtoPPCopy(bw, sp, client);
                     sys_FreeMemoryEz(pp);
-                    *seq_no = SUB_SEQ_FORM_CHANGE;
+                    *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
                 else
                 {
-                    *seq_no = SUB_SEQ_GIRATINA_FORM_CHECK;
+                    *seq_no = BATTLE_SUBSCRIPT_GIRATINA_FORM_CHANGE;
                     ret = TRUE;
                     break;
                 }
@@ -248,7 +248,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[client].form_no += 2;
             BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
+            *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
             ret = TRUE;
             break;
         } else if ((sp->battlemon[client].species == SPECIES_DARMANITAN)
@@ -258,7 +258,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[client].form_no -= 2;
             BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
+            *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
             ret = TRUE;
             break;
         }
@@ -266,7 +266,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         // handle meloetta - change to/from pirouette form when using relic song
         if ((sp->battlemon[client].species == SPECIES_MELOETTA)
          && (sp->battlemon[client].hp)
-         && !(sp->waza_status_flag & MOVE_STATUS_FLAG_FAILED)
+         && !(sp->waza_status_flag & MOVE_STATUS_FAILED)
          && (sp->current_move_index == MOVE_RELIC_SONG && sp->waza_no_old[client] == MOVE_RELIC_SONG)
          && (sp->battlemon[client].form_no < 2)
          && (sp->relic_song_tracker & No2Bit(client)) // MoveCheckDamageNegatingAbilities triggers meloetta's form change if it can happen
@@ -275,7 +275,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             sp->relic_song_tracker &= ~No2Bit(client);
             sp->battlemon[client].form_no ^= 1;
             BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
+            *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
             ret = TRUE;
             break;
         }
@@ -288,7 +288,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if(sp->battlemon[client].form_no != form_no)
             {
                 sp->battlemon[client].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
+                *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                 ret = TRUE;
                 break;
             }
@@ -303,7 +303,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             {
                 struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, client, sp->sel_mons_no[client]);
                 sp->battlemon[client].form_no = form_no;
-                *seq_no = SUB_SEQ_FORM_CHANGE;
+                *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                 SetMonData(pp2, MON_DATA_FORM, &form_no);
                 ret = TRUE;
                 break;
@@ -323,7 +323,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             sp->hp_calc_work = sp->battlemon[sp->attack_client].maxhp - sp->battlemon[sp->attack_client].hp;
             struct PartyPokemon *pp2 = BattleWorkPokemonParamGet(bw, client, sp->sel_mons_no[client]);
             sp->battlemon[client].maxhp = GetMonData(pp2, MON_DATA_MAXHP, NULL);
-            *seq_no = SUB_SEQ_HANDLE_ZYGARDE_FORM_CHANGE;
+            *seq_no = BATTLE_SUBSCRIPT_HANDLE_ZYGARDE_FORM_CHANGE;
             ret = TRUE;
             break;
         }
@@ -336,7 +336,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[client].form_no = 1;
             BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
+            *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
             ret = TRUE;
             break;
         }
@@ -347,7 +347,7 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         {
             sp->battlemon[client].form_no = 0;
             BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 0);
-            *seq_no = SUB_SEQ_FORM_CHANGE;
+            *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
             ret = TRUE;
             break;
         }

@@ -1,8 +1,8 @@
-#include "../../include/test_battle.h"
+#include "test_battle.h"
 
-#include "../../include/battle.h"
-#include "../../include/message.h"
-#include "../../include/types.h"
+#include "battle.h"
+#include "message.h"
+#include "types.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 

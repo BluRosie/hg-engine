@@ -1,19 +1,19 @@
-#include "../../include/types.h"
-#include "../../include/bag.h"
-#include "../../include/battle.h"
-#include "../../include/overlay.h"
-#include "../../include/pokemon.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/game.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
+#include "types.h"
+#include "bag.h"
+#include "battle.h"
+#include "overlay.h"
+#include "pokemon.h"
+#include "constants/ability.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/file.h"
+#include "constants/game.h"
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/species.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
-#include "../../include/test_battle.h"
+#include "test_battle.h"
 #endif // DEBUG_BATTLE_SCENARIOS
 
 // function declarations
@@ -208,6 +208,15 @@ u8 TypeEffectivenessTable[][3] =
 };
 
 /**
+ *  @brief get total entries in TypeEffectivenessTable
+ *
+ *  @return number of entries in TypeEffectivenessTable
+ */
+u32 LONG_CALL TypeEffectivenessTable_GetTotalEntries(void) {
+    return NELEMS(TypeEffectivenessTable);
+}
+
+/**
  *  @brief check if a form change needs to happen.  if so, return TRUE and populate *seq_no with the subscript to run
  *
  *  @see BattleFormChange
@@ -287,9 +296,9 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
     // if a side has 2 battlers, the logic can run regardless--the "last mon" is worst-case the one being sent out so nothing changes
      && ((DoesSideHave2Battlers(bw, side))
     // if the side does not have 2 battlers and the battle type is doubles, then the party count must be greater than 2
-      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && count > 2)
+      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && count > 2)
     // else single battles are fine to pass through here too
-      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0))
+      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0))
     {
         s32 illusionIndex = Party_GetIllusionImitatedIndex(party, 0);
         newmon = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_SPECIES, NULL);
@@ -341,9 +350,9 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
     // if a side has 2 battlers, the logic can run regardless--the "last mon" worst-case is the one being sent out so nothing changes
      && ((DoesSideHave2Battlers(bw, side))
     // if the side does not have 2 battlers and the battle type is doubles, then the party count must be greater than 2
-      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && count > 2)
+      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && count > 2)
     // else single battles are fine to pass through here too
-      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0))
+      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0))
     {
         s32 illusionIndex = Party_GetIllusionImitatedIndex(party, pap->sel_mons_no);
         newmon = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_SPECIES, NULL);
@@ -395,9 +404,9 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     // if a side has 2 battlers, the logic can run regardless--the "last mon" is worst-case the one being sent out so nothing changes
      && ((DoesSideHave2Battlers(bw, side))
     // if the side does not have 2 battlers and the battle type is doubles, then the party count must be greater than 2
-      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && count > 2)
+      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && count > 2)
     // else single battles are fine to pass through here too
-      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0))
+      || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0))
     {
         s32 illusionIndex = Party_GetIllusionImitatedIndex(party, pap->sel_mons_no);
         newmon = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_SPECIES, NULL);
@@ -675,14 +684,14 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         // switch in we do not need to check for if the client is actually in an illusion
         if (ability == ABILITY_ILLUSION
          && ((DoesSideHave2Battlers(bw, cp->client_no))
-          || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && party->count > 2)
-          || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0)
+          || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && party->count > 2)
+          || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0)
          && (gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == 6 || gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == smp->sel_mons_no))
         {
             smp->sel_mons_no = Party_GetIllusionImitatedIndex(party, smp->sel_mons_no);
         }
 
-        if ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0)
+        if ((BattleTypeGet(bw) & BATTLE_TYPE_LINK) == 0)
         {
             mp->id = BATTLE_MSG_SWITCH_IN_ENEMY_MSG;
             mp->tag = TAG_TRCLASS_TRNAME_NICKNAME;
@@ -708,15 +717,15 @@ void CT_SwitchInMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct SWITC
         ability = GetMonData(Party_GetMonByIndex(party, smp->sel_mons_no), MON_DATA_ABILITY, NULL);
         if (ability == ABILITY_ILLUSION
          && ((DoesSideHave2Battlers(bw, cp->client_no))
-          || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && party->count > 2)
-          || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0)
+          || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && party->count > 2)
+          || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0)
          && (gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == 6 || gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == smp->sel_mons_no))
         {
             smp->sel_mons_no = Party_GetIllusionImitatedIndex(party, smp->sel_mons_no);
         }
 
-        if (((BattleTypeGet(bw) & BATTLE_TYPE_DOUBLE) == 0)
-         && ((BattleTypeGet(bw) & BATTLE_TYPE_WIRELESS) == 0))
+        if (((BattleTypeGet(bw) & BATTLE_TYPE_DOUBLES) == 0)
+         && ((BattleTypeGet(bw) & BATTLE_TYPE_LINK) == 0))
         {
             if (smp->rate < 100)
             {
@@ -766,7 +775,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
 
     if (cp->client_type & 1)
     {
-        if (fight_type & BATTLE_TYPE_DOUBLE)
+        if (fight_type & BATTLE_TYPE_DOUBLES)
         {
             client1 = cp->client_no;
             client2 = BattleWorkPartnerClientNoGet(bw, cp->client_no);
@@ -786,8 +795,8 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             ability = GetMonData(Party_GetMonByIndex(party, esomp->sel_mons_no[client1]), MON_DATA_ABILITY, NULL);
             if (ability == ABILITY_ILLUSION
              && ((DoesSideHave2Battlers(bw, cp->client_no))
-              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && party->count > 2)
-              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0)
+              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && party->count > 2)
+              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0)
              && (gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == 6 || gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == esomp->sel_mons_no[client1]))
             {
                 gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] = esomp->sel_mons_no[client1];
@@ -805,8 +814,8 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             ability = GetMonData(Party_GetMonByIndex(party, esomp->sel_mons_no[client2]), MON_DATA_ABILITY, NULL);
             if (ability == ABILITY_ILLUSION
              && ((DoesSideHave2Battlers(bw, cp->client_no))
-              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && party->count > 2)
-              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0)
+              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && party->count > 2)
+              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0)
              && (gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == 6 || gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == esomp->sel_mons_no[client2]))
             {
                 gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] = esomp->sel_mons_no[client2];
@@ -815,9 +824,9 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
         }
 
 
-        if (fight_type & BATTLE_TYPE_WIRELESS)
+        if (fight_type & BATTLE_TYPE_LINK)
         {
-            if (fight_type & BATTLE_TYPE_BATTLE_TOWER)
+            if (fight_type & BATTLE_TYPE_FRONTIER)
             {
                 mp->id = BATTLE_MSG_DOUBLE_TOWER_BATTLE_SEND_OUT;
                 mp->tag = TAG_TRCLASS_TRNAME_NICKNAME_TRCLASS_TRNAME_NICKNAME;
@@ -837,7 +846,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
                 mp->param[2] = client2;
                 mp->param[3] = client2 | (esomp->sel_mons_no[client2] << 8);
             }
-            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            else if (fight_type & BATTLE_TYPE_DOUBLES)
             {
                 mp->id = BATTLE_MSG_DOUBLE_BATTLE_SEND_OUT_WIRELESS;
                 mp->tag = TAG_TRNAME_NICKNAME_NICKNAME;
@@ -867,7 +876,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
                 mp->param[4] = client2;
                 mp->param[5] = client2 | (esomp->sel_mons_no[client2] << 8);
             }
-            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            else if (fight_type & BATTLE_TYPE_DOUBLES)
             {
                 mp->id = BATTLE_MSG_ENEMY_SEND_OUT_DOUBLES;
                 mp->tag = TAG_TRCLASS_TRNAME_NICKNAME_NICKNAME;
@@ -888,7 +897,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
     }
     else
     {
-        if (fight_type & BATTLE_TYPE_WIRELESS)
+        if (fight_type & BATTLE_TYPE_LINK)
         {
             u8 sio_id = BattleWorkCommIDGet(bw);
 
@@ -908,7 +917,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
                     break;
                 }
             }
-            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            else if (fight_type & BATTLE_TYPE_DOUBLES)
             {
                 client1 = BattleWorkClientNoGet(bw, 2);
                 client2 = BattleWorkClientNoGet(bw, 4);
@@ -924,7 +933,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             client1 = BattleWorkPartnerClientNoGet(bw, cp->client_no);
             client2 = cp->client_no;
         }
-        else if (fight_type & BATTLE_TYPE_DOUBLE)
+        else if (fight_type & BATTLE_TYPE_DOUBLES)
         {
             client1 = BattleWorkClientNoGet(bw, 2);
             client2 = BattleWorkClientNoGet(bw, 4);
@@ -944,8 +953,8 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             ability = GetMonData(Party_GetMonByIndex(party, esomp->sel_mons_no[client1]), MON_DATA_ABILITY, NULL);
             if (ability == ABILITY_ILLUSION
              && ((DoesSideHave2Battlers(bw, cp->client_no))
-              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && party->count > 2)
-              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0)
+              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && party->count > 2)
+              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0)
              && (gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == 6 || gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == esomp->sel_mons_no[client1]))
             {
                 gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] = esomp->sel_mons_no[client1];
@@ -963,8 +972,8 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             ability = GetMonData(Party_GetMonByIndex(party, esomp->sel_mons_no[client2]), MON_DATA_ABILITY, NULL);
             if (ability == ABILITY_ILLUSION
              && ((DoesSideHave2Battlers(bw, cp->client_no))
-              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE) && party->count > 2)
-              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLE)) == 0)
+              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES) && party->count > 2)
+              || (BattleTypeGet(bw) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)) == 0)
              && (gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == 6 || gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] == esomp->sel_mons_no[client2]))
             {
                 gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, cp->client_no)] = esomp->sel_mons_no[client2];
@@ -972,7 +981,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
             }
         }
 
-        if (fight_type & BATTLE_TYPE_WIRELESS)
+        if (fight_type & BATTLE_TYPE_LINK)
         {
             if (fight_type & BATTLE_TYPE_MULTI)
             {
@@ -982,7 +991,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
                 mp->param[1] = client1 | (esomp->sel_mons_no[client1] << 8);
                 mp->param[2] = client2 | (esomp->sel_mons_no[client2] << 8);
             }
-            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            else if (fight_type & BATTLE_TYPE_DOUBLES)
             {
                 mp->id = BATTLE_MSG_SEND_OUT_DOUBLES;
                 mp->tag = TAG_NICKNAME_NICKNAME;
@@ -1007,7 +1016,7 @@ void CT_EncountSendOutMessageParamMake(void *bw, struct CLIENT_PARAM *cp, struct
                 mp->param[2] = client1 | (esomp->sel_mons_no[client1] << 8);
                 mp->param[3] = client2 | (esomp->sel_mons_no[client2] << 8);
             }
-            else if (fight_type & BATTLE_TYPE_DOUBLE)
+            else if (fight_type & BATTLE_TYPE_DOUBLES)
             {
                 mp->id = BATTLE_MSG_SEND_OUT_DOUBLES;
                 mp->tag = TAG_NICKNAME_NICKNAME;
@@ -1401,7 +1410,7 @@ u32 LONG_CALL GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 a
     }
 
     // Ion Deluge's effect is applied after all type-modifying abilities have activated.
-    if (typeLocal == TYPE_NORMAL && (sp->field_condition & FIELD_STATUS_ION_DELUGE) == FIELD_STATUS_ION_DELUGE)
+    if (typeLocal == TYPE_NORMAL && (sp->field_condition & FIELD_CONDITION_ION_DELUGE) == FIELD_CONDITION_ION_DELUGE)
     {
         typeLocal = TYPE_ELECTRIC;
     }
@@ -1483,7 +1492,7 @@ u32 LONG_CALL SanitizeClientForTeamAccess(void *bw, u32 client)
  */
 BOOL LONG_CALL DoesSideHave2Battlers(void *bw, u32 client)
 {
-    if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) && (BattleWork_GetTrainerIndex(bw, client) != BattleWork_GetTrainerIndex(bw, BATTLER_ALLY(client))))
+    if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI)) && (BattleWork_GetTrainerIndex(bw, client) != BattleWork_GetTrainerIndex(bw, BATTLER_ALLY(client))))
     {
         return TRUE;
     }

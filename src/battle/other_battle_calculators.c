@@ -1,19 +1,19 @@
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/debug.h"
-#include "../../include/overlay.h"
-#include "../../include/pokemon.h"
-#include "../../include/q412.h"
-#include "../../include/types.h"
+#include "battle.h"
+#include "config.h"
+#include "constants/ability.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/file.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "debug.h"
+#include "overlay.h"
+#include "pokemon.h"
+#include "q412.h"
+#include "types.h"
 
 #include "../../include/trainer_data.h"
 #include "../../include/constants/sndseq.h"
@@ -578,17 +578,17 @@ void LoadNicknameToCharArray(u16 nickname[], char buf[])
 u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker)
 {
     if (attacker != 0xFF && GetBattlerAbility(ctx, attacker) == ABILITY_MEGA_SOL) {
-        return WEATHER_SUNNY;
+        return FIELD_CONDITION_SUN;
     }
 
     if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) || CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK)) {
-        return WEATHER_NONE;
+        return FIELD_CONDITION_NONE;
     }
 
     return ctx->field_condition & FIELD_CONDITION_WEATHER;
 }
 
-// set sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS if a miss
+// set sp->waza_status_flag |= MOVE_STATUS_MISSED if a miss
 BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
     // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/page-58#post-8684263
@@ -610,7 +610,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
         return FALSE;
     }
 
-    if (BattleTypeGet(bw) & BATTLE_TYPE_CATCHING_DEMO) {
+    if (BattleTypeGet(bw) & BATTLE_TYPE_TUTORIAL) {
         return FALSE;
     }
 
@@ -645,7 +645,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
         accuracy = accuracy > 50 ? 50 : accuracy;
     }
 
-    if ((weather & WEATHER_SUNNY_ANY)
+    if ((weather & FIELD_CONDITION_SUN_ALL)
         // thunder sucks in the sun
         && ((sp->moveTbl[move_no].effect == MOVE_EFFECT_THUNDER)
             // so does hurricane
@@ -655,7 +655,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
 
     // 5.5 We handle Fog here because there is no vanilla Gen 5+ implementation
 
-    if (weather & FIELD_STATUS_FOG) {
+    if (weather & FIELD_CONDITION_FOG) {
         accuracy = accuracy * 6 / 10;
     }
 
@@ -663,7 +663,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
 
     // 6.1 Gravity
 
-    if (sp->field_condition & FIELD_STATUS_GRAVITY) {
+    if (sp->field_condition & FIELD_CONDITION_GRAVITY) {
         accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_67);
     }
 
@@ -693,7 +693,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
 
         // Sand Veil- 3277/4096
 
-        if ((weather & WEATHER_SANDSTORM_ANY)
+        if ((weather & FIELD_CONDITION_SANDSTORM_ALL)
             && (defender == sp->rawSpeedNonRNGClientOrder[i])
             && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SAND_VEIL)) {
             accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_8);
@@ -701,7 +701,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
         }
 
         // Snow Cloak - 3277/4096
-        if ((weather & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY))
+        if ((weather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL))
             && (defender == sp->rawSpeedNonRNGClientOrder[i])
             && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SNOW_CLOAK)) {
             accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__0_8);
@@ -846,7 +846,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
     // 14. Roll a random number 0-99 inclusive. If the accuracy value is greater than that random number, the move hits. (That is, check if accuracy > rand(100)).
 
     if (accuracy <= (BattleRand(bw) % 100)) {
-        sp->waza_status_flag |= MOVE_STATUS_FLAG_MISS;
+        sp->waza_status_flag |= MOVE_STATUS_MISSED;
         sp->oneTurnFlag[attacker].parental_bond_flag = 0;
         sp->oneTurnFlag[attacker].parental_bond_is_active = FALSE;
     }
@@ -930,16 +930,16 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     // Step 1: 2x Abilities
 
-    if (((ability1 == ABILITY_SWIFT_SWIM) && (weather & WEATHER_RAIN_ANY))
-        || ((ability1 == ABILITY_CHLOROPHYLL) && (weather & WEATHER_SUNNY_ANY))
-        || ((ability1 == ABILITY_SAND_RUSH) && (weather & WEATHER_SANDSTORM_ANY))
-        || ((ability1 == ABILITY_SLUSH_RUSH) && (weather & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)))) {
+    if (((ability1 == ABILITY_SWIFT_SWIM) && (weather & FIELD_CONDITION_RAIN_ALL))
+        || ((ability1 == ABILITY_CHLOROPHYLL) && (weather & FIELD_CONDITION_SUN_ALL))
+        || ((ability1 == ABILITY_SAND_RUSH) && (weather & FIELD_CONDITION_SANDSTORM_ALL))
+        || ((ability1 == ABILITY_SLUSH_RUSH) && (weather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL)))) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
-    if (((ability2 == ABILITY_SWIFT_SWIM) && (weather & WEATHER_RAIN_ANY))
-        || ((ability2 == ABILITY_CHLOROPHYLL) && (weather & WEATHER_SUNNY_ANY))
-        || ((ability2 == ABILITY_SAND_RUSH) && (weather & WEATHER_SANDSTORM_ANY))
-        || ((ability2 == ABILITY_SLUSH_RUSH) && (weather & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY)))) {
+    if (((ability2 == ABILITY_SWIFT_SWIM) && (weather & FIELD_CONDITION_RAIN_ALL))
+        || ((ability2 == ABILITY_CHLOROPHYLL) && (weather & FIELD_CONDITION_SUN_ALL))
+        || ((ability2 == ABILITY_SAND_RUSH) && (weather & FIELD_CONDITION_SANDSTORM_ALL))
+        || ((ability2 == ABILITY_SLUSH_RUSH) && (weather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL)))) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
@@ -1030,14 +1030,14 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client1].species == SPECIES_DITTO)
         // Not transformed
-        && !(sp->battlemon[client1].condition2 & STATUS2_TRANSFORMED)) {
+        && !(sp->battlemon[client1].condition2 & STATUS2_TRANSFORM)) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
     if ((hold_effect2 == HOLD_EFFECT_DITTO_SPEED_UP)
         && (sp->battlemon[client2].species == SPECIES_DITTO)
         // Not transformed
-        && !(sp->battlemon[client2].condition2 & STATUS2_TRANSFORMED)) {
+        && !(sp->battlemon[client2].condition2 & STATUS2_TRANSFORM)) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
@@ -1199,7 +1199,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     // Step 14: Trick Room
 
-    if (sp->field_condition & FIELD_STATUS_TRICK_ROOM) {
+    if (sp->field_condition & FIELD_CONDITION_TRICK_ROOM) {
         speed1 = 10000 - speed1;
         speed2 = 10000 - speed2;
     }
@@ -1556,7 +1556,7 @@ int CalcCritical(void *bw, struct BattleStruct *sp, int attacker, int defender, 
         if ((MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_BATTLE_ARMOR) == FALSE)
             && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_SHELL_ARMOR) == FALSE)
             && ((side_condition & SIDE_STATUS_LUCKY_CHANT) == 0)
-            && ((move_effect & MOVE_EFFECT_NO_CRITICAL_HITS) == 0)) {
+            && ((move_effect & MOVE_EFFECT_FLAG_NO_CRITICAL) == 0)) {
             multiplier = 2;
         }
     }
@@ -1642,13 +1642,13 @@ void ServerHPCalc(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
         internalFunc(bsys, ctx);
         ctx->damageForSpreadMoves[ctx->defence_client] = ctx->damage;
-        ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = ctx->waza_status_flag | (cachedMoveStatus & WAZA_STATUS_FLAG_CRITICAL);
+        ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = ctx->waza_status_flag | (cachedMoveStatus & MOVE_STATUS_CRITICAL_HIT);
         if (ctx->damage) {
             didDmg = TRUE;
         }
     }
 
-    // TODO: refactor SUB_SEQ_HP_CHANGE so it batches HP changes for spread moves too?
+    // TODO: refactor BATTLE_SUBSCRIPT_HP_CHANGE so it batches HP changes for spread moves too?
     //   else just call batch update subscript here if spread move
     ctx->server_seq_no = CONTROLLER_COMMAND_29;
     ctx->next_server_seq_no = CONTROLLER_COMMAND_29;
@@ -1984,9 +1984,9 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
 
     if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_WONDER_GUARD) == TRUE)
         && (ShouldDelayTurnEffectivenessChecking(sp, move_no)) // check supereffectiveness later, 2-turn move
-        && (((flag[0] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE) == 0) || ((flag[0] & (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE)) == (MOVE_STATUS_FLAG_SUPER_EFFECTIVE | MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE)))
+        && (((flag[0] & MOVE_STATUS_SUPER_EFFECTIVE) == 0) || ((flag[0] & (MOVE_STATUS_SUPER_EFFECTIVE | MOVE_STATUS_NOT_VERY_EFFECTIVE)) == (MOVE_STATUS_SUPER_EFFECTIVE | MOVE_STATUS_NOT_VERY_EFFECTIVE)))
         && (base_power)) {
-        flag[0] |= MOVE_STATUS_FLAG_MISS_WONDER_GUARD;
+        flag[0] |= MOVE_STATUS_WONDER_GUARD_IMMUNE;
         if (IsAttackerOnField(sp)) {
             sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
             sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
@@ -1995,8 +1995,8 @@ int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int 
         if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0)
             && ((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_NONE) == 0)) {
         } else {
-            flag[0] &= ~(MOVE_STATUS_FLAG_SUPER_EFFECTIVE);
-            flag[0] &= ~(MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE);
+            flag[0] &= ~(MOVE_STATUS_SUPER_EFFECTIVE);
+            flag[0] &= ~(MOVE_STATUS_NOT_VERY_EFFECTIVE);
         }
     }
 
@@ -2045,8 +2045,8 @@ BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, Batt
 
     battlerIdAbility = CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP);
     if (battlerIdAbility) {
-        if (!(sp->field_condition & FIELD_STATUS_GRAVITY) && item != HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
-            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE 
+        if (!(sp->field_condition & FIELD_CONDITION_GRAVITY) && item != HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
+            if (GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
                 && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
                 && !sp->battlemon[battlerId].moveeffect.magnetRiseTurns && !HasType(sp, battlerId, TYPE_FLYING)) {
                 if (msg == NULL) {
@@ -2120,12 +2120,12 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId)
         ret = TRUE;
     }
 
-    if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE 
+    if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
         && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
              && sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
              && !HasType(sp, battlerId, TYPE_FLYING))
             || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SPEED_DOWN_GROUNDED
-            || (sp->field_condition & FIELD_STATUS_GRAVITY))
+            || (sp->field_condition & FIELD_CONDITION_GRAVITY))
         && CheckSideAbility(bw, sp, CHECK_ABILITY_OPPOSING_SIDE_HP, battlerId, ABILITY_ARENA_TRAP)) {
         ret = TRUE;
     }
@@ -2320,7 +2320,7 @@ BOOL LONG_CALL IsBannedParentalBondMove(u32 moveIndex)
 BOOL LONG_CALL IsBannedSpreadMoveForParentalBond(void *bw, struct BattleStruct *sp, u32 moveIndex)
 {
     // no need to check moves if it is a single battle
-    if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI)) == 0) {
+    if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI)) == 0) {
         return FALSE;
     }
 
@@ -2637,7 +2637,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     // toxic when used by a poison type
     if (move == MOVE_TOXIC
         && HasType(sp, battlerIdAttacker, TYPE_POISON)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
         return TRUE;
     }
 
@@ -2646,7 +2646,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
                 && sp->battlemon[battlerIdTarget].moveeffect.battlerIdLockOn == battlerIdAttacker)
             || GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD
             || GetBattlerAbility(sp, battlerIdTarget) == ABILITY_NO_GUARD)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
         return TRUE;
     }
 
@@ -2654,29 +2654,29 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
     // TODO: modernise flow and Handle Pursuit
 
     if (sp->moveTbl[move].accuracy == 0) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
         return TRUE;
     }
 
-    if ((weather & WEATHER_RAIN_ANY)
+    if ((weather & FIELD_CONDITION_RAIN_ALL)
         && ((sp->moveTbl[move].effect == MOVE_EFFECT_THUNDER)
             || (sp->moveTbl[move].effect == MOVE_EFFECT_HURRICANE)
             || (sp->moveTbl[move].effect == MOVE_EFFECT_BLEAKWIND_STORM)
             || (sp->moveTbl[move].effect == MOVE_EFFECT_WILDBOLT_STORM)
             || (sp->moveTbl[move].effect == MOVE_EFFECT_SANDSEAR_STORM))) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
         return TRUE;
     }
     // Blizzard is 100% accurate in Snow also
-    if (weather & (WEATHER_HAIL_ANY | WEATHER_SNOW_ANY) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+    if (weather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL) && sp->moveTbl[move].effect == MOVE_EFFECT_BLIZZARD) {
+        sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
         return TRUE;
     }
 
-    if (sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZED
+    if (sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZE
         && !sp->battlemon[battlerIdTarget].is_currently_dynamaxed
         && IsMoveInMinimizeVulnerabilityMovesList(move)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_MISS;
+        sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
         return TRUE;
     }
 
@@ -2840,7 +2840,7 @@ int LONG_CALL IsMoveSpreadMove(struct BattleSystem *bsys, struct BattleStruct *c
             && ctx->terrainOverlay.numberOfTurnsLeft > 0
             && ctx->terrainOverlay.type == PSYCHIC_TERRAIN
             && IsClientGrounded(ctx, ctx->attack_client))) {
-        return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI);
+        return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI);
     }
     return FALSE;
 }
@@ -2848,14 +2848,14 @@ int LONG_CALL IsMoveSpreadMove(struct BattleSystem *bsys, struct BattleStruct *c
 int LONG_CALL IsTargetFoesAndAlly(struct BattleSystem *bsys, struct BattleStruct *ctx, int move)
 {
     if (ctx->moveTbl[move].target == RANGE_ALL_ADJACENT) {
-        return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI);
+        return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI);
     }
     return FALSE;
 }
 int LONG_CALL IsTargetSelfAndAlly(struct BattleSystem *bsys, struct BattleStruct *ctx UNUSED, int move)
 {
     if (move == MOVE_HOWL || move == MOVE_LIFE_DEW) {
-        return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI);
+        return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI);
     }
     return FALSE;
 }
@@ -2867,7 +2867,7 @@ int LONG_CALL IsTargetFoes(struct BattleSystem *bsys, struct BattleStruct *ctx, 
             && ctx->terrainOverlay.numberOfTurnsLeft > 0
             && ctx->terrainOverlay.type == PSYCHIC_TERRAIN
             && IsClientGrounded(ctx, ctx->attack_client))) {
-        return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLE | BATTLE_TYPE_MULTI);
+        return BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI);
     }
     return FALSE;
 }
@@ -2886,7 +2886,7 @@ int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct 
             FALLTHROUGH;
         case SPREAD_MOVE_LOOP_OPPONENT_LEFT:
             ctx->clientLoopForSpreadMoves++;
-            if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index)) 
+            if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))
                 && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client))) {
                 ctx->defence_client = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
                 return TRUE;
@@ -2894,7 +2894,7 @@ int LONG_CALL CanGetNextDefender(struct BattleSystem *bsys, struct BattleStruct 
             FALLTHROUGH;
         case SPREAD_MOVE_LOOP_OPPONENT_RIGHT:
             ctx->clientLoopForSpreadMoves++;
-            if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index)) 
+            if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))
                 && IsValidMoveTarget(ctx, BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client))) {
                 ctx->defence_client = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
                 return TRUE;
@@ -2926,7 +2926,7 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem *bsys, struct BattleS
                 }
             }
 
-            if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index)) 
+            if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))
                 && IsValidMoveTarget(ctx, oppLeft)) {
                 if (CheckSubstitute(ctx, oppLeft) == TRUE) {
                     ctx->moveContext.hitSubstitute[ctx->moveContext.hitSubstituteCount] = oppLeft;
@@ -2937,7 +2937,7 @@ void LONG_CALL SetupCurrentMoveContext(struct BattleSystem *bsys, struct BattleS
                 }
             }
 
-            if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index)) 
+            if ((IsTargetFoes(bsys, ctx, ctx->current_move_index) || IsTargetFoesAndAlly(bsys, ctx, ctx->current_move_index))
                 && IsValidMoveTarget(ctx, oppRight)) {
                 if (CheckSubstitute(ctx, oppRight) == TRUE) {
                     ctx->moveContext.hitSubstitute[ctx->moveContext.hitSubstituteCount] = oppRight;
@@ -2975,7 +2975,7 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
         // ctx->server_seq_no = CONTROLLER_COMMAND_26;
         ctx->server_seq_no = CONTROLLER_COMMAND_35;
     } else if (effect == MOVE_EFFECT_HIT_IN_3_TURNS && ctx->futureSightHitTurn == TRUE) {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_FUTURE_SIGHT_DAMAGE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FUTURE_SIGHT_DAMAGE);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
     } else {
@@ -2994,7 +2994,7 @@ void LONG_CALL ov12_0224C678(struct BattleSystem *bsys, struct BattleStruct *ctx
     ctx->damageForSpreadMoves[ctx->defence_client] = ctx->damage;
     ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = ctx->waza_status_flag;
     if (ctx->critical > 1) {
-        ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] |= WAZA_STATUS_FLAG_CRITICAL;
+        ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] |= MOVE_STATUS_CRITICAL_HIT;
     }
 
     if (CanGetNextDefender(bsys, ctx) == TRUE) {
@@ -3010,7 +3010,7 @@ void LONG_CALL ov12_0224C678(struct BattleSystem *bsys, struct BattleStruct *ctx
         ctx->server_seq_no = CONTROLLER_COMMAND_HP_CALC;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_HP_CALC;
     } else {
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_TRY_MOVE);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_USE_MOVE);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_HP_CALC;
         if (effect == MOVE_EFFECT_HIT_IN_3_TURNS && ctx->futureSightHitTurn == FALSE) {
@@ -3045,7 +3045,7 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
 #endif
 
     if (ctx->multiHitCountTemp != 0) {
-        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_FLAG_FURY_CUTTER_MISS)) {
+        if (ctx->fainting_client == BATTLER_NONE && !(ctx->battlemon[ctx->attack_client].condition & STATUS_SLEEP) && !(ctx->waza_status_flag & MOVE_STATUS_MULTI_HIT_DISRUPTED)) {
             SCIO_BlankMessage(bsys);
             if (ctx->multiHitCount) {
                 --ctx->multiHitCount;
@@ -3062,7 +3062,7 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
             } else {
                 if (ctx->current_move_index != MOVE_DRAGON_DARTS || ctx->moveConditionsFlags[ctx->attack_client].dragonDartsStatus < DRAGON_DARTS_CAN_DIVERT) {
                     ctx->msg_work = ctx->multiHitCountTemp;
-                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
+                    LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HIT_X_TIMES);
                     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 }
             }
@@ -3091,7 +3091,7 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
             } else {
                 ctx->msg_work = ctx->multiHitCountTemp - ctx->multiHitCount;
             }
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MULTI_HIT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HIT_X_TIMES);
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         }
     }
@@ -3188,24 +3188,24 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
         break;
     case MOVE_WEATHER_BALL:
         if (weather & FIELD_CONDITION_WEATHER) {
-            if (weather & WEATHER_RAIN_ANY) {
+            if (weather & FIELD_CONDITION_RAIN_ALL) {
                 type = TYPE_WATER;
             }
-            if (weather & WEATHER_SANDSTORM_ANY) {
+            if (weather & FIELD_CONDITION_SANDSTORM_ALL) {
                 type = TYPE_ROCK;
             }
-            if (weather & WEATHER_SUNNY_ANY) {
+            if (weather & FIELD_CONDITION_SUN_ALL) {
                 type = TYPE_FIRE;
             }
-            if (weather & WEATHER_HAIL_ANY) {
+            if (weather & FIELD_CONDITION_HAIL_ALL) {
                 type = TYPE_ICE;
             }
             // BUG: If the weather is foggy, then type doesn't get set properly before being returned
             // BUGFIX
-            if (weather & FIELD_STATUS_FOG) {
+            if (weather & FIELD_CONDITION_FOG) {
                 type = TYPE_NORMAL;
             }
-            if (weather & WEATHER_SHADOWY_AURA_ANY) {
+            if (weather & FIELD_CONDITION_SHADOWY_AURA_ALL) {
                 type = TYPE_TYPELESS;
             }
         }
@@ -3934,8 +3934,8 @@ int typeToBerryMapping[18] = {
 BOOL LONG_CALL CanActivateDamageReductionBerry(struct BattleStruct *ctx, int defender)
 {
     if ((GetMoveSplit(ctx, ctx->current_move_index) != SPLIT_STATUS)
-        && (ctx->move_type == TYPE_NORMAL || (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_SUPER_EFFECTIVE))
-        && !(ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_FLAG_OHKO_HIT)) {
+        && (ctx->move_type == TYPE_NORMAL || (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_SUPER_EFFECTIVE))
+        && !(ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_ONE_HIT_KO)) {
         return typeToBerryMapping[ctx->move_type] == GetBattleMonItem(ctx, defender);
     }
     return FALSE;
@@ -3984,21 +3984,20 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
         return ABILITY_NONE;
     }
     ability = ctx->battlemon[battlerId].ability;
-    if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_GASTRO_ACID) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
+    if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_ABILITY_SUPPRESSED) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
-    } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
+    } else if ((ctx->field_condition & FIELD_CONDITION_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
         return ABILITY_NONE;
-    } else if ((ctx->field_condition & FIELD_STATUS_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
+    } else if ((ctx->field_condition & FIELD_CONDITION_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
         return ABILITY_BEAST_BOOST;
     } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
         return ABILITY_NONE;
     } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
         return ABILITY_BEAST_BOOST;
-    } else if (AbilityNoTransform(ctx->battlemon[battlerId].ability) && (ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORMED)) {
+    } else if (AbilityNoTransform(ctx->battlemon[battlerId].ability) && (ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORM)) {
         return ABILITY_NONE;
-    } else {
-        return ability;
     }
+    return ability;
 }
 
 /// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
@@ -4185,7 +4184,7 @@ BOOL LONG_CALL IsAnyBattleMonHit(struct BattleSystem *bsys, struct BattleStruct 
 
 BOOL LONG_CALL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type)
 {
-    return (GetWeather(bw, sp, sp->attack_client) & WEATHER_STRONG_WINDS) && (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) && defender_type == TYPE_FLYING;
+    return (GetWeather(bw, sp, sp->attack_client) & FIELD_CONDITION_STRONG_WINDS) && (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) && defender_type == TYPE_FLYING;
 }
 
 const u8 HGTypeToInternalType[] = {
@@ -4267,9 +4266,10 @@ void BattleSystem_SetCriticalHpMusicFlag(struct BattleSystem *battleSystem, u8 f
 BOOL LONG_CALL GetTypeEffectivenessData(struct BattleSystem *bsys, int index, u8 *typeMove, u8 *typeMon, u8 *eff)
 {
     BOOL ret = TRUE;
+    s32 entries = TypeEffectivenessTable_GetTotalEntries();
 
-    if (index >= TYPE_EFFECTIVENESS_ENTRIES) {
-        index = BattleRand(bsys) % TYPE_EFFECTIVENESS_ENTRIES;
+    if (index >= entries) {
+        index = BattleRand(bsys) % entries;
         ret = FALSE;
     }
 
@@ -4340,7 +4340,7 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
     } else if (moveRange == RANGE_SINGLE_TARGET_USER_SIDE && (a4 == 1)) {
         int battleType = BattleTypeGet(bw);
 
-        if ((battleType & BATTLE_TYPE_DOUBLE) && (BattleRand(bw) % 2) == 0) {
+        if ((battleType & BATTLE_TYPE_DOUBLES) && (BattleRand(bw) % 2) == 0) {
             battlerIdTarget = BATTLER_ALLY(battlerIdAttacker);
             if (!ctx->battlemon[battlerIdTarget].hp) {
                 battlerIdTarget = battlerIdAttacker;
@@ -4357,7 +4357,7 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
     } else if (moveRange == RANGE_ALLY) {
         int battleType = BattleTypeGet(bw);
 
-        if (battleType & BATTLE_TYPE_DOUBLE) {
+        if (battleType & BATTLE_TYPE_DOUBLES) {
             battlerIdTarget = BATTLER_ALLY(battlerIdAttacker);
         } else {
             battlerIdTarget = battlerIdAttacker;
@@ -4365,7 +4365,7 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
     } else if (moveRange == RANGE_SINGLE_TARGET_USER_SIDE) {
         int battleType = BattleTypeGet(bw);
 
-        if (battleType & BATTLE_TYPE_DOUBLE) {
+        if (battleType & BATTLE_TYPE_DOUBLES) {
             battlerIdTarget = ctx->playerActions[battlerIdAttacker][1]; //.unk4
             if (!ctx->battlemon[battlerIdTarget].hp) {
                 battlerIdTarget = battlerIdAttacker;
@@ -4381,7 +4381,7 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
         battlerIdOpponents[0] = ov12_0223ABB8(bw, battlerIdAttacker, 0);
         battlerIdOpponents[1] = ov12_0223ABB8(bw, battlerIdAttacker, 2);
 
-        if (battleType & BATTLE_TYPE_DOUBLE) {
+        if (battleType & BATTLE_TYPE_DOUBLES) {
             if (ctx->current_move_index != MOVE_SNIPE_SHOT
                 && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_PROPELLER_TAIL)
                 && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_STALWART)
@@ -4429,7 +4429,7 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
 void LONG_CALL HandleTransform(struct BattleStruct *sp)
 {
     // fuck it get rid of transform script command:
-    sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORMED;
+    sp->battlemon[sp->attack_client].condition2 |= STATUS2_TRANSFORM;
     sp->battlemon[sp->attack_client].moveeffect.disabledMove = 0;
     sp->battlemon[sp->attack_client].moveeffect.disabledTurns = 0;
     sp->battlemon[sp->attack_client].moveeffect.transformPid = sp->battlemon[sp->defence_client].personal_rnd;

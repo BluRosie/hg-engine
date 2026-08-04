@@ -1,22 +1,22 @@
-#include "../../include/types.h"
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/debug.h"
-#include "../../include/mega.h"
-#include "../../include/overlay.h"
-#include "../../include/pokemon.h"
-#include "../../include/save.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/constants/weather_numbers.h"
-#include "../../include/q412.h"
+#include "types.h"
+#include "battle.h"
+#include "config.h"
+#include "debug.h"
+#include "mega.h"
+#include "overlay.h"
+#include "pokemon.h"
+#include "save.h"
+#include "constants/ability.h"
+#include "constants/battle_script_constants.h"
+#include "constants/battle_message_constants.h"
+#include "constants/file.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "constants/weather_numbers.h"
+#include "q412.h"
 
 u32 get_shake_chance(int input_value);
 
@@ -60,7 +60,7 @@ u32 __attribute__((section (".init"))) CalculateBallShakesInternal(void *bw, str
     int badges, missingBadges;
     BOOL isCriticalCatch = FALSE;
 
-    if (BattleTypeGet(bw) & (BATTLE_TYPE_PAL_PARK | BATTLE_TYPE_CATCHING_DEMO)) // poke park and safari zone always succeed
+    if (BattleTypeGet(bw) & (BATTLE_TYPE_PAL_PARK | BATTLE_TYPE_TUTORIAL)) // poke park and safari zone always succeed
     {
         return 4;
     }
