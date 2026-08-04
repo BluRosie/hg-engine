@@ -3688,7 +3688,7 @@ void LONG_CALL InitFaintedWork(struct BattleSystem *bsys, struct BattleStruct *c
  */
 BOOL LONG_CALL IsAnyBattleMonHit(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
-int GetSanitisedType(int type);
+int LONG_CALL GetSanitisedType(int type);
 
 BOOL LONG_CALL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
