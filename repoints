@@ -36,10 +36,6 @@ arm9 sPocketCounts 08077C14
 0012 TypeEffectivenessTable+2 02252648
 0012 TypeEffectivenessTable 02252694
 
-# metronome and mimic banlist
-0012 sMetronomeMimicMoveBanList 02257D9C
-0012 sMetronomeMimicMoveBanList 02257DF4
-
 # item use func table
 arm9 sItemFieldUseFuncs 020649AC
 arm9 sItemFieldUseFuncs+4 020649B0

@@ -100,6 +100,10 @@ arm9 CreateStarterMon_hook 020960E6 1
 #choose target from input
 0012 ov12_022506D4 022506D4
 
+0012 CheckLegalMimicMove 02257D6C 1
+0012 CheckLegalMetronomeMove 02257DA4 4
+
+
 #battle script command hooks
 #0223E568
 0012 btl_scr_cmd_24_jumptocurmoveeffectscript 08006CA8 3
@@ -156,6 +160,7 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_MagicCoat 02242CDC 3
 0012 BtlCmd_TryFeint 02243D20 3
 0012 BtlCmd_TryPerishSong 02241A04 3
+0012 BtlCmd_Metronome 0224089C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -545,9 +550,6 @@ arm9 CreateHeapInternal_hook 0201A92C 4
 arm9 DestroyHeap_hook 0201AA24 3
 
 #endif
-
-# expand metronome move pool
-0012 load_max_move_num_metronome 022408AC 0
 
 arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
 arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
