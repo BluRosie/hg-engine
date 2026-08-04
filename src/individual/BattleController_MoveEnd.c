@@ -1,19 +1,19 @@
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/debug.h"
-#include "../../include/pokemon.h"
-#include "../../include/test_battle.h"
-#include "../../include/types.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/battle_message_constants.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/constants/file.h"
-#include "../../include/overlay.h"
+#include "battle.h"
+#include "config.h"
+#include "debug.h"
+#include "pokemon.h"
+#include "test_battle.h"
+#include "types.h"
+#include "constants/ability.h"
+#include "constants/hold_item_effects.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "constants/file.h"
+#include "overlay.h"
 
 /**
  * Platinum version as reference
@@ -32,7 +32,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->defence_client = ctx->pursuitContext.originalDefender;
         if (ctx->current_move_index == MOVE_PURSUIT
             && ctx->battlemon[ctx->reshuffle_client].hp) {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_CLEAR_AFTER_PURSUIT);
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CLEAR_AFTER_PURSUIT);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_BEFORE_TURN;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
             return;
@@ -41,7 +41,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
 
     if (ctx->magicBounceContext.bounceCounter < ctx->magicBounceContext.bounceMaxCounter) {
         ctx->defence_client = ctx->magicBounceContext.bounceClients[ctx->magicBounceContext.bounceCounter];
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, SUB_SEQ_MAGIC_COAT);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MAGIC_COAT);
         ctx->next_server_seq_no = CONTROLLER_COMMAND_23;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return;

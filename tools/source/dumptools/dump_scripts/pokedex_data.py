@@ -150,17 +150,14 @@ AREA_BANKS = [
 
 
 def _lookup_constant_value(name):
-    for group in MONS.values():
-        if not isinstance(group, dict):
-            continue
-        for value, constant_name in group.items():
-            if constant_name == name:
-                return value
+    for value, constant_name in MONS.items():
+        if constant_name == name:
+            return value
     raise ValueError(f"Unable to find constant value for {name}")
 
 
-POKEDEX_AREA_BANK_STRIDE = _lookup_constant_value("NUM_OF_MONS")
-POKEDEX_AREA_SPECIES_COUNT = _lookup_constant_value("MAX_CANONICAL_MON_NUM") + 1
+POKEDEX_AREA_BANK_STRIDE = _lookup_constant_value("SPECIES_MAX_MON_NUM")
+POKEDEX_AREA_SPECIES_COUNT = POKEDEX_AREA_BANK_STRIDE + 1
 POKEDEX_AREA_USED_MEMBER_COUNT = POKEDEX_AREA_BASE_MEMBER_COUNT + len(AREA_BANKS) * POKEDEX_AREA_BANK_STRIDE
 
 

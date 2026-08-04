@@ -1,25 +1,25 @@
-#include "../include/pokemon.h"
+#include "types.h"
+#include "pokemon.h"
 
-#include "../include/bag.h"
-#include "../include/battle.h"
-#include "../include/config.h"
-#include "../include/constants/ability.h"
-#include "../include/constants/file.h"
-#include "../include/constants/game.h"
-#include "../include/constants/generated/learnsets.h"
-#include "../include/constants/hold_item_effects.h"
-#include "../include/constants/item.h"
-#include "../include/constants/moves.h"
-#include "../include/constants/sndseq.h"
-#include "../include/constants/species.h"
-#include "../include/constants/weather_numbers.h"
-#include "../include/debug.h"
-#include "../include/overlay.h"
-#include "../include/rtc.h"
-#include "../include/save.h"
-#include "../include/script.h"
-#include "../include/sound.h"
-#include "../include/types.h"
+#include "bag.h"
+#include "battle.h"
+#include "config.h"
+#include "constants/ability.h"
+#include "constants/file.h"
+#include "constants/game.h"
+#include "constants/generated/learnsets.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/sndseq.h"
+#include "constants/species.h"
+#include "constants/weather_numbers.h"
+#include "debug.h"
+#include "overlay.h"
+#include "rtc.h"
+#include "save.h"
+#include "script.h"
+#include "sound.h"
 
 extern u32 word_to_store_form_at;
 // [preevo] = {species, form}, [postevo] = {species, form},
@@ -156,7 +156,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
  */
 u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 {
-    if (mons_no > MAX_MON_NUM)
+    if (mons_no > SPECIES_MAX_MON_NUM)
     {
         ReadFromNarcMemberByIdPair(&mons_no, ARC_CODE_ADDONS, CODE_ADDON_FORM_SPECIES_MAPPING, sizeof(u16) * (mons_no - SPECIES_MEGA_START), sizeof(u16));
     }
@@ -172,7 +172,7 @@ u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no)
 {
     u32 ret = 0;
-    if (mons_no > MAX_MON_NUM) {
+    if (mons_no > SPECIES_MAX_MON_NUM) {
         u16 oldSpecies = GetBaseSpeciesFromAdjustedForm(mons_no);
         u16 formTable[32]; // right on stack so do not have to free this
         ReadFromNarcMemberByIdPair(formTable, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (oldSpecies * 32), sizeof(u16) * 32);
@@ -1609,7 +1609,8 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     ResetPartyPokemonAbility(pokemon);
 }
 
-#define CRY_SPECIES_FORMS_BASE (MAX_MON_NUM + 1)
+
+#define CRY_SPECIES_FORMS_BASE (SPECIES_MAX_MON_NUM+1)
 
 // need to be in order of form so that python script can generate the makefile
 #define CRY_SPECIES_SHAYMIN 0x1EE
@@ -1704,7 +1705,7 @@ u32 GrabCryNumSpeciesForm(u32 species, u32 form)
     // debug_printf("[GrabCryNumSpeciesForm] species = %d, form = %d\n", species, form)
 
     // battles are fucking stupid and pass in species already adjusted for form.  need to revert to base species and extract form
-    if (species > MAX_MON_NUM) {
+    if (species > SPECIES_MAX_MON_NUM) {
         // if form-adjusted species is passed in, no need to call it to grab it again
         newSpecies = species;
         form = GetFormFromAdjustedForm(species);

@@ -1,12 +1,7 @@
 .include "armips/include/config.s"
 .include "armips/include/constants.s"
 .include "armips/include/generated/levelup.s"
-
-// standard assembler includes
-.include "asm/include/abilities.inc"
-.include "asm/include/items.inc"
-.include "asm/include/moves.inc"
-.include "asm/include/species.inc"
+.include "armips/include/generated/species.s" // just need NUM_OF_MONS
 
 .include "armips/asm/abilities.s" // ability expansion
 .include "armips/asm/moves.s" // repoints all the move table defines within the structure

@@ -1,17 +1,17 @@
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/debug.h"
-#include "../../include/overlay.h"
-#include "../../include/pokemon.h"
-#include "../../include/q412.h"
-#include "../../include/types.h"
+#include "types.h"
+#include "battle.h"
+#include "config.h"
+#include "constants/ability.h"
+#include "constants/file.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "debug.h"
+#include "overlay.h"
+#include "pokemon.h"
+#include "q412.h"
 
 // function declarations
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
@@ -161,7 +161,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         damageCalc.clients[attacker].type2 = GetMonData(pp, MON_DATA_TYPE_2, 0);
         damageCalc.clients[attacker].type3 = TYPE_TYPELESS;
         damageCalc.clients[attacker].isGrounded = TRUE;
-        if ((damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING)) //&& !(sp->field_condition & FIELD_STATUS_GRAVITY)) //unknown
+        if ((damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING)) //&& !(sp->field_condition & FIELD_CONDITION_GRAVITY)) //unknown
         {
             damageCalc.clients[attacker].isGrounded = FALSE;
         }
@@ -254,9 +254,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         // Mimikyu or Mimikyu-Large
         && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
         // Not transformed
-        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORM)) {
+        sp->waza_status_flag &= ~MOVE_STATUS_SUPER_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_NOT_VERY_EFFECTIVE;
         sp->damage = 0;
         return;
     }
@@ -265,10 +265,10 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         && (sp->battlemon[defender].species == SPECIES_EISCUE)
         && (sp->battlemon[defender].form_no == 0)
         // Not transformed
-        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORM)
         && (movesplit == SPLIT_PHYSICAL)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_SUPER_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_NOT_VERY_EFFECTIVE;
         sp->damage = 0;
         return;
     }
@@ -314,11 +314,11 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         }
     }
 
-    if ((battle_type & BATTLE_TYPE_DOUBLE) && IsTargetFoes(bw, sp, moveno) && (numTargetedFoes >= 2)) {
+    if ((battle_type & BATTLE_TYPE_DOUBLES) && IsTargetFoes(bw, sp, moveno) && (numTargetedFoes >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
-    if ((battle_type & BATTLE_TYPE_DOUBLE) && IsTargetFoesAndAlly(bw, sp, moveno) && (numTargetedAll >= 2)) {
+    if ((battle_type & BATTLE_TYPE_DOUBLES) && IsTargetFoesAndAlly(bw, sp, moveno) && (numTargetedAll >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
@@ -368,7 +368,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 
     // 6.3 Weather Modifier
 
-    if (weather & WEATHER_RAIN_ANY) {
+    if (weather & FIELD_CONDITION_RAIN_ALL) {
         switch (type) {
         case TYPE_FIRE:
             damage = QMul_RoundDown(damage, UQ412__0_5);
@@ -379,7 +379,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         }
     }
 
-    if (weather & WEATHER_SUNNY_ANY) {
+    if (weather & FIELD_CONDITION_SUN_ALL) {
         switch (type) {
         case TYPE_FIRE:
             damage = QMul_RoundDown(damage, UQ412__1_5);
@@ -583,20 +583,20 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
     // 6.9.14 Doubled-damage moves
 
     // 6.9.14.1 Minimize
-    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZED
+    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZE
         && !sp->battlemon[defender].is_currently_dynamaxed
         && IsMoveInMinimizeVulnerabilityMovesList(moveno)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.2 Dig
-    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING
+    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIG
         && moveno == MOVE_EARTHQUAKE) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.3 Dive
-    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING
+    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIVE
         && (moveno == MOVE_SURF || moveno == MOVE_WHIRLPOOL)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
@@ -637,7 +637,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         && (sp->critical == 1)
         && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
         && (attackerAbility != ABILITY_INFILTRATOR)) {
-        if (battle_type & BATTLE_TYPE_DOUBLE) {
+        if (battle_type & BATTLE_TYPE_DOUBLES) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_6666);
         } else {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -649,7 +649,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         && (sp->critical == 1)
         && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
         && (attackerAbility != ABILITY_INFILTRATOR)) {
-        if (battle_type & BATTLE_TYPE_DOUBLE) {
+        if (battle_type & BATTLE_TYPE_DOUBLES) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_6666);
         } else {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
