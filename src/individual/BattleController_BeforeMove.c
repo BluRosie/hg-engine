@@ -634,8 +634,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
             && (ctx->battlemon[ctx->attack_client].ability == ABILITY_PROTEAN || ctx->battlemon[ctx->attack_client].ability == ABILITY_LIBERO)
             // If the type is not typeless (Struggle)
             && (type != TYPE_TYPELESS)
-            // If any active type is not the move's type
-            && (!HasType(ctx, ctx->attack_client, type))
+            && (!IsPureType(ctx, ctx->attack_client, type))
             // Protean cannot activate if the client is Terastallized
             && (!ctx->battlemon[ctx->attack_client].is_currently_terastallized)
             // Protean should activate only once per switch-in if gen 9 behavior
