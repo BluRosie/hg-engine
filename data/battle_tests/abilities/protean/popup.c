@@ -2,8 +2,8 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_SINGLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_TRAINER,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
@@ -45,8 +45,8 @@ BEGIN_TEST
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
                           { ACTION_MOVE_SLOT_3, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -66,7 +66,7 @@ BEGIN_TEST
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,13 +83,15 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Greninja!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Protean" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Protean" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Protean made it the Water type!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja used Surf!" },
+#if PROTEAN_GENERATION < 9
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Protean" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja's Protean made it the Poison type!" },
+#endif
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Greninja used Toxic!" },
     }
 }

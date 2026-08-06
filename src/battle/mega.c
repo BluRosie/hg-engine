@@ -1,13 +1,13 @@
-#include "../../include/types.h"
-#include "../../include/battle.h"
-#include "../../include/pokemon.h"
-#include "../../include/mega.h"
-#include "../../include/sprite.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
+#include "types.h"
+#include "battle.h"
+#include "pokemon.h"
+#include "mega.h"
+#include "sprite.h"
+#include "constants/ability.h"
+#include "constants/item.h"
+#include "constants/file.h"
+#include "constants/moves.h"
+#include "constants/species.h"
 
 struct MegaStruct
 {
@@ -686,7 +686,7 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
         moves[i] = GetMonData(pp, MON_DATA_MOVE1+i, NULL);
 
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
-    if (form_no || (bip->bw->sp->battlemon[bip->client_no].condition2 & STATUS2_TRANSFORMED)) // can not draw mega button if form is nonzero.  only base form can mega evolve
+    if (form_no || (bip->bw->sp->battlemon[bip->client_no].condition2 & STATUS2_TRANSFORM)) // can not draw mega button if form is nonzero.  only base form can mega evolve
         return FALSE;
 
     return (CheckMegaData(mon, item) || CheckMegaMoveData(mon, moves));

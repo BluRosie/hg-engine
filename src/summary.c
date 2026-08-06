@@ -193,7 +193,7 @@ u16 ModifyStatByNature(u32 nature, u16 n, u8 statIndex) {
     u32 retVal;
 
     // Dont modify HP, Accuracy, or Evasion by nature
-    if (statIndex < STAT_ATTACK || statIndex > STAT_SPDEF) {
+    if (statIndex < STAT_ATTACK || statIndex > STAT_SPECIAL_DEFENSE) {
         return n;
     }
 

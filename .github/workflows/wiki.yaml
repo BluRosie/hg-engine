@@ -1,0 +1,59 @@
+name: Sync GitHub Wiki
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "documentation/wiki/**"
+      - ".github/workflows/wiki.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: sync-github-wiki
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    if: ${{ github.repository == 'BluRosie/hg-engine' }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository (default branch, full history)
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+          fetch-depth: 0
+
+      - name: Clone wiki
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          git clone \
+            "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.wiki.git" \
+            /tmp/wiki
+
+      - name: Replace wiki contents
+        run: |
+          find /tmp/wiki -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+          cp -a documentation/wiki/. /tmp/wiki/
+
+      - name: Commit and push
+        working-directory: /tmp/wiki
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add --all
+
+          if git diff --cached --quiet; then
+            echo "Wiki is already up to date."
+            exit 0
+          fi
+
+          git commit -m "Sync wiki from ${GITHUB_SHA}"
+          git push origin HEAD
