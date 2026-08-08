@@ -50,12 +50,11 @@ void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
             // victory pose for player side mons
             for (u32 i = BATTLER_PLAYER; i <= BATTLER_PLAYER2; i += 2) {
                 if (ShouldPlayVictoryPoseForBattler(battleSystem, battleCtx, i)) {
-                    Pokepic *pokepic = &monSpriteMan->pics[i];
-                    Pokepic_StartAnim(pokepic);
+                    Pokepic_StartAnim(&monSpriteMan->pics[i]);
                     sub_0207294C(
                         narc,
                         monAnimMan,
-                        pokepic,
+                        &monSpriteMan->pics[i],
                         battleCtx->battlemon[i].species,
                         0,
                         FALSE,
@@ -67,14 +66,13 @@ void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
             // victory pose for enemy side mons
             for (u32 i = BATTLER_ENEMY; i <= BATTLER_ENEMY2; i += 2) {
                 if (ShouldPlayVictoryPoseForBattler(battleSystem, battleCtx, i)) {
-                    Pokepic *pokepic = &monSpriteMan->pics[i];
-                    Pokepic_StartAnim(pokepic);
+                    Pokepic_StartAnim(&monSpriteMan->pics[i]);
                     sub_0207294C(
                         narc,
                         monAnimMan,
-                        pokepic,
+                        &monSpriteMan->pics[i],
                         battleCtx->battlemon[i].species,
-                        1,
+                        2,
                         FALSE,
                         i);
                     PlayCry(battleCtx->battlemon[i].species, battleCtx->battlemon[i].form_no);
