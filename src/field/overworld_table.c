@@ -1725,6 +1725,11 @@ u32 grab_overworld_a081_index(u16 species, u32 form, u32 isFemale)
     } else {
         tag = get_mon_ow_tag(species, form, isFemale);
 
+        if (form != 0 && grab_overworld_ptr(tag)->tag != tag) {
+            // if we reached the failure case, try again but with form 0
+            tag = get_mon_ow_tag(species, 0, isFemale);
+        }
+
         ret = get_a081_index_from_tag(tag);
     }
 

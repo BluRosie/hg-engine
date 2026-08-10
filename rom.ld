@@ -150,6 +150,7 @@ CopyWindowToVram = 0x0201D578 |1;
 
 /*ItemUse*/
 SetUpItemScript = 0x02064A8C |1;
+sItemFieldUseFuncs = 0x020FE264;
 
 /*OAM*/
 OAM_LoadResourceCharArcH = 0x0200D504 | 1;
@@ -291,6 +292,7 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 /*Overworld Code*/
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
+ObjectEvent_GetGraphicsInfo = 0x021F92DC | 1;
 /*get_mon_ow_tag = 0x02069D70 | 1;*/
 does_species_have_dimorphism = 0x0206A338 | 1;
 

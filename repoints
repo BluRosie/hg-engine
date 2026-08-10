@@ -52,9 +52,15 @@ arm9 sSwarmMapLUT 02097F94
 arm9 sSwarmMapLUT+2 02097F98
 
 # Trainer Class Money Table
+#ifdef EXPAND_TRAINER_PRIZE_MONEY
 0012 PrizeMoney 08008380
 0012 PrizeMoney+2 08008384
+#endif
+#ifdef EXPAND_TRAINER_GENDER_TABLE
 arm9 sTrainerGenders 020FFB90
+#endif
+
+#ifdef EXPAND_MUSIC_TABLES
 
 # sTrainerEncounterMusicParam
 arm9 sTrainerEncounterMusicParam 020550E0
@@ -68,6 +74,7 @@ arm9 MainMusicComboTable+2 080517E4
 
 # Pokemon battle music table
 arm9 PokemonBattleMusic 080518D4
+#endif
 
 # secret power move effect table
 0012 sSecretPowerEffectTable 0800CBC0

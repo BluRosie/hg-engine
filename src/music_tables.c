@@ -1,3 +1,4 @@
+#include "../include/config.h"
 #include "../include/constants/sndseq.h"
 #include "../include/constants/species.h"
 #include "../include/constants/trainerclass.h"
@@ -5,6 +6,7 @@
 
 // Table seems to combine animation in column 1 with music in column 2, 0xFFFF for no special animation
 
+#ifdef EXPAND_MUSIC_TABLES
 u16 MainMusicComboTable[][2] = {
     [ANIM_MUSIC_COMBO_FALKNER] = { 0xC, SEQ_GS_VS_GYMREADER },
     [ANIM_MUSIC_COMBO_BUGSY] = { 0xD, SEQ_GS_VS_GYMREADER },
@@ -165,3 +167,4 @@ struct TrainerMusic sTrainerEncounterMusicParam[] = // cues which music sequence
         { .class = TRAINERCLASS_EXECUTIVE_PROTON, .music1 = SEQ_GS_EYE_ROCKET, .music2 = SEQ_GS_EYE_ROCKET },
         { .class = TRAINERCLASS_EXECUTIVE_PETREL, .music1 = SEQ_GS_EYE_ROCKET, .music2 = SEQ_GS_EYE_ROCKET },
     };
+#endif // EXPAND_MUSIC_TABLES

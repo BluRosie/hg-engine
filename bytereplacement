@@ -409,6 +409,7 @@ arm9 0204B94C FC
 0012 0224655C FC
 0012 02246560 FC
 
+#ifdef EXPAND_MUSIC_TABLES
 # MainMusicComboTable combo range
 arm9 080517AA 2D
 arm9 080517D4 2D
@@ -422,10 +423,48 @@ arm9 080518CA 0B
 # sTrainerEncounterMusicParam table range
 arm9 080550D4 2C
 
+#else
+
+# Restore MainMusicComboTable
+arm9 080517AA 2D
+arm9 080517D4 2D
+arm9 080517C8 0A C4 0F 02
+arm9 080517E4 0C C4 0F 02
+
+# Restore TrainerClassToMusicCombo
+arm9 08051886 20
+arm9 08051890 CA C3 0F 02
+
+# Restore PokemonBattleMusic
+arm9 080518CA 0B
+arm9 080518D4 B4 C3 0F 02
+
+# Restore sTrainerEncounterMusicParam
+arm9 080550D4 2C
+arm9 020550E0 1C C6 0F 02
+
+#endif
+
+
+#ifdef EXPAND_TRAINER_PRIZE_MONEY
+
 # PrizeMoney table range
 0012 0223FBD0 81
 0012 0223FBD4 81
 0012 0223FBDC 81
+
+#else
+
+# Restore vanilla PrizeMoney table ranges
+0012 0223FBD0 81
+0012 0223FBD4 81
+0012 0223FBDC 81
+
+# Restore vanilla PrizeMoney table pointers
+0012 08008380 C4 C4 26 02
+0012 08008384 C6 C4 26 02
+
+#endif
 
 #ifdef STATIC_HP_BAR
 

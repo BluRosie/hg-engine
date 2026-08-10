@@ -1,3 +1,4 @@
+#include "../include/config.h"
 #include "../include/constants/file.h"
 #include "../include/repel.h"
 #include "../include/roamer.h"
@@ -29,9 +30,11 @@ BOOL Script_RunNewCmd(SCRIPTCONTEXT *ctx)
     return FALSE;
 }
 
+#ifdef EXPAND_ROAMERS
 BOOL LONG_CALL ScrCmd_CreateRoamer(SCRIPTCONTEXT *ctx)
 {
     u8 roamerNo = ScriptReadByte(ctx);
     Save_CreateRoamerByID(ctx->fsys->savedata, roamerNo);
     return FALSE;
 }
+#endif // EXPAND_ROAMERS
