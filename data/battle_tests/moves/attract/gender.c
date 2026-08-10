@@ -1,4 +1,4 @@
-// Test: Attract - Fell in Love, Oblivious
+// Test: Attract - Fell in Love on correct gender
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,10 +8,10 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_SMOOCHUM,
+            .species = SPECIES_NIDOQUEEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_HYDRATION,
+            .ability = ABILITY_POISON_POINT,
             .item = ITEM_IRON_BALL,
             .moves = { MOVE_ATTRACT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -20,10 +20,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_ELEKID,
+            .species = SPECIES_NIDOKING,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_VITAL_SPIRIT,
+            .ability = ABILITY_POISON_POINT,
             .item = ITEM_NONE,
             .moves = { MOVE_ATTRACT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -65,8 +65,8 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -75,8 +75,8 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -86,7 +86,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -96,7 +96,7 @@ BEGIN_TEST
                      },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -105,10 +105,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Elekid used Attract!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Nidorino..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Nidorina..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidoking used Attract!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Nidorina fell in love!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Nidorina is in love with Elekid!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Smoochum used Attract!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Nidorina is in love with Nidoking!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidoqueen used Attract!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Nidorino fell in love!" },
     }
 }
