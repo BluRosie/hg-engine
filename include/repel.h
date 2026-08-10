@@ -2,6 +2,7 @@
 #define REPEL_H
 
 #include "types.h"
+
 #include "save.h"
 #include "script.h"
 

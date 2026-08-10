@@ -3,11 +3,12 @@
 
 #include "config.h"
 // #include "save.h"
+#include "types.h"
+
 #include "constants/pokemon.h"
 
 #include "party_menu.h"
 #include "trainer_data.h"
-#include "types.h"
 #include "window.h"
 
 #define POKEMON_GENDER_MALE    0

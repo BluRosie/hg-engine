@@ -106,6 +106,6 @@
 
 // start of the overworld tags for mon followers - really high value i should never reach
 #define MON_OVERWORLD_TAG_START (2500)
-#define OW_FEMALE_MASK 0x8000
+#define OW_FEMALE_MASK          0x8000
 
 #endif
