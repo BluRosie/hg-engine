@@ -1,10 +1,9 @@
 #include "../include/npc_trade.h"
 
+#include "../include/constants/file.h"
 #include "../include/overlay.h"
 #include "../include/pokemon.h"
 #include "../include/types.h"
-
-#include "../include/constants/file.h"
 
 void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_dat, u32 level, u32 tradeno, u32 mapno, u32 met_level_strat, u32 heapId)
 {
