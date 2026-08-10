@@ -1533,7 +1533,6 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
             && ctx->battlemon[ctx->attack_client].hp
             && ctx->battlemon[ctx->attack_client].item == ITEM_NONE
             && ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS
-            //TODO: && is not Max Move/Z-Move
             && ctx->gemBoostingMove == FALSE)
         {
             for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
