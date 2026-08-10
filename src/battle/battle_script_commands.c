@@ -4687,6 +4687,9 @@ enum {
 #define ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT (-248 + ABILITY_POPUP_TEXTBOX_SLIDE_PX)
 #define ABILITY_POPUP_FRAMES_TO_SHIFT      4
 #define ABILITY_POPUP_PIXELS_PER_FRAME     (ABILITY_POPUP_TEXTBOX_SLIDE_PX / ABILITY_POPUP_FRAMES_TO_SHIFT)
+#define ABILITY_POPUP_VERTICAL_SHIFT_PX    16
+#define ABILITY_POPUP_OVERALL_Y_SHIFT_PX   8
+#define ABILITY_POPUP_PLAYER_Y_SHIFT_PX    5
 
 // continuing from WEATHER_ICON_CELL_ANIM_TAG ...
 #define ABILITY_POPUP_ICON_CHAR_TAG      22060
@@ -4708,6 +4711,9 @@ static void AbilityPopup_SlideIn(void *data)
     int negative = (side == 0 ? -1 : 1);
     int sideShift = (side == 0 ? ABILITY_POPUP_TEXTBOX_PLAYER_SHIFT : 0);
     int edgeOffset = (side == 0 ? 2 : -4);
+    // client and side need some separate adjustments to fit under HP bars in doubles
+    int verticalShift = (work->battler == 0 || work->battler == 3) ? -ABILITY_POPUP_VERTICAL_SHIFT_PX : ABILITY_POPUP_VERTICAL_SHIFT_PX;
+    int bgYOffset = ABILITY_POPUP_VERTICAL_SHIFT_PX - (side == 0 ? ABILITY_POPUP_PLAYER_Y_SHIFT_PX : 0);
 
     switch (work->step) {
     case ABILITY_POPUP_INIT_PALETTE:
@@ -4724,7 +4730,7 @@ static void AbilityPopup_SlideIn(void *data)
         sub_0200E398(bgConfig, 2, 1, 0, HEAPID_BATTLE_HEAP);
 
         // we initially print to the right of the screen where it is not visible at all
-        AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, (side & 1) ? 1 : 8 /*y*/, ABILITY_POPUP_TEXTBOX_WIDTH /*width*/, ABILITY_POPUP_TEXTBOX_HEIGHT /*height*/, abilityPopupPaletteSlot, 9 + 1);
+        AddWindowParameterized(bgConfig, window, 2, 33 /*x*/, ((side & 1) ? 1 : 8) + (verticalShift + ABILITY_POPUP_VERTICAL_SHIFT_PX + ABILITY_POPUP_OVERALL_Y_SHIFT_PX) / 8 /*y*/, ABILITY_POPUP_TEXTBOX_WIDTH /*width*/, ABILITY_POPUP_TEXTBOX_HEIGHT /*height*/, abilityPopupPaletteSlot, 9 + 1);
 
         void *characterFile = GfGfxLoader_GetCharData(7, 362, TRUE, (void **)&characterData, HEAPID_BATTLE_HEAP);
         u8 *source = characterData->pRawData;
@@ -4761,7 +4767,7 @@ static void AbilityPopup_SlideIn(void *data)
         AddTextPrinterParameterizedWithColor(window, 0, bsys->msgBuffer, 3, 0, 0, (15 << 16) | (14 << 8), NULL);
         CopyWindowToVram(window);
         ScheduleBgTilemapBufferTransfer(bgConfig, 2);
-        G2_SetBG2Offset(0, 0);
+        G2_SetBG2Offset(0, bgYOffset);
         work->step++;
     } break;
     case ABILITY_POPUP_SLIDE_IN: {
@@ -4774,7 +4780,7 @@ static void AbilityPopup_SlideIn(void *data)
             if (csp != NULL && crp != NULL && pfd != NULL) {
                 OAMSpriteTemplate iconTemplate = {
                     (work->side & 1) ? 240 : 108,
-                    (work->side & 1) ? 24 : 80,
+                    ((work->side & 1) ? 24 : 80) + verticalShift + ABILITY_POPUP_OVERALL_Y_SHIFT_PX + (side == 0 ? ABILITY_POPUP_PLAYER_Y_SHIFT_PX : 0),
                     0,
                     0,
                     100,
@@ -4807,7 +4813,7 @@ static void AbilityPopup_SlideIn(void *data)
             work->step++;
             work->frames = 0;
         } else {
-            G2_SetBG2Offset(sideShift + negative * (work->frames * ABILITY_POPUP_PIXELS_PER_FRAME) + edgeOffset, 0);
+            G2_SetBG2Offset(sideShift + negative * (work->frames * ABILITY_POPUP_PIXELS_PER_FRAME) + edgeOffset, bgYOffset);
         }
     } break;
     case ABILITY_POPUP_WAIT: {
@@ -4838,7 +4844,7 @@ static void AbilityPopup_SlideIn(void *data)
             work->step++;
             work->frames = 0;
         } else {
-            G2_SetBG2Offset(sideShift + negative * ((ABILITY_POPUP_FRAMES_TO_SHIFT - work->frames) * ABILITY_POPUP_PIXELS_PER_FRAME) + edgeOffset, 0);
+            G2_SetBG2Offset(sideShift + negative * ((ABILITY_POPUP_FRAMES_TO_SHIFT - work->frames) * ABILITY_POPUP_PIXELS_PER_FRAME) + edgeOffset, bgYOffset);
         }
     } break;
     case ABILITY_POPUP_DESTROY:
