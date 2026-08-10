@@ -43,12 +43,12 @@ GF_ASSERT_INTERNAL = 0x0202551C | 1;
 SetPokemonGet = 0x0202A434 |1;
 SetPokemonSee = 0x0202A36C |1;
 UpdatePokedexWithReceivedSpecies = 0x0202ECC0 | 1;
-ArchiveDataLoadMalloc = 0x02007524 | 1;
-ArchiveDataLoad = 0x02007509;
-ArchiveDataLoadMallocOfs = 0x0200757C | 1;
-NARC_ctor = 0x02007688 | 1;
+AllocAndReadWholeNarcMemberByIdPair = 0x02007524 | 1;
+ReadWholeNarcMemberByIdPair = 0x02007509;
+AllocAndReadFromNarcMemberByIdPair = 0x0200757C | 1;
+NARC_New = 0x02007688 | 1;
 NARC_Delete = 0x0200770C | 1;
-ArchiveDataLoadOfs = 0x02007560 | 1;
+ReadFromNarcMemberByIdPair = 0x02007560 | 1;
 /*sqrt = 0x0200048A | 1;*/
 
 /*Pokemon*/
@@ -235,7 +235,7 @@ SCIO_QueueMoveAnimation = 0x0226340C | 1;
 SCIO_QueueMoveAnimationConsiderAttackerDefender = 0x0226343C | 1;
 SkillSequenceGosub = 0x02245520 | 1;
 CheckIfAnyoneShouldFaint = 0x0224DC74 | 1;
-Snd_BgmPlay = 0x02005D48 | 1;
+PlayBGM = 0x02005D48 | 1;
 BattleWorkPinchSEFlagSet = 0x0223BD3C | 1;
 ST_ServerPokeOneSelfCheckActPP = 0x022568B0 | 1;
 PokeExpCalc = 0x022463E8 | 1;

@@ -2,8 +2,8 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
@@ -119,10 +119,10 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble braced itself!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle braced itself!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dwebble endured the hit!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dwebble’s Weak Armor" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dwebble's Weak Armor" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Crustle endured the hit!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Urshifu’s Defense fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Crustle’s Weak Armor" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Urshifu's Defense fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Crustle's Weak Armor" },
     },
 }
 END_TEST

@@ -333,12 +333,12 @@ MOVE_SEQ_OBJS := $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_DIR)/0_%
 MOVE_SEQ_OBJS += $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_DIR)/1_%,$(MOVE_SEQ_CUSTOM_SRCS))
 
 $(MOVE_SEQ_DIR)/0_%:$(MOVE_SEQ_DEPENDENCIES_DIR)/%.s
-	$(AS) -c $< -o $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%.o,$<)
+	$(AS) $(ASFLAGS) -c $< -o $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%_linked.o,$<) $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(MOVE_SEQ_DEPENDENCIES_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/0_%_linked.o,$<) $@
 
 $(MOVE_SEQ_DIR)/1_%:$(MOVE_SEQ_CUSTOM_DIR)/%.s
-	$(AS) -c $< -o $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%.o,$<)
+	$(AS) $(ASFLAGS) -c $< -o $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%_linked.o,$<) $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(MOVE_SEQ_CUSTOM_DIR)/%.s,$(MOVE_SEQ_OBJ_DIR)/1_%_linked.o,$<) $@
 
@@ -364,12 +364,12 @@ BATTLE_EFF_OBJS := $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_DI
 BATTLE_EFF_OBJS += $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_DIR)/1_%,$(BATTLE_EFF_CUSTOM_SRCS))
 
 $(BATTLE_EFF_DIR)/0_%:$(BATTLE_EFF_DEPENDENCIES_DIR)/%.s
-	$(AS) -c $< -o $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%.o,$<)
+	$(AS) $(ASFLAGS) -c $< -o $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%_linked.o,$<) $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(BATTLE_EFF_DEPENDENCIES_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/0_%_linked.o,$<) $@
 
 $(BATTLE_EFF_DIR)/1_%:$(BATTLE_EFF_CUSTOM_DIR)/%.s
-	$(AS) -c $< -o $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%.o,$<)
+	$(AS) $(ASFLAGS) -c $< -o $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%_linked.o,$<) $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(BATTLE_EFF_CUSTOM_DIR)/%.s,$(BATTLE_EFF_OBJ_DIR)/1_%_linked.o,$<) $@
 
@@ -393,12 +393,12 @@ BATTLE_SUB_OBJS := $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_DI
 BATTLE_SUB_OBJS += $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_DIR)/2_%,$(BATTLE_SUB_CUSTOM_SRCS))
 
 $(BATTLE_SUB_DIR)/1_%:$(BATTLE_SUB_DEPENDENCIES_DIR)/%.s
-	$(AS) -c $< -o $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%.o,$<)
+	$(AS) $(ASFLAGS) -c $< -o $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%_linked.o,$<) $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(BATTLE_SUB_DEPENDENCIES_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/1_%_linked.o,$<) $@
 
 $(BATTLE_SUB_DIR)/2_%:$(BATTLE_SUB_CUSTOM_DIR)/%.s
-	$(AS) -c $< -o $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%.o,$<)
+	$(AS) $(ASFLAGS) -c $< -o $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%.o,$<)
 	$(LD) -T $(C_SUBDIR)/linker.ld -o $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%_linked.o,$<) $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%.o,$<)
 	$(OBJCOPY) -O binary $(patsubst $(BATTLE_SUB_CUSTOM_DIR)/%.s,$(BATTLE_SUB_OBJ_DIR)/2_%_linked.o,$<) $@
 
@@ -485,7 +485,10 @@ BATTLEWEATHERGFX_DEPENDENCIES_DIR := rawdata/weather_icons
 BATTLEGFX_DEPENDENCIES := $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*) $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*)
 
 ITEM_STYLE_DEPENDENCIES := $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_hud.png)
-BATTLEGFX_NOITEM_DEPENDENCIES := $(filter-out $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*),$(filter-out $(ITEM_STYLE_DEPENDENCIES),$(BATTLEGFX_DEPENDENCIES)))
+
+# terrain art are only 8bpp pngs and are compressed
+TERRAIN_DEPENDENCIES := $(wildcard $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_terrain.png)
+BATTLEGFX_NOITEM_DEPENDENCIES := $(filter-out $(wildcard $(BATTLEGFX_DEPENDENCIES_DIR)/*),$(filter-out $(ITEM_STYLE_DEPENDENCIES) $(TERRAIN_DEPENDENCIES),$(BATTLEGFX_DEPENDENCIES)))
 
 $(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES)
 	$(NARCHIVE) extract $(BATTLEGFX_TARGET) -o $(BATTLEGFX_DIR) -nf
@@ -495,7 +498,14 @@ $(BATTLEGFX_NARC): $(BATTLEGFX_DEPENDENCIES)
 	cp -r $(BATTLEGFX_DEPENDENCIES_DIR)/. $(BATTLEGFX_DIR)
 	for file in $(ITEM_STYLE_DEPENDENCIES); do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR -clobbersize -version101 -bitdepth 4; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -ir -bitdepth 4; done
 	for file in $(BATTLEGFX_NOITEM_DEPENDENCIES); do $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; $(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; done
-	for file in $(BATTLEWEATHERGFX_DEPENDENCIES_DIR)/*_terrain.png; do $(GFX) $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR.lz; rm $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; done
+
+# pack pngs as 8bpp so it matches source
+	for file in $(TERRAIN_DEPENDENCIES); do \
+		$(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR -bitdepth 8; \
+		$(GFX) $$file $(BATTLEGFX_DIR)/$$(basename $$file .png)-01.NCLR -bitdepth 8 -nopad -comp 10; \
+		$(GFX) $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR.lz; \
+		rm $(BATTLEGFX_DIR)/$$(basename $$file .png)-00.NCGR; \
+	done
 	$(NARCHIVE) create $@ $(BATTLEGFX_DIR) -nf
 
 NARC_FILES += $(BATTLEGFX_NARC)

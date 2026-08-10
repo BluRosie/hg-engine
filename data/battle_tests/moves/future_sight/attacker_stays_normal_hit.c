@@ -13,8 +13,8 @@ const struct TestBattleScenario BattleTests[] = {
 #endif
 
     {
-        .battleType = BATTLE_TYPE_DOUBLE,
-        .weather = WEATHER_NONE,
+        .battleType = BATTLE_TYPE_DOUBLES,
+        .weather = FIELD_CONDITION_NONE,
         .fieldCondition = 0,
         .terrain = PSYCHIC_TERRAIN,
         .playerParty = {

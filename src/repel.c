@@ -1,18 +1,19 @@
 #include "../include/repel.h"
-#include "../include/item.h"
-#include "../include/constants/item.h"
+
 #include "../include/bag.h"
 #include "../include/constants/file.h"
-
+#include "../include/constants/item.h"
+#include "../include/item.h"
 
 void Repel_SetCurrentType();
 
 #ifdef IMPLEMENT_REUSABLE_REPELS
 u16 ALIGN4 CurrentRepelType = 0;
 
-bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fieldSystem) {
+bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fieldSystem)
+{
     void *roamerSaveData = EncDataSave_GetSaveDataPtr(saveData);
-    u8* repel_addr = SaveData_GetRepelPtr(roamerSaveData);
+    u8 *repel_addr = SaveData_GetRepelPtr(roamerSaveData);
 
     if (*repel_addr != 0) {
         (*repel_addr)--;
@@ -33,15 +34,17 @@ bool32 PlayerStepEvent_RepelCounterDecrement(SaveData *saveData, FieldSystem *fi
     return FALSE;
 }
 
-u16 Repel_GetMostRecent() {
+u16 Repel_GetMostRecent()
+{
     Repel_SetCurrentType();
     return CurrentRepelType;
 }
 
-BOOL Repel_Use(u16 item_id, u32 heap_id) {
+BOOL Repel_Use(u16 item_id, u32 heap_id)
+{
     SaveData *saveData = SaveBlock2_get();
     void *roamerSaveData = EncDataSave_GetSaveDataPtr(saveData);
-    u8* repel_addr = SaveData_GetRepelPtr(roamerSaveData);
+    u8 *repel_addr = SaveData_GetRepelPtr(roamerSaveData);
 
     BAG_DATA *bag = Sav2_Bag_get(saveData);
 
@@ -55,21 +58,24 @@ BOOL Repel_Use(u16 item_id, u32 heap_id) {
     return FALSE;
 }
 
-u8 Repel_GetSteps(u16 item_id, u32 heap_id) {
+u8 Repel_GetSteps(u16 item_id, u32 heap_id)
+{
     return GetItemData(item_id, ITEM_PARAM_HOLD_EFFECT_PARAM, heap_id);
 }
 #endif
 
-void Repel_SetCurrentType() {
+void Repel_SetCurrentType()
+{
 #ifdef IMPLEMENT_REUSABLE_REPELS
     u16 item_id = 0;
     BAG_DATA *bag = Sav2_Bag_get(SaveBlock2_get());
-    if (Bag_HasItem(bag, ITEM_MAX_REPEL, 1, HEAPID_MAIN_HEAP))
+    if (Bag_HasItem(bag, ITEM_MAX_REPEL, 1, HEAPID_MAIN_HEAP)) {
         item_id = ITEM_MAX_REPEL;
-    else if (Bag_HasItem(bag, ITEM_SUPER_REPEL, 1, HEAPID_MAIN_HEAP))
+    } else if (Bag_HasItem(bag, ITEM_SUPER_REPEL, 1, HEAPID_MAIN_HEAP)) {
         item_id = ITEM_SUPER_REPEL;
-    else
+    } else {
         item_id = ITEM_REPEL;
+    }
 
     CurrentRepelType = item_id;
 #endif

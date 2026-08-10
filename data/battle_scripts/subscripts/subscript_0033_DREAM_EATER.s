@@ -1,9 +1,9 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
 _000:
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_ATTACKER, BMON_DATA_HEAL_BLOCK_TURNS, 0, _059
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_HIT_DAMAGE
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_HP_CALC, 0, _037
     DivideVarByValue BSCRIPT_VAR_HP_CALC, 2
@@ -26,15 +26,9 @@ _037:
     WaitButtonABTime 30
     End 
 
-_059:
-    UpdateVar OPCODE_SET, BSCRIPT_VAR_MSG_MOVE_TEMP, MOVE_HEAL_BLOCK
-    // {0} was prevented from healing due to {1}!
-    PrintMessage 1054, TAG_NICKNAME_MOVE, BATTLER_CATEGORY_ATTACKER, BATTLER_CATEGORY_MSG_TEMP
-    Wait 
-    WaitButtonABTime 30
-    End
-
 _DamageInstead:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_ATTACKER, ABILITY_MAGIC_GUARD, _End
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
     Call BATTLE_SUBSCRIPT_UPDATE_HP
     // It sucked up the liquid ooze!
     PrintMessage 720, TAG_NONE

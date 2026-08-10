@@ -677,13 +677,13 @@ The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} hurt {STRVAR_1 1, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} hurt the wild\f{STRVAR_1 1, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} hurt {STRVAR_1 1, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} hurt the opposing\f{STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0} traced\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-{STRVAR_1 1, 0, 0} traced the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-{STRVAR_1 1, 0, 0} traced the opposing\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-The wild {STRVAR_1 1, 0, 0} traced\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-The wild {STRVAR_1 1, 0, 0} traced the\nwild {STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0} traced\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0} traced the\nopposing {STRVAR_1 1, 1, 0}’s {STRVAR_1 5, 2, 0}!
+It traced {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+It traced the wild\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+It traced the opposing\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+(unused)
+(unused)
+(unused)
+(unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents burns!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents burns!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents burns!
@@ -1119,13 +1119,13 @@ The opposing {STRVAR_1 1, 0, 0} finally got\nits act together!
 {STRVAR_1 1, 0, 0} frisked its\nfoe and found one {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} frisked its\nfoe and found one {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} frisked its\nfoe and found one {STRVAR_1 8, 1, 0}!
-{STRVAR_1 1, 2, 0} is tormented\nby {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 2, 0} is tormented\nby {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 2, 0} is tormented\nby {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
-{STRVAR_1 1, 2, 0} is tormented\nby the wild {STRVAR_1 1, 0, 0}’s\f{STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 2, 0} is tormented\nby the wild {STRVAR_1 1, 0, 0}’s\f{STRVAR_1 5, 1, 0}!
-{STRVAR_1 1, 2, 0} is tormented\nby the opposing {STRVAR_1 1, 0, 0}’s\f{STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 2, 0} is tormented\nby the opposing {STRVAR_1 1, 0, 0}’s\f{STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0} is tormented!
+The wild {STRVAR_1 1, 0, 0} is tormented!
+The opposing {STRVAR_1 1, 0, 0} is tormented!
+(unused)
+(unused)
+(unused)
+(unused)
 {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
@@ -1331,9 +1331,9 @@ The opposing {STRVAR_1 1, 0, 0} shared its\npower with the target!
 {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
 The wild {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
 The opposing {STRVAR_1 1, 0, 0} transformed\ninto the Water type!
-{STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
-The wild {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0}’s Harvest\nrestored its {STRVAR_1 8, 1, 0}!
+{STRVAR_1 1, 0, 0} harvested\n{STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} harvested\n{STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} harvested\n{STRVAR_1 8, 1, 0}!
 (Unused)
 (Unused)
 (Unused)
@@ -1569,7 +1569,7 @@ The opposing {STRVAR_1 1, 0, 0} was hurt!
 {STRVAR_1 6, 1, 0} protected\nthe wild {STRVAR_1 1, 0, 0}!
 {STRVAR_1 6, 1, 0} protected\nthe opposing {STRVAR_1 1, 0, 0}!
 The {STRVAR_1 1, 0, 0} strengthened\n{STRVAR_1 5, 1, 0}’s power!
-(unused)
+Both Pokémon will faint in three\nturns!
 (unused)
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 8, 1, 0}\nwas burned up!
@@ -1755,7 +1755,7 @@ The wild {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} trapped\nthe wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\n{STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} trapped\nthe opposing {STRVAR_1 1, 1, 0}!
-You are challenged by Totem\n{STRVAR_1 1, 0, 0}!
+You are challenged by\n{STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
 The wild {STRVAR_1 1, 0, 0}’s aura flared to life!\nIts {STRVAR_1 13, 1, 0} rose!
 The opposing {STRVAR_1 1, 0, 0}’s aura flared\nto life!\fIts {STRVAR_1 13, 1, 0} rose!

@@ -1,9 +1,11 @@
-#include "../../include/constants/file.h"
-#include "../../include/constants/item.h"
-#include "../../include/map_events_internal.h"
-#include "../../include/pokemon.h"
-#include "../../include/script.h"
-#include "../../include/types.h"
+#include "types.h"
+
+#include "constants/file.h"
+#include "constants/item.h"
+
+#include "map_events_internal.h"
+#include "pokemon.h"
+#include "script.h"
 
 typedef struct HiddenItemData {
     u16 itemId;
@@ -40,7 +42,7 @@ static BOOL HiddenItemFindByIndex(u16 index, HiddenItemData *out)
     u32 i;
 
     for (i = 0; i < HIDDEN_ITEM_PARAM_COUNT; i++) {
-        ArchiveDataLoadOfs(&hiddenItem, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ITEM_PARAMS, i * sizeof(HiddenItemData), sizeof(HiddenItemData));
+        ReadFromNarcMemberByIdPair(&hiddenItem, ARC_CODE_ADDONS, CODE_ADDON_HIDDEN_ITEM_PARAMS, i * sizeof(HiddenItemData), sizeof(HiddenItemData));
         if (hiddenItem.index == index) {
             *out = hiddenItem;
             return TRUE;

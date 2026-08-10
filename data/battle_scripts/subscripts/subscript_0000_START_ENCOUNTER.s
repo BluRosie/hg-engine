@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -8,10 +9,10 @@ _Start:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_PAL_PARK, _PalParkEncounter
     SetPokemonEncounter BATTLER_CATEGORY_ENEMY
     SetTrainerEncounter BATTLER_CATEGORY_PLAYER
-    PlayEncounterAnimation 
+    PlayEncounterAnimation
     WaitTime 122
     HealthbarSlideInDelay BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_SYS_STATUS, BATTLE_SPECIAL_DISTORTION_WORLD, _DistortionWorldMessage
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_SYS_STATUS, BATTLE_SPECIAL_LEGENDARY, _LegendaryMessage
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_SYS_STATUS, BATTLE_SPECIAL_FIRST_RIVAL, _FirstEncounterMessage
@@ -48,7 +49,7 @@ _WildDoublesMessage:
     GoTo _SendOutPokemonMessage
 
 _TotemEncounter:
-    // You are challenged by Totem {0}!
+    // You are challenged by {0}!
     PrintGlobalMessage 1757, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
     Wait
     WaitButtonABTime 30
@@ -59,7 +60,7 @@ _TotemEncounter:
     GoTo _SendOutPokemonMessage
 
 _SendOutPokemonMessage:
-    Wait 
+    Wait
     WaitButtonABTime 30
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_MULTI, _SendOutPokemonMessage_Multi
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_DOUBLES, _SendOutPokemonMessage_Doubles
@@ -77,26 +78,26 @@ _SendOutPokemonMessage_Multi:
 
 _SendOutPokemon:
     SpriteToOAM BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     ThrowPokeball BATTLER_CATEGORY_PLAYER, BTLSCR_THROW_POKE_BALL
     PokemonSlideIn BATTLER_CATEGORY_PLAYER
     WaitTime 96
     HealthbarSlideInDelay BATTLER_CATEGORY_PLAYER
-    Wait 
+    Wait
     OAMToSprite BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     GoTo _Cleanup
 
 _TrainerEncounter:
     CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_SYS_STATUS, BATTLE_SPECIAL_RECORDED, _RecordedBattle
-    PlayEncounterAnimation 
+    PlayEncounterAnimation
     SetTrainerEncounter BATTLER_CATEGORY_ALL
     WaitTime 96
-    LoadPartyGaugeGraphics 
+    LoadPartyGaugeGraphics
     ShowBattleStartPartyGauge BATTLER_CATEGORY_ENEMY
     ShowBattleStartPartyGauge BATTLER_CATEGORY_PLAYER
     PrintEncounterMessage BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     WaitButtonABTime 30
     PrintFirstSendOutMessage BATTLER_CATEGORY_ENEMY
     HideBattleStartPartyGauge BATTLER_CATEGORY_ENEMY
@@ -104,26 +105,26 @@ _TrainerEncounter:
     PokemonSlideIn BATTLER_CATEGORY_ENEMY
     WaitTime 112
     HealthbarSlideInDelay BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     PrintFirstSendOutMessage BATTLER_CATEGORY_PLAYER
     HideBattleStartPartyGauge BATTLER_CATEGORY_PLAYER
     ThrowPokeball BATTLER_CATEGORY_PLAYER, BTLSCR_THROW_POKE_BALL
     PokemonSlideIn BATTLER_CATEGORY_PLAYER
     WaitTime 96
     HealthbarSlideInDelay BATTLER_CATEGORY_PLAYER
-    Wait 
-    FreePartyGaugeGraphics 
+    Wait
+    FreePartyGaugeGraphics
     GoTo _Cleanup
 
 _RecordedBattle:
-    PlayEncounterAnimation 
+    PlayEncounterAnimation
     SetTrainerEncounter BATTLER_CATEGORY_ALL
     WaitTime 96
-    LoadPartyGaugeGraphics 
+    LoadPartyGaugeGraphics
     ShowBattleStartPartyGauge BATTLER_CATEGORY_ENEMY
     ShowBattleStartPartyGauge BATTLER_CATEGORY_PLAYER
     PrintEncounterMessage BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     WaitButtonABTime 30
     PrintFirstSendOutMessage BATTLER_CATEGORY_PLAYER
     HideBattleStartPartyGauge BATTLER_CATEGORY_PLAYER
@@ -131,46 +132,46 @@ _RecordedBattle:
     PokemonSlideIn BATTLER_CATEGORY_PLAYER
     WaitTime 96
     HealthbarSlideInDelay BATTLER_CATEGORY_PLAYER
-    Wait 
+    Wait
     PrintFirstSendOutMessage BATTLER_CATEGORY_ENEMY
     HideBattleStartPartyGauge BATTLER_CATEGORY_ENEMY
     ThrowPokeball BATTLER_CATEGORY_ENEMY, BTLSCR_THROW_POKE_BALL
     PokemonSlideIn BATTLER_CATEGORY_ENEMY
     WaitTime 112
     HealthbarSlideInDelay BATTLER_CATEGORY_ENEMY
-    Wait 
-    FreePartyGaugeGraphics 
+    Wait
+    FreePartyGaugeGraphics
     GoTo _Cleanup
 
 _SafariEncounter:
     SetPokemonEncounter BATTLER_CATEGORY_ENEMY
     SetTrainerEncounter BATTLER_CATEGORY_PLAYER
-    PlayEncounterAnimation 
+    PlayEncounterAnimation
     WaitTime 122
     HealthbarSlideInDelay BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     // You encountered a wild {0}!
     PrintGlobalMessage 965, TAG_NICKNAME, BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     HealthbarSlideIn BATTLER_CATEGORY_PLAYER
     WaitButtonABTime 7
-    Wait 
+    Wait
     GoTo _Cleanup
 
 _PalParkEncounter:
     SetPokemonEncounter BATTLER_CATEGORY_ENEMY
     SetTrainerEncounter BATTLER_CATEGORY_PLAYER
-    PlayEncounterAnimation 
+    PlayEncounterAnimation
     WaitTime 122
     HealthbarSlideInDelay BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     // Wow! {0}’s {1} is drawing close!
     PrintGlobalMessage 1219, TAG_TRNAME_NICKNAME, BATTLER_CATEGORY_ENEMY, BATTLER_CATEGORY_ENEMY
-    Wait 
+    Wait
     HealthbarSlideIn BATTLER_CATEGORY_PLAYER
     WaitButtonABTime 7
-    Wait 
+    Wait
 
 _Cleanup:
-    SetBattleBackground 
-    End 
+    SetBattleBackground
+    End

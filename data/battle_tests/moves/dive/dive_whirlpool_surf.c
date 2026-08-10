@@ -2,8 +2,8 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
@@ -52,7 +52,7 @@ BEGIN_TEST
             .species = SPECIES_WAILORD,
             .level = 40,
             .form = 0,
-            .ability = ABILITY_LEVITATE,
+            .ability = ABILITY_COMPOUND_EYES,
             .item = ITEM_NONE,
             .moves = { MOVE_WHIRLPOOL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,

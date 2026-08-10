@@ -2,8 +2,8 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-        .battleType = BATTLE_TYPE_SINGLE,
-        .weather = WEATHER_NONE,
+        .battleType = BATTLE_TYPE_TRAINER,
+        .weather = FIELD_CONDITION_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
@@ -89,6 +89,7 @@ BEGIN_TEST
             }
         },
         .expectations = {
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Parasect's Mold Breaker" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno fell asleep!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno's Chesto Berry woke it up!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hypno fell asleep!" },

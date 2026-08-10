@@ -2,11 +2,9 @@ name: pr-lint
 
 on:
   pull_request:
-    branches: [main, move-dev, sprite-dev, item-dev]
     paths:
       - 'src/**/*.c'
       - 'include/**/*.h'
-  workflow_dispatch: {}
 
 jobs:
   pr-lint:
@@ -18,20 +16,29 @@ jobs:
       pull-requests: read
 
     steps:
-      - uses: actions/checkout@v6
-
-      - uses: cpp-linter/cpp-linter-action@v2.18.0
-        id: linter
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v4
         with:
-          style: 'file'
-          tidy-checks: '-*'
-          version: '19'
-          files-changed-only: true
-          ignore: '.github|lib|subprojects|tools'
-          file-annotations: false
+          submodules: recursive
 
-      - name: fail fast
-        if: steps.linter.outputs.clang-format-checks-failed > 0
-        run: exit 1
+      - name: Install clang-format 18
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang-format-18
+
+      - name: Run formatter and report any failure
+        run: |
+          CLANG_FORMAT_BIN=clang-format-18
+          echo "clang-format version:"
+          "$CLANG_FORMAT_BIN" --version
+
+          ./.githooks/pre-commit
+          git diff --staged --name-only |
+          while IFS= read -r f; do
+            if [ -f "$f" ] && [[ "$f" =~ ^(src/.+\.c|include/.+\.h)$ ]]; then
+              echo "File diffs failing:\n"
+              git diff --staged
+              exit 1
+            fi
+          done
+
+          exit 0

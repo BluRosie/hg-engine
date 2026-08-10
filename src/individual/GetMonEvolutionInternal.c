@@ -1,21 +1,23 @@
-#include "../../include/types.h"
-#include "../../include/bag.h"
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/debug.h"
-#include "../../include/overlay.h"
-#include "../../include/pokemon.h"
-#include "../../include/rtc.h"
-#include "../../include/save.h"
-#include "../../include/script.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/game.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/constants/weather_numbers.h"
+#include "config.h"
+#include "debug.h"
+#include "types.h"
+
+#include "constants/ability.h"
+#include "constants/file.h"
+#include "constants/game.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "constants/weather_numbers.h"
+
+#include "bag.h"
+#include "battle.h"
+#include "overlay.h"
+#include "pokemon.h"
+#include "rtc.h"
+#include "save.h"
+#include "script.h"
 
 // top 5 bits are now form bit
 // if the form is nonzero, have to set it to that form.  most mons should keep their forms on evolution, but specifically significant gendered mons will need to not
@@ -33,7 +35,8 @@ extern u16 gEvolutionSceneOverride[2][2];
  *  @param method_ret pointer to an integer to store the evolution method that was used to evolve
  *  @return the target species to evolev into
  */
-u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret) {
+u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u8 context, u16 usedItem, int *method_ret)
+{
     u16 species;
     u16 heldItem;
     u8 level;
@@ -73,7 +76,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
     species = PokeOtherFormMonsNoGet(species, form); // factor in form into species to cover shit like galarian corsola + cap pikachu that can't evolve
 
     evoTable = sys_AllocMemory(3, MAX_EVOS_PER_POKE * sizeof(struct Evolution));
-    ArchiveDataLoad(evoTable, ARC_EVOLUTIONS, species);
+    ReadWholeNarcMemberByIdPair(evoTable, ARC_EVOLUTIONS, species);
 
     switch (context) {
     case EVOCTX_LEVELUP:
@@ -198,38 +201,32 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 }
                 break;
             case EVO_MAGNETIC_FIELD: // magnetic field at route 43+kanto power plant
-                {
-                    u32 location = gFieldSysPtr->location->mapId;
+            {
+                u32 location = gFieldSysPtr->location->mapId;
 
-                    if (location == 45 || location == 18)
-                    {
-                        target = evoTable[i].target & 0x7FF;
-                        *method_ret = EVO_MAGNETIC_FIELD;
-                    }
+                if (location == 45 || location == 18) {
+                    target = evoTable[i].target & 0x7FF;
+                    *method_ret = EVO_MAGNETIC_FIELD;
                 }
-                break;
+            } break;
             case EVO_MOSSY_ROCK: // mossy rock at ilex+viridian forests
-                {
-                    u32 location = gFieldSysPtr->location->mapId;
+            {
+                u32 location = gFieldSysPtr->location->mapId;
 
-                    if (location == 117 || location == 147)
-                    {
-                        target = evoTable[i].target & 0x7FF;
-                        *method_ret = EVO_MOSSY_ROCK;
-                    }
+                if (location == 117 || location == 147) {
+                    target = evoTable[i].target & 0x7FF;
+                    *method_ret = EVO_MOSSY_ROCK;
                 }
-                break;
+            } break;
             case EVO_ICY_ROCK: // icy rock at ice path+seafoam islands
-                {
-                    u32 location = gFieldSysPtr->location->mapId;
+            {
+                u32 location = gFieldSysPtr->location->mapId;
 
-                    if (location == 239 || location == 456)
-                    {
-                        target = evoTable[i].target & 0x7FF;
-                        *method_ret = EVO_ICY_ROCK;
-                    }
+                if (location == 239 || location == 456) {
+                    target = evoTable[i].target & 0x7FF;
+                    *method_ret = EVO_ICY_ROCK;
                 }
-                break;
+            } break;
 
             case EVO_LEVEL_DAY:
                 if (IsNighttime() == 0 && evoTable[i].param <= level) {
@@ -243,24 +240,20 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                     *method_ret = EVO_LEVEL_NIGHT;
                 }
                 break;
-            case EVO_LEVEL_DUSK:
-                {
-                    struct RTCTime time;
-                    GF_RTC_CopyTime(&time);
+            case EVO_LEVEL_DUSK: {
+                struct RTCTime time;
+                GF_RTC_CopyTime(&time);
 
-                    if (time.hour == 17 && evoTable[i].param <= level) {
-                        target = evoTable[i].target & 0x7FF;
-                        *method_ret = EVO_LEVEL_DUSK;
-                    }
+                if (time.hour == 17 && evoTable[i].param <= level) {
+                    target = evoTable[i].target & 0x7FF;
+                    *method_ret = EVO_LEVEL_DUSK;
                 }
-                break;
+            } break;
             case EVO_LEVEL_RAIN:
-                if (evoTable[i].param <= level)
-                {
+                if (evoTable[i].param <= level) {
                     u32 weather = Fsys_GetWeather_HandleDiamondDust(gFieldSysPtr, gFieldSysPtr->location->mapId);
 
-                    switch (weather)
-                    {
+                    switch (weather) {
                     case WEATHER_SYS_RAIN:
                     case WEATHER_SYS_HEAVY_RAIN:
                     case WEATHER_SYS_THUNDER:
@@ -269,28 +262,22 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                     }
                 }
                 break;
-            case EVO_HAS_MOVE_TYPE:
-                {
-                    int k;
+            case EVO_HAS_MOVE_TYPE: {
+                int k;
 
-                    for (k = 0; k < 4; k++)
-                    {
-                        if (GetMoveData(GetMonData(pokemon, MON_DATA_MOVE1+k, NULL), MOVE_DATA_TYPE) == evoTable[i].param && friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD)
-                        {
-                            target = evoTable[i].target & 0x7FF;
-                            *method_ret = EVO_HAS_MOVE_TYPE;
-                            break;
-                        }
+                for (k = 0; k < 4; k++) {
+                    if (GetMoveData(GetMonData(pokemon, MON_DATA_MOVE1 + k, NULL), MOVE_DATA_TYPE) == evoTable[i].param && friendship >= FRIENDSHIP_EVOLUTION_THRESHOLD) {
+                        target = evoTable[i].target & 0x7FF;
+                        *method_ret = EVO_HAS_MOVE_TYPE;
+                        break;
                     }
                 }
-                break;
+            } break;
             case EVO_LEVEL_DARK_TYPE_MON_IN_PARTY:
-                if (evoTable[i].param <= level && party != NULL)
-                {
-                    for (int k = 0; k < 6; k++)
-                    {
+                if (evoTable[i].param <= level && party != NULL) {
+                    for (int k = 0; k < 6; k++) {
                         if (!CheckIfMonsAreEqual(pokemon, Party_GetMonByIndex(party, k)) // make sure that pancham doesn't satisfy its own requirement
-                         && (GetMonData(Party_GetMonByIndex(party, k), MON_DATA_TYPE_1, NULL) == TYPE_DARK || GetMonData(Party_GetMonByIndex(party, k), MON_DATA_TYPE_2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
+                            && (GetMonData(Party_GetMonByIndex(party, k), MON_DATA_TYPE_1, NULL) == TYPE_DARK || GetMonData(Party_GetMonByIndex(party, k), MON_DATA_TYPE_2, NULL) == TYPE_DARK)) // if either type is dark then set evolution
                         {
                             target = evoTable[i].target & 0x7FF;
                             *method_ret = EVO_LEVEL_DARK_TYPE_MON_IN_PARTY;
@@ -303,12 +290,10 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 lowkey = 1;
                 FALLTHROUGH;
             case EVO_LEVEL_NATURE_AMPED:
-                if (evoTable[i].param <= level)
-                {
+                if (evoTable[i].param <= level) {
                     // toxel evolution disrespects nature mints
                     u32 nature = GetNatureFromPersonality(GetMonData(pokemon, MON_DATA_PERSONALITY, NULL));
-                    switch (nature)
-                    {
+                    switch (nature) {
                     case NATURE_ADAMANT:
                     case NATURE_BRAVE:
                     case NATURE_DOCILE:
@@ -339,23 +324,20 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 }
                 break;
             case EVO_AMOUNT_OF_CRITICAL_HITS: // needs to hit an amount of critical hits in a battle in one go.  need to log critical hits somewhere else
-                if (GET_MON_CRITICAL_HIT_EVOLUTION_BIT(pokemon))
-                {
+                if (GET_MON_CRITICAL_HIT_EVOLUTION_BIT(pokemon)) {
                     target = evoTable[i].target & 0x7FF;
                     *method_ret = EVO_AMOUNT_OF_CRITICAL_HITS;
                 }
                 break;
-            case EVO_HURT_IN_BATTLE_AMOUNT:
-                {
-                    u32 hp = GetMonData(pokemon, MON_DATA_HP, NULL), maxhp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
+            case EVO_HURT_IN_BATTLE_AMOUNT: {
+                u32 hp = GetMonData(pokemon, MON_DATA_HP, NULL), maxhp = GetMonData(pokemon, MON_DATA_MAXHP, NULL);
 
-                    if (hp && (maxhp - hp) >= evoTable[i].param) // if the mon has evoTable[i].param hp less than its max
-                    {
-                        target = evoTable[i].target & 0x7FF;
-                        *method_ret = EVO_HURT_IN_BATTLE_AMOUNT;
-                    }
+                if (hp && (maxhp - hp) >= evoTable[i].param) // if the mon has evoTable[i].param hp less than its max
+                {
+                    target = evoTable[i].target & 0x7FF;
+                    *method_ret = EVO_HURT_IN_BATTLE_AMOUNT;
                 }
-                break;
+            } break;
             }
             if (target != SPECIES_NONE) {
                 break;
@@ -375,12 +357,12 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                     *method_ret = EVO_TRADE_ITEM;
                 }
                 break;
-            //case EVO_TRADE_SPECIFIC_MON: // need to figure out how to deduce tradedSpecies
-            //    if (tradedSpecies == evoTable[i].param) {
-            //        target = evoTable[i].target & 0x7FF;
-            //        *method_ret = EVO_TRADE_SPECIFIC_MON;
-            //    }
-            //    break;
+                // case EVO_TRADE_SPECIFIC_MON: // need to figure out how to deduce tradedSpecies
+                //     if (tradedSpecies == evoTable[i].param) {
+                //         target = evoTable[i].target & 0x7FF;
+                //         *method_ret = EVO_TRADE_SPECIFIC_MON;
+                //     }
+                //     break;
             }
             if (target != SPECIES_NONE) {
                 break;
@@ -411,11 +393,11 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
                 break;
             }
         }
-        #if defined(IMPLEMENT_LEVEL_CAP) && defined(ALLOW_LEVEL_CAP_EVOLVE)
+#if defined(IMPLEMENT_LEVEL_CAP) && defined(ALLOW_LEVEL_CAP_EVOLVE)
         if ((level == 100 || level == GetLevelCap()) && usedItem == ITEM_RARE_CANDY)
-        #else
+#else
         if (level == 100 && usedItem == ITEM_RARE_CANDY)
-        #endif
+#endif
         {
             species = GetMonEvolutionInternal(party, pokemon, EVOCTX_LEVELUP, usedItem, NULL);
             if (species) {
@@ -429,8 +411,7 @@ u16 GetMonEvolutionInternal(struct Party *party, struct PartyPokemon *pokemon, u
     if (target) {
         u32 form = (evoTable[i].target & 0xF800) >> 11;
 
-        if (form)
-        {
+        if (form) {
             gEvolutionSceneOverride[0][0] = GetMonData(pokemon, MON_DATA_SPECIES, NULL);
             gEvolutionSceneOverride[0][1] = GetMonData(pokemon, MON_DATA_FORM, NULL);
             gEvolutionSceneOverride[1][0] = target;
