@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_DONPHAN,
+            .species = SPECIES_KROKOROK,
             .level = 50,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_IRON_BALL,
-            .moves = { MOVE_BULLDOZE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_BRUTAL_SWING, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -118,10 +118,10 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Stunky's Innards Out" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan was hurt!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Trubbish's Innards Out" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan was hurt!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Stunky's Aftermath" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Krokorok was hurt!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Trubbish's Aftermath" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Krokorok was hurt!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Stunky fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Trubbish fainted!" },
     }

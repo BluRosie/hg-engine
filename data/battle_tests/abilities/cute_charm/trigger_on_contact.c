@@ -27,12 +27,12 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_PHANPY,
+                        .species = SPECIES_NIDORAN_M,
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_CUTE_CHARM,
-                        .item = ITEM_CHERI_BERRY,
-                        .moves = { MOVE_ICE_SHARD, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_POISON_STING, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -83,9 +83,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
         } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Phanpy used Ice Shard!" },
+    .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Nidoran used Poison Sting!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy used Play Rough!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Phanpy's Cute Charm" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidoran's Cute Charm" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy fell in love!" },
     }
 }
