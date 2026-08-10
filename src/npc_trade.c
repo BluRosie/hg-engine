@@ -1,8 +1,9 @@
-#include "../include/types.h"
-#include "../include/pokemon.h"
 #include "../include/npc_trade.h"
+
+#include "../include/constants/species.h"
+#include "../include/pokemon.h"
 #include "../include/save.h"
-#include "../include/constants/species.h" 
+#include "../include/types.h"
 
 void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_dat, u32 level, u32 tradeno, u32 mapno, u32 met_level_strat, u32 heapId)
 {
@@ -14,7 +15,7 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
     PokeParaSet(mon, trade_dat->give_species, level, 32, TRUE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId);
 
     heapId_2 = (int)heapId;
-    name     = _GetNpcTradeName(heapId_2, tradeno);
+    name = _GetNpcTradeName(heapId_2, tradeno);
     SetMonData(mon, MON_DATA_NICKNAME_3 /*MON_DATA_NICKNAME_STRING = 119*/, name);
     String_Delete(name);
 
@@ -46,6 +47,6 @@ void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_
     mapsec = MapHeader_GetMapSec(mapno);
     MonSetTrainerMemo(mon, NULL, met_level_strat, mapsec, heapId);
 
-    RecalcPartyPokemonStats(mon); //CalcMonLevelAndStats(mon);
-    //GF_ASSERT(!MonIsShiny(mon));
+    RecalcPartyPokemonStats(mon); // CalcMonLevelAndStats(mon);
+    // GF_ASSERT(!MonIsShiny(mon));
 }

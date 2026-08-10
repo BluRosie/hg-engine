@@ -1,19 +1,19 @@
 #!/bin/bash
 
-# Runs linting checks before allowing commits
+# Runs linting before allowing commits
 
 set -e
 
-echo "Running pre-commit checks..."
+echo "Running pre-commit formatter..."
 
 CLANG_FORMAT_BIN=clang-format
 if command -v clang-format-18 >/dev/null 2>&1; then
   CLANG_FORMAT_BIN=clang-format-18
 fi
 
-FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '^(src/.+\.c|include/.+\.h)$' || true)
+FILES=$(find . -maxdepth 3 -type f | grep -E '^(./src/.+\.c|./include/.+\.h)$' || true)
 if [ -z "$FILES" ]; then
-  echo "No matching C/C++ files staged."
+  echo "No matching C/C++ files exist."
   exit 0
 fi
 
@@ -25,4 +25,4 @@ for file in $FILES; do
   fi
 done
 
-echo "Pre-commit checks complete."
+echo "Pre-commit formatting complete."

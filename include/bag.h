@@ -2,12 +2,13 @@
 #define POKEHEARTGOLD_BAG_H
 
 #include "types.h"
+
 #include "constants/item.h"
-//#include "item.h"
-//#include "save.h"
-//#include "heap.h"
-//#include "bag_view.h"
-//#include "bag_cursor.h"
+// #include "item.h"
+// #include "save.h"
+// #include "heap.h"
+// #include "bag_view.h"
+// #include "bag_cursor.h"
 
 // file is largely just from pokeheartgold
 
@@ -27,8 +28,8 @@ typedef enum RegisterItemResult {
  * Quantity must be no more than 99 for a TM/HM, or 999 in general.
  */
 typedef struct ItemSlot {
-    u16 id;          // from constants/items.h
-    u16 quantity;    // quantity of that item
+    u16 id; // from constants/items.h
+    u16 quantity; // quantity of that item
 } ITEM_SLOT;
 
 /*
@@ -38,15 +39,15 @@ typedef struct ItemSlot {
  * configured in constants/item.h
  */
 typedef struct BagData {
-    ITEM_SLOT items[NUM_BAG_ITEMS];                // General items
-    ITEM_SLOT keyItems[NUM_BAG_KEY_ITEMS];         // Key items
-    ITEM_SLOT TMsHMs[NUM_BAG_TMS_HMS];             // Move machines
-    ITEM_SLOT mail[NUM_BAG_MAIL];                  // Mail items
-    ITEM_SLOT medicine[NUM_BAG_MEDICINE];          // Healing items
-    ITEM_SLOT berries[NUM_BAG_BERRIES];            // Berries
-    ITEM_SLOT balls[NUM_BAG_BALLS];                // Balls
-    ITEM_SLOT battleItems[NUM_BAG_BATTLE_ITEMS];   // Battle-only items
-    u16 registeredItems[2];                        // IDs of registered key items
+    ITEM_SLOT items[NUM_BAG_ITEMS]; // General items
+    ITEM_SLOT keyItems[NUM_BAG_KEY_ITEMS]; // Key items
+    ITEM_SLOT TMsHMs[NUM_BAG_TMS_HMS]; // Move machines
+    ITEM_SLOT mail[NUM_BAG_MAIL]; // Mail items
+    ITEM_SLOT medicine[NUM_BAG_MEDICINE]; // Healing items
+    ITEM_SLOT berries[NUM_BAG_BERRIES]; // Berries
+    ITEM_SLOT balls[NUM_BAG_BALLS]; // Balls
+    ITEM_SLOT battleItems[NUM_BAG_BATTLE_ITEMS]; // Battle-only items
+    u16 registeredItems[2]; // IDs of registered key items
 } BAG_DATA;
 
 typedef struct BagContext {
@@ -265,4 +266,4 @@ BAG_DATA *LONG_CALL Sav2_Bag_get(void *saveData);
 void *LONG_CALL BagView_New(u8 heap_id);
 void LONG_CALL BagView_SetItem(void *bagView, ITEM_SLOT *slots, u8 pocketId, u8 position);
 
-#endif //POKEHEARTGOLD_BAG_H
+#endif // POKEHEARTGOLD_BAG_H
