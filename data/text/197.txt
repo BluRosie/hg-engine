@@ -705,9 +705,9 @@ It started to hail!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nprevents {STRVAR_1 13, 2, 0} loss!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} prevents\f{STRVAR_1 13, 2, 0} loss!
-{STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 2, 0} fell in love!
+The wild {STRVAR_1 1, 2, 0} fell in love!
+The opposing {STRVAR_1 1, 2, 0} fell in love!
 {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
 The wild {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!
 {STRVAR_1 1, 2, 0} fell in love\nbecause of the {STRVAR_1 5, 1, 0}!

@@ -2663,7 +2663,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
 
             BOOL hasBounceEffect = FALSE;
             if (isMagicBounce) {
-                hasBounceEffect = MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE);
+                hasBounceEffect = MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_MAGIC_BOUNCE) && !sp->oneTurnFlag[client_no].magicCoatFlag;
             } else {
                 hasBounceEffect = sp->oneTurnFlag[client_no].magicCoatFlag;
             }
