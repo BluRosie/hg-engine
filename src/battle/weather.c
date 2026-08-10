@@ -1,6 +1,8 @@
 #include "types.h"
-#include "battle.h"
+
 #include "constants/file.h"
+
+#include "battle.h"
 #include "overlay.h"
 
 void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)

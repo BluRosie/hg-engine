@@ -1,9 +1,9 @@
+#include "config.h"
+#include "debug.h"
 #include "types.h"
+
 #include "pokemon.h"
 
-#include "bag.h"
-#include "battle.h"
-#include "config.h"
 #include "constants/ability.h"
 #include "constants/file.h"
 #include "constants/game.h"
@@ -14,7 +14,9 @@
 #include "constants/sndseq.h"
 #include "constants/species.h"
 #include "constants/weather_numbers.h"
-#include "debug.h"
+
+#include "bag.h"
+#include "battle.h"
 #include "overlay.h"
 #include "rtc.h"
 #include "save.h"
@@ -156,8 +158,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
  */
 u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 {
-    if (mons_no > SPECIES_MAX_MON_NUM)
-    {
+    if (mons_no > SPECIES_MAX_MON_NUM) {
         ReadFromNarcMemberByIdPair(&mons_no, ARC_CODE_ADDONS, CODE_ADDON_FORM_SPECIES_MAPPING, sizeof(u16) * (mons_no - SPECIES_MEGA_START), sizeof(u16));
     }
     return mons_no;
@@ -176,8 +177,7 @@ u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no)
         u16 oldSpecies = GetBaseSpeciesFromAdjustedForm(mons_no);
         u16 formTable[32]; // right on stack so do not have to free this
         ReadFromNarcMemberByIdPair(formTable, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (oldSpecies * 32), sizeof(u16) * 32);
-        for (ret = 0; ret < 32; ret++)
-        {
+        for (ret = 0; ret < 32; ret++) {
             if ((formTable[ret] & ~NEEDS_REVERSION) == mons_no || !formTable[ret]) {
                 break;
             }
@@ -1609,8 +1609,7 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     ResetPartyPokemonAbility(pokemon);
 }
 
-
-#define CRY_SPECIES_FORMS_BASE (SPECIES_MAX_MON_NUM+1)
+#define CRY_SPECIES_FORMS_BASE (SPECIES_MAX_MON_NUM + 1)
 
 // need to be in order of form so that python script can generate the makefile
 #define CRY_SPECIES_SHAYMIN 0x1EE
@@ -2339,7 +2338,8 @@ BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex)
 /**
  * @brief loads level up data for a mon. reads from data/generated/LevelupLearnsets.c
  */
-void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
+void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset)
+{
     ReadFromNarcMemberByIdPair(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, PokeOtherFormMonsNoGet(species, form) * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 
 #ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES

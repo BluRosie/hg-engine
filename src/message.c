@@ -1,10 +1,12 @@
-#include "../include/config.h"
 #include "../include/message.h"
-#include "../include/types.h"
+
+#include "../include/config.h"
 #include "../include/constants/file.h"
 #include "../include/constants/item.h"
+#include "../include/types.h"
 
-void BufferOffsetItemLineFromFile(MessageFormat *msgFmt, u32 fieldno, u32 itemId, u32 fileId) {
+void BufferOffsetItemLineFromFile(MessageFormat *msgFmt, u32 fieldno, u32 itemId, u32 fileId)
+{
     MsgData *msgData = NewMsgDataFromNarc(MSGDATA_LOAD_LAZY, ARC_MSG_DATA, fileId, msgFmt->heapId);
     u32 offset = ITEM_MSG_OFFSET(itemId);
     if (msgData != NULL) {
@@ -14,7 +16,8 @@ void BufferOffsetItemLineFromFile(MessageFormat *msgFmt, u32 fieldno, u32 itemId
     }
 }
 
-void LONG_CALL BufferItemNameWithIndefArticle(MessageFormat *msgFmt, u32 fieldno, u32 itemId) {
+void LONG_CALL BufferItemNameWithIndefArticle(MessageFormat *msgFmt, u32 fieldno, u32 itemId)
+{
     enum ItemGeneration gen = ITEM_GENERATION(itemId);
     u32 fileId = (gen == CUSTOM)
         ? MSG_DATA_ITEM_NAME_ARTICLE_CUSTOM
@@ -22,7 +25,8 @@ void LONG_CALL BufferItemNameWithIndefArticle(MessageFormat *msgFmt, u32 fieldno
     BufferOffsetItemLineFromFile(msgFmt, fieldno, itemId, fileId);
 }
 
-void LONG_CALL BufferItemNamePlural(MessageFormat *msgFmt, u32 fieldno, u32 itemId) {
+void LONG_CALL BufferItemNamePlural(MessageFormat *msgFmt, u32 fieldno, u32 itemId)
+{
     enum ItemGeneration gen = ITEM_GENERATION(itemId);
     u32 fileId = (gen == CUSTOM)
         ? MSG_DATA_ITEM_NAME_PLURAL_CUSTOM
@@ -30,7 +34,8 @@ void LONG_CALL BufferItemNamePlural(MessageFormat *msgFmt, u32 fieldno, u32 item
     BufferOffsetItemLineFromFile(msgFmt, fieldno, itemId, fileId);
 }
 
-void LONG_CALL BufferItemNameGiveItem(MessageFormat *msgFmt, u32 fieldno, u32 itemId) {
+void LONG_CALL BufferItemNameGiveItem(MessageFormat *msgFmt, u32 fieldno, u32 itemId)
+{
     enum ItemGeneration gen = ITEM_GENERATION(itemId);
     u32 fileId = (gen == CUSTOM)
         ? MSG_DATA_ITEM_GIVE_ITEM_CUSTOM

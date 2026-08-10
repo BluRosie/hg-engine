@@ -1,5 +1,7 @@
-#include "battle.h"
 #include "config.h"
+#include "debug.h"
+#include "types.h"
+
 #include "constants/ability.h"
 #include "constants/battle_message_constants.h"
 #include "constants/battle_script_constants.h"
@@ -9,15 +11,15 @@
 #include "constants/move_effects.h"
 #include "constants/moves.h"
 #include "constants/species.h"
-#include "debug.h"
+
+#include "battle.h"
 #include "overlay.h"
 #include "pokemon.h"
 #include "q412.h"
-#include "types.h"
 
-#include "../../include/trainer_data.h"
 #include "../../include/constants/sndseq.h"
 #include "../../include/constants/trainerclass.h"
+#include "../../include/trainer_data.h"
 
 typedef struct
 {
@@ -2333,7 +2335,7 @@ BOOL BattlerCantSwitch(void *bw, struct BattleStruct *sp, int battlerId)
     }
 
     if (((GetBattlerAbility(sp, battlerId) != ABILITY_LEVITATE
-        && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
+             && GetBattlerAbility(sp, battlerId) != ABILITY_EELEVATE
              && sp->battlemon[battlerId].moveeffect.magnetRiseTurns == 0
              && !HasType(sp, battlerId, TYPE_FLYING))
             || HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SPEED_DOWN_GROUNDED
@@ -3660,20 +3662,20 @@ const u16 HealBlockUnusableMoves[] = {
 };
 
 const u16 HealBlockUnusableMoveEffects[] = {
-    MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT, //Absorb, etc
-    MOVE_EFFECT_RECOVER_THREE_QUARTERS_DAMAGE_DEALT, //draining kiss, Oblivion Wing
-    MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT, //bouncy bubble
-    MOVE_EFFECT_RECOVER_DAMAGE_SLEEP, //dream eater
-    MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT, //matcha gotcha
-    MOVE_EFFECT_RESTORE_HALF_HP, //recover, etc
-    MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE, //roost
-    MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER, //synthesis, etc
-    MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP, //rest
+    MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT, // Absorb, etc
+    MOVE_EFFECT_RECOVER_THREE_QUARTERS_DAMAGE_DEALT, // draining kiss, Oblivion Wing
+    MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT, // bouncy bubble
+    MOVE_EFFECT_RECOVER_DAMAGE_SLEEP, // dream eater
+    MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT, // matcha gotcha
+    MOVE_EFFECT_RESTORE_HALF_HP, // recover, etc
+    MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE, // roost
+    MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER, // synthesis, etc
+    MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP, // rest
     MOVE_EFFECT_SWALLOW,
-    MOVE_EFFECT_FAINT_FULL_RESTORE_NEXT_MON, //Luna Dance
-    MOVE_EFFECT_FAINT_AND_FULL_HEAL_NEXT_MON, //healing wish
-    MOVE_EFFECT_HEAL_IN_3_TURNS, //wish
-    MOVE_EFFECT_HEAL_TARGET, //heal pulse
+    MOVE_EFFECT_FAINT_FULL_RESTORE_NEXT_MON, // Luna Dance
+    MOVE_EFFECT_FAINT_AND_FULL_HEAL_NEXT_MON, // healing wish
+    MOVE_EFFECT_HEAL_IN_3_TURNS, // wish
+    MOVE_EFFECT_HEAL_TARGET, // heal pulse
     MOVE_EFFECT_LIFE_DEW,
     // TODO Lunar Blessing, Floral Healing
 };
@@ -3686,7 +3688,7 @@ BOOL LONG_CALL BattleContext_CheckMoveHealBlocked(struct BattleSystem *bsys UNUS
 
     if (ctx->battlemon[battlerId].moveeffect.healBlockTurns) {
         for (i = 0; i < NELEMS(HealBlockUnusableMoves); i++) {
-            if (HealBlockUnusableMoves[i] == moveNo) { //TODO: remove once moves are implemented
+            if (HealBlockUnusableMoves[i] == moveNo) { // TODO: remove once moves are implemented
                 ret = TRUE;
                 break;
             }
@@ -4278,7 +4280,6 @@ BOOL LONG_CALL CheckLegalMimicMove(u16 moveNo)
     return sMetronomeMimicMoveBanList[i] == 0xFFFE;
 }
 
-
 BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battlerId UNUSED, u16 moveNo)
 {
     int i = 0;
@@ -4529,7 +4530,7 @@ BOOL LONG_CALL IsAttackerOnField(struct BattleStruct *ctx)
     return TRUE;
 }
 
-int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, int battlerIdAttacker, u16 moveNo, int a4, int range)
+int LONG_CALL ov12_022506D4(struct BattleSystem *bw, struct BattleStruct *ctx, int battlerIdAttacker, u16 moveNo, int a4, int range)
 {
     int battlerIdTarget = BATTLER_NONE;
     int moveRange;
@@ -4616,7 +4617,7 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
     } else if (moveRange == RANGE_RANDOM_OPPONENT || a4 == 1) {
         int battleType = BattleTypeGet(bw);
         int side = IsClientEnemy(bw, battlerIdAttacker) ^ 1;
-        //int side = BattleSystem_GetFieldSide(battleSystem, battlerIdAttacker) ^ 1;
+        // int side = BattleSystem_GetFieldSide(battleSystem, battlerIdAttacker) ^ 1;
         int battlerIdOpponents[2];
         battlerIdOpponents[0] = ov12_0223ABB8(bw, battlerIdAttacker, 0);
         battlerIdOpponents[1] = ov12_0223ABB8(bw, battlerIdAttacker, 2);
@@ -4642,9 +4643,9 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
         }
     } else {
         int side = IsClientEnemy(bw, battlerIdAttacker) ^ 1;
-        //int side = BattleSystem_GetFieldSide(battleSystem, battlerIdAttacker) ^ 1;
+        // int side = BattleSystem_GetFieldSide(battleSystem, battlerIdAttacker) ^ 1;
         int battlerIdTargetTemp = ctx->playerActions[battlerIdAttacker][1]; //.unk4
-        //BattleSystem_GetMaxBattlers(battleSystem);
+        // BattleSystem_GetMaxBattlers(battleSystem);
 
         if (ctx->current_move_index != MOVE_SNIPE_SHOT
             && (GetBattlerAbility(ctx, battlerIdAttacker) != ABILITY_PROPELLER_TAIL)
@@ -4664,7 +4665,6 @@ int LONG_CALL ov12_022506D4(struct BattleSystem* bw, struct BattleStruct *ctx, i
 
     return battlerIdTarget;
 }
-
 
 void LONG_CALL HandleTransform(struct BattleStruct *sp)
 {
@@ -4731,40 +4731,41 @@ void LONG_CALL PrintBallBlockedMessage(struct tcb_skill_intp_work *data)
 }
 
 // Modifying this switch case allows you to assign any music to victory over a specific trainer class.
-void LONG_CALL PlayTrainerVictoryBGM(struct TrainerData *trainer) {
+void LONG_CALL PlayTrainerVictoryBGM(struct TrainerData *trainer)
+{
     switch (trainer->data.trainerClass) {
-        case TRAINERCLASS_LEADER_FALKNER:
-        case TRAINERCLASS_LEADER_BUGSY:
-        case TRAINERCLASS_LEADER_WHITNEY:
-        case TRAINERCLASS_LEADER_MORTY:
-        case TRAINERCLASS_LEADER_PRYCE:
-        case TRAINERCLASS_LEADER_JASMINE:
-        case TRAINERCLASS_LEADER_CHUCK:
-        case TRAINERCLASS_LEADER_CLAIR:
-        case TRAINERCLASS_CHAMPION:
-        case TRAINERCLASS_ELITE_FOUR_WILL:
-        case TRAINERCLASS_ELITE_FOUR_KAREN:
-        case TRAINERCLASS_ELITE_FOUR_KOGA:
-        case TRAINERCLASS_ELITE_FOUR_BRUNO:
-        case TRAINERCLASS_LEADER_BROCK:
-        case TRAINERCLASS_LEADER_MISTY:
-        case TRAINERCLASS_LEADER_LT_SURGE:
-        case TRAINERCLASS_LEADER_ERIKA:
-        case TRAINERCLASS_LEADER_JANINE:
-        case TRAINERCLASS_LEADER_SABRINA:
-        case TRAINERCLASS_LEADER_BLAINE:
-        case TRAINERCLASS_LEADER_BLUE:
-            PlayBGM(SEQ_GS_WIN3);
-            break;
-        case TRAINERCLASS_TOWER_TYCOON:
-        case TRAINERCLASS_HALL_MATRON:
-        case TRAINERCLASS_FACTORY_HEAD:
-        case TRAINERCLASS_ARCADE_STAR:
-        case TRAINERCLASS_CASTLE_VALET:
-            PlayBGM(SEQ_GS_WINBRAIN);
-            break;
-        default:
-            PlayBGM(SEQ_GS_WIN1);
-            break;
+    case TRAINERCLASS_LEADER_FALKNER:
+    case TRAINERCLASS_LEADER_BUGSY:
+    case TRAINERCLASS_LEADER_WHITNEY:
+    case TRAINERCLASS_LEADER_MORTY:
+    case TRAINERCLASS_LEADER_PRYCE:
+    case TRAINERCLASS_LEADER_JASMINE:
+    case TRAINERCLASS_LEADER_CHUCK:
+    case TRAINERCLASS_LEADER_CLAIR:
+    case TRAINERCLASS_CHAMPION:
+    case TRAINERCLASS_ELITE_FOUR_WILL:
+    case TRAINERCLASS_ELITE_FOUR_KAREN:
+    case TRAINERCLASS_ELITE_FOUR_KOGA:
+    case TRAINERCLASS_ELITE_FOUR_BRUNO:
+    case TRAINERCLASS_LEADER_BROCK:
+    case TRAINERCLASS_LEADER_MISTY:
+    case TRAINERCLASS_LEADER_LT_SURGE:
+    case TRAINERCLASS_LEADER_ERIKA:
+    case TRAINERCLASS_LEADER_JANINE:
+    case TRAINERCLASS_LEADER_SABRINA:
+    case TRAINERCLASS_LEADER_BLAINE:
+    case TRAINERCLASS_LEADER_BLUE:
+        PlayBGM(SEQ_GS_WIN3);
+        break;
+    case TRAINERCLASS_TOWER_TYCOON:
+    case TRAINERCLASS_HALL_MATRON:
+    case TRAINERCLASS_FACTORY_HEAD:
+    case TRAINERCLASS_ARCADE_STAR:
+    case TRAINERCLASS_CASTLE_VALET:
+        PlayBGM(SEQ_GS_WINBRAIN);
+        break;
+    default:
+        PlayBGM(SEQ_GS_WIN1);
+        break;
     }
 }
