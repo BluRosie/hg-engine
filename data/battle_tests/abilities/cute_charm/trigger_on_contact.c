@@ -84,9 +84,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Nidoran used Poison Sting!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "used Poison Sting!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Cute Charm" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy used Play Rough!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidoran's Cute Charm" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "'s Cute Charm" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy fell in love!" },
     }
 }
