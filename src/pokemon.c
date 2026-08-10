@@ -1,9 +1,9 @@
+#include "config.h"
+#include "debug.h"
 #include "types.h"
+
 #include "pokemon.h"
 
-#include "bag.h"
-#include "battle.h"
-#include "config.h"
 #include "constants/ability.h"
 #include "constants/file.h"
 #include "constants/game.h"
@@ -14,7 +14,9 @@
 #include "constants/sndseq.h"
 #include "constants/species.h"
 #include "constants/weather_numbers.h"
-#include "debug.h"
+
+#include "bag.h"
+#include "battle.h"
 #include "overlay.h"
 #include "rtc.h"
 #include "save.h"
@@ -157,8 +159,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
  */
 u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 {
-    if (mons_no > SPECIES_MAX_MON_NUM)
-    {
+    if (mons_no > SPECIES_MAX_MON_NUM) {
         ReadFromNarcMemberByIdPair(&mons_no, ARC_CODE_ADDONS, CODE_ADDON_FORM_SPECIES_MAPPING, sizeof(u16) * (mons_no - SPECIES_MEGA_START), sizeof(u16));
     }
     return mons_no;
@@ -1542,8 +1543,7 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     ResetPartyPokemonAbility(pokemon);
 }
 
-
-#define CRY_SPECIES_FORMS_BASE (SPECIES_MAX_MON_NUM+1)
+#define CRY_SPECIES_FORMS_BASE (SPECIES_MAX_MON_NUM + 1)
 
 // need to be in order of form so that python script can generate the makefile
 #define CRY_SPECIES_SHAYMIN 0x1EE

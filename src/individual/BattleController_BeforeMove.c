@@ -1,5 +1,6 @@
-#include "battle.h"
 #include "config.h"
+#include "types.h"
+
 #include "constants/ability.h"
 #include "constants/battle_message_constants.h"
 #include "constants/battle_script_constants.h"
@@ -10,10 +11,11 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 #include "constants/system_control.h"
+
+#include "battle.h"
 #include "item.h"
 #include "mega.h"
 #include "pokemon.h"
-#include "types.h"
 
 /********************************************************************************************************************/
 /********************************************************************************************************************/
@@ -202,7 +204,7 @@ BOOL LONG_CALL AbilityNoTransform(int ability);
 void __attribute__((section(".init"))) BattleController_BeforeMove(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
-        debug_printf("In BattleController_BeforeMove %d, move %d, attacker %d, defender: %d\n", ctx->wb_seq_no, ctx->current_move_index, ctx->attack_client, ctx->defence_client);
+    debug_printf("In BattleController_BeforeMove %d, move %d, attacker %d, defender: %d\n", ctx->wb_seq_no, ctx->current_move_index, ctx->attack_client, ctx->defence_client);
 #endif
 
     if (IsAttackerOnField(ctx)) {
@@ -803,7 +805,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         ctx->wb_seq_no++;
         FALLTHROUGH;
     }
-    //TODO: verify, split magic bounce function if necessary
+    // TODO: verify, split magic bounce function if necessary
     case BEFORE_MOVE_STATE_MAGIC_COAT: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_MAGIC_COAT\n");
@@ -1381,8 +1383,7 @@ void BattleController_CheckHealBlock(struct BattleSystem *bsys, struct BattleStr
     if ((ctx->current_move_index == MOVE_HEAL_PULSE && ctx->battlemon[ctx->defence_client].moveeffect.healBlockTurns)
         || (ctx->current_move_index == MOVE_POLLEN_PUFF
             && ctx->battlemon[ctx->defence_client].moveeffect.healBlockTurns
-            && ctx->defence_client == BATTLER_ALLY(ctx->attack_client)))
-    {
+            && ctx->defence_client == BATTLER_ALLY(ctx->attack_client))) {
         ctx->moveOutCheck[ctx->attack_client].stoppedFromHealBlock = TRUE;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MOVE_IS_HEAL_BLOCKED);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1392,7 +1393,6 @@ void BattleController_CheckHealBlock(struct BattleSystem *bsys, struct BattleStr
         ctx->server_status_flag |= BATTLE_STATUS_CHECK_LOOP_ONLY_ONCE;
         ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
     }
-
 }
 
 // TODO: Gravity ban list and Throat Chop
@@ -2053,7 +2053,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         || moveEffect == MOVE_EFFECT_SURVIVE_WITH_1_HP) {
         if ((ctx->waitingBattlers == 1)
             || (((currentMoveIndex != MOVE_QUICK_GUARD) && (currentMoveIndex != MOVE_WIDE_GUARD)
-                && (currentMoveIndex != MOVE_MAT_BLOCK) && (currentMoveIndex != MOVE_CRAFTY_SHIELD))
+                    && (currentMoveIndex != MOVE_MAT_BLOCK) && (currentMoveIndex != MOVE_CRAFTY_SHIELD))
                 // Skip RNG check if Quick Guard, Wide Guard, Mat Block or Crafty Shield.
                 && (BattleRand(bsys) % sProtectSuccessChance[ctx->protectSuccessTurns[ctx->attack_client]] > 0))) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
@@ -2649,7 +2649,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
 
     if (!sp->magicBounceContext.isActive && (sp->moveTbl[sp->current_move_index].flag & FLAG_MAGIC_COAT)) {
         int target = sp->moveTbl[sp->current_move_index].target;
-        int enemies = sp->magicBounceContext.bounceMaxCounter;//if there is already a magic coat bouncer
+        int enemies = sp->magicBounceContext.bounceMaxCounter; // if there is already a magic coat bouncer
         BOOL endMove = FALSE;
         BOOL endOnFirstBounce = ((target & RANGE_OPPONENT_SIDE) != 0);
 
@@ -2776,7 +2776,7 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
 BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
     if ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_LEVITATE) == TRUE
-        || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_EELEVATE) == TRUE)
+            || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_EELEVATE) == TRUE)
         && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
         // iron ball halves speed and grounds
         && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
@@ -2860,8 +2860,8 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities1(struct BattleSystem
 
     // Dark-type Prankster immunity
     if ((priority > 0 && GetMoveSplit(ctx, ctx->current_move_index) == SPLIT_STATUS && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_PRANKSTER && HasType(ctx, defender, TYPE_DARK) && (ctx->attack_client & 1) != (defender & 1)) // used on an enemy)
-        // Ghost-type immunity to trapping moves
-        // TODO: handle Octolock
+                                                                                                                                                                                                                                           // Ghost-type immunity to trapping moves
+                                                                                                                                                                                                                                           // TODO: handle Octolock
         || (moveEffect == MOVE_EFFECT_PREVENT_ESCAPE && HasType(ctx, defender, TYPE_GHOST))
         // Grass-type powder immunity
         || (IsPowderMove(ctx->current_move_index) && HasType(ctx, defender, TYPE_GRASS) && ctx->attack_client != defender)
@@ -3717,7 +3717,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
                 }
                 break;
             // TODO: Handle Sky Drop here
-            //case MOVE_EFFECT_TRANSFORM:
+            // case MOVE_EFFECT_TRANSFORM:
             case MOVE_EFFECT_SET_ABILITY_TO_INSOMNIA:
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
@@ -3843,7 +3843,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         break;
     }
-    case MOVE_LIFE_DEW: { //only self
+    case MOVE_LIFE_DEW: { // only self
         if (ctx->battlemon[ctx->attack_client].hp == (s32)ctx->battlemon[ctx->attack_client].maxhp) {
             ctx->battlerIdTemp = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_HP_FULL_FAIL);
@@ -4339,15 +4339,15 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         break;
     }
     case MOVE_TRANSFORM: {
-		    // target ability is good as gold
+        // target ability is good as gold
         if (GetBattlerAbility(ctx, ctx->defence_client) == ABILITY_GOOD_AS_GOLD
-			// target is behind a substitute or themselves transformed
+            // target is behind a substitute or themselves transformed
             || (ctx->battlemon[ctx->defence_client].condition2 & (STATUS2_TRANSFORM | STATUS2_SUBSTITUTE)) != 0
-			// attacker is already transformed
-			|| (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_TRANSFORM) != 0
-			// mew and ditto are the only folks who can transform as wild mons https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-10403578
-			|| ((!(BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER)) ? (ctx->battlemon[ctx->attack_client].species != SPECIES_DITTO && ctx->battlemon[ctx->attack_client].species != SPECIES_MEW) : FALSE)
-			// target has an active illusion
+            // attacker is already transformed
+            || (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_TRANSFORM) != 0
+            // mew and ditto are the only folks who can transform as wild mons https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-10403578
+            || ((!(BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER)) ? (ctx->battlemon[ctx->attack_client].species != SPECIES_DITTO && ctx->battlemon[ctx->attack_client].species != SPECIES_MEW) : FALSE)
+            // target has an active illusion
             || IS_CLIENT_IN_ILLUSION(bsys, ctx->defence_client)) {
             butItFailedFlag = TRUE;
         }
@@ -4420,7 +4420,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
 BOOL BattleController_CheckMoveFailures4_MultipleTargets(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
     switch (ctx->current_move_index) {
-    case MOVE_LIFE_DEW: { //only ally
+    case MOVE_LIFE_DEW: { // only ally
         if (ctx->battlemon[defender].hp == (s32)ctx->battlemon[defender].maxhp) {
             ctx->battlerIdTemp = defender;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_HP_FULL_FAIL);

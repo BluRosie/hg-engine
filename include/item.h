@@ -1,9 +1,10 @@
 #ifndef POKEDIAMOND_ITEM_H
 #define POKEDIAMOND_ITEM_H
 
+#include "types.h"
+
 #include "script.h"
 #include "task.h"
-#include "types.h"
 
 /*
  * Bit array describing the effects of using the item on a

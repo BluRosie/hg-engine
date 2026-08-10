@@ -1,32 +1,34 @@
-#include "battle.h"
 #include "config.h"
 #include "debug.h"
-#include "pokemon.h"
-#include "test_battle.h"
 #include "types.h"
+
 #include "constants/ability.h"
-#include "constants/hold_item_effects.h"
 #include "constants/battle_message_constants.h"
 #include "constants/battle_script_constants.h"
+#include "constants/file.h"
+#include "constants/hold_item_effects.h"
 #include "constants/item.h"
 #include "constants/move_effects.h"
 #include "constants/moves.h"
 #include "constants/species.h"
-#include "constants/file.h"
+
+#include "battle.h"
 #include "overlay.h"
+#include "pokemon.h"
+#include "test_battle.h"
 
 /**
  * Platinum version as reference
  * BattleController_MoveEnd
  * https://github.com/pret/pokeplatinum/blob/447c17a0f12b4a7656dded8aaa6e41ae9694cd09/src/battle/battle_controller.c#L3965
  */
-void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struct BattleStruct *ctx) {
-    //debug_printf("In BattleController_MoveEnd\n");
+void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    // debug_printf("In BattleController_MoveEnd\n");
     int script;
     u32 battleType = BattleTypeGet(bsys);
 
-    if (ctx->pursuitContext.isActive == TRUE)
-    {
+    if (ctx->pursuitContext.isActive == TRUE) {
         ctx->pursuitContext.isActive = FALSE;
         ctx->attack_client = ctx->pursuitContext.originalAttacker;
         ctx->defence_client = ctx->pursuitContext.originalDefender;
@@ -76,9 +78,9 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         int move_type = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
         if (ctx->battlemon[ctx->attack_client].moveeffect.isCharged && move_type == TYPE_ELECTRIC && !ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag) {
             if (--ctx->battlemon[ctx->attack_client].moveeffect.isCharged == 0) {
-                    ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_CHARGE;
-                }
-                ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 1;
+                ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_CHARGE;
+            }
+            ctx->oneTurnFlag[ctx->attack_client].chargeProcessedFlag = 1;
         }
 
         // Reset Focus Punch flag
