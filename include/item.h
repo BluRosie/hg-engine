@@ -136,6 +136,12 @@ typedef void (*ItemMenuUseFunc)(struct ItemMenuUseData *data, const struct ItemC
 typedef BOOL (*ItemFieldUseFunc)(struct ItemFieldUseData *data);
 typedef u32 (*ItemCheckUseFunc)(const struct ItemCheckUseData *data);
 
+#define NUM_VANILLA_FIELD_USE_FUNCS 30
+
+#define USE_ITEM_TASK_MENU  0
+#define USE_ITEM_TASK_FIELD 1
+#define USE_ITEM_TASK_CHECK 2
+
 struct ItemUseFuncDat {
     ItemMenuUseFunc menu;
     ItemFieldUseFunc field;
