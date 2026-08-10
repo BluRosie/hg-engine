@@ -1235,11 +1235,13 @@ struct BattleSystem {
 
 struct ABILITY_POPUP_WORK {
     struct BattleSystem *bsys;
+    CATS_ACT_PTR icon;
     u16 ability;
     u8 battler;
     u8 side;
     u8 frames;
     u8 step;
+    u8 iconResourcesLoaded;
 };
 
 // Ability Checks - values for flag for CheckSideAbility

@@ -892,3 +892,7 @@ ApplyRoamerLocation = 0x02067914 | 1;
 
 ov07_02232F60 = 0x02232F60 | 1;
 ov07_02233ECC = 0x02233ECC | 1;
+
+SpriteSystem_LoadCharResObjAtEndWithHardwareMappingType = 0x0200E188 | 1;
+GfGfxLoader_GetCharData = 0x020079BC | 1;
+Sprite_SetDrawFlag = 0x02024830 | 1;
