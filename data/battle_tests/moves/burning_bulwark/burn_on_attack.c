@@ -110,9 +110,9 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Entei is paralyzed, so it may be unable to move!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machop used Pound!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machop was burned!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Entei protected itself!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gouging Fire used Burning Bulwark!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gouging Fire protected itself!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing GouginFire used Burning Bulwark!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing GouginFire protected itself!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machop is hurt by its burn!" },
     }
 }
 END_TEST
