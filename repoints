@@ -36,11 +36,6 @@ arm9 sPocketCounts 08077C14
 0012 TypeEffectivenessTable+2 02252648
 0012 TypeEffectivenessTable 02252694
 
-# item use func table
-arm9 sItemFieldUseFuncs 020649AC
-arm9 sItemFieldUseFuncs+4 020649B0
-arm9 sItemFieldUseFuncs+8 020649B4
-
 # terrain table expansion
 0012 TerrainPlatformPlayerNCGR 02265F1C
 0012 TerrainPlatformEnemyNCGR 02265F24

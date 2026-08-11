@@ -114,16 +114,6 @@ typedef struct NNSG2dScreenData {
     u32 rawData[1]; // screen data (variable length)
 } NNSG2dScreenData;
 
-typedef struct NNSG2dCharacterData {
-    u16 H;
-    u16 W;
-    int pixelFmt;
-    int mapingType;
-    u32 characterFmt;
-    u32 szByte;
-    void *pRawData;
-} NNSG2dCharacterData;
-
 #define GF_BGL_FRAME0_M (0)
 #define GF_BGL_FRAME1_M (1)
 #define GF_BGL_FRAME2_M (2)

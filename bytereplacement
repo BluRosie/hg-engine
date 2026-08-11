@@ -552,3 +552,8 @@ arm9 02000E54 24 00 00 00 04 5C 1E 02
 
 # make sure that the original antipiracy method is patched to vanilla
 arm9 02000A18 1E FF 2F E1
+
+# restore original sItemFieldUseFunc pointers since we no longer repoint the whole thing
+arm9 020649AC 64 E2 0F 02
+arm9 020649B0 64 E2 0F 02
+arm9 020649B4 64 E2 0F 02
