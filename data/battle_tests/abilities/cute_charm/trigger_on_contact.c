@@ -1,4 +1,4 @@
-// Test: Cute Charm - trigger on conctact
+// Test: Cute Charm - trigger on contact
 // https://www.youtube.com/watch?v=7VycBvxrCS4
 #include "../../battle_tests.h"
 BEGIN_TEST
@@ -9,8 +9,8 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_CLEFAIRY,
-            .level = 50,
+            .species = SPECIES_NIDORINA,
+            .level = 40,
             .form = 0,
             .ability = ABILITY_CUTE_CHARM,
             .item = ITEM_NONE,
@@ -84,11 +84,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "used Poison Sting!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorino used Poison Sting!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Cute Charm" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy used Play Rough!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "'s Cute Charm" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefairy fell in love!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorina used Play Rough!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorino's Cute Charm" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorina fell in love!" },
     }
 }
 END_TEST
