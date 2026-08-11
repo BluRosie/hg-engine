@@ -1,4 +1,4 @@
-// Test:Burning Bulwark - Burn on Attacking move
+// Test: Burning Bulwark - Burn on Attacking move
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -49,12 +49,12 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_GENGAR,
+            .species = SPECIES_GOUGING_FIRE,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_LEVITATE,
+            .ability = ABILITY_INNER_FOCUS,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_BURNING_BULWARK, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -66,7 +66,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -96,7 +96,7 @@ BEGIN_TEST
                      },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -105,7 +105,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Entei used Burning Bulwark!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pikachu used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Entei is paralyzed, so it may be unable to move!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machop used Pound!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machop was burned!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Entei protected itself!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gouging Fire used Burning Bulwark!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gouging Fire protected itself!" },
     }
 }
 END_TEST

@@ -106,7 +106,12 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snorlax used Hyper Beam!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snorlax used Hyper Beam!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Munchlax used Hyper Beam!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Gengar..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snorlax must recharge!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Munchlax used Hyper Beam!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective..." },
     }
 }
 END_TEST

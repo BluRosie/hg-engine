@@ -1206,7 +1206,7 @@ void BattleController_CheckRecharge(struct BattleSystem *bsys, struct BattleStru
 {
     if (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RECHARGE) {
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_RECHARGE;
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RECHARGE_TURN);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_RECHARGING);
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         ctx->next_server_seq_no = CONTROLLER_COMMAND_39;
         ctx->wb_seq_no = BEFORE_MOVE_START;
