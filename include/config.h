@@ -240,7 +240,7 @@
 // #define ENTIRE_PARTY_AFFECTS_ROCK_SMASH
 
 // SKIP_TUTORIAL_INFO will skip the tutorial when starting a new game and go straight to Professor Oak greeting you.
-// comment out this line if you do not want this to happen
+// uncomment the line out to get this functionality
 // #define SKIP_TUTORIAL_INFO
 
 // Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
