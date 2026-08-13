@@ -239,6 +239,10 @@
 // ENTIRE_PARTY_AFFECTS_ROCK_SMASH causes the abilities of all party Pokemon to influence the odds of getting an item from breaking rocks, rather than just the following Pokemon.
 // #define ENTIRE_PARTY_AFFECTS_ROCK_SMASH
 
+// SKIP_TUTORIAL_INFO will skip the tutorial when starting a new game and go straight to Professor Oak greeting you.
+// uncomment the line out to get this functionality
+// #define SKIP_TUTORIAL_INFO
+
 // Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
 #define CHAMPIONS_POWER_CHANGES         1
 #define CHAMPIONS_TYPE_CHANGES          1
