@@ -100,7 +100,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable's wish came true!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable's HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy's wish came true!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "he opposing Chansey's HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chansey's HP was restored!" },
     }
 }
 END_TEST
