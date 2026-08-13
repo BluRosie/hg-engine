@@ -380,7 +380,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 
 #endif
                         if (--sp->fcc.wish_count[futureCondition.defenderSlot] == 0) {
-                            if (sp->battlemon[futureCondition.defenderSlot].hp) {
+                            if (sp->battlemon[futureCondition.defenderSlot].hp && sp->battlemon[futureCondition.defenderSlot].hp != (s32)(sp->battlemon[futureCondition.defenderSlot].maxhp)) {
 #ifdef DEBUG_ENDTURN_LOGIC
                                 debug_printf("Wish Pass\n");
 
@@ -389,10 +389,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                                 sp->mp.tag = TAG_NICKNAME;
                                 sp->mp.id = BATTLE_MSG_WISH_CAME_TRUE; // "{STRVAR_1 1, 0, 0}’s wish\ncame true!"
                                 sp->mp.param[0] = futureCondition.defenderSlot | (sp->fcc.wish_sel_mons[futureCondition.defenderSlot] << 8);
-                                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[futureCondition.defenderSlot].maxhp, 2);
+                                sp->hp_calc_work = sp->fcc.future_prediction_damage[futureCondition.defenderSlot];
                                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WISH_HEAL);
                                 sp->next_server_seq_no = sp->server_seq_no;
-                                sp->server_seq_no = 22;
+                                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                                 ret = 1;
                                 sp->futureConditionQueue[sp->scc_work].conditionType.futureConditionType = FUTURE_CONDITION_NONE;
                             }
