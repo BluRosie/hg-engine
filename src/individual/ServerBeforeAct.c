@@ -122,7 +122,7 @@ void __attribute__((section (".init"))) ServerBeforeActInternal(struct BattleSys
                                 flag = TRUE;
                             } else {
                                 // ai requests mega
-                                if (CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER))) {
+                                if ((BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER))) {
                                     sp->battlemon[client_no].canMega = 1;
                                     flag = TRUE;
                                 }
