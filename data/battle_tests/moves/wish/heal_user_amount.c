@@ -8,8 +8,8 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_CLEFAIRY,
-            .level = 40,
+            .species = SPECIES_CLEFABLE,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_MAGIC_GUARD,
             .item = ITEM_NONE,
@@ -26,7 +26,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_CLEFABLE,
+                        .species = SPECIES_CLEFAIRY,
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_MAGIC_GUARD,
@@ -39,10 +39,10 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_CHANSEY,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_SERENE_GRACE,
-            .item = ITEM_NONE,
+            .item = ITEM_ORAN_BERRY,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = 1,
             .status = 0,
