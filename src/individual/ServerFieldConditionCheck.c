@@ -380,7 +380,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 
 #endif
                         if (--sp->fcc.wish_count[futureCondition.defenderSlot] == 0) {
-                            if (sp->battlemon[futureCondition.defenderSlot].hp && sp->battlemon[futureCondition.defenderSlot].hp != (s32)(sp->battlemon[futureCondition.defenderSlot].maxhp)) {
+                            if (sp->battlemon[futureCondition.defenderSlot].hp) {
 #ifdef DEBUG_ENDTURN_LOGIC
                                 debug_printf("Wish Pass\n");
 
