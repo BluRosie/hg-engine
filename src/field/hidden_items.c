@@ -1,9 +1,11 @@
+#include "types.h"
+
 #include "constants/file.h"
 #include "constants/item.h"
+
 #include "map_events_internal.h"
 #include "pokemon.h"
 #include "script.h"
-#include "types.h"
 
 typedef struct HiddenItemData {
     u16 itemId;

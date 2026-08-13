@@ -1,14 +1,16 @@
-#include "battle.h"
 #include "config.h"
+#include "types.h"
+
 #include "constants/ability.h"
 #include "constants/battle_script_constants.h"
 #include "constants/file.h"
 #include "constants/item.h"
 #include "constants/weather_numbers.h"
+
+#include "battle.h"
 #include "mega.h"
 #include "pokemon.h"
 #include "sprite.h"
-#include "types.h"
 
 // function declarations for this file
 void Sub_PokeIconResourceLoad(struct BI_PARAM *bip);
@@ -681,10 +683,10 @@ u16 TerrainPlatformPalettes[][3] = {
     [TERRAIN_BATTLE_CASTLE] = { 61, 62, 63 },
     [TERRAIN_BATTLE_HALL] = { 64, 65, 66 },
     [TERRAIN_GIRATINA] = { 67, 68, 69 },
-    [TERRAIN_ELECTRIC_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
-    [TERRAIN_MISTY_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
-    [TERRAIN_GRASSY_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
-    [TERRAIN_PSYCHIC_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
+    [TERRAIN_ELECTRIC_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), BATTLE_GFX_TRANSPARENT_TERRAIN + 1, (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
+    [TERRAIN_MISTY_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), BATTLE_GFX_TRANSPARENT_TERRAIN + 1, (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
+    [TERRAIN_GRASSY_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), BATTLE_GFX_TRANSPARENT_TERRAIN + 1, (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
+    [TERRAIN_PSYCHIC_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), BATTLE_GFX_TRANSPARENT_TERRAIN + 1, (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
 };
 
 BattleBGStorage NewBattleBgTable[] = {

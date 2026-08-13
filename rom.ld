@@ -47,6 +47,7 @@ AllocAndReadWholeNarcMemberByIdPair = 0x02007524 | 1;
 ReadWholeNarcMemberByIdPair = 0x02007509;
 AllocAndReadFromNarcMemberByIdPair = 0x0200757C | 1;
 NARC_New = 0x02007688 | 1;
+NARC_Delete = 0x0200770C | 1;
 ReadFromNarcMemberByIdPair = 0x02007560 | 1;
 /*sqrt = 0x0200048A | 1;*/
 
@@ -150,6 +151,7 @@ CopyWindowToVram = 0x0201D578 |1;
 
 /*ItemUse*/
 SetUpItemScript = 0x02064A8C |1;
+sItemFieldUseFuncs = 0x020FE264;
 
 /*OAM*/
 OAM_LoadResourceCharArcH = 0x0200D504 | 1;
@@ -291,6 +293,7 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 /*Overworld Code*/
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
+ObjectEvent_GetGraphicsInfo = 0x021F92DC | 1;
 /*get_mon_ow_tag = 0x02069D70 | 1;*/
 does_species_have_dimorphism = 0x0206A338 | 1;
 
@@ -875,7 +878,12 @@ GameStats_Inc = 0x0202D0FC | 1;
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
-
+BattleSystem_GetMaxBattlers = 0x0223A7F0 | 1;
+BattleSystem_GetFieldSide = 0x0223AB1C | 1;
+ov12_0223BB88 = 0x0223BB88 | 1;
+ov12_0223BB94 = 0x0223BB94 | 1;
+ov12_022600F0 = 0x022600F0 | 1;
+Pokepic_StartAnim = 0x02008550 | 1;
 sStarterChoiceCries = 0x021E7398;
 BufferBoxMonNickname = 0x0200BF8C | 1;
 BufferBoxMonSpeciesName = 0x0200BF1C | 1;
@@ -890,3 +898,11 @@ ApplyRoamerLocation = 0x02067914 | 1;
 
 ov07_02232F60 = 0x02232F60 | 1;
 ov07_02233ECC = 0x02233ECC | 1;
+
+SpriteSystem_LoadCharResObjAtEndWithHardwareMappingType = 0x0200E188 | 1;
+GfGfxLoader_GetCharData = 0x020079BC | 1;
+Sprite_SetDrawFlag = 0x02024830 | 1;
+BattleSystem_GetPokepicManager = 0x0223A8D4 | 1;
+ov12_0223B750 = 0x0223B750 | 1;
+sub_0207294C = 0x0207294C | 1;
+sub_02017068 = 0x02017068 | 1;

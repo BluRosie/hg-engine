@@ -1,5 +1,7 @@
-#include "battle.h"
 #include "config.h"
+#include "debug.h"
+#include "types.h"
+
 #include "constants/ability.h"
 #include "constants/file.h"
 #include "constants/hold_item_effects.h"
@@ -7,11 +9,11 @@
 #include "constants/move_effects.h"
 #include "constants/moves.h"
 #include "constants/species.h"
-#include "debug.h"
+
+#include "battle.h"
 #include "overlay.h"
 #include "pokemon.h"
 #include "q412.h"
-#include "types.h"
 
 // int UNUSED CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED,u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical) {
 int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *sp, struct DamageCalcStruct *damageCalc)
@@ -1178,8 +1180,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_3333);
             }
 
-            //TODO: check place after tests are done
-            // handle Fire Mane
+            // TODO: check place after tests are done
+            //  handle Fire Mane
             if (AttackingMon.ability == ABILITY_FIRE_MANE && (movetype == TYPE_FIRE)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }

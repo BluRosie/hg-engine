@@ -1,6 +1,7 @@
-#include "types.h"
-#include "battle.h"
 #include "config.h"
+#include "debug.h"
+#include "types.h"
+
 #include "constants/ability.h"
 #include "constants/file.h"
 #include "constants/hold_item_effects.h"
@@ -8,7 +9,8 @@
 #include "constants/move_effects.h"
 #include "constants/moves.h"
 #include "constants/species.h"
-#include "debug.h"
+
+#include "battle.h"
 #include "overlay.h"
 #include "pokemon.h"
 #include "q412.h"
@@ -161,7 +163,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         damageCalc.clients[attacker].type2 = GetMonData(pp, MON_DATA_TYPE_2, 0);
         damageCalc.clients[attacker].type3 = TYPE_TYPELESS;
         damageCalc.clients[attacker].isGrounded = TRUE;
-        if ((damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING)) //&& !(sp->field_condition & FIELD_CONDITION_GRAVITY)) //unknown
+        if (damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING) //&& !(sp->field_condition & FIELD_CONDITION_GRAVITY)) //unknown
         {
             damageCalc.clients[attacker].isGrounded = FALSE;
         }

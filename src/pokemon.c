@@ -1,9 +1,9 @@
+#include "config.h"
+#include "debug.h"
 #include "types.h"
+
 #include "pokemon.h"
 
-#include "bag.h"
-#include "battle.h"
-#include "config.h"
 #include "constants/ability.h"
 #include "constants/file.h"
 #include "constants/game.h"
@@ -14,7 +14,9 @@
 #include "constants/sndseq.h"
 #include "constants/species.h"
 #include "constants/weather_numbers.h"
-#include "debug.h"
+
+#include "bag.h"
+#include "battle.h"
 #include "overlay.h"
 #include "rtc.h"
 #include "save.h"
@@ -22,6 +24,7 @@
 #include "sound.h"
 
 extern u32 word_to_store_form_at;
+struct OVERWORLD_TAG *LONG_CALL ObjectEvent_GetGraphicsInfo(u32 spriteId);
 // [preevo] = {species, form}, [postevo] = {species, form},
 u16 ALIGN4 gEvolutionSceneOverride[2][2];
 
@@ -156,8 +159,7 @@ u16 LONG_CALL GetSpeciesBasedOnForm(int mons_no, int form_no)
  */
 u16 LONG_CALL GetBaseSpeciesFromAdjustedForm(u32 mons_no)
 {
-    if (mons_no > SPECIES_MAX_MON_NUM)
-    {
+    if (mons_no > SPECIES_MAX_MON_NUM) {
         ReadFromNarcMemberByIdPair(&mons_no, ARC_CODE_ADDONS, CODE_ADDON_FORM_SPECIES_MAPPING, sizeof(u16) * (mons_no - SPECIES_MEGA_START), sizeof(u16));
     }
     return mons_no;
@@ -176,8 +178,7 @@ u16 LONG_CALL GetFormFromAdjustedForm(u32 mons_no)
         u16 oldSpecies = GetBaseSpeciesFromAdjustedForm(mons_no);
         u16 formTable[32]; // right on stack so do not have to free this
         ReadFromNarcMemberByIdPair(formTable, ARC_CODE_ADDONS, CODE_ADDON_FORM_DATA, sizeof(u16) * (oldSpecies * 32), sizeof(u16) * 32);
-        for (ret = 0; ret < 32; ret++)
-        {
+        for (ret = 0; ret < 32; ret++) {
             if ((formTable[ret] & ~NEEDS_REVERSION) == mons_no || !formTable[ret]) {
                 break;
             }
@@ -1064,89 +1065,18 @@ u8 LONG_CALL LoadEggMoves(struct PartyPokemon *pokemon, u16 *dest)
     return count;
 }
 
-struct EggMoveSearch {
-    int dad_moves[4];
-    int shared_moves[4];
-    int mom_moves[4];
-    u16 baby_learnset[MAX_LEVELUP_MOVES];
-    u16 baby_egg_moves[MAX_EGG_MOVES];
-};
-
 void LONG_CALL InheritMoves(struct PartyPokemon *egg, struct BoxPokemon *father, struct BoxPokemon *mother)
 {
-    u16 sp1C;
-    u16 egg_species;
-    u16 learnset_size;
-    u16 egg_form;
-    u16 i, j;
-    u16 r5;
-    struct EggMoveSearch *search;
+    u32 ovyId, offset;
+    void (*internalFunc)(struct PartyPokemon *, struct BoxPokemon *, struct BoxPokemon *);
 
-    search = sys_AllocMemory(HEAPID_FIELD1, sizeof(struct EggMoveSearch));
-    sp1C = 0;
-    MI_CpuClearFast(search, sizeof(struct EggMoveSearch));
+    ovyId = OVERLAY_INHERITMOVES;
+    offset = 0x023C0400 | 1;
 
-    egg_species = GetMonData(egg, MON_DATA_SPECIES, NULL);
-    egg_form = GetMonData(egg, MON_DATA_FORM, NULL);
-    learnset_size = Species_LoadLearnsetTable(egg_species, egg_form, search->baby_learnset);
-    for (i = 0; i < MAX_MON_MOVES; i++) {
-        search->dad_moves[i] = GetBoxMonData(father, MON_DATA_MOVE1 + i, NULL);
-        search->mom_moves[i] = GetBoxMonData(mother, MON_DATA_MOVE1 + i, NULL);
-    }
-    r5 = LoadEggMoves(egg, search->baby_egg_moves);
-    for (i = 0; i < MAX_MON_MOVES; i++) {
-        if (search->dad_moves[i] != MOVE_NONE) {
-            for (j = 0; j < r5; j++) {
-                if (search->dad_moves[i] == search->baby_egg_moves[j]) {
-                    if (TryAppendMonMove(egg, search->dad_moves[i]) == MOVE_APPEND_FULL) {
-                        DeleteMonFirstMoveAndAppend(egg, search->dad_moves[i]);
-                    }
-                    break;
-                }
-            }
-        } else {
-            break;
-        }
-    }
-    for (i = 0; i < MAX_MON_MOVES; i++) {
-        if (search->dad_moves[i] != MOVE_NONE) {
-            for (j = 0; j < 100; j++) {
-                if (search->dad_moves[i] == ItemToMachineMove(j + ITEM_TM001)) {
-                    if (GetTMHMCompatBySpeciesAndForm(egg_species, egg_form, j)) {
-                        if (TryAppendMonMove(egg, search->dad_moves[i]) == MOVE_APPEND_FULL) {
-                            DeleteMonFirstMoveAndAppend(egg, search->dad_moves[i]);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    for (i = 0; i < MAX_MON_MOVES; i++) {
-        if (search->dad_moves[i] == MOVE_NONE) {
-            break;
-        }
-        for (j = 0; j < MAX_MON_MOVES; j++) {
-            if (search->dad_moves[i] == search->mom_moves[j] && search->dad_moves[i] != MOVE_NONE) {
-                search->shared_moves[sp1C++] = search->dad_moves[i];
-            }
-        }
-    }
-    for (i = 0; i < MAX_MON_MOVES; i++) {
-        if (search->shared_moves[i] == MOVE_NONE) {
-            break;
-        }
-        for (j = 0; j < learnset_size; j++) {
-            if (search->baby_learnset[j] != MOVE_NONE) {
-                if (search->shared_moves[i] == search->baby_learnset[j]) {
-                    if (TryAppendMonMove(egg, search->shared_moves[i]) == MOVE_APPEND_FULL) {
-                        DeleteMonFirstMoveAndAppend(egg, search->shared_moves[i]);
-                    }
-                    break;
-                }
-            }
-        }
-    }
-    sys_FreeMemoryEz(search);
+    HandleLoadOverlay(ovyId, 2);
+    internalFunc = (void (*)(struct PartyPokemon *, struct BoxPokemon *, struct BoxPokemon *))offset;
+    internalFunc(egg, father, mother);
+    UnloadOverlayByID(ovyId);
 }
 
 /**
@@ -1324,6 +1254,10 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
         }
     } else {
         ret += GetSpeciesBasedOnForm(species, form);
+    }
+
+    if (form != 0 && ObjectEvent_GetGraphicsInfo(ret) == NULL) {
+        return get_mon_ow_tag(species, 0, isFemale);
     }
 
     return ret;
@@ -1609,8 +1543,7 @@ void sub_0206D328(struct PartyPokemon *pokemon, u32 heapId)
     ResetPartyPokemonAbility(pokemon);
 }
 
-
-#define CRY_SPECIES_FORMS_BASE (SPECIES_MAX_MON_NUM+1)
+#define CRY_SPECIES_FORMS_BASE (SPECIES_MAX_MON_NUM + 1)
 
 // need to be in order of form so that python script can generate the makefile
 #define CRY_SPECIES_SHAYMIN 0x1EE
@@ -2094,6 +2027,7 @@ u32 MonTryLearnMoveOnLevelUp(struct PartyPokemon *mon, int *last_i, u16 *sp0)
     return ret;
 }
 
+#ifdef EXPAND_TRAINER_GENDER_TABLE
 const u8 sTrainerGenders[] = {
     [TRAINERCLASS_PKMN_TRAINER_ETHAN] = TRAINER_MALE,
     [TRAINERCLASS_PKMN_TRAINER_LYRA] = TRAINER_FEMALE,
@@ -2225,6 +2159,9 @@ const u8 sTrainerGenders[] = {
     [TRAINERCLASS_PKMN_TRAINER_LUCAS_PT] = TRAINER_MALE,
     [TRAINERCLASS_PKMN_TRAINER_DAWN_PT] = TRAINER_FEMALE,
 };
+#else
+#define sTrainerGenders ((const u8 *)0x020FFB90)
+#endif // EXPAND_TRAINER_GENDER_TABLE
 
 TrainerGender LONG_CALL TT_TrainerTypeSexGet(int tr_type)
 {
@@ -2339,7 +2276,8 @@ BOOL GetMonMachineMoveCompat(struct PartyPokemon *pp, u16 machineMoveIndex)
 /**
  * @brief loads level up data for a mon. reads from data/generated/LevelupLearnsets.c
  */
-void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset) {
+void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u32 *levelUpLearnset)
+{
     ReadFromNarcMemberByIdPair(levelUpLearnset, ARC_LEVELUP_LEARNSETS, 0, PokeOtherFormMonsNoGet(species, form) * MAX_LEVELUP_MOVES * sizeof(u32), MAX_LEVELUP_MOVES * sizeof(u32));
 
 #ifdef BLOCK_LEARNING_UNIMPLEMENTED_MOVES

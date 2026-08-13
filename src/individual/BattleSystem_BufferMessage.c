@@ -1,30 +1,34 @@
-#include "types.h"
 #include "config.h"
+#include "types.h"
+
+#include "constants/ability.h"
+#include "constants/battle_message_constants.h"
+#include "constants/battle_script_constants.h"
+#include "constants/file.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+#include "constants/system_control.h"
+
 #include "battle.h"
 #include "item.h"
 #include "mega.h"
 #include "message.h"
 #include "pokemon.h"
-#include "constants/ability.h"
-#include "constants/battle_script_constants.h"
-#include "constants/battle_message_constants.h"
-#include "constants/file.h"
-#include "constants/hold_item_effects.h"
-#include "constants/item.h"
-#include "constants/moves.h"
-#include "constants/move_effects.h"
-#include "constants/species.h"
-#include "constants/system_control.h"
 
-static int GetKeyStoneVariantFromTrainerClass(int trainerClass) {
+static int GetKeyStoneVariantFromTrainerClass(int trainerClass)
+{
     switch (trainerClass) {
-        default:
-            return ITEM_KEY_STONE;
-            break;
+    default:
+        return ITEM_KEY_STONE;
+        break;
     }
 }
 
-void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg) {
+void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg)
+{
     // debug_printf("In BattleSystem_BufferMessage (overlay)\n");
 
     // https://github.com/pret/pokeplatinum/blob/main/include/constants/battle/message_tags.h#L7
@@ -82,8 +86,7 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg) {
         BattleMessage_BufferNickname(bsys, 0, msg->param[0]);
         if (((msg->id >= BATTLE_MSG_OBTAINED_ITEM) && (msg->id < (BATTLE_MSG_OBTAINED_ITEM + 3)))
             || ((msg->id >= BATTLE_MSG_HARVESTED_ITEM) && (msg->id < (BATTLE_MSG_HARVESTED_ITEM + 3)))
-            || ((msg->id >= BATTLE_MSG_PICKED_UP_ITEM) && (msg->id < (BATTLE_MSG_PICKED_UP_ITEM + 3))))
-        { // get article added to each of these
+            || ((msg->id >= BATTLE_MSG_PICKED_UP_ITEM) && (msg->id < (BATTLE_MSG_PICKED_UP_ITEM + 3)))) { // get article added to each of these
             BufferItemNameWithIndefArticle(bsys->msgFormat, 1, msg->param[1]);
         } else {
             BattleMessage_BufferItem(bsys, 1, msg->param[1]);
@@ -274,15 +277,17 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg) {
         break;
     case TAG_NICKNAME_ITEM_NICKNAME_ITEM:
         BattleMessage_BufferNickname(bsys, 0, msg->param[0]);
-        if ((msg->id >= BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM) && (msg->id < BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM + 7))
+        if ((msg->id >= BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM) && (msg->id < BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM + 7)) {
             BufferItemNameWithIndefArticle(bsys->msgFormat, 1, msg->param[1]);
-        else
+        } else {
             BattleMessage_BufferItem(bsys, 1, msg->param[1]);
+        }
         BattleMessage_BufferNickname(bsys, 2, msg->param[2]);
-        if ((msg->id >= BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM) && (msg->id < BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM + 7))
+        if ((msg->id >= BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM) && (msg->id < BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM + 7)) {
             BufferItemNameWithIndefArticle(bsys->msgFormat, 3, msg->param[3]);
-        else
+        } else {
             BattleMessage_BufferItem(bsys, 3, msg->param[3]);
+        }
         break;
     case TAG_TRNAME_NICKNAME_TRNAME_NICKNAME:
         BattleMessage_BufferTrainerName(bsys, 0, msg->param[0]);
@@ -319,5 +324,4 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg) {
     default:
         GF_ASSERT(FALSE);
     }
-
 }
