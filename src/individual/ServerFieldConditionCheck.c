@@ -18,6 +18,10 @@
 #include "pokemon.h"
 #include "save.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "test_battle.h"
+#endif
+
 enum EndTurnResolutionOrder {
     ENDTURN_WEATHER_SUBSIDING,
     ENDTURN_WEATHER_ANIMATION_AND_DAMAGE_AND_HEAL,
@@ -1906,15 +1910,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 // debug_printf("Has more expectations\n");
                 for (battlerId = 0; battlerId < client_set_max; ++battlerId) {
                     if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_CURRENT_HP
-                        && battlerId == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot)
-                    {
-                        // debug_printf("[ServerFieldConditionCheck %d/%d]\n", sp->battlemon[battlerId].hp, scenario->expectations[scenario->expectationPassCount].expectationValue.currentHP);
-                        if (sp->battlemon[battlerId].hp == scenario->expectations[scenario->expectationPassCount].expectationValue.currentHP)
-                        {
+                        && battlerId == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot) {
+                        debug_printf("[ServerFieldConditionCheck: current HP %d:%d]", battlerId, sp->battlemon[battlerId].hp);
+                        if (sp->battlemon[battlerId].hp == scenario->expectations[scenario->expectationPassCount].expectationValue.currentHP) {
                             debug_printf(" ✅");
                             scenario->expectationPassCount++;
-                            break;
                         }
+                        debug_printf("\n");
                     }
                 }
             }

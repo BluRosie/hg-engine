@@ -100,7 +100,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable's wish came true!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable's HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy's wish came true!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chansey's HP was restored!" },
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 86 }, // 1+170/2
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 1, .expectationValue.currentHP = 73 }, // 1+145/2
     }

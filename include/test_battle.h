@@ -57,7 +57,7 @@ union ExpectationValue {
     u32 hpRecovered[16];
     char message[TEST_BATTLE_MESSAGE_LEN];
     u16 formID;
-    u32 currentHP;
+    s32 currentHP;
 };
 
 struct Expectations {

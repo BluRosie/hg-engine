@@ -472,7 +472,7 @@ struct __attribute__((packed)) field_condition_count {
     /*0x08*/ u8 wish_count[CLIENT_MAX]; /**< wish turns left */
     /*0x0C*/ u16 future_prediction_wazano[CLIENT_MAX]; /**< move to use for future sight damage (future sight or doom desire?) */
     /*0x14*/ int future_prediction_client_no[CLIENT_MAX]; /**< target to use for future sight damage */
-    /*0x24*/ s32 wish_heal_amount[CLIENT_MAX]; /**< damage to use for future sight */
+    /*0x24*/ s32 wish_heal_amount[CLIENT_MAX]; /**< repurposed future sight damage for storing wish user's hp/2 */
     /*0x34*/ u8 wish_sel_mons[CLIENT_MAX]; /**< party position to use to restore wish */
 };
 
