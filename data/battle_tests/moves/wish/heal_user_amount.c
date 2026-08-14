@@ -14,7 +14,7 @@ BEGIN_TEST
             .ability = ABILITY_MAGIC_GUARD,
             .item = ITEM_NONE,
             .moves = { MOVE_WISH, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
+            .hp = 1,//170
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -32,7 +32,7 @@ BEGIN_TEST
                         .ability = ABILITY_MAGIC_GUARD,
                         .item = ITEM_NONE,
                         .moves = { MOVE_WISH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .hp = FULL_HP,//145
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -101,6 +101,8 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable's HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy's wish came true!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chansey's HP was restored!" },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 86 }, // 1+170/2
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 1, .expectationValue.currentHP = 73 }, // 1+145/2
     }
 }
 END_TEST
