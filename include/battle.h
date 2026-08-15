@@ -751,6 +751,7 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL intrepidSwordFlag;
     BOOL dauntlessShieldFlag;
     BOOL superSweetSyrupFlag;
+    BOOL zeroToHeroFlag;
 } OnceOnlyAbilityFlags;
 
 typedef struct OnceOnlyMoveConditionFlags {
@@ -1845,6 +1846,10 @@ void LONG_CALL SCIO_LevelUpEffectSet(void *bw, int send_client);
 u32 LONG_CALL BattleWorkPlaceIDGet(void *bw);
 void LONG_CALL Task_DistributeExp(void *arg0, void *work);
 int LONG_CALL BattleWorkPokeCountGet(void *, int);
+BOOL LONG_CALL BattleBuffer_GetNext(struct BattleStruct *ctx, int battlerId);
+void LONG_CALL BattleController_EmitShowMonList(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int forceSwitch, int selectedMon, int blockedMon);
+void LONG_CALL BattleController_EmitShowWaitMessage(struct BattleSystem *bsys, int battlerId);
+void LONG_CALL ov12_0223BDDC(struct BattleSystem *bsys, int battlerId, int selectedMon);
 
 BOOL LONG_CALL ServerCriticalMessage(void *, void *);
 BOOL LONG_CALL ServerWazaStatusMessage(void *, void *);

@@ -60,6 +60,17 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 
     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
 
+    while (scenario != NULL && TestBattle_HasMoreExpectations()
+        && scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_PARTY_FORM) {
+        struct Expectations *expectation = &scenario->expectations[scenario->expectationPassCount];
+        struct PartyPokemon *mon = BattleWorkPokemonParamGet(battleSystem, BATTLER_PLAYER_FIRST, expectation->battlerIDOrPartySlot);
+
+        if (GetMonData(mon, MON_DATA_FORM, NULL) != expectation->expectationValue.formID) {
+            break;
+        }
+        scenario->expectationPassCount++;
+    }
+
     char actualMessage[TEST_BATTLE_MESSAGE_LEN] = { 0 };
     int out = 0;
 

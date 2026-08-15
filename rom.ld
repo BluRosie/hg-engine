@@ -878,6 +878,10 @@ GameStats_Inc = 0x0202D0FC | 1;
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
+BattleBuffer_GetNext = 0x0225682C | 1;
+BattleController_EmitShowMonList = 0x022632DC | 1;
+BattleController_EmitShowWaitMessage = 0x02263F30 | 1;
+ov12_0223BDDC = 0x0223BDDC | 1;
 BattleSystem_GetMaxBattlers = 0x0223A7F0 | 1;
 BattleSystem_GetFieldSide = 0x0223AB1C | 1;
 ov12_0223BB88 = 0x0223BB88 | 1;

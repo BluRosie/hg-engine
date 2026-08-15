@@ -894,6 +894,24 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 {
                 }
 
+                // Zero to Hero
+                {
+                    OnceOnlyAbilityFlags *abilityFlags = &sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]];
+
+                    if (abilityFlags->zeroToHeroFlag == FALSE
+                        && sp->battlemon[client_no].species == SPECIES_PALAFIN
+                        && sp->battlemon[client_no].form_no == 1
+                        && sp->battlemon[client_no].ability == ABILITY_ZERO_TO_HERO
+                        && !(sp->battlemon[client_no].condition2 & STATUS2_TRANSFORM)
+                        && sp->battlemon[client_no].hp != 0) {
+                        abilityFlags->zeroToHeroFlag = TRUE;
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_ZERO_TO_HERO;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+
                 // Protosynthesis and Quark Drive
                 {
                     scriptnum = ActivateParadoxAbility(bw, sp, client_no);
