@@ -1,5 +1,5 @@
 {
-  "header": "asm/scr_seq/event_T11.inc",
+  "header": "data/scr_seq/event_T11.inc",
   "eventId": "056",
   "bgs": [
     {

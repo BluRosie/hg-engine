@@ -682,7 +682,7 @@ SCR_SEQ_DIR := $(BUILD)/a012
 SCR_SEQ_OBJ_DIR := $(BUILD)/scr_seq
 SCR_SEQ_NARC := $(BUILD_NARC)/scr_seq.narc
 SCR_SEQ_TARGET := $(FILESYS)/a/0/1/2
-SCR_SEQ_DEPENDENCIES_DIR := asm/scr_seq
+SCR_SEQ_DEPENDENCIES_DIR := data/scr_seq
 SCR_SEQ_SRCS := $(sort $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.s))
 SCR_SEQ_DEPS := $(SCRIPT_INCLUDES) $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.inc)
 

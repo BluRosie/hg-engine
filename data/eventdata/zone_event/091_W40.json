@@ -1,5 +1,5 @@
 {
-  "header": "asm/scr_seq/event_W40.inc",
+  "header": "data/scr_seq/event_W40.inc",
   "eventId": "091",
   "bgs": [
     {

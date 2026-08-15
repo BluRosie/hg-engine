@@ -1,5 +1,5 @@
 {
-  "header": "asm/scr_seq/event_R47.inc",
+  "header": "data/scr_seq/event_R47.inc",
   "eventId": "146",
   "bgs": [
     {

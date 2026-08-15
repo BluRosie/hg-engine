@@ -1,5 +1,5 @@
 {
-  "header": "asm/scr_seq/event_UNION.inc",
+  "header": "data/scr_seq/event_UNION.inc",
   "eventId": "001",
   "objects": [
     {

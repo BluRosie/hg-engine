@@ -1,5 +1,5 @@
 {
-  "header": "asm/scr_seq/event_R38.inc",
+  "header": "data/scr_seq/event_R38.inc",
   "eventId": "039",
   "bgs": [
     {

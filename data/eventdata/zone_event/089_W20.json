@@ -1,5 +1,5 @@
 {
-  "header": "asm/scr_seq/event_W20.inc",
+  "header": "data/scr_seq/event_W20.inc",
   "eventId": "089",
   "bgs": [
     {

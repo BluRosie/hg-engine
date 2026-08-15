@@ -1,0 +1,36 @@
+.include "asm/include/interop_macros.inc"
+
+.include "asm/include/scriptmacros.inc"
+.include "asm/include/flags.inc"
+.include "asm/include/soundeffects.inc"
+.include "asm/include/vars.inc"
+
+.include "asm/include/battle_constants.inc"
+.include "asm/include/events.inc"
+.include "asm/include/game_stats.inc"
+.include "asm/include/items.inc"
+.include "asm/include/maps.inc"
+.include "asm/include/map_sections.inc"
+.include "asm/include/moves.inc"
+.include "asm/include/movements.inc"
+.include "asm/include/rankings.inc"
+.include "asm/include/spawns.inc"
+.include "asm/include/species.inc"
+.include "asm/include/std_scripts.inc"
+.include "asm/include/trainers.inc"
+
+.include "data/scr_seq/event_D35R0102.inc"
+
+
+.data
+
+
+	.byte 3
+	.hword 31, 0
+	.byte 2
+	.hword 32, 0
+	.byte 4
+	.hword 33, 0
+	.byte 0
+
+	.balign 4

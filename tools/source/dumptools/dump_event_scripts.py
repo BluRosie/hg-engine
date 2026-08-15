@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 """
-Reads the script narc (a/0/1/2), the zone event narc (a/0/3/2), and the message narc (a/0/2/7) straight out of the ROM and regenerates asm/scr_seq/scr_seq_*.s, asm/scr_seq/event_*.inc, data/eventdata/zone_event/*.json, and data/text/*.txt.
+Reads the script narc (a/0/1/2), the zone event narc (a/0/3/2), and the message narc (a/0/2/7) straight out of the ROM and regenerates data/scr_seq/scr_seq_*.s, data/scr_seq/event_*.inc, data/eventdata/zone_event/*.json, and data/text/*.txt.
 
 The mapping between narc subfiles and source file names ships in event_mapping.csv and the script command table lives in scrcmd.json. Symbol names are resolved from the repo's own constant includes. Command names, constants, and event data layouts follow the pret/pokeheartgold decompilation (https://github.com/pret/pokeheartgold), which this tool was templated on.
 
@@ -37,6 +37,9 @@ MSGDATA_NARC = "a/0/2/7"
 
 # the macro table the build assembles the dumped scripts back with
 SCRIPT_MACROS = "asm/include/scriptmacros.inc"
+
+# where the dumped field scripts and their label headers live (SCR_SEQ_DEPENDENCIES_DIR in narcs.mk)
+SCR_SEQ_DIR = "data/scr_seq"
 
 # each text archive's original 16-bit key, so msgenc re-encrypts headers exactly as the rom had them
 MSGDATA_KEYS = "data/text/keys.csv"
@@ -452,7 +455,7 @@ class NormalScriptParser:
             return id_
 
         ret = {
-            "header": f"asm/scr_seq/{self.inc_name}",
+            "header": f"{SCR_SEQ_DIR}/{self.inc_name}",
             "eventId": self.event_id,
         }
 
@@ -796,7 +799,7 @@ class NormalScriptParser:
         s += "\n"
 
         if self.event_id:
-            s += f'.include "asm/scr_seq/{self.inc_name}"\n'
+            s += f'.include "{SCR_SEQ_DIR}/{self.inc_name}"\n'
             s += "\n\n"
         else:
             s += "\n"
@@ -938,7 +941,7 @@ class SpecialScriptParser:
 
         s = COMMON_INCLUDES
         s += "\n"
-        s += f'.include "asm/scr_seq/{self.inc_name}"\n'
+        s += f'.include "{SCR_SEQ_DIR}/{self.inc_name}"\n'
         s += "\n\n"
         s += SECTION
         s += "\n\n"
@@ -1020,7 +1023,7 @@ class MapParser:
     def dump_script_header(self):
         # only written when something will include it: the script itself (when the map has zone event data) or the trigger table
         if self.events or self.header:
-            self._write(os.path.join("asm/scr_seq", self.inc_name), self.parser.make_inc())
+            self._write(os.path.join(SCR_SEQ_DIR, self.inc_name), self.parser.make_inc())
 
         return self
 
@@ -1140,7 +1143,7 @@ def main(argv = None):
 
             row_parser.parse().dump()
 
-        print(f"dumped {len(rows) - len(skipped)} maps to asm/scr_seq/ and data/eventdata/zone_event/")
+        print(f"dumped {len(rows) - len(skipped)} maps to {SCR_SEQ_DIR}/ and data/eventdata/zone_event/")
 
         if skipped:
             print(f'skipped engine-managed scripts: {", ".join(skipped)} (--include-engine-managed overrides)')

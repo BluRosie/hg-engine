@@ -1,5 +1,5 @@
 {
-  "header": "asm/scr_seq/event_P01R0307.inc",
+  "header": "data/scr_seq/event_P01R0307.inc",
   "eventId": "300",
   "objects": [
     {

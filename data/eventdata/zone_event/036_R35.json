@@ -1,5 +1,5 @@
 {
-  "header": "asm/scr_seq/event_R35.inc",
+  "header": "data/scr_seq/event_R35.inc",
   "eventId": "036",
   "bgs": [
     {
