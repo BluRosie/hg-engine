@@ -69,6 +69,8 @@
 
  ``STATIC_HP_BAR`` (``include/config.h`` only) updates the HP bar to increase/decrease at a fixed rate like later generations.
 
+ ``BUILD_VANILLA_TEXT``, ``BUILD_VANILLA_EVENTDATA``, and ``BUILD_VANILLA_SCR_SEQ`` (``include/config.h`` only) control whether the dumps of the game's original message text (``data/text``), zone event data (``data/eventdata/zone_event``), and field scripts (``data/scr_seq``) are built into your ROM.  All three are commented out by default: the dumps ship as a reference to diff a hack against.  Uncomment one to move that category of data into hg-engine's own source.  hg-engine's own text archives and its common and trainer scripts are always built.  Data built while a toggle was on persists in the extracted filesystem under ``base/``; delete ``base/`` after turning a toggle back off so the next build re-extracts it from ``rom.nds``.
+
 ### ``scripts\make.py`` and ``linker.ld``
  On line 13 of ``scripts/make.py``, change ``OFFSET_TO_START`` to be your location in overlay 129 with enough free space.  This is separate from the above one.  MAKE SURE THE OFFSETS DON'T OVERLAP.
 

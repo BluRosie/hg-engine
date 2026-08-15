@@ -5,9 +5,11 @@ Reads the script narc (a/0/1/2), the zone event narc (a/0/3/2), and the message 
 
 The mapping between narc subfiles and source file names ships in event_mapping.csv and the script command table lives in scrcmd.json. Symbol names are resolved from the repo's own constant includes. Command names, constants, and event data layouts follow the pret/pokeheartgold decompilation (https://github.com/pret/pokeheartgold), which this tool was templated on.
 
-Two script narc subfiles are hand-maintained instead of dumped: 2_003 (commonscript) and 2_953 (trainerscript). They are skipped unless --include-engine-managed is given.
+Two script narc subfiles are hand-maintained instead of dumped: 2_003 (commonscript) and 2_953 (trainerscript). The text archives hg-engine edits or adds are hand-maintained the same way. Both are skipped unless --include-engine-managed is given, because a dump would replace an engine source with whatever the ROM happens to hold.
 
-Engine-maintained text archives are also skipped unless --include-generated-text is given.
+Text archives the build regenerates from other sources are skipped unless --include-generated-text is given.
+
+What is dumped is a reference for diffing a ROM against, so the build only writes it back into the ROM when the matching BUILD_VANILLA_* toggle in include/config.h is enabled.
 
     make dump_scripts DUMP_ROM=path/to/rom.nds
 """
@@ -46,6 +48,12 @@ MSGDATA_KEYS = "data/text/keys.csv"
 
 # script narc subfiles whose tracked sources are engine customizations, not dumps - see the module docstring
 ENGINE_MANAGED_SCRIPTS = {"0003", "0953"}
+
+# text archives hg-engine itself edits or adds
+ENGINE_MANAGED_TEXT_ARCHIVES = {
+    10, 24, 40, 197, 203, 221, 222, 223, 224, 300, 302, 435, 720, 721, 722, 728, 730, 731, 735, 811,
+    *range(829, 854),
+}
 
 # text archives rebuilt from other sources at build time (MSGDATA_COMPILETIME_DEPENDENCIES in narcs.mk)
 GENERATED_TEXT_ARCHIVES = {
@@ -276,16 +284,17 @@ COMMON_INCLUDES = (
     '.include "asm/include/battle_constants.inc"\n'
     '.include "asm/include/events.inc"\n'
     '.include "asm/include/game_stats.inc"\n'
-    '.include "asm/include/items.inc"\n'
     '.include "asm/include/maps.inc"\n'
     '.include "asm/include/map_sections.inc"\n'
-    '.include "asm/include/moves.inc"\n'
     '.include "asm/include/movements.inc"\n'
     '.include "asm/include/rankings.inc"\n'
     '.include "asm/include/spawns.inc"\n'
-    '.include "asm/include/species.inc"\n'
     '.include "asm/include/std_scripts.inc"\n'
     '.include "asm/include/trainers.inc"\n'
+    '\n'
+    '#include "constants/item.h"\n'
+    '#include "constants/moves.h"\n'
+    '#include "constants/species.h"\n'
 )
 
 # scripts are data, and gas pads alignment in a code section with thumb nops instead of zeroes
@@ -325,7 +334,7 @@ class NormalScriptParser:
         self.text = text_archive
         self.events_data = None
 
-        # convenience macros: fold common command sequences back into the reusable macros from scriptmacros.s
+        # convenience macros: fold common command sequences back into the reusable macros from scriptmacros.inc
         def handle_itemspace(macro, *arg_idxs):
             itemgrp, quantgrp, *_ = arg_idxs
 
@@ -1050,18 +1059,19 @@ def load_narc_members(rom, path):
 
     return ndspy.narc.NARC(rom.files[rom.filenames[path]]).files
 
-def dump_text(msg_members, repo_root, msgenc, charmap, include_generated):
+def dump_text(msg_members, repo_root, msgenc, charmap, include_generated, include_engine_managed):
     workdir = os.path.join(repo_root, "build", "dump_scripts_text")
 
     os.makedirs(workdir, exist_ok = True)
     os.makedirs(os.path.join(repo_root, "data", "text"), exist_ok = True)
 
-    skipped = 0
+    generated = 0
+    engine_managed = 0
     keys = {}
 
     for i, member in enumerate(msg_members):
         if i in GENERATED_TEXT_ARCHIVES and not include_generated:
-            skipped += 1
+            generated += 1
             continue
 
         member_file = os.path.join(workdir, f"{i:03d}")
@@ -1069,7 +1079,13 @@ def dump_text(msg_members, repo_root, msgenc, charmap, include_generated):
         with open(member_file, "wb") as fp:
             fp.write(member)
 
-        out_file = os.path.join(repo_root, "data", "text", f"{i:03d}.txt")
+        # engine-managed archives are still decoded, because the build needs their original key to re-encrypt with, but their tracked source is an hg-engine edit and is left alone
+        keep = include_engine_managed or i not in ENGINE_MANAGED_TEXT_ARCHIVES
+
+        if not keep:
+            engine_managed += 1
+
+        out_file = os.path.join(repo_root, "data", "text", f"{i:03d}.txt") if keep else f"{member_file}.txt"
 
         proc = subprocess.run([msgenc, "-d", "-c", charmap, member_file, out_file],
                               check = True, capture_output = True, text = True)
@@ -1084,7 +1100,9 @@ def dump_text(msg_members, repo_root, msgenc, charmap, include_generated):
     with open(os.path.join(repo_root, MSGDATA_KEYS), "w", newline = "") as fp:
         csv.writer(fp).writerows([f"{i:03d}", f"0x{key:04x}"] for i, key in sorted(keys.items()))
 
-    print(f"dumped {len(msg_members) - skipped} text archives to data/text/" + (f" (skipped {skipped} build-generated archives)" if skipped else ""))
+    notes = [f"{count} {kind}" for kind, count in (("build-generated", generated), ("engine-managed", engine_managed)) if count]
+
+    print(f"dumped {len(msg_members) - generated - engine_managed} text archives to data/text/" + (f" (skipped {' and '.join(notes)} archives)" if notes else ""))
 
 def read_mapping():
     with open(os.path.join(TOOL_DIR, "event_mapping.csv"), newline = "") as fp:
@@ -1099,7 +1117,7 @@ def main(argv = None):
     p.add_argument("--charmap", default = None, help = "charmap for msgenc (default: <repo>/charmap.txt)")
     p.add_argument("--scripts-only", action = "store_true", help = "skip the message text dump")
     p.add_argument("--text-only", action = "store_true", help = "only dump message text")
-    p.add_argument("--include-engine-managed", action = "store_true", help = f'also overwrite the engine-managed script subfiles ({", ".join(sorted(ENGINE_MANAGED_SCRIPTS))})')
+    p.add_argument("--include-engine-managed", action = "store_true", help = f'also overwrite the engine-managed script subfiles ({", ".join(sorted(ENGINE_MANAGED_SCRIPTS))}) and text archives')
     p.add_argument("--include-generated-text", action = "store_true", help = "also dump text archives the build regenerates from other sources (species names, trainer text, ...)")
     p.add_argument("--map", dest = "single_map", metavar = "SCRIPT", help = "dump a single map by script name (e.g. scr_seq_0005_D01R0101.s) and print the result instead of writing files")
     p.add_argument("offsets", nargs = "*", type = lambda x: int(x, 0), help = "extra entry point offsets for --map")
@@ -1155,7 +1173,7 @@ def main(argv = None):
         if not os.path.exists(msgenc):
             sys.exit(f"{msgenc} not found - build the tools first (make) or pass --msgenc")
 
-        dump_text(load_narc_members(rom, MSGDATA_NARC), repo_root, msgenc, charmap, args.include_generated_text)
+        dump_text(load_narc_members(rom, MSGDATA_NARC), repo_root, msgenc, charmap, args.include_generated_text, args.include_engine_managed)
 
 if __name__ == "__main__":
     main()

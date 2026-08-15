@@ -5385,19 +5385,19 @@
         },
         "species": {
             "sources": [
-                "asm/include/species.inc"
+                "include/constants/species.h"
             ],
             "prefix": "SPECIES_"
         },
         "item": {
             "sources": [
-                "asm/include/items.inc"
+                "include/constants/item.h"
             ],
             "prefix": "ITEM_"
         },
         "move": {
             "sources": [
-                "asm/include/moves.inc"
+                "include/constants/moves.h"
             ],
             "prefix": "MOVE_"
         },
