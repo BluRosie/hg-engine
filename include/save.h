@@ -2,9 +2,12 @@
 #define SAVE_H
 
 #include "config.h"
+
+#include "constants/game_stats.h"
 #include "constants/save.h"
-#include "rtc.h"
+
 #include "pokemon.h"
+#include "rtc.h"
 
 #define OT_ID_PRESET 1
 
@@ -57,7 +60,6 @@ typedef struct Gymmick {
     GymmickUnion data;
 } Gymmick;
 
-
 typedef struct APRICORN_TREE {
     u8 unk_0;
     u8 unk_1;
@@ -77,19 +79,18 @@ typedef struct BerryPot {
 } BerryPot; // size = 0xC
 
 // store a reshiram/zekrom, a lunala, a solgaleo, and a glastrier/spectrier
-#define STORED_MONS_DNA_SPLICERS 0
-#define STORED_MONS_N_SOLARIZER 1
-#define STORED_MONS_N_LUNARIZER 2
+#define STORED_MONS_DNA_SPLICERS   0
+#define STORED_MONS_N_SOLARIZER    1
+#define STORED_MONS_N_LUNARIZER    2
 #define STORED_MONS_REINS_OF_UNITY 3
-#define NUM_OF_STORED_MONS 4
+#define NUM_OF_STORED_MONS         4
 
 #define MAX_APRICORN_TREE 128
 #define NUM_APRICORN_TREE 31
 
-#define MAX_BERRY_POT      4
+#define MAX_BERRY_POT 4
 
-struct SAVE_MISC_DATA
-{
+struct SAVE_MISC_DATA {
     /* 0x000 */ APRICORN_TREE apricorn_trees[MAX_APRICORN_TREE];
     /* 0x004 */ BerryPot berry_pots[MAX_BERRY_POT];
     /* 0x034 */ struct GF_RTC_DateTime berry_datetime;
@@ -98,10 +99,10 @@ struct SAVE_MISC_DATA
     /* 0x280 */ u8 unk_0280[8]; // 3 chunks of size (4, 2, 2)
     /* 0x288 */ u8 filler_0288[0x10];
     /* 0x298 */ u16 favoriteMonSpecies;
-    /* 0x29A */ u8 favoriteMonForm:7;
-                u8 favoriteMonIsEgg:1;
-    /* 0x29B */ u8 extraChunksExist:1;
-                u8 unk_029B_1:4;
+    /* 0x29A */ u8 favoriteMonForm : 7;
+    u8 favoriteMonIsEgg : 1;
+    /* 0x29B */ u8 extraChunksExist : 1;
+    u8 unk_029B_1 : 4;
     /* 0x29C */ u8 filer_029C[4];
     /* 0x2A0 */ MAIL_MESSAGE battleGreetingEC;
     /* 0x2A8 */ u32 unk_02A8[2][5];
@@ -118,7 +119,6 @@ struct SAVE_MISC_DATA
     u8 isMonStored[NUM_OF_STORED_MONS];
 
 #endif
-
 };
 
 // vars
@@ -136,20 +136,20 @@ struct PlayerProfile {
     u8 johtoBadges;
     u8 avatar;
     u8 version;
-    u8 gameClear:1;
-    u8 natDex:1;
+    u8 gameClear : 1;
+    u8 natDex : 1;
     u8 dummy;
     u8 kantoBadges;
 };
 
 struct OPTIONS {
-    u16 textSpeed:4;
-    u16 soundMethod:2;
-    u16 battleStyle:1;
-    u16 battleScene:1;
-    u16 buttonMode:2;
-    u16 frame:5;
-    u16 dummy:1;
+    u16 textSpeed : 4;
+    u16 soundMethod : 2;
+    u16 battleStyle : 1;
+    u16 battleScene : 1;
+    u16 buttonMode : 2;
+    u16 frame : 5;
+    u16 dummy : 1;
 };
 
 struct IGT {
@@ -202,17 +202,15 @@ typedef enum PaletteMemoryRegions {
 
 extern u16 PaletteRAMArray[4][16][16];
 
+#define LOAD_STATUS_NOT_EXIST  0
+#define LOAD_STATUS_IS_GOOD    1
+#define LOAD_STATUS_SLOT_FAIL  2
+#define LOAD_STATUS_TOTAL_FAIL 3
 
-
-#define LOAD_STATUS_NOT_EXIST       0
-#define LOAD_STATUS_IS_GOOD         1
-#define LOAD_STATUS_SLOT_FAIL       2
-#define LOAD_STATUS_TOTAL_FAIL      3
-
-#define WRITE_STATUS_CONTINUE       0
-#define WRITE_STATUS_NEXT           1
-#define WRITE_STATUS_SUCCESS        2
-#define WRITE_STATUS_TOTAL_FAIL     3
+#define WRITE_STATUS_CONTINUE   0
+#define WRITE_STATUS_NEXT       1
+#define WRITE_STATUS_SUCCESS    2
+#define WRITE_STATUS_TOTAL_FAIL 3
 
 #define SAVE_CHUNK_MAGIC 0x20060623
 
@@ -288,6 +286,14 @@ struct SaveSlotCheck {
     u32 count;
 };
 
+struct GameStats {
+    u32 statsWords[NUM_GAME_STATS_WORD];
+    u16 statsHalf[77];
+    u16 dummy;
+    u16 unk_1BC;
+    u16 unk_1BE;
+};
+
 extern SaveData *sSaveDataPtr;
 
 BOOL LONG_CALL SaveDetectFlash(void);
@@ -334,18 +340,6 @@ int LONG_CALL Save_WriteNextPCBox(SaveData *saveData, struct SaveSlotSpec *spec,
 int LONG_CALL Save_WritePCFooter(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot);
 u32 LONG_CALL PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last);
 
-
-
-
-
-
-
-
-
-
-
-
-
 void *LONG_CALL SaveBlock2_get(void);
 struct SAVE_MISC_DATA *LONG_CALL Sav2_Misc_get(void *saveData);
 struct ScriptState *LONG_CALL SavArray_Flags_get(void *saveData);
@@ -357,7 +351,7 @@ void *LONG_CALL SaveData_GetDexPtr(void *saveData);
 void *LONG_CALL SaveData_GetPlayerPartyPtr(void *saveData);
 u32 LONG_CALL Pokedex_CountDexOwned(void *dexSaveData);
 u32 LONG_CALL Pokedex_CountJohtoDexOwned(void *dexSaveData);
-HallOfFame * LONG_CALL LoadHallOfFame(void *saveData, u32 heapId, int *ret_p);
+HallOfFame *LONG_CALL LoadHallOfFame(void *saveData, u32 heapId, int *ret_p);
 void LONG_CALL Save_HOF_RecordParty(HallOfFame *hof, struct Party *party, struct RTCDate *date);
 
 // can't include scripts.h directly
@@ -370,18 +364,15 @@ void LONG_CALL AddHallOfFameEntry(FieldSystem *fieldSystem, BOOL gameCleared);
  *
  *  @param saveData saveData from SaveBlock2_get()
  */
-Daycare * LONG_CALL Save_Daycare_Get(void *saveData);
-
+Daycare *LONG_CALL Save_Daycare_Get(void *saveData);
 
 // grab var data from the save -> pass in SavArray_Flags_get for both flags/vars
-u32 LONG_CALL SetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id, u16 value);
-u16 LONG_CALL GetScriptVarPassSave(SCRIPT_STATE* state, u16 var_id);
+u32 LONG_CALL SetScriptVarPassSave(SCRIPT_STATE *state, u16 var_id, u16 value);
+u16 LONG_CALL GetScriptVarPassSave(SCRIPT_STATE *state, u16 var_id);
 // grab flag data from the save
-void LONG_CALL SetScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
-void LONG_CALL ClearScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
-BOOL LONG_CALL CheckScriptFlagPassSave(SCRIPT_STATE* state, u16 flag_id);
-
-
+void LONG_CALL SetScriptFlagPassSave(SCRIPT_STATE *state, u16 flag_id);
+void LONG_CALL ClearScriptFlagPassSave(SCRIPT_STATE *state, u16 flag_id);
+BOOL LONG_CALL CheckScriptFlagPassSave(SCRIPT_STATE *state, u16 flag_id);
 
 /* overlay func defines */
 void LONG_CALL Overlay_UnloadID(u32 ovl_id);
@@ -390,7 +381,6 @@ u32 LONG_CALL WIPE_SYS_EndCheck(void);
 void *LONG_CALL PROC_GetWork(void *proc);
 
 /* bag function defines are in bag.h */
-
 
 // defined in src/save.c
 u32 LONG_CALL Sav2_Misc_sizeof(void);

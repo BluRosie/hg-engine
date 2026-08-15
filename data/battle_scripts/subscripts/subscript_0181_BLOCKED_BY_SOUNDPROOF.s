@@ -1,8 +1,9 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
-// TODO: modernise message
+// unused
 
 _000:
     PrintAttackMessage 

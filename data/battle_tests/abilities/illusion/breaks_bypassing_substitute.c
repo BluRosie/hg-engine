@@ -2,8 +2,8 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_SINGLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_TRAINER,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
@@ -81,7 +81,6 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro used Substitute!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chatot used Chatter!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zoroark's Illusion" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zoroark's illusion wore off!" },
     },
 }

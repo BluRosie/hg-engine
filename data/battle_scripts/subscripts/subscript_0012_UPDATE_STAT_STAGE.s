@@ -1,9 +1,10 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
 _000:
-    ChangeStatStage _051, _069, _070, _AbilityBlock
+    ChangeStatStage _051, _069, _070, _AbilityBlock, _AbilityBlockAbility
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _010
     PrintAttackMessage
     Wait
@@ -67,6 +68,15 @@ _AbilityBlock:
     Wait
     WaitButtonABTime 30
 _End:
+    End
+
+
+
+_AbilityBlockAbility:
+    AbilityPopup BATTLER_CATEGORY_SIDE_EFFECT_MON
+    PrintBufferedMessage
+    Wait
+    WaitButtonABTime 30
     End
 
 _070:

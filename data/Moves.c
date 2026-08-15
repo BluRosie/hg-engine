@@ -9080,7 +9080,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Howl",
         },
         .data = {
-            .effect = MOVE_EFFECT_ATK_UP,
+            .effect = MOVE_EFFECT_HOWL,
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_NORMAL,
@@ -9089,7 +9089,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effectChance = 0,
         },
         .battle = {
-            .target = RANGE_USER,
+            .target = RANGE_USER_SIDE,
             .priority = 0,
             .flags = FLAG_SNATCH,
         },
@@ -24659,7 +24659,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Mighty Cleave",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_IGNORE_PROTECT,
             .split = SPLIT_PHYSICAL,
             .power = 95,
             .type = TYPE_ROCK,

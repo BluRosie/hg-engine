@@ -1,7 +1,7 @@
 // Test: Protosynthesis activates on switch-in & Protosynthesis activates in Sun before Booster Energy
 {
-    .battleType = BATTLE_TYPE_SINGLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_TRAINER,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 

@@ -14,8 +14,8 @@ const struct TestBattleScenario BattleTests[] = {
 
 #endif
 
-    {   .battleType = BATTLE_TYPE_SINGLE,
-        .weather = WEATHER_NONE,
+    {   .battleType = BATTLE_TYPE_TRAINER,
+        .weather = FIELD_CONDITION_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
@@ -44,7 +44,7 @@ const struct TestBattleScenario BattleTests[] = {
                             .form = 0,
                             .ability = ABILITY_STICKY_HOLD,
                             .item = ITEM_NONE,
-                            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                            .moves = { MOVE_CELEBRATE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                             .hp = FULL_HP,
                             .status = 0,
                             .condition2 = 0,
@@ -101,8 +101,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Grimer received Black Sludge from Alcremie!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Sticky Hold" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

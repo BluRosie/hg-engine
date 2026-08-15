@@ -1,12 +1,15 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
 _000:
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
+    
     PlayBattleAnimationOnMons BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_ATTACKER, BATTLE_ANIMATION_TOXIC_SPIKES
     Wait 
     AddEntryHazardToQueue BATTLER_CATEGORY_ATTACKER, HAZARD_IDX_TOXIC_SPIKES
-    // Poison spikes were scattered all around your team’s feet!
+    // Poison spikes were scattered all around your teamâ€™s feet!
     PrintMessage 1063, TAG_NONE_SIDE, BATTLER_CATEGORY_ATTACKER
     Wait 
     WaitButtonABTime 30

@@ -3,11 +3,12 @@
 
 #include "config.h"
 // #include "save.h"
+#include "types.h"
+
 #include "constants/pokemon.h"
 
 #include "party_menu.h"
 #include "trainer_data.h"
-#include "types.h"
 #include "window.h"
 
 #define POKEMON_GENDER_MALE    0
@@ -1394,6 +1395,9 @@ void LONG_CALL LoadLevelUpLearnset_HandleAlternateForm(int species, int form, u3
  *  @return (u16)-1u if the mon's learnset is full, (u16)-2u if the mon already knows the move, and the move index if the mon had the move successfully added
  */
 u32 LONG_CALL TryAppendMonMove(struct PartyPokemon *mon, u16 move);
+
+void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
+void LONG_CALL BufferBoxMonSpeciesName(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 
 void LONG_CALL BufferBoxMonNickname(MessageFormat *messageFormat, u32 fieldno, struct BoxPokemon *boxmon);
 

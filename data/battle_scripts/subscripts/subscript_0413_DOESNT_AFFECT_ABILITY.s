@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -7,7 +8,7 @@ _000:
     Wait 
     WaitButtonABTime 30
 
-    // ability popup
+    AbilityPopup BATTLER_CATEGORY_MSG_TEMP
 
     // It doesn’t affect {0}...
     PrintMessage 27, TAG_NICKNAME, BATTLER_CATEGORY_MSG_TEMP

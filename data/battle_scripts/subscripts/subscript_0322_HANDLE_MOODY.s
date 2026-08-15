@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -6,6 +7,8 @@
 // Generation VIII: Moody no longer affects evasion or accuracy, so IDs are only from 0-5 unless reverted.
 // ID 8 is used to indicate that there are no stats left to raise/lower.
 _000:
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
+
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_MOVE_ANIMATIONS_OFF|BATTLE_STATUS_NO_ATTACK_MESSAGE
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_CALC_TEMP, 8, _022
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_SIDE_EFFECT_PARAM, BSCRIPT_VAR_CALC_TEMP

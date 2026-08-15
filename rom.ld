@@ -43,11 +43,12 @@ GF_ASSERT_INTERNAL = 0x0202551C | 1;
 SetPokemonGet = 0x0202A434 |1;
 SetPokemonSee = 0x0202A36C |1;
 UpdatePokedexWithReceivedSpecies = 0x0202ECC0 | 1;
-ArchiveDataLoadMalloc = 0x02007524 | 1;
-ArchiveDataLoad = 0x02007509;
-ArchiveDataLoadMallocOfs = 0x0200757C | 1;
-NARC_ctor = 0x02007688 | 1;
-ArchiveDataLoadOfs = 0x02007560 | 1;
+AllocAndReadWholeNarcMemberByIdPair = 0x02007524 | 1;
+ReadWholeNarcMemberByIdPair = 0x02007509;
+AllocAndReadFromNarcMemberByIdPair = 0x0200757C | 1;
+NARC_New = 0x02007688 | 1;
+NARC_Delete = 0x0200770C | 1;
+ReadFromNarcMemberByIdPair = 0x02007560 | 1;
 /*sqrt = 0x0200048A | 1;*/
 
 /*Pokemon*/
@@ -150,6 +151,7 @@ CopyWindowToVram = 0x0201D578 |1;
 
 /*ItemUse*/
 SetUpItemScript = 0x02064A8C |1;
+sItemFieldUseFuncs = 0x020FE264;
 
 /*OAM*/
 OAM_LoadResourceCharArcH = 0x0200D504 | 1;
@@ -234,7 +236,7 @@ SCIO_QueueMoveAnimation = 0x0226340C | 1;
 SCIO_QueueMoveAnimationConsiderAttackerDefender = 0x0226343C | 1;
 SkillSequenceGosub = 0x02245520 | 1;
 CheckIfAnyoneShouldFaint = 0x0224DC74 | 1;
-Snd_BgmPlay = 0x02005D48 | 1;
+PlayBGM = 0x02005D48 | 1;
 BattleWorkPinchSEFlagSet = 0x0223BD3C | 1;
 ST_ServerPokeOneSelfCheckActPP = 0x022568B0 | 1;
 PokeExpCalc = 0x022463E8 | 1;
@@ -291,6 +293,7 @@ BattleWorkCommStandNoGet = 0x0223BFCC | 1;
 /*Overworld Code*/
 AddPokemonParam = 0x0224855C | 1;
 GetEncountChar = 0x02247854 | 1;
+ObjectEvent_GetGraphicsInfo = 0x021F92DC | 1;
 /*get_mon_ow_tag = 0x02069D70 | 1;*/
 does_species_have_dimorphism = 0x0206A338 | 1;
 
@@ -757,7 +760,7 @@ BattleMessage_BufferType = 0x0223CE50 | 1;
 BattleMessage_BufferAbility = 0x0223CE5C | 1;
 BattleMessage_BufferStat = 0x0223CE68 | 1;
 BattleMessage_BufferStatus = 0x0223CE74 | 1;
-BattleMessage_BufferPokemon = 0x0223CE80 | 1;
+//BattleMessage_BufferPokemon = 0x0223CE80 | 1;
 BattleMessage_BufferPoffin = 0x0223CEA4 | 1;
 BattleMessage_BufferFlavorPreference = 0x0223CEA8 | 1;
 BattleMessage_BufferTrainerClass = 0x0223CEB4 | 1;
@@ -811,9 +814,15 @@ InitMartUI = 0x02256D34 | 1;
 
 sBattleBgProfileTable = 0x0226E70C;
 
-BattleSetup_New_Tutorial = 0x02051AAC | 1;
+BattleSetup_New = 0x020518D8 | 1;
+BattleSetup_InitFromFieldSystem = 0x02051F00 | 1;
+ov02_02247F30 = 0x02247F30 | 1;
 BattleSetup_GetWildTransitionEffect = 0x020517E8 | 1;
 BattleSetup_GetWildBattleMusic = 0x020517FC | 1;
+CallTask_StartEncounter = 0x0205085C | 1;
+SetupAndStartWildBattle = 0x02051020 | 1;
+
+BattleSetup_New_Tutorial = 0x02051AAC | 1;
 Encounter_New = 0x020506BC | 1;
 TaskManager_Call = 0x02050530 | 1;
 Task_TutorialBattle = 0x0205128C | 1;
@@ -863,11 +872,21 @@ PartyMenu_DisableMainScreenBlend_AfterYesNo = 0x0207CB90 | 1;
 sBattleBgProfileTable = 0x0226E70C;
 UpdateFriendshipFainted = 0x02248558 | 1;
 
+Save_GameStats_Get = 0x0202CF54 | 1;
+GameStats_Inc = 0x0202D0FC | 1;
+
 StringExpandPlaceholders = 0x0200CBBC | 1;
 
 ov12_02256694 = 0x02256694 | 1;
+BattleSystem_GetMaxBattlers = 0x0223A7F0 | 1;
+BattleSystem_GetFieldSide = 0x0223AB1C | 1;
+ov12_0223BB88 = 0x0223BB88 | 1;
+ov12_0223BB94 = 0x0223BB94 | 1;
+ov12_022600F0 = 0x022600F0 | 1;
+Pokepic_StartAnim = 0x02008550 | 1;
 sStarterChoiceCries = 0x021E7398;
 BufferBoxMonNickname = 0x0200BF8C | 1;
+BufferBoxMonSpeciesName = 0x0200BF1C | 1;
 
 #roamers
 PlayerLocationHistoryGetBack = 0x0202D9F4 | 1;
@@ -876,3 +895,14 @@ SetRoamerData = 0x0202DAB8 | 1;
 Roamers_GetRoamMonStats = 0x0202DA54 | 1;
 Roamer_GetLocation = 0x0202D9F8 | 1;
 ApplyRoamerLocation = 0x02067914 | 1;
+
+ov07_02232F60 = 0x02232F60 | 1;
+ov07_02233ECC = 0x02233ECC | 1;
+
+SpriteSystem_LoadCharResObjAtEndWithHardwareMappingType = 0x0200E188 | 1;
+GfGfxLoader_GetCharData = 0x020079BC | 1;
+Sprite_SetDrawFlag = 0x02024830 | 1;
+BattleSystem_GetPokepicManager = 0x0223A8D4 | 1;
+ov12_0223B750 = 0x0223B750 | 1;
+sub_0207294C = 0x0207294C | 1;
+sub_02017068 = 0x02017068 | 1;

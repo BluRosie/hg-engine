@@ -1,3 +1,4 @@
+#include "../include/constants/pokemon_nickname.h"
 #include "../include/trainer_data.h"
 
 const TrainerData sTrainerData[] = {

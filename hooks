@@ -40,7 +40,7 @@ arm9 GetMonEvolution 02070E34
 
 #expand items
 arm9 GetItemIndex 08077C18 2
-arm9 GetItemArcData 08077CE8 3
+arm9 GetItemNarcData 08077CE8 3
 
 #mon expansion
 arm9 GetPokemonOwNum 0206A304 1
@@ -100,6 +100,10 @@ arm9 CreateStarterMon_hook 020960E6 1
 #choose target from input
 0012 ov12_022506D4 022506D4
 
+0012 CheckLegalMimicMove 02257D6C 1
+0012 CheckLegalMetronomeMove 02257DA4 4
+
+
 #battle script command hooks
 #0223E568
 0012 btl_scr_cmd_24_jumptocurmoveeffectscript 08006CA8 3
@@ -153,6 +157,10 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_TryConversion2 02240C98 3
 0012 BtlCmd_Transform 02241708 3
 0012 BtlCmd_TryPursuit 0224336C 3
+0012 BtlCmd_MagicCoat 02242CDC 3
+0012 BtlCmd_TryFeint 02243D20 3
+0012 BtlCmd_TryPerishSong 02241A04 3
+0012 BtlCmd_Metronome 0224089C 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -292,6 +300,7 @@ arm9 GF_Snd_LoadSeqEx 02004784 2
 
 arm9 StoreFieldSysPtr 0203E028 1
 
+arm9 GetItemFieldUseFunc 02064980 2
 
 #ifdef IMPLEMENT_BDHCAM_ROUTINE
 
@@ -543,9 +552,6 @@ arm9 DestroyHeap_hook 0201AA24 3
 
 #endif
 
-# expand metronome move pool
-0012 load_max_move_num_metronome 022408AC 0
-
 arm9 PartyMenu_ItemUseFunc_LevelUpLearnMovesLoop_Case6_hook 02081E54 0
 arm9 PartyMenu_ItemUseFunc_ReuseItem_hook 0208138C 3
 
@@ -570,6 +576,7 @@ arm9 ScrCmd_MartBuy 02048060 1
 0012 BattleContext_CheckMoveHealBlocked 02252DF8 1
 
 arm9 SetupAndStartTutorialBattle 02051334 1
+arm9 ScrCmd_WildBattle 02043E5C 1
 
 # handle missingno in 1vX battles
 0012 BattleControllerPlayer_GetBattleMon 0224873C 2
@@ -618,15 +625,20 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 ov12_0224DD74 0224DD74 3
 0012 GetTypeEffectivenessData 0225260C 3
 
+0001 CheckRockSmashItemDrop 02204CF8 2
+0001 DrawRockSmashIdx 02204E8C 1
+
 0012 BattleMessage_BufferNickname 0223CDD0
+0012 BattleMessage_BufferPokemon 0223CE80
 0012 hook_GrabIllusionBoxMonForHpBar 022651AE 3
 
+#ifdef EXPAND_ROAMERS
 # roamers
 arm9 Save_CreateRoamerByID 020676EC 2
 arm9 RoamerLocationSetRandom 02067830 3
 arm9 SpeciesToRoamerIdx 020677F4 1
 arm9 ScrCmd_CreateRoamer 02045264 1
-
+#endif
 
 # encounter
 arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
@@ -634,3 +646,9 @@ arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
 arm9 EncounterSlot_WildMonSlotRoll_Fishing 02247764 1
 arm9 EncounterSlot_WildMonSlotRoll_RockSmash 0224779C 0
 arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
+
+0012 GetPokemon_CheckIfTrainer_hook 2246704 0
+0012 GetPokemon_BallBlocked_hook 02247094 0
+0012 BattleSystem_AdjustMessageForSide 0223C558 2
+
+0012 PlayerTrainerVictoryBGM_hook 0224DA9E 3

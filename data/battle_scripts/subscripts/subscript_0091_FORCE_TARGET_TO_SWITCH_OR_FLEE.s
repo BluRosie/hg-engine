@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -27,7 +28,11 @@ _040:
 _055:
     DeletePokemon BATTLER_CATEGORY_DEFENDER
     Wait 
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _090
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TRAINER, _ForcedSwitch
+    CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_BATTLE_TYPE, BATTLE_TYPE_TOTEM, _ForcedSwitch
+    GoTo _090
+
+_ForcedSwitch:
     HealthbarSlideOut BATTLER_CATEGORY_DEFENDER
     Wait 
     SwitchAndUpdateMon BATTLER_CATEGORY_FORCED_OUT
