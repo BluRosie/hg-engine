@@ -281,7 +281,6 @@ COMMON_INCLUDES = (
     '.include "asm/include/soundeffects.inc"\n'
     '.include "asm/include/vars.inc"\n'
     '\n'
-    '.include "asm/include/battle_constants.inc"\n'
     '.include "asm/include/events.inc"\n'
     '.include "asm/include/game_stats.inc"\n'
     '.include "asm/include/maps.inc"\n'
