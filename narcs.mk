@@ -28,10 +28,10 @@ MSGDATA_ENGINE_ARCHIVES := 010 024 040 197 203 221 222 223 224 300 302 435 720 7
 	829 830 831 832 833 834 835 836 837 838 839 840 841 842 843 844 845 846 847 848 849 850 851 852 853
 MSGDATA_ENGINE_DEPENDENCIES := $(wildcard $(addprefix $(MSGDATA_DEPENDENCIES_DIR)/,$(addsuffix .txt,$(MSGDATA_ENGINE_ARCHIVES))))
 
-# everything else in data/text is the vanilla dump, only built when BUILD_VANILLA_TEXT is enabled
+# everything else in data/text is the vanilla dump, only built when BUILD_DUMPED_TEXT is enabled
 MSGDATA_VANILLA_DEPENDENCIES := $(filter-out $(MSGDATA_KEYS) $(MSGDATA_ENGINE_DEPENDENCIES),$(wildcard $(MSGDATA_DEPENDENCIES_DIR)/*))
 
-ifeq ($(BUILD_VANILLA_TEXT),1)
+ifeq ($(BUILD_DUMPED_TEXT),1)
 MSGDATA_DEPENDENCIES := $(MSGDATA_ENGINE_DEPENDENCIES) $(MSGDATA_VANILLA_DEPENDENCIES)
 else
 MSGDATA_DEPENDENCIES := $(MSGDATA_ENGINE_DEPENDENCIES)
@@ -704,10 +704,10 @@ SCR_SEQ_DEPS := $(SCRIPT_INCLUDES) $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.inc)
 # keep in sync with ENGINE_MANAGED_SCRIPTS in tools/source/dumptools/dump_event_scripts.py
 SCR_SEQ_ENGINE_SRCS := $(sort $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/scr_seq_[0-9][0-9][0-9][0-9][0-9]_*.s))
 
-# the four digit scripts are the vanilla dump, only built when BUILD_VANILLA_SCR_SEQ is enabled
+# the four digit scripts are the vanilla dump, only built when BUILD_DUMPED_SCR_SEQ is enabled
 SCR_SEQ_VANILLA_SRCS := $(filter-out $(SCR_SEQ_ENGINE_SRCS),$(sort $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.s)))
 
-ifeq ($(BUILD_VANILLA_SCR_SEQ),1)
+ifeq ($(BUILD_DUMPED_SCR_SEQ),1)
 SCR_SEQ_SRCS := $(SCR_SEQ_ENGINE_SRCS) $(SCR_SEQ_VANILLA_SRCS)
 else
 SCR_SEQ_SRCS := $(SCR_SEQ_ENGINE_SRCS)
@@ -750,7 +750,7 @@ ZONE_EVENT_TARGET := $(FILESYS)/a/0/3/2
 ZONE_EVENT_DEPENDENCIES_DIR := data/eventdata/zone_event
 ZONE_EVENT_TEMPL := $(ZONE_EVENT_DEPENDENCIES_DIR).json.txt
 
-ifeq ($(BUILD_VANILLA_EVENTDATA),1)
+ifeq ($(BUILD_DUMPED_EVENTDATA),1)
 ZONE_EVENT_JSONS := $(sort $(wildcard $(ZONE_EVENT_DEPENDENCIES_DIR)/*.json))
 else
 ZONE_EVENT_JSONS :=
@@ -784,7 +784,7 @@ $(ZONE_EVENT_NARC): $(ZONE_EVENT_OBJS) | $(ZONE_EVENT_DIR)
 
 ifneq ($(strip $(ZONE_EVENT_OBJS)),)
 ifeq ($(strip $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/event_*.inc)),)
-$(error BUILD_VANILLA_EVENTDATA is enabled, but the script labels the maps reference are not in $(SCR_SEQ_DEPENDENCIES_DIR)/event_*.inc$(n)Either restore them or turn the toggle back off in $(CONFIG_H))
+$(error BUILD_DUMPED_EVENTDATA is enabled, but the script labels the maps reference are not in $(SCR_SEQ_DEPENDENCIES_DIR)/event_*.inc$(n)Either restore them or turn the toggle back off in $(CONFIG_H))
 endif
 NARC_FILES += $(ZONE_EVENT_NARC)
 endif

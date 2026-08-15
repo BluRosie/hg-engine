@@ -9,7 +9,7 @@ Two script narc subfiles are hand-maintained instead of dumped: 2_003 (commonscr
 
 Text archives the build regenerates from other sources are skipped unless --include-generated-text is given.
 
-What is dumped is a reference for diffing a ROM against, so the build only writes it back into the ROM when the matching BUILD_VANILLA_* toggle in include/config.h is enabled.
+What is dumped is a reference for diffing a ROM against, so the build only writes it back into the ROM when the matching BUILD_DUMPED_* toggle in include/config.h is enabled.
 
     make dump_scripts DUMP_ROM=path/to/rom.nds
 """

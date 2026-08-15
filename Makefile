@@ -152,9 +152,9 @@ REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 CONFIG_H := $(INCLUDE_SUBDIR)/config.h
 config_enabled = $(shell grep -E -c '^[[:space:]]*\#define[[:space:]]+$(1)[[:space:]]*$$' $(CONFIG_H))
 
-BUILD_VANILLA_TEXT := $(call config_enabled,BUILD_VANILLA_TEXT)
-BUILD_VANILLA_EVENTDATA := $(call config_enabled,BUILD_VANILLA_EVENTDATA)
-BUILD_VANILLA_SCR_SEQ := $(call config_enabled,BUILD_VANILLA_SCR_SEQ)
+BUILD_DUMPED_TEXT := $(call config_enabled,BUILD_DUMPED_TEXT)
+BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
+BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
 
 ## includes
 include data/graphics/pokegra.mk

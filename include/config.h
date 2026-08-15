@@ -274,11 +274,11 @@
 
 // Dumps of the vanilla text (data/text), zone event data (data/eventdata/zone_event), and field scripts (data/scr_seq)
 // are shipped as a reference so that a hack can be diffed against what the game originally shipped with.
-// They are not built into the rom unless the matching define below is uncommented, so that a rom.nds edited with
+// Dumped scripts are not built into the rom unless the matching define below is uncommented, so that a rom.nds edited with
 // DSPRE, PokeText, or any other external tool keeps its own version of everything hg-engine does not itself change.
 // hg-engine's own text archives and its common and trainer scripts are always built.
-// #define BUILD_VANILLA_TEXT
-// #define BUILD_VANILLA_EVENTDATA
-// #define BUILD_VANILLA_SCR_SEQ
+// #define BUILD_DUMPED_TEXT
+// #define BUILD_DUMPED_EVENTDATA
+// #define BUILD_DUMPED_SCR_SEQ
 
 #endif
