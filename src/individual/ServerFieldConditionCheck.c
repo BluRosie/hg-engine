@@ -1827,12 +1827,23 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 // }
 
                 switch (sp->endTurnEventBlockSequenceNumber) {
-                // TODO
                 case FOURTH_EVENT_BLOCK_HUNGER_SWITCH: {
 #ifdef DEBUG_ENDTURN_LOGIC
                     debug_printf("In FOURTH_EVENT_BLOCK_HUNGER_SWITCH\n", NULL);
 #endif
 
+                    if (sp->battlemon[battlerId].species == SPECIES_MORPEKO
+                        && sp->battlemon[battlerId].hp
+                        && GetBattlerAbility(sp, battlerId) == ABILITY_HUNGER_SWITCH
+                        && !(sp->battlemon[battlerId].condition2 & STATUS2_TRANSFORM)) {
+                        sp->battlemon[battlerId].form_no ^= 1;
+                        BattleFormChange(battlerId, sp->battlemon[battlerId].form_no, bw, sp, FALSE);
+                        sp->battlerIdTemp = battlerId;
+                        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FORM_CHANGE);
+                        sp->next_server_seq_no = sp->server_seq_no;
+                        sp->server_seq_no = 22;
+                        ret = 1;
+                    }
                     sp->endTurnEventBlockSequenceNumber++;
 
                     break;
