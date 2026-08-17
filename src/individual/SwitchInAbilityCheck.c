@@ -202,6 +202,51 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 // Abilities with entry effects can announce, except Neutralizing Gas/Unnerve (earlier) and form-changing abilities (later)
 
+                // Mimicry
+                {
+                    if (sp->battlemon[client_no].hp && GetBattlerAbility(sp, client_no) == ABILITY_MIMICRY) {
+                        int type = TYPE_TYPELESS;
+                        switch (sp->terrainOverlay.type) {
+                        case ELECTRIC_TERRAIN:
+                            type = TYPE_ELECTRIC;
+                            break;
+                        case GRASSY_TERRAIN:
+                            type = TYPE_GRASS;
+                            break;
+                        case MISTY_TERRAIN:
+                            type = TYPE_FAIRY;
+                            break;
+                        case PSYCHIC_TERRAIN:
+                            type = TYPE_PSYCHIC;
+                            break;
+                        default:
+                            break;
+                        }
+
+                        if (type != TYPE_TYPELESS
+                            && (sp->battlemon[client_no].type1 != type
+                                || sp->battlemon[client_no].type2 != type
+                                || sp->battlemon[client_no].type3 != TYPE_TYPELESS)) {
+                            ChangeToPureType(sp, client_no, type);
+                            sp->battlerIdTemp = client_no;
+                            sp->msg_work = type;
+                            scriptnum = BATTLE_SUBSCRIPT_COLOR_CHANGE;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        } else if (type == TYPE_TYPELESS) {
+                            struct PartyPokemon *mon = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
+                            int type1 = GetMonData(mon, MON_DATA_TYPE_1, NULL);
+                            int type2 = GetMonData(mon, MON_DATA_TYPE_2, NULL);
+                            if (sp->battlemon[client_no].type1 != type1
+                                || sp->battlemon[client_no].type2 != type2
+                                || sp->battlemon[client_no].type3 != TYPE_TYPELESS) {
+                                ChangeToPureType(sp, client_no, type1);
+                                sp->battlemon[client_no].type2 = type2;
+                            }
+                        }
+                    }
+                }
+
                 // Trace
                 {
                     int def1, def2;

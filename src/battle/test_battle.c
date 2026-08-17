@@ -60,12 +60,20 @@ void LONG_CALL BattleMessage_ExpandPlaceholders(struct BattleSystem *battleSyste
 
     struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
 
-    while (scenario != NULL && TestBattle_HasMoreExpectations()
-        && scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_TYPE_PARTY_FORM) {
+    while (scenario != NULL && TestBattle_HasMoreExpectations()) {
         struct Expectations *expectation = &scenario->expectations[scenario->expectationPassCount];
-        struct PartyPokemon *mon = BattleWorkPokemonParamGet(battleSystem, BATTLER_PLAYER_FIRST, expectation->battlerIDOrPartySlot);
-
-        if (GetMonData(mon, MON_DATA_FORM, NULL) != expectation->expectationValue.formID) {
+        if (expectation->expectationType == EXPECTATION_TYPE_PARTY_FORM) {
+            struct PartyPokemon *mon = BattleWorkPokemonParamGet(battleSystem, BATTLER_PLAYER_FIRST, expectation->battlerIDOrPartySlot);
+            if (GetMonData(mon, MON_DATA_FORM, NULL) != expectation->expectationValue.formID) {
+                break;
+            }
+        } else if (expectation->expectationType == EXPECTATION_TYPE_BATTLER_TYPES) {
+            struct BattlePokemon *mon = &battleSystem->sp->battlemon[expectation->battlerIDOrPartySlot];
+            if (mon->type1 != expectation->expectationValue.types[0]
+                || mon->type2 != expectation->expectationValue.types[1]) {
+                break;
+            }
+        } else {
             break;
         }
         scenario->expectationPassCount++;

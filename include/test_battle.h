@@ -49,7 +49,8 @@ enum ExpectationType {
     EXPECTATION_OVERWORLD_FORM,
     EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN,
     EXPECTATION_TYPE_NOT_MESSAGE,
-    EXPECTATION_TYPE_PARTY_FORM
+    EXPECTATION_TYPE_PARTY_FORM,
+    EXPECTATION_TYPE_BATTLER_TYPES
 };
 
 union ExpectationValue {
@@ -57,6 +58,7 @@ union ExpectationValue {
     u32 hpRecovered[16];
     char message[TEST_BATTLE_MESSAGE_LEN];
     u16 formID;
+    u8 types[2];
 };
 
 struct Expectations {
@@ -65,7 +67,7 @@ struct Expectations {
     union ExpectationValue expectationValue;
 };
 
-#define MAX_EXPECTATIONS 8
+#define MAX_EXPECTATIONS 16
 
 // Complete test scenario definition
 struct PACKED TestBattleScenario {
