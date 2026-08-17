@@ -5,13 +5,43 @@ BEGIN_TEST
     .battleType = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_HAIL,
     .playerParty = {
-        { .species = SPECIES_WOBBUFFET, .level = 80, .ability = ABILITY_TELEPATHY, .moves = { MOVE_REFLECT, MOVE_SLEEP_TALK }, .hp = FULL_HP },
-        { .species = SPECIES_WOBBUFFET, .level = 60, .ability = ABILITY_TELEPATHY, .moves = { MOVE_AURORA_VEIL, MOVE_SLEEP_TALK }, .hp = FULL_HP },
-        { .species = SPECIES_MR_RIME, .level = 50, .ability = ABILITY_SCREEN_CLEANER, .moves = { MOVE_SLEEP_TALK }, .hp = FULL_HP },
+        {
+            .species = SPECIES_WOBBUFFET,
+            .level = 80,
+            .ability = ABILITY_TELEPATHY,
+            .moves = { MOVE_REFLECT, MOVE_SLEEP_TALK },
+            .hp = FULL_HP
+        },
+        {
+            .species = SPECIES_WOBBUFFET,
+            .level = 60,
+            .ability = ABILITY_TELEPATHY,
+            .moves = { MOVE_AURORA_VEIL, MOVE_SLEEP_TALK },
+            .hp = FULL_HP
+        },
+        {
+            .species = SPECIES_MR_RIME,
+            .level = 50,
+            .ability = ABILITY_SCREEN_CLEANER,
+            .moves = { MOVE_SLEEP_TALK },
+            .hp = FULL_HP
+        },
     },
     .enemyParty = {
-        { .species = SPECIES_WOBBUFFET, .level = 40, .ability = ABILITY_TELEPATHY, .moves = { MOVE_LIGHT_SCREEN, MOVE_SLEEP_TALK }, .hp = FULL_HP },
-        { .species = SPECIES_WOBBUFFET, .level = 20, .ability = ABILITY_TELEPATHY, .moves = { MOVE_SLEEP_TALK }, .hp = FULL_HP },
+        {
+            .species = SPECIES_WOBBUFFET,
+            .level = 40,
+            .ability = ABILITY_TELEPATHY,
+            .moves = { MOVE_LIGHT_SCREEN, MOVE_SLEEP_TALK },
+            .hp = FULL_HP
+        },
+        {
+            .species = SPECIES_WOBBUFFET,
+            .level = 20,
+            .ability = ABILITY_TELEPATHY,
+            .moves = { MOVE_SLEEP_TALK },
+            .hp = FULL_HP
+        },
     },
     .playerScript = {
         {

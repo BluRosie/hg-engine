@@ -4,10 +4,23 @@ BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_TRAINER,
     .playerParty = {
-        { .species = SPECIES_MORPEKO, .level = 50, .form = 0, .ability = ABILITY_HUNGER_SWITCH, .moves = { MOVE_CELEBRATE }, .hp = FULL_HP },
+        {
+            .species = SPECIES_MORPEKO,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_HUNGER_SWITCH,
+            .moves = { MOVE_CELEBRATE },
+            .hp = FULL_HP
+        },
     },
     .enemyParty = {
-        { .species = SPECIES_WOBBUFFET, .level = 50, .ability = ABILITY_TELEPATHY, .moves = { MOVE_TRANSFORM, MOVE_CELEBRATE }, .hp = FULL_HP },
+        {
+            .species = SPECIES_WOBBUFFET,
+            .level = 50,
+            .ability = ABILITY_TELEPATHY,
+            .moves = { MOVE_TRANSFORM, MOVE_CELEBRATE },
+            .hp = FULL_HP
+        },
     },
     .playerScript = { {
         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },

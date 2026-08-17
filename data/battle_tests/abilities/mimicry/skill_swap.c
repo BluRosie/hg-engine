@@ -4,12 +4,37 @@ BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES,
     .playerParty = {
-        { .species = SPECIES_STUNFISK, .level = 40, .form = 1, .ability = ABILITY_MIMICRY, .moves = { MOVE_SLEEP_TALK, MOVE_SPLASH }, .hp = FULL_HP },
-        { .species = SPECIES_SHIFTRY, .level = 50, .ability = ABILITY_CHLOROPHYLL, .moves = { MOVE_GRASSY_TERRAIN, MOVE_SKILL_SWAP }, .hp = FULL_HP },
+        {
+            .species = SPECIES_STUNFISK,
+            .level = 40,
+            .form = 1,
+            .ability = ABILITY_MIMICRY,
+            .moves = { MOVE_SLEEP_TALK, MOVE_SPLASH },
+            .hp = FULL_HP
+        },
+        {
+            .species = SPECIES_SHIFTRY,
+            .level = 50,
+            .ability = ABILITY_CHLOROPHYLL,
+            .moves = { MOVE_GRASSY_TERRAIN, MOVE_SKILL_SWAP },
+            .hp = FULL_HP
+        },
     },
     .enemyParty = {
-        { .species = SPECIES_WOBBUFFET, .level = 1, .ability = ABILITY_TELEPATHY, .moves = { MOVE_SLEEP_TALK }, .hp = FULL_HP },
-        { .species = SPECIES_WOBBUFFET, .level = 1, .ability = ABILITY_TELEPATHY, .moves = { MOVE_SLEEP_TALK }, .hp = FULL_HP },
+        {
+            .species = SPECIES_WOBBUFFET,
+            .level = 1,
+            .ability = ABILITY_TELEPATHY,
+            .moves = { MOVE_SLEEP_TALK },
+            .hp = FULL_HP
+        },
+        {
+            .species = SPECIES_WOBBUFFET,
+            .level = 1,
+            .ability = ABILITY_TELEPATHY,
+            .moves = { MOVE_SLEEP_TALK },
+            .hp = FULL_HP
+        },
     },
     .playerScript = {
         {

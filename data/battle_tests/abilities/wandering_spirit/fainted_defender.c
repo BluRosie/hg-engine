@@ -4,11 +4,30 @@ BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_TRAINER,
     .playerParty = {
-        { .species = SPECIES_EKANS, .level = 50, .ability = ABILITY_INTIMIDATE, .moves = { MOVE_POISON_FANG }, .hp = FULL_HP },
+        {
+            .species = SPECIES_EKANS,
+            .level = 50,
+            .ability = ABILITY_INTIMIDATE,
+            .moves = { MOVE_POISON_FANG },
+            .hp = FULL_HP
+        },
     },
     .enemyParty = {
-        { .species = SPECIES_YAMASK, .level = 50, .form = 1, .ability = ABILITY_WANDERING_SPIRIT, .moves = { MOVE_SLEEP_TALK }, .hp = 1 },
-        { .species = SPECIES_WOBBUFFET, .level = 50, .ability = ABILITY_TELEPATHY, .moves = { MOVE_SLEEP_TALK }, .hp = FULL_HP },
+        {
+            .species = SPECIES_YAMASK,
+            .level = 50,
+            .form = 1,
+            .ability = ABILITY_WANDERING_SPIRIT,
+            .moves = { MOVE_SLEEP_TALK },
+            .hp = 1
+        },
+        {
+            .species = SPECIES_WOBBUFFET,
+            .level = 50,
+            .ability = ABILITY_TELEPATHY,
+            .moves = { MOVE_SLEEP_TALK },
+            .hp = FULL_HP
+        },
     },
     .playerScript = { {
         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
