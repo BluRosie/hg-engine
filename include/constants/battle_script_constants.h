@@ -524,8 +524,9 @@
 #define BATTLE_SUBSCRIPT_BATTLE_BOND_BOOST                      (515)
 #define BATTLE_SUBSCRIPT_ZERO_TO_HERO                           (516)
 #define BATTLE_SUBSCRIPT_WANDERING_SPIRIT                       (517)
+#define BATTLE_SUBSCRIPT_SCREEN_CLEANER                         (518)
 
-#define MAX_BASE_SUBSCRIPT_NUM 517
+#define MAX_BASE_SUBSCRIPT_NUM 518
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

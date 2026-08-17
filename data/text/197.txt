@@ -1781,3 +1781,4 @@ The opposing {STRVAR_1 1, 0, 0} got over\nits infatuation.
 {STRVAR_1 1, 0, 0} underwent a heroic\ntransformation!
 The wild {STRVAR_1 1, 0, 0} underwent a\nheroic transformation!
 The opposing {STRVAR_1 1, 0, 0} underwent\na heroic transformation!
+All screens on the field were cleansed!

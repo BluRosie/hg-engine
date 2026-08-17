@@ -202,6 +202,28 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 // Abilities with entry effects can announce, except Neutralizing Gas/Unnerve (earlier) and form-changing abilities (later)
 
+                // Screen Cleaner
+                {
+                    if (sp->battlemon[client_no].ability_activated_flag == 0
+                        && sp->battlemon[client_no].hp
+                        && GetBattlerAbility(sp, client_no) == ABILITY_SCREEN_CLEANER) {
+                        u32 screens = SIDE_STATUS_REFLECT | SIDE_STATUS_LIGHT_SCREEN | SIDE_STATUS_AURORA_VEIL;
+                        sp->battlemon[client_no].ability_activated_flag = 1;
+                        if ((sp->side_condition[0] | sp->side_condition[1]) & screens) {
+                            for (int side = 0; side < 2; side++) {
+                                sp->side_condition[side] &= ~screens;
+                                sp->scw[side].reflectCount = 0;
+                                sp->scw[side].lightScreenCount = 0;
+                                sp->scw[side].auroraVeilCount = 0;
+                            }
+                            sp->battlerIdTemp = client_no;
+                            scriptnum = BATTLE_SUBSCRIPT_SCREEN_CLEANER;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+                }
+
                 // Mimicry
                 {
                     if (sp->battlemon[client_no].hp && GetBattlerAbility(sp, client_no) == ABILITY_MIMICRY) {

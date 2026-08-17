@@ -50,7 +50,8 @@ enum ExpectationType {
     EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN,
     EXPECTATION_TYPE_NOT_MESSAGE,
     EXPECTATION_TYPE_PARTY_FORM,
-    EXPECTATION_TYPE_BATTLER_TYPES
+    EXPECTATION_TYPE_BATTLER_TYPES,
+    EXPECTATION_TYPE_SIDE_CONDITION_ABSENT
 };
 
 union ExpectationValue {
@@ -59,6 +60,7 @@ union ExpectationValue {
     char message[TEST_BATTLE_MESSAGE_LEN];
     u16 formID;
     u8 types[2];
+    u32 sideConditionMask;
 };
 
 struct Expectations {
