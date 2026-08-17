@@ -245,10 +245,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             break;
                         }
 
-                        if (type != TYPE_TYPELESS
-                            && (sp->battlemon[client_no].type1 != type
-                                || sp->battlemon[client_no].type2 != type
-                                || sp->battlemon[client_no].type3 != TYPE_TYPELESS)) {
+                        if (type != TYPE_TYPELESS && (sp->battlemon[client_no].type1 != type || sp->battlemon[client_no].type2 != type || sp->battlemon[client_no].type3 != TYPE_TYPELESS)) {
                             ChangeToPureType(sp, client_no, type);
                             sp->battlerIdTemp = client_no;
                             sp->msg_work = type;
@@ -259,9 +256,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             struct PartyPokemon *mon = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
                             int type1 = GetMonData(mon, MON_DATA_TYPE_1, NULL);
                             int type2 = GetMonData(mon, MON_DATA_TYPE_2, NULL);
-                            if (sp->battlemon[client_no].type1 != type1
-                                || sp->battlemon[client_no].type2 != type2
-                                || sp->battlemon[client_no].type3 != TYPE_TYPELESS) {
+                            if (sp->battlemon[client_no].type1 != type1 || sp->battlemon[client_no].type2 != type2 || sp->battlemon[client_no].type3 != TYPE_TYPELESS) {
                                 ChangeToPureType(sp, client_no, type1);
                                 sp->battlemon[client_no].type2 = type2;
                             }
