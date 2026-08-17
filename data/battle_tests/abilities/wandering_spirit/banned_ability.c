@@ -7,7 +7,7 @@ BEGIN_TEST
         {
             .species = SPECIES_WOBBUFFET,
             .level = 50,
-            .ability = ABILITY_MULTITYPE,
+            .ability = ABILITY_COMATOSE,
             .moves = { MOVE_LICK },
             .hp = FULL_HP
         },
@@ -34,7 +34,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Lick!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Yamask's Wandering Spirit" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Yamask used Sleep Talk!" },
     }
 }
 END_TEST

@@ -15,45 +15,6 @@
 #include "battle.h"
 #include "pokemon.h"
 
-static BOOL AbilityFailsWanderingSpirit(int ability)
-{
-    switch (ability) {
-    case ABILITY_WONDER_GUARD:
-    case ABILITY_MULTITYPE:
-    case ABILITY_ILLUSION:
-    case ABILITY_ZEN_MODE:
-    case ABILITY_STANCE_CHANGE:
-    case ABILITY_SHIELDS_DOWN:
-    case ABILITY_SCHOOLING:
-    case ABILITY_DISGUISE:
-    case ABILITY_BATTLE_BOND:
-    case ABILITY_POWER_CONSTRUCT:
-    case ABILITY_COMATOSE:
-    case ABILITY_RKS_SYSTEM:
-    case ABILITY_ICE_FACE:
-    case ABILITY_NEUTRALIZING_GAS:
-    case ABILITY_HUNGER_SWITCH:
-    case ABILITY_AS_ONE_GLASTRIER:
-    case ABILITY_AS_ONE_SPECTRIER:
-    case ABILITY_ZERO_TO_HERO:
-    case ABILITY_COMMANDER:
-    case ABILITY_PROTOSYNTHESIS:
-    case ABILITY_QUARK_DRIVE:
-    case ABILITY_EMBODY_ASPECT:
-    case ABILITY_EMBODY_ASPECT_2:
-    case ABILITY_EMBODY_ASPECT_3:
-    case ABILITY_EMBODY_ASPECT_4:
-    case ABILITY_TERA_SHIFT:
-    case ABILITY_TERA_SHELL:
-    case ABILITY_TERAFORM_ZERO:
-    case ABILITY_POISON_PUPPETEER:
-        return TRUE;
-
-    default:
-        return FALSE;
-    }
-}
-
 /**
  *  @brief check if a move should activate the defender's ability and run a subscript
  *
@@ -264,7 +225,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_WANDERING_SPIRIT)) {
         if (sp->battlemon[sp->attack_client].ability != ABILITY_WANDERING_SPIRIT
-            && !AbilityFailsWanderingSpirit(sp->battlemon[sp->attack_client].ability)
+            && !AbilityFailSkillSwap(sp->battlemon[sp->attack_client].ability)
             && HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_ABILITY_CHANGES
             && HeldItemHoldEffectGet(sp, sp->defence_client) != HOLD_EFFECT_PREVENT_ABILITY_CHANGES
             && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)

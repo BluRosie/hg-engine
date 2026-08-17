@@ -172,17 +172,6 @@ BOOL LONG_CALL AbilityNoEntrainment(int ability);
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTrace(int ability);
 
-/// @brief Check if ability causes Skill Swap and Wandering Spirit to fail
-/// @param ability
-/// @return `TRUE` or `FALSE`
-BOOL LONG_CALL AbilityFailSkillSwap(int ability);
-
-/// @brief Check if ability can't be suppressed by Gastro Acid. See notes for DisabledByNeutralizingGas.
-/// @param ability
-/// @ref AbilityDisabledByNeutralizingGas
-/// @return `TRUE` or `FALSE`
-BOOL LONG_CALL AbilityCantSupress(int ability);
-
 /// @brief Check if ability is disabled if user is Transformed
 /// @param ability
 /// @return `TRUE` or `FALSE`
