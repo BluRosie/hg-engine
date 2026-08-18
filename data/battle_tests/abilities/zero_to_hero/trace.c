@@ -19,7 +19,8 @@ BEGIN_TEST
     } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Go! Palafin!" },
-        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "The opposing Ralts's Trace" },
+        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Ralts's Trace" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
     }
 }
 END_TEST

@@ -355,6 +355,7 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
         if (mon->moveEffectFlags) {
             sp->battlemon[battlerId].effect_of_moves |= mon->moveEffectFlags;
         }
+
     }
 
     // Apply enemy Pokemon status and conditions (battlers 2-3 in doubles, 1 in singles)
@@ -386,6 +387,7 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
         if (mon->moveEffectFlags) {
             sp->battlemon[battlerId].effect_of_moves |= mon->moveEffectFlags;
         }
+
     }
 
     if (sCurrentScenario->weather) {
@@ -793,6 +795,24 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
 
     if (sCurrentScenario == NULL) {
         return;
+    }
+
+    if (GetScriptIndex(0) == 0) {
+        int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+        for (int battlerId = 0; battlerId < maxBattlers; battlerId++) {
+            int partySlot = ctx->sel_mons_no[battlerId];
+            const struct TestBattlePokemon *mon;
+
+            if (BATTLER_IS_ENEMY(battlerId)) {
+                mon = &sCurrentScenario->enemyParty[partySlot];
+            } else {
+                mon = &sCurrentScenario->playerParty[partySlot];
+            }
+
+            ctx->battlemon[battlerId].tera_type = mon->teraType;
+            ctx->battlemon[battlerId].is_currently_terastallized = mon->isTerastallized;
+        }
     }
 
     TestBattle_CheckScriptCompletion();

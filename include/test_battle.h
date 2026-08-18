@@ -31,6 +31,8 @@ struct PACKED TestBattlePokemon {
     u16 species;
     u8 level;
     u8 form;
+    u8 teraType;
+    u8 isTerastallized;
     u16 ability;
     u16 item;
     u16 moves[4];

@@ -4214,6 +4214,55 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
     return ability;
 }
 
+/// @brief Check if ability causes Trace to fail
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoTrace(int ability)
+{
+    switch (ability) {
+    case ABILITY_TRACE:
+    case ABILITY_FORECAST:
+    case ABILITY_MULTITYPE:
+    case ABILITY_FLOWER_GIFT:
+    case ABILITY_ILLUSION:
+    case ABILITY_IMPOSTER:
+    case ABILITY_ZEN_MODE:
+    case ABILITY_STANCE_CHANGE:
+    case ABILITY_SHIELDS_DOWN:
+    case ABILITY_SCHOOLING:
+    case ABILITY_DISGUISE:
+    case ABILITY_BATTLE_BOND:
+    case ABILITY_POWER_CONSTRUCT:
+    case ABILITY_COMATOSE:
+    case ABILITY_RECEIVER:
+    case ABILITY_POWER_OF_ALCHEMY:
+    case ABILITY_RKS_SYSTEM:
+    case ABILITY_ICE_FACE:
+    case ABILITY_NEUTRALIZING_GAS:
+    case ABILITY_HUNGER_SWITCH:
+    case ABILITY_AS_ONE_GLASTRIER:
+    case ABILITY_AS_ONE_SPECTRIER:
+    case ABILITY_ZERO_TO_HERO:
+    case ABILITY_COMMANDER:
+    case ABILITY_PROTOSYNTHESIS:
+    case ABILITY_QUARK_DRIVE:
+    case ABILITY_EMBODY_ASPECT:
+    case ABILITY_EMBODY_ASPECT_2:
+    case ABILITY_EMBODY_ASPECT_3:
+    case ABILITY_EMBODY_ASPECT_4:
+    case ABILITY_TERA_SHIFT:
+    case ABILITY_TERA_SHELL:
+    case ABILITY_TERAFORM_ZERO:
+    case ABILITY_POISON_PUPPETEER:
+        return TRUE;
+        break;
+
+    default:
+        break;
+    }
+    return FALSE;
+}
+
 /// @brief Check if ability causes Skill Swap and Wandering Spirit to fail
 /// @param ability
 /// @return `TRUE` or `FALSE`
@@ -4812,4 +4861,25 @@ void LONG_CALL PlayTrainerVictoryBGM(struct TrainerData *trainer)
         PlayBGM(SEQ_GS_WIN1);
         break;
     }
+}
+
+int LONG_CALL TraceClientGet(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2)
+{
+    int ret = BATTLER_NONE;
+    BOOL canTraceTarget1 = ctx->battlemon[battlerIdTarget1].hp && !AbilityNoTrace(ctx->battlemon[battlerIdTarget1].ability);
+    BOOL canTraceTarget2 = ctx->battlemon[battlerIdTarget2].hp && !AbilityNoTrace(ctx->battlemon[battlerIdTarget2].ability);
+
+    if (canTraceTarget1 && canTraceTarget2) {
+        if (BattleRand(battleSystem) & 1) {
+            ret = battlerIdTarget2;
+        } else {
+            ret = battlerIdTarget1;
+        }
+    } else if (canTraceTarget1) {
+        ret = battlerIdTarget1;
+    } else if (canTraceTarget2) {
+        ret = battlerIdTarget2;
+    }
+
+    return ret;
 }

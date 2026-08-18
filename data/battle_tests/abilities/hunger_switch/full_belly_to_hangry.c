@@ -1,4 +1,4 @@
-// Test: Hunger Switch changes Full Belly Mode to Hangry Mode at the end of the turn
+// Test: Hunger Switch alternates between Full Belly Mode and Hangry Mode at the end of each turn
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -24,9 +24,11 @@ BEGIN_TEST
     },
     .playerScript = { {
         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+        { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
         { ACTION_NONE, 0 },
     } },
     .enemyScript = { {
+        { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
         { ACTION_NONE, 0 },
     } },
@@ -34,6 +36,10 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Morpeko used Celebrate!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Celebrate!" },
         { .expectationType = EXPECTATION_TYPE_PARTY_FORM, .battlerIDOrPartySlot = 0, .expectationValue.formID = 1 },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Morpeko transformed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Morpeko used Celebrate!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Celebrate!" },
+        { .expectationType = EXPECTATION_TYPE_PARTY_FORM, .battlerIDOrPartySlot = 0, .expectationValue.formID = 0 },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Morpeko transformed!" },
     }
 }

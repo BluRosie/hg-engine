@@ -37,6 +37,7 @@ arm9 GetMonEvolution 02070E34
 0012 Battle_End 08000B90 1
 0012 TryRevertFormChange_hook 080069AC 2
 0012 CheckCanTakeItem 02241334 0
+0012 TraceClientGet 022585B8
 
 #expand items
 arm9 GetItemIndex 08077C18 2

@@ -1917,13 +1917,13 @@ int LONG_CALL BattleWorkEnemyClientGet(void *bw, int client, int side);
 /**
  *  @brief choose which enemy should be traced
  *
- *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param sp global battle structure
- *  @param def1 one of the enemy clients
- *  @param def2 the other enemy client
+ *  @param battleSystem battle work structure; void * because we haven't defined the battle work structure
+ *  @param ctx global battle structure
+ *  @param battlerIdTarget1 one of the enemy clients
+ *  @param battlerIdTarget2 the other enemy client
  *  @return trace client to act on.  set BattleStruct's defence_client to this to properly act after
  */
-int LONG_CALL TraceClientGet(void *bw, struct BattleStruct *sp, int def1, int def2);
+int LONG_CALL TraceClientGet(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2);
 
 /**
  *  @brief check if client is on enemy side or not.  equivalent to BATTLER_IS_ENEMY(client)
@@ -3606,6 +3606,11 @@ BOOL LONG_CALL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability);
+
+/// @brief Check if ability causes Trace to fail
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoTrace(int ability);
 
 /// @brief Check if ability causes Skill Swap and Wandering Spirit to fail
 /// @param ability
