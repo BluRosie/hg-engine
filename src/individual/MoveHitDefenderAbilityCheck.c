@@ -115,8 +115,8 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && (sp->battlemon[sp->defence_client].hp)
 #ifndef DEBUG_BATTLE_SCENARIOS
             && (BattleRand(bw) % 10 < 3)
-#endif 
-        ){
+#endif
+        ) {
             sp->addeffect_type = ADD_STATUS_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
