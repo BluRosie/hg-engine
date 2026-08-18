@@ -379,38 +379,7 @@ void ItemMenuUseFunc_Mint(struct ItemMenuUseData *data, const struct ItemCheckUs
 void ItemMenuUseFunc_Nectar(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 void ItemMenuUseFunc_RotomCatalog(struct ItemMenuUseData *data, const struct ItemCheckUseData *dat2 UNUSED);
 
-const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
-    { NULL, ItemFieldUseFunc_Generic, NULL },
-    { ItemMenuUseFunc_HealingItem, NULL, NULL },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { ItemMenuUseFunc_Bicycle, ItemFieldUseFunc_Bicycle, ItemCheckUseFunc_Bicycle },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { ItemMenuUseFunc_TMHM, NULL, NULL },
-    { ItemMenuUseFunc_Mail, NULL, NULL },
-    { ItemMenuUseFunc_Berry, NULL, ItemCheckUseFunc_Berry },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { ItemMenuUseFunc_PalPad, ItemFieldUseFunc_PalPad, NULL },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { ItemMenuUseFunc_Honey, NULL, NULL },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { ItemMenuUseFunc_OldRod, ItemFieldUseFunc_OldRod, ItemCheckUseFunc_FishingRod },
-    { ItemMenuUseFunc_GoodRod, ItemFieldUseFunc_GoodRod, ItemCheckUseFunc_FishingRod },
-    { ItemMenuUseFunc_SuperRod, ItemFieldUseFunc_SuperRod, ItemCheckUseFunc_FishingRod },
-    { NULL, ItemFieldUseFunc_Generic, NULL },
-    { ItemMenuUseFunc_EvoStone, NULL, NULL },
-    { ItemMenuUseFunc_EscapeRope, NULL, ItemCheckUseFunc_EscapeRope },
-    { NULL, NULL, ItemCheckUseFunc_Dummy },
-    { ItemMenuUseFunc_ApricornBox, ItemFieldUseFunc_ApricornBox, NULL },
-    { ItemMenuUseFunc_BerryPots, ItemFieldUseFunc_BerryPots, NULL },
-    { ItemMenuUseFunc_UnownReport, ItemFieldUseFunc_UnownReport, NULL },
-    { ItemMenuUseFunc_DowsingMchn, ItemFieldUseFunc_DowsingMchn, NULL },
-    { NULL, ItemFieldUseFunc_GbSounds, NULL },
-    { ItemMenuUseFunc_Gracidea, ItemFieldUseFunc_Gracidea, NULL },
-    { ItemMenuUseFunc_VSRecorder, ItemFieldUseFunc_VSRecorder, NULL },
-    // new item use entries
+const struct ItemUseFuncDat sNewItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_RevealGlass, ItemFieldUseFunc_RevealGlass, NULL },
     { ItemMenuUseFunc_DNASplicers, ItemFieldUseFunc_DNASplicers, NULL },
     { ItemMenuUseFunc_AbilityCapsule, NULL, NULL },
@@ -418,6 +387,29 @@ const struct ItemUseFuncDat sItemFieldUseFuncs[] = {
     { ItemMenuUseFunc_Nectar, NULL, NULL },
     { ItemMenuUseFunc_RotomCatalog, NULL, NULL },
 };
+
+extern const struct ItemUseFuncDat sItemFieldUseFuncs[NUM_VANILLA_FIELD_USE_FUNCS];
+
+void *LONG_CALL GetItemFieldUseFunc(int funcType, u16 itemType)
+{
+    const struct ItemUseFuncDat *useFunc;
+    if (itemType >= NUM_VANILLA_FIELD_USE_FUNCS) {
+        u16 index = itemType - NUM_VANILLA_FIELD_USE_FUNCS;
+        if (index >= NELEMS(sNewItemFieldUseFuncs)) {
+            return NULL;
+        }
+        useFunc = &sNewItemFieldUseFuncs[index];
+    } else {
+        useFunc = &sItemFieldUseFuncs[itemType];
+    }
+    if (funcType == USE_ITEM_TASK_MENU) {
+        return useFunc->menu;
+    } else if (funcType == USE_ITEM_TASK_FIELD) {
+        return useFunc->field;
+    } else {
+        return useFunc->check;
+    }
+}
 
 u16 GetItemIndex(u16 item, u16 type)
 {

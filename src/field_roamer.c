@@ -14,7 +14,7 @@
 /* In order to change the adjacent routes we would need to hook
  * https://github.com/pret/pokeheartgold/blob/d72700a52ad27ddf47847009a85b4bc9c85fa283/src/field_roamer.c#L256
  */
-
+#ifdef EXPAND_ROAMERS
 static const u32 sRoamerLocations[ROAMER_LOC_COUNT] = {
     // Johto
     MAP_R29,
@@ -146,3 +146,4 @@ u8 LONG_CALL SpeciesToRoamerIdx(u16 species)
         return ROAMER_MAX;
     }
 }
+#endif

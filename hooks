@@ -300,6 +300,7 @@ arm9 GF_Snd_LoadSeqEx 02004784 2
 
 arm9 StoreFieldSysPtr 0203E028 1
 
+arm9 GetItemFieldUseFunc 02064980 2
 
 #ifdef IMPLEMENT_BDHCAM_ROUTINE
 
@@ -631,12 +632,13 @@ arm9 PartyMenu_StartContextMenuButtonPressAnim_FromCursorObj 0207CB9C 3
 0012 BattleMessage_BufferPokemon 0223CE80
 0012 hook_GrabIllusionBoxMonForHpBar 022651AE 3
 
+#ifdef EXPAND_ROAMERS
 # roamers
 arm9 Save_CreateRoamerByID 020676EC 2
 arm9 RoamerLocationSetRandom 02067830 3
 arm9 SpeciesToRoamerIdx 020677F4 1
 arm9 ScrCmd_CreateRoamer 02045264 1
-
+#endif
 
 # encounter
 arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0

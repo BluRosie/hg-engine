@@ -2,48 +2,48 @@
 #define POKEDIAMOND_ITEM_H
 
 #include "types.h"
-#include "task.h"
+
 #include "script.h"
+#include "task.h"
 
 /*
  * Bit array describing the effects of using the item on a
  * party member.
  */
-typedef struct ItemPartyUseParam
-{
-    u8 slp_heal:1;
-    u8 psn_heal:1;
-    u8 brn_heal:1;
-    u8 frz_heal:1;
-    u8 prz_heal:1;
-    u8 cfs_heal:1;
-    u8 inf_heal:1;
-    u8 guard_spec:1;
-    u8 revive:1;
-    u8 revive_all:1;
-    u8 level_up:1;
-    u8 evolve:1;
-    u8 atk_stages:4;
-    u8 def_stages:4;
-    u8 spatk_stages:4;
-    u8 spdef_stages:4;
-    u8 speed_stages:4;
-    u8 accuracy_stages:4;
-    u8 critrate_stages:2;
-    u8 pp_up:1;
-    u8 pp_max:1;
-    u8 pp_restore:1;
-    u8 pp_restore_all:1;
-    u8 hp_restore:1;
-    u8 hp_ev_up:1;
-    u8 atk_ev_up:1;
-    u8 def_ev_up:1;
-    u8 speed_ev_up:1;
-    u8 spatk_ev_up:1;
-    u8 spdef_ev_up:1;
-    u8 friendship_mod_lo:1;
-    u8 friendship_mod_med:1;
-    u8 friendship_mod_hi:1;
+typedef struct ItemPartyUseParam {
+    u8 slp_heal : 1;
+    u8 psn_heal : 1;
+    u8 brn_heal : 1;
+    u8 frz_heal : 1;
+    u8 prz_heal : 1;
+    u8 cfs_heal : 1;
+    u8 inf_heal : 1;
+    u8 guard_spec : 1;
+    u8 revive : 1;
+    u8 revive_all : 1;
+    u8 level_up : 1;
+    u8 evolve : 1;
+    u8 atk_stages : 4;
+    u8 def_stages : 4;
+    u8 spatk_stages : 4;
+    u8 spdef_stages : 4;
+    u8 speed_stages : 4;
+    u8 accuracy_stages : 4;
+    u8 critrate_stages : 2;
+    u8 pp_up : 1;
+    u8 pp_max : 1;
+    u8 pp_restore : 1;
+    u8 pp_restore_all : 1;
+    u8 hp_restore : 1;
+    u8 hp_ev_up : 1;
+    u8 atk_ev_up : 1;
+    u8 def_ev_up : 1;
+    u8 speed_ev_up : 1;
+    u8 spatk_ev_up : 1;
+    u8 spdef_ev_up : 1;
+    u8 friendship_mod_lo : 1;
+    u8 friendship_mod_med : 1;
+    u8 friendship_mod_hi : 1;
     s8 hp_ev_up_param;
     s8 atk_ev_up_param;
     s8 def_ev_up_param;
@@ -61,20 +61,19 @@ typedef struct ItemPartyUseParam
 /*
  * Item parameter data, loaded from itemtool/itemdata/item_data.narc
  */
-typedef struct ItemData
-{
-    u16 price;         // Lower 16 bits of price (bits 0-15)
+typedef struct ItemData {
+    u16 price; // Lower 16 bits of price (bits 0-15)
     u8 holdEffect;
     u8 holdEffectParam;
     u8 pluckEffect;
     u8 flingEffect;
     u8 flingPower;
     u8 naturalGiftPower;
-    u16 naturalGiftType:5;
-    u16 prevent_toss:1;
-    u16 selectable:1;
-    u16 fieldPocket:4;
-    u16 battlePocket:5;
+    u16 naturalGiftType : 5;
+    u16 prevent_toss : 1;
+    u16 selectable : 1;
+    u16 fieldPocket : 4;
+    u16 battlePocket : 5;
     u8 fieldUseFunc;
     u8 battleUseFunc;
     u8 partyUse;
@@ -83,8 +82,8 @@ typedef struct ItemData
         u8 dummy;
         ITEMPARTYPARAM partyUseParam;
     };
-    u8 price_high:4;   // Upper 4 bits of price (bits 16-19)
-    u8 padding_22:4;
+    u8 price_high : 4; // Upper 4 bits of price (bits 16-19)
+    u8 padding_22 : 4;
     u8 padding_23;
 } ITEMDATA;
 
@@ -97,8 +96,8 @@ typedef void *(*FieldApplicationWorkCtor)(FieldSystem *fieldSystem);
 struct ItemCheckUseData {
     u32 mapId;
     int playerState;
-    u16 haveFollower:1;
-    u16 haveRocketCostume:1;
+    u16 haveFollower : 1;
+    u16 haveRocketCostume : 1;
     u16 facingTile;
     u16 standingTile;
     FIELD_PLAYER_AVATAR *playerAvatar;
@@ -106,13 +105,13 @@ struct ItemCheckUseData {
 };
 
 struct ItemFieldUseData {
-    FieldSystem *fieldSystem;      // 00
-    struct ItemCheckUseData dat;   // 04
+    FieldSystem *fieldSystem; // 00
+    struct ItemCheckUseData dat; // 04
     FieldApplicationWorkCtor ctor; // 1C
-    void *work;                    // 20
-    u16 itemId;                    // 24
-    u8 state;                      // 26
-    u8 no_app;                     // 27
+    void *work; // 20
+    u16 itemId; // 24
+    u8 state; // 26
+    u8 no_app; // 27
 };
 
 struct ItemMenuUseData {
@@ -137,22 +136,26 @@ typedef void (*ItemMenuUseFunc)(struct ItemMenuUseData *data, const struct ItemC
 typedef BOOL (*ItemFieldUseFunc)(struct ItemFieldUseData *data);
 typedef u32 (*ItemCheckUseFunc)(const struct ItemCheckUseData *data);
 
+#define NUM_VANILLA_FIELD_USE_FUNCS 30
+
+#define USE_ITEM_TASK_MENU  0
+#define USE_ITEM_TASK_FIELD 1
+#define USE_ITEM_TASK_CHECK 2
+
 struct ItemUseFuncDat {
     ItemMenuUseFunc menu;
     ItemFieldUseFunc field;
     ItemCheckUseFunc check;
 };
 
-enum
-{
+enum {
     ITEM_GET_DATA = 0, // アイテムデータ
     ITEM_GET_ICON_CGX, // アイコンキャラ
     ITEM_GET_ICON_PAL, // アイコンパレット
-    ITEM_GET_AGB_NUM   // AGBのアイテム番号
+    ITEM_GET_AGB_NUM // AGBのアイテム番号
 };
 
-enum
-{
+enum {
     ITEM_PARAM_PRICE,
     ITEM_PARAM_HOLD_EFFECT,
     ITEM_PARAM_HOLD_EFFECT_PARAM,
@@ -214,8 +217,7 @@ enum
     ITEM_PARAM_FRIENDSHIP_3_POINT,
 };
 
-struct ITEMDATA_INDEX
-{
+struct ITEMDATA_INDEX {
     u16 arc_data;
     u16 arc_cgx;
     u16 arc_pal;
@@ -224,7 +226,7 @@ struct ITEMDATA_INDEX
 
 extern struct ITEMDATA_INDEX ItemDataIndex[];
 
-#define ITEM_DUMMY_ID (0)
+#define ITEM_DUMMY_ID  (0)
 #define ITEM_RETURN_ID (0xffff)
 
 #define ITEM_WORK_TYPE_CAN_USED_IN_PARTY 1
@@ -283,7 +285,6 @@ void LONG_CALL sub_0203C8F0(struct BagViewAppWork *env, u32 task); // task is a 
 void LONG_CALL RegisteredItem_CreateGoToAppTask(struct ItemFieldUseData *data, FieldApplicationWorkCtor ctorTask, BOOL something);
 s32 LONG_CALL GetItemAttrSub(ITEMPARTYPARAM *param, u16 attrno);
 
-
 // defined in item.c
 /**
  *  @brief allocate memory on the heap and dump the item data narc to it, making an item data table
@@ -297,4 +298,4 @@ void *LONG_CALL LoadItemDataOrGfx(u16 itemId, int attrno, int heapID);
 
 s32 LONG_CALL GetItemAttr_PreloadedItemData(struct ItemData *itemData, u16 attrno);
 
-#endif //POKEDIAMOND_ITEM_H
+#endif // POKEDIAMOND_ITEM_H

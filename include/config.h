@@ -239,11 +239,37 @@
 // ENTIRE_PARTY_AFFECTS_ROCK_SMASH causes the abilities of all party Pokemon to influence the odds of getting an item from breaking rocks, rather than just the following Pokemon.
 // #define ENTIRE_PARTY_AFFECTS_ROCK_SMASH
 
+// SKIP_TUTORIAL_INFO will skip the tutorial when starting a new game and go straight to Professor Oak greeting you.
+// uncomment the line out to get this functionality
+// #define SKIP_TUTORIAL_INFO
+
 // Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
 #define CHAMPIONS_POWER_CHANGES         1
 #define CHAMPIONS_TYPE_CHANGES          1
 #define CHAMPIONS_ACC_CHANGES           1
 #define CHAMPIONS_PP_CHANGES            0
 #define CHAMPIONS_EFFECT_CHANCE_CHANGES 1
+
+// EXPAND_TRAINER_PRIZE_MONEY allows for additional trainers to have prize money associated.
+// Enable if you add new trainer classes or want to edit existing prize money ratios.
+// Refer to src/trainermoney.c
+#define EXPAND_TRAINER_PRIZE_MONEY
+
+// EXPAND_TRAINER_GENDER_TABLE allows for adding/editing trainer genders.
+// Enable if you add new trainer classes or want to edit existing trainer genders.
+// Refer to src/pokemon.c
+#define EXPAND_TRAINER_GENDER_TABLE
+
+// EXPAND_MUSIC_TABLES allows for changing or expanding music tables.
+// Refer to src/music_tables.c
+#define EXPAND_MUSIC_TABLES
+
+// EXPAND_ROAMERS allows for changing or expanding roamers.
+// Refer to src/field_roamer.c
+#define EXPAND_ROAMERS
+
+// PLAY_MON_VICTORY_POSE enables the victory pose for Pokémon when fainting an opponent.
+// Comment out this define if you want to disable this feature.
+// #define PLAY_MON_VICTORY_POSE
 
 #endif
