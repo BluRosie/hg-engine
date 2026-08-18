@@ -84,7 +84,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorino used Poison Sting!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Nidorino used Poison Sting!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Cute Charm" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorina used Play Rough!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorino's Cute Charm" },
