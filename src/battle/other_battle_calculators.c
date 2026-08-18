@@ -4167,27 +4167,7 @@ BOOL LONG_CALL IsPureType(struct BattleStruct *ctx, int battlerId, int type)
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTransform(int ability)
 {
-    switch (ability) {
-    case ABILITY_DISGUISE:
-    case ABILITY_GULP_MISSILE:
-    case ABILITY_ICE_FACE:
-    case ABILITY_NEUTRALIZING_GAS:
-    case ABILITY_HUNGER_SWITCH:
-    case ABILITY_ZERO_TO_HERO:
-    case ABILITY_PROTOSYNTHESIS:
-    case ABILITY_QUARK_DRIVE:
-    case ABILITY_EMBODY_ASPECT:
-    case ABILITY_EMBODY_ASPECT_2:
-    case ABILITY_EMBODY_ASPECT_3:
-    case ABILITY_EMBODY_ASPECT_4:
-    case ABILITY_TERA_SHIFT:
-        return TRUE;
-        break;
-
-    default:
-        break;
-    }
-    return FALSE;
+    return GetAbilityFlags(ability).disabledWhenTransformed;
 }
 
 // TODO: Just use this instead of the Mold Breaker one
@@ -4208,7 +4188,7 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
         return ABILITY_NONE;
     } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
         return ABILITY_BEAST_BOOST;
-    } else if (AbilityNoTransform(ctx->battlemon[battlerId].ability) && (ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORM)) {
+    } else if ((ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORM) && AbilityNoTransform(ctx->battlemon[battlerId].ability)) {
         return ABILITY_NONE;
     }
     return ability;
@@ -4219,48 +4199,7 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoTrace(int ability)
 {
-    switch (ability) {
-    case ABILITY_TRACE:
-    case ABILITY_FORECAST:
-    case ABILITY_MULTITYPE:
-    case ABILITY_FLOWER_GIFT:
-    case ABILITY_ILLUSION:
-    case ABILITY_IMPOSTER:
-    case ABILITY_ZEN_MODE:
-    case ABILITY_STANCE_CHANGE:
-    case ABILITY_SHIELDS_DOWN:
-    case ABILITY_SCHOOLING:
-    case ABILITY_DISGUISE:
-    case ABILITY_BATTLE_BOND:
-    case ABILITY_POWER_CONSTRUCT:
-    case ABILITY_COMATOSE:
-    case ABILITY_RECEIVER:
-    case ABILITY_POWER_OF_ALCHEMY:
-    case ABILITY_RKS_SYSTEM:
-    case ABILITY_ICE_FACE:
-    case ABILITY_NEUTRALIZING_GAS:
-    case ABILITY_HUNGER_SWITCH:
-    case ABILITY_AS_ONE_GLASTRIER:
-    case ABILITY_AS_ONE_SPECTRIER:
-    case ABILITY_ZERO_TO_HERO:
-    case ABILITY_COMMANDER:
-    case ABILITY_PROTOSYNTHESIS:
-    case ABILITY_QUARK_DRIVE:
-    case ABILITY_EMBODY_ASPECT:
-    case ABILITY_EMBODY_ASPECT_2:
-    case ABILITY_EMBODY_ASPECT_3:
-    case ABILITY_EMBODY_ASPECT_4:
-    case ABILITY_TERA_SHIFT:
-    case ABILITY_TERA_SHELL:
-    case ABILITY_TERAFORM_ZERO:
-    case ABILITY_POISON_PUPPETEER:
-        return TRUE;
-        break;
-
-    default:
-        break;
-    }
-    return FALSE;
+    return GetAbilityFlags(ability).failsTrace;
 }
 
 /// @brief Check if ability causes Skill Swap and Wandering Spirit to fail
@@ -4268,43 +4207,7 @@ BOOL LONG_CALL AbilityNoTrace(int ability)
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityFailSkillSwap(int ability)
 {
-    switch (ability) {
-    case ABILITY_WONDER_GUARD:
-    case ABILITY_MULTITYPE:
-    case ABILITY_ILLUSION:
-    case ABILITY_ZEN_MODE:
-    case ABILITY_STANCE_CHANGE:
-    case ABILITY_SHIELDS_DOWN:
-    case ABILITY_SCHOOLING:
-    case ABILITY_DISGUISE:
-    case ABILITY_BATTLE_BOND:
-    case ABILITY_POWER_CONSTRUCT:
-    case ABILITY_COMATOSE:
-    case ABILITY_RKS_SYSTEM:
-    case ABILITY_ICE_FACE:
-    case ABILITY_NEUTRALIZING_GAS:
-    case ABILITY_HUNGER_SWITCH:
-    case ABILITY_AS_ONE_GLASTRIER:
-    case ABILITY_AS_ONE_SPECTRIER:
-    case ABILITY_ZERO_TO_HERO:
-    case ABILITY_COMMANDER:
-    case ABILITY_PROTOSYNTHESIS:
-    case ABILITY_QUARK_DRIVE:
-    case ABILITY_EMBODY_ASPECT:
-    case ABILITY_EMBODY_ASPECT_2:
-    case ABILITY_EMBODY_ASPECT_3:
-    case ABILITY_EMBODY_ASPECT_4:
-    case ABILITY_TERA_SHIFT:
-    case ABILITY_TERA_SHELL:
-    case ABILITY_TERAFORM_ZERO:
-    case ABILITY_POISON_PUPPETEER:
-        return TRUE;
-        break;
-
-    default:
-        break;
-    }
-    return FALSE;
+    return GetAbilityFlags(ability).failsSwap;
 }
 
 /// @brief Check if ability can't be suppressed by Gastro Acid or affected by Mummy. See notes for DisabledByNeutralizingGas.
@@ -4313,30 +4216,7 @@ BOOL LONG_CALL AbilityFailSkillSwap(int ability)
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability)
 {
-    switch (ability) {
-    case ABILITY_MULTITYPE:
-    case ABILITY_ZEN_MODE:
-    case ABILITY_STANCE_CHANGE:
-    case ABILITY_SHIELDS_DOWN:
-    case ABILITY_SCHOOLING:
-    case ABILITY_DISGUISE:
-    case ABILITY_BATTLE_BOND:
-    case ABILITY_POWER_CONSTRUCT:
-    case ABILITY_COMATOSE:
-    case ABILITY_RKS_SYSTEM:
-    case ABILITY_GULP_MISSILE:
-    case ABILITY_ICE_FACE:
-    case ABILITY_AS_ONE_GLASTRIER:
-    case ABILITY_AS_ONE_SPECTRIER:
-    case ABILITY_ZERO_TO_HERO:
-    case ABILITY_TERA_SHIFT:
-        return TRUE;
-        break;
-
-    default:
-        break;
-    }
-    return FALSE;
+    return GetAbilityFlags(ability).failsSuppress;
 }
 
 void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg)

@@ -355,7 +355,6 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
         if (mon->moveEffectFlags) {
             sp->battlemon[battlerId].effect_of_moves |= mon->moveEffectFlags;
         }
-
     }
 
     // Apply enemy Pokemon status and conditions (battlers 2-3 in doubles, 1 in singles)
@@ -387,7 +386,6 @@ void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp)
         if (mon->moveEffectFlags) {
             sp->battlemon[battlerId].effect_of_moves |= mon->moveEffectFlags;
         }
-
     }
 
     if (sCurrentScenario->weather) {

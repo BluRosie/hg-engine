@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "constants/ability.h"
 #include "constants/battle_constants.h"
 #include "constants/moves.h"
 #include "constants/pokemon.h"
@@ -3606,6 +3607,11 @@ BOOL LONG_CALL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability);
+
+/// @brief Read an ability's flags from the expanded ability flags table
+/// @param ability
+/// @return The ability's flags, or zeroed flags if the ability ID is invalid
+AbilityFlags LONG_CALL GetAbilityFlags(int ability);
 
 /// @brief Check if ability causes Trace to fail
 /// @param ability

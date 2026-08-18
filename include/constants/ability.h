@@ -335,4 +335,14 @@
 
 #define NUM_ABILITIES ABILITY_SPICY_SPRAY + 1
 
+typedef struct AbilityFlags {
+    u16 ignoredByMoldBreaker : 1;
+    u16 disabledWhenTransformed : 1;
+    u16 failsTrace : 1;
+    u16 failsSwap : 1;
+    u16 failsSuppress : 1;
+    u16 failsCopy : 1;
+    u16 unused : 10;
+} AbilityFlags;
+
 #endif

@@ -533,6 +533,9 @@ move_narc: $(NARC_FILES)
 	@echo "hidden item params:"
 	cp $(HIDDEN_ITEM_PARAMS_BIN) $(HIDDEN_ITEM_PARAMS_TARGET)
 
+	@echo "ability flag params:"
+	cp $(ABILITY_FLAG_PARAMS_BIN) $(ABILITY_FLAG_PARAMS_TARGET)
+
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
 	@echo "Updated item descriptions and sprites. Double check formatting"
