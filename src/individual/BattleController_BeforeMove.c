@@ -4901,7 +4901,9 @@ BOOL LONG_CALL AbilityDisabledByNeutralizingGas(int ability)
 {
     // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9899131
     // Check both flags and if they are not equal, the ability can be suppressed by Neutralizing Gas. Effectively this is a flag made to keep Neutralizing Gas from disabling Neutralizing Gas.
-    return AbilityCantSupress(ability) != (ability != ABILITY_NEUTRALIZING_GAS);
+    AbilityFlags flags = GetAbilityFlags(ability);
+
+    return flags.disabledByNeutralizingGas != flags.failsSuppress;
 }
 
 /// @brief Check if ability causes Role Play and Doodle to fail
@@ -4909,7 +4911,7 @@ BOOL LONG_CALL AbilityDisabledByNeutralizingGas(int ability)
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityFailRolePlay(int ability)
 {
-    return GetAbilityFlags(ability).failsCopy;
+    return GetAbilityFlags(ability).failsRolePlay;
 }
 
 /// @brief Check if ability causes Receiver and Power of Alchemy to fail
@@ -4917,7 +4919,7 @@ BOOL LONG_CALL AbilityFailRolePlay(int ability)
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoReceiver(int ability)
 {
-    return GetAbilityFlags(ability).failsCopy;
+    return GetAbilityFlags(ability).failsReceiver;
 }
 
 /// @brief Check if ability causes Entrainment to fail
@@ -4925,7 +4927,7 @@ BOOL LONG_CALL AbilityNoReceiver(int ability)
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoEntrainment(int ability)
 {
-    return GetAbilityFlags(ability).failsCopy;
+    return GetAbilityFlags(ability).failsEntrainment;
 }
 
 /// @brief Check if ability causes Skill Swap and Wandering Spirit to fail

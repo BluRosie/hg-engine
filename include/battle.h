@@ -1794,6 +1794,19 @@ struct PACKED DamageCalcStruct {
     struct sDamageCalc clients[4];
 };
 
+typedef struct AbilityFlags {
+    u16 ignoredByMoldBreaker : 1;
+    u16 disabledWhenTransformed : 1;
+    u16 disabledByNeutralizingGas : 1;
+    u16 failsTrace : 1;
+    u16 failsSwap : 1;
+    u16 failsSuppress : 1;
+    u16 failsReceiver : 1;
+    u16 failsEntrainment : 1;
+    u16 failsRolePlay : 1;
+    u16 unused : 7;
+} AbilityFlags;
+
 extern u8 TypeEffectivenessTable[][3];
 
 extern u8 HeldItemPowerUpTable[36][2];
