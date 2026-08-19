@@ -1516,7 +1516,7 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
         if (!ctx->futureSightHitTurn
             && ctx->battlemon[ctx->attack_client].hp
             && ctx->battlemon[ctx->attack_client].item == ITEM_NONE
-            && ctx->moveTbl[ctx->current_move_index].power != 0
+            && ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS
             && ctx->gemBoostingMove == FALSE) {
             for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
                 int client_no = ctx->turnOrder[battler];

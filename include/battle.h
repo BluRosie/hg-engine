@@ -1009,7 +1009,7 @@ struct BattleStruct {
     /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
     /*0x316E*/ u8 protectSuccessTurns[CLIENT_MAX]; // Only need to count up to 6
     /*0x3172*/ u8 hazardQueueTracker : 7;
-    u8 itemActivatedTracker : 1; // if an item that isn't lost on activation has been activated for this hit (think rocky helmet)
+    u8 itemActivatedTrackerUnused : 1;
     /*0x3173*/ u8 padding_3173[0x317E - 0x3173]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right

@@ -121,8 +121,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
     case HOLD_EFFECT_DAMAGE_ON_CONTACT: // Rocky Helmet
         // Attacker is alive after the attack
         if ((sp->battlemon[sp->attack_client].hp)
-            // item hasn't already activated on this hit
-            && sp->itemActivatedTracker == FALSE
             // Attacker does not have Magic Guard
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             // Attacker is not holding an item that prevents contact effects, e.g. Protective Pads
@@ -138,7 +136,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, itemPower);
             seq_no[0] = BATTLE_SUBSCRIPT_HELD_ITEM_RECOIL_WHEN_HIT;
             ret = TRUE;
-            // sp->itemActivatedTracker = TRUE; // signal that this shouldn't happen for the rest of the hit
         }
         break;
 

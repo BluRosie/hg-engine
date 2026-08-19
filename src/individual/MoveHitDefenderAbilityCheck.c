@@ -113,7 +113,10 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
             && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
             && (sp->battlemon[sp->defence_client].hp)
-            && (BattleRand(bw) % 10 < 3)) {
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && (BattleRand(bw) % 10 < 3)
+#endif
+        ) {
             sp->addeffect_type = ADD_STATUS_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
