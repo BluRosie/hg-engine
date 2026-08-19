@@ -1,4 +1,4 @@
-// Test: Skill Swap - Swap Absorb ability
+// Test: Wish - Heal after one turn
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,13 +8,13 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_SABLEYE,
+            .species = SPECIES_CLEFABLE,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_PRANKSTER,
+            .ability = ABILITY_MAGIC_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_SKILL_SWAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
+            .moves = { MOVE_WISH, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+            .hp = 1,//170
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -26,25 +26,36 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_POLIWAG,
+                        .species = SPECIES_CLEFAIRY,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_WATER_ABSORB,
+                        .ability = ABILITY_MAGIC_GUARD,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .moves = { MOVE_WISH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = FULL_HP,//145
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_CHANSEY,
+            .level = 100,
+            .form = 0,
+            .ability = ABILITY_SERENE_GRACE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 1,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -64,7 +75,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_SWITCH_SLOT_1, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,14 +94,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye used Skill Swap!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye's Prankster" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag's Water Absorb" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag's Prankster" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye swapped Abilities with its target!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Poliwag used Water Gun!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye's Water Absorb" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye had its HP restored." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable used Wish!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy used Wish!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable's wish came true!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable's HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy's wish came true!" },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 86 }, // 1+170/2
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 1, .expectationValue.currentHP = 73 }, // 1+145/2
     }
 }
 END_TEST

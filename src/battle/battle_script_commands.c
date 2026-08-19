@@ -3426,6 +3426,7 @@ BOOL BtlCmd_TryWish(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
     } else {
         ctx->fcc.wish_count[ctx->attack_client] = 2;
         ctx->fcc.wish_sel_mons[ctx->attack_client] = ctx->sel_mons_no[ctx->attack_client];
+        ctx->fcc.wish_heal_amount[ctx->attack_client] = ctx->battlemon[ctx->attack_client].maxhp / 2; // round down
 
         for (int i = 0; i < CLIENT_MAX * FUTURE_CONDITION_MAX; i++) {
             if (ctx->futureConditionQueue[i].conditionType.futureConditionType == FUTURE_CONDITION_NONE) {

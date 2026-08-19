@@ -18,6 +18,10 @@
 #include "pokemon.h"
 #include "save.h"
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+#include "test_battle.h"
+#endif
+
 enum EndTurnResolutionOrder {
     ENDTURN_WEATHER_SUBSIDING,
     ENDTURN_WEATHER_ANIMATION_AND_DAMAGE_AND_HEAL,
@@ -389,10 +393,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                                 sp->mp.tag = TAG_NICKNAME;
                                 sp->mp.id = BATTLE_MSG_WISH_CAME_TRUE; // "{STRVAR_1 1, 0, 0}’s wish\ncame true!"
                                 sp->mp.param[0] = futureCondition.defenderSlot | (sp->fcc.wish_sel_mons[futureCondition.defenderSlot] << 8);
-                                sp->hp_calc_work = BattleDamageDivide(sp->battlemon[futureCondition.defenderSlot].maxhp, 2);
+                                sp->hp_calc_work = sp->fcc.wish_heal_amount[futureCondition.defenderSlot];
                                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WISH_HEAL);
                                 sp->next_server_seq_no = sp->server_seq_no;
-                                sp->server_seq_no = 22;
+                                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                                 ret = 1;
                                 sp->futureConditionQueue[sp->scc_work].conditionType.futureConditionType = FUTURE_CONDITION_NONE;
                             }
@@ -1897,6 +1901,26 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 #ifdef DEBUG_ENDTURN_LOGIC
             debug_printf("In ENDTURN_END\n");
 
+#endif
+
+#ifdef DEBUG_BATTLE_SCENARIOS
+            // debug_printf("In ServerFieldConditionCheck\n");
+            struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+            if (scenario != NULL && TestBattle_HasMoreExpectations()) {
+                // debug_printf("Has more expectations\n");
+                for (battlerId = 0; battlerId < client_set_max; ++battlerId) {
+                    if (scenario->expectations[scenario->expectationPassCount].expectationType == EXPECTATION_CURRENT_HP
+                        && battlerId == scenario->expectations[scenario->expectationPassCount].battlerIDOrPartySlot) {
+                        debug_printf("[ServerFieldConditionCheck: current HP %d:%d]", battlerId, sp->battlemon[battlerId].hp);
+                        if (sp->battlemon[battlerId].hp == scenario->expectations[scenario->expectationPassCount].expectationValue.currentHP) {
+                            debug_printf(" ✅");
+                            scenario->expectationPassCount++;
+                        }
+                        debug_printf("\n");
+                    }
+                }
+            }
+            debug_printf("\n");
 #endif
 
             for (int i = 0; i < client_set_max; i++) {
