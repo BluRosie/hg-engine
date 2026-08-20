@@ -18,8 +18,27 @@ MSGDATA_DIR := $(BUILD)/text
 MSGDATA_NARC := $(BUILD_NARC)/msg_data.narc
 MSGDATA_TARGET := $(FILESYS)/a/0/2/7
 MSGDATA_DEPENDENCIES_DIR := data/text
-MSGDATA_DEPENDENCIES := $(wildcard $(MSGDATA_DEPENDENCIES_DIR)/*)
+
+# each archive's original encryption key so msgenc reproduces the rom's headers
+MSGDATA_KEYS := $(MSGDATA_DEPENDENCIES_DIR)/keys.csv
+
+# archives hg-engine itself edits or adds are always built
+# keep in sync with ENGINE_MANAGED_TEXT_ARCHIVES in tools/source/dumptools/dump_event_scripts.py
+MSGDATA_ENGINE_ARCHIVES := 010 024 040 197 203 221 222 223 224 300 302 435 720 721 722 728 730 731 735 811 \
+	829 830 831 832 833 834 835 836 837 838 839 840 841 842 843 844 845 846 847 848 849 850 851 852 853
+MSGDATA_ENGINE_DEPENDENCIES := $(wildcard $(addprefix $(MSGDATA_DEPENDENCIES_DIR)/,$(addsuffix .txt,$(MSGDATA_ENGINE_ARCHIVES))))
+
+# everything else in data/text is the vanilla dump, only built when BUILD_DUMPED_TEXT is enabled
+MSGDATA_VANILLA_DEPENDENCIES := $(filter-out $(MSGDATA_KEYS) $(MSGDATA_ENGINE_DEPENDENCIES),$(wildcard $(MSGDATA_DEPENDENCIES_DIR)/*))
+
+ifeq ($(BUILD_DUMPED_TEXT),1)
+MSGDATA_DEPENDENCIES := $(MSGDATA_ENGINE_DEPENDENCIES) $(MSGDATA_VANILLA_DEPENDENCIES)
+else
+MSGDATA_DEPENDENCIES := $(MSGDATA_ENGINE_DEPENDENCIES)
+endif
+
 MSGDATA_COMPILETIME_DEPENDENCIES_DIR := $(BUILD)/rawtext
+
 #MSGDATA_COMPILETIME_DEPENDENCIES := $(wildcard $(MSGDATA_COMPILETIME_DEPENDENCIES_DIR)/*.txt)
 CHARMAP := charmap.txt
 
@@ -669,21 +688,112 @@ NARC_FILES += $(PW_POKEICON_NARC)
 REQUIRED_DIRECTORIES += $(PW_POKEICON_DIR) $(PW_POKEICON_ART_DIR)
 
 
+# field scripts and zone event data are plain GNU as sources
+# they only emit pc-relative references, so linker.ld's nonzero base does not reach the output
+SCRIPT_LD := $(C_SUBDIR)/linker.ld
+SCRIPT_INCLUDES := $(wildcard asm/include/*.inc) $(SCRIPT_LD)
+
 SCR_SEQ_DIR := $(BUILD)/a012
+SCR_SEQ_OBJ_DIR := $(BUILD)/scr_seq
 SCR_SEQ_NARC := $(BUILD_NARC)/scr_seq.narc
 SCR_SEQ_TARGET := $(FILESYS)/a/0/1/2
-SCR_SEQ_DEPENDENCIES_DIR := armips/scr_seq
-SCR_SEQ_DEPENDENCIES := $(SCR_SEQ_DEPENDENCIES_DIR)/*
+SCR_SEQ_DEPENDENCIES_DIR := data/scr_seq
+SCR_SEQ_DEPS := $(SCRIPT_INCLUDES) $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.inc)
 
-$(SCR_SEQ_NARC): $(SCR_SEQ_DEPENDENCIES)
+# the five digit scripts are hg-engine's own common and trainer scripts and are always built
+# keep in sync with ENGINE_MANAGED_SCRIPTS in tools/source/dumptools/dump_event_scripts.py
+SCR_SEQ_ENGINE_SRCS := $(sort $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/scr_seq_[0-9][0-9][0-9][0-9][0-9]_*.s))
+
+# the four digit scripts are the vanilla dump, only built when BUILD_DUMPED_SCR_SEQ is enabled
+SCR_SEQ_VANILLA_SRCS := $(filter-out $(SCR_SEQ_ENGINE_SRCS),$(sort $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.s)))
+
+ifeq ($(BUILD_DUMPED_SCR_SEQ),1)
+SCR_SEQ_SRCS := $(SCR_SEQ_ENGINE_SRCS) $(SCR_SEQ_VANILLA_SRCS)
+else
+SCR_SEQ_SRCS := $(SCR_SEQ_ENGINE_SRCS)
+endif
+
+# scr_seq_0168_R01.s -> 2_168, scr_seq_00003_commonscript.s -> 2_003
+SCR_SEQ_MEMBERS := $(shell printf '%s\n' $(notdir $(SCR_SEQ_SRCS)) | \
+	sed -E 's/^scr_seq_0*([0-9]+).*/\1/' | awk 'NF { printf "2_%03d ", $$0 }')
+SCR_SEQ_OBJS := $(addprefix $(SCR_SEQ_OBJ_DIR)/,$(SCR_SEQ_MEMBERS))
+
+# one rule per script so that a single edited script only reassembles itself, and so that -j works
+define SCR_SEQ_RULE
+$(SCR_SEQ_OBJ_DIR)/$(2): $(1) $$(SCR_SEQ_DEPS) | $(SCR_SEQ_OBJ_DIR)
+	$$(AS) $$(ASFLAGS) -I. -c $(1) -o $(SCR_SEQ_OBJ_DIR)/$(2).o
+	$$(LD) -T $$(SCRIPT_LD) -o $(SCR_SEQ_OBJ_DIR)/$(2).elf $(SCR_SEQ_OBJ_DIR)/$(2).o
+	$$(OBJCOPY) -O binary $(SCR_SEQ_OBJ_DIR)/$(2).elf $$@
+endef
+$(foreach i,$(shell seq 1 $(words $(SCR_SEQ_SRCS))),\
+	$(eval $(call SCR_SEQ_RULE,$(word $(i),$(SCR_SEQ_SRCS)),$(word $(i),$(SCR_SEQ_MEMBERS)))))
+
+# only the members that were built replace what the rom already has, so every script left out stays as rom.nds had it
+$(SCR_SEQ_NARC): $(SCR_SEQ_OBJS) | $(SCR_SEQ_DIR)
 	$(NARCHIVE) extract $(SCR_SEQ_TARGET) -o $(SCR_SEQ_DIR) -nf
-	for file in $^; do $(ARMIPS) $$file; done
+	$(if $(SCR_SEQ_OBJS),cp $(SCR_SEQ_OBJS) $(SCR_SEQ_DIR)/)
 	$(NARCHIVE) create $@ $(SCR_SEQ_DIR) -nf
 
 # for convenience, rebuild SCR_SEQ_NARC every build so that DSPRE changes are not overwritten
 .PHONY: $(SCR_SEQ_NARC)
 
+ifneq ($(strip $(SCR_SEQ_OBJS)),)
 NARC_FILES += $(SCR_SEQ_NARC)
+endif
+REQUIRED_DIRECTORIES += $(SCR_SEQ_DIR) $(SCR_SEQ_OBJ_DIR)
+
+
+ZONE_EVENT_DIR := $(BUILD)/a032
+ZONE_EVENT_OBJ_DIR := $(BUILD)/zone_event
+ZONE_EVENT_NARC := $(BUILD_NARC)/zone_event.narc
+ZONE_EVENT_TARGET := $(FILESYS)/a/0/3/2
+ZONE_EVENT_DEPENDENCIES_DIR := data/eventdata/zone_event
+ZONE_EVENT_TEMPL := $(ZONE_EVENT_DEPENDENCIES_DIR).json.txt
+
+ifeq ($(BUILD_DUMPED_EVENTDATA),1)
+ZONE_EVENT_JSONS := $(sort $(wildcard $(ZONE_EVENT_DEPENDENCIES_DIR)/*.json))
+else
+ZONE_EVENT_JSONS :=
+endif
+
+ZONE_EVENT_DEPS := $(SCRIPT_INCLUDES) $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/*.inc) $(ZONE_EVENT_TEMPL)
+
+# the json is already named after its NARC member: 006_R01.json -> 2_006
+ZONE_EVENT_MEMBERS := $(foreach json,$(ZONE_EVENT_JSONS),2_$(firstword $(subst _, ,$(basename $(notdir $(json))))))
+ZONE_EVENT_OBJS := $(addprefix $(ZONE_EVENT_OBJ_DIR)/,$(ZONE_EVENT_MEMBERS))
+
+# jsonproc renders each map's event data to an asm source, which then assembles like a script
+define ZONE_EVENT_RULE
+$(ZONE_EVENT_OBJ_DIR)/$(2): $(1) $$(ZONE_EVENT_DEPS) $$(JSONPROC) | $(ZONE_EVENT_OBJ_DIR)
+	$$(JSONPROC) $(1) $$(ZONE_EVENT_TEMPL) $(ZONE_EVENT_OBJ_DIR)/$(2).s
+	$$(AS) $$(ASFLAGS) -I. -c $(ZONE_EVENT_OBJ_DIR)/$(2).s -o $(ZONE_EVENT_OBJ_DIR)/$(2).o
+	$$(LD) -T $$(SCRIPT_LD) -o $(ZONE_EVENT_OBJ_DIR)/$(2).elf $(ZONE_EVENT_OBJ_DIR)/$(2).o
+	$$(OBJCOPY) -O binary $(ZONE_EVENT_OBJ_DIR)/$(2).elf $$@
+endef
+$(foreach i,$(shell seq 1 $(words $(ZONE_EVENT_JSONS))),\
+	$(eval $(call ZONE_EVENT_RULE,$(word $(i),$(ZONE_EVENT_JSONS)),$(word $(i),$(ZONE_EVENT_MEMBERS)))))
+
+# like the scripts, the built maps are laid over the rom's own zone event data rather than replacing the narc wholesale
+$(ZONE_EVENT_NARC): $(ZONE_EVENT_OBJS) | $(ZONE_EVENT_DIR)
+	$(NARCHIVE) extract $(ZONE_EVENT_TARGET) -o $(ZONE_EVENT_DIR) -nf
+	$(if $(ZONE_EVENT_OBJS),cp $(ZONE_EVENT_OBJS) $(ZONE_EVENT_DIR)/)
+	$(NARCHIVE) create $@ $(ZONE_EVENT_DIR) -nf
+
+# for convenience, rebuild ZONE_EVENT_NARC every build so that DSPRE changes are not overwritten
+.PHONY: $(ZONE_EVENT_NARC)
+
+ifneq ($(strip $(ZONE_EVENT_OBJS)),)
+ifeq ($(strip $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/event_*.inc)),)
+$(error BUILD_DUMPED_EVENTDATA is enabled, but the script labels the maps reference are not in $(SCR_SEQ_DEPENDENCIES_DIR)/event_*.inc$(n)Either restore them or turn the toggle back off in $(CONFIG_H))
+endif
+NARC_FILES += $(ZONE_EVENT_NARC)
+endif
+REQUIRED_DIRECTORIES += $(ZONE_EVENT_DIR) $(ZONE_EVENT_OBJ_DIR)
+
+
+$(SCR_SEQ_DIR) $(SCR_SEQ_OBJ_DIR) $(ZONE_EVENT_DIR) $(ZONE_EVENT_OBJ_DIR):
+	@mkdir -p $@
+
 
 HEADBUTT_NARC := $(BUILD_NARC)/headbutt.narc
 HEADBUTT_TARGET := $(FILESYS)/a/2/5/2
@@ -785,8 +895,14 @@ clean_trgfx:
 	rm -rf $(TRAINER_GFX_DIR) $(TRAINER_GFX_NARC) $(TRAINER_GFX_BACK_DIR) $(TRAINER_GFX_BACK_NARC)
 
 
-$(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES)
+# only the archives that were built replace what the rom already has, so every archive left out stays as rom.nds had it
+# if no keys.csv, fall back to msgenc's own key as before
+$(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES) $(wildcard $(MSGDATA_KEYS))
 	$(NARCHIVE) extract $(MSGDATA_TARGET) -o $(MSGDATA_DIR) -nf
 	for file in $(MSGDATA_DEPENDENCIES); do $(PYTHON) tools/source/dumptools/validate_text_archive.py $(CHARMAP) $$file || exit 1; done
-	for file in $^; do $(MSGENC) -e -c $(CHARMAP) $$file $(MSGDATA_DIR)/7_$$(basename $$file .txt); done
+	for file in $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES); do \
+		archive=$$(basename $$file .txt); \
+		key=$$(sed -n "s/^$$archive,//p" $(MSGDATA_KEYS) 2>/dev/null); \
+		$(MSGENC) -e -c $(CHARMAP) $${key:+-k $$key} $$file $(MSGDATA_DIR)/7_$$archive; \
+	done
 	$(NARCHIVE) create $@ $(MSGDATA_DIR) -nf

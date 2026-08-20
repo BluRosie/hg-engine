@@ -110,6 +110,7 @@ NDSTOOL := tools/ndstool
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
+JSONPROC := tools/jsonproc
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
@@ -147,6 +148,13 @@ OBJS     := $(C_OBJS) $(ASM_OBJS)
 
 REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
+####################### Config Toggles #######################
+CONFIG_H := $(INCLUDE_SUBDIR)/config.h
+config_enabled = $(shell grep -E -c '^[[:space:]]*\#define[[:space:]]+$(1)[[:space:]]*$$' $(CONFIG_H))
+
+BUILD_DUMPED_TEXT := $(call config_enabled,BUILD_DUMPED_TEXT)
+BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
+BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -246,6 +254,12 @@ $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/
 	mv tools/source/o2narc/o2narc $(O2NARC)
 
 TOOLS += $(O2NARC)
+
+$(JSONPROC): $(wildcard tools/source/jsonproc/*.cpp) $(wildcard tools/source/jsonproc/*.h) $(wildcard tools/source/jsonproc/*.hpp) $(wildcard tools/source/jsonproc/nlohmann/*.hpp)
+	cd tools/source/jsonproc ; $(MAKE)
+	mv tools/source/jsonproc/jsonproc $(JSONPROC)
+
+TOOLS += $(JSONPROC)
 
 $(ENCODEPWIMG):
 	cd tools/source/DECODEIMG ; $(MAKE)
@@ -349,6 +363,11 @@ CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8
 CODE_ADDON_ARTIFACTS := $(filter-out $(BUILD)/a028/8_1 $(BUILD)/a028/8_2 $(BUILD)/a028/8_3 $(BUILD)/a028/8_4 $(BUILD)/a028/8_5 $(BUILD)/a028/8_6, $(CODE_ADDON_ARTIFACTS))
 
 move_narc: $(NARC_FILES)
+ifneq ($(strip $(ZONE_EVENT_OBJS)),)
+	@echo "zone events:"
+	cp $(ZONE_EVENT_NARC) $(ZONE_EVENT_TARGET)
+endif
+
 	@echo "battle hud layout:"
 	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
 
@@ -466,8 +485,10 @@ move_narc: $(NARC_FILES)
 	@echo "textbox:"
 	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
 
+ifneq ($(strip $(SCR_SEQ_OBJS)),)
 	@echo "scripts:"
 	cp $(SCR_SEQ_NARC) $(SCR_SEQ_TARGET)
+endif
 
 	@echo "headbutt trees:"
 	cp $(HEADBUTT_NARC) $(HEADBUTT_TARGET)

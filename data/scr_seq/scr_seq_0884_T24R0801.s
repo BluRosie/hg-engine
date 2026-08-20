@@ -1,0 +1,87 @@
+.include "asm/include/interop_macros.inc"
+
+.include "asm/include/scriptmacros.inc"
+.include "asm/include/flags.inc"
+.include "asm/include/soundeffects.inc"
+.include "asm/include/vars.inc"
+
+.include "asm/include/events.inc"
+.include "asm/include/game_stats.inc"
+.include "asm/include/maps.inc"
+.include "asm/include/map_sections.inc"
+.include "asm/include/movements.inc"
+.include "asm/include/rankings.inc"
+.include "asm/include/spawns.inc"
+.include "asm/include/std_scripts.inc"
+.include "asm/include/trainers.inc"
+
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+
+.include "data/scr_seq/event_T24R0801.inc"
+
+
+// text archive to grab from: 580.txt
+
+.data
+
+
+scrdef scr_seq_T24R0801_000
+scrdef_end
+
+scr_seq_T24R0801_000:
+	play_se SEQ_SE_DP_SELECT
+	lockall
+	faceplayer
+	get_game_version VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 7
+	goto_if_ne _002B
+	goto _0031
+
+	.byte 0x16, 0x00, 0x06, 0x00, 0x00, 0x00
+_002B:
+	goto _0073
+
+_0031:
+	hasitem ITEM_CLEAR_BELL, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_ge _0061
+	hasitem ITEM_RAINBOW_FEATHER, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_ge _006A
+	goto _00B5
+
+_0061:
+	npc_msg 3
+	goto _00B8
+
+_006A:
+	npc_msg 1
+	goto _00B8
+
+_0073:
+	hasitem ITEM_TIDAL_BELL, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_ge _00A3
+	hasitem ITEM_SILVER_FEATHER, 1, VAR_SPECIAL_RESULT
+	compare VAR_SPECIAL_RESULT, 1
+	goto_if_ge _00AC
+	goto _00B5
+
+_00A3:
+	npc_msg 4
+	goto _00B8
+
+_00AC:
+	npc_msg 2
+	goto _00B8
+
+_00B5:
+	npc_msg 0
+_00B8:
+	wait_button
+	closemsg
+	releaseall
+	end
+	.balign 4

@@ -1,4 +1,4 @@
-.PHONY: dumprom dump_prepare dump_learnsets dump_narc_data dump_armips_data dump_trainernames dump_clean_work dump_reset check_dump_rom
+.PHONY: dumprom dump_scripts dump_prepare dump_learnsets dump_narc_data dump_armips_data dump_trainernames dump_clean_work dump_reset check_dump_rom
 
 DUMP_SCRIPT_LOCATION := tools/source/dumptools
 DUMP_WORKDIRS := $(BUILD_NARC) $(BUILD)/a028
@@ -60,3 +60,8 @@ dumprom: check_dump_rom
 	fi
 	$(MAKE) dump_clean_work
 	@echo "Done. See output in dumped_$(DUMP_MODE)/, learnsets are already in data/learnsets/learnsets.json."
+
+# Dumps field scripts, zone event data, and message text from an explicit ROM.
+dump_scripts: check_dump_rom $(VENV_ACTIVATE) $(MSGENC)
+	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_event_scripts.py "$(DUMP_ROM)" $(DUMP_FLAGS)
+	@echo "Done. Review the diff in data/scr_seq/, data/eventdata/zone_event/, and data/text/ with git."
