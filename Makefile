@@ -564,3 +564,5 @@ update_machine_moves: $(VENV_ACTIVATE)
 
 ####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
+
+contents-% : ; $(info $($*)) @true

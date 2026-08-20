@@ -47,7 +47,9 @@ SCR_SEQ_DIR = "data/scr_seq"
 MSGDATA_KEYS = "data/text/keys.csv"
 
 # script narc subfiles whose tracked sources are engine customizations, not dumps - see the module docstring
-ENGINE_MANAGED_SCRIPTS = {"0003", "0953"}
+proc = subprocess.run(["make", "contents-SCR_SEQ_ENGINE_SRCS"], check = True, capture_output = True, text = True)
+ENGINE_MANAGED_SCRIPTS = proc.stdout
+print(ENGINE_MANAGED_SCRIPTS)
 
 # text archives hg-engine itself edits or adds
 ENGINE_MANAGED_TEXT_ARCHIVES = {
@@ -56,16 +58,17 @@ ENGINE_MANAGED_TEXT_ARCHIVES = {
 }
 
 # text archives rebuilt from other sources at build time (MSGDATA_COMPILETIME_DEPENDENCIES in narcs.mk)
-GENERATED_TEXT_ARCHIVES = {
-    3, 237, 238, 728, 729, 749, 750, 751, 803,
-    812, 813, 814, 815, 816, 817, 823,
-}
+proc = subprocess.run(["make", "contents-MSGDATA_COMPILETIME_DEPENDENCIES"], check = True, capture_output = True, text = True)
+GENERATED_TEXT_ARCHIVES = [int(x) for x in str(proc.stdout).replace("build/rawtext/", "").replace(".txt", "").split("\n")[1].split(" ")]
+print(GENERATED_TEXT_ARCHIVES)
 
 _CONSTANT_PATTERNS = (
     r"^\s*\.(?:equ|definelabel)\s+({prefix}\w+)\s*,\s*(\d+|0x[0-9a-fA-F]+)\s*$", # .equ NAME, VALUE / .definelabel NAME, VALUE (asm/include/*.inc)
     r"^\s*({prefix}\w+)\s+equ\s+(\d+|0x[0-9a-fA-F]+)\s*$", # NAME equ VALUE (armips syntax)
     r"^#define\s+({prefix}\w+)\s+(\d+|0x[0-9a-fA-F]+)\s*$", # #define NAME VALUE
 )
+
+sys.exit()
 
 def parse_constants(filenames, prefix = ""):
     """
@@ -562,110 +565,111 @@ class NormalScriptParser:
 
             return int.from_bytes(self.raw[pc:pc + size], "little"), pc + size
 
-        match size:
-            case "object1" | "object2":
-                size = int(size[-1])
-                value = int.from_bytes(self.raw[pc:pc + size], "little")
-                pc += size
+        #switch size:
+        if size == "object1" or size == "object2":
+            size = int(size[-1])
+            value = int.from_bytes(self.raw[pc:pc + size], "little")
+            pc += size
 
-                if size == 2 and value in self.constants["var"]:
-                    return self.constants["var"][value], pc
+            if size == 2 and value in self.constants["var"]:
+                return self.constants["var"][value], pc
 
-                return self.get_object(value), pc
-            case "message":
-                value = int.from_bytes(self.raw[pc:pc + 1], "little")
-                pc += 1
+            return self.get_object(value), pc
+        elif size == "message":
+            value = int.from_bytes(self.raw[pc:pc + 1], "little")
+            pc += 1
 
-                return value, pc
-            case "message_var":
-                value = int.from_bytes(self.raw[pc:pc + 2], "little")
-                pc += 2
+            return value, pc
+        elif size == "message_var":
+            value = int.from_bytes(self.raw[pc:pc + 2], "little")
+            pc += 2
 
-                if value in self.constants["var"]:
-                    return self.constants["var"][value], pc
+            if value in self.constants["var"]:
+                return self.constants["var"][value], pc
 
-                return value, pc
-            case "bool1" | "bool2" | "bool4":
-                size = int(size[-1])
-                value = int.from_bytes(self.raw[pc:pc + size], "little")
-                pc += size
+            return value, pc
+        elif size == "bool1" or size == "bool2" or size == "bool4":
+            size = int(size[-1])
+            value = int.from_bytes(self.raw[pc:pc + size], "little")
+            pc += size
 
-                return ["FALSE", "TRUE"][value], pc
-            case "hex1" | "hex2" | "hex4":
-                size = int(size[-1])
-                value = int.from_bytes(self.raw[pc:pc + size], "little")
-                pc += size
+            return ["FALSE", "TRUE"][value], pc
+        elif size == "hex1" or size == "hex2" or size == "hex4":
+            size = int(size[-1])
+            value = int.from_bytes(self.raw[pc:pc + size], "little")
+            pc += size
 
-                return (f"0x{{:0{size * 2}X}}").format(value), pc
-            case "addr" | "script" | "movement":
-                value = int.from_bytes(self.raw[pc:pc + 4], "little")
-                pc += 4
-                value += pc
-                value &= 0xFFFFFFFF
+            return (f"0x{{:0{size * 2}X}}").format(value), pc
+        elif size == "addr" or size == "script" or size == "movement":
+            value = int.from_bytes(self.raw[pc:pc + 4], "little")
+            pc += 4
+            value += pc
+            value &= 0xFFFFFFFF
 
-                assert self.header_end <= value < len(self.raw)
+            assert self.header_end <= value < len(self.raw)
 
-                if size == "movement":
-                    self.movement_scripts.add(value)
+            if size == "movement":
+                self.movement_scripts.add(value)
 
-                if value not in self.labels:
-                    self.labels[value] = (size != "script")
-                else:
-                    self.labels[value] |= (size != "script")
+            if value not in self.labels:
+                self.labels[value] = (size != "script")
+            else:
+                self.labels[value] |= (size != "script")
 
-                return self.make_label(value), pc
-            case "condition":
-                value = self.raw[pc]
-                pc += 1
+            return self.make_label(value), pc
+        elif size == "condition":
+            value = self.raw[pc]
+            pc += 1
 
-                if len(self.pc_history) >= 2 and value < 2 and self.lines[self.pc_history[-2]][0] in ("checkflag", "checktrainerflag"):
-                    conds = ["FALSE", "TRUE"]
-                else:
-                    conds = ["lt", "eq", "gt", "le", "ge", "ne"]
+            if len(self.pc_history) >= 2 and value < 2 and self.lines[self.pc_history[-2]][0] in ("checkflag", "checktrainerflag"):
+                conds = ["FALSE", "TRUE"]
+            else:
+                conds = ["lt", "eq", "gt", "le", "ge", "ne"]
 
-                return conds[value], pc
-            case "var" | "flag":
-                value = int.from_bytes(self.raw[pc:pc + 2], "little")
-                pc += 2
+            return conds[value], pc
+        elif size == "var" or size == "flag":
+            value = int.from_bytes(self.raw[pc:pc + 2], "little")
+            pc += 2
 
-                return self.constants[size].get(value, value), pc
-            case "species" | "item" | "move" | "sound" | "ribbon" | "stdscr" | "trainer" | "phone_contact" | "spawn" | "maps" | "badge" | "direction" | "ranking":
-                value = int.from_bytes(self.raw[pc:pc + 2], "little")
-                pc += 2
+            return self.constants[size].get(value, value), pc
+        elif size == "species" or size == "item" or size == "move" or size == "sound" or size == "ribbon" or size == "stdscr" or size == "trainer" or size == "phone_contact" or size == "spawn" \
+            or size == "maps" or size == "badge" or size == "direction" or size == "ranking":
+            value = int.from_bytes(self.raw[pc:pc + 2], "little")
+            pc += 2
 
-                return self.constants["var"].get(value, self.constants[size].get(value, value)), pc
-            case "rgb":
-                value = int.from_bytes(self.raw[pc:pc + 2], "little")
-                pc += 2
+            return self.constants["var"].get(value, self.constants[size].get(value, value)), pc
+        elif size == "rgb":
+            value = int.from_bytes(self.raw[pc:pc + 2], "little")
+            pc += 2
 
-                if value == 0:
-                    ret = "RGB_BLACK"
-                elif value == 0x7FFF:
-                    ret = "RGB_WHITE"
-                else:
-                    r = value & 0x1F
-                    g = (value >> 5) & 0x1F
-                    b = (value >> 10) & 0x1F
-                    ret = f"RGB({r}, {g}, {b})"
+            if value == 0:
+                ret = "RGB_BLACK"
+            elif value == 0x7FFF:
+                ret = "RGB_WHITE"
+            else:
+                r = value & 0x1F
+                g = (value >> 5) & 0x1F
+                b = (value >> 10) & 0x1F
+                ret = f"RGB({r}, {g}, {b})"
 
-                    if value & 0x8000:
-                        ret += " | 0x8000"
+                if value & 0x8000:
+                    ret += " | 0x8000"
 
-                return ret, pc
-            case "player_transition":
-                value = int.from_bytes(self.raw[pc:pc + 2], "little")
-                pc += 2
+            return ret, pc
+        elif size == "player_transition":
+            value = int.from_bytes(self.raw[pc:pc + 2], "little")
+            pc += 2
 
-                if value == 0:
-                    ret = "0"
-                else:
-                    ret = " | ".join(key for mask, key in self.constants["player_transition"].items() if value & mask)
+            if value == 0:
+                ret = "0"
+            else:
+                ret = " | ".join(key for mask, key in self.constants["player_transition"].items() if value & mask)
 
-                return ret, pc
-            case "default":
-                return "0", pc
-            case _:
-                raise ValueError("unknown arg type: " + size)
+            return ret, pc
+        elif size == "default":
+            return "0", pc
+        else:
+            raise ValueError("unknown arg type: " + size)
 
     def parse_script(self, pc, warn = True):
         self.pc_history.clear()
