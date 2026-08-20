@@ -17,6 +17,7 @@
 
 static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
 static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *sp, u32 client);
+static int GetTraceClient(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2);
 
 extern struct ILLUSION_STRUCT gIllusionStruct;
 
@@ -271,7 +272,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     def1 = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_RIGHT);
                     def2 = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_LEFT);
 
-                    sp->defence_client_work = TraceClientGet(bw, sp, def1, def2);
+                    sp->defence_client_work = GetTraceClient(bw, sp, def1, def2);
 
                     if ((sp->battlemon[client_no].ability_activated_flag == 0)
                         && (sp->defence_client_work != 0xFF)
@@ -1190,4 +1191,25 @@ static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *
     }
 
     return FALSE;
+}
+
+static int GetTraceClient(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2)
+{
+    int ret = BATTLER_NONE;
+    BOOL canTraceTarget1 = ctx->battlemon[battlerIdTarget1].hp && !AbilityNoTrace(ctx->battlemon[battlerIdTarget1].ability);
+    BOOL canTraceTarget2 = ctx->battlemon[battlerIdTarget2].hp && !AbilityNoTrace(ctx->battlemon[battlerIdTarget2].ability);
+
+    if (canTraceTarget1 && canTraceTarget2) {
+        if (BattleRand(battleSystem) & 1) {
+            ret = battlerIdTarget2;
+        } else {
+            ret = battlerIdTarget1;
+        }
+    } else if (canTraceTarget1) {
+        ret = battlerIdTarget1;
+    } else if (canTraceTarget2) {
+        ret = battlerIdTarget2;
+    }
+
+    return ret;
 }

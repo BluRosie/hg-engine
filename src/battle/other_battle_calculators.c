@@ -4742,24 +4742,3 @@ void LONG_CALL PlayTrainerVictoryBGM(struct TrainerData *trainer)
         break;
     }
 }
-
-int LONG_CALL TraceClientGet(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2)
-{
-    int ret = BATTLER_NONE;
-    BOOL canTraceTarget1 = ctx->battlemon[battlerIdTarget1].hp && !AbilityNoTrace(ctx->battlemon[battlerIdTarget1].ability);
-    BOOL canTraceTarget2 = ctx->battlemon[battlerIdTarget2].hp && !AbilityNoTrace(ctx->battlemon[battlerIdTarget2].ability);
-
-    if (canTraceTarget1 && canTraceTarget2) {
-        if (BattleRand(battleSystem) & 1) {
-            ret = battlerIdTarget2;
-        } else {
-            ret = battlerIdTarget1;
-        }
-    } else if (canTraceTarget1) {
-        ret = battlerIdTarget1;
-    } else if (canTraceTarget2) {
-        ret = battlerIdTarget2;
-    }
-
-    return ret;
-}
