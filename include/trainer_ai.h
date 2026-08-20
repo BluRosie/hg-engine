@@ -1,6 +1,11 @@
 #ifndef TRAINER_AI_H
 #define TRAINER_AI_H
 
+#include "battle.h"
+
+void LONG_CALL AITypeCalc(struct BattleStruct *bsys, u32 move, u32 type, int atkAbility, int defAbility, int held_effect, int type1, int type2, u32 *flag);
+BOOL LONG_CALL CantEscape(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerID, BattleMessage *msg);
+
 enum AIActionChoice {
     AI_ENEMY_ATTACK_1,
     AI_ENEMY_ATTACK_2,
@@ -82,5 +87,12 @@ enum {
 
     PLAYER_INPUT_CANCEL = 0xFF,
 };
+
+#define ITEM_AI_CATEGORY_FULL_RESTORE   0
+#define ITEM_AI_CATEGORY_RECOVER_HP     1
+#define ITEM_AI_CATEGORY_RECOVER_STATUS 2
+#define ITEM_AI_CATEGORY_STAT_BOOSTER   3
+#define ITEM_AI_CATEGORY_GUARD_SPEC     4
+#define ITEM_AI_CATEGORY_MAX            5
 
 #endif // TRAINER_AI_H

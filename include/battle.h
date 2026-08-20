@@ -532,49 +532,50 @@ struct __attribute__((packed)) side_condition_work {
 };
 
 struct __attribute__((packed)) BattleAIWorkTable {
-    u8 ai_seq_no; // 0x0
-    u8 ai_move_pos; // 0x1
-    u16 ai_move_no; // 0x2
+    u8 evalStep; // 0x0
+    u8 moveSlot; // 0x1
+    u16 move; // 0x2
 
-    s8 ai_move_point[4]; // 0x4
+    s8 moveScore[4]; // 0x4
 
-    int ai_calc_work; // 0x8
-    u32 ai_think_bit; // 0xC
+    int calcTemp; // 0x8
+    u32 aiFlags; // 0xC
 
-    u8 ai_status_flag; // 0x10
-    u8 ai_think_no; // 0x11
+    u8 stateFlags; // 0x10
+    u8 aiBitShift; // 0x11
+
     u8 ai_all_move_check_loop_count; // 0x12
     u8 ai_all_move_check_push_pos; // 0x13
-
     u8 *ai_all_move_check_loop_address; // 0x14
-    u8 ai_damage_amount[4]; // 0x18
 
-    u16 ai_defence_use_move[4][4]; // 0x1C, length = 32 = 0x20 bytes
+    u8 moveDamageRolls[4]; // 0x18
 
-    u8 ai_tokusyu_no[4]; // 0x3C
-    u16 ai_soubi_item[4]; // 0x40
+    u16 moves[4][4]; // 0x1C, length = 32 = 0x20 bytes
+    u8 abilities[4]; // 0x3C
+    u16 heldItems[4]; // 0x40
 
-    u16 ai_have_item[2][4]; // 0x48, length = 16 = 0x10 bytes
+    u16 trainerItems[2][4]; // 0x48, length = 16 = 0x10 bytes
 
-    u32 push_address_buffer[8]; // 0x58, length = 32 = 0x20 bytes
-    u8 push_address_count; // 0x78
-    u8 ai_item_count[2]; // 0x79
-    u8 ai_attack_client; // 0x7B
-    u8 ai_defence_client; // 0x7C
+    u32 scriptStackPointer[8]; // 0x58, length = 32 = 0x20 bytes
+    u8 scriptStackSize; // 0x78
+    u8 trainerItemCounts[2]; // 0x79
 
-    u8 ai_item_type[2]; // 0x7D
-    u8 ai_item_condition[2]; // 0x7F
+    u8 attacker; // 0x7B
+    u8 defender; // 0x7C
+
+    u8 usedItemType[2]; // 0x7D
+    u8 usedItemCondition[2]; // 0x7F
 
     u8 padding_81; // implicit padding here, one byte
 
-    u16 ai_item_no[2]; // 0x82
+    u16 usedItem[2]; // 0x82
 
-    u8 ai_dir_select_client[CLIENT_MAX]; // 0x86
-    struct BattleMove old_moveTbl[467 + 1]; // 0x8A, length = 0x10*468 = 0x1D40, this technically is also 0x3DE in the BattleStruct
+    u8 selectedClient[CLIENT_MAX]; // 0x86
+    struct BattleMove old_moveData[467 + 1]; // 0x8A, length = 0x10*468 = 0x1D40, this technically is also 0x3DE in the BattleStruct
 
     u16 padding_1DCA; // implicit padding here, two bytes
 
-    ITEMDATA *item; // 0x1DCC, this is technically also 0x2120 in the BattleStruct
+    ITEMDATA *itemData; // 0x1DCC, this is technically also 0x2120 in the BattleStruct
 
     u16 ai_calc_count[CLIENT_MAX]; // 0x1DD0
     u16 ai_calc_continue[CLIENT_MAX]; // 0x1DD8
@@ -3691,8 +3692,6 @@ int LONG_CALL GetSanitisedType(int type);
 
 BOOL LONG_CALL StrongWindsShouldWeaken(struct BattleSystem *bw, struct BattleStruct *sp, int typeTableEntryNo, int defender_type);
 
-BOOL LONG_CALL CantEscape(void *bw, struct BattleStruct *sp, int battlerId, BattleMessage *msg);
-
 /**
  * @brief Inject a custom callback function to allow
  * loading new battle bgs at the start of a battle
@@ -3768,5 +3767,7 @@ PokepicManager LONG_CALL *BattleSystem_GetPokepicManager(struct BattleSystem *ba
 BOOL LONG_CALL sub_02017068(void *animManager, int battlerId);
 void LONG_CALL *ov12_0223B750(struct BattleSystem *battleSystem);
 void LONG_CALL ov12_022600F0(SysTask *task, void *data); // Task_PlayFaintingSequence
+
+s32 LONG_CALL GetItemVar(struct BattleStruct *ctx, u16 itemNo, u16 var);
 
 #endif // BATTLE_H
