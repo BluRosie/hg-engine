@@ -473,7 +473,7 @@ struct __attribute__((packed)) field_condition_count {
     /*0x08*/ u8 wish_count[CLIENT_MAX]; /**< wish turns left */
     /*0x0C*/ u16 future_prediction_wazano[CLIENT_MAX]; /**< move to use for future sight damage (future sight or doom desire?) */
     /*0x14*/ int future_prediction_client_no[CLIENT_MAX]; /**< target to use for future sight damage */
-    /*0x24*/ s32 future_prediction_damage[CLIENT_MAX]; /**< damage to use for future sight */
+    /*0x24*/ s32 wish_heal_amount[CLIENT_MAX]; /**< repurposed future sight damage for storing wish user's hp/2 */
     /*0x34*/ u8 wish_sel_mons[CLIENT_MAX]; /**< party position to use to restore wish */
 };
 
@@ -1011,7 +1011,7 @@ struct BattleStruct {
     /*0x3164*/ u8 entryHazardQueue[2][NUM_HAZARD_IDX];
     /*0x316E*/ u8 protectSuccessTurns[CLIENT_MAX]; // Only need to count up to 6
     /*0x3172*/ u8 hazardQueueTracker : 7;
-    u8 itemActivatedTracker : 1; // if an item that isn't lost on activation has been activated for this hit (think rocky helmet)
+    u8 itemActivatedTrackerUnused : 1;
     /*0x3173*/ u8 padding_3173[0x317E - 0x3173]; // padding to get moveTbl to 317E (for convenience of 3180 in asm)
     /*0x317E*/ struct BattleMove moveTbl[NUM_OF_MOVES + 1];
     /*0x    */ u32 gainedExperience[6]; // possible experience gained per party member in order to get level scaling done right

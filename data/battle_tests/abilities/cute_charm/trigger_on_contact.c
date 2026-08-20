@@ -1,4 +1,5 @@
-// Test: Skill Swap - Swap Absorb ability
+// Test: Cute Charm - trigger on contact
+// https://www.youtube.com/watch?v=7VycBvxrCS4
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,13 +9,13 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_SABLEYE,
-            .level = 50,
+            .species = SPECIES_NIDORINA,
+            .level = 40,
             .form = 0,
-            .ability = ABILITY_PRANKSTER,
+            .ability = ABILITY_CUTE_CHARM,
             .item = ITEM_NONE,
-            .moves = { MOVE_SKILL_SWAP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
+            .moves = { MOVE_PLAY_ROUGH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -26,12 +27,12 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_POLIWAG,
+                        .species = SPECIES_NIDORINO,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_WATER_ABSORB,
+                        .ability = ABILITY_CUTE_CHARM,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_POISON_STING, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -83,14 +84,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye used Skill Swap!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye's Prankster" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag's Water Absorb" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag's Prankster" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye swapped Abilities with its target!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Poliwag used Water Gun!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye's Water Absorb" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye had its HP restored." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Nidorino used Poison Sting!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Cute Charm" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorina used Play Rough!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorino's Cute Charm" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Nidorina fell in love!" },
     }
 }
 END_TEST

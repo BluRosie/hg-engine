@@ -49,6 +49,7 @@ enum ExpectationType {
     EXPECTATION_TYPE_MESSAGE_CONTAINS,
     EXPECTATION_TYPE_ATTACK_MESSAGE,
     EXPECTATION_OVERWORLD_FORM,
+    EXPECTATION_CURRENT_HP,
     EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN,
     EXPECTATION_TYPE_NOT_MESSAGE,
     EXPECTATION_TYPE_PARTY_FORM,
@@ -61,6 +62,7 @@ union ExpectationValue {
     u32 hpRecovered[16];
     char message[TEST_BATTLE_MESSAGE_LEN];
     u16 formID;
+    s32 currentHP;
     u8 types[2];
     u32 sideConditionMask;
 };
