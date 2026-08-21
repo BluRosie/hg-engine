@@ -489,9 +489,7 @@ void LONG_CALL GetItemDescIntoString(String *dest, u16 itemId, u16 heapId)
 
 void *LONG_CALL ItemDataTableLoad(int heapID)
 {
-    int max;
-
-    max = GetItemIndex(MAX_TOTAL_ITEM_NUM, ITEM_GET_DATA);
+    int max = GetItemIndex(MAX_TOTAL_ITEM_NUM, ITEM_GET_DATA) + 1;
 
     return AllocAndReadFromNarcMemberByIdPair(ARC_ITEM_DATA, 0, heapID, 0, sizeof(ITEMDATA) * max); // 800757Ch
 }
@@ -538,7 +536,7 @@ u16 ItemToMachineMove(u16 itemId)
     }
 
     u16 index = ItemToMachineMoveIndex(itemId);
-    if (index >= sizeof(sMachineMoves) + 1) {
+    if (index >= NELEMS(sMachineMoves)) {
         return MOVE_NONE;
     }
     return sMachineMoves[index];
