@@ -23,7 +23,7 @@
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleStruct *sp, int *seq_no)
+BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
     u32 move_pos;
@@ -224,6 +224,17 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
+            ret = TRUE;
+        }
+    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_WANDERING_SPIRIT)) {
+        if (sp->battlemon[sp->attack_client].ability != ABILITY_WANDERING_SPIRIT
+            && !AbilityFailSkillSwap(sp->battlemon[sp->attack_client].ability)
+            && HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_ABILITY_CHANGES
+            && HeldItemHoldEffectGet(sp, sp->defence_client) != HOLD_EFFECT_PREVENT_ABILITY_CHANGES
+            && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
+            && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)) {
+            sp->battlerIdTemp = sp->attack_client;
+            seq_no[0] = BATTLE_SUBSCRIPT_WANDERING_SPIRIT;
             ret = TRUE;
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MUMMY) || MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_LINGERING_AROMA)) {

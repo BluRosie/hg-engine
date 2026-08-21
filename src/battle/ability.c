@@ -512,100 +512,7 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(struct BattleSystem *bw, struct Battl
  */
 BOOL AbilityIsIgnoredByMoldBreaker(int ability)
 {
-    switch (ability) {
-    case ABILITY_BATTLE_ARMOR:
-    case ABILITY_STURDY:
-    case ABILITY_DAMP:
-    case ABILITY_LIMBER:
-    case ABILITY_SAND_VEIL:
-    case ABILITY_VOLT_ABSORB:
-    case ABILITY_WATER_ABSORB:
-    case ABILITY_OBLIVIOUS:
-    case ABILITY_INSOMNIA:
-    case ABILITY_IMMUNITY:
-    case ABILITY_FLASH_FIRE:
-    case ABILITY_SHIELD_DUST:
-    case ABILITY_OWN_TEMPO:
-    case ABILITY_SUCTION_CUPS:
-    case ABILITY_WONDER_GUARD:
-    case ABILITY_LEVITATE:
-    case ABILITY_CLEAR_BODY:
-    case ABILITY_LIGHTNING_ROD:
-    case ABILITY_ILLUMINATE:
-    case ABILITY_INNER_FOCUS:
-    case ABILITY_MAGMA_ARMOR:
-    case ABILITY_WATER_VEIL:
-    case ABILITY_SOUNDPROOF:
-    case ABILITY_THICK_FAT:
-    case ABILITY_KEEN_EYE:
-    case ABILITY_HYPER_CUTTER:
-    case ABILITY_STICKY_HOLD:
-    case ABILITY_MARVEL_SCALE:
-    case ABILITY_VITAL_SPIRIT:
-    case ABILITY_WHITE_SMOKE:
-    case ABILITY_SHELL_ARMOR:
-    case ABILITY_TANGLED_FEET:
-    case ABILITY_MOTOR_DRIVE:
-    case ABILITY_SNOW_CLOAK:
-    case ABILITY_HEATPROOF:
-    case ABILITY_SIMPLE:
-    case ABILITY_DRY_SKIN:
-    case ABILITY_LEAF_GUARD:
-    case ABILITY_UNAWARE:
-    case ABILITY_FILTER:
-    case ABILITY_STORM_DRAIN:
-    case ABILITY_SOLID_ROCK:
-    case ABILITY_FLOWER_GIFT:
-    case ABILITY_CONTRARY:
-    case ABILITY_FRIEND_GUARD:
-    case ABILITY_HEAVY_METAL:
-    case ABILITY_LIGHT_METAL:
-    case ABILITY_MULTISCALE:
-    case ABILITY_TELEPATHY:
-    case ABILITY_OVERCOAT:
-    case ABILITY_BIG_PECKS:
-    case ABILITY_WONDER_SKIN:
-    case ABILITY_MAGIC_BOUNCE:
-    case ABILITY_SAP_SIPPER:
-    case ABILITY_AROMA_VEIL:
-    case ABILITY_FLOWER_VEIL:
-    case ABILITY_FUR_COAT:
-    case ABILITY_BULLETPROOF:
-    case ABILITY_SWEET_VEIL:
-    case ABILITY_GRASS_PELT:
-    case ABILITY_AURA_BREAK:
-    case ABILITY_WATER_BUBBLE:
-    case ABILITY_DISGUISE:
-    case ABILITY_QUEENLY_MAJESTY:
-    case ABILITY_FLUFFY:
-    case ABILITY_DAZZLING:
-    case ABILITY_MIRROR_ARMOR:
-    case ABILITY_PUNK_ROCK:
-    case ABILITY_ICE_SCALES:
-    case ABILITY_ICE_FACE:
-    case ABILITY_PASTEL_VEIL:
-    case ABILITY_THERMAL_EXCHANGE:
-    case ABILITY_PURIFYING_SALT:
-    case ABILITY_WELL_BAKED_BODY:
-    case ABILITY_WIND_RIDER:
-    case ABILITY_GUARD_DOG:
-    case ABILITY_GOOD_AS_GOLD:
-    case ABILITY_VESSEL_OF_RUIN:
-    case ABILITY_SWORD_OF_RUIN:
-    case ABILITY_TABLETS_OF_RUIN:
-    case ABILITY_BEADS_OF_RUIN:
-    case ABILITY_ARMOR_TAIL:
-    case ABILITY_EARTH_EATER:
-    case ABILITY_MINDS_EYE:
-    case ABILITY_TERA_SHELL:
-    case ABILITY_EELEVATE:
-        return TRUE;
-        break;
-
-    default:
-        break;
-    }
-    return FALSE;
+    return GetAbilityFlags(ability).ignoredByMoldBreaker;
 }
 
 u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int attackerAbility, int defenderAbility, int currentMoveIndex, int moveSplit, u32 ability)
@@ -1153,4 +1060,16 @@ void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx
     }
 
     ctx->swoak_seq_no = 0; // reset according to the scriptures
+}
+
+AbilityFlags LONG_CALL GetAbilityFlags(int ability)
+{
+    AbilityFlags flags = { 0 };
+    if (ability <= ABILITY_NONE || ability >= NUM_ABILITIES) {
+        return flags;
+    }
+
+    ReadFromNarcMemberByIdPair(&flags, ARC_CODE_ADDONS, CODE_ADDON_ABILITY_FLAGS, ability * sizeof(AbilityFlags), sizeof(AbilityFlags));
+
+    return flags;
 }

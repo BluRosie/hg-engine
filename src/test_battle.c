@@ -629,6 +629,149 @@ int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int ba
     return 6;
 }
 
+static BOOL TestBattle_IsPartySlotAlreadyActive(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler, int partySlot)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    u8 side = IsClientEnemy(bsys, battler);
+
+    for (int other = 0; other < maxBattlers; other++) {
+        if (IsClientEnemy(bsys, other) == side && ctx->sel_mons_no[other] == partySlot) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+static int TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    int partyCount = BattleWorkPokeCountGet(bsys, battler);
+
+    for (int partySlot = 0; partySlot < partyCount; partySlot++) {
+        struct PartyPokemon *mon = BattleWorkPokemonParamGet(bsys, battler, partySlot);
+
+        if (GetMonData(mon, MON_DATA_HP, NULL) == 0) {
+            continue;
+        }
+
+        if (GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_NONE) {
+            continue;
+        }
+
+        if (GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_EGG) {
+            continue;
+        }
+
+        if (TestBattle_IsPartySlotAlreadyActive(bsys, ctx, battler, partySlot)) {
+            continue;
+        }
+
+        return partySlot;
+    }
+
+    return 6;
+}
+
+static BOOL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    return sCurrentScenario != NULL
+        && (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND)
+        && (ctx->client_status[battler] & 1)
+        && TestBattle_FindNextLivePartySlot(bsys, ctx, battler) != 6;
+}
+
+BOOL LONG_CALL TestBattle_ShowParty(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int promptedBattlers = 0;
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            promptedBattlers |= MaskOfFlagNo(battler);
+            if (!TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
+                BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
+            }
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (BattleTypeGet(bsys) == (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_LINK)) {
+            int partner = BattleWorkPartnerClientNoGet(bsys, battler);
+            if (!(promptedBattlers & MaskOfFlagNo(battler)) && !(promptedBattlers & MaskOfFlagNo(partner))) {
+                promptedBattlers |= MaskOfFlagNo(battler);
+                BattleController_EmitShowWaitMessage(bsys, battler);
+            }
+        } else if (!(promptedBattlers & MaskOfFlagNo(battler))) {
+            BattleController_EmitShowWaitMessage(bsys, battler);
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            ctx->reshuffle_client = battler;
+            break;
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL LONG_CALL TestBattle_WaitMonSelection(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    int switchCnt = 0;
+    u8 autoSelected[CLIENT_MAX] = { 0 };
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            switchCnt++;
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (!(ctx->client_status[battler] & 1)) {
+            continue;
+        }
+
+        int selectedSlot = TestBattle_FindNextLivePartySlot(bsys, ctx, battler);
+        if (TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
+            ctx->reshuffle_sel_mons_no[battler] = selectedSlot;
+            autoSelected[battler] = TRUE;
+            switchCnt--;
+            continue;
+        }
+
+        if (BattleBuffer_GetNext(ctx, battler)) {
+            ctx->reshuffle_sel_mons_no[battler] = ctx->server_buffer[battler][0] - 1;
+            switchCnt--;
+            if (!(ctx->server_status_flag2 & (MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT))) {
+                ctx->server_status_flag2 |= MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT;
+                BattleController_EmitShowWaitMessage(bsys, battler);
+            }
+        }
+    }
+
+    if (switchCnt == 0) {
+        for (int battler = 0; battler < maxBattlers; battler++) {
+            if (ctx->client_status[battler] & 1) {
+                if (autoSelected[battler]) {
+                    ov12_0223BDDC(bsys, battler, ctx->reshuffle_sel_mons_no[battler] + 1);
+                } else if (BattleBuffer_GetNext(ctx, battler)) {
+                    ov12_0223BDDC(bsys, battler, ctx->server_buffer[battler][0]);
+                }
+            }
+        }
+        ctx->server_status_flag2 &= 0xf0ffffff;
+        IncrementBattleScriptPtr(ctx, 1);
+    }
+
+    ctx->battle_progress_flag = 1;
+
+    return FALSE;
+}
+
 /**
  * @brief Auto-select moves/switches for player battlers in test scenarios
  *
@@ -650,6 +793,24 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
 
     if (sCurrentScenario == NULL) {
         return;
+    }
+
+    if (GetScriptIndex(0) == 0) {
+        int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+        for (int battlerId = 0; battlerId < maxBattlers; battlerId++) {
+            int partySlot = ctx->sel_mons_no[battlerId];
+            const struct TestBattlePokemon *mon;
+
+            if (BATTLER_IS_ENEMY(battlerId)) {
+                mon = &sCurrentScenario->enemyParty[partySlot];
+            } else {
+                mon = &sCurrentScenario->playerParty[partySlot];
+            }
+
+            ctx->battlemon[battlerId].tera_type = mon->teraType;
+            ctx->battlemon[battlerId].is_currently_terastallized = mon->isTerastallized;
+        }
     }
 
     TestBattle_CheckScriptCompletion();

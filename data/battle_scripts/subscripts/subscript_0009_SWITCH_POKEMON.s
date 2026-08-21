@@ -20,6 +20,7 @@ _noPursuit:
     GoTo _026
 
 _020:
+    TryActivateZeroToHero BATTLER_CATEGORY_SWITCHED_MON
     RecallPokemon BATTLER_CATEGORY_SWITCHED_MON
     Wait 
     HealthbarSlideOut BATTLER_CATEGORY_SWITCHED_MON

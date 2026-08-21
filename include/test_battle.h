@@ -31,6 +31,8 @@ struct PACKED TestBattlePokemon {
     u16 species;
     u8 level;
     u8 form;
+    u8 teraType;
+    u8 isTerastallized;
     u16 ability;
     u16 item;
     u16 moves[4];
@@ -49,7 +51,10 @@ enum ExpectationType {
     EXPECTATION_OVERWORLD_FORM,
     EXPECTATION_CURRENT_HP,
     EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN,
-    EXPECTATION_TYPE_NOT_MESSAGE
+    EXPECTATION_TYPE_NOT_MESSAGE,
+    EXPECTATION_TYPE_PARTY_FORM,
+    EXPECTATION_TYPE_BATTLER_TYPES,
+    EXPECTATION_TYPE_SIDE_CONDITION_ABSENT
 };
 
 union ExpectationValue {
@@ -58,6 +63,8 @@ union ExpectationValue {
     char message[TEST_BATTLE_MESSAGE_LEN];
     u16 formID;
     s32 currentHP;
+    u8 types[2];
+    u32 sideConditionMask;
 };
 
 struct Expectations {
@@ -66,7 +73,7 @@ struct Expectations {
     union ExpectationValue expectationValue;
 };
 
-#define MAX_EXPECTATIONS 8
+#define MAX_EXPECTATIONS 16
 
 // Complete test scenario definition
 struct PACKED TestBattleScenario {
