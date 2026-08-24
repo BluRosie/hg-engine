@@ -28,11 +28,8 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 {
     int i;
     u8 battler1, battler2;
-    u32 battleType;
-    int end;
-    struct PartyPokemon *mon;
     struct BattleStruct *ctx = bsys->sp;
-    battleType = BattleTypeGet(bsys);
+    u32 battleType = BattleTypeGet(bsys);
 
     if ((battleType & BATTLE_TYPE_TRAINER) || BATTLER_IS_ENEMY(attacker) == 0) {
         if (TrainerAI_ShouldSwitch(bsys, ctx, attacker)) {
@@ -46,10 +43,9 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
                     } else {
                         battler2 = BATTLER_ALLY(attacker);
                     }
-                    end = Battle_GetClientPartySize(bsys, attacker);
 
-                    for (i = 0; i < end; i++) {
-                        mon = Battle_GetClientPartyMon(bsys, attacker, i);
+                    for (i = 0; i < Battle_GetClientPartySize(bsys, attacker); i++) {
+                        struct PartyPokemon *mon = Battle_GetClientPartyMon(bsys, attacker, i);
 
                         if (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
                             GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_NONE &&
@@ -79,11 +75,8 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
 
 BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker)
 {
-    int i, aliveMons;
     u32 battler1, battler2;
-    u32 battleType;
-    struct PartyPokemon *mon;
-    battleType = BattleTypeGet(bsys);
+    u32 battleType = BattleTypeGet(bsys);
 
     if ((battleType & BATTLE_TYPE_TRAINER) || IsClientEnemy(bsys, attacker) == 0) {
         /*Don't try to make illegal switches.
@@ -96,7 +89,7 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx,
             return FALSE;
         }
 
-        aliveMons = 0;
+        int aliveMons = 0;
         battler1 = attacker;
         if (battleType & BATTLE_TYPE_TAG || battleType & BATTLE_TYPE_MULTI) {
             battler2 = battler1;
@@ -104,17 +97,16 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx,
             battler2 = BATTLER_ALLY(battler1);
         }
 
-        for (i = 0; i < Battle_GetClientPartySize(bsys, attacker); i++)
+        for (int partySlot = 0; partySlot < Battle_GetClientPartySize(bsys, attacker); partySlot++)
         {
-            mon = Battle_GetClientPartyMon(bsys, attacker, i);
-
-            if (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_NONE &&
-                GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_EGG 
-                && i != ctx->sel_mons_no[battler1]
-                && i != ctx->sel_mons_no[battler2]
-                && i != ctx->aiSwitchedPartySlot[battler1]
-                && i != ctx->aiSwitchedPartySlot[battler2])
+            struct PartyPokemon *mon = Battle_GetClientPartyMon(bsys, attacker, partySlot);
+            if (GetMonData(mon, MON_DATA_HP, 0) != 0
+                && GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_NONE
+                && GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_EGG 
+                && partySlot != ctx->sel_mons_no[battler1]
+                && partySlot != ctx->sel_mons_no[battler2]
+                && partySlot != ctx->aiSwitchedPartySlot[battler1]
+                && partySlot != ctx->aiSwitchedPartySlot[battler2])
             {
                 aliveMons++;
             }
@@ -397,7 +389,7 @@ BOOL TrainerAI_ShouldUseItem(struct BattleSystem *battleSystem, int battler)
                 if (hpRestore) {
                     if (ctx->battlemon[battler].hp
                         && (ctx->battlemon[battler].hp < (s32)(ctx->battlemon[battler].maxhp / 4)
-                            || (ctx->battlemon[battler].maxhp - ctx->battlemon[battler].hp) > hpRestore)) {
+                        || (ctx->battlemon[battler].maxhp - ctx->battlemon[battler].hp) > hpRestore)) {
                         ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_HP;
                         result = TRUE;
                     }
@@ -522,7 +514,6 @@ BOOL AI_CannotDamageWonderGuard(struct BattleSystem *bsys, struct BattleStruct *
     u16 move;
     int moveType;
     u32 effectiveness;
-    struct PartyPokemon *mon;
 
     if (BattleTypeGet(bsys) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG)) {
         return FALSE;
@@ -554,7 +545,7 @@ BOOL AI_CannotDamageWonderGuard(struct BattleSystem *bsys, struct BattleStruct *
 
         // If we don't, check if any of our party members have a super-effective move.
         for (i = 0; i < Battle_GetClientPartySize(bsys, battler); i++) {
-            mon = Battle_GetClientPartyMon(bsys, battler, i);
+            struct PartyPokemon *mon = Battle_GetClientPartyMon(bsys, battler, i);
 
             if (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
             GetMonData(mon, MON_DATA_SPECIES_OR_EGG, 0) != SPECIES_NONE &&
@@ -608,7 +599,6 @@ BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSystem, struct BattleStr
     u16 move;
     int type;
     u32 effectiveness;
-    int start, end;
     int numMoves;
     struct PartyPokemon *mon;
 
@@ -667,14 +657,13 @@ BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSystem, struct BattleStr
         aiSlot2 = BATTLER_ALLY(battler);
     }
 
-    start = 0;
-    end = Battle_GetClientPartySize(battleSystem, battler);
+    int partySize = Battle_GetClientPartySize(battleSystem, battler);
 
     // For each of the AI's active party Pokemon on the bench, check if any of them have a
     // damaging move which is super-effective against either of the player's active Pokemon
     // on the battlefield. If any such Pokemon on the bench exists, switch to it 66% of
     // the time.
-    for (i = start; i < end; i++) {
+    for (i = 0; i < partySize; i++) {
         mon = Battle_GetClientPartyMon(battleSystem, battler, i);
 
         if (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
@@ -733,7 +722,7 @@ BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSystem, struct BattleStr
     // damaging move which is normally-effective against either of the player's active
     // Pokemon on the battlefield. If any such Pokemon on the bench exists, switch to it
     // 50% of the time.
-    for (i = start; i < end; i++) {
+    for (i = 0; i < partySize; i++) {
         mon = Battle_GetClientPartyMon(battleSystem, battler, i);
 
         if (GetMonData(mon, MON_DATA_HP, 0) != 0 &&
@@ -1079,8 +1068,6 @@ BOOL AI_IsHeavilyStatBoosted(struct BattleSystem *battleSystem UNUSED, struct Ba
 BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler, u32 checkEffectiveness, u8 rand)
 {
     u8 aiSlot1, aiSlot2;
-    u16 move;
-    u32 effectiveness;
 
     if (ctx->waza_no_hit[battler] == MOVE_NONE || ctx->waza_no_hit_client[battler] == BATTLER_NONE) {
         return FALSE;
@@ -1108,7 +1095,7 @@ BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSystem, 
         && i != ctx->sel_mons_no[aiSlot2]
         && i != ctx->aiSwitchedPartySlot[aiSlot1]
         && i != ctx->aiSwitchedPartySlot[aiSlot2]) {
-            effectiveness = 0;
+            u32 effectiveness = 0;
 
             AITypeCalc(ctx, 
                 ctx->waza_no_hit[battler], 
@@ -1122,7 +1109,7 @@ BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSystem, 
 
             if (effectiveness & checkEffectiveness) {
                 for (int j = 0; j < CLIENT_MAX; j++) {
-                    move = GetMonData(mon, MON_DATA_MOVE1 + j, NULL); 
+                    u16 move = GetMonData(mon, MON_DATA_MOVE1 + j, NULL); 
 
                     if (move) {
                         effectiveness = 0;
