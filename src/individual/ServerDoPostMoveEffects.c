@@ -1102,7 +1102,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         // case EFFECT_SWALLOW: confirm
 
         // case MOVE_EFFECT_TELEKINESIS:
-     
+
         // case MOVE_EFFECT_SECRET_POWER:
     case MOVE_EFFECT_WHIRLPOOL:
     case MOVE_EFFECT_BIND_HIT: // fire spin/wrap/infestation
@@ -1338,7 +1338,7 @@ int LONG_CALL Activate_SmackDown(void *bsys UNUSED, struct BattleStruct *ctx)
         ctx->battlerIdTemp = ctx->defence_client;
         ctx->moveConditionsFlags[ctx->defence_client].grounded = TRUE;
         ctx->battlemon[ctx->defence_client].moveeffect.magnetRiseTurns = 0;
-        //TODO clear Telekinesis, once implemented
+        // TODO clear Telekinesis, once implemented
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FELL_STRAIGHT_DOWN);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
