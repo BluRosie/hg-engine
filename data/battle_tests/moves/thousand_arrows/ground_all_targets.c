@@ -1,7 +1,7 @@
 // Test: Thousand Arrows - ground all targets
 #include "../../battle_tests.h"
 BEGIN_TEST {
-    .battleType = BATTLE_TYPE_DOUBLE,
+    .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -10,7 +10,7 @@ BEGIN_TEST {
             .species = SPECIES_ZYGARDE,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_AURA_BEAK,
+            .ability = ABILITY_AURA_BREAK,
             .item = ITEM_NONE,
             .moves = { MOVE_THOUSAND_ARROWS, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,

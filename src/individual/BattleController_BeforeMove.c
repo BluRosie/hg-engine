@@ -2686,7 +2686,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
     return FALSE;
 }
 
-// TODO: Handle Smack Down, Ingrain
+// TODO: Handle Ingrain
 BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
     // TODO: this to my knowledge handle base species, and does not consider transformed species, which is correct. Requires verifying
