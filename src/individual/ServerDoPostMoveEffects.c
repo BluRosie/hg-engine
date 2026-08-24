@@ -45,7 +45,7 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_SparklingAria(void *bsys, struct BattleStruct *ctx);
-int LONG_CALL Activate_SmackDown(void *bsys, struct BattleStruct *ctx);
+int LONG_CALL Activate_SmackDown(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_SkillEffects(void *bsys UNUSED, struct BattleStruct *ctx);
 
 int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *ctx);
@@ -1329,7 +1329,7 @@ int LONG_CALL Activate_SparklingAria(void *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
-int LONG_CALL Activate_SmackDown(void *bsys, struct BattleStruct *ctx)
+int LONG_CALL Activate_SmackDown(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     if (ctx->attack_client != BATTLER_NONE
         && (CheckSubstitute(ctx, ctx->defence_client) == FALSE)
