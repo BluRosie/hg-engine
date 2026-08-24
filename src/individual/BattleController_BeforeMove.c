@@ -2138,6 +2138,13 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
     case MOVE_MISTY_EXPLOSION:
         if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, defender, ABILITY_DAMP)
             && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
+            for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
+                int client_no = ctx->turnOrder[i];
+                if (GetBattlerAbility(ctx, client_no) == ABILITY_DAMP) {
+                    ctx->battlerIdTemp = client_no;
+                    break;
+                }
+            }
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -2157,8 +2164,28 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
             || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
             || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
         && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
-        && (IsClientEnemy(bsys, ctx, defender) != IsClientEnemy(bsys, ctx, attacker))) {
+        && (IsClientEnemy(bsys, defender) != IsClientEnemy(bsys, attacker))) {
         if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
+            BOOL foundFirstBlockingAbility = FALSE;
+            for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
+                int client_no = ctx->turnOrder[i];
+                if (IsClientEnemy(bsys, client_no) != IsClientEnemy(bsys, attacker)) {
+                    switch (GetBattlerAbility(ctx, client_no)) {
+                    case ABILITY_QUEENLY_MAJESTY:
+                    case ABILITY_DAZZLING:
+                    case ABILITY_ARMOR_TAIL:
+                        ctx->battlerIdTemp = client_no;
+                        foundFirstBlockingAbility = TRUE;
+                        break;
+                    default:
+                        break;
+                    }
+                }
+                if (foundFirstBlockingAbility) {
+                    break;
+                }
+            }
+
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
