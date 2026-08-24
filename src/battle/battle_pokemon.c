@@ -1278,8 +1278,7 @@ u32 LONG_CALL GetAdjustedMoveTypeBasics(struct BattleStruct *sp, u32 move, u32 a
             typeLocal = TYPE_FLYING;
         } else if (ability == ABILITY_GALVANIZE) {
             typeLocal = TYPE_ELECTRIC;
-        }
-        if (ability == ABILITY_DRAGONIZE) {
+        } else if (ability == ABILITY_DRAGONIZE) {
             typeLocal = TYPE_DRAGON;
         } else // needs to be for sure initialized
         {
