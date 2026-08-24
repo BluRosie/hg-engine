@@ -4045,7 +4045,10 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         break;
     }
     case MOVE_MAGNET_RISE: {
-        if (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE) {
+        if ((ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE)
+            || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
+            || (sp->field_condition & FIELD_CONDITION_GRAVITY)
+            || (sp->moveConditionsFlags[client_no].grounded == TRUE)) {
             butItFailedFlag = TRUE;
         }
         break;
