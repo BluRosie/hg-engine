@@ -778,7 +778,8 @@ typedef struct MoveConditionsFlags {
     u8 throatChopTimer : 2;
 
     u8 dragonDartsStatus : 3;
-    u8 padding : 5;
+    u8 grounded : 1;
+    u8 padding : 4;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -1506,6 +1507,7 @@ enum {
     MOVE_PERFORMANCE_STEP_15_1_ADDITIONAL_MOVE_EFFECTS,
     MOVE_PERFORMANCE_STEP_15_2_SPARKLING_ARIA,
     MOVE_PERFORMANCE_STEP_15_3_THAW_FROM_FIRE_MOVE,
+    MOVE_PERFORMANCE_STEP_15_4_SMACK_DOWN,
     MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE,
     MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE,
     MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3,
