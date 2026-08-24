@@ -1,4 +1,4 @@
-// Test: Galvanize - correct immunities
+// Test: Armor Tail - Block enemies only
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_GOLEM,
+            .species = SPECIES_GENGAR,
             .level = 50,
-            .form = 1,
-            .ability = ABILITY_GALVANIZE,
+            .form = 0,
+            .ability = ABILITY_LEVITATE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SWIFT, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SHADOW_SNEAK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -37,24 +37,24 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_DONPHAN,
+                        .species = SPECIES_SABLEYE,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_STURDY,
+                        .ability = ABILITY_PRANKSTER,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_WILL_O_WISP, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_LANTURN,
+            .species = SPECIES_EEVEE,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_VOLT_ABSORB,
+            .ability = ABILITY_ADAPTABILITY,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_QUICK_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -105,8 +105,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem used Swift!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Lanturn's Volt Absorb" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gengar used Shadow Sneak!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 21, 21, 21, 21, 22, 22, 22, 22, 22, 22, 24, 24, 24, 24, 24, 25 } },
     }
 }
 END_TEST

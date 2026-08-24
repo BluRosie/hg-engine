@@ -2156,7 +2156,8 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
     if ((CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
             || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
             || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
-        && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
+        && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
+        && (IsClientEnemy(bsys, ctx, defender) != IsClientEnemy(bsys, ctx, attacker))) {
         if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
