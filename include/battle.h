@@ -2370,7 +2370,7 @@ BOOL LONG_CALL ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32
  *  @param pos position in the TypeEffectivenessTable loop checker (index)
  *  @return TRUE if the normal type effectiveness calculator should be used; FALSE otherwise
  */
-BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
+BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client UNUSED, int defence_client, int pos);
 
 u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker);
 

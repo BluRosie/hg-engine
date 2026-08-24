@@ -2764,7 +2764,8 @@ BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct Bat
             || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_EELEVATE) == TRUE)
         && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
         // iron ball halves speed and grounds
-        && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
+        && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)
+        && !(ctx->moveConditionsFlags[ctx->defence_client].grounded)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_LEVITATE_IMMUNE;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;

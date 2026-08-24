@@ -1339,7 +1339,7 @@ int LONG_CALL Activate_SmackDown(void *bsys UNUSED, struct BattleStruct *ctx)
         ctx->moveConditionsFlags[ctx->defence_client].grounded = TRUE;
         ctx->battlemon[ctx->defence_client].moveeffect.magnetRiseTurns = 0;
         //TODO clear Telekinesis, once implemented
-        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAL_TARGET_BURN);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FELL_STRAIGHT_DOWN);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
