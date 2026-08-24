@@ -1,4 +1,4 @@
-// Test: Thousand Arrows - ground all targets
+// Test: Thousand Arrows - ground all enemies
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLES,
@@ -104,10 +104,8 @@ BEGIN_TEST {
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Zygarde used Thousand Arrows!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 24, 24, 24, 24, 24, 25, 25, 25, 25, 25, 27, 27, 27, 27, 27, 28 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 32, 32, 32, 32, 32, 32, 32, 32, 36, 36, 36, 36, 36, 36, 36, 38 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 27, 27, 28, 28, 28, 28, 30, 30, 30, 30, 30, 31, 31, 31, 31, 33 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Tropius fell straight down!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Skarmory fell straight down!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor fell straight down!" },
     },
