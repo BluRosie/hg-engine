@@ -145,6 +145,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         break;
     case MOVE_HEAVY_SLAM:
     case MOVE_HEAT_CRASH:
+        if (DefendingMon.weight == 0) {
+            movepower = 120;
+            break;
+        }
         switch (AttackingMon.weight / DefendingMon.weight) {
         case 0:
         case 1:
