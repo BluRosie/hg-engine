@@ -146,6 +146,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     case MOVE_HEAVY_SLAM:
     case MOVE_HEAT_CRASH:
         switch (AttackingMon.weight / DefendingMon.weight) {
+        case 0:
+        case 1:
+            movepower = 40;
+            break;
         case 2:
             movepower = 60;
             break;
@@ -156,11 +160,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             movepower = 100;
             break;
         case 5:
-            movepower = 120;
-            break;
-        // less than 2
         default:
-            movepower = 40;
+            movepower = 120;
             break;
         }
         break;
