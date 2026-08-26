@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_D40R0104.inc",
+  "header": "data/scr_seq/include/event_D40R0104.inc",
   "eventId": "229",
   "bgs": [
     {

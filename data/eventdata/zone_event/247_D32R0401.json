@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_D32R0401.inc",
+  "header": "data/scr_seq/include/event_D32R0401.inc",
   "eventId": "247",
   "bgs": [
     {

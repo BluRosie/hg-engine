@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_D38R0103.inc",
+  "header": "data/scr_seq/include/event_D38R0103.inc",
   "eventId": "237",
   "bgs": [
     {

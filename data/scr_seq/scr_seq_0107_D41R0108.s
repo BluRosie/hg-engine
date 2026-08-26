@@ -19,7 +19,7 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 
-.include "data/scr_seq/event_D41R0108.inc"
+.include "data/scr_seq/include/event_D41R0108.inc"
 
 
 // text archive to grab from: 126.txt

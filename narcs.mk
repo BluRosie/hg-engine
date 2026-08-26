@@ -784,7 +784,7 @@ $(ZONE_EVENT_NARC): $(ZONE_EVENT_OBJS) | $(ZONE_EVENT_DIR)
 .PHONY: $(ZONE_EVENT_NARC)
 
 ifneq ($(strip $(ZONE_EVENT_OBJS)),)
-ifeq ($(strip $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/event_*.inc)),)
+ifeq ($(strip $(wildcard $(SCR_SEQ_DEPENDENCIES_DIR)/include/event_*.inc)),)
 $(error BUILD_DUMPED_EVENTDATA is enabled, but the script labels the maps reference are not in $(SCR_SEQ_DEPENDENCIES_DIR)/event_*.inc$(n)Either restore them or turn the toggle back off in $(CONFIG_H))
 endif
 NARC_FILES += $(ZONE_EVENT_NARC)

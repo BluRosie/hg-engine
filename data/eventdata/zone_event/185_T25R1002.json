@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_T25R1002.inc",
+  "header": "data/scr_seq/include/event_T25R1002.inc",
   "eventId": "185",
   "bgs": [
     {

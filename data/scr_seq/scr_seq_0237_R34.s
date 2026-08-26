@@ -19,7 +19,7 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 
-.include "data/scr_seq/event_R34.inc"
+.include "data/scr_seq/include/event_R34.inc"
 
 
 // text archive to grab from: 384.txt

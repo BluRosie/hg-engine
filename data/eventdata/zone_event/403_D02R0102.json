@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_D02R0102.inc",
+  "header": "data/scr_seq/include/event_D02R0102.inc",
   "eventId": "403",
   "warps": [
     {

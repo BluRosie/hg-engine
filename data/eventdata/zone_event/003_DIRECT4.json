@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_DIRECT4.inc",
+  "header": "data/scr_seq/include/event_DIRECT4.inc",
   "eventId": "003",
   "objects": [
     {

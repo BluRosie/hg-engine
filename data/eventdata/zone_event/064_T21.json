@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_T21.inc",
+  "header": "data/scr_seq/include/event_T21.inc",
   "eventId": "064",
   "bgs": [
     {

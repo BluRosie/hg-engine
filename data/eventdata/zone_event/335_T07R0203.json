@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_T07R0203.inc",
+  "header": "data/scr_seq/include/event_T07R0203.inc",
   "eventId": "335",
   "bgs": [
     {

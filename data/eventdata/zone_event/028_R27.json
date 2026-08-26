@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_R27.inc",
+  "header": "data/scr_seq/include/event_R27.inc",
   "eventId": "028",
   "bgs": [
     {

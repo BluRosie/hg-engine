@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_T22.inc",
+  "header": "data/scr_seq/include/event_T22.inc",
   "eventId": "070",
   "bgs": [
     {

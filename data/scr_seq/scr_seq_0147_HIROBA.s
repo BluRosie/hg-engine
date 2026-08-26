@@ -19,7 +19,7 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 
-.include "data/scr_seq/event_HIROBA.inc"
+.include "data/scr_seq/include/event_HIROBA.inc"
 
 
 // text archive to grab from: 212.txt

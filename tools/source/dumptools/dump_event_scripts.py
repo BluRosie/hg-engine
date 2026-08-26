@@ -48,8 +48,7 @@ MSGDATA_KEYS = "data/text/keys.csv"
 
 # script narc subfiles whose tracked sources are engine customizations, not dumps - see the module docstring
 proc = subprocess.run(["make", "contents-SCR_SEQ_ENGINE_SRCS"], check = True, capture_output = True, text = True)
-ENGINE_MANAGED_SCRIPTS = proc.stdout
-print(ENGINE_MANAGED_SCRIPTS)
+ENGINE_MANAGED_SCRIPTS = [f"{int(x[0:5]):04}" for x in str(proc.stdout).replace("data/scr_seq/scr_seq_", "").replace(".s", "").split("\n")[1].split(" ")]
 
 # text archives hg-engine itself edits or adds
 ENGINE_MANAGED_TEXT_ARCHIVES = {
@@ -60,15 +59,12 @@ ENGINE_MANAGED_TEXT_ARCHIVES = {
 # text archives rebuilt from other sources at build time (MSGDATA_COMPILETIME_DEPENDENCIES in narcs.mk)
 proc = subprocess.run(["make", "contents-MSGDATA_COMPILETIME_DEPENDENCIES"], check = True, capture_output = True, text = True)
 GENERATED_TEXT_ARCHIVES = [int(x) for x in str(proc.stdout).replace("build/rawtext/", "").replace(".txt", "").split("\n")[1].split(" ")]
-print(GENERATED_TEXT_ARCHIVES)
 
 _CONSTANT_PATTERNS = (
     r"^\s*\.(?:equ|definelabel)\s+({prefix}\w+)\s*,\s*(\d+|0x[0-9a-fA-F]+)\s*$", # .equ NAME, VALUE / .definelabel NAME, VALUE (asm/include/*.inc)
     r"^\s*({prefix}\w+)\s+equ\s+(\d+|0x[0-9a-fA-F]+)\s*$", # NAME equ VALUE (armips syntax)
     r"^#define\s+({prefix}\w+)\s+(\d+|0x[0-9a-fA-F]+)\s*$", # #define NAME VALUE
 )
-
-sys.exit()
 
 def parse_constants(filenames, prefix = ""):
     """
@@ -466,7 +462,7 @@ class NormalScriptParser:
             return id_
 
         ret = {
-            "header": f"{SCR_SEQ_DIR}/{self.inc_name}",
+            "header": f"{SCR_SEQ_DIR}/include/{self.inc_name}",
             "eventId": self.event_id,
         }
 
@@ -811,7 +807,8 @@ class NormalScriptParser:
         s += "\n"
 
         if self.event_id:
-            s += f'.include "{SCR_SEQ_DIR}/{self.inc_name}"\n'
+            s += f'.include "{SCR_SEQ_DIR}/include/{self.inc_name}"\n'
+            #s += self.make_inc()
             s += "\n\n"
         else:
             s += "\n"
@@ -953,7 +950,7 @@ class SpecialScriptParser:
 
         s = COMMON_INCLUDES
         s += "\n"
-        s += f'.include "{SCR_SEQ_DIR}/{self.inc_name}"\n'
+        s += f'.include "{SCR_SEQ_DIR}/include/{self.inc_name}"\n'
         s += "\n\n"
         s += SECTION
         s += "\n\n"
@@ -1035,7 +1032,7 @@ class MapParser:
     def dump_script_header(self):
         # only written when something will include it: the script itself (when the map has zone event data) or the trigger table
         if self.events or self.header:
-            self._write(os.path.join(SCR_SEQ_DIR, self.inc_name), self.parser.make_inc())
+            self._write(os.path.join(SCR_SEQ_DIR + "/include", self.inc_name), self.parser.make_inc())
 
         return self
 
@@ -1108,7 +1105,13 @@ def dump_text(msg_members, repo_root, msgenc, charmap, include_generated, includ
     print(f"dumped {len(msg_members) - generated - engine_managed} text archives to data/text/" + (f" (skipped {' and '.join(notes)} archives)" if notes else ""))
 
 def read_mapping():
-    with open(os.path.join(TOOL_DIR, "event_mapping.csv"), newline = "") as fp:
+    event_mapping_path = os.path.join(TOOL_DIR, "event_mapping.csv")
+    #if (not os.path.exists(event_mapping_path)):
+        # generate event mapping from the input rom...  the basic idea is that based on the event file, we should be able to map to the script file.
+        # format is zone_event json, script, level script file, text archive.  this will have to be read from the map header data itself.  including the map name.
+        # data/eventdata/zone_event/###_MAPNAME.json,data/scr_seq/scr_seq_####_MAPNAME.s,data/scr_seq/scr_seq_####_MAPNAME_hdr.s,###
+
+    with open(event_mapping_path, newline = "") as fp:
         return [row for row in csv.reader(fp) if row and not row[0].startswith("#")]
 
 def main(argv = None):

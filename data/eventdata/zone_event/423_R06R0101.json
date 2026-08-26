@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_R06R0101.inc",
+  "header": "data/scr_seq/include/event_R06R0101.inc",
   "eventId": "423",
   "warps": [
     {

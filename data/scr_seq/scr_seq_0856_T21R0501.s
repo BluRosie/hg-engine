@@ -19,7 +19,7 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 
-.include "data/scr_seq/event_T21R0501.inc"
+.include "data/scr_seq/include/event_T21R0501.inc"
 
 
 // text archive to grab from: 555.txt

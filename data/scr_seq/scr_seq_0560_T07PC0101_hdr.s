@@ -19,7 +19,7 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 
-.include "data/scr_seq/event_T07PC0101.inc"
+.include "data/scr_seq/include/event_T07PC0101.inc"
 
 
 .data

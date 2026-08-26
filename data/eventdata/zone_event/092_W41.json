@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_W41.inc",
+  "header": "data/scr_seq/include/event_W41.inc",
   "eventId": "092",
   "bgs": [
     {

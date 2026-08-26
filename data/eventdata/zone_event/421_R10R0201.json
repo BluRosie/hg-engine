@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_R10R0201.inc",
+  "header": "data/scr_seq/include/event_R10R0201.inc",
   "eventId": "421",
   "bgs": [
     {

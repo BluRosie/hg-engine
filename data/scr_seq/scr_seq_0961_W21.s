@@ -19,7 +19,7 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 
-.include "data/scr_seq/event_W21.inc"
+.include "data/scr_seq/include/event_W21.inc"
 
 
 // text archive to grab from: 743.txt

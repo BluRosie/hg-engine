@@ -1,5 +1,5 @@
 {
-  "header": "data/scr_seq/event_D42R0102.inc",
+  "header": "data/scr_seq/include/event_D42R0102.inc",
   "eventId": "169",
   "bgs": [
     {

@@ -19,7 +19,7 @@
 #include "constants/moves.h"
 #include "constants/species.h"
 
-.include "data/scr_seq/event_UNION.inc"
+.include "data/scr_seq/include/event_UNION.inc"
 
 
 // text archive to grab from: 738.txt
