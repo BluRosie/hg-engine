@@ -135,6 +135,8 @@ BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *
 BOOL btl_scr_cmd_123_MakeTotem(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_124_GetMonByCottonDownOrder(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_125_TryActivateZeroToHero(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_126_TryHealingWish(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -473,6 +475,8 @@ const u8 *BattleScrCmdNames[] = {
     "MakeTotem",
     "GetMonByCottonDownOrder",
     "TryActivateZeroToHero",
+    "TryHealingWish",
+    "ActivateHealingWish",
     // "YourCustomCommand",
 };
 
@@ -553,6 +557,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x123 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_123_MakeTotem,
     [0x124 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_124_GetMonByCottonDownOrder,
     [0x125 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_125_TryActivateZeroToHero,
+    [0x126 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_126_TryHealingWish,
+    [0x127 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_127_ActivateHealingWish,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -5725,6 +5731,97 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
         ctx->current_move_index = moveNo;
 
         break;
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_126_TryHealingWish(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int adrs = read_battle_script_param(ctx);
+
+    if (ctx->healingWishQueue.counter[ctx->attack_client].count == 2)
+    {
+        IncrementBattleScriptPtr(ctx, adrs);
+        return FALSE;
+    }
+
+    BOOL isLunarDance = FALSE;
+    if (ctx->current_move_index == MOVE_LUNAR_DANCE) {
+        isLunarDance = TRUE;
+    }
+
+    u8 back = ctx->healingWishQueue.counter[ctx->attack_client].back;
+    ctx->healingWishQueue.queue[ctx->attack_client][back] = isLunarDance ? HEALING_CONDITION_HEALING_LUNAR_DANCE : HEALING_CONDITION_HEALING_WISH;
+
+    ctx->healingWishQueue.counter[ctx->attack_client].back = (back + 1) % 2;
+    ctx->healingWishQueue.counter[ctx->attack_client].count++;
+
+    return FALSE;
+}
+
+BOOL LONG_CALL canHealingWishActivate(struct BattleStruct *ctx, int slot, BOOL restorePP)
+{
+    if (ctx->battlemon[slot].hp != (s32)ctx->battlemon[slot].maxhp
+        && !ctx->battlemon[slot].moveeffect.healBlockTurns)
+    {
+        return TRUE;
+    }
+
+    if ((ctx->battlemon[slot].condition & STATUS_ALL) || (ctx->battlemon[slot].condition2 & STATUS2_CONFUSION))
+    {
+        return TRUE;
+    }
+
+    if (restorePP) {
+        for (unsigned i = 0; i < MAX_MON_MOVES; i++) {
+            if (ctx->battlemon[slot].pp[i] < ctx->battlemon[slot].pp_count[i]) {
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int adrs = read_battle_script_param(ctx);
+
+    if (ctx->reshuffle_client == BATTLER_NONE || ctx->healingWishQueue.counter[ctx->reshuffle_client].count == 0) {
+        IncrementBattleScriptPtr(ctx, adrs);
+        return FALSE;
+    }
+
+
+    u8 front = ctx->healingWishQueue.counter[ctx->reshuffle_client].front;
+    BOOL restorePP = FALSE;
+    if (ctx->healingWishQueue.queue[ctx->reshuffle_client][front] == HEALING_CONDITION_HEALING_LUNAR_DANCE) {
+        restorePP = TRUE;
+    }
+
+    if (canHealingWishActivate(ctx, ctx->reshuffle_client, restorePP)) {
+        ctx->battlerIdTemp = ctx->reshuffle_client;
+        ctx->mp.id = 1787; // "The healing wish came true for {0}!"
+        ctx->mp.tag = TAG_NICKNAME;
+        ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->reshuffle_client);
+
+        if (restorePP) {
+            ctx->mp.id = 1784; // "{0} became cloaked in mystical moonlight!"
+
+            for (unsigned i = 0; i < MAX_MON_MOVES; i++) {
+                u8 maxpp = ctx->battlemon[ctx->reshuffle_client].pp_count[i];
+                ctx->battlemon[ctx->reshuffle_client].pp[i] = maxpp;
+            }
+        }
+        
+        ctx->healingWishQueue.counter[ctx->reshuffle_client].front = (front + 1) % 2;
+        ctx->healingWishQueue.counter[ctx->reshuffle_client].count--;
+    }
+    else
+    {
+        IncrementBattleScriptPtr(ctx, adrs);
     }
 
     return FALSE;
