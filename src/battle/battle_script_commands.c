@@ -135,8 +135,8 @@ BOOL btl_scr_cmd_122_GoBackToBeforeMove(void *bsys UNUSED, struct BattleStruct *
 BOOL btl_scr_cmd_123_MakeTotem(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_124_GetMonByCottonDownOrder(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_125_TryActivateZeroToHero(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_126_TryHealingWish(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_126_TryHealingWish(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -5736,13 +5736,12 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
-BOOL btl_scr_cmd_126_TryHealingWish(void *bsys, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_126_TryHealingWish(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     int adrs = read_battle_script_param(ctx);
 
-    if (ctx->healingWishQueue.counter[ctx->attack_client].count == 2)
-    {
+    if (ctx->healingWishQueue.counter[ctx->attack_client].count == 2) {
         IncrementBattleScriptPtr(ctx, adrs);
         return FALSE;
     }
@@ -5764,13 +5763,11 @@ BOOL btl_scr_cmd_126_TryHealingWish(void *bsys, struct BattleStruct *ctx)
 BOOL LONG_CALL canHealingWishActivate(struct BattleStruct *ctx, int slot, BOOL restorePP)
 {
     if (ctx->battlemon[slot].hp != (s32)ctx->battlemon[slot].maxhp
-        && !ctx->battlemon[slot].moveeffect.healBlockTurns)
-    {
+        && !ctx->battlemon[slot].moveeffect.healBlockTurns) {
         return TRUE;
     }
 
-    if ((ctx->battlemon[slot].condition & STATUS_ALL) || (ctx->battlemon[slot].condition2 & STATUS2_CONFUSION))
-    {
+    if ((ctx->battlemon[slot].condition & STATUS_ALL) || (ctx->battlemon[slot].condition2 & STATUS2_CONFUSION)) {
         return TRUE;
     }
 
@@ -5784,7 +5781,7 @@ BOOL LONG_CALL canHealingWishActivate(struct BattleStruct *ctx, int slot, BOOL r
     return FALSE;
 }
 
-BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     int adrs = read_battle_script_param(ctx);
@@ -5793,7 +5790,6 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys, struct BattleStruct *ctx)
         IncrementBattleScriptPtr(ctx, adrs);
         return FALSE;
     }
-
 
     u8 front = ctx->healingWishQueue.counter[ctx->reshuffle_client].front;
     BOOL restorePP = FALSE;
@@ -5815,12 +5811,10 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys, struct BattleStruct *ctx)
                 ctx->battlemon[ctx->reshuffle_client].pp[i] = maxpp;
             }
         }
-        
+
         ctx->healingWishQueue.counter[ctx->reshuffle_client].front = (front + 1) % 2;
         ctx->healingWishQueue.counter[ctx->reshuffle_client].count--;
-    }
-    else
-    {
+    } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }
 
