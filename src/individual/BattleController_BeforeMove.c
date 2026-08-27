@@ -2746,40 +2746,31 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         return FALSE;
     }
     u32 flag = 0;
-    int effectiveness = GetTypeEffectiveness(bsys, ctx, ctx->attack_client, defender, ctx->move_type, &flag);
-    /*
-if ((ctx->moveTbl[ctx->current_move_index].target != RANGE_USER
-    && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE
-    && ctx->moveTbl[ctx->current_move_index].power != 0
-    && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY)
-    /* && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) / *)
-    || ctx->current_move_index == MOVE_THUNDER_WAVE) {
-    ServerDoTypeCalcMod(bsys, ctx, ctx->current_move_index, ctx->move_type, ctx->attack_client, defender, ctx->damageForSpreadMoves[defender], &temp);
-    ctx->moveStatusFlagForSpreadMoves[defender] = temp;
-    if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_NO_EFFECT && IsAttackerOnField(ctx)) {
-        ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
-    }
-}
-*/
-    int status = 0;
-    if (effectiveness == TYPE_MUL_NO_EFFECT) {
-        status = MOVE_STATUS_NO_EFFECT;
-    } else if (effectiveness > TYPE_MUL_NORMAL) {
-        status = MOVE_STATUS_SUPER_EFFECTIVE;
-    } else if (effectiveness < TYPE_MUL_NORMAL) {
-        status = MOVE_STATUS_NOT_VERY_EFFECTIVE;
-    }
-    if (ctx->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) {
-        status = 0;
-    }
-    ctx->moveStatusFlagForSpreadMoves[defender] = status;
+    int effectiveness = TYPE_MUL_NORMAL;
 
-    /* if (!(ctx->waza_out_check_on_off & 2)
-         && ctx->defence_client != BATTLER_NONE
-         && CalcDamageAndSetMoveStatusFlags(bsys, ctx, defender) == TRUE) {
-         return FALSE;
-     }
-     */
+    if ((ctx->moveTbl[ctx->current_move_index].target != RANGE_USER
+        && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE
+        && ctx->moveTbl[ctx->current_move_index].power != 0
+        && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY)
+            /* && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) */)
+        || ctx->current_move_index == MOVE_THUNDER_WAVE) {
+        effectiveness = GetTypeEffectiveness(bsys, ctx, ctx->attack_client, defender, ctx->move_type, &flag);
+        int status = 0;
+        if (effectiveness == TYPE_MUL_NO_EFFECT) {
+            status = MOVE_STATUS_NO_EFFECT;
+        } else if (effectiveness > TYPE_MUL_NORMAL) {
+            status = MOVE_STATUS_SUPER_EFFECTIVE;
+        } else if (effectiveness < TYPE_MUL_NORMAL) {
+            status = MOVE_STATUS_NOT_VERY_EFFECTIVE;
+        }
+        if (ctx->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) {
+            status = 0;
+        }
+        ctx->moveStatusFlagForSpreadMoves[defender] = status;
+    }
+
+    
+
     if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_NO_EFFECT) {
         if (IsAttackerOnField(ctx)) {
             ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
