@@ -5805,17 +5805,17 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
 
     if (canHealingWishActivate(ctx, ctx->reshuffle_client, restorePP)) {
         ctx->battlerIdTemp = ctx->reshuffle_client;
-        ctx->mp.id = 1787; // "The healing wish came true for {0}!"
+        ctx->mp.id = BATTLE_MSG_HEALING_WISH; // "The healing wish came true for {0}!"
         ctx->mp.tag = TAG_NICKNAME;
         ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->reshuffle_client);
 
         debug_printf("heal\n");
         ctx->battlemon[ctx->reshuffle_client].condition = 0;
         ctx->battlemon[ctx->reshuffle_client].condition2 &= ~(STATUS2_CONFUSION);
-        sp->hp_calc_work = (s32)ctx->battlemon[slot].maxhp;
+        ctx->hp_calc_work = (s32)ctx->battlemon[ctx->reshuffle_client].maxhp;
 
         if (restorePP) {
-            ctx->mp.id = 1784; // "{0} became cloaked in mystical moonlight!"
+            ctx->mp.id = BATTLE_MSG_LUNAR_DANCE; // "{0} became cloaked in mystical moonlight!"
 
             for (unsigned i = 0; i < MAX_MON_MOVES; i++) {
                 u8 maxpp = ctx->battlemon[ctx->reshuffle_client].pp_count[i];
