@@ -38,7 +38,7 @@ BEGIN_TEST
     },
     .enemyParty = { {
                         .species = SPECIES_GHOLDENGO,
-                        .level = 50,
+                        .level = 5,
                         .form = 0,
                         .ability = ABILITY_GOOD_AS_GOLD,
                         .item = ITEM_NONE,
@@ -110,6 +110,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Gholdengo..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gholdengo's Good as Gold" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Gholdengo..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Primarina’s HP is full!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gholdengo's Sp. Atk rose sharply!" },
     }
 }

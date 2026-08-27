@@ -176,7 +176,8 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 
     // TODO: Confirm location in-game
     // handle good as gold
-    if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE
+    if (attacker != defender
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE
         && (sp->moveTbl[sp->current_move_index].target & (RANGE_OPPONENT_SIDE | RANGE_FIELD)) == 0) {
         if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS) {
             scriptnum = BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY;
