@@ -832,13 +832,10 @@ typedef struct HealingWishCounter {
     u8 back : 2;
 } HealingWishCounter;
 
-
 typedef struct HealingWishQueue {
     HealingConditionType queue[CLIENT_MAX][2];
     HealingWishCounter counter[CLIENT_MAX];
 } HealingWishQueue;
-
-
 
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 

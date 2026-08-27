@@ -5741,14 +5741,18 @@ BOOL btl_scr_cmd_126_TryHealingWish(void *bsys UNUSED, struct BattleStruct *ctx)
     IncrementBattleScriptPtr(ctx, 1);
     int adrs = read_battle_script_param(ctx);
 
-    if (ctx->healingWishQueue.counter[ctx->attack_client].count == 2) {
-        IncrementBattleScriptPtr(ctx, adrs);
-        return FALSE;
-    }
-
     BOOL isLunarDance = FALSE;
     if (ctx->current_move_index == MOVE_LUNAR_DANCE) {
         isLunarDance = TRUE;
+    }
+
+    u8 count = ctx->healingWishQueue.counter[ctx->attack_client].count;
+    int condition = ctx->healingWishQueue.queue[ctx->reshuffle_client][count];
+    if (count == 2
+        || (isLunarDance && condition == HEALING_CONDITION_HEALING_LUNAR_DANCE)
+        || (!isLunarDance && condition == HEALING_CONDITION_HEALING_WISH)) {
+        IncrementBattleScriptPtr(ctx, adrs);
+        return FALSE;
     }
 
     u8 back = ctx->healingWishQueue.counter[ctx->attack_client].back;
@@ -5767,7 +5771,7 @@ BOOL LONG_CALL canHealingWishActivate(struct BattleStruct *ctx, int slot, BOOL r
         return TRUE;
     }
 
-    if ((ctx->battlemon[slot].condition & STATUS_ALL) || (ctx->battlemon[slot].condition2 & STATUS2_CONFUSION)) {
+    if ((ctx->battlemon[slot].condition & STATUS_ALL) || (ctx->battlemon[slot].condition2 & STATUS2_CONFUSION)) { // TODO: once we have ally switch
         return TRUE;
     }
 
@@ -5794,22 +5798,22 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
     }
 
     u8 front = ctx->healingWishQueue.counter[ctx->reshuffle_client].front;
-    BOOL restorePP = FALSE;
+    BOOL isLunarDance = FALSE;
     if (ctx->healingWishQueue.queue[ctx->reshuffle_client][front] == HEALING_CONDITION_HEALING_LUNAR_DANCE) {
-        restorePP = TRUE;
+        isLunarDance = TRUE;
     }
 
-    if (canHealingWishActivate(ctx, ctx->reshuffle_client, restorePP)) {
+    if (canHealingWishActivate(ctx, ctx->reshuffle_client, isLunarDance)) {
         ctx->battlerIdTemp = ctx->reshuffle_client;
         ctx->mp.id = BATTLE_MSG_HEALING_WISH; // "The healing wish came true for {0}!"
         ctx->mp.tag = TAG_NICKNAME;
         ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->reshuffle_client);
 
         ctx->battlemon[ctx->reshuffle_client].condition = 0;
-        ctx->battlemon[ctx->reshuffle_client].condition2 &= ~(STATUS2_CONFUSION);
+        ctx->battlemon[ctx->reshuffle_client].condition2 &= ~(STATUS2_CONFUSION); // TODO: once we have ally switch
         ctx->hp_calc_work = (s32)ctx->battlemon[ctx->reshuffle_client].maxhp;
 
-        if (restorePP) {
+        if (isLunarDance) {
             ctx->mp.id = BATTLE_MSG_LUNAR_DANCE; // "{0} became cloaked in mystical moonlight!"
 
             for (unsigned i = 0; i < MAX_MON_MOVES; i++) {
