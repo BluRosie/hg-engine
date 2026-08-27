@@ -5790,6 +5790,7 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
     debug_printf("btl_scr_cmd_127_ActivateHealingWish %d\n", ctx->reshuffle_client);
     IncrementBattleScriptPtr(ctx, 1);
     int adrs = read_battle_script_param(ctx);
+    ctx->hp_calc_work = 0;
 
     if (ctx->reshuffle_client == BATTLER_NONE || ctx->healingWishQueue.counter[ctx->reshuffle_client].count == 0) {
         debug_printf("not active\n");
