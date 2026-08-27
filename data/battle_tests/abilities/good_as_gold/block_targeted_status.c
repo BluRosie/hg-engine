@@ -105,8 +105,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones float in the air around the opposing side!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gholdengo's Good as Gold" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Gholdengo..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gholdengo's Good as Gold" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Gholdengo..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gholdengo's Sp. Atk rose sharply!" },
     }
 }
 END_TEST

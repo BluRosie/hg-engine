@@ -9,11 +9,11 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_LYCANROC,
-            .level = 50,
+            .level = 70,
             .form = 0,
             .ability = ABILITY_TOUGH_CLAWS,
             .item = ITEM_NONE,
-            .moves = { MOVE_PSYCHIC_FANGS, MOVE_CRUNCH, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_HIGH_HORSEPOWER, MOVE_CRUNCH, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -118,6 +118,11 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Shedinja..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Shedinja..." },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shedinja fainted!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shedinja fainted!" },
     }
 }
 END_TEST
