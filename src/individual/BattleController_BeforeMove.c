@@ -2724,21 +2724,6 @@ BOOL BattleController_CheckAbilityFailures2(struct BattleSystem *bsys UNUSED, st
     return FALSE;
 }
 
-int CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender)
-{
-    if ((ctx->moveTbl[ctx->current_move_index].target != RANGE_USER && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE && ctx->moveTbl[ctx->current_move_index].power != 0 && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY) /* && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) */) || ctx->current_move_index == MOVE_THUNDER_WAVE) {
-        // TODO: Probably wrong?
-        u32 temp = ctx->moveStatusFlagForSpreadMoves[defender];
-        // TODO: Use GetTypeEffectiveness
-        ServerDoTypeCalcMod(bsys, ctx, ctx->current_move_index, ctx->move_type, ctx->attack_client, defender, ctx->damageForSpreadMoves[defender], &temp);
-        ctx->moveStatusFlagForSpreadMoves[defender] = temp;
-        if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_NO_EFFECT && IsAttackerOnField(ctx)) {
-            ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
-        }
-    }
-    return FALSE;
-}
-
 // TODO: check message/subscript correctness, move damage out, handle Thousand Arrows
 BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender)
 {
@@ -2749,9 +2734,9 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
     int effectiveness = TYPE_MUL_NORMAL;
 
     if ((ctx->moveTbl[ctx->current_move_index].target != RANGE_USER
-        && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE
-        && ctx->moveTbl[ctx->current_move_index].power != 0
-        && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY)
+            && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE
+            && ctx->moveTbl[ctx->current_move_index].power != 0
+            && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY)
             /* && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) */)
         || ctx->current_move_index == MOVE_THUNDER_WAVE) {
         effectiveness = GetTypeEffectiveness(bsys, ctx, ctx->attack_client, defender, ctx->move_type, &flag);
@@ -2769,8 +2754,6 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         ctx->moveStatusFlagForSpreadMoves[defender] = status;
     }
 
-    
-
     if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_NO_EFFECT) {
         if (IsAttackerOnField(ctx)) {
             ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
@@ -2786,11 +2769,12 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
 
     if ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WONDER_GUARD) == TRUE)
         && effectiveness < TYPE_MUL_NORMAL
-        && ShouldDelayTurnEffectivenessChecking(ctx, ctx->current_move_index)) {
+        /* && ShouldDelayTurnEffectivenessChecking(ctx, ctx->current_move_index)*/
+    ) {
         if (IsAttackerOnField(ctx)) {
             ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
         }
-
+        ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_EFFECT;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
@@ -2801,7 +2785,6 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
 
     return FALSE;
 }
-
 
 BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {

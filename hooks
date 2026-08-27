@@ -355,7 +355,6 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 #endif
 
 # need another hook for this one yeah yeah
-0012 ServerDoTypeCalcMod 02251D28
 0012 AITypeCalc 02252054
 0012 GrabMoveTypeForConversion2 0224DD7C 2
 
