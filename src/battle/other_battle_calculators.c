@@ -1892,7 +1892,7 @@ u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u8 defender_type, u8 defaultEf
         defaultEffectiveness = TYPE_MUL_SUPER_EFFECTIVE;
     } else if (move_no == MOVE_THOUSAND_ARROWS && defender_type == TYPE_FLYING) {
         defaultEffectiveness = TYPE_MUL_NORMAL;
-    } 
+    }
     return defaultEffectiveness;
 }
 
@@ -4180,7 +4180,7 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
         return ABILITY_NONE;
     }
     BOOL isGrounded = ctx->moveConditionsFlags[ctx->defence_client].grounded;
-    BOOL isGravityOn = (ctx->field_condition &FIELD_CONDITION_GRAVITY);
+    BOOL isGravityOn = (ctx->field_condition & FIELD_CONDITION_GRAVITY);
     BOOL isIngrained = (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN);
 
     ability = ctx->battlemon[battlerId].ability;
@@ -4750,7 +4750,7 @@ BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *ctx, int attack_c
     int itemEffect = HeldItemHoldEffectGet(ctx, defence_client);
     BOOL ret = TRUE;
 
-    if (itemEffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED 
+    if (itemEffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED
         || (ctx->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)
         || ctx->moveConditionsFlags[ctx->defence_client].grounded) {
         if (TypeEffectivenessTable[index][1] == TYPE_FLYING && TypeEffectivenessTable[index][2] == TYPE_MUL_NO_EFFECT) {

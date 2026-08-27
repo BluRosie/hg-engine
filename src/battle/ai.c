@@ -48,7 +48,7 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
         && !(sp->moveConditionsFlags[sp->defence_client].grounded)) {
         flag[0] |= MOVE_STATUS_NO_EFFECT; // not "not very effective", ineffective
     } else if ((typeLocal == TYPE_GROUND)
-        && ((sp->field_condition & FIELD_CONDITION_GRAVITY) == 0) 
+        && ((sp->field_condition & FIELD_CONDITION_GRAVITY) == 0)
         && !(sp->moveConditionsFlags[sp->defence_client].grounded)
         && (held_effect == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)) {
         flag[0] |= MOVE_STATUS_NO_EFFECT; // not "not very effective", ineffective
