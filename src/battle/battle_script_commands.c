@@ -5738,12 +5738,10 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
 BOOL btl_scr_cmd_126_TryHealingWish(void *bsys UNUSED, struct BattleStruct *ctx)
 {
-    debug_printf("btl_scr_cmd_126_TryHealingWish %d\n", ctx->attack_client);
     IncrementBattleScriptPtr(ctx, 1);
     int adrs = read_battle_script_param(ctx);
 
     if (ctx->healingWishQueue.counter[ctx->attack_client].count == 2) {
-        debug_printf("count == 2\n");
         IncrementBattleScriptPtr(ctx, adrs);
         return FALSE;
     }
@@ -5764,10 +5762,8 @@ BOOL btl_scr_cmd_126_TryHealingWish(void *bsys UNUSED, struct BattleStruct *ctx)
 
 BOOL LONG_CALL canHealingWishActivate(struct BattleStruct *ctx, int slot, BOOL restorePP)
 {
-    debug_printf("canHealingWishActivate %d/%d\n", ctx->battlemon[slot].hp, ctx->battlemon[slot].maxhp);
     if (ctx->battlemon[slot].hp != (s32)ctx->battlemon[slot].maxhp
         && !ctx->battlemon[slot].moveeffect.healBlockTurns) {
-        debug_printf("can activate\n");
         return TRUE;
     }
 
@@ -5777,7 +5773,8 @@ BOOL LONG_CALL canHealingWishActivate(struct BattleStruct *ctx, int slot, BOOL r
 
     if (restorePP) {
         for (unsigned i = 0; i < MAX_MON_MOVES; i++) {
-            if (ctx->battlemon[slot].pp[i] < ctx->battlemon[slot].pp_count[i]) {
+            u8 maxpp = ctx->battlemon[slot].pp_count[i];
+            if (ctx->battlemon[slot].pp[i] != maxpp) {
                 return TRUE;
             }
         }
@@ -5787,13 +5784,11 @@ BOOL LONG_CALL canHealingWishActivate(struct BattleStruct *ctx, int slot, BOOL r
 
 BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct *ctx)
 {
-    debug_printf("btl_scr_cmd_127_ActivateHealingWish %d\n", ctx->reshuffle_client);
     IncrementBattleScriptPtr(ctx, 1);
     int adrs = read_battle_script_param(ctx);
     ctx->hp_calc_work = 0;
 
     if (ctx->reshuffle_client == BATTLER_NONE || ctx->healingWishQueue.counter[ctx->reshuffle_client].count == 0) {
-        debug_printf("not active\n");
         IncrementBattleScriptPtr(ctx, adrs);
         return FALSE;
     }
@@ -5810,7 +5805,6 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
         ctx->mp.tag = TAG_NICKNAME;
         ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->reshuffle_client);
 
-        debug_printf("heal\n");
         ctx->battlemon[ctx->reshuffle_client].condition = 0;
         ctx->battlemon[ctx->reshuffle_client].condition2 &= ~(STATUS2_CONFUSION);
         ctx->hp_calc_work = (s32)ctx->battlemon[ctx->reshuffle_client].maxhp;
@@ -5827,7 +5821,6 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
         ctx->healingWishQueue.counter[ctx->reshuffle_client].front = (front + 1) % 2;
         ctx->healingWishQueue.counter[ctx->reshuffle_client].count--;
     } else {
-        debug_printf("not applicable\n");
         IncrementBattleScriptPtr(ctx, adrs);
     }
 

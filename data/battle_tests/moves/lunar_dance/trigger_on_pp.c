@@ -39,7 +39,7 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_CRESSELIA,
-            .level = 50,
+            .level = 5,
             .form = 0,
             .ability = ABILITY_LEVITATE,
             .item = ITEM_NONE,
