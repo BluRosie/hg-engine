@@ -28,6 +28,7 @@
 #define MON_FOLLOWER_ENTRY(species, cbparams) \
     { .tag = MON_OVERWORLD_TAG_START + species, .gfx = MON_OVERWORLD_GFX_START + species, .callback_params = cbparams },
 
+// clang-format off
 struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts that are specifically for pokémon
     {
         { .tag = 0, .gfx = 69, .callback_params = 0x1C60 },
@@ -1694,8 +1695,8 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
         MON_FOLLOWER_ENTRY(SPECIES_PECHARUNT, OVERWORLD_SIZE_SMALL)
 
         { 0xFFFF, 0, 0 },
-
     };
+// clang-format on
 
 // used for HoF/pokeathlon overworlds
 struct OVERWORLD_TAG *grab_overworld_ptr(u16 tag)

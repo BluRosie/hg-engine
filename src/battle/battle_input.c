@@ -691,14 +691,11 @@ u16 TerrainPlatformPalettes[][3] = {
 
 BattleBGStorage NewBattleBgTable[] = {
     [BATTLE_BG_ELECTRIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = { .baseEntry = 354, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
-    [BATTLE_BG_MISTY_TERRAIN -
-        NUM_VANILLA_BATTLE_BACKGROUNDS]
+    [BATTLE_BG_MISTY_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS]
     = { .baseEntry = 356, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
-    [BATTLE_BG_GRASSY_TERRAIN -
-        NUM_VANILLA_BATTLE_BACKGROUNDS]
+    [BATTLE_BG_GRASSY_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS]
     = { .baseEntry = 358, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
-    [BATTLE_BG_PSYCHIC_TERRAIN -
-        NUM_VANILLA_BATTLE_BACKGROUNDS]
+    [BATTLE_BG_PSYCHIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS]
     = { .baseEntry = 360, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
 };
 
