@@ -42,6 +42,7 @@ _nostatusrestored:
     WaitButtonABTime 30
     //SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     //UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_TARGET
+    Call BATTLE_SUBSCRIPT_HEALING_WISH
     Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
     GoTo _end
 
