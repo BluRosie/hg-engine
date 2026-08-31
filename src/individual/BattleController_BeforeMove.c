@@ -1408,7 +1408,7 @@ void BattleController_CheckGravityOrThroatChop(struct BattleSystem *bsys, struct
 
 BOOL BattleController_CheckChoiceItemMoveUsage(struct BattleStruct *ctx)
 {
-    if (IsAttackerOnField(ctx) && !sp->magicBounceContext.isActive) {
+    if (IsAttackerOnField(ctx) && !ctx->magicBounceContext.isActive) {
         int itemEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
         if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
             if (ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice
