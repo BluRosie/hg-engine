@@ -1410,7 +1410,7 @@ BOOL BattleController_CheckChoiceItemMoveUsage(struct BattleStruct *ctx)
 {
     if (IsAttackerOnField(ctx)) {
         int item = ctx->battlemon[ctx->attack_client].item;
-        if (item == HOLD_EFFECT_CHOICE_ATK || item == HOLD_EFFECT_CHOICE_SPEED || item == HOLD_EFFECT_CHOICE_SPATK) {
+        if (item == ITEM_CHOICE_BAND || item == ITEM_CHOICE_SCARF || item == ITEM_CHOICE_SPECS) {
             if (ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice
                 && ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice != ctx->current_move_index) {
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
