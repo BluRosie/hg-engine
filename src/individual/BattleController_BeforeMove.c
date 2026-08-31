@@ -2122,6 +2122,62 @@ void BattleController_CheckBide(struct BattleSystem *bsys, struct BattleStruct *
     }
 }
 
+BOOL CanSetFirstBattlerWithAbilityInSlotOrder(struct BattleStruct *ctx, u32 ability) {
+    if (GetBattlerAbility(ctx, ctx->attack_client) == ability) {
+        ctx->battlerIdTemp = ctx->attack_client;
+        return TRUE;
+    }
+
+    int counter = 0;
+    while (counter <= SPREAD_MOVE_LOOP_MAX) {
+        switch (ctx->clientLoopForSpreadMoves) {
+        case SPREAD_MOVE_LOOP_ALLY: {
+            counter++;
+            int ally = BATTLER_ALLY(ctx->attack_client);
+            if (GetBattlerAbility(ctx, ally) == ability) {
+                ctx->battlerIdTemp = ally;
+                return TRUE;
+            }
+        }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_LEFT: {
+            counter++;
+            int opLeft = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
+            if (GetBattlerAbility(ctx, opLeft) == ability) {
+                ctx->battlerIdTemp = opLeft;
+                return TRUE;
+            }
+        }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_RIGHT: {
+            counter++;
+            int opRight = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
+            if (GetBattlerAbility(ctx, opRight) == ability) {
+                ctx->battlerIdTemp = opRight;
+                return TRUE;
+            }
+            break;
+        }
+        }
+    }
+
+     return FALSE;
+}
+
+BOOL BattlerHasArmorTailQueenlyMajestyOrDazzling(struct BattleStruct *ctx, int battlerId)
+{
+    switch (GetBattlerAbility(ctx, battlerId)) {
+    case ABILITY_QUEENLY_MAJESTY:
+    case ABILITY_DAZZLING:
+    case ABILITY_ARMOR_TAIL:
+        return TRUE;
+        break;
+    default:
+        break;
+    }
+    return FALSE;
+}
+
 BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     if (ctx->defence_client == BATTLER_NONE) {
@@ -2136,15 +2192,8 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
     case MOVE_EXPLOSION:
     case MOVE_MIND_BLOWN:
     case MOVE_MISTY_EXPLOSION:
-        if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, defender, ABILITY_DAMP)
-            && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
-            for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
-                int client_no = ctx->turnOrder[i];
-                if (GetBattlerAbility(ctx, client_no) == ABILITY_DAMP) {
-                    ctx->battlerIdTemp = client_no;
-                    break;
-                }
-            }
+        if (CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
+            && CanSetFirstBattlerWithAbilityInSlotOrder(ctx, ABILITY_DAMP)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -2159,31 +2208,18 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
         break;
     }
 
+    BOOL defenderHasPriorityBlock = BattlerHasArmorTailQueenlyMajestyOrDazzling(ctx, defender);
+    BOOL defenderAllyHasPriorityBlock = BattlerHasArmorTailQueenlyMajestyOrDazzling(ctx, BATTLER_ALLY(defender));
+
     // Handle Queenly Majesty, Dazzling & Armor Tail
-    if ((CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
-            || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
-            || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
+    if ((defenderHasPriorityBlock || defenderAllyHasPriorityBlock)
         && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
         && (IsClientEnemy(bsys, defender) != IsClientEnemy(bsys, attacker))) {
         if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
-            BOOL foundFirstBlockingAbility = FALSE;
-            for (int i = 0; i < BattleWorkClientSetMaxGet(bsys); i++) {
-                int client_no = ctx->turnOrder[i];
-                if (IsClientEnemy(bsys, client_no) != IsClientEnemy(bsys, attacker)) {
-                    switch (GetBattlerAbility(ctx, client_no)) {
-                    case ABILITY_QUEENLY_MAJESTY:
-                    case ABILITY_DAZZLING:
-                    case ABILITY_ARMOR_TAIL:
-                        ctx->battlerIdTemp = client_no;
-                        foundFirstBlockingAbility = TRUE;
-                        break;
-                    default:
-                        break;
-                    }
-                }
-                if (foundFirstBlockingAbility) {
-                    break;
-                }
+            if (defenderHasPriorityBlock) {
+                ctx->battlerIdTemp = defender;
+            } else {
+                ctx->battlerIdTemp = BATTLER_ALLY(defender);
             }
 
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
