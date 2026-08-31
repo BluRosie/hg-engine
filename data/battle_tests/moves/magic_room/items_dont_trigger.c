@@ -25,7 +25,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_TOXIC, MOVE_KNOCK_OFF, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_TOXIC, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -76,7 +76,7 @@ BEGIN_TEST
                       },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -107,7 +107,9 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It created a bizarre area in which Pokémon’s held items lose their effects!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus was badly poisoned!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus was hurt by its poisoning!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magic Room wore off, and held items’ effects returned to normal!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus’s Pecha Berry cured its poison!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snom restored a little HP using its Leftovers!" },
     }
 }
