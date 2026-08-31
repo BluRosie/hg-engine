@@ -2122,7 +2122,8 @@ void BattleController_CheckBide(struct BattleSystem *bsys, struct BattleStruct *
     }
 }
 
-BOOL CanSetFirstBattlerWithAbilityInSlotOrder(struct BattleStruct *ctx, u32 ability) {
+BOOL CanSetFirstBattlerWithAbilityInSlotOrder(struct BattleStruct *ctx, u32 ability)
+{
     if (GetBattlerAbility(ctx, ctx->attack_client) == ability) {
         ctx->battlerIdTemp = ctx->attack_client;
         return TRUE;
@@ -2161,7 +2162,7 @@ BOOL CanSetFirstBattlerWithAbilityInSlotOrder(struct BattleStruct *ctx, u32 abil
         }
     }
 
-     return FALSE;
+    return FALSE;
 }
 
 BOOL BattlerHasArmorTailQueenlyMajestyOrDazzling(struct BattleStruct *ctx, int battlerId)
