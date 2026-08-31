@@ -1,4 +1,5 @@
-// Test: Magic Room - Choice item user using another move will fail
+// Test: Magic Room - Choice item user can another move during magic room
+//https://discord.com/channels/419213663107416084/1368163973366681712/1540755705466720457
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -87,7 +88,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 9 } }, 
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It created a bizarre area in which Pokemon's held items lose their effects!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Eevee used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 6 } }, 
     }
 }
 END_TEST
