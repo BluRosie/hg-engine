@@ -5771,7 +5771,16 @@ BOOL btl_scr_cmd_127_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *
         break;
     case OPCODE_FLAG_OFF:
         ctx->field_condition2 &= ~fieldCondition2;
+
+        switch (fieldCondition2) {
+        case FIELD_CONDITION_2_MAGIC_ROOM:
+            ctx->magicRoomCounter = 0;
+            break;
+        default:
+            break;
+        }
         break;
+
     default:
         break;
     }

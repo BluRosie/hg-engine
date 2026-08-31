@@ -83,7 +83,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus used Protect!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It created a bizarre area in which Pokémon’s held items lose their effects!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Leftovers!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magic Room wore off, and held items’ effects returned to normal!" },
     }
 }
 END_TEST

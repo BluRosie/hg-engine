@@ -214,7 +214,7 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
         return 0;
     }
 
-    if (sp->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM && sp->magicRoomCounter) {
+    if ((sp->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM) && sp->magicRoomCounter) {
         return 0;
     }
 

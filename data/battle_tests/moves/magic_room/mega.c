@@ -94,7 +94,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus used Protect!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It created a bizarre area in which Pokémon’s held items lose their effects!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Raichu has Mega Evolved into Mega Raichu!" },
     }
 }
 END_TEST

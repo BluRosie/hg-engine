@@ -1543,7 +1543,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 #endif
             if (sp->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM) {
                 --sp->magicRoomCounter;
-                if ((sp->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM) == 0) {
+                if (sp->magicRoomCounter == 0) {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_MAGIC_ROOM_END);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = 22;

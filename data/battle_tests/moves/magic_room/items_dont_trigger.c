@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_AZELF,
-            .level = 50,
+            .level = 55,
             .form = 0,
             .ability = ABILITY_LEVITATE,
             .item = ITEM_NONE,
@@ -105,7 +105,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus used Protect!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It created a bizarre area in which Pokémon’s held items lose their effects!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus was badly poisoned!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magic Room wore off, and held items’ effects returned to normal!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snom restored a little HP using its Leftovers!" },
     }
 }
 END_TEST
