@@ -105,11 +105,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It created a bizarre area in which Pokémon’s held items lose their effects!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It created a bizarre area in which Pokemon's held items lose their effects!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus was badly poisoned!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus was hurt by its poisoning!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magic Room wore off, and held items’ effects returned to normal!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus’s Pecha Berry cured its poison!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magic Room wore off, and held items' effects returned to normal!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Maractus's Pecha Berry cured its poison!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snom restored a little HP using its Leftovers!" },
     }
 }
