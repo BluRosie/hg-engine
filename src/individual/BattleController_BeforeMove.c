@@ -377,8 +377,10 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK\n");
 #endif
-        if (BattleController_CheckChoiceItemMoveUsage(ctx) == TRUE) {
-            return;
+        if ((ctx->waza_out_check_on_off & SYSCTL_SKIP_STATUS_CHECK) == FALSE) {
+            if (BattleController_CheckChoiceItemMoveUsage(ctx) == TRUE) {
+                return;
+            }
         }
         ctx->wb_seq_no++;
         return;
