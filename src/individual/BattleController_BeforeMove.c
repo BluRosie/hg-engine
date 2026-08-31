@@ -1881,6 +1881,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     int move;
     int attackerAbility = GetBattlerAbility(ctx, ctx->attack_client);
     u32 weather = GetWeather(bsys, ctx, 0xFF); // Mega Sol does not affect Aurora Veil
+    int attackerItem = GetBattleMonItem(ctx, ctx->attack_client);
 
     // For Sucker Punch
     if (ctx->battlemon[ctx->defence_client].moveeffect.encoredMove && ctx->battlemon[ctx->defence_client].moveeffect.encoredMove == ctx->battlemon[ctx->defence_client].move[ctx->battlemon[ctx->defence_client].moveeffect.encoredMoveIndex]) {
@@ -1949,7 +1950,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         || (moveEffect == MOVE_EFFECT_FLEE_FROM_WILD_BATTLE && (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) && !CanSwitchMon(bsys, ctx, ctx->attack_client))
         // TODO: Magic Room
         // Fling / Natural Gift: Embargo or Magic Room are in effect, or ineligible held item, or no item
-        || ((moveEffect == MOVE_EFFECT_FLING || moveEffect == MOVE_EFFECT_NATURAL_GIFT) && (attackClient.moveeffect.embargoFlag || attackClient.item == 0))
+        || ((moveEffect == MOVE_EFFECT_FLING || moveEffect == MOVE_EFFECT_NATURAL_GIFT) && (attackClient.moveeffect.embargoFlag || attackerItem == 0))
         || (moveEffect == MOVE_EFFECT_NATURAL_GIFT && GetNaturalGiftPower(ctx, ctx->attack_client) == 0)
         || (moveEffect == MOVE_EFFECT_FLING && (IS_ITEM_GEM(attackClient.item) || !CanItemBeRemovedFromClient(attackClient.species, attackClient.item, attackClient.form_no) || attackerAbility == ABILITY_KLUTZ))) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
