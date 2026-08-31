@@ -5750,7 +5750,6 @@ BOOL btl_scr_cmd_126_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct 
     return FALSE;
 }
 
-
 BOOL btl_scr_cmd_127_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
