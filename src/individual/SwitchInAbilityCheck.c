@@ -806,7 +806,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 // Air Balloon is announced
                 // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-9227933
                 {
-                    if ((sp->battlemon[client_no].air_balloon_flag == 0) && (sp->battlemon[client_no].hp) && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)) {
+                    if ((sp->battlemon[client_no].air_balloon_flag == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)
+                        && !(sp->moveConditionsFlags[client_no].grounded)) {
                         sp->battlemon[client_no].air_balloon_flag = 1;
                         sp->battlerIdTemp = client_no;
                         scriptnum = BATTLE_SUBSCRIPT_HANDLE_AIR_BALLOON_MESSAGE;
