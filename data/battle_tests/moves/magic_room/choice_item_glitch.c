@@ -1,4 +1,4 @@
-// Test: Magic Room - Choice item user can still attack with choiced lock move
+// Test: Magic Room - Choice item user using another move will fail
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -64,7 +64,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
