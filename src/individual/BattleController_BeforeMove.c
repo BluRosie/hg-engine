@@ -2578,6 +2578,7 @@ BOOL CheckProtectedBySelf(struct BattleStruct *ctx, int defender, u16 *protected
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender)
 {
     if (ctx->oneTurnFlag[defender].protectFlag
+        && !ctx->futureSightHitTurn
         && !CanHitThroughProtect(ctx, ctx->attack_client, defender)) {
         BOOL protectedByAlly = FALSE;
         BOOL protectedBySelf = FALSE;
@@ -2711,7 +2712,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
     return FALSE;
 }
 
-// TODO: Handle Smack Down, Ingrain
+// TODO: Handle Ingrain
 BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
     // TODO: this to my knowledge handle base species, and does not consider transformed species, which is correct. Requires verifying
@@ -2720,7 +2721,8 @@ BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct 
     int defenderForm = ctx->battlemon[defender].form_no;
     if (ctx->current_move_index == MOVE_TELEKINESIS
         && (((defenderSpecies == SPECIES_GENGAR && defenderForm == 1) || defenderSpecies == SPECIES_DIGLETT || defenderSpecies == SPECIES_DUGTRIO || defenderSpecies == SPECIES_SANDYGAST || defenderSpecies == SPECIES_PALOSSAND)
-            || ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)) {
+            || (ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)
+            || (ctx->moveConditionsFlags[defender].grounded == TRUE))) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
         ctx->battlerIdTemp = defender;
@@ -2788,7 +2790,8 @@ BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct Bat
             || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_EELEVATE) == TRUE)
         && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
         // iron ball halves speed and grounds
-        && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
+        && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)
+        && !(ctx->moveConditionsFlags[ctx->defence_client].grounded)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_LEVITATE_IMMUNE;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
@@ -4068,7 +4071,10 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         break;
     }
     case MOVE_MAGNET_RISE: {
-        if (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE) {
+        if ((ctx->battlemon[ctx->attack_client].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE)
+            || (ctx->battlemon[ctx->attack_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
+            || (ctx->field_condition & FIELD_CONDITION_GRAVITY)
+            || (ctx->moveConditionsFlags[ctx->attack_client].grounded == TRUE)) {
             butItFailedFlag = TRUE;
         }
         break;

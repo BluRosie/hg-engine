@@ -2243,7 +2243,8 @@ BOOL LONG_CALL IsClientGrounded(struct BattleStruct *sp, u32 client_no)
             && (sp->battlemon[client_no].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, client_no, TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
-            || (sp->field_condition & FIELD_CONDITION_GRAVITY))) {
+            || (sp->field_condition & FIELD_CONDITION_GRAVITY)
+            || (sp->moveConditionsFlags[client_no].grounded == TRUE))) {
         // not in a semi-vulnerable state
         if ((sp->battlemon[client_no].effect_of_moves & (MOVE_EFFECT_FLAG_FLY | MOVE_EFFECT_FLAG_DIG | MOVE_EFFECT_FLAG_DIVE | MOVE_EFFECT_FLAG_PHANTOM_FORCE)) == 0) {
             return TRUE;
@@ -2271,7 +2272,8 @@ BOOL LONG_CALL MoldBreakerIsClientGrounded(struct BattleStruct *sp, u32 attacker
             && (sp->battlemon[defender].moveeffect.magnetRiseTurns) == 0 && !HasType(sp, defender, TYPE_FLYING))
         || (holdeffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED // holding Iron Ball
             || (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
-            || (sp->field_condition & FIELD_CONDITION_GRAVITY))) {
+            || (sp->field_condition & FIELD_CONDITION_GRAVITY)
+            || (sp->moveConditionsFlags[defender].grounded == TRUE))) {
         // not in a semi-vulnerable state
         if ((sp->battlemon[defender].effect_of_moves & (MOVE_EFFECT_FLAG_FLY | MOVE_EFFECT_FLAG_DIG | MOVE_EFFECT_FLAG_DIVE | MOVE_EFFECT_FLAG_PHANTOM_FORCE)) == 0) {
             return TRUE;
