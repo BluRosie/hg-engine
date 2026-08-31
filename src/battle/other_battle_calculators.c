@@ -1890,6 +1890,8 @@ u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u8 defender_type, u8 defaultEf
 {
     if (move_no == MOVE_FREEZE_DRY && defender_type == TYPE_WATER) {
         defaultEffectiveness = TYPE_MUL_SUPER_EFFECTIVE;
+    } else if (move_no == MOVE_THOUSAND_ARROWS && defender_type == TYPE_FLYING) {
+        defaultEffectiveness = TYPE_MUL_NORMAL;
     }
     return defaultEffectiveness;
 }
@@ -4177,16 +4179,16 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
     if (battlerId == BATTLER_NONE) {
         return ABILITY_NONE;
     }
+    BOOL isGrounded = ctx->moveConditionsFlags[ctx->defence_client].grounded;
+    BOOL isGravityOn = (ctx->field_condition & FIELD_CONDITION_GRAVITY);
+    BOOL isIngrained = (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN);
+
     ability = ctx->battlemon[battlerId].ability;
     if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_ABILITY_SUPPRESSED) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
-    } else if ((ctx->field_condition & FIELD_CONDITION_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
+    } else if ((isGrounded || isGravityOn || isIngrained) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
         return ABILITY_NONE;
-    } else if ((ctx->field_condition & FIELD_CONDITION_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
-        return ABILITY_BEAST_BOOST;
-    } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
-        return ABILITY_NONE;
-    } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
+    } else if ((isGrounded || isGravityOn || isIngrained) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
         return ABILITY_BEAST_BOOST;
     } else if ((ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORM) && AbilityNoTransform(ctx->battlemon[battlerId].ability)) {
         return ABILITY_NONE;
@@ -4741,4 +4743,36 @@ void LONG_CALL PlayTrainerVictoryBGM(struct TrainerData *trainer)
         PlayBGM(SEQ_GS_WIN1);
         break;
     }
+}
+
+BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *ctx, int attack_client UNUSED, int defence_client, int index)
+{
+    int itemEffect = HeldItemHoldEffectGet(ctx, defence_client);
+    BOOL ret = TRUE;
+
+    if (itemEffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED
+        || (ctx->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)
+        || ctx->moveConditionsFlags[ctx->defence_client].grounded) {
+        if (TypeEffectivenessTable[index][1] == TYPE_FLYING && TypeEffectivenessTable[index][2] == TYPE_MUL_NO_EFFECT) {
+            ret = FALSE;
+        }
+    }
+
+    if (ctx->oneTurnFlag[defence_client].roostFlag && TypeEffectivenessTable[index][1] == TYPE_FLYING) {
+        ret = FALSE;
+    }
+
+    if (ctx->field_condition & FIELD_CONDITION_GRAVITY) {
+        if (TypeEffectivenessTable[index][1] == TYPE_FLYING && TypeEffectivenessTable[index][2] == TYPE_MUL_NO_EFFECT) {
+            ret = FALSE;
+        }
+    }
+
+    if (ctx->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE) {
+        if (TypeEffectivenessTable[index][1] == TYPE_DARK && TypeEffectivenessTable[index][2] == TYPE_MUL_NO_EFFECT) {
+            ret = FALSE;
+        }
+    }
+
+    return ret;
 }
