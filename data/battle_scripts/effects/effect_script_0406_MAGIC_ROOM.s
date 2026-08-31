@@ -8,7 +8,7 @@ _000:
     SetFieldCondition2 OPCODE_FLAG_ON, FIELD_CONDITION_2_MAGIC_ROOM
     Call BATTLE_SUBSCRIPT_ATTACK_MESSAGE_AND_ANIMATION
     //It created a bizarre area in which Pokémon’s held items lose their effects!
-    PrintMessage 1784, TAG_NONE
+    PrintMessage 1787, TAG_NONE
     Wait 
     WaitButtonABTime 30
     End
