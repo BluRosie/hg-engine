@@ -563,3 +563,9 @@ arm9 020649B4 64 E2 0F 02
 #else
 0053 080016BA FC 00
 #endif
+
+# GetBoxmonSpriteCharAndPlttNarcIds always call GetMonSpriteCharAndPlttNarcIdsEx
+arm9 020701AC 08 E0
+
+# sub_02070854 always call GetMonPicHeightBySpeciesGenderForm
+arm9 020708B0 06 E0

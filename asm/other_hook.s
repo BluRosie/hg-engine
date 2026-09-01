@@ -3,32 +3,32 @@
 .thumb
 
 /*不同形态的图片读取*/
-.global PokePicLoad
-PokePicLoad:
-ldr r6, [sp, #0x18]
-ldr r1, [sp, #0x1C]
-mov r0, #0x0
-strh r0, [r5, #0x6]
-strb r0, [r5, #0x8]
-str r0, [r5, #0xC]
-push {r0-r3}
-sub sp, #0x4
-str r1, [sp, #0x0]
-mov r0, r5
-mov r1, r4
-mov r2, r3
-mov r3, r6
-bl GetOtherFormPic
-add sp, #0x4
-cmp r0, #0x0
-bne HaveNewPic
-pop {r0-r3}
-ldr r0, =0x020701F8 + 1
-bx r0
+//.global PokePicLoad
+//PokePicLoad:
+//ldr r6, [sp, #0x18]
+//ldr r1, [sp, #0x1C]
+//mov r0, #0x0
+//strh r0, [r5, #0x6]
+//strb r0, [r5, #0x8]
+//str r0, [r5, #0xC]
+//push {r0-r3}
+//sub sp, #0x4
+//str r1, [sp, #0x0]
+//mov r0, r5
+//mov r1, r4
+//mov r2, r3
+//mov r3, r6
+//bl GetOtherFormPic
+//add sp, #0x4
+//cmp r0, #0x0
+//bne HaveNewPic
+//pop {r0-r3}
+//ldr r0, =0x020701F8 + 1
+//bx r0
 
-HaveNewPic:
-pop {r0-r3}
-pop {r3-r7,pc}
+//HaveNewPic:
+//pop {r0-r3}
+//pop {r3-r7,pc}
 
 //小图标色板
 .global IconPalGet
