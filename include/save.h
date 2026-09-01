@@ -11,6 +11,8 @@
 
 #define OT_ID_PRESET 1
 
+#define obj_partner_poke   253
+
 typedef enum GymmickType {
     GYMMICK_NONE,
     GYMMICK_ECRUTEAK,
@@ -406,5 +408,7 @@ BOOL LONG_CALL CheckScriptFlag(u16 flag_id);
  */
 BOOL LONG_CALL IsElementInArray(const void *array, void *element, u32 len, u32 size);
 BOOL LONG_CALL PlayerProfile_TestBadgeFlag(struct PlayerProfile *profile, s32 badgeNumber);
+
+struct SavedMapObjectList LONG_CALL *Save_MapObjects_Get(SaveData *saveData);
 
 #endif // SAVE_H
