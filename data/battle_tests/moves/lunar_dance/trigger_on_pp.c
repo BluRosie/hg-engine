@@ -1,4 +1,4 @@
-// Test: Healing Wish - Heal full at end of the turn
+// Test: Lunar Dance - trigger on pp
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -31,21 +31,21 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_MAGIC_GUARD,
                         .item = ITEM_CHOICE_SCARF,
-                        .moves = { MOVE_HEALING_WISH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_CHANSEY,
-            .level = 50,
+            .species = SPECIES_CRESSELIA,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_SERENE_GRACE,
+            .ability = ABILITY_LEVITATE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
-            .status = STATUS_FREEZE,
+            .moves = { MOVE_LUNAR_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
@@ -55,8 +55,8 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -75,8 +75,8 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
-                         { ACTION_NONE, 0 },
+                         { ACTION_SWITCH_SLOT_1, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -94,11 +94,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy used Healing Wish!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable used Sleep Talk!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The healing wish came true for the opposing Chansey!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Cresselia used Lunar Dance!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Cresselia fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Clefairy!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Clefairy became cloaked in mystical moonlight!" },
     },
 }
 END_TEST

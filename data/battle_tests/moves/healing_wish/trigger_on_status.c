@@ -44,7 +44,7 @@ BEGIN_TEST
             .ability = ABILITY_SERENE_GRACE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
+            .hp = FULL_HP,
             .status = STATUS_FREEZE,
             .condition2 = 0,
             .moveEffectFlags = 0,

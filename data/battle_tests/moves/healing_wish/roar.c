@@ -1,7 +1,6 @@
-// Test: Healing Wish - Heal full at end of the turn
+// Test: Healing Wish - Roar
 #include "../../battle_tests.h"
-BEGIN_TEST
-{
+BEGIN_TEST {
     .battleType = BATTLE_TYPE_TRAINER,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
@@ -13,7 +12,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_MAGIC_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_ROAR, MOVE_NONE, MOVE_NONE },
             .hp = 1,
             .status = 0,
             .condition2 = 0,
@@ -23,8 +22,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
-    },
+        { .species = SPECIES_NONE } },
     .enemyParty = { {
                         .species = SPECIES_CLEFAIRY,
                         .level = 50,
@@ -37,6 +35,18 @@ BEGIN_TEST
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
+        {
+            .species = SPECIES_ONIX,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_ROCK_HEAD,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         {
             .species = SPECIES_CHANSEY,
             .level = 50,
@@ -51,11 +61,10 @@ BEGIN_TEST
         },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -75,7 +84,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -96,9 +105,10 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy used Healing Wish!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable used Sleep Talk!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Onix!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Onix used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Clefable used Roar!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chansey was dragged out!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The healing wish came true for the opposing Chansey!" },
     },
-}
-END_TEST
+} END_TEST
