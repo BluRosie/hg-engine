@@ -3272,6 +3272,7 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
                 ctx->moveContext.hitFoesCount = 0;
                 ctx->moveContext.hitSubstituteCount = 0;
                 ctx->moveContext.currentMoveCalcDone = FALSE;
+                ctx->oneSelfFlag[ctx->defence_client].status_flag &= ~SELF_STATUS_FLAG_SUBSTITUTE_HIT;
 
                 ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
                 ctx->waza_out_check_on_off = ctx->loop_hit_check;
@@ -3302,6 +3303,7 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
                 ctx->moveContext.hitFoesCount = 0;
                 ctx->moveContext.hitSubstituteCount = 0;
                 ctx->moveContext.currentMoveCalcDone = FALSE;
+                ctx->oneSelfFlag[ctx->defence_client].status_flag &= ~SELF_STATUS_FLAG_SUBSTITUTE_HIT;
 
                 ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
                 ctx->waza_out_check_on_off = ctx->loop_hit_check;
