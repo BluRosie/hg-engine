@@ -138,7 +138,7 @@ void __attribute__((section(".init"))) ServerBeforeActInternal(struct BattleSyst
                         // BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, FALSE);
                         sp->battlemon[client_no].canMega = 1;
                         newBS.needMega[client_no] = MEGA_NEED;
-                        if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
+                        if (DoesSideHave2Battlers(bw, client_no)) {
                             int ally = BATTLER_ALLY(client_no);
                             if (bw->trainerId[client_no] == bw->trainerId[ally]) {
                                 newBS.SideMega[ally] = TRUE;

@@ -13,7 +13,6 @@ a010_479:
     loadparticlefromspa 0, 493
     waitparticle
 
-    addparticle 0, 2, 3
     addparticle 0, 1, 3
     addparticle 0, 0, 3
     repeatse 1960, -117, 4, 10
