@@ -4,6 +4,7 @@
 *.mch
 build/*
 base/*
+base_dsrom/*
 narc/*
 1.txt
 3.txt
@@ -73,6 +74,8 @@ dumpitem.py
 /tools/msgenc.exe
 /tools/ndstool
 /tools/ndstool.exe
+/tools/dsrom
+/tools/dsrom.exe
 /tools/csv2bin
 /tools/o2narc*
 /tools/adpcm-xq*
@@ -112,3 +115,8 @@ test_logs.txt
 dumped_armips/
 dumped_c/
 test_filter.txt
+
+/scripts/data/*
+/scripts/fixed/moves-updated.s
+
+/hg-engine.wiki/

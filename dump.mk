@@ -14,8 +14,14 @@ check_dump_rom:
 	@test -n "$(strip $(DUMP_ROM))" || { echo "DUMP_ROM is required. Usage: make dumprom DUMP_ROM=path/to/test.nds" >&2; exit 1; }
 
 dump_prepare: check_dump_rom $(VENV_ACTIVATE) $(TOOLS) | $(DUMP_WORKDIRS)
+	rm -rf $(BASE) $(BASE)_dsrom
+	@mkdir -p $(REQUIRED_DIRECTORIES)
+ifeq ($(ROM_TOOL),dsrom)
+	$(DSROM_BRIDGE) extract --rom "$(DUMP_ROM)"
+else
 	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
 	./$(DUMP_SCRIPT_LOCATION)/dumprom.sh "$(DUMP_ROM)"
+endif
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
 
 dump_learnsets: dump_prepare
