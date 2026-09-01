@@ -6,6 +6,8 @@
 
 #include "script.h"
 
+#define obj_partner_poke 253
+
 typedef struct BG_EVENT {
     u16 scr;
     u16 type;

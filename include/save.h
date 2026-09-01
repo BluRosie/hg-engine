@@ -11,8 +11,6 @@
 
 #define OT_ID_PRESET 1
 
-#define obj_partner_poke   253
-
 typedef enum GymmickType {
     GYMMICK_NONE,
     GYMMICK_ECRUTEAK,
