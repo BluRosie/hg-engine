@@ -17,6 +17,7 @@
 
 static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
 static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *sp, u32 client);
+static int GetTraceClient(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2);
 
 extern struct ILLUSION_STRUCT gIllusionStruct;
 
@@ -202,6 +203,68 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 // Abilities with entry effects can announce, except Neutralizing Gas/Unnerve (earlier) and form-changing abilities (later)
 
+                // Screen Cleaner
+                {
+                    if (sp->battlemon[client_no].ability_activated_flag == 0
+                        && sp->battlemon[client_no].hp
+                        && GetBattlerAbility(sp, client_no) == ABILITY_SCREEN_CLEANER) {
+                        u32 screens = SIDE_STATUS_REFLECT | SIDE_STATUS_LIGHT_SCREEN | SIDE_STATUS_AURORA_VEIL;
+                        sp->battlemon[client_no].ability_activated_flag = 1;
+                        if ((sp->side_condition[0] | sp->side_condition[1]) & screens) {
+                            for (int side = 0; side < 2; side++) {
+                                sp->side_condition[side] &= ~screens;
+                                sp->scw[side].reflectCount = 0;
+                                sp->scw[side].lightScreenCount = 0;
+                                sp->scw[side].auroraVeilCount = 0;
+                            }
+                            sp->battlerIdTemp = client_no;
+                            scriptnum = BATTLE_SUBSCRIPT_SCREEN_CLEANER;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        }
+                    }
+                }
+
+                // Mimicry
+                {
+                    if (sp->battlemon[client_no].hp && GetBattlerAbility(sp, client_no) == ABILITY_MIMICRY) {
+                        int type = TYPE_TYPELESS;
+                        switch (sp->terrainOverlay.type) {
+                        case ELECTRIC_TERRAIN:
+                            type = TYPE_ELECTRIC;
+                            break;
+                        case GRASSY_TERRAIN:
+                            type = TYPE_GRASS;
+                            break;
+                        case MISTY_TERRAIN:
+                            type = TYPE_FAIRY;
+                            break;
+                        case PSYCHIC_TERRAIN:
+                            type = TYPE_PSYCHIC;
+                            break;
+                        default:
+                            break;
+                        }
+
+                        if (type != TYPE_TYPELESS && (sp->battlemon[client_no].type1 != type || sp->battlemon[client_no].type2 != type || sp->battlemon[client_no].type3 != TYPE_TYPELESS)) {
+                            ChangeToPureType(sp, client_no, type);
+                            sp->battlerIdTemp = client_no;
+                            sp->msg_work = type;
+                            scriptnum = BATTLE_SUBSCRIPT_COLOR_CHANGE;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                            break;
+                        } else if (type == TYPE_TYPELESS) {
+                            struct PartyPokemon *mon = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
+                            int type1 = GetMonData(mon, MON_DATA_TYPE_1, NULL);
+                            int type2 = GetMonData(mon, MON_DATA_TYPE_2, NULL);
+                            if (sp->battlemon[client_no].type1 != type1 || sp->battlemon[client_no].type2 != type2 || sp->battlemon[client_no].type3 != TYPE_TYPELESS) {
+                                ChangeToPureType(sp, client_no, type1);
+                                sp->battlemon[client_no].type2 = type2;
+                            }
+                        }
+                    }
+                }
+
                 // Trace
                 {
                     int def1, def2;
@@ -209,7 +272,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     def1 = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_RIGHT);
                     def2 = BattleWorkEnemyClientGet(bw, client_no, BATTLER_POSITION_SIDE_LEFT);
 
-                    sp->defence_client_work = TraceClientGet(bw, sp, def1, def2);
+                    sp->defence_client_work = GetTraceClient(bw, sp, def1, def2);
 
                     if ((sp->battlemon[client_no].ability_activated_flag == 0)
                         && (sp->defence_client_work != 0xFF)
@@ -743,7 +806,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 // Air Balloon is announced
                 // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-9227933
                 {
-                    if ((sp->battlemon[client_no].air_balloon_flag == 0) && (sp->battlemon[client_no].hp) && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)) {
+                    if ((sp->battlemon[client_no].air_balloon_flag == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_UNGROUND_DESTROYED_ON_HIT)
+                        && !(sp->moveConditionsFlags[client_no].grounded)) {
                         sp->battlemon[client_no].air_balloon_flag = 1;
                         sp->battlerIdTemp = client_no;
                         scriptnum = BATTLE_SUBSCRIPT_HANDLE_AIR_BALLOON_MESSAGE;
@@ -892,6 +958,24 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 // Commander
                 {
+                }
+
+                // Zero to Hero
+                {
+                    OnceOnlyAbilityFlags *abilityFlags = &sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]];
+
+                    if (abilityFlags->zeroToHeroFlag == FALSE
+                        && sp->battlemon[client_no].species == SPECIES_PALAFIN
+                        && sp->battlemon[client_no].form_no == 1
+                        && sp->battlemon[client_no].ability == ABILITY_ZERO_TO_HERO
+                        && !(sp->battlemon[client_no].condition2 & STATUS2_TRANSFORM)
+                        && sp->battlemon[client_no].hp != 0) {
+                        abilityFlags->zeroToHeroFlag = TRUE;
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_ZERO_TO_HERO;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
                 }
 
                 // Protosynthesis and Quark Drive
@@ -1110,4 +1194,25 @@ static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *
     }
 
     return FALSE;
+}
+
+static int GetTraceClient(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2)
+{
+    int ret = BATTLER_NONE;
+    BOOL canTraceTarget1 = ctx->battlemon[battlerIdTarget1].hp && !AbilityNoTrace(ctx->battlemon[battlerIdTarget1].ability);
+    BOOL canTraceTarget2 = ctx->battlemon[battlerIdTarget2].hp && !AbilityNoTrace(ctx->battlemon[battlerIdTarget2].ability);
+
+    if (canTraceTarget1 && canTraceTarget2) {
+        if (BattleRand(battleSystem) & 1) {
+            ret = battlerIdTarget2;
+        } else {
+            ret = battlerIdTarget1;
+        }
+    } else if (canTraceTarget1) {
+        ret = battlerIdTarget1;
+    } else if (canTraceTarget2) {
+        ret = battlerIdTarget2;
+    }
+
+    return ret;
 }

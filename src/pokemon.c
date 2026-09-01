@@ -1173,7 +1173,9 @@ u16 LONG_CALL GetMonEvolution(struct Party *party, struct PartyPokemon *pokemon,
         offset = 0x023C0400 | 1;
     }
     HandleLoadOverlay(ovyId, 2);
-    internalFunc = (u16(*)(struct Party *, struct PartyPokemon *, u8, u16, int *))(offset);
+    // clang-format off
+    internalFunc = (u16 (*)(struct Party *, struct PartyPokemon *, u8, u16, int *))(offset);
+    // clang-format on
     target = internalFunc(party, pokemon, context, usedItem, method_ret);
     UnloadOverlayByID(ovyId);
 

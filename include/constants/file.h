@@ -20,6 +20,7 @@
 #define ARC_TRAINER_DATA       55
 #define ARC_TRAINER_PARTY_DATA 56
 #define ARC_OTHER_MON_PIC      114
+#define ARC_SPRITE_OFFESTS     180
 // 194 and 195 interrupt the otherwise-sensical mapping of file 30 -> a030, every file after is offset by 2
 #define ARC_PBR_POKEGRA          194
 #define ARC_PBR_OTHERPOKE        195
@@ -60,6 +61,7 @@
 #define CODE_ADDON_BATTLE_TESTS           16
 #define CODE_ADDON_BACKGROUND_GFX_IDS     17
 #define CODE_ADDON_HIDDEN_ITEM_PARAMS     18
+#define CODE_ADDON_ABILITY_FLAGS          19
 
 // a015 file indexes
 #define BAG_HM_ICON 37

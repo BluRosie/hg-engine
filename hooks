@@ -355,6 +355,7 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 #endif
 
 # need another hook for this one yeah yeah
+0012 ShouldUseNormalTypeEffCalc 02251C74
 0012 ServerDoTypeCalcMod 02251D28
 0012 AITypeCalc 02252054
 0012 GrabMoveTypeForConversion2 0224DD7C 2
@@ -596,6 +597,8 @@ arm9 ScrCmd_WildBattle 02043E5C 1
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
 0012 TestBattle_PostKOSwitchIn 02258800 2
+0012 TestBattle_ShowParty 0223E8A0 2
+0012 TestBattle_WaitMonSelection 0223E978 2
 0012 CheckTrainerMessage 02250D4C 2
 0012 BattleMessage_ExpandPlaceholders 0223CEF4
 #endif

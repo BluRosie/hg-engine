@@ -45,7 +45,7 @@ void Task_PlayFaintingSequence_WithVictoryPose(SysTask *task, void *data)
         PokepicManager *monSpriteMan = BattleSystem_GetPokepicManager(battleSystem);
         void *monAnimMan = ov12_0223B750(battleSystem); // unk1C8 getter
 
-        void *narc = NARC_New(114, HEAPID_BATTLE_HEAP); // NARC_poketool_pokegra_otherpoke
+        void *narc = NARC_New(ARC_SPRITE_OFFESTS, HEAPID_BATTLE_HEAP);
 
         if (IsClientEnemy(battleSystem, faintingSequenceData->battler)) {
             // victory pose for player side mons

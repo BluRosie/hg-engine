@@ -3,6 +3,7 @@
 
 #include "types.h"
 
+#include "constants/ability.h"
 #include "constants/battle_constants.h"
 #include "constants/moves.h"
 #include "constants/pokemon.h"
@@ -751,6 +752,7 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL intrepidSwordFlag;
     BOOL dauntlessShieldFlag;
     BOOL superSweetSyrupFlag;
+    BOOL zeroToHeroFlag;
 } OnceOnlyAbilityFlags;
 
 typedef struct OnceOnlyMoveConditionFlags {
@@ -776,7 +778,8 @@ typedef struct MoveConditionsFlags {
     u8 throatChopTimer : 2;
 
     u8 dragonDartsStatus : 3;
-    u8 padding : 5;
+    u8 grounded : 1;
+    u8 padding : 4;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -1504,6 +1507,7 @@ enum {
     MOVE_PERFORMANCE_STEP_15_1_ADDITIONAL_MOVE_EFFECTS,
     MOVE_PERFORMANCE_STEP_15_2_SPARKLING_ARIA,
     MOVE_PERFORMANCE_STEP_15_3_THAW_FROM_FIRE_MOVE,
+    MOVE_PERFORMANCE_STEP_15_4_SMACK_DOWN,
     MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE,
     MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE,
     MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3,
@@ -1792,6 +1796,19 @@ struct PACKED DamageCalcStruct {
     struct sDamageCalc clients[4];
 };
 
+typedef struct AbilityFlags {
+    u16 ignoredByMoldBreaker : 1;
+    u16 disabledWhenTransformed : 1;
+    u16 disabledByNeutralizingGas : 1;
+    u16 failsTrace : 1;
+    u16 failsSwap : 1;
+    u16 failsSuppress : 1;
+    u16 failsReceiver : 1;
+    u16 failsEntrainment : 1;
+    u16 failsRolePlay : 1;
+    u16 unused : 7;
+} AbilityFlags;
+
 extern u8 TypeEffectivenessTable[][3];
 
 extern u8 HeldItemPowerUpTable[36][2];
@@ -1845,6 +1862,10 @@ void LONG_CALL SCIO_LevelUpEffectSet(void *bw, int send_client);
 u32 LONG_CALL BattleWorkPlaceIDGet(void *bw);
 void LONG_CALL Task_DistributeExp(void *arg0, void *work);
 int LONG_CALL BattleWorkPokeCountGet(void *, int);
+BOOL LONG_CALL BattleBuffer_GetNext(struct BattleStruct *ctx, int battlerId);
+void LONG_CALL BattleController_EmitShowMonList(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int forceSwitch, int selectedMon, int blockedMon);
+void LONG_CALL BattleController_EmitShowWaitMessage(struct BattleSystem *bsys, int battlerId);
+void LONG_CALL ov12_0223BDDC(struct BattleSystem *bsys, int battlerId, int selectedMon);
 
 BOOL LONG_CALL ServerCriticalMessage(void *, void *);
 BOOL LONG_CALL ServerWazaStatusMessage(void *, void *);
@@ -1908,17 +1929,6 @@ int LONG_CALL BattleWorkWeatherGet(void *bw);
  *  @return requested client on the enemy side
  */
 int LONG_CALL BattleWorkEnemyClientGet(void *bw, int client, int side);
-
-/**
- *  @brief choose which enemy should be traced
- *
- *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param sp global battle structure
- *  @param def1 one of the enemy clients
- *  @param def2 the other enemy client
- *  @return trace client to act on.  set BattleStruct's defence_client to this to properly act after
- */
-int LONG_CALL TraceClientGet(void *bw, struct BattleStruct *sp, int def1, int def2);
 
 /**
  *  @brief check if client is on enemy side or not.  equivalent to BATTLER_IS_ENEMY(client)
@@ -2360,7 +2370,7 @@ BOOL LONG_CALL ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32
  *  @param pos position in the TypeEffectivenessTable loop checker (index)
  *  @return TRUE if the normal type effectiveness calculator should be used; FALSE otherwise
  */
-BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
+BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client UNUSED, int defence_client, int pos);
 
 u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker);
 
@@ -3601,6 +3611,21 @@ BOOL LONG_CALL IsPureType(struct BattleStruct *ctx, int battlerId, int type);
 /// @ref AbilityDisabledByNeutralizingGas
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityCantSupress(int ability);
+
+/// @brief Read an ability's flags from the expanded ability flags table
+/// @param ability
+/// @return The ability's flags, or zeroed flags if the ability ID is invalid
+AbilityFlags LONG_CALL GetAbilityFlags(int ability);
+
+/// @brief Check if ability causes Trace to fail
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoTrace(int ability);
+
+/// @brief Check if ability causes Skill Swap and Wandering Spirit to fail
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityFailSkillSwap(int ability);
 
 void LONG_CALL BattleMessage_BufferNickname(struct BattleSystem *bsys, int bufferIndex, int param);
 void LONG_CALL BattleMessage_BufferMove(struct BattleSystem *bsys, int bufferIndex, int param);
