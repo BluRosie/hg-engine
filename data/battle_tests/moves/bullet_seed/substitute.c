@@ -29,7 +29,7 @@ BEGIN_TEST
                         .species = SPECIES_SWAMPERT,
                         .level = 54,
                         .form = 0,
-                        .ability = ABILITY_PRESSURE,
+                        .ability = ABILITY_TORRENT,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SUBSTITUTE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP, //188: sub: 47
@@ -83,7 +83,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Swampert made a substitute!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Carnivine used Bullet Seed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The substitute took damage for the opposing Swampert!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The substitute took damage for the opposing Swampert!" },//2or 3 hits
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Swampert's substitute faded!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 16, 24 } },  
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "was hit" },
     }
 }
 END_TEST
