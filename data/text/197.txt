@@ -1782,6 +1782,9 @@ The opposing {STRVAR_1 1, 0, 0} got over\nits infatuation.
 The wild {STRVAR_1 1, 0, 0} underwent a\nheroic transformation!
 The opposing {STRVAR_1 1, 0, 0} underwent\na heroic transformation!
 All screens on the field were cleansed!
+{STRVAR_1 1, 0, 0}\nfell straight down!
+The wild {STRVAR_1 1, 0, 0}\nfell straight down!
+The opposing {STRVAR_1 1, 0, 0}\nfell straight down!
 {STRVAR_1 1, 0, 0}\nbecame cloaked in mystical moonlight!
 The wild {STRVAR_1 1, 0, 0}\nbecame cloaked in mystical moonlight!
 The opposing {STRVAR_1 1, 0, 0}\nbecame cloaked in mystical moonlight!

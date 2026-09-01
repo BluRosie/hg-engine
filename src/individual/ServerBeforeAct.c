@@ -118,55 +118,36 @@ void __attribute__((section(".init"))) ServerBeforeActInternal(struct BattleSyst
 #endif
                 flag = FALSE;
                 if (sp->playerActions[0][3] != SELECT_ESCAPE_COMMAND && sp->playerActions[2][3] != SELECT_ESCAPE_COMMAND) {
-                    if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
+                    if (CheckCanMega(sp, client_no)) {
                         // player requests mega
-                        if (!(client_no)) {
-                            if (CheckCanMega(sp, client_no) && (newBS.playerWantMega & No2Bit(client_no)) != 0) {
+                        if (!(client_no & 1) && (newBS.playerWantMega & No2Bit(client_no)) != 0) {
+                            sp->battlemon[client_no].canMega = 1;
+                            flag = TRUE;
+                        } else if ((client_no & 1) != 0 || (client_no == 2 && (bw->trainerId[client_no] != 0))) {
+                            // ai requests mega
+                            if (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER)) {
                                 sp->battlemon[client_no].canMega = 1;
-                                newBS.SideMega[0] = TRUE;
-                                if (sp->battlemon[client_no].id_no == sp->battlemon[2].id_no) {
-                                    newBS.SideMega[2] = TRUE;
-                                }
-                                flag = TRUE;
-                            }
-                        }
-                        // ai requests mega
-                        else {
-                            if (CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER))) {
-                                sp->battlemon[client_no].canMega = 1;
-                                newBS.SideMega[client_no] = TRUE;
-                                flag = TRUE;
-                            }
-                        }
-                    } else {
-                        // player requests mega
-                        if (!(client_no & 1)) {
-                            if (CheckCanMega(sp, client_no) && (newBS.playerWantMega & No2Bit(client_no)) != 0) {
-                                sp->battlemon[client_no].canMega = 1;
-                                newBS.SideMega[0] = TRUE;
-                                newBS.SideMega[2] = TRUE;
-                                flag = TRUE;
-                            }
-                        }
-                        // ai requests mega
-                        else {
-                            if (CheckCanMega(sp, client_no) && (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER))) {
-                                sp->battlemon[client_no].canMega = 1;
-                                newBS.SideMega[1] = TRUE;
-                                newBS.SideMega[3] = TRUE;
                                 flag = TRUE;
                             }
                         }
                     }
-                }
 
-                if (flag) {
-                    newBS.needMega[client_no] = MEGA_NEED;
-                    // 應該沒需要在這裡處理
-                    // sp->battlemon[client_no].form_no = GrabMegaTargetForm(sp->battlemon[client_no].species, sp->battlemon[client_no].item);
-                    // BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, FALSE);
+                    if (flag) {
+                        // 應該沒需要在這裡處理
+                        // sp->battlemon[client_no].form_no = GrabMegaTargetForm(sp->battlemon[client_no].species, sp->battlemon[client_no].item);
+                        // BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, FALSE);
+                        sp->battlemon[client_no].canMega = 1;
+                        newBS.needMega[client_no] = MEGA_NEED;
+                        if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
+                            int ally = BATTLER_ALLY(client_no);
+                            if (bw->trainerId[client_no] == bw->trainerId[ally]) {
+                                newBS.SideMega[ally] = TRUE;
+                            }
+                        }
+                    }
                 }
             }
+
             sp->sba_seq_no++;
             break;
         }

@@ -2122,6 +2122,63 @@ void BattleController_CheckBide(struct BattleSystem *bsys, struct BattleStruct *
     }
 }
 
+BOOL CanSetFirstBattlerWithAbilityInSlotOrder(struct BattleStruct *ctx, u32 ability)
+{
+    if (GetBattlerAbility(ctx, ctx->attack_client) == ability) {
+        ctx->battlerIdTemp = ctx->attack_client;
+        return TRUE;
+    }
+
+    int counter = 0;
+    while (counter <= SPREAD_MOVE_LOOP_MAX) {
+        switch (ctx->clientLoopForSpreadMoves) {
+        case SPREAD_MOVE_LOOP_ALLY: {
+            counter++;
+            int ally = BATTLER_ALLY(ctx->attack_client);
+            if (GetBattlerAbility(ctx, ally) == ability) {
+                ctx->battlerIdTemp = ally;
+                return TRUE;
+            }
+        }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_LEFT: {
+            counter++;
+            int opLeft = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
+            if (GetBattlerAbility(ctx, opLeft) == ability) {
+                ctx->battlerIdTemp = opLeft;
+                return TRUE;
+            }
+        }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_RIGHT: {
+            counter++;
+            int opRight = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
+            if (GetBattlerAbility(ctx, opRight) == ability) {
+                ctx->battlerIdTemp = opRight;
+                return TRUE;
+            }
+            break;
+        }
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL BattlerHasArmorTailQueenlyMajestyOrDazzling(struct BattleStruct *ctx, int battlerId)
+{
+    switch (GetBattlerAbility(ctx, battlerId)) {
+    case ABILITY_QUEENLY_MAJESTY:
+    case ABILITY_DAZZLING:
+    case ABILITY_ARMOR_TAIL:
+        return TRUE;
+        break;
+    default:
+        break;
+    }
+    return FALSE;
+}
+
 BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     if (ctx->defence_client == BATTLER_NONE) {
@@ -2136,8 +2193,8 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
     case MOVE_EXPLOSION:
     case MOVE_MIND_BLOWN:
     case MOVE_MISTY_EXPLOSION:
-        if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, defender, ABILITY_DAMP)
-            && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
+        if (CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
+            && CanSetFirstBattlerWithAbilityInSlotOrder(ctx, ABILITY_DAMP)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -2152,12 +2209,20 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
         break;
     }
 
+    BOOL defenderHasPriorityBlock = BattlerHasArmorTailQueenlyMajestyOrDazzling(ctx, defender);
+    BOOL defenderAllyHasPriorityBlock = BattlerHasArmorTailQueenlyMajestyOrDazzling(ctx, BATTLER_ALLY(defender));
+
     // Handle Queenly Majesty, Dazzling & Armor Tail
-    if ((CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
-            || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
-            || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
-        && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
+    if ((defenderHasPriorityBlock || defenderAllyHasPriorityBlock)
+        && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
+        && (IsClientEnemy(bsys, defender) != IsClientEnemy(bsys, attacker))) {
         if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
+            if (defenderHasPriorityBlock) {
+                ctx->battlerIdTemp = defender;
+            } else {
+                ctx->battlerIdTemp = BATTLER_ALLY(defender);
+            }
+
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -2553,6 +2618,7 @@ BOOL CheckProtectedBySelf(struct BattleStruct *ctx, int defender, u16 *protected
 BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender)
 {
     if (ctx->oneTurnFlag[defender].protectFlag
+        && !ctx->futureSightHitTurn
         && !CanHitThroughProtect(ctx, ctx->attack_client, defender)) {
         BOOL protectedByAlly = FALSE;
         BOOL protectedBySelf = FALSE;
@@ -2686,7 +2752,7 @@ BOOL BattleController_CheckMagicBounceMagicCoat(struct BattleSystem *bw, struct 
     return FALSE;
 }
 
-// TODO: Handle Smack Down, Ingrain
+// TODO: Handle Ingrain
 BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
     // TODO: this to my knowledge handle base species, and does not consider transformed species, which is correct. Requires verifying
@@ -2695,7 +2761,8 @@ BOOL BattleController_CheckTelekinesis(struct BattleSystem *bsys UNUSED, struct 
     int defenderForm = ctx->battlemon[defender].form_no;
     if (ctx->current_move_index == MOVE_TELEKINESIS
         && (((defenderSpecies == SPECIES_GENGAR && defenderForm == 1) || defenderSpecies == SPECIES_DIGLETT || defenderSpecies == SPECIES_DUGTRIO || defenderSpecies == SPECIES_SANDYGAST || defenderSpecies == SPECIES_PALOSSAND)
-            || ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)) {
+            || (ctx->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)
+            || (ctx->moveConditionsFlags[defender].grounded == TRUE))) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
         ctx->battlerIdTemp = defender;
@@ -2763,7 +2830,8 @@ BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct Bat
             || MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_EELEVATE) == TRUE)
         && (IS_GENERAL_GROUND_TYPE_ATTACK(ctx))
         // iron ball halves speed and grounds
-        && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
+        && (HeldItemHoldEffectGet(ctx, defender) != HOLD_EFFECT_SPEED_DOWN_GROUNDED)
+        && !(ctx->moveConditionsFlags[ctx->defence_client].grounded)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_LEVITATE_IMMUNE;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
@@ -4043,7 +4111,10 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         break;
     }
     case MOVE_MAGNET_RISE: {
-        if (ctx->battlemon[ctx->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE) {
+        if ((ctx->battlemon[ctx->attack_client].effect_of_moves & MOVE_EFFECT_FLAG_MAGNET_RISE)
+            || (ctx->battlemon[ctx->attack_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) // is Ingrained
+            || (ctx->field_condition & FIELD_CONDITION_GRAVITY)
+            || (ctx->moveConditionsFlags[ctx->attack_client].grounded == TRUE)) {
             butItFailedFlag = TRUE;
         }
         break;
