@@ -4,7 +4,7 @@ BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
-    .terrain = PSYCHIC_TERRAIN,
+    .terrain = TERRAIN_NONE,
     .playerParty = {
         {
             .species = SPECIES_DELPHOX,
