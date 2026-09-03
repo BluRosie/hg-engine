@@ -1,4 +1,4 @@
-// Test: Giga Drain - Heal right amount
+// Test: Matcha Gotcha - Heal right amount
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
