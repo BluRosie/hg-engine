@@ -1556,7 +1556,7 @@ void CheckDragonDartsDiverting(struct BattleSystem *bsys, struct BattleStruct *c
     BOOL hitThroughAbility = TRUE; // TODO: MoveCheckDamageNegatingAbilities(ctx, ctx->attack_client, defender);
     // TODO: check prankster prio when using with copycat
     int canHitType = GetTypeEffectiveness(bsys, ctx, ctx->attack_client, defender, ctx->move_type, &flag);
-    CalcAccuracy(bsys, ctx, ctx->attack_client, defender, ctx->current_move_index);
+    CalcAccuracy(bsys, ctx, ctx->attack_client, defender, ctx->current_move_index);//TODO this does not make sense
     BOOL hitWithAccuracy = TRUE;
     if (ctx->waza_status_flag & MOVE_STATUS_MISSED) {
         hitWithAccuracy = FALSE;
