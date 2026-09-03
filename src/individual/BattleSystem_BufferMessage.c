@@ -91,8 +91,9 @@ void BattleSystem_BufferMessage(struct BattleSystem *bsys, BattleMessage *msg)
         } else {
             BattleMessage_BufferItem(bsys, 1, msg->param[1]);
         }
-        if ((msg->id - BATTLE_MSG_MEGA_EVOLUTION) < 3) {
-            Trainer *trainer = BattleSystem_GetTrainer(bsys, msg->param[0]);
+        if (msg->id >= BATTLE_MSG_MEGA_EVOLUTION && (msg->id - BATTLE_MSG_MEGA_EVOLUTION) < 3) {
+            //  mask off high bits so we get only the battlerId
+            Trainer *trainer = BattleSystem_GetTrainer(bsys, msg->param[0] & 0xFF);
             BattleMessage_BufferItem(bsys, 2, GetKeyStoneVariantFromTrainerClass(trainer->data.trainerClass));
         }
         break;
