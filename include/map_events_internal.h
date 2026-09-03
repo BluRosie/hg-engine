@@ -6,6 +6,8 @@
 
 #include "script.h"
 
+#define obj_partner_poke 253
+
 typedef struct BG_EVENT {
     u16 scr;
     u16 type;
@@ -116,12 +118,35 @@ typedef enum MapObjectFlagBits {
     MAPOBJECTFLAG_UNK31 = (1 << 31),
 } MapObjectFlagBits;
 
-struct SavedMapObject {
-    u8 filler_00[8];
+typedef struct SavedMapObject {
+    u32 flags;
+    u32 flags2;
     u8 objId;
-    u8 filler_9[9];
-    u16 unk_12;
-    u8 filler_14[0x3C];
+    u8 movement;
+    s8 xRange;
+    s8 yRange;
+    s8 initialFacing;
+    s8 currentFacing;
+    s8 nextFacing;
+    u16 mapId;
+    u16 spriteId;
+    u16 type;
+    u16 eventFlag;
+    u16 script;
+    s16 param[3];
+    s16 initialX;
+    s16 initialY;
+    s16 initialZ;
+    s16 currentX;
+    s16 currentY;
+    s16 currentZ;
+    fx32 vecY;
+    u8 unk30[16];
+    u8 unk40[16];
+} SavedMapObject;
+
+struct SavedMapObjectList {
+    struct SavedMapObject subs[64];
 };
 
 struct LocalMapObject {
@@ -293,5 +318,6 @@ int LONG_CALL GetPlayerXCoord(FIELD_PLAYER_AVATAR *avatar);
 int LONG_CALL GetPlayerYCoord(FIELD_PLAYER_AVATAR *avatar);
 BOOL MapObject_IsSingleMovementActive(LocalMapObject *obj);
 void MapObject_PauseMovement(LocalMapObject *obj);
+void LONG_CALL MapObjectManager_RestoreFromSave(void *mapObjectManager, SavedMapObject *savedObjects, u32 objectCount);
 
 #endif // POKEHEARTGOLD_MAP_EVENTS_INTERNAL_H
