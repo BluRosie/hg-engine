@@ -1111,9 +1111,17 @@ def dump_text(msg_members, repo_root, msgenc, charmap, include_generated, includ
 
     print(f"dumped {len(msg_members) - generated - engine_managed} text archives to data/text/" + (f" (skipped {' and '.join(notes)} archives)" if notes else ""))
 
+def grab_mapname_dict():
+    mapname_dict = {}
+    with open("base/root/fielddata/maptable/mapname.bin", "rb") as fp:
+        mapname_bin_len = int(os.path.getsize("base/root/fielddata/maptable/mapname.bin") / 16)
+        for i in range(0, mapname_bin_len):
+            fp.seek(16 * i, 0)
+            mapname_dict[i] = fp.read(16).decode().split("\x00")[0]
+    return mapname_dict
+
 def read_mapping():
     event_mapping_path = os.path.join(TOOL_DIR, "event_mapping.csv")
-    #if (not os.path.exists(event_mapping_path)):
     """
 generate event mapping from the input rom...  the basic idea is that based on the event file, we should be able to map to the script file.
 format is zone_event json, script, level script file, text archive.  this will have to be read from the map header data itself.  including the map name.
@@ -1142,27 +1150,34 @@ BUT!  popular to offload the headers to a/0/5/0 depending on a dynamic headers p
 
 so all i care about is building a dictionary that can be accessed just fine
 """
-    #    arm9 = open("base/arm9.bin", "rb")
-    #    arm9.seek(0x03B268, 0)
-    #    dynamicHeaderPatch = struct.unpack("<H", arm9.read(2))[0]
-    #    headerDictionary = {}
-    #    if (dynamicHeaderPatch == 0xB500): # read from a050
-    #        
-    #    else:
-    #        for i in range(0, 540):
-    #            baseEntryOffset = 0x0F6BE0 + 0x18*i
-    #            # zone event file, script file, level script file, text file
-    #            zone_event_name = f"data/eventdata/zone_event/{read_field(arm9, baseEntryOffset + 0x10, 2):03}_{}.json"
-    #            script_file_name = f"data/scr_seq/scr_seq_{read_field(arm9, baseEntryOffset + 0x6, 2):04}{}.s"
-    #            level_script_name = f"data/scr_seq/scr_seq_{read_field(arm9, baseEntryOffset + 0x8, 2):04}{}_hdr.s"
-    #            text_file_name = f"{read_field(arm9, baseEntryOffset + 0xA, 2):03}"
-    #            dynamicHeaderPatch[i] = [zone_event_name, script_file_name, level_script_name, text_file_name]
-    #    arm9.close()
-    #    return dynamicHeaderPatch
+    #if (os.path.exists(event_mapping_path)):
+    arm9 = open("base/arm9.bin", "rb")
+    arm9.seek(0x03B268, 0)
+    dynamicHeaderPatch = struct.unpack("<H", arm9.read(2))[0]
+    headerDictionary = []
+    mapname_dict = grab_mapname_dict()
+    if (dynamicHeaderPatch == 0xB500): # read from a050
+        print("hurray")
+    else:
+        # headers
+        for i in range(0, 540):
+            baseEntryOffset = 0x0F6BE0 + 0x18*i
+            # zone event file, script file, level script file, text file
+            zone_event_name = f"data/eventdata/zone_event/{read_field(arm9, baseEntryOffset + 0x10, 2):03}_{mapname_dict[i]}.json"
+            script_file_name = f"data/scr_seq/scr_seq_{read_field(arm9, baseEntryOffset + 0x6, 2):04}_{mapname_dict[i]}.s"
+            level_script_name = f"data/scr_seq/scr_seq_{read_field(arm9, baseEntryOffset + 0x8, 2):04}_{mapname_dict[i]}_hdr.s"
+            text_file_name = f"{read_field(arm9, baseEntryOffset + 0xA, 2):03}"
+            headerDictionary.append([zone_event_name, script_file_name, level_script_name, text_file_name])
+    arm9.close()
+    pprint.pprint(headerDictionary)
+    #return headerDictionary
     #else:
     with open(event_mapping_path, newline = "") as fp:
         #arm9.close()
-        return [row for row in csv.reader(fp) if row and not row[0].startswith("#")]
+        fuckthis = [row for row in csv.reader(fp) if row and not row[0].startswith("#")]
+        #pprint.pprint(fuckthis)
+        #pprint.pprint(headerDictionary)
+        return headerDictionary
 
 def main(argv = None):
     p = argparse.ArgumentParser(description = "dump scripts, zone events, and message text from a built HeartGold ROM back into hg-engine source form")
@@ -1216,7 +1231,6 @@ def main(argv = None):
                 continue
 
             row_parser.parse().dump()
-        pprint.pprint(rows)
 
         print(f"dumped {len(rows) - len(skipped)} maps to {SCR_SEQ_DIR}/ and data/eventdata/zone_event/")
 
