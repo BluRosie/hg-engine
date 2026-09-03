@@ -1,61 +1,50 @@
-// Test: Dragon Darts - Hit both, faint first hit
+// Test: Giga Drain - Heal right amount
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_DOUBLES,
+    .battleType = BATTLE_TYPE_TRAINER,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_DRAGAPULT,
-            .level = 50,
+            .species = SPECIES_SINISTCHA,
+            .level = 40,
             .form = 0,
-            .ability = ABILITY_CLEAR_BODY,
-            .item = ITEM_NONE,
-            .moves = { MOVE_DRAGON_DARTS, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .ability = ABILITY_HEATPROOF,
+            .item = ITEM_CHOICE_SPECS,
+            .moves = { MOVE_MATCHA_GOTCHA, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+            .hp = 1,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        {
-            .species = SPECIES_LOPUNNY,
-            .level = 100,
-            .form = 0,
-            .ability = ABILITY_LIMBER,
-            .item = ITEM_NONE,
-            .moves = { MOVE_MEMENTO, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_FERROTHORN,
-                        .level = 50,
+                        .species = SPECIES_SWAMPERT,
+                        .level = 30,
                         .form = 0,
-                        .ability = ABILITY_IRON_BARBS,
+                        .ability = ABILITY_TORRENT,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .hp = 108,//109
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_SABLEYE,
-            .level = 5,
+            .species = SPECIES_CHANSEY,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_PRANKSTER,
+            .ability = ABILITY_SERENE_GRACE,
             .item = ITEM_NONE,
-            .moves = { MOVE_MEMENTO, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 1,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -65,7 +54,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -75,7 +64,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -95,7 +84,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -105,12 +94,13 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye used Memento!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Lopunny used Memento!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Lopunny fainted!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 13, 13, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 15, 15, 15, 16 } },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 13, 13, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 15, 15, 15, 16 } },
-    }
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sinistcha used Matcha Gotcha!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Swampert had its energy drained!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Swampert fainted!" },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 55 }, // 1+108/2
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
+    },
 }
 END_TEST
