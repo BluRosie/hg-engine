@@ -116,7 +116,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Incineroar protected itself!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Qwilfish used Flip Turn!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Qwilfish went back" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Incineroar!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar's Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Popplio used Flip Turn!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Parasect's Dry Skin" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Parasect..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "went back" },
     }
 }
 END_TEST
