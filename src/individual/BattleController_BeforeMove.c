@@ -1550,13 +1550,13 @@ void CheckDragonDartsDiverting(struct BattleSystem *bsys, struct BattleStruct *c
     }
     BOOL monProtected = FALSE;
     if (ctx->oneTurnFlag[defender].protectFlag
-        && (CheckProtectedByAlly(ctx, BATTLER_ALLY(ctx->defence_client), &protectedMoveMessage) || CheckProtectedBySelf(ctx, ctx->defence_client, &protectedMoveMessage))) {
+        && (CheckProtectedByAlly(ctx, BATTLER_ALLY(defender), &protectedMoveMessage) || CheckProtectedBySelf(ctx, defender, &protectedMoveMessage))) {
         monProtected = TRUE;
     }
-    BOOL hitThroughAbility = TRUE; // MoveCheckDamageNegatingAbilities(ctx, ctx->attack_client, ctx->defence_client);
-    // check prankster prio when using with copycat
-    int canHitType = GetTypeEffectiveness(bsys, ctx, ctx->attack_client, ctx->defence_client, ctx->move_type, &flag);
-    CalcAccuracy(bsys, ctx, ctx->attack_client, ctx->defence_client, ctx->current_move_index);
+    BOOL hitThroughAbility = TRUE; // TODO: MoveCheckDamageNegatingAbilities(ctx, ctx->attack_client, defender);
+    // TODO: check prankster prio when using with copycat
+    int canHitType = GetTypeEffectiveness(bsys, ctx, ctx->attack_client, defender, ctx->move_type, &flag);
+    CalcAccuracy(bsys, ctx, ctx->attack_client, defender, ctx->current_move_index); // TODO this does not make sense
     BOOL hitWithAccuracy = TRUE;
     if (ctx->waza_status_flag & MOVE_STATUS_MISSED) {
         hitWithAccuracy = FALSE;
@@ -1564,7 +1564,7 @@ void CheckDragonDartsDiverting(struct BattleSystem *bsys, struct BattleStruct *c
     }
 
     if (hitThroughSemi == FALSE || monProtected == TRUE || hitThroughAbility == FALSE || canHitType == TYPE_MUL_NO_EFFECT || hitWithAccuracy == FALSE) {
-        if (ctx->battlemon[BATTLER_ALLY(ctx->defence_client)].hp) {
+        if (ctx->battlemon[BATTLER_ALLY(defender)].hp) {
             ctx->defence_client = BATTLER_ALLY(defender);
 
             if (ctx->moveConditionsFlags[ctx->attack_client].dragonDartsStatus < 2) {
@@ -1680,8 +1680,10 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
             debug_printf("case = 1, checking ally %d\n", BATTLER_ALLY(ctx->defence_client));
 #endif
-            ctx->defence_client = BATTLER_ALLY(ctx->defence_client);
-            CheckDragonDartsDiverting(bsys, ctx, ctx->defence_client);
+            if (ctx->battlemon[BATTLER_ALLY(ctx->defence_client)].hp) {
+                ctx->defence_client = BATTLER_ALLY(ctx->defence_client);
+                CheckDragonDartsDiverting(bsys, ctx, ctx->defence_client);
+            }
         }
 
         else {

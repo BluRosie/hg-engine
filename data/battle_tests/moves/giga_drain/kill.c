@@ -1,4 +1,4 @@
-// Test: Imposter - inherit stats
+// Test: Giga Drain - Heal right amount
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,13 +8,13 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_DITTO,
-            .level = 53,
+            .species = SPECIES_CARNIVINE,
+            .level = 40,
             .form = 0,
-            .ability = ABILITY_IMPOSTER,
-            .item = ITEM_CHOICE_SCARF, // 82 speed
-            .moves = { MOVE_TRANSFORM, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .ability = ABILITY_LEVITATE,
+            .item = ITEM_CHOICE_SPECS,
+            .moves = { MOVE_GIGA_DRAIN, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+            .hp = 1,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -23,20 +23,32 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE } },
+        { .species = SPECIES_NONE }
+    },
     .enemyParty = { {
-                        .species = SPECIES_STARAPTOR,
-                        .level = 50,
+                        .species = SPECIES_SWAMPERT,
+                        .level = 30,
                         .form = 0,
-                        .ability = ABILITY_INTIMIDATE,
+                        .ability = ABILITY_TORRENT,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_WING_ATTACK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = 108,//109
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_CHANSEY,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SERENE_GRACE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 1,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -82,14 +94,13 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto's Imposter" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto transformed into Staraptor!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto's Intimidate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staraptor's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ditto used Wing Attack!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 55, 55, 57, 57, 58, 58, 60, 60, 60, 61, 61, 63, 63, 64, 64, 66 } },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 36, 36, 37, 37, 37, 39, 39, 39, 39, 40, 40, 40, 42, 42, 42, 43 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Carnivine used Giga Drain!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108, 108 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Swampert had its energy drained!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Swampert fainted!" },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 55 }, // 1+108/2
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
     },
 }
 END_TEST
