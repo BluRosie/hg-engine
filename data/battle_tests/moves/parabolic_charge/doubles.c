@@ -33,7 +33,7 @@ BEGIN_TEST {
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE } },
+        { .species = SPECIES_NONE }, },
     .enemyParty = { {
                         .species = SPECIES_LOPUNNY,
                         .level = 50,
