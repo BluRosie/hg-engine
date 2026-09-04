@@ -194,6 +194,9 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
     if (IsAttackerOnField(ctx)) {
         CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
     }
+    if (ctx->defence_client != BATTLER_NONE) {
+        ctx->oneSelfFlag[ctx->defence_client].status_flag &= ~SELF_STATUS_FLAG_SUBSTITUTE_HIT;
+    }
 
     if (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
