@@ -1068,6 +1068,9 @@ struct BattleStruct {
     PursuitContext pursuitContext;
     DancerContext dancerContext;
     MagicBounceContext magicBounceContext;
+
+    int field_condition2; // gen5+ field conditions
+    int magicRoomCounter;
 };
 
 enum {

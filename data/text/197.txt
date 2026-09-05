@@ -1785,3 +1785,5 @@ All screens on the field were cleansed!
 {STRVAR_1 1, 0, 0}\nfell straight down!
 The wild {STRVAR_1 1, 0, 0}\nfell straight down!
 The opposing {STRVAR_1 1, 0, 0}\nfell straight down!
+It created a bizarre area in which\nPokémon’s held items lose\ftheir effects!
+Magic Room wore off, and held items’\neffects returned to normal!

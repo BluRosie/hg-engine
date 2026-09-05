@@ -80,6 +80,7 @@ void BattleController_CheckFlinch(struct BattleSystem *bsys, struct BattleStruct
 void BattleController_CheckDisabled(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckHealBlock(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckGravityOrThroatChop(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BattleController_CheckChoiceItemMoveUsage(struct BattleStruct *ctx);
 void BattleController_CheckTaunt(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckImprison(struct BattleSystem *bsys, struct BattleStruct *ctx);
 void BattleController_CheckConfusion(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -371,12 +372,16 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         ctx->wb_seq_no++;
         return;
     }
-    // TODO: implement new mechanics (Magic Room/Dancer before coming back to this)
+    // TODO: implement new mechanics (Dancer before coming back to this)
     case BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK: {
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_CHECK_CHOICE_LOCK\n");
 #endif
-
+        if ((ctx->waza_out_check_on_off & SYSCTL_SKIP_STATUS_CHECK) == FALSE) {
+            if (BattleController_CheckChoiceItemMoveUsage(ctx) == TRUE) {
+                return;
+            }
+        }
         ctx->wb_seq_no++;
         return;
     }
@@ -1403,6 +1408,27 @@ void BattleController_CheckGravityOrThroatChop(struct BattleSystem *bsys, struct
     }
 }
 
+BOOL BattleController_CheckChoiceItemMoveUsage(struct BattleStruct *ctx)
+{
+    if (IsAttackerOnField(ctx) && !ctx->magicBounceContext.isActive) {
+        int itemEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
+        if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
+            if (ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice
+                && ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice != ctx->current_move_index) {
+                BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+                ctx->battlerIdTemp = ctx->attack_client;
+                ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] = MOVE_STATUS_FAILED;
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_BUT_IT_FAILED_SPREAD);
+                ctx->next_server_seq_no = ctx->server_seq_no;
+                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+                return TRUE;
+            }
+        }
+    }
+    return FALSE;
+}
+
 void BattleController_CheckTaunt(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     if (ctx->battlemon[ctx->attack_client].moveeffect.tauntTurns && ctx->moveTbl[ctx->current_move_index].power == 0) {
@@ -1881,6 +1907,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     int move;
     int attackerAbility = GetBattlerAbility(ctx, ctx->attack_client);
     u32 weather = GetWeather(bsys, ctx, 0xFF); // Mega Sol does not affect Aurora Veil
+    int attackerItem = GetBattleMonItem(ctx, ctx->attack_client);
 
     // For Sucker Punch
     if (ctx->battlemon[ctx->defence_client].moveeffect.encoredMove && ctx->battlemon[ctx->defence_client].moveeffect.encoredMove == ctx->battlemon[ctx->defence_client].move[ctx->battlemon[ctx->defence_client].moveeffect.encoredMoveIndex]) {
@@ -1949,7 +1976,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         || (moveEffect == MOVE_EFFECT_FLEE_FROM_WILD_BATTLE && (BattleTypeGet(bsys) & BATTLE_TYPE_TRAINER) && !CanSwitchMon(bsys, ctx, ctx->attack_client))
         // TODO: Magic Room
         // Fling / Natural Gift: Embargo or Magic Room are in effect, or ineligible held item, or no item
-        || ((moveEffect == MOVE_EFFECT_FLING || moveEffect == MOVE_EFFECT_NATURAL_GIFT) && (attackClient.moveeffect.embargoFlag || attackClient.item == 0))
+        || ((moveEffect == MOVE_EFFECT_FLING || moveEffect == MOVE_EFFECT_NATURAL_GIFT) && (attackClient.moveeffect.embargoFlag || attackerItem == 0))
         || (moveEffect == MOVE_EFFECT_NATURAL_GIFT && GetNaturalGiftPower(ctx, ctx->attack_client) == 0)
         || (moveEffect == MOVE_EFFECT_FLING && (IS_ITEM_GEM(attackClient.item) || !CanItemBeRemovedFromClient(attackClient.species, attackClient.item, attackClient.form_no) || attackerAbility == ABILITY_KLUTZ))) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
