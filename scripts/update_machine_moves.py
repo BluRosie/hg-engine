@@ -51,8 +51,12 @@ def parse_moves_descriptions(moves_file: Path):
             continue
         move = move_match.group(1)
         text_line = next(line for line in entry if ".description =" in line)
-        text = text_line.split("=", 1)[1].strip().rstrip(",").strip('"')
-        text = text.replace(r'\n', " ")
+        text_match = re.search(r'\.description\s*=\s*"((?:\\\\.|[^"\\\\])*)"\s*,', text_line)
+        if text_match is None:
+            raise ValueError(f"Could not parse {move} description: {text_line}")
+        text = text_match.group(1)
+        text = text.replace(r'\\n', " ").replace(r'\\r', " ")
+        text = text.replace(r'\n', " ").replace(r'\r', " ")
         text = text.replace("'", "’")
         descs[move] = text
 
@@ -204,17 +208,35 @@ def write_description_line(text_root: Path, file_id: int, line_num_1idx: int, te
     path = text_root / f"{file_id}.txt"
     lines = []
     if path.exists():
-        with path.open(encoding="utf-8") as f:
-            lines = f.read().splitlines()
+        with path.open(encoding="utf-8", newline="") as f:
+            lines = f.read().splitlines(keepends=True)
+
+    newline = next(
+        (ending for line in lines if (ending := re.search(r'(\r\n|\n|\r)$', line))),
+        None,
+    )
+    newline = newline.group(1) if newline is not None else "\n"
+
     while len(lines) < line_num_1idx:
-        lines.append("")
-    lines[line_num_1idx - 1] = text
-    with path.open("w", encoding="utf-8", newline="\n") as f:
-        f.write("\n".join(lines) + "\n")
+        lines.append(newline)
+
+    old_line = lines[line_num_1idx - 1]
+    old_ending_match = re.search(r'(\r\n|\n|\r)$', old_line)
+    old_ending = old_ending_match.group(1) if old_ending_match is not None else newline
+    new_line = text + old_ending
+    if old_line == new_line:
+        return False
+
+    lines[line_num_1idx - 1] = new_line
+    with path.open("w", encoding="utf-8", newline="") as f:
+        f.write("".join(lines))
+    return True
 
 
 def wrap_item_description(text: str):
-    text = text.rstrip("\n").replace("\\n", " ").replace("\\r", " ")
+    text = text.rstrip("\n")
+    text = text.replace(r'\\n', " ").replace(r'\\r', " ")
+    text = text.replace(r'\n', " ").replace(r'\r', " ")
 
     lines = []
     remaining = text.strip()
@@ -403,8 +425,8 @@ def update_descriptions(args):
         if args.dry_run:
             print(f"[dry] {item_name} id={item_id} idx={idx} -> file {file_id}, line {line_num} := {move} :: {wrapped_desc[:60]}{'...' if len(wrapped_desc)>60 else ''}")
         else:
-            write_description_line(args.text_root, file_id, line_num, wrapped_desc)
-            wrote += 1
+            if write_description_line(args.text_root, file_id, line_num, wrapped_desc):
+                wrote += 1
 
     if not args.dry_run:
         print(f"[descriptions] wrote={wrote} skipped={skipped}")

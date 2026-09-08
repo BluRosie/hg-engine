@@ -1890,6 +1890,8 @@ u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u8 defender_type, u8 defaultEf
 {
     if (move_no == MOVE_FREEZE_DRY && defender_type == TYPE_WATER) {
         defaultEffectiveness = TYPE_MUL_SUPER_EFFECTIVE;
+    } else if (move_no == MOVE_THOUSAND_ARROWS && defender_type == TYPE_FLYING) {
+        defaultEffectiveness = TYPE_MUL_NORMAL;
     }
     return defaultEffectiveness;
 }
@@ -2038,183 +2040,6 @@ int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct 
         return TYPE_MUL_TRIPLE_NOT_EFFECTIVE; // 3
     }
     return TYPE_MUL_NO_EFFECT; // 0
-}
-
-/**
- *  @brief set move status effects for super effective and calculate modified damage
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @param move_no move index
- *  @param move_type move type
- *  @param attack_client attacker
- *  @param defence_client defender
- *  @param damage current damage
- *  @param flag move status flags to mess around with
- *  @return modified damage
- */
-// TODO: neuter it in the future
-int LONG_CALL ServerDoTypeCalcMod(void *bw UNUSED, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag)
-{
-    int typeTableEntryNo = 0;
-    int modifier;
-    u32 base_power;
-    u8 eqp_d UNUSED;
-    u8 atk_d UNUSED; // not currently used but will be
-
-    modifier = 1;
-
-    if (move_no == MOVE_STRUGGLE) {
-        return damage;
-    }
-
-    eqp_d = HeldItemHoldEffectGet(sp, defence_client);
-    atk_d = HeldItemAtkGet(sp, defence_client, ATK_CHECK_NORMAL);
-
-    move_type = GetAdjustedMoveType(sp, attack_client, move_no); // new normalize checks
-    base_power = sp->moveTbl[move_no].power;
-
-    u8 attacker_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE1, NULL));
-    u8 attacker_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, attack_client, BATTLE_MON_DATA_TYPE2, NULL));
-    u8 attacker_type_3 = GetSanitisedType(sp->battlemon[attack_client].type3);
-    if (IsAttackerOnField(sp)) {
-        attacker_type_3 = sp->battlemon[attack_client].type3;
-    }
-    u8 defender_type_1 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE1, NULL));
-    u8 defender_type_2 = GetSanitisedType(BattlePokemonParamGet(sp, defence_client, BATTLE_MON_DATA_TYPE2, NULL));
-    u8 defender_type_3 = GetSanitisedType(sp->battlemon[defence_client].type3);
-    u8 defender_tera_type = GetSanitisedType(sp->battlemon[defence_client].tera_type);
-
-    u32 defender_item_held_effect = BattleItemDataGet(sp, GetBattleMonItem(sp, defence_client), 1);
-
-    if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0) && ((attacker_type_1 == move_type) || (attacker_type_2 == move_type) || (attacker_type_3 == move_type))) {
-        if (GetBattlerAbility(sp, attack_client) == ABILITY_ADAPTABILITY) {
-            damage *= 2;
-        } else {
-            damage = damage * 15 / 10;
-        }
-    }
-
-    // [0]: Attacking type
-    // [1]: Defending type
-    // [2]: TYPE_MUL
-    while (TypeEffectivenessTable[typeTableEntryNo][0] != TYPE_ENDTABLE) {
-        // Foresight and Ring Target are treated as fake custom types near the bottom of the type effectiveness table.
-        // If an entry with TYPE_RING_TARGET or TYPE_FORESIGHT is read and the target is under the correct conditions, the table will stop being read before it detects the relevant immunities.
-        if (TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_RING_TARGET) {
-            if (defender_item_held_effect == HOLD_EFFECT_LOSE_TYPE_IMMUNITIES) {
-                break;
-            } else {
-                typeTableEntryNo++;
-                continue;
-            }
-        } else if (TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FORESIGHT) {
-            if ((sp->battlemon[defence_client].condition2 & STATUS2_FORESIGHT)
-                || (GetBattlerAbility(sp, attack_client) == ABILITY_SCRAPPY)
-                || (GetBattlerAbility(sp, attack_client) == ABILITY_MINDS_EYE)) {
-                break;
-            } else {
-                typeTableEntryNo++;
-                continue;
-            }
-        } else if (TypeEffectivenessTable[typeTableEntryNo][0] == move_type) {
-            if (sp->battlemon[defence_client].is_currently_terastallized && defender_tera_type != TYPE_STELLAR) {
-                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_tera_type) {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
-                        && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_tera_type)) {
-                        u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, defender_tera_type, TypeEffectivenessTable[typeTableEntryNo][2]);
-                        damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
-                        if (typeEffectiveness == TYPE_MUL_SUPER_EFFECTIVE) { // seems to be useless, modifier isn't used elsewhere {
-                            modifier *= 2;
-                        }
-                    }
-                }
-            } else {
-                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1) {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
-                        && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_1)) {
-                        u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, defender_type_1, TypeEffectivenessTable[typeTableEntryNo][2]);
-                        damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
-                        if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) { // seems to be useless, modifier isn't used elsewhere
-                            modifier *= 2;
-                        }
-                    }
-                } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2) {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
-                        && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_2)) {
-                        u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, defender_type_2, TypeEffectivenessTable[typeTableEntryNo][2]);
-                        damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
-                        if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) { // seems to be useless, modifier isn't used elsewhere
-                            modifier *= 2;
-                        }
-                    }
-                } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3) {
-                    if (ShouldUseNormalTypeEffCalc(sp, attack_client, defence_client, typeTableEntryNo)
-                        && !StrongWindsShouldWeaken(bw, sp, typeTableEntryNo, defender_type_3)) {
-                        u8 typeEffectiveness = UpdateTypeEffectiveness(move_no, defender_type_3, TypeEffectivenessTable[typeTableEntryNo][2]);
-                        damage = TypeCheckCalc(sp, attack_client, typeEffectiveness, damage, base_power, flag);
-                        if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) { // seems to be useless, modifier isn't used elsewhere
-                            modifier *= 2;
-                        }
-                    }
-                }
-            }
-        } else if (sp->current_move_index == MOVE_FLYING_PRESS
-            && TypeEffectivenessTable[typeTableEntryNo][0] == TYPE_FLYING) {
-            if (sp->battlemon[defence_client].is_currently_terastallized && defender_tera_type != TYPE_STELLAR) {
-                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_tera_type) {
-                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[typeTableEntryNo][2], damage, base_power, flag);
-                    if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) { // seems to be useless, modifier isn't used elsewhere
-                        modifier *= 2;
-                    }
-                }
-            } else {
-                if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_1) {
-                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[typeTableEntryNo][2], damage, base_power, flag);
-                    if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) { // seems to be useless, modifier isn't used elsewhere
-                        modifier *= 2;
-                    }
-                } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_2) {
-                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[typeTableEntryNo][2], damage, base_power, flag);
-                    if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) // seems to be useless, modifier isn't used elsewhere
-                    {
-                        modifier *= 2;
-                    }
-                } else if (TypeEffectivenessTable[typeTableEntryNo][1] == defender_type_3) {
-                    damage = TypeCheckCalc(sp, attack_client, TypeEffectivenessTable[typeTableEntryNo][2], damage, base_power, flag);
-                    if (TypeEffectivenessTable[typeTableEntryNo][2] == TYPE_MUL_SUPER_EFFECTIVE) { // seems to be useless, modifier isn't used elsewhere
-                        modifier *= 2;
-                    }
-                }
-            }
-        }
-        typeTableEntryNo++;
-    }
-
-    if (sp->battlemon[defence_client].is_currently_terastallized && move_type == TYPE_STELLAR) {
-        damage = TypeCheckCalc(sp, attack_client, TYPE_MUL_SUPER_EFFECTIVE, damage, base_power, flag);
-        modifier *= 2; // seems to be useless, modifier isn't used elsewhere
-    }
-
-    if ((MoldBreakerAbilityCheck(sp, attack_client, defence_client, ABILITY_WONDER_GUARD) == TRUE)
-        && (ShouldDelayTurnEffectivenessChecking(sp, move_no)) // check supereffectiveness later, 2-turn move
-        && (((flag[0] & MOVE_STATUS_SUPER_EFFECTIVE) == 0) || ((flag[0] & (MOVE_STATUS_SUPER_EFFECTIVE | MOVE_STATUS_NOT_VERY_EFFECTIVE)) == (MOVE_STATUS_SUPER_EFFECTIVE | MOVE_STATUS_NOT_VERY_EFFECTIVE)))
-        && (base_power)) {
-        flag[0] |= MOVE_STATUS_WONDER_GUARD_IMMUNE;
-        if (IsAttackerOnField(sp)) {
-            sp->oneTurnFlag[attack_client].parental_bond_flag = 0;
-            sp->oneTurnFlag[attack_client].parental_bond_is_active = FALSE;
-        }
-    } else {
-        if (((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) == 0)
-            && ((sp->server_status_flag & SERVER_STATUS_FLAG_TYPE_NONE) == 0)) {
-        } else {
-            flag[0] &= ~(MOVE_STATUS_SUPER_EFFECTIVE);
-            flag[0] &= ~(MOVE_STATUS_NOT_VERY_EFFECTIVE);
-        }
-    }
-
-    return damage;
 }
 
 /**
@@ -4177,16 +4002,16 @@ u32 LONG_CALL GetBattlerAbility(struct BattleStruct *ctx, int battlerId)
     if (battlerId == BATTLER_NONE) {
         return ABILITY_NONE;
     }
+    BOOL isGrounded = ctx->moveConditionsFlags[ctx->defence_client].grounded;
+    BOOL isGravityOn = (ctx->field_condition & FIELD_CONDITION_GRAVITY);
+    BOOL isIngrained = (ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN);
+
     ability = ctx->battlemon[battlerId].ability;
     if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_ABILITY_SUPPRESSED) && ctx->battlemon[battlerId].ability != ABILITY_MULTITYPE) {
         return ABILITY_NONE;
-    } else if ((ctx->field_condition & FIELD_CONDITION_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
+    } else if ((isGrounded || isGravityOn || isIngrained) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
         return ABILITY_NONE;
-    } else if ((ctx->field_condition & FIELD_CONDITION_GRAVITY) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
-        return ABILITY_BEAST_BOOST;
-    } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_LEVITATE) {
-        return ABILITY_NONE;
-    } else if ((ctx->battlemon[battlerId].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
+    } else if ((isGrounded || isGravityOn || isIngrained) && ctx->battlemon[battlerId].ability == ABILITY_EELEVATE) {
         return ABILITY_BEAST_BOOST;
     } else if ((ctx->battlemon[battlerId].condition2 & STATUS2_TRANSFORM) && AbilityNoTransform(ctx->battlemon[battlerId].ability)) {
         return ABILITY_NONE;
@@ -4741,4 +4566,36 @@ void LONG_CALL PlayTrainerVictoryBGM(struct TrainerData *trainer)
         PlayBGM(SEQ_GS_WIN1);
         break;
     }
+}
+
+BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *ctx, int attack_client UNUSED, int defence_client, int index)
+{
+    int itemEffect = HeldItemHoldEffectGet(ctx, defence_client);
+    BOOL ret = TRUE;
+
+    if (itemEffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED
+        || (ctx->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_INGRAIN)
+        || ctx->moveConditionsFlags[ctx->defence_client].grounded) {
+        if (TypeEffectivenessTable[index][1] == TYPE_FLYING && TypeEffectivenessTable[index][2] == TYPE_MUL_NO_EFFECT) {
+            ret = FALSE;
+        }
+    }
+
+    if (ctx->oneTurnFlag[defence_client].roostFlag && TypeEffectivenessTable[index][1] == TYPE_FLYING) {
+        ret = FALSE;
+    }
+
+    if (ctx->field_condition & FIELD_CONDITION_GRAVITY) {
+        if (TypeEffectivenessTable[index][1] == TYPE_FLYING && TypeEffectivenessTable[index][2] == TYPE_MUL_NO_EFFECT) {
+            ret = FALSE;
+        }
+    }
+
+    if (ctx->battlemon[defence_client].effect_of_moves & MOVE_EFFECT_FLAG_MIRACLE_EYE) {
+        if (TypeEffectivenessTable[index][1] == TYPE_DARK && TypeEffectivenessTable[index][2] == TYPE_MUL_NO_EFFECT) {
+            ret = FALSE;
+        }
+    }
+
+    return ret;
 }

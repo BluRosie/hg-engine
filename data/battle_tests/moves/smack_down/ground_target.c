@@ -1,20 +1,19 @@
-// Test: Healing Wish - Heal full at end of the turn
+// Test: Smack Down - ground target
 #include "../../battle_tests.h"
-BEGIN_TEST
-{
+BEGIN_TEST {
     .battleType = BATTLE_TYPE_TRAINER,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_CLEFABLE,
+            .species = SPECIES_GOLEM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_MAGIC_GUARD,
+            .ability = ABILITY_STURDY,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
+            .moves = { MOVE_SMACK_DOWN, MOVE_MUD_SLAP, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -23,39 +22,27 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
-    },
+        { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_CLEFAIRY,
-                        .level = 50,
+                        .species = SPECIES_SKARMORY,
+                        .level = 100,
                         .form = 0,
-                        .ability = ABILITY_MAGIC_GUARD,
-                        .item = ITEM_CHOICE_SCARF,
-                        .moves = { MOVE_HEALING_WISH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .ability = ABILITY_STURDY,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        {
-            .species = SPECIES_CHANSEY,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_SERENE_GRACE,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
-            .status = STATUS_FREEZE,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -75,7 +62,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -94,11 +81,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy used Healing Wish!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Clefairy fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Clefable used Sleep Talk!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The healing wish came true for the opposing Chansey!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem used Smack Down!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Skarmory fell straight down!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golem used Mud-Slap!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 12, 14 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s super effective!" },
     },
-}
-END_TEST
+} END_TEST

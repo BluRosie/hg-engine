@@ -778,7 +778,8 @@ typedef struct MoveConditionsFlags {
     u8 throatChopTimer : 2;
 
     u8 dragonDartsStatus : 3;
-    u8 padding : 5;
+    u8 grounded : 1;
+    u8 padding : 4;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -819,6 +820,23 @@ typedef struct MagicBounceContext {
     u8 bounceCounter;
     u8 bounceMaxCounter;
 } MagicBounceContext;
+
+typedef enum HealingConditionType {
+    HEALING_CONDITION_HEALING_NONE = 0,
+    HEALING_CONDITION_HEALING_WISH,
+    HEALING_CONDITION_HEALING_LUNAR_DANCE,
+} HealingConditionType;
+
+typedef struct HealingWishCounter {
+    u8 count : 4;
+    u8 front : 2;
+    u8 back : 2;
+} HealingWishCounter;
+
+typedef struct HealingWishQueue {
+    HealingConditionType queue[CLIENT_MAX][2];
+    HealingWishCounter counter[CLIENT_MAX];
+} HealingWishQueue;
 
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
@@ -1067,6 +1085,7 @@ struct BattleStruct {
     PursuitContext pursuitContext;
     DancerContext dancerContext;
     MagicBounceContext magicBounceContext;
+    HealingWishQueue healingWishQueue;
 };
 
 enum {
@@ -1506,6 +1525,7 @@ enum {
     MOVE_PERFORMANCE_STEP_15_1_ADDITIONAL_MOVE_EFFECTS,
     MOVE_PERFORMANCE_STEP_15_2_SPARKLING_ARIA,
     MOVE_PERFORMANCE_STEP_15_3_THAW_FROM_FIRE_MOVE,
+    MOVE_PERFORMANCE_STEP_15_4_SMACK_DOWN,
     MOVE_PERFORMANCE_STEP_16_0_MAGICIAN_MOXIE,
     MOVE_PERFORMANCE_STEP_16_1_BERSERK_COLOR_CHANGE,
     MOVE_PERFORMANCE_STEP_17_0_DEFENDER_ITEMS_3,
@@ -2368,7 +2388,7 @@ BOOL LONG_CALL ShouldDelayTurnEffectivenessChecking(struct BattleStruct *sp, u32
  *  @param pos position in the TypeEffectivenessTable loop checker (index)
  *  @return TRUE if the normal type effectiveness calculator should be used; FALSE otherwise
  */
-BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client, int defence_client, int pos);
+BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_client UNUSED, int defence_client, int pos);
 
 u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker);
 
@@ -2936,21 +2956,6 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
 #define CALCSPEED_FLAG_NOTHING     0
 #define CALCSPEED_FLAG_NO_PRIORITY 0x80
-
-/**
- *  @brief set move status effects for super effective and calculate modified damage
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @param move_no move index
- *  @param move_type move type
- *  @param attack_client attacker
- *  @param defence_client defender
- *  @param damage current damage
- *  @param flag move status flags to mess around with
- *  @return modified damage
- */
-int LONG_CALL ServerDoTypeCalcMod(void *bw, struct BattleStruct *sp, int move_no, int move_type, int attack_client, int defence_client, int damage, u32 *flag);
 
 /**
  *  @brief see if a move has positive priority after adjustment

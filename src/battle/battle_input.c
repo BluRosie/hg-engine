@@ -689,18 +689,18 @@ u16 TerrainPlatformPalettes[][3] = {
     [TERRAIN_PSYCHIC_TERRAIN] = { (BATTLE_GFX_TRANSPARENT_TERRAIN + 1), BATTLE_GFX_TRANSPARENT_TERRAIN + 1, (BATTLE_GFX_TRANSPARENT_TERRAIN + 1) },
 };
 
+// clang-format off
 BattleBGStorage NewBattleBgTable[] = {
-    [BATTLE_BG_ELECTRIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] = { .baseEntry = 354, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
-    [BATTLE_BG_MISTY_TERRAIN -
-        NUM_VANILLA_BATTLE_BACKGROUNDS]
-    = { .baseEntry = 356, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
-    [BATTLE_BG_GRASSY_TERRAIN -
-        NUM_VANILLA_BATTLE_BACKGROUNDS]
-    = { .baseEntry = 358, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
-    [BATTLE_BG_PSYCHIC_TERRAIN -
-        NUM_VANILLA_BATTLE_BACKGROUNDS]
-    = { .baseEntry = 360, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
+    [BATTLE_BG_ELECTRIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] =
+        { .baseEntry = 354, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
+    [BATTLE_BG_MISTY_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] =
+        { .baseEntry = 356, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
+    [BATTLE_BG_GRASSY_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] =
+        { .baseEntry = 358, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
+    [BATTLE_BG_PSYCHIC_TERRAIN - NUM_VANILLA_BATTLE_BACKGROUNDS] =
+        { .baseEntry = 360, .hasDayNightPals = FALSE, .hasPlatforms = FALSE },
 };
+// clang-format on
 
 u8 sCamouflageTypeTable[] = {
     [TERRAIN_PLAIN] = TYPE_GROUND,
