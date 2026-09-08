@@ -6,8 +6,8 @@
 _000:
     SetFieldCondition2 OPCODE_FLAG_OFF, FIELD_CONDITION_2_MAGIC_ROOM
     //Magic Room wore off, and held items’ effects returned to normal!
-    PrintMessage 1788, TAG_NONE
-    Wait 
+    PrintMessage 1794, TAG_NONE
+    Wait
     WaitButtonABTime 30
     //Animation
-    End  
+    End

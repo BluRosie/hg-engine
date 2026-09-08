@@ -2149,6 +2149,63 @@ void BattleController_CheckBide(struct BattleSystem *bsys, struct BattleStruct *
     }
 }
 
+BOOL CanSetFirstBattlerWithAbilityInSlotOrder(struct BattleStruct *ctx, u32 ability)
+{
+    if (GetBattlerAbility(ctx, ctx->attack_client) == ability) {
+        ctx->battlerIdTemp = ctx->attack_client;
+        return TRUE;
+    }
+
+    int counter = 0;
+    while (counter <= SPREAD_MOVE_LOOP_MAX) {
+        switch (ctx->clientLoopForSpreadMoves) {
+        case SPREAD_MOVE_LOOP_ALLY: {
+            counter++;
+            int ally = BATTLER_ALLY(ctx->attack_client);
+            if (GetBattlerAbility(ctx, ally) == ability) {
+                ctx->battlerIdTemp = ally;
+                return TRUE;
+            }
+        }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_LEFT: {
+            counter++;
+            int opLeft = BATTLER_OPPONENT_SIDE_LEFT(ctx->attack_client);
+            if (GetBattlerAbility(ctx, opLeft) == ability) {
+                ctx->battlerIdTemp = opLeft;
+                return TRUE;
+            }
+        }
+            FALLTHROUGH;
+        case SPREAD_MOVE_LOOP_OPPONENT_RIGHT: {
+            counter++;
+            int opRight = BATTLER_OPPONENT_SIDE_RIGHT(ctx->attack_client);
+            if (GetBattlerAbility(ctx, opRight) == ability) {
+                ctx->battlerIdTemp = opRight;
+                return TRUE;
+            }
+            break;
+        }
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL BattlerHasArmorTailQueenlyMajestyOrDazzling(struct BattleStruct *ctx, int battlerId)
+{
+    switch (GetBattlerAbility(ctx, battlerId)) {
+    case ABILITY_QUEENLY_MAJESTY:
+    case ABILITY_DAZZLING:
+    case ABILITY_ARMOR_TAIL:
+        return TRUE;
+        break;
+    default:
+        break;
+    }
+    return FALSE;
+}
+
 BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     if (ctx->defence_client == BATTLER_NONE) {
@@ -2163,8 +2220,8 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
     case MOVE_EXPLOSION:
     case MOVE_MIND_BLOWN:
     case MOVE_MISTY_EXPLOSION:
-        if (CheckSideAbility(bsys, ctx, CHECK_ABILITY_ALL_HP, defender, ABILITY_DAMP)
-            && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
+        if (CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
+            && CanSetFirstBattlerWithAbilityInSlotOrder(ctx, ABILITY_DAMP)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -2179,12 +2236,20 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
         break;
     }
 
+    BOOL defenderHasPriorityBlock = BattlerHasArmorTailQueenlyMajestyOrDazzling(ctx, defender);
+    BOOL defenderAllyHasPriorityBlock = BattlerHasArmorTailQueenlyMajestyOrDazzling(ctx, BATTLER_ALLY(defender));
+
     // Handle Queenly Majesty, Dazzling & Armor Tail
-    if ((CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_QUEENLY_MAJESTY)
-            || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_DAZZLING)
-            || CheckSideAbility(bsys, ctx, CHECK_ABILITY_SAME_SIDE_HP, defender, ABILITY_ARMOR_TAIL))
-        && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)) {
+    if ((defenderHasPriorityBlock || defenderAllyHasPriorityBlock)
+        && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
+        && (IsClientEnemy(bsys, defender) != IsClientEnemy(bsys, attacker))) {
         if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
+            if (defenderHasPriorityBlock) {
+                ctx->battlerIdTemp = defender;
+            } else {
+                ctx->battlerIdTemp = BATTLER_ALLY(defender);
+            }
+
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_CANNOT_USE_MOVE);
             ctx->next_server_seq_no = CONTROLLER_COMMAND_25;
@@ -2753,29 +2818,40 @@ BOOL BattleController_CheckAbilityFailures2(struct BattleSystem *bsys UNUSED, st
     return FALSE;
 }
 
-BOOL CalcDamageAndSetMoveStatusFlags(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender)
-{
-    if ((ctx->moveTbl[ctx->current_move_index].target != RANGE_USER && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE && ctx->moveTbl[ctx->current_move_index].power != 0 && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY) /* && !(ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) */) || ctx->current_move_index == MOVE_THUNDER_WAVE) {
-        // TODO: Probably wrong?
-        u32 temp = ctx->moveStatusFlagForSpreadMoves[defender];
-        // TODO: Use GetTypeEffectiveness
-        ServerDoTypeCalcMod(bsys, ctx, ctx->current_move_index, ctx->move_type, ctx->attack_client, defender, ctx->damageForSpreadMoves[defender], &temp);
-        ctx->moveStatusFlagForSpreadMoves[defender] = temp;
-        if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_NO_EFFECT && IsAttackerOnField(ctx)) {
-            ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
-        }
-    }
-    return FALSE;
-}
-
-// TODO: check message/subscript correctness, move damage out, handle Thousand Arrows
+// TODO: check message/subscript correctness, handle Thousand Arrows
 BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct BattleStruct *ctx, int defender)
 {
-    if ((ctx->current_move_index == MOVE_POLLEN_PUFF && defender == BATTLER_ALLY(ctx->attack_client))
-        || (!(ctx->waza_out_check_on_off & 2) && ctx->defence_client != BATTLER_NONE && CalcDamageAndSetMoveStatusFlags(bsys, ctx, defender) == TRUE)) {
+    if (ctx->current_move_index == MOVE_POLLEN_PUFF && defender == BATTLER_ALLY(ctx->attack_client)) {
         return FALSE;
     }
+    u32 flag = 0;
+    int effectiveness = TYPE_MUL_NORMAL;
+
+    if ((ctx->moveTbl[ctx->current_move_index].target != RANGE_USER
+            && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE
+            && ctx->moveTbl[ctx->current_move_index].power != 0
+            && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY))
+        || ctx->current_move_index == MOVE_THUNDER_WAVE) {
+        effectiveness = GetTypeEffectiveness(bsys, ctx, ctx->attack_client, defender, ctx->move_type, &flag);
+        int status = 0;
+        if (effectiveness == TYPE_MUL_NO_EFFECT) {
+            status = MOVE_STATUS_NO_EFFECT;
+        } else if (effectiveness > TYPE_MUL_NORMAL) {
+            status = MOVE_STATUS_SUPER_EFFECTIVE;
+        } else if (effectiveness < TYPE_MUL_NORMAL) {
+            status = MOVE_STATUS_NOT_VERY_EFFECTIVE;
+        }
+        if (ctx->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) {
+            status = 0;
+        }
+        ctx->moveStatusFlagForSpreadMoves[defender] = status;
+    }
+
     if (ctx->moveStatusFlagForSpreadMoves[defender] & MOVE_STATUS_NO_EFFECT) {
+        if (IsAttackerOnField(ctx)) {
+            ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
+        }
+
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT);
@@ -2783,6 +2859,21 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return TRUE;
     }
+
+    if ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WONDER_GUARD) == TRUE)
+        && effectiveness < TYPE_MUL_NORMAL) {
+        if (IsAttackerOnField(ctx)) {
+            ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
+        }
+        ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_EFFECT;
+        BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        ctx->battlerIdTemp = defender;
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
+    }
+
     return FALSE;
 }
 
