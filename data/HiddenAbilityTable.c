@@ -1490,5 +1490,5 @@ const u16 UNUSED HiddenAbilityTable[] =
     [SPECIES_ROTOM_FAN                   ] = ABILITY_NONE,
     [SPECIES_ROTOM_MOW                   ] = ABILITY_NONE,
     [SPECIES_GIRATINA_ORIGIN             ] = ABILITY_TELEPATHY,
-    [SPECIES_PICHU_SPIKY_EAR             ] = ABILITY_LIGHTNING_ROD,
+    [SPECIES_PICHU_SPIKY_EAR             ] = ABILITY_NONE,
 };
