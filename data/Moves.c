@@ -12995,7 +12995,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Magic Room",
         },
         .data = {
-            .effect = MOVE_EFFECT_HIT,
+            .effect = MOVE_EFFECT_MAGIC_ROOM,
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_PSYCHIC,

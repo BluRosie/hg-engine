@@ -526,8 +526,9 @@
 #define BATTLE_SUBSCRIPT_WANDERING_SPIRIT                       (517)
 #define BATTLE_SUBSCRIPT_SCREEN_CLEANER                         (518)
 #define BATTLE_SUBSCRIPT_FELL_STRAIGHT_DOWN                     (519)
+#define BATTLE_SUBSCRIPT_MAGIC_ROOM_END                         (520)
 
-#define MAX_BASE_SUBSCRIPT_NUM 519
+#define MAX_BASE_SUBSCRIPT_NUM 520
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

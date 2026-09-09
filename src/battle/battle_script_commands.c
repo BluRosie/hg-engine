@@ -137,6 +137,8 @@ BOOL btl_scr_cmd_124_GetMonByCottonDownOrder(void *bsys UNUSED, struct BattleStr
 BOOL btl_scr_cmd_125_TryActivateZeroToHero(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_126_TryHealingWish(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_128_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -477,6 +479,8 @@ const u8 *BattleScrCmdNames[] = {
     "TryActivateZeroToHero",
     "TryHealingWish",
     "ActivateHealingWish",
+    "IsFieldCondition2On",
+    "SetFieldCondition2",
     // "YourCustomCommand",
 };
 
@@ -559,6 +563,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x125 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_125_TryActivateZeroToHero,
     [0x126 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_126_TryHealingWish,
     [0x127 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_127_ActivateHealingWish,
+    [0x128 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_128_IsFieldCondition2On,
+    [0x129 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_129_SetFieldCondition2,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -5828,6 +5834,57 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
         ctx->healingWishQueue.counter[ctx->reshuffle_client].count--;
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_128_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int fieldCondition2 = read_battle_script_param(ctx);
+    int notActive = read_battle_script_param(ctx);
+
+    if (ctx->field_condition2 & fieldCondition2) {
+        IncrementBattleScriptPtr(ctx, notActive);
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int opCode = read_battle_script_param(ctx);
+    int fieldCondition2 = read_battle_script_param(ctx);
+
+    switch (opCode) {
+    case OPCODE_FLAG_ON:
+        ctx->field_condition2 |= fieldCondition2;
+
+        switch (fieldCondition2) {
+        case FIELD_CONDITION_2_MAGIC_ROOM:
+            ctx->magicRoomCounter = 5;
+            break;
+        default:
+            break;
+        }
+        break;
+    case OPCODE_FLAG_OFF:
+        ctx->field_condition2 &= ~fieldCondition2;
+
+        switch (fieldCondition2) {
+        case FIELD_CONDITION_2_MAGIC_ROOM:
+            ctx->magicRoomCounter = 0;
+            break;
+        default:
+            break;
+        }
+        break;
+
+    default:
+        break;
     }
 
     return FALSE;
