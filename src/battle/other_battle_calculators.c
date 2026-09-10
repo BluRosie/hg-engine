@@ -419,7 +419,7 @@ u16 DynamaxBannedWeightMoveList[6] = {
     MOVE_HEAT_CRASH,
 };
 
-u16 PunchingMoveTable[24] = {
+u16 PunchingMoveTable[25] = {
     MOVE_BULLET_PUNCH,
     MOVE_COMET_PUNCH,
     MOVE_DIZZY_PUNCH,
@@ -444,6 +444,7 @@ u16 PunchingMoveTable[24] = {
     MOVE_SURGING_STRIKES,
     MOVE_THUNDER_PUNCH,
     MOVE_WICKED_BLOW,
+    MOVE_DOUBLE_SHOCK,
 };
 
 u16 BitingMoveTable[10] = {

@@ -1833,7 +1833,7 @@ extern u8 TypeEffectivenessTable[][3];
 
 extern u8 HeldItemPowerUpTable[36][2];
 
-extern u16 PunchingMoveTable[24];
+extern u16 PunchingMoveTable[25];
 
 extern u16 BitingMoveTable[10];
 
