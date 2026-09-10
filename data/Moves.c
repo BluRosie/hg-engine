@@ -5633,7 +5633,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .effectChance = 0,
         },
         .battle = {
-            .target = RANGE_USER,
+            .target = RANGE_SINGLE_TARGET_USER_SIDE,
             .priority = 0,
             .flags = FLAG_SNATCH,
         },
