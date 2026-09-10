@@ -19,7 +19,8 @@
 #0224C690
 0012 ServerHPCalc 08014DD0 2
 
-arm9 PokePicLoad 080701EC 1
+arm9 GetMonSpriteCharAndPlttNarcIdsEx 020701E4
+arm9 GetMonPicHeightBySpeciesGenderForm 020708D8
 arm9 PokeOtherFormMonsNoGet 08072634 2
 arm9 PokeIconIndexGetByMonsNumber 080741BC 3
 arm9 PokeIconCgxPatternGet 080742CC 1

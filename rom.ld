@@ -54,10 +54,13 @@ ReadFromNarcMemberByIdPair = 0x02007560 | 1;
 /*Pokemon*/
 AllocMonZeroed = 0x0206DD2C | 1;
 ZeroMonData = 0x0206DCE4 |1;
+Save_MapObjects_Get = 0x0203B9D0 |1;
+GetFirstAliveMonInParty_CrashIfNone = 0x02054388 |1;
+MapObjectManager_RestoreFromSave = 0x0205E648 |1;
+SaveArray_Party_Get = 0x02074904 |1;
 PokeParaSet = 0x0206DE38 |1;
 PokeParaSetChr = 0x0206E108 |1;
 PokeParaSetSexChr = 0x0206E14C |1;
-GetMonSpriteCharAndPlttNarcIdsEx = 0x020701E4 |1;
 PokeCopyPPtoPP = 0x0207188C |1;
 GetMonData = 0x0206E540 |1;
 GetBoxMonData = 0x0206E640 |1;
