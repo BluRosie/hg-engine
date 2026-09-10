@@ -3092,6 +3092,10 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
             if (ctx->multiHitCount) {
                 ctx->loop_flag = 1;
                 ov12_02252D14(bsys, ctx);
+                ctx->moveContext.hitFoesCount = 0;
+                ctx->moveContext.hitSubstituteCount = 0;
+                ctx->moveContext.currentMoveCalcDone = FALSE;
+
                 ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
                 ctx->waza_out_check_on_off = ctx->loop_hit_check;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
@@ -3118,6 +3122,10 @@ int LONG_CALL BattleController_LoopMultiHitInternal(struct BattleSystem *bsys, s
 
                 ctx->loop_flag = 1;
                 ov12_02252D14(bsys, ctx);
+                ctx->moveContext.hitFoesCount = 0;
+                ctx->moveContext.hitSubstituteCount = 0;
+                ctx->moveContext.currentMoveCalcDone = FALSE;
+
                 ctx->server_status_flag &= ~BATTLE_STATUS_MOVE_ANIMATIONS_OFF;
                 ctx->waza_out_check_on_off = ctx->loop_hit_check;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_MOVE_SEQ, ctx->current_move_index);
