@@ -773,7 +773,7 @@ typedef struct MoveConditionsFlags {
     u8 doubleShockFlag : 1;
     u8 powderBlockingFireMove : 1;
     u8 laserFocusTimer : 2;
-    u8 glaiveRush : 1;
+    u8 wideOpen : 1;
     u8 anyStatLoweredThisTurn : 1;
     u8 throatChopTimer : 2;
 
@@ -1833,7 +1833,7 @@ extern u8 TypeEffectivenessTable[][3];
 
 extern u8 HeldItemPowerUpTable[36][2];
 
-extern u16 PunchingMoveTable[24];
+extern u16 PunchingMoveTable[25];
 
 extern u16 BitingMoveTable[10];
 

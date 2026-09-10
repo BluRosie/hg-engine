@@ -322,4 +322,5 @@ const AbilityFlags UNUSED sAbilityFlags[] = {
     [ABILITY_FIRE_MANE] = { .disabledByNeutralizingGas = TRUE },
     [ABILITY_TEMP4] = { .disabledByNeutralizingGas = TRUE },
     [ABILITY_SPICY_SPRAY] = { .disabledByNeutralizingGas = TRUE },
+    [ABILITY_AURA_GUARD] = { .ignoredByMoldBreaker = TRUE, .disabledByNeutralizingGas = TRUE },
 };
