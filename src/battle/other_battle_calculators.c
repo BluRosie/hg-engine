@@ -2670,7 +2670,7 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
 
     // 1. Check if user or target has No Guard, or if the user has sure-hit accuracy from Poison-type Toxic, or if the user has used Lock-On / Mind Reader.
 
-    if (sp->moveConditionsFlags[battlerIdTarget].glaiveRush) {
+    if (sp->moveConditionsFlags[battlerIdTarget].wideOpen) {
         return TRUE;
     }
 

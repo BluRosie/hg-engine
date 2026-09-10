@@ -408,7 +408,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 
     // 6.3.5 Glaive Rush
     // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-10498744
-    if (sp->moveConditionsFlags[defender].glaiveRush) {
+    if (sp->moveConditionsFlags[defender].wideOpen) {
         damage = damage * 200 / 100;
     }
 

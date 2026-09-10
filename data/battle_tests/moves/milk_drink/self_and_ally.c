@@ -1,4 +1,4 @@
-// Test: Milk Drin - Heal Self or Ally
+// Test: Milk Drink - Heal Self or Ally
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -106,9 +106,9 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gogoat used Milk Drink!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Miltank’s HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Miltank's HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank used Milk Drink!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank’s HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Miltank's HP was restored!" },
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 100 }, // 1+198/2
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 1, .expectationValue.currentHP = 54 }, // 1+106/2
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 2, .expectationValue.currentHP = 1 },

@@ -5152,7 +5152,7 @@ BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
         ctx->moveConditionsFlags[client_no].laserFocusTimer = 2;
         break;
     case MOVE_GLAIVE_RUSH:
-        ctx->moveConditionsFlags[client_no].glaiveRush = TRUE;
+        ctx->moveConditionsFlags[client_no].wideOpen = TRUE;
         break;
     case MOVE_THROAT_CHOP:
         // https://discord.com/channels/419213663107416084/1368163973366681712/1473486991302594570
