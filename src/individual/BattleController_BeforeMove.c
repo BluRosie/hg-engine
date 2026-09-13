@@ -730,7 +730,10 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 #ifdef DEBUG_BEFORE_MOVE_LOGIC
         debug_printf("In BEFORE_MOVE_STATE_SET_STEEL_BEAM_FLAG\n");
 #endif
-
+        if (!ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam
+            && (ctx->current_move_index == MOVE_STEEL_BEAM || ctx->current_move_index == MOVE_MIND_BLOWN)) {
+            ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam = TRUE;
+        }
         ctx->wb_seq_no++;
         FALLTHROUGH;
     }

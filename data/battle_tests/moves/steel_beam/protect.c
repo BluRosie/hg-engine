@@ -1,0 +1,92 @@
+// Test: Steel Beam - Recoil on Protect
+#include "../../battle_tests.h"
+BEGIN_TEST
+{
+    .battleType = BATTLE_TYPE_TRAINER,
+    .weather = FIELD_CONDITION_NONE,
+    .fieldCondition = 0,
+    .terrain = TERRAIN_NONE,
+    .playerParty = {
+        {
+            .species = SPECIES_JIRACHI,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SERENE_GRACE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_STEEL_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE }
+    },
+    .enemyParty = { {
+                        .species = SPECIES_SABLEYE,
+                        .level = 100,
+                        .form = 0,
+                        .ability = ABILITY_PRANKSTER,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_PROTECT, MOVE_MEMENTO, MOVE_NONE, MOVE_NONE },
+                        .hp = FULL_HP,
+                        .status = 0,
+                        .condition2 = 0,
+                        .moveEffectFlags = 0,
+                    },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE } },
+    .playerScript = { {
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
+                          { ACTION_NONE, 0 },
+                          { ACTION_NONE, 0 },
+                          { ACTION_NONE, 0 },
+                          { ACTION_NONE, 0 },
+                          { ACTION_NONE, 0 },
+                      },
+        {
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        } },
+    .enemyScript = { {
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+                         { ACTION_NONE, 0 },
+                         { ACTION_NONE, 0 },
+                         { ACTION_NONE, 0 },
+                         { ACTION_NONE, 0 },
+                         { ACTION_NONE, 0 },
+                         { ACTION_NONE, 0 },
+                     },
+        {
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        } },
+    .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye used Protect!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye used Protect!" },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 87 }, // 175-(175+1)/2
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 87 }, // 175-(175+1)/2
+    }
+}
+END_TEST
