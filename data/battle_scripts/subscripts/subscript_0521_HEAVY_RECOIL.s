@@ -4,7 +4,7 @@
 .data
 
 _000:
-    GoToIfMoveConditionFlagSet MOVE_GLAIVE_RUSH, BATTLER_CATEGORY_ATTACKER, _recoil
+    GoToIfMoveConditionFlagSet MOVE_STEEL_BEAM, BATTLER_CATEGORY_ATTACKER, _recoil
     End
 
 _recoil:

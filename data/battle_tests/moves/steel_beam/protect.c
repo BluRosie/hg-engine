@@ -27,7 +27,7 @@ BEGIN_TEST
     },
     .enemyParty = { {
                         .species = SPECIES_SABLEYE,
-                        .level = 100,
+                        .level = 60,
                         .form = 0,
                         .ability = ABILITY_PRANKSTER,
                         .item = ITEM_NONE,
@@ -37,7 +37,18 @@ BEGIN_TEST
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_LITTEN,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_INTIMIDATE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -84,8 +95,12 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye used Protect!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye used Protect!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye protected itself!" },
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 87 }, // 175-(175+1)/2
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Jirachi used Steel Beam!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },//TODO: wrong message
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten!" },
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 87 }, // 175-(175+1)/2
     }
 }

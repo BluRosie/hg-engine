@@ -5905,8 +5905,8 @@ BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct 
     switch (move) {
     case MOVE_MIND_BLOWN:
     case MOVE_STEEL_BEAM:
-        if (ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam) {
-            ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam = FALSE;
+        if (ctx->moveConditionsFlags[client_no].mindBlownOrSteelBeam) {
+            ctx->moveConditionsFlags[client_no].mindBlownOrSteelBeam = FALSE;
             IncrementBattleScriptPtr(ctx, isOn);
         }
         break;
