@@ -149,6 +149,14 @@ cd hg-engine
 ```
 2. Continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
 
+## Optional: dsrom
+
+`dsrom` is written in Rust, so building it from source requires a Rust toolchain in addition to whatever you installed above:
+* **Linux/macOS**: install [rustup](https://rustup.rs/) (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`), or use your package manager's `rust`/`cargo` package if it's reasonably current.
+* **Windows (WSL or MSYS2)**: install [rustup](https://rustup.rs/) the same way as Linux from within WSL, or run `pacman -S mingw-w64-x86_64-rust` from MSYS2.
+
+Once the Rust toolchain is installed, `make ROM_TOOL=dsrom` will clone and build `dsrom` the same way it builds `armips` or `ndstool`; no other setup is needed.
+
 ## Build Instructions (All Platforms) (Continued from Further Setup Instructions)
 
 1. Get your ROM, rename it to **rom.nds** and place it in `~/git/hg-engine`.
@@ -212,6 +220,7 @@ If the CLI indicates merge conflicts, check [this article][github-merge-conflict
 * [**PokeDiamond decompilation projects (nitrogfx, msgenc)**][diamond]
 * [**Mikelan98, Nomura (ARM9 Expansion Subroutine )**][ARM9]
 * Rafael Vuijk (ndstool)
+* [Aetias (dsrom)](https://github.com/AetiasHax/ds-rom)
 * Come swing by the [Kingdom of DS Hacking](https://discord.gg/zAtqJDW2jC) or [DS Modding Community](https://discord.gg/YBtdN3aXfv) Discord servers for any help with this!
 
 [MONEXPAND]: https://github.com/BluRosie/hgss-monexpansion
