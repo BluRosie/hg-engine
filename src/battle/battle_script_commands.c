@@ -139,6 +139,7 @@ BOOL btl_scr_cmd_126_TryHealingWish(void *bsys UNUSED, struct BattleStruct *ctx)
 BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_128_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -481,6 +482,7 @@ const u8 *BattleScrCmdNames[] = {
     "ActivateHealingWish",
     "IsFieldCondition2On",
     "SetFieldCondition2",
+    "GoToIfMoveConditionFlagSet",
     // "YourCustomCommand",
 };
 
@@ -565,6 +567,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x127 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_127_ActivateHealingWish,
     [0x128 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_128_IsFieldCondition2On,
     [0x129 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_129_SetFieldCondition2,
+    [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -5883,6 +5886,30 @@ BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *
         }
         break;
 
+    default:
+        break;
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 move = read_battle_script_param(ctx);
+    u32 side = read_battle_script_param(ctx);
+    u32 client_no = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    int isOn = read_battle_script_param(ctx);
+
+    switch (move) {
+    case MOVE_MIND_BLOWN:
+    case MOVE_STEEL_BEAM:
+        if (ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam) {
+            ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam = FALSE;
+            IncrementBattleScriptPtr(ctx, isOn);
+        }
+        break;
     default:
         break;
     }
