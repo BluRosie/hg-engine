@@ -64,9 +64,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 
     // 02252F24
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE) {
-        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-            //    && (sp->moveTbl[sp->current_move_index].power) //as of Gen5
-        ) {
+        if ((movetype == TYPE_WATER) && (attacker != defender)  && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = BATTLE_SUBSCRIPT_ABILITY_RESTORES_HP;
         }
