@@ -1727,8 +1727,6 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
 
 BOOL BattlerController_DecrementPP(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    int ii = BattleMon_GetMoveIndex(&ctx->battlemon[ctx->attack_client], ctx->moveNoTemp);
-    debug_printf("pp %d,ctx->multiHitCount %d,ctx->multiHitCountTemp %d \n", ctx->battlemon[ctx->attack_client].pp[ii], ctx->multiHitCount, ctx->multiHitCountTemp);
     int decreasePP = 1;
     int index;
     BOOL needToDecrementPP = TRUE;
