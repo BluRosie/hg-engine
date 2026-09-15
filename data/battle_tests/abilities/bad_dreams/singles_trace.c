@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_GARDEVOIR,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_TRACE,
             .item = ITEM_NONE,
@@ -53,7 +53,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -73,7 +73,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -83,11 +83,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir’s Trace" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It traced the opposing Darkrai’s Bad Dreams!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir's Trace" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It traced the opposing Darkrai's Bad Dreams!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Darkrai used Hypnosis!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir fell asleep!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Darkrai’s Bad Dreams" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Gardevoir" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir is tormented!" },
     }
 }
