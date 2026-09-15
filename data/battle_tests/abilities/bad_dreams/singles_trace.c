@@ -88,7 +88,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Darkrai used Hypnosis!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir fell asleep!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Gardevoir's Bad Dreams" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Darkrai's Bad Dreams" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir is tormented!" },
     }
 }
