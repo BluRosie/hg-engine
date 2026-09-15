@@ -2569,6 +2569,8 @@ u32 LONG_CALL Activate_AbilityHealingStatusCondition(void *bsys, struct BattleSt
 
 int LONG_CALL Activate_SecondaryEffects(void *bsys, struct BattleStruct *ctx)
 {
+    ctx->hit_damage = ctx->damageForSpreadMoves[ctx->defence_client];
+
     int seq_no = 0;
     // TODO hook and simplify logic for flags
     u32 indirectStatusEffectFlag = ctx->add_status_flag_indirect;
