@@ -1,4 +1,4 @@
-// Test: Steel Beam - Recoil on Protect
+// Test: Steel Beam - Magic Guard prevents Recoil
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
