@@ -13,7 +13,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_TRACE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_PSYCHIC, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -83,7 +83,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir’s Trace" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It traced the opposing Darkrai’s Bad Dreams!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Darkrai used Hypnosis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir fell asleep!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Darkrai’s Bad Dreams" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gardevoir is tormented!" },
     }
 }
 END_TEST

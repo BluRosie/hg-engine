@@ -42,7 +42,7 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_PRANKSTER,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_THUNDER_WAVE, MOVE_TAILWHIP, MOVE_TAILWIND, MOVE_GRAVITY },
+                        .moves = { MOVE_THUNDER_WAVE, MOVE_TAIL_WHIP, MOVE_TAILWIND, MOVE_GRAVITY },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -105,7 +105,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Incineroar..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Pointed stones float in the air" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Incineroar..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten’s Defense fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye’s HP is full!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A tailwind started blowing on the opposing side!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "rose sharply!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gravity intensified!" },
     }
 }
 END_TEST
