@@ -1,4 +1,4 @@
-// Test: Spicy Spray - can't burn Fire Type or already statused Pokemon
+// Test: Aura Guard - Halves damage from contact moves
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,45 +8,17 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_CHARIZARD,
+            .species = SPECIES_LUCARIO,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_BLAZE,
-            .item = ITEM_CHOICE_SCARF,
-            .moves = { MOVE_SLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .ability = ABILITY_STEADFAST,
+            .item = ITEM_LUCARIONITE_Z,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        {
-            .species = SPECIES_URSALUNA,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_NO_GUARD,
-            .item = ITEM_CHOICE_SCARF,
-            .moves = { MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = STATUS_BURN,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE } },
-    .enemyParty = { {
-                        .species = SPECIES_SCOVILLAIN,
-                        .level = 50,
-                        .form = 0,
-                        .ability = ABILITY_CHLOROPHYLL,
-                        .item = ITEM_SCOVILLAINITE,
-                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
-                        .status = 0,
-                        .condition2 = 0,
-                        .moveEffectFlags = 0,
-                    },
         {
             .species = SPECIES_SNOM,
             .level = 50,
@@ -54,6 +26,35 @@ BEGIN_TEST
             .ability = ABILITY_ICE_SCALES,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE }
+    },
+    .enemyParty = { {
+                        .species = SPECIES_SABLEYE,
+                        .level = 50,
+                        .form = 0,
+                        .ability = ABILITY_PRANKSTER,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_SHADOW_CLAW, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = FULL_HP,
+                        .status = 0,
+                        .condition2 = 0,
+                        .moveEffectFlags = 0,
+                    },
+        {
+            .species = SPECIES_BLASTOISE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_TORRENT,
+            .item = ITEM_NONE,
+            .moves = { MOVE_WATER_GUN, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -104,16 +105,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charizard used Slash!" },
-#ifdef CHAMPIONS_POWER_CHANGES
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 30, 30, 31, 31, 32, 32, 32, 33, 33, 33, 34, 34, 34, 35, 35, 36 } },
-#else
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 27, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31, 31, 31, 32 } },
-#endif
-        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Scovillain's Spicy Spray" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ursaluna used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 17, 18, 18, 18, 18, 18, 18, 18, 19, 19, 19, 19, 20, 20, 20, 21 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "burn" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Lucario's Lucarionite Z is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Lucario has Mega Evolved into Mega Lucario!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Blastoise used Water Gun!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 27, 27, 28, 28, 28, 28, 30, 30, 30, 30, 30, 31, 31, 31, 31, 33 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye used Shadow Claw!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 21, 21, 21, 21, 22, 22, 22, 23, 23, 23, 24, 24, 24, 24, 24, 25 } },
     }
 }
 END_TEST
