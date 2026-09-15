@@ -128,6 +128,24 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         }
         ctx->swoam_seq_no++;
         FALLTHROUGH;
+    case MOVE_PERFORMANCE_STEP_4_2_HEAVY_RECOIL:
+#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
+        if (IsAttackerOnField(ctx)) {
+            debug_printf("in MOVE_PERFORMANCE_STEP_4_2_HEAVY_RECOIL %d\n", ctx->swoam_seq_no);
+        }
+#endif
+        ctx->swoam_seq_no++;
+        if (ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam
+            && GetBattlerAbility(ctx, ctx->attack_client) != ABILITY_MAGIC_GUARD
+            && (ctx->current_move_index == MOVE_STEEL_BEAM
+                || ctx->current_move_index == MOVE_MIND_BLOWN)) {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HEAVY_RECOIL);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return;
+        }
+
+        FALLTHROUGH;
     case MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE:
 #ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
         debug_printf("in MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE %d\n", ctx->swoam_seq_no);

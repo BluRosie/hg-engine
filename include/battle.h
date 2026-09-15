@@ -779,7 +779,8 @@ typedef struct MoveConditionsFlags {
 
     u8 dragonDartsStatus : 3;
     u8 grounded : 1;
-    u8 padding : 4;
+    u8 mindBlownOrSteelBeam : 1;
+    u8 padding : 3;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -1503,6 +1504,7 @@ enum {
     MOVE_PERFORMANCE_VANISH_ON_OFF = 0,
     MOVE_PERFORMANCE_STEP_4_DEAL_DAMAGE,
     MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE,
+    MOVE_PERFORMANCE_STEP_4_2_HEAVY_RECOIL,
     MOVE_PERFORMANCE_STEP_5_SE_TYPE_EFFECTIVENESS_MESSAGE,
     MOVE_PERFORMANCE_STEP_6_NOT_SE_TYPE_EFFECTIVENESS_MESSAGE,
 
