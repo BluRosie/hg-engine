@@ -2975,7 +2975,7 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities1(struct BattleSystem
             && GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_PRANKSTER
             && HasType(ctx, defender, TYPE_DARK)
             && (ctx->attack_client & 1) != (defender & 1)) // used on an enemy)
-                                                           // Ghost-type immunity to trapping moves
+                                                           // TODO: Ghost-type immunity to trapping moves
                                                            // TODO: handle Octolock
         || (moveEffect == MOVE_EFFECT_PREVENT_ESCAPE && HasType(ctx, defender, TYPE_GHOST))
         // Grass-type powder immunity
