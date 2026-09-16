@@ -27,6 +27,7 @@ import subprocess
 import sys
 import typing
 import warnings
+import pprint
 
 from collections.abc import Callable, Mapping
 
@@ -36,6 +37,7 @@ DEFAULT_REPO_ROOT = os.path.realpath(os.path.join(TOOL_DIR, "..", "..", ".."))
 SCRIPT_NARC = "a/0/1/2"
 ZONE_EVENT_NARC = "a/0/3/2"
 MSGDATA_NARC = "a/0/2/7"
+MAP_HEADER_NARC = "a/0/5/0"
 
 # the macro table the build assembles the dumped scripts back with
 SCRIPT_MACROS = "asm/include/scriptmacros.inc"
@@ -1054,6 +1056,11 @@ class MapParser:
     def dump(self):
         self.dump_script_asm().dump_script_header().dump_events_json().dump_header_asm()
 
+def read_field(file, offset, size) -> int:
+    file.seek(offset, 0)
+    format = ("<I" if size == 4 else ("<H" if size == 2 else ("<B")))
+    return struct.unpack(format, file.read(size))[0]
+
 def load_narc_members(rom, path):
     import ndspy.narc
 
@@ -1104,15 +1111,112 @@ def dump_text(msg_members, repo_root, msgenc, charmap, include_generated, includ
 
     print(f"dumped {len(msg_members) - generated - engine_managed} text archives to data/text/" + (f" (skipped {' and '.join(notes)} archives)" if notes else ""))
 
-def read_mapping():
-    event_mapping_path = os.path.join(TOOL_DIR, "event_mapping.csv")
-    #if (not os.path.exists(event_mapping_path)):
-        # generate event mapping from the input rom...  the basic idea is that based on the event file, we should be able to map to the script file.
-        # format is zone_event json, script, level script file, text archive.  this will have to be read from the map header data itself.  including the map name.
-        # data/eventdata/zone_event/###_MAPNAME.json,data/scr_seq/scr_seq_####_MAPNAME.s,data/scr_seq/scr_seq_####_MAPNAME_hdr.s,###
+def grab_mapname_dict():
+    mapname_dict = {}
+    with open("base/root/fielddata/maptable/mapname.bin", "rb") as fp:
+        mapname_bin_len = int(os.path.getsize("base/root/fielddata/maptable/mapname.bin") / 16)
+        for i in range(0, mapname_bin_len):
+            fp.seek(16 * i, 0)
+            mapname_dict[i] = fp.read(16).decode().split("\x00")[0]
+    return mapname_dict
 
-    with open(event_mapping_path, newline = "") as fp:
-        return [row for row in csv.reader(fp) if row and not row[0].startswith("#")]
+def read_mapping():
+    """
+generate event mapping from the input rom...  the basic idea is that based on the event file, we should be able to map to the script file.
+format is zone_event json, script, level script file, text archive.  this will have to be read from the map header data itself.  including the map name.
+data/eventdata/zone_event/###_MAPNAME.json,data/scr_seq/scr_seq_####_MAPNAME.s,data/scr_seq/scr_seq_####_MAPNAME_hdr.s,###
+
+header information is originally located at F6BE0 of arm9, format:
+0x0  //  byte:       Wild Pokémon file number
+0x1  //  byte:       Area data value
+0x2  //  byte:       ?
+0x3  //  byte:       ?
+0x4  //  ushort:     Matrix number
+0x6  //  ushort:     Script file number
+0x8  //  ushort:     Level script file
+0xA  //  ushort:     Text Archive number
+0xC  //  ushort:     Day music track number
+0xE  //  ushort:     Night music track number
+0x10 //  ushort:     Event file number
+0x12 //  byte:       Index of map name in Text Archive #382 (US version)
+0x13 //  byte:       Map name textbox type value
+0x14 //  byte:       Weather value
+0x15 //  byte:       Camera value
+0x16 //  byte:       Follow mode (for the Pokémon following hero)
+0x17 //  byte:       Bitwise permission flags:
+
+BUT!  popular to offload the headers to a/0/5/0 depending on a dynamic headers patch.  we can check that this patch is applied by checking if 0x0203B268 is 0xB500 (same as DSPRE)
+
+so all i care about is building a dictionary that can be accessed just fine
+    """
+    # these are unmapped scripts and level scripts left over from the header mapping and the common script mapping.  completely unmapped.  for the moment these will have to be manually mapped
+    leftoverUnmappedScripts = [[27,288],
+                               [36,297],
+                               [68,329],
+                               [71,332],
+                               [72,333],
+                               [73,334],
+                               [74,335],
+                               [140,401],
+                               [142,459],
+                               [214,507],
+                               [876,649],
+                               [889,662],
+                               [925,698],
+                               [931,704],
+                               [933,706],
+                               [956,725]]
+    arm9 = open("base/arm9.bin", "rb")
+    headerDictionary = []
+    mapname_dict = grab_mapname_dict()
+    dummyHasPrinted = 0
+    # grab initial mapping from 020FA4A4
+    for i in range(0, 30):
+        baseEntryOffset = 0xFA4A4 + 6*i
+        script_file_name = f"data/scr_seq/scr_seq_{read_field(arm9, baseEntryOffset + 2, 2):04}.s"
+        text_file_name = f"{read_field(arm9, baseEntryOffset + 4, 2):03}"
+        headerDictionary.append(['', script_file_name, '', text_file_name])
+    headerDictionary.sort()
+
+    dynamicHeaderPatch = read_field(arm9, 0x03B268, 2)
+    if (dynamicHeaderPatch == 0xB500): # read from a050
+        print("hurray")
+    else:
+        # headers
+        for i in range(0, 540):
+            baseEntryOffset = 0x0F6BE0 + 0x18*i
+            # zone event file, script file, level script file, text file
+            zone_event_idx = read_field(arm9, baseEntryOffset + 0x10, 2)
+            script_file_idx = read_field(arm9, baseEntryOffset + 0x6, 2)
+            level_script_idx = read_field(arm9, baseEntryOffset + 0x8, 2)
+            # skip entry if corresponding with dummy entries
+            if (zone_event_idx == 0 and script_file_idx == 139 and level_script_idx == 399):
+                if (dummyHasPrinted == 0):
+                    dummyHasPrinted = 1
+                else:
+                    continue
+            zone_event_name = mapname_dict[i] if zone_event_idx != 0 else "DUMMY"
+            script_file_name = mapname_dict[i] if script_file_idx != 139 else "EVERYWHERE"
+            level_script_name = mapname_dict[i] if level_script_idx != 399 else "EVERYWHERE"
+            zone_event_name = f"data/eventdata/zone_event/{zone_event_idx:03}_{zone_event_name}.json"
+            script_file_name = f"data/scr_seq/scr_seq_{script_file_idx:04}_{script_file_name}.s"
+            level_script_name = f"data/scr_seq/scr_seq_{level_script_idx:04}_{level_script_name}_hdr.s"
+            text_file_name = f"{read_field(arm9, baseEntryOffset + 0xA, 2):03}"
+            headerDictionary.append([zone_event_name, script_file_name, level_script_name, text_file_name])
+    for i in range(0, len(leftoverUnmappedScripts)):
+        script_file_name = f"data/scr_seq/scr_seq_{leftoverUnmappedScripts[i][0]:04}.s"
+        level_script_name = f"data/scr_seq/scr_seq_{leftoverUnmappedScripts[i][1]:04}_hdr.s"
+        headerDictionary.append(['', script_file_name, level_script_name, '003'])
+    arm9.close()
+    return headerDictionary
+    #event_mapping_path = os.path.join(TOOL_DIR, "event_mapping.csv")
+    #with open(event_mapping_path, newline = "") as fp:
+    #    #arm9.close()
+    #    fuckthis = [row for row in csv.reader(fp) if row and not row[0].startswith("#")]
+    #    #pprint.pprint(fuckthis)
+    #    pprint.pprint(headerDictionary)
+    #    sys.exit(0)
+    #    return fuckthis
 
 def main(argv = None):
     p = argparse.ArgumentParser(description = "dump scripts, zone events, and message text from a built HeartGold ROM back into hg-engine source form")
