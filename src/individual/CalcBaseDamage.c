@@ -718,13 +718,14 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
             // handle Analytic
             if (AttackingMon.ability == ABILITY_ANALYTIC) {
-                for (i = 0; i < 4; i++) {
+                int k = 0;
+                for (k = 0; k < 4; k++) {
                     // TODO: handle without bw, sp
-                    if (attacker != i && damageCalc->clients[i].hp != 0 && CalcSpeed(bw, sp, attacker, i, 0) == 0) {
+                    if (attacker != k && damageCalc->clients[k].hp != 0 && CalcSpeed(bw, sp, attacker, k, 0) == 0) {
                         break;
                     }
                 }
-                if (i == 4) {
+                if (k == 4) {
                     basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
                     continue;
                 }
