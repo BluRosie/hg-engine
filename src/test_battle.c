@@ -162,9 +162,13 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
         if (moves[i] != MOVE_NONE) {
             u16 move = moves[i];
             SetMonData(mon, MON_DATA_MOVE1 + i, &move);
-            u32 pp = 40;
+            u32 pp = GetMoveMaxPP(move, 0);
             SetMonData(mon, MON_DATA_MOVE1MAXPP + i, &pp);
             SetMonData(mon, MON_DATA_MOVE1PP + i, &pp);
+        } else {
+            u32 pp = 0;
+            SetMonData(mon, MON_DATA_MOVE1PP + i, &pp);
+            SetMonData(mon, MON_DATA_MOVE1MAXPP + i, &pp);
         }
     }
 

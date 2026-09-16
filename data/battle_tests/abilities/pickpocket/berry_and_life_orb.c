@@ -102,7 +102,11 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
+#ifdef CHAMPIONS_POWER_CHANGES
+            { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 73, 73, 74, 75, 75, 77, 78, 78, 79, 81, 81, 82, 83, 83, 84, 86 } },
+#else
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 64, 64, 65, 66, 66, 68, 68, 69, 69, 70, 71, 71, 73, 73, 74, 75 } },
+#endif
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sandile lost some of its HP!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Impidimp restored its health using its Sitrus Berry!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Impidimp stole Sandile's Life Orb!" },

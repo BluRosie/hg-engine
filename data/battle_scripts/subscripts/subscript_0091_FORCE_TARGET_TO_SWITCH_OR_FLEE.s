@@ -47,8 +47,10 @@ _ForcedSwitch:
     WaitButtonABTime 30
     SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_TARGET
-    Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
+    Call BATTLE_SUBSCRIPT_HEALING_WISH
     Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
+    Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
+    //https://github.com/rh-hideout/pokeemerald-expansion/blob/master/include/constants/battle_switch_in.h
     End 
 
 _090:

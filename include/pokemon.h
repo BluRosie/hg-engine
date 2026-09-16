@@ -711,6 +711,9 @@ typedef struct
     u32 personal_rnd;
 } MON_PIC;
 
+#define MON_PIC_FACING_BACK  0
+#define MON_PIC_FACING_FRONT 2
+
 #define NEEDS_REVERSION 0x8000
 
 typedef struct EncounterInfo {
