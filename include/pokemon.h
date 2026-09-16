@@ -1839,4 +1839,6 @@ BOOL LONG_CALL GetTMHMCompatBySpeciesAndForm(u16 species, u16 form, u8 tmhmIdx);
 
 void LONG_CALL DeleteMonFirstMoveAndAppend(struct PartyPokemon *mon, u16 move);
 
+struct PartyPokemon LONG_CALL *GetFirstAliveMonInParty_CrashIfNone(struct Party *party);
+
 #endif
