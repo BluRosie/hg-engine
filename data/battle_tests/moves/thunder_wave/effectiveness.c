@@ -1,7 +1,7 @@
 // Test: Thunder Wave - 
 #include "../../battle_tests.h"
 BEGIN_TEST {
-    .battleType = BATTLE_TYPE_DOUBLE,
+    .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -47,7 +47,7 @@ BEGIN_TEST {
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_CELEBIE,
+            .species = SPECIES_CELEBI,
             .level = 50,
             .form = 0,
             .ability = ABILITY_NATURAL_CURE,
@@ -103,6 +103,13 @@ BEGIN_TEST {
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Celebi used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Sandslash..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Magneton..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magneton used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "It’s super effective!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sandslash used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "It’s not very effective..." },
     },
 } END_TEST

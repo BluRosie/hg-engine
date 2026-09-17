@@ -1,7 +1,7 @@
 // Test: Will O Wisp - 
 #include "../../battle_tests.h"
 BEGIN_TEST {
-    .battleType = BATTLE_TYPE_DOUBLE,
+    .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -19,7 +19,7 @@ BEGIN_TEST {
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_ROLY_COLY,
+            .species = SPECIES_ROLYCOLY,
             .level = 50,
             .form = 0,
             .ability = ABILITY_FLASH_FIRE,
@@ -35,7 +35,7 @@ BEGIN_TEST {
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .enemyParty = { {
-                        .species = SPECIES_ONYX,
+                        .species = SPECIES_ONIX,
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_MOXIE,
@@ -47,7 +47,7 @@ BEGIN_TEST {
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_CELEBIE,
+            .species = SPECIES_CELEBI,
             .level = 50,
             .form = 0,
             .ability = ABILITY_NATURAL_CURE,
@@ -103,6 +103,14 @@ BEGIN_TEST {
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Celebi used Will-O-Wisp!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Rolycoly’s Flash Fire" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The power of Rolycoly’s Fire-type moves rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta used Will-O-Wisp!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "It’s not very effective..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Onix used Will-O-Wisp!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect Ponyta..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Rolycoly used Will-O-Wisp!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "It’s super effective!" },
     },
 } END_TEST
