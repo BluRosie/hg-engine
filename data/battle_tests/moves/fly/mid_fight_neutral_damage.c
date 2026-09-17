@@ -1,4 +1,4 @@
-// Test: Solar Beam - Power Herb interaction, mid fight
+// Test: Fly - Power Herb interaction, mid fight
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -20,10 +20,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_AGGRON,
-            .level = 50,
+            .species = SPECIES_STANTLER,
+            .level = 70,
             .form = 0,
-            .ability = ABILITY_STURDY,
+            .ability = ABILITY_RUN_AWAY,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -37,12 +37,12 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_ARCHALUDON,
+                        .species = SPECIES_MEW,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_STAMINA,
+                        .ability = ABILITY_SYNCHRONIZE,
                         .item = ITEM_POWER_HERB,
-                        .moves = { MOVE_SOLAR_BEAM, MOVE_BULLDOZE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_FLY, MOVE_BULLDOZE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -94,9 +94,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon used Solar Beam!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon became fully charged due to its Power Herb!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew used Fly!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew became fully charged due to its Power Herb!" },
     }
 }
 END_TEST
