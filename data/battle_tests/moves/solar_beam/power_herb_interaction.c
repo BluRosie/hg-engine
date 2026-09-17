@@ -84,6 +84,7 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon used Solar Beam!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "he opposing Archaludon absorbed light!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon became fully charged due to its Power Herb!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 43, 43, 44, 44, 45, 45, 46, 46, 47, 47, 48, 48, 49, 49, 50, 51 } },
     }
