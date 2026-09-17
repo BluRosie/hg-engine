@@ -1,4 +1,4 @@
-// Test: Solar Beam - Power Herb interaction
+// Test: Fly - Power Herb interaction, mid fight
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -9,10 +9,22 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_BLISSEY,
-            .level = 50,
+            .level = 60,
             .form = 0,
             .ability = ABILITY_NATURAL_CURE,
             .item = ITEM_NONE,
+            .moves = { MOVE_GROWL, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_STANTLER,
+            .level = 70,
+            .form = 0,
+            .ability = ABILITY_RUN_AWAY,
+            .item = ITEM_FLAME_ORB,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -22,16 +34,15 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_ARCHALUDON,
+                        .species = SPECIES_MEW,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_STAMINA,
+                        .ability = ABILITY_SYNCHRONIZE,
                         .item = ITEM_POWER_HERB,
-                        .moves = { MOVE_SOLAR_BEAM, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_FLY, MOVE_BULLDOZE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -44,7 +55,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_SWITCH_SLOT_1, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,8 +74,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
+                         { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,10 +94,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon used Solar Beam!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon absorbed light!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Archaludon became fully charged due to its Power Herb!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 43, 43, 44, 44, 45, 45, 46, 46, 47, 47, 48, 48, 49, 49, 50, 51 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew used Fly!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew flew up high!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew became fully charged due to its Power Herb!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "The opposing Mew used Fly!" },
     }
 }
 END_TEST
