@@ -145,6 +145,7 @@ BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender);
 BOOL CheckProtectedByAlly(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 BOOL CheckProtectedBySelf(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 BOOL CanMoveActivateEffectivenessBerry(struct BattleStruct *ctx);
+BOOL CanMoveActivateGem(struct BattleStruct *ctx);
 
 void SortPositionBased(u8 array[2], int size);
 
@@ -1112,7 +1113,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
             && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_POWERING_UP_MOVE_ONCE
             && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)
             && (BattleItemDataGet(ctx, ctx->battlemon[ctx->attack_client].item, 2) == ctx->move_type)
-            && CanMoveActivateEffectivenessBerry(ctx)
+            && CanMoveActivateGem(ctx)
             && IsAnyBattleMonHit(bsys, ctx)) {
             ctx->mp.tag = TAG_ITEM_MOVE;
             // The { STRVAR_1 1, 0, 0 } strengthened\n { STRVAR_1 5, 1, 0 }’s power !
@@ -5012,7 +5013,8 @@ BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct Ba
 
 BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
-    if (CanActivateDamageReductionBerry(ctx, defender)) {
+    if (CanMoveActivateEffectivenessBerry(ctx)
+        && CanActivateDamageReductionBerry(ctx, defender)) {
         ctx->item_work = GetBattleMonItem(ctx, defender);
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PLAY_EAT_BERRY_ANIMATION);
@@ -5100,17 +5102,8 @@ void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int
 // https://wiki.pokemonwiki.com/wiki/%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8%E5%9B%BA%E5%AE%9A%E6%8A%80#%E8%A9%B3%E7%B4%B0%E3%81%AA%E4%BB%95%E6%A7%98
 BOOL CanMoveActivateEffectivenessBerry(struct BattleStruct *ctx)
 {
-    switch (ctx->current_move_index) {
-    case MOVE_STRUGGLE:
-    case MOVE_WATER_PLEDGE:
-    case MOVE_FIRE_PLEDGE:
-    case MOVE_GRASS_PLEDGE:
-        return FALSE;
-    default:
-        break;
-    }
-
     switch (ctx->moveTbl[ctx->current_move_index].effect) {
+    case MOVE_EFFECT_STRUGGLE:
     case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: // Psywave
     case MOVE_EFFECT_LEVEL_DAMAGE_FLAT: // Seismic Toss, Night Shade, ...
     case MOVE_EFFECT_10_DAMAGE_FLAT: // Sonic Boom
@@ -5130,4 +5123,24 @@ BOOL CanMoveActivateEffectivenessBerry(struct BattleStruct *ctx)
     }
 
     return TRUE;
+}
+// https://wiki.pokemonwiki.com/wiki/%E3%82%B8%E3%83%A5%E3%82%A8%E3%83%AB
+BOOL CanMoveActivateGem(struct BattleStruct *ctx)
+{
+    switch (ctx->current_move_index) {
+    case MOVE_STRUGGLE:
+    case MOVE_WATER_PLEDGE:
+    case MOVE_FIRE_PLEDGE:
+    case MOVE_GRASS_PLEDGE:
+        return FALSE;
+    default:
+        break;
+    }
+
+    switch (ctx->moveTbl[ctx->current_move_index].effect) {
+    case MOVE_EFFECT_ONE_HIT_KO:
+        return FALSE;
+    default:
+        break;
+    }
 }

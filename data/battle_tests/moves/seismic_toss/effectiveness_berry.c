@@ -1,13 +1,13 @@
 // Test: Seismic Toss - Effectiveness, Berry
 #include "../../battle_tests.h"
 BEGIN_TEST {
-    .battleType = BATTLE_TYPE_DOUBLES,
+    .battleType = BATTLE_TYPE_TRAINER,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_SLOWBRO,
+            .species = SPECIES_PRIMEAPE,
             .level = 50,
             .form = 0,
             .ability = ABILITY_OBLIVIOUS,
@@ -81,7 +81,8 @@ BEGIN_TEST {
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro used Seismic Toss!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Primeape used Seismic Toss!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "It's super effective!" },
     },
 } END_TEST
