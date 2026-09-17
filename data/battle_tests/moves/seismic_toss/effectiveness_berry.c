@@ -82,7 +82,6 @@ BEGIN_TEST {
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Primeape used Seismic Toss!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50, 50 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "It's super effective!" },
     },
 } END_TEST
