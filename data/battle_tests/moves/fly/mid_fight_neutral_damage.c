@@ -24,7 +24,7 @@ BEGIN_TEST
             .level = 70,
             .form = 0,
             .ability = ABILITY_RUN_AWAY,
-            .item = ITEM_NONE,
+            .item = ITEM_FLAME_ORB,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -97,6 +97,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew used Fly!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew flew up high!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew became fully charged due to its Power Herb!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "The opposing Mew used Fly!" },
     }
 }
 END_TEST
