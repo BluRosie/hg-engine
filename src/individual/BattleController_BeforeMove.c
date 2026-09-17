@@ -5143,4 +5143,6 @@ BOOL CanMoveActivateGem(struct BattleStruct *ctx)
     default:
         break;
     }
+
+    return TRUE;
 }
