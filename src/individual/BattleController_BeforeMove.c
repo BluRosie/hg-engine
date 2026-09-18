@@ -145,6 +145,8 @@ BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender);
 BOOL CheckProtectedByAlly(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 BOOL CheckProtectedBySelf(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 
+void RemoveItemOnFlingFailure(struct BattleStruct *ctx);
+
 void SortPositionBased(u8 array[2], int size);
 
 /// @brief Check if ability can be suppressed by Neutralizing Gas if value is not the same as CantSuppress.
@@ -711,6 +713,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 
         if (ServerDefenceCheck(bsys, ctx) == TRUE) // 8013AD8h
         {
+            RemoveItemOnFlingFailure(ctx);
             return;
         }
         ctx->wb_seq_no++;
@@ -2532,6 +2535,8 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
             && ctx->moveTbl[ctx->current_move_index].target != RANGE_OPPONENT_SIDE
             && (moveCanHit == FALSE)) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+            RemoveItemOnFlingFailure(ctx);
+
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_SEMI_INVULNERABLE;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ATTACK_MISSED);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2667,6 +2672,8 @@ BOOL BattleController_CheckProtect(struct BattleSystem *bsys, struct BattleStruc
             ctx->battlerIdTemp = defender;
             UnlockBattlerOutOfCurrentMove(bsys, ctx, ctx->attack_client);
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
+            RemoveItemOnFlingFailure(ctx);
+
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_PROTECTED;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PROTECTED);
 
@@ -2812,6 +2819,8 @@ BOOL BattleController_CheckAbilityFailures2(struct BattleSystem *bsys UNUSED, st
         int scriptNum = MoveCheckDamageNegatingAbilities(ctx, ctx->attack_client, defender);
         if (scriptNum) {
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+            RemoveItemOnFlingFailure(ctx);
+
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
             ctx->battlerIdTemp = defender;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, scriptNum);
@@ -2858,6 +2867,8 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         }
 
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        RemoveItemOnFlingFailure(ctx);
+
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT);
         ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2872,6 +2883,8 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         }
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_NO_EFFECT;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        RemoveItemOnFlingFailure(ctx);
+
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
         ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2892,6 +2905,8 @@ BOOL BattleController_CheckLevitate(struct BattleSystem *bsys UNUSED, struct Bat
         && !(ctx->moveConditionsFlags[ctx->defence_client].grounded)) {
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_LEVITATE_IMMUNE;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        RemoveItemOnFlingFailure(ctx);
+
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LEVITATE_FAIL);
         ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2918,6 +2933,8 @@ BOOL BattleController_CheckAirBalloonTelekinesisMagnetRise(struct BattleSystem *
         // TODO: if in the future the AI somehow needs to read this flag, create a new flag for Air Balloon
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_MAGNET_RISE_IMMUNE;
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        RemoveItemOnFlingFailure(ctx);
+
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
         ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2950,6 +2967,8 @@ BOOL BattleController_CheckAbilityFailures3(struct BattleSystem *bsys UNUSED, st
         // Handle Sticky Hold
         || (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_STICKY_HOLD) && (ctx->current_move_index == MOVE_TRICK || ctx->current_move_index == MOVE_SWITCHEROO || ctx->current_move_index == MOVE_CORROSIVE_GAS))) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        RemoveItemOnFlingFailure(ctx);
+
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
@@ -3771,6 +3790,8 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
     // a multi-hit move is always single target
     if (ctx->loop_flag && (ctx->waza_status_flag & MOVE_STATUS_MISSED)) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        RemoveItemOnFlingFailure(ctx);
+
         ctx->waza_status_flag &= ~MOVE_STATUS_MISSED;
         ctx->waza_status_flag |= MOVE_STATUS_MULTI_HIT_DISRUPTED;
         ctx->server_seq_no = CONTROLLER_COMMAND_29;
@@ -3779,6 +3800,8 @@ BOOL BattleController_CheckMoveAccuracy(struct BattleSystem *bsys, struct Battle
 
     if (ctx->waza_status_flag & MOVE_STATUS_MISSED) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
+        RemoveItemOnFlingFailure(ctx);
+
         ctx->waza_status_flag = 0;
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_MISSED;
         ctx->battlerIdTemp = defender;
@@ -5093,4 +5116,12 @@ void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int
         }
     }
     // TODO: end bide, bide no target, Telekinesis
+}
+
+void RemoveItemOnFlingFailure(struct BattleStruct *ctx)
+{
+    if (ctx->current_move_index == MOVE_FLING) {
+        ctx->recycle_item[ctx->attack_client] = ctx->battlemon[ctx->attack_client].item;
+        ctx->battlemon[ctx->attack_client].item = ITEM_NONE;
+    }
 }
