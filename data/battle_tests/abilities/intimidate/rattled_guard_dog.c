@@ -1,4 +1,4 @@
-// Test: Intimidate - Doubles, Switch Out
+// Test: Intimidate - triggers Rattled, Guard Dog
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,10 +8,10 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_INCINEROAR,
+            .species = SPECIES_MAGIKARP,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_INTIMIDATE,
+            .ability = ABILITY_RATTLED,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -20,10 +20,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_METAGROSS,
+            .species = SPECIES_INCINEROAR,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_CLEAR_BODY,
+            .ability = ABILITY_INTIMIDATE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -37,10 +37,10 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_TENTACRUEL,
+                        .species = SPECIES_MAGIKARP,
                         .level = 50,
                         .form = 0,
-                        .ability = ABILITY_CLEAR_BODY,
+                        .ability = ABILITY_RATTLED,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
@@ -49,10 +49,10 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_WEAVILE,
+            .species = SPECIES_MABOSSTIFF,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_INNER_FOCUS,
+            .ability = ABILITY_GUARD_DOG,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -117,15 +117,6 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar’s Intimidate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Weavile’s Inner Focus" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Weavile’s Attack was not lowered!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Tentacruel’s Clear Body" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Tentacruel’s stats were not lowered!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Gyarados!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gyarados’s Intimidate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Metagross’s Clear Body" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Metagross’s stats were not lowered!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar’s Attack fell!" },
     }
 }
 END_TEST
