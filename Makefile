@@ -152,7 +152,6 @@ REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 CONFIG_H := $(INCLUDE_SUBDIR)/config.h
 config_enabled = $(shell grep -E -c '^[[:space:]]*\#define[[:space:]]+$(1)[[:space:]]*$$' $(CONFIG_H))
 
-BUILD_DUMPED_TEXT := $(call config_enabled,BUILD_DUMPED_TEXT)
 BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
 BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
 

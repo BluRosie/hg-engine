@@ -53,10 +53,8 @@ proc = subprocess.run(["make", "contents-SCR_SEQ_ENGINE_SRCS"], check = True, ca
 ENGINE_MANAGED_SCRIPTS = [f"{int(x[0:5]):04}" for x in str(proc.stdout).replace("data/scr_seq/scr_seq_", "").replace(".s", "").split("\n")[1].split(" ")]
 
 # text archives hg-engine itself edits or adds
-ENGINE_MANAGED_TEXT_ARCHIVES = {
-    10, 24, 40, 197, 203, 221, 222, 223, 224, 300, 302, 435, 720, 721, 722, 728, 730, 731, 735, 811,
-    *range(829, 854),
-}
+proc = subprocess.run(["make", "contents-MSGDATA_ENGINE_DEPENDENCIES"], check = True, capture_output = True, text = True)
+ENGINE_MANAGED_TEXT_ARCHIVES = [int(x) for x in str(proc.stdout).replace("data/text/", "").replace(".txt", "").split("\n")[1].split(" ")]
 
 # text archives rebuilt from other sources at build time (MSGDATA_COMPILETIME_DEPENDENCIES in narcs.mk)
 proc = subprocess.run(["make", "contents-MSGDATA_COMPILETIME_DEPENDENCIES"], check = True, capture_output = True, text = True)
@@ -1092,7 +1090,7 @@ def dump_text(msg_members, repo_root, msgenc, charmap, include_generated, includ
         if not keep:
             engine_managed += 1
 
-        out_file = os.path.join(repo_root, "data", "text", f"{i:03d}.txt") if keep else f"{member_file}.txt"
+        out_file = os.path.join(repo_root, "data", "text", "custom", f"{i:03d}.txt") if keep else f"{member_file}.txt"
 
         proc = subprocess.run([msgenc, "-d", "-c", charmap, member_file, out_file],
                               check = True, capture_output = True, text = True)
