@@ -108,11 +108,11 @@ BEGIN_TEST {
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Torterra used Rest!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Torterra used Stomping Tantrum!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 30, 30, 30, 31, 31, 31, 31, 33, 33, 33, 33, 34, 34, 34, 34, 36 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Torterra used Stomping Tantrum!" },        
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Torterra used Rest!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Torterra’s HP is full!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Torterra used Stomping Tantrum!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 58, 58, 60, 60, 60, 61, 61, 63, 63, 64, 64, 66, 66, 67, 67, 69 } }, // boosted
     },
 } END_TEST
