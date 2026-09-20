@@ -311,9 +311,10 @@ Reduces effects of weather\nand terrain to zero.
 Poison-inflicting moves\nwill also cause confusion.
 The Pokémon’s contact\nmoves ignore protections.
 Normal-type moves become\nDragon-type and powered up.
-Placeholder
+Levitate and Beast Boost.
 Placeholder
 All moves act as if\nHarsh Sunlight is active.
-Placeholder
+Powers up fire moves.
 Placeholder
 Burns the attacker upon\ntaking damage.
+Halves the damage from\nphysical moves.

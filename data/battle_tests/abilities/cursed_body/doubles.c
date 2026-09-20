@@ -1,4 +1,4 @@
-// Test: Cursed Body - Doubles
+// Test: Cursed Body - Popup
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLES,
@@ -69,8 +69,8 @@ BEGIN_TEST {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -78,8 +78,8 @@ BEGIN_TEST {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -90,8 +90,8 @@ BEGIN_TEST {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -99,8 +99,8 @@ BEGIN_TEST {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -109,5 +109,8 @@ BEGIN_TEST {
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bulbasaur used Sludge Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "'s Cursed Body" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bulbasaur's Sludge Wave was disabled!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bulbasaur's Sludge Wave is disabled!" },
     },
 } END_TEST
