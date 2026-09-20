@@ -109,7 +109,7 @@ BEGIN_TEST {
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bulbasaur used Sludge Wave!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "'s Cursed Body" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "’s Cursed Body" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bulbasaur's Sludge Wave was disabled!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Bulbasaur's Sludge Wave is disabled!" },
     },
