@@ -606,7 +606,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 #if FAIRY_TYPE_IMPLEMENTED == 1
         // if Fairy Aura is present but not Aura Break
         if (!fairyAuraApplied
-            && (movetype == TYPE_DARK)
+            && (movetype == TYPE_FAIRY)
             && (battlerAbilities[damageCalc->rawSpeedNonRNGClientOrder[i]] == ABILITY_FAIRY_AURA)
             && (fieldHasAuraBreak == FALSE)) {
             fairyAuraApplied = TRUE;
@@ -616,7 +616,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
         // if Aura Break is present and also Fairy Aura
         if (!fairyAuraApplied
-            && (movetype == TYPE_DARK)
+            && (movetype == TYPE_FAIRY)
             && (battlerAbilities[damageCalc->rawSpeedNonRNGClientOrder[i]] == ABILITY_AURA_BREAK)
             && (fieldHasFairyAura == TRUE)) {
             fairyAuraApplied = TRUE;
