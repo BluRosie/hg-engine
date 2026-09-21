@@ -1,4 +1,4 @@
-// Test: Analytic - boost damage if last to move
+// Test: Analytic - boost damage if last to move (Switch, Speed Order, faint)
 #include "../../battle_tests.h"
 BEGIN_TEST {
     .battleType = BATTLE_TYPE_DOUBLES,
@@ -19,10 +19,10 @@ BEGIN_TEST {
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_SHUCKLE,
+            .species = SPECIES_GENGAR,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_STURDY,
+            .ability = ABILITY_LEVITATE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -30,7 +30,18 @@ BEGIN_TEST {
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_SHUCKLE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_GLUTTONY,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
@@ -51,7 +62,7 @@ BEGIN_TEST {
             .level = 51,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
-            .item = ITEM_NONE,
+            .item = ITEM_COVERT_CLOAK,
             .moves = { MOVE_SLEEP_TALK, MOVE_FISSURE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -73,7 +84,7 @@ BEGIN_TEST {
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_SWITCH_SLOT_2, 0 },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
@@ -103,10 +114,15 @@ BEGIN_TEST {
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Magneton and Gengar!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Shuckle!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magneton used Thunder Shock!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 26, 27, 27, 27, 27, 27, 28, 28, 29, 29, 29, 30, 30, 30, 30, 31 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magneton used Thunder Shock!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 20, 20, 20, 21, 21, 21, 21, 21, 21, 22, 22, 22, 23, 23, 23, 24 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Breloom used Fissure!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's a one-hit KO!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magneton used Thunder Shock!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 26, 27, 27, 27, 27, 27, 28, 28, 29, 29, 29, 30, 30, 30, 30, 31 } },

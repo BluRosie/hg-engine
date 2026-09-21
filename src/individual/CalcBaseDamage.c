@@ -720,8 +720,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if (AttackingMon.ability == ABILITY_ANALYTIC) {
                 int k = 0;
                 for (k = 0; k < 4; k++) {
-                    // TODO: handle without bw, sp
-                    if (attacker != k && damageCalc->clients[k].hp != 0 && CalcSpeed(bw, sp, attacker, k, 0) == 0) {
+                    if (attacker == k || damageCalc->clients[k].hp == 0) {
+                        continue;
+                    }
+                    if (IsMovingAfterClient(sp, k) == FALSE) {//checks if sp->playerActions[k][0] == CONTROLLER_COMMAND_40
                         break;
                     }
                 }
