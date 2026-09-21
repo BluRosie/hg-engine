@@ -1169,9 +1169,9 @@ Whoa!\nA wild {STRVAR_1 1, 0, 0} came charging!
 {STRVAR_1 1, 0, 0} was badly\npoisoned by the {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} was badly\npoisoned by the {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} was badly\npoisoned by the {STRVAR_1 8, 1, 0}!
-{STRVAR_1 1, 0, 0} got a burn\nfrom the {STRVAR_1 8, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} got a burn\nfrom the {STRVAR_1 8, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} got a burn\nfrom the {STRVAR_1 8, 1, 0}!
+{STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!
+The wild {STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!
+The opposing {STRVAR_1 1, 0, 0} was burned\nby the {STRVAR_1 8, 1, 0}!
 {STRVAR_1 1, 0, 0} was transferred to\n{STRVAR_1 11, 1, 0} in someone’s PC!
 {STRVAR_1 1, 0, 0} was transferred to\n{STRVAR_1 11, 1, 0} in Bill’s PC!
 {STRVAR_1 11, 1, 0} in someone’s PC is full.\r{STRVAR_1 1, 0, 0} was transferred to\n{STRVAR_1 11, 2, 0} instead!

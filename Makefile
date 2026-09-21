@@ -114,8 +114,8 @@ JSONPROC := tools/jsonproc
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
-ASFLAGS =  -I$(shell pwd)/asm/include -I$(shell pwd)/include -mthumb -mcpu=arm946e-s -mtune=arm946e-s
-CFLAGS =  -I$(shell pwd)/include -mthumb -mno-thumb-interwork -mcpu=arm946e-s -mtune=arm946e-s -mno-long-calls -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
+ASFLAGS =  -I"$(shell pwd)/asm/include" -I"$(shell pwd)/include" -mthumb -mcpu=arm946e-s -mtune=arm946e-s
+CFLAGS =  -I"$(shell pwd)/include" -mthumb -mno-thumb-interwork -mcpu=arm946e-s -mtune=arm946e-s -mno-long-calls -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 0
 
 ifeq ($(AUTO_TEST),Y)

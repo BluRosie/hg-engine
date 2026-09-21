@@ -932,8 +932,8 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
 
         // Victory Star - 4506/4096 for each Victory Star
 
-        if (BATTLER_ALLY(attacker) == sp->rawSpeedNonRNGClientOrder[i]
-            && GetBattlerAbility(sp, sp->rawSpeedNonRNGClientOrder[i]) == ABILITY_VICTORY_STAR) {
+        if (((attacker == sp->rawSpeedNonRNGClientOrder[i]) && atk_ability == ABILITY_VICTORY_STAR)
+            || ((BATTLER_ALLY(attacker) == sp->rawSpeedNonRNGClientOrder[i]) && GetBattlerAbility(sp, BATTLER_ALLY(attacker)) == ABILITY_VICTORY_STAR)) {
             accuracyModifier = QMul_RoundUp(accuracyModifier, UQ412__1_1_BUT_HIGHER);
         }
     }
