@@ -63,7 +63,7 @@ dumprom: check_dump_rom
 
 # Dumps field scripts, zone event data, and message text from an explicit ROM.
 dump_scripts: check_dump_rom $(VENV_ACTIVATE) $(MSGENC)
-	mkdir -p $(MSGDATA_DEPENDENCIES_DIR_2)
+	mkdir -p $(MSGDATA_DEPENDENCIES_DIR_2) $(BUILD)
 	$(MAKE) dump_prepare DUMP_ROM="$(DUMP_ROM)"
 	$(PYTHON) $(DUMP_SCRIPT_LOCATION)/dump_event_scripts.py "$(DUMP_ROM)" $(DUMP_FLAGS)
 	@echo "Done. Review the diff in data/scr_seq/, data/eventdata/zone_event/, and data/text/ with git."

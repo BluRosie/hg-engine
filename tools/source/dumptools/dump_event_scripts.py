@@ -19,6 +19,7 @@ import collections
 import copy
 import csv
 import json
+import ndspy.codeCompression
 import os
 import re
 import shutil
@@ -1164,7 +1165,23 @@ so all i care about is building a dictionary that can be accessed just fine
                                [931,704],
                                [933,706],
                                [956,725]]
-    arm9 = open("base/arm9.bin", "rb")
+    shutil.copyfile("base/arm9.bin", "build/arm9.bin")
+    arm9 = open("build/arm9.bin", "wb+")
+    with open("base/arm9.bin", 'rb') as rom:
+        bin = rom.read()
+        if len(bin) < 0xBC000:
+            print("Decompress arm9...")
+            dec = bytearray(ndspy.codeCompression.decompress(bin))
+            dec[0xbb4] = 0
+            dec[0xbb5] = 0
+            dec[0xbb6] = 0
+            dec[0xbb7] = 0
+            arm9.write(dec)
+            shutil.copyfile("build/arm9.bin", "base/arm9.bin")
+        rom.close()
+        arm9.close()
+
+    arm9 = open("build/arm9.bin", "rb")
     headerDictionary = []
     mapname_dict = grab_mapname_dict()
     dummyHasPrinted = 0
@@ -1178,7 +1195,7 @@ so all i care about is building a dictionary that can be accessed just fine
 
     dynamicHeaderPatch = read_field(arm9, 0x03B268, 2)
     if (dynamicHeaderPatch == 0xB500): # read from a050
-        header_members = load_narc_members(rom, ZONE_EVENT_NARC)
+        header_members = load_narc_members(rom, MAP_HEADER_NARC)
         total_header_number = len(header_members)
     else:
         total_header_number = 540 # vanilla quantity
