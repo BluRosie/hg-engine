@@ -717,7 +717,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle Analytic
-            if (AttackingMon.ability == ABILITY_ANALYTIC) {
+            if (AttackingMon.ability == ABILITY_ANALYTIC && moveEffect != MOVE_EFFECT_HIT_IN_3_TURNS) {
                 int k = 0;
                 for (k = 0; k < 4; k++) {
                     if (attacker == k || damageCalc->clients[k].hp == 0) {
