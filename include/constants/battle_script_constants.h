@@ -528,8 +528,9 @@
 #define BATTLE_SUBSCRIPT_FELL_STRAIGHT_DOWN                     (519)
 #define BATTLE_SUBSCRIPT_MAGIC_ROOM_END                         (520)
 #define BATTLE_SUBSCRIPT_HEAVY_RECOIL                           (521)
+#define BATTLE_SUBSCRIPT_PREVENT_INTIMIDATE                     (522)
 
-#define MAX_BASE_SUBSCRIPT_NUM 521
+#define MAX_BASE_SUBSCRIPT_NUM 522
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

@@ -15,7 +15,6 @@
 #include "battle.h"
 #include "pokemon.h"
 
-static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client);
 static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *sp, u32 client);
 static int GetTraceClient(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2);
 
@@ -364,12 +363,10 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_INTIMIDATE)) {
                         // mark intimidate as having activated if it can regardless of if it does so that abilities that suppress it don't suddenly let it activate once they disappear
                         sp->battlemon[client_no].ability_activated_flag = 1;
-                        if (IntimidateCheckHelper(sp, client_no)) {
-                            sp->battlerIdTemp = client_no;
-                            scriptnum = BATTLE_SUBSCRIPT_INTIMIDATE;
-                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                            break;
-                        }
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_INTIMIDATE;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
                     }
                 }
 
@@ -1106,38 +1103,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
     } while (ret == SWITCH_IN_CHECK_LOOP);
 
     return scriptnum;
-}
-
-/**
- *  @brief see if the ability intimidate should activate depending on the abilities/stat stages it is up against
- *         assumption is that the client has already been checked for intimidate's presence; we don't need to here
- *
- *  @param sp global battle structure
- *  @param client battler to check if either opponent has an ability that doesn't negate intimidate
- *  @return TRUE if intimidate can get through either of the opponent's abilities; FALSE otherwise
- */
-static BOOL IntimidateCheckHelper(struct BattleStruct *sp, u32 client)
-{
-    u32 clientCheck;
-    for (int i = 0; i < 2; i++) {
-        clientCheck = i ? BATTLER_ACROSS(client) : BATTLER_OPPONENT(client);
-        if (sp->battlemon[clientCheck].hp
-            && sp->battlemon[clientCheck].states[STAT_ATTACK] > 0) {
-            u32 ability = GetBattlerAbility(sp, clientCheck);
-            switch (ability) {
-                // should maybe move these to the battle script like clear body
-            case ABILITY_INNER_FOCUS:
-            case ABILITY_SCRAPPY:
-            case ABILITY_OBLIVIOUS:
-            case ABILITY_OWN_TEMPO:
-            case ABILITY_FULL_METAL_BODY:
-                break;
-            default: // intimidate can affect at least one opposing battler
-                return TRUE;
-            }
-        }
-    }
-    return FALSE; // neither opposing battler has an ability that intimidate can activate on
 }
 
 /**
