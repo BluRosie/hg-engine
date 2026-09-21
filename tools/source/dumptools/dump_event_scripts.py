@@ -1118,7 +1118,7 @@ def grab_mapname_dict():
             mapname_dict[i] = fp.read(16).decode().split("\x00")[0]
     return mapname_dict
 
-def read_mapping():
+def read_mapping(rom):
     """
 generate event mapping from the input rom...  the basic idea is that based on the event file, we should be able to map to the script file.
 format is zone_event json, script, level script file, text archive.  this will have to be read from the map header data itself.  including the map name.
@@ -1178,29 +1178,39 @@ so all i care about is building a dictionary that can be accessed just fine
 
     dynamicHeaderPatch = read_field(arm9, 0x03B268, 2)
     if (dynamicHeaderPatch == 0xB500): # read from a050
-        print("hurray")
+        header_members = load_narc_members(rom, ZONE_EVENT_NARC)
+        total_header_number = len(header_members)
     else:
-        # headers
-        for i in range(0, 540):
+        total_header_number = 540 # vanilla quantity
+
+    for i in range(0, total_header_number):
+        if (dynamicHeaderPatch == 0xB500): # read from a050
+            zone_event_idx = int.from_bytes(header_members[i][0x10:0x11], "little")
+            script_file_idx = int.from_bytes(header_members[i][0x6:0x7], "little")
+            level_script_idx = int.from_bytes(header_members[i][0x8:0x9], "little")
+            text_file_idx = int.from_bytes(header_members[i][0xA:0xB], "little")
+        else:
+            # headers
             baseEntryOffset = 0x0F6BE0 + 0x18*i
             # zone event file, script file, level script file, text file
             zone_event_idx = read_field(arm9, baseEntryOffset + 0x10, 2)
             script_file_idx = read_field(arm9, baseEntryOffset + 0x6, 2)
             level_script_idx = read_field(arm9, baseEntryOffset + 0x8, 2)
-            # skip entry if corresponding with dummy entries
-            if (zone_event_idx == 0 and script_file_idx == 139 and level_script_idx == 399):
-                if (dummyHasPrinted == 0):
-                    dummyHasPrinted = 1
-                else:
-                    continue
-            zone_event_name = mapname_dict[i] if zone_event_idx != 0 else "DUMMY"
-            script_file_name = mapname_dict[i] if script_file_idx != 139 else "EVERYWHERE"
-            level_script_name = mapname_dict[i] if level_script_idx != 399 else "EVERYWHERE"
-            zone_event_name = f"data/eventdata/zone_event/{zone_event_idx:03}_{zone_event_name}.json"
-            script_file_name = f"data/scr_seq/scr_seq_{script_file_idx:04}_{script_file_name}.s"
-            level_script_name = f"data/scr_seq/scr_seq_{level_script_idx:04}_{level_script_name}_hdr.s"
-            text_file_name = f"{read_field(arm9, baseEntryOffset + 0xA, 2):03}"
-            headerDictionary.append([zone_event_name, script_file_name, level_script_name, text_file_name])
+            text_file_idx = read_field(arm9, baseEntryOffset + 0xA, 2)
+        # skip entry if corresponding with dummy entries
+        if (zone_event_idx == 0 and script_file_idx == 139 and level_script_idx == 399):
+            if (dummyHasPrinted == 0):
+                dummyHasPrinted = 1
+            else:
+                continue
+        zone_event_name = mapname_dict[i] if zone_event_idx != 0 else "DUMMY"
+        script_file_name = mapname_dict[i] if script_file_idx != 139 else "EVERYWHERE"
+        level_script_name = mapname_dict[i] if level_script_idx != 399 else "EVERYWHERE"
+        zone_event_name = f"data/eventdata/zone_event/{zone_event_idx:03}_{zone_event_name}.json"
+        script_file_name = f"data/scr_seq/scr_seq_{script_file_idx:04}_{script_file_name}.s"
+        level_script_name = f"data/scr_seq/scr_seq_{level_script_idx:04}_{level_script_name}_hdr.s"
+        text_file_name = f"{text_file_idx:03}"
+        headerDictionary.append([zone_event_name, script_file_name, level_script_name, text_file_name])
     for i in range(0, len(leftoverUnmappedScripts)):
         script_file_name = f"data/scr_seq/scr_seq_{leftoverUnmappedScripts[i][0]:04}.s"
         level_script_name = f"data/scr_seq/scr_seq_{leftoverUnmappedScripts[i][1]:04}_hdr.s"
@@ -1245,7 +1255,7 @@ def main(argv = None):
     if not args.text_only:
         script_members = load_narc_members(rom, SCRIPT_NARC)
         event_members = load_narc_members(rom, ZONE_EVENT_NARC)
-        rows = read_mapping()
+        rows = read_mapping(rom)
 
         if args.single_map:
             for events, scripts, header, text in rows:
