@@ -789,7 +789,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         // 6.9.16 Ice Scales
         // handle Ice Scales - halve damage if move is special, regardless of if it uses defense stat
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8319925
-        if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE && movesplit == SPLIT_SPECIAL) {
+        if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
+            && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE)
+            && (movesplit == SPLIT_SPECIAL)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");

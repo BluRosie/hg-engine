@@ -352,7 +352,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && ((GetBattlerAbility(sp, client_no) == ABILITY_CLOUD_NINE) || (GetBattlerAbility(sp, client_no) == ABILITY_AIR_LOCK))) {
                         sp->battlemon[client_no].ability_activated_flag = 1;
                         scriptnum = BATTLE_SUBSCRIPT_HANDLE_CLOUD_NINE_MESSAGE;
-
+                        sp->battlerIdTemp = client_no;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                         break;
                     }
