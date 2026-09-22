@@ -9,10 +9,10 @@ BEGIN_TEST
 
     .playerParty = {
         {
-            .species = SPECIES_NINETALES,
+            .species = SPECIES_POLITOED,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_DROUGHT,
+            .ability = ABILITY_DRIZZLE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,

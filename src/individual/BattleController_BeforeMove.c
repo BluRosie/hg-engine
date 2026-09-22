@@ -1024,7 +1024,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 #endif
 
         ctx->wb_seq_no++;
-        if (BattleController_CheckAbilityFailures4_OtherAromaVeilSturdy(bsys, ctx)){
+        if (BattleController_CheckAbilityFailures4_OtherAromaVeilSturdy(bsys, ctx)) {
             return;
         }
         FALLTHROUGH;
