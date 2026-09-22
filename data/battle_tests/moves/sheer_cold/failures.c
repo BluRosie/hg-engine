@@ -2,7 +2,7 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_TRAINER,
+    .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -21,7 +21,7 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_MEW,
-            .level = 50,
+            .level = 49,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,
@@ -117,7 +117,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mew used Sheer Cold!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle's Sturdy" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Shuckle..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mew used Sheer Cold!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Lapras..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Torterra!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mew used Sheer Cold!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Torterra is unaffected!" },
     }
 }
 END_TEST

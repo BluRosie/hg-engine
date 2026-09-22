@@ -3,7 +3,7 @@
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_DOUBLES,
-    .weather = FIELD_CONDITION_RAIN_PERMANENT,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 
@@ -27,7 +27,7 @@ BEGIN_TEST
             .ability = ABILITY_SOLAR_POWER,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .hp = 50,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -45,7 +45,7 @@ BEGIN_TEST
                         .ability = ABILITY_DRY_SKIN,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .hp = 50,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -57,7 +57,7 @@ BEGIN_TEST
             .ability = ABILITY_RAIN_DISH,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .hp = 50,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -110,10 +110,8 @@ BEGIN_TEST
         } },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom’s Solar Power" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Toxicroak’s Dry Skin" },
     }
 }
 END_TEST
