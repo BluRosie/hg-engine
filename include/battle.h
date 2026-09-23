@@ -2843,7 +2843,7 @@ s32 LONG_CALL GetPokemonWeight(void *bw UNUSED, struct BattleStruct *sp, int att
  *  @param item the held item of the attacker
  *  @return TRUE if item can be removed, FALSE otherwise
  */
-BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
+BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item, u32 form);
 
 BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form);
 
@@ -2854,8 +2854,10 @@ BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form);
  *  @param attacker_species the attacker species
  *  @param defender_item the held item of the defender
  *  @param defender_species the defender species
+ *  @param attacker_form the attacker form
+ *  @param defender_form the defender form
  */
-BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species);
+BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species, u32 attacker_form, u32 defender_form);
 
 BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defender);
 
@@ -3110,7 +3112,7 @@ u8 LONG_CALL GetMoveSplit(struct BattleStruct *sp, int moveno);
 BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no);
 
 // defined in mega.c
-BOOL LONG_CALL CheckMegaData(u32 mon, u32 item);
+BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form);
 
 /**
  *  @brief grab mega form of a specific species with specific item
@@ -3656,9 +3658,6 @@ u8 LONG_CALL UpdateTypeEffectiveness(u32 move_no, u8 defender_type, u8 defaultEf
 
 int LONG_CALL GetTypeEffectiveness(struct BattleSystem *bw, struct BattleStruct *sp, int attack_client, int defence_client, int move_type, u32 *flag);
 
-BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item);
-
-BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form);
 /**
  *  @brief check if knock off can remove the defender's held item
  *         does not count sticky hold and substitute because those still allow knock off's base power increase

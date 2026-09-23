@@ -3955,12 +3955,12 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
  *  @param defender_species the defender species
  *  @return TRUE if the interacting species and items can trick, FALSE otherwise
  */
-BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species)
+BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species, u32 attacker_form, u32 defender_form)
 {
-    return CanItemBeRemovedFromSpecies(attacker_species, attacker_item)
-        && CanItemBeRemovedFromSpecies(attacker_species, defender_item)
-        && CanItemBeRemovedFromSpecies(defender_species, attacker_item)
-        && CanItemBeRemovedFromSpecies(defender_species, defender_item);
+    return CanItemBeRemovedFromSpecies(attacker_species, attacker_item, attacker_form)
+        && CanItemBeRemovedFromSpecies(attacker_species, defender_item, attacker_form)
+        && CanItemBeRemovedFromSpecies(defender_species, attacker_item, defender_form)
+        && CanItemBeRemovedFromSpecies(defender_species, defender_item, defender_form);
 }
 
 BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defender)
@@ -3972,23 +3972,7 @@ BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defe
     u32 defenderItem = ctx->battlemon[defender].item; // bypass klutz and friends probably
     u32 defenderForm = ctx->battlemon[defender].form_no;
 
-    BOOL attackerSlowbroHandling = (attackerSpecies == SPECIES_SLOWBRO && (attackerItem == ITEM_SLOWBRONITE || defenderItem == ITEM_SLOWBRONITE) && attackerForm == 2);
-    BOOL defenderSlowbroHandling = (defenderSpecies == SPECIES_SLOWBRO && (attackerItem == ITEM_SLOWBRONITE || defenderItem == ITEM_SLOWBRONITE) && defenderForm == 2);
-
-    // CheckMegaData will gladly tell you a galarian slowbro can't trick its slowbronite away...  we have to take over
-    if (attackerSlowbroHandling && defenderSlowbroHandling) {
-        return TRUE;
-    } else if (attackerSlowbroHandling || defenderSlowbroHandling) {
-        u32 offendingItem = attackerItem == ITEM_SLOWBRONITE ? 1 : defenderItem == ITEM_SLOWBRONITE ? 2
-                                                                                                    : 0;
-        if (offendingItem == 1) {
-            attackerItem = ITEM_POKE_BALL;
-        } else if (offendingItem == 2) {
-            defenderItem = ITEM_POKE_BALL;
-        }
-    }
-
-    return CanTrickHeldItemManual(attackerItem, attackerSpecies, defenderItem, defenderSpecies);
+    return CanTrickHeldItemManual(attackerItem, attackerSpecies, defenderItem, defenderSpecies, attackerForm, defenderForm);
 }
 
 BOOL BtlCmd_TrySwapItems(void *bw, struct BattleStruct *sp)
