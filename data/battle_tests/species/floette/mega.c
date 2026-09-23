@@ -1,4 +1,4 @@
-// Test: Floette - only form 5 (Eternal)can mega
+// Test: Floette - only form 5 (Eternal) can mega
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

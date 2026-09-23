@@ -121,26 +121,22 @@ void __attribute__((section(".init"))) ServerBeforeActInternal(struct BattleSyst
                     if (CheckCanMega(sp, client_no)) {
                         // player requests mega
                         if (!(client_no & 1) && (newBS.playerWantMega & No2Bit(client_no)) != 0) {
-                            sp->battlemon[client_no].canMega = 1;
                             flag = TRUE;
                         } else if ((client_no & 1) != 0 || (client_no == 2 && (bw->trainerId[client_no] != 0))) {
                             // ai requests mega
                             if (BattleTypeGet(bw) & (BATTLE_TYPE_TRAINER | BATTLE_TYPE_FRONTIER)) {
-                                sp->battlemon[client_no].canMega = 1;
                                 flag = TRUE;
                             }
                         }
-                    }
 
-                    if (flag) {
-                        // 應該沒需要在這裡處理
-                        // sp->battlemon[client_no].form_no = GrabMegaTargetForm(sp->battlemon[client_no].species, sp->battlemon[client_no].item);
-                        // BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, FALSE);
-                        sp->battlemon[client_no].canMega = 1;
-                        newBS.needMega[client_no] = MEGA_NEED;
-                        if (!DoesSideHave2Battlers(bw, client_no)) {
-                            int ally = BATTLER_ALLY(client_no);
-                            if (bw->trainerId[client_no] == bw->trainerId[ally]) {
+                        if (flag) {
+                            // 應該沒需要在這裡處理
+                            // sp->battlemon[client_no].form_no = GrabMegaTargetForm(sp->battlemon[client_no].species, sp->battlemon[client_no].item);
+                            // BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, FALSE);
+                            sp->battlemon[client_no].canMega = 1;
+                            newBS.needMega[client_no] = MEGA_NEED;
+                            if (!DoesSideHave2Battlers(bw, client_no)) {
+                                int ally = BATTLER_ALLY(client_no);
                                 newBS.SideMega[ally] = TRUE;
                             }
                         }
