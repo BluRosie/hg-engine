@@ -709,7 +709,7 @@ BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form)
             switch (mon) {
             case SPECIES_ZYGARDE:
                 return (form == 2) || (form == 4);
-            case SPECIES_PYROAR: // TODO check if female form can mega
+            case SPECIES_PYROAR:
             case SPECIES_MEOWSTIC:
                 if (sMegaTable[i].targetForm > form) {
                     return TRUE;
