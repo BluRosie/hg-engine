@@ -2867,13 +2867,18 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
     int failAddress = read_battle_script_param(sp);
     sp->temp_work = 0;
 
-    if (newBS.needMega[sp->attack_client] == MEGA_NEED && sp->battlemon[sp->attack_client].hp) {
-        if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
-            if (sp->attack_client == 0 || (sp->attack_client == 2 && sp->battlemon[sp->attack_client].id_no == sp->battlemon[0].id_no)) {
+    if (newBS.needMega[sp->attack_client] == MEGA_NEED && newBS.SideMega[sp->attack_client] != TRUE && sp->battlemon[sp->attack_client].hp) {
+        newBS.SideMega[sp->attack_client] = TRUE;
+        if (sp->attack_client == 0) {
+            newBS.PlayerMegaed = TRUE;
+        }
+
+        if (!DoesSideHave2Battlers(bw, sp->attack_client)) {
+            if (sp->attack_client == 0 || sp->attack_client == 2) {
                 newBS.PlayerMegaed = TRUE;
             }
-        } else if (sp->attack_client == 0 || sp->attack_client == 2) {
-            newBS.PlayerMegaed = TRUE;
+            int ally = BATTLER_ALLY(sp->attack_client);
+            newBS.SideMega[ally] = TRUE;
         }
 
         sp->battlemon[sp->attack_client].form_no = GrabMegaTargetForm(sp->battlemon[sp->attack_client].species, sp->battlemon[sp->attack_client].item);

@@ -1,4 +1,4 @@
-// Test: Floette - only form 5 (Eternal)can mega
+// Test: Mega - limit to one Mega per Trainer
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,11 +8,23 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_FLOETTE,
+            .species = SPECIES_PYROAR,
             .level = 50,
-            .form = 5,
-            .ability = ABILITY_SWEET_VEIL,
-            .item = ITEM_FLOETTITE,
+            .form = 0,
+            .ability = ABILITY_FLASH_FIRE,
+            .item = ITEM_PYROARITE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_SLOWBRO,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_OBLIVIOUS,
+            .item = ITEM_SLOWBRONITE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -22,30 +34,40 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_FLOETTE,
+                        .species = SPECIES_PYROAR,
                         .level = 45,
-                        .form = 2,
-                        .ability = ABILITY_SWEET_VEIL,
-                        .item = ITEM_FLOETTITE,
+                        .form = 1,
+                        .ability = ABILITY_FLASH_FIRE,
+                        .item = ITEM_PYROARITE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_SLOWBRO,
+            .level = 45,
+            .form = 0,
+            .ability = ABILITY_OBLIVIOUS,
+            .item = ITEM_SLOWBRONITE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
-                          { ACTION_NONE, 0 },
+                          { ACTION_SWITCH_SLOT_1, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -64,8 +86,8 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
-                         { ACTION_NONE, 0 },
+                         { ACTION_SWITCH_SLOT_1, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,11 +105,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Floette's Floettite is reacting to the Key Stone!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Floette has Mega Evolved into Mega Floette!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Floette's Fairy Aura" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Floette is radiating a fairy aura!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Floette's Floettite" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyroar's Pyroarite is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyroar has Mega Evolved into Mega Pyroar!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar's Pyroarite is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar has Mega Evolved into Mega Pyroar!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyroar used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar used Sleep Talk!" },
     }
 }
 END_TEST

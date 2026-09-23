@@ -1,18 +1,30 @@
-// Test: Floette - only form 5 (Eternal)can mega
+// Test: Mega - limited to 1 per side in 1vs1 doubles
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_TRAINER,
+    .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_FLOETTE,
-            .level = 50,
-            .form = 5,
-            .ability = ABILITY_SWEET_VEIL,
-            .item = ITEM_FLOETTITE,
+            .species = SPECIES_DARKRAI,
+            .level = 100,
+            .form = 0,
+            .ability = ABILITY_FLASH_FIRE,
+            .item = ITEM_DARKRAITE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_GRENINJA,
+            .level = 45,
+            .form = 0,
+            .ability = ABILITY_TORRENT,
+            .item = ITEM_GRENINJITE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -22,22 +34,32 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_FLOETTE,
-                        .level = 45,
-                        .form = 2,
-                        .ability = ABILITY_SWEET_VEIL,
-                        .item = ITEM_FLOETTITE,
+                        .species = SPECIES_HEATRAN,
+                        .level = 100,
+                        .form = 0,
+                        .ability = ABILITY_FLASH_FIRE,
+                        .item = ITEM_HEATRANITE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_SLOWBRO,
+            .level = 40,
+            .form = 0,
+            .ability = ABILITY_OBLIVIOUS,
+            .item = ITEM_SLOWBRONITE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
@@ -53,7 +75,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -73,7 +95,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -83,11 +105,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Floette's Floettite is reacting to the Key Stone!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Floette has Mega Evolved into Mega Floette!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Floette's Fairy Aura" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Floette is radiating a fairy aura!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Floette's Floettite" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Darkrai's Darkrainite is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Darkrai has Mega Evolved into Mega Darkrai!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Heatran's Heatranite is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Heatran has Mega Evolved into Mega Heatran!" },
     }
 }
 END_TEST

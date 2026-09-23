@@ -83,7 +83,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "mega" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro's Slowbronite is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slowbro has Mega Evolved into Mega Slowbro!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Slowbro's Slowbronite" },
     }
 }
 END_TEST
