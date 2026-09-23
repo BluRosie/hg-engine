@@ -46,20 +46,22 @@ SCRIPT_MACROS = "asm/include/scriptmacros.inc"
 # where the dumped field scripts and their label headers live (SCR_SEQ_DEPENDENCIES_DIR in narcs.mk)
 SCR_SEQ_DIR = "data/scr_seq"
 
-# each text archive's original 16-bit key, so msgenc re-encrypts headers exactly as the rom had them
+# each text archive original 16-bit key, so msgenc re-encrypts headers exactly as the rom had them
 MSGDATA_KEYS = "data/text/keys.csv"
 
 # script narc subfiles whose tracked sources are engine customizations, not dumps - see the module docstring
 proc = subprocess.run(["make", "contents-SCR_SEQ_ENGINE_SRCS"], check = True, capture_output = True, text = True)
-ENGINE_MANAGED_SCRIPTS = [f"{int(x[0:5]):04}" for x in str(proc.stdout).replace("data/scr_seq/scr_seq_", "").replace(".s", "").split("\n")[1].split(" ")]
+# make does not always put its fucking shit on my screen so i have to work around it
+splitIndex = 0 if proc.stdout.count("\n") == 1 else 1
+ENGINE_MANAGED_SCRIPTS = [f"{int(x[0:5]):04}" for x in str(proc.stdout).replace("data/scr_seq/scr_seq_", "").replace(".s", "").split("\n")[splitIndex].split(" ")]
 
 # text archives hg-engine itself edits or adds
 proc = subprocess.run(["make", "contents-MSGDATA_ENGINE_DEPENDENCIES"], check = True, capture_output = True, text = True)
-ENGINE_MANAGED_TEXT_ARCHIVES = [int(x) for x in str(proc.stdout).replace("data/text/", "").replace(".txt", "").split("\n")[1].split(" ")]
+ENGINE_MANAGED_TEXT_ARCHIVES = [int(x) for x in str(proc.stdout).replace("data/text/", "").replace(".txt", "").split("\n")[splitIndex].split(" ")]
 
 # text archives rebuilt from other sources at build time (MSGDATA_COMPILETIME_DEPENDENCIES in narcs.mk)
 proc = subprocess.run(["make", "contents-MSGDATA_COMPILETIME_DEPENDENCIES"], check = True, capture_output = True, text = True)
-GENERATED_TEXT_ARCHIVES = [int(x) for x in str(proc.stdout).replace("build/rawtext/", "").replace(".txt", "").split("\n")[1].split(" ")]
+GENERATED_TEXT_ARCHIVES = [int(x) for x in str(proc.stdout).replace("build/rawtext/", "").replace(".txt", "").split("\n")[splitIndex].split(" ")]
 
 _CONSTANT_PATTERNS = (
     r"^\s*\.(?:equ|definelabel)\s+({prefix}\w+)\s*,\s*(\d+|0x[0-9a-fA-F]+)\s*$", # .equ NAME, VALUE / .definelabel NAME, VALUE (asm/include/*.inc)
