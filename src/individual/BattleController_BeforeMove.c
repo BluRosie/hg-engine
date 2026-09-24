@@ -144,6 +144,8 @@ BOOL CanHitThroughSemiInvulnerability(struct BattleStruct *ctx, int attacker, in
 BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender);
 BOOL CheckProtectedByAlly(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
 BOOL CheckProtectedBySelf(struct BattleStruct *ctx, int ally, u16 *protectedMoveMessage);
+BOOL CanMoveActivateEffectivenessBerry(struct BattleStruct *ctx);
+BOOL CanMoveActivateGem(struct BattleStruct *ctx);
 
 void RemoveItemOnFlingFailure(struct BattleStruct *ctx);
 
@@ -1117,8 +1119,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
             && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_POWERING_UP_MOVE_ONCE
             && (ctx->moveTbl[ctx->current_move_index].split != SPLIT_STATUS)
             && (BattleItemDataGet(ctx, ctx->battlemon[ctx->attack_client].item, 2) == ctx->move_type)
-            && (ctx->current_move_index != MOVE_STRUGGLE)
-            && (ctx->current_move_index < MOVE_WATER_PLEDGE || ctx->current_move_index > MOVE_GRASS_PLEDGE)
+            && CanMoveActivateGem(ctx)
             && IsAnyBattleMonHit(bsys, ctx)) {
             ctx->mp.tag = TAG_ITEM_MOVE;
             // The { STRVAR_1 1, 0, 0 } strengthened\n { STRVAR_1 5, 1, 0 }’s power !
@@ -2843,10 +2844,12 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
     }
     u32 flag = 0;
     int effectiveness = TYPE_MUL_NORMAL;
+    int target = ctx->moveTbl[ctx->current_move_index].target;
+    int power = ctx->moveTbl[ctx->current_move_index].power;
 
-    if ((ctx->moveTbl[ctx->current_move_index].target != RANGE_USER
-            && ctx->moveTbl[ctx->current_move_index].target != RANGE_USER_SIDE
-            && ctx->moveTbl[ctx->current_move_index].power != 0
+    if ((target != RANGE_USER
+            && target != RANGE_USER_SIDE
+            && power != 0
             && !(ctx->server_status_flag & BATTLE_STATUS_IGNORE_TYPE_IMMUNITY))
         || ctx->current_move_index == MOVE_THUNDER_WAVE) {
         effectiveness = GetTypeEffectiveness(bsys, ctx, ctx->attack_client, defender, ctx->move_type, &flag);
@@ -2859,6 +2862,9 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
             status = MOVE_STATUS_NOT_VERY_EFFECTIVE;
         }
         if (ctx->server_status_flag & SERVER_STATUS_FLAG_TYPE_FLAT) {
+            status = 0;
+        }
+        if (ctx->current_move_index == MOVE_THUNDER_WAVE && effectiveness > TYPE_MUL_NO_EFFECT) { // for dealing with hardcoded Thunder Wave type immunity
             status = 0;
         }
         ctx->moveStatusFlagForSpreadMoves[defender] = status;
@@ -2879,8 +2885,9 @@ BOOL BattleController_CheckTypeImmunity(struct BattleSystem *bsys, struct Battle
         return TRUE;
     }
 
-    if ((MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WONDER_GUARD) == TRUE)
-        && effectiveness < TYPE_MUL_NORMAL) {
+    if (power != 0
+        && (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_WONDER_GUARD) == TRUE)
+        && effectiveness < TYPE_MUL_SUPER_EFFECTIVE) {
         if (IsAttackerOnField(ctx)) {
             ctx->moveOutCheck[ctx->attack_client].stoppedFromIneffective = TRUE;
         }
@@ -5036,7 +5043,8 @@ BOOL BattleController_CheckTeraShell(struct BattleSystem *bsys UNUSED, struct Ba
 
 BOOL BattleController_TryConsumeDamageReductionBerry(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx, int defender)
 {
-    if (CanActivateDamageReductionBerry(ctx, defender)) {
+    if (CanMoveActivateEffectivenessBerry(ctx)
+        && CanActivateDamageReductionBerry(ctx, defender)) {
         ctx->item_work = GetBattleMonItem(ctx, defender);
         ctx->battlerIdTemp = defender;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PLAY_EAT_BERRY_ANIMATION);
@@ -5120,6 +5128,54 @@ void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int
         }
     }
     // TODO: end bide, bide no target, Telekinesis
+}
+
+// https://wiki.pokemonwiki.com/wiki/%E3%83%80%E3%83%A1%E3%83%BC%E3%82%B8%E5%9B%BA%E5%AE%9A%E6%8A%80#%E8%A9%B3%E7%B4%B0%E3%81%AA%E4%BB%95%E6%A7%98
+BOOL CanMoveActivateEffectivenessBerry(struct BattleStruct *ctx)
+{
+    switch (ctx->moveTbl[ctx->current_move_index].effect) {
+    case MOVE_EFFECT_STRUGGLE:
+    case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: // Psywave
+    case MOVE_EFFECT_LEVEL_DAMAGE_FLAT: // Seismic Toss, Night Shade, ...
+    case MOVE_EFFECT_10_DAMAGE_FLAT: // Sonic Boom
+    case MOVE_EFFECT_40_DAMAGE_FLAT: // Dragon Rage
+    case MOVE_EFFECT_HALVE_HP: // Super Fang, Ruination, ...
+    case MOVE_EFFECT_QUARTER_HP: // Guardian of Alola
+    case MOVE_EFFECT_SET_HP_EQUAL_TO_USER: // Endeavor
+    case MOVE_EFFECT_COUNTER:
+    case MOVE_EFFECT_MIRROR_COAT:
+    case MOVE_EFFECT_ONE_HIT_KO:
+    case MOVE_EFFECT_BIDE:
+    case MOVE_EFFECT_FINAL_GAMBIT:
+    case MOVE_EFFECT_METAL_BURST: // Metal Burst, Comeuppance
+        return FALSE;
+    default:
+        break;
+    }
+
+    return TRUE;
+}
+// https://wiki.pokemonwiki.com/wiki/%E3%82%B8%E3%83%A5%E3%82%A8%E3%83%AB
+BOOL CanMoveActivateGem(struct BattleStruct *ctx)
+{
+    switch (ctx->current_move_index) {
+    case MOVE_STRUGGLE:
+    case MOVE_WATER_PLEDGE:
+    case MOVE_FIRE_PLEDGE:
+    case MOVE_GRASS_PLEDGE:
+        return FALSE;
+    default:
+        break;
+    }
+
+    switch (ctx->moveTbl[ctx->current_move_index].effect) {
+    case MOVE_EFFECT_ONE_HIT_KO:
+        return FALSE;
+    default:
+        break;
+    }
+
+    return TRUE;
 }
 
 void RemoveItemOnFlingFailure(struct BattleStruct *ctx)
