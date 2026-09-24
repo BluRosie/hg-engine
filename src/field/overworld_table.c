@@ -19,6 +19,7 @@
 #define NEW_NPC_GFX_START (297)
 #define NEW_NPC_TAG_START (7000)
 
+// Use this define to add new NPCs, including NPC mons. Do not use the follower entries as NPCs as they may change order
 #define NEW_NPC_ENTRY(num) \
     { .tag = NEW_NPC_TAG_START + num, .gfx = NEW_NPC_GFX_START + num, .callback_params = 0 },
 
@@ -310,6 +311,9 @@ struct OVERWORLD_TAG gOWTagToFileNum[] = // skip down a bit to see the parts tha
         { .tag = 425, .gfx = 210, .callback_params = 0x45A5 },
         { .tag = 426, .gfx = 211, .callback_params = 0x49A5 },
         { .tag = 427, .gfx = 212, .callback_params = 0x0000 },
+
+        // Alternatively, add your custom NPCs here, including NPC mons
+        // { .tag = 428, .gfx = MON_OVERWORLD_GFX_START + SPECIES_BUTTERFREE, .callback_params = OVERWORLD_SIZE_SMALL },
 
         // npc mons
 
