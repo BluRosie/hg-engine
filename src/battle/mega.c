@@ -473,10 +473,22 @@ const struct MegaStruct sMegaTable[] = {
         .baseForm = 0,
     },
     {
+        .monindex = SPECIES_GRENINJA,
+        .itemindex = ITEM_GRENINJITE,
+        .targetForm = 3,
+        .baseForm = 1,
+    },
+    {
         .monindex = SPECIES_PYROAR,
         .itemindex = ITEM_PYROARITE,
         .targetForm = 2,
         .baseForm = 0,
+    },
+    {
+        .monindex = SPECIES_PYROAR,
+        .itemindex = ITEM_PYROARITE,
+        .targetForm = 3,
+        .baseForm = 1,
     },
     {
         .monindex = SPECIES_FLOETTE,
@@ -489,6 +501,12 @@ const struct MegaStruct sMegaTable[] = {
         .itemindex = ITEM_MEOWSTICITE,
         .targetForm = 2,
         .baseForm = 0,
+    },
+    {
+        .monindex = SPECIES_MEOWSTIC,
+        .itemindex = ITEM_MEOWSTICITE,
+        .targetForm = 3,
+        .baseForm = 1,
     },
     {
         .monindex = SPECIES_MALAMAR,
@@ -518,7 +536,13 @@ const struct MegaStruct sMegaTable[] = {
         .monindex = SPECIES_ZYGARDE,
         .itemindex = ITEM_ZYGARDITE,
         .targetForm = 6,
-        .baseForm = 0,
+        .baseForm = 2,
+    },
+    {
+        .monindex = SPECIES_ZYGARDE,
+        .itemindex = ITEM_ZYGARDITE,
+        .targetForm = 6,
+        .baseForm = 4,
     },
     {
         .monindex = SPECIES_DIANCIE,
@@ -707,25 +731,8 @@ BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form)
 #ifdef MEGA_EVOLUTIONS
     u32 i;
     for (i = 0; i < NELEMS(sMegaTable); i++) {
-        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item) {
-            switch (mon) {
-            case SPECIES_GRENINJA:
-                return (form == 0) || (form == 1); // handle Ash-Greninja
-            case SPECIES_ZYGARDE:
-                return (form == 2) || (form == 4);
-            case SPECIES_PYROAR:
-            case SPECIES_MEOWSTIC:
-                if (sMegaTable[i].targetForm > form) {
-                    return TRUE;
-                }
-                break;
-            default: // covers Floette, Slowbro and others
-                if (sMegaTable[i].baseForm == form) {
-                    return TRUE;
-                }
-                break;
-            }
-            return FALSE;
+        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item && sMegaTable[i].baseForm == form) {
+            return TRUE;
         }
     }
 #endif // MEGA_EVOLUTIONS
