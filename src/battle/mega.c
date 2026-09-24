@@ -816,14 +816,13 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
 BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
 {
 #ifdef MEGA_EVOLUTIONS
-    int i, j, species, form;
+    int i, j, species;
 
     species = sp->battlemon[client].species;
-    form = sp->battlemon[client].form_no;
     // move = GetBattlerSelectedMove(sp, client);
 
     for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++) {
-        if (species == sMegaMoveTable[i].monindex && form == sMegaMoveTable[i].baseForm) {
+        if (species == sMegaMoveTable[i].monindex) { // no form check as the form is already overridden by targetForm
             for (j = 0; j < 4; j++) {
                 if (sp->battlemon[client].move[j] == sMegaMoveTable[i].moveindex) {
                     return TRUE;
