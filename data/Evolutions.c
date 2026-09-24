@@ -16410,7 +16410,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
 
     [SPECIES_DARUMAKA_GALARIAN] = {
         .entries = {
-            { EVO_STONE, ITEM_ICE_STONE, MON_WITH_FORM(SPECIES_DARMANITAN, 1) },
+            { EVO_STONE, ITEM_ICE_STONE, MON_WITH_FORM(SPECIES_DARMANITAN, 2) },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -17822,21 +17822,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ZYGARDE_10_COMPLETE] = {
-        .entries = {
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-        },
-    },
-
-    [SPECIES_ZYGARDE_50_COMPLETE] = {
+    [SPECIES_ZYGARDE_COMPLETE] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -19153,76 +19139,6 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
     },
 
     [SPECIES_OINKOLOGNE_FEMALE] = {
-        .entries = {
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-        },
-    },
-
-    [SPECIES_REVAVROOM_SEGIN] = {
-        .entries = {
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-        },
-    },
-
-    [SPECIES_REVAVROOM_SCHEDAR] = {
-        .entries = {
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-        },
-    },
-
-    [SPECIES_REVAVROOM_NAVI] = {
-        .entries = {
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-        },
-    },
-
-    [SPECIES_REVAVROOM_RUCHBAH] = {
-        .entries = {
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-            { EVO_NONE, 0, SPECIES_NONE },
-        },
-    },
-
-    [SPECIES_REVAVROOM_CAPH] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
