@@ -85,6 +85,8 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "'s fervent wish has reached Rayquaza!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Rayquaza has Mega Evolved into Mega Rayquaza!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Rayquaza's Delta Stream" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mysterious strong winds are protecting Flying-type Pokemon!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "'s fervent wish has reached Rayquaza!" },
     }
 }
