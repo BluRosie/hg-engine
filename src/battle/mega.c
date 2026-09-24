@@ -739,12 +739,12 @@ BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form)
     return FALSE;
 }
 
-u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item)
+u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item, u32 form)
 {
 #ifdef MEGA_EVOLUTIONS
     u32 i;
     for (i = 0; i < NELEMS(sMegaTable); i++) {
-        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item) {
+        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item && sMegaTable[i].baseForm == form) {
             return sMegaTable[i].targetForm;
         }
     }
@@ -816,13 +816,14 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
 BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
 {
 #ifdef MEGA_EVOLUTIONS
-    int i, j, species;
+    int i, j, species, form;
 
     species = sp->battlemon[client].species;
+    form = sp->battlemon[client].form_no;
     // move = GetBattlerSelectedMove(sp, client);
 
     for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++) {
-        if (species == sMegaMoveTable[i].monindex) {
+        if (species == sMegaMoveTable[i].monindex && form == sMegaMoveTable[i].baseForm) {
             for (j = 0; j < 4; j++) {
                 if (sp->battlemon[client].move[j] == sMegaMoveTable[i].moveindex) {
                     return TRUE;

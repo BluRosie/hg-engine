@@ -3121,7 +3121,7 @@ BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form);
  *  @param item held item to check for mega stone
  *  @return target form
  */
-u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item);
+u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item, u32 form);
 
 // defined in battle_input.c
 typedef struct BattleBGStorage {
