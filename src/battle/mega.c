@@ -22,7 +22,8 @@ struct MegaStruct {
 struct MegaStructMove {
     u32 monindex : 12;
     u32 moveindex : 12;
-    u32 targetForm : 8;
+    u32 targetForm : 4;
+    u32 baseForm : 4;
 };
 
 #ifdef MEGA_EVOLUTIONS
@@ -592,11 +593,12 @@ const struct MegaStructMove sMegaMoveTable[] = {
         .monindex = SPECIES_RAYQUAZA,
         .moveindex = MOVE_DRAGON_ASCENT,
         .targetForm = 1,
+        .baseForm = 0,
     },
 };
 #endif // MEGA_EVOLUTIONS
 
-static BOOL CheckMegaMoveData(u32 mon, u16 *moves);
+static BOOL CheckMegaMoveData(u32 mon, u16 *moves, u32 form);
 
 BOOL CheckCanMega(struct BattleStruct *battle, int client)
 {
@@ -616,7 +618,7 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
         return FALSE;
     }
 
-    return CheckMegaData(mon, item, form) || CheckMegaMoveData(mon, battle->battlemon[client].move);
+    return CheckMegaData(mon, item, form) || CheckMegaMoveData(mon, battle->battlemon[client].move, form);
 }
 
 BOOL IsMegaSpecies(u32 mon, u32 form)
@@ -707,6 +709,8 @@ BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form)
     for (i = 0; i < NELEMS(sMegaTable); i++) {
         if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item) {
             switch (mon) {
+            case SPECIES_GRENINJA:
+                return (form == 0) || (form == 1); // handle Ash-Greninja
             case SPECIES_ZYGARDE:
                 return (form == 2) || (form == 4);
             case SPECIES_PYROAR:
@@ -746,12 +750,12 @@ u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item)
     return 0;
 }
 
-static BOOL CheckMegaMoveData(u32 mon, u16 *moves)
+static BOOL CheckMegaMoveData(u32 mon, u16 *moves, u32 form)
 {
 #ifdef MEGA_EVOLUTIONS
     int i, j;
     for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++) {
-        if (sMegaMoveTable[i].monindex == mon) {
+        if (sMegaMoveTable[i].monindex == mon && sMegaMoveTable[i].baseForm == form) {
             for (j = 0; j < 4; j++) {
                 if (sMegaMoveTable[i].moveindex == moves[j]) {
                     return TRUE;
@@ -799,7 +803,7 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
         return FALSE;
     }
 
-    return CheckMegaData(mon, item, form_no) || CheckMegaMoveData(mon, moves);
+    return CheckMegaData(mon, item, form_no) || CheckMegaMoveData(mon, moves, form_no);
 }
 
 BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
