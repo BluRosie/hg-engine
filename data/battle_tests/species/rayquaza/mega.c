@@ -10,7 +10,7 @@ BEGIN_TEST
         {
             .species = SPECIES_RAYQUAZA,
             .level = 50,
-            .form = 5,
+            .form = 0,
             .ability = ABILITY_CLOUD_NINE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_DRAGON_ASCENT, MOVE_NONE, MOVE_NONE },
