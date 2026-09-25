@@ -74500,7 +74500,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ALCREMIE_BERRY_SWEET] = {
+    [SPECIES_ALCREMIE_RUBY_CREAM] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
@@ -74557,7 +74557,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ALCREMIE_LOVE_SWEET] = {
+    [SPECIES_ALCREMIE_MATCHA_CREAM] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
@@ -74614,7 +74614,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ALCREMIE_STAR_SWEET] = {
+    [SPECIES_ALCREMIE_MINT_CREAM] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
@@ -74671,7 +74671,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ALCREMIE_CLOVER_SWEET] = {
+    [SPECIES_ALCREMIE_LEMON_CREAM] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
@@ -74728,7 +74728,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ALCREMIE_FLOWER_SWEET] = {
+    [SPECIES_ALCREMIE_SALTED_CREAM] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
@@ -74785,7 +74785,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ALCREMIE_RIBBON_SWEET] = {
+    [SPECIES_ALCREMIE_RUBY_SWIRL] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
@@ -74842,7 +74842,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ALCREMIE_FILLER_1] = {
+    [SPECIES_ALCREMIE_CARAMEL_SWIRL] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",
@@ -74899,7 +74899,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
         },
     },
 
-    [SPECIES_ALCREMIE_FILLER_2] = {
+    [SPECIES_ALCREMIE_RAINBOW_SWIRL] = {
         .textData = {
             .name = "-----",
             .pokedexEntry = "",

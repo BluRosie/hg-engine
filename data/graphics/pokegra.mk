@@ -40587,249 +40587,249 @@ build/pokemonicon/1_1306.NCGR: data/graphics/sprites/polteageist_antique/icon.pn
 ICONGFX_OBJS += build/pokemonicon/1_1306.NCGR
 
 
-build/pokemonpic/1307-00.NCGR: data/graphics/sprites/alcremie_berry_sweet/female/back.png
+build/pokemonpic/1307-00.NCGR: data/graphics/sprites/alcremie_ruby_cream/female/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1307-01.NCGR: data/graphics/sprites/alcremie_berry_sweet/male/back.png
+build/pokemonpic/1307-01.NCGR: data/graphics/sprites/alcremie_ruby_cream/male/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1307-02.NCGR: data/graphics/sprites/alcremie_berry_sweet/female/front.png
+build/pokemonpic/1307-02.NCGR: data/graphics/sprites/alcremie_ruby_cream/female/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1307-03.NCGR: data/graphics/sprites/alcremie_berry_sweet/male/front.png
+build/pokemonpic/1307-03.NCGR: data/graphics/sprites/alcremie_ruby_cream/male/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1307-04.NCLR: data/graphics/sprites/alcremie_berry_sweet/male/front.png
+build/pokemonpic/1307-04.NCLR: data/graphics/sprites/alcremie_ruby_cream/male/front.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
-build/pokemonpic/1307-05.NCLR: data/graphics/sprites/alcremie_berry_sweet/male/back.png
+build/pokemonpic/1307-05.NCLR: data/graphics/sprites/alcremie_ruby_cream/male/back.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
 POKEGRA_DEPENDENCIES += build/pokemonpic/1307-00.NCGR build/pokemonpic/1307-01.NCGR build/pokemonpic/1307-02.NCGR build/pokemonpic/1307-03.NCGR build/pokemonpic/1307-04.NCLR build/pokemonpic/1307-05.NCLR
-build/pokemonow/3_1307.btx0: data/graphics/sprites/alcremie_berry_sweet/overworld.png
+build/pokemonow/3_1307.btx0: data/graphics/sprites/alcremie_ruby_cream/overworld.png
 	$(BTX) $< $@
-ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_berry_sweet/overworld.png
+ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_ruby_cream/overworld.png
 ALL_OVERWORLDS_OBJS += build/pokemonow/3_1307.btx0
-build/pokemonicon/1_1307.NCGR: data/graphics/sprites/alcremie_berry_sweet/icon.png
+build/pokemonicon/1_1307.NCGR: data/graphics/sprites/alcremie_ruby_cream/icon.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += build/pokemonicon/1_1307.NCGR
 
 
-build/pokemonpic/1308-00.NCGR: data/graphics/sprites/alcremie_love_sweet/female/back.png
+build/pokemonpic/1308-00.NCGR: data/graphics/sprites/alcremie_matcha_cream/female/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1308-01.NCGR: data/graphics/sprites/alcremie_love_sweet/male/back.png
+build/pokemonpic/1308-01.NCGR: data/graphics/sprites/alcremie_matcha_cream/male/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1308-02.NCGR: data/graphics/sprites/alcremie_love_sweet/female/front.png
+build/pokemonpic/1308-02.NCGR: data/graphics/sprites/alcremie_matcha_cream/female/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1308-03.NCGR: data/graphics/sprites/alcremie_love_sweet/male/front.png
+build/pokemonpic/1308-03.NCGR: data/graphics/sprites/alcremie_matcha_cream/male/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1308-04.NCLR: data/graphics/sprites/alcremie_love_sweet/male/front.png
+build/pokemonpic/1308-04.NCLR: data/graphics/sprites/alcremie_matcha_cream/male/front.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
-build/pokemonpic/1308-05.NCLR: data/graphics/sprites/alcremie_love_sweet/male/back.png
+build/pokemonpic/1308-05.NCLR: data/graphics/sprites/alcremie_matcha_cream/male/back.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
 POKEGRA_DEPENDENCIES += build/pokemonpic/1308-00.NCGR build/pokemonpic/1308-01.NCGR build/pokemonpic/1308-02.NCGR build/pokemonpic/1308-03.NCGR build/pokemonpic/1308-04.NCLR build/pokemonpic/1308-05.NCLR
-build/pokemonow/3_1308.btx0: data/graphics/sprites/alcremie_love_sweet/overworld.png
+build/pokemonow/3_1308.btx0: data/graphics/sprites/alcremie_matcha_cream/overworld.png
 	$(BTX) $< $@
-ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_love_sweet/overworld.png
+ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_matcha_cream/overworld.png
 ALL_OVERWORLDS_OBJS += build/pokemonow/3_1308.btx0
-build/pokemonicon/1_1308.NCGR: data/graphics/sprites/alcremie_love_sweet/icon.png
+build/pokemonicon/1_1308.NCGR: data/graphics/sprites/alcremie_matcha_cream/icon.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += build/pokemonicon/1_1308.NCGR
 
 
-build/pokemonpic/1309-00.NCGR: data/graphics/sprites/alcremie_star_sweet/female/back.png
+build/pokemonpic/1309-00.NCGR: data/graphics/sprites/alcremie_mint_cream/female/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1309-01.NCGR: data/graphics/sprites/alcremie_star_sweet/male/back.png
+build/pokemonpic/1309-01.NCGR: data/graphics/sprites/alcremie_mint_cream/male/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1309-02.NCGR: data/graphics/sprites/alcremie_star_sweet/female/front.png
+build/pokemonpic/1309-02.NCGR: data/graphics/sprites/alcremie_mint_cream/female/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1309-03.NCGR: data/graphics/sprites/alcremie_star_sweet/male/front.png
+build/pokemonpic/1309-03.NCGR: data/graphics/sprites/alcremie_mint_cream/male/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1309-04.NCLR: data/graphics/sprites/alcremie_star_sweet/male/front.png
+build/pokemonpic/1309-04.NCLR: data/graphics/sprites/alcremie_mint_cream/male/front.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
-build/pokemonpic/1309-05.NCLR: data/graphics/sprites/alcremie_star_sweet/male/back.png
+build/pokemonpic/1309-05.NCLR: data/graphics/sprites/alcremie_mint_cream/male/back.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
 POKEGRA_DEPENDENCIES += build/pokemonpic/1309-00.NCGR build/pokemonpic/1309-01.NCGR build/pokemonpic/1309-02.NCGR build/pokemonpic/1309-03.NCGR build/pokemonpic/1309-04.NCLR build/pokemonpic/1309-05.NCLR
-build/pokemonow/3_1309.btx0: data/graphics/sprites/alcremie_star_sweet/overworld.png
+build/pokemonow/3_1309.btx0: data/graphics/sprites/alcremie_mint_cream/overworld.png
 	$(BTX) $< $@
-ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_star_sweet/overworld.png
+ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_mint_cream/overworld.png
 ALL_OVERWORLDS_OBJS += build/pokemonow/3_1309.btx0
-build/pokemonicon/1_1309.NCGR: data/graphics/sprites/alcremie_star_sweet/icon.png
+build/pokemonicon/1_1309.NCGR: data/graphics/sprites/alcremie_mint_cream/icon.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += build/pokemonicon/1_1309.NCGR
 
 
-build/pokemonpic/1310-00.NCGR: data/graphics/sprites/alcremie_clover_sweet/female/back.png
+build/pokemonpic/1310-00.NCGR: data/graphics/sprites/alcremie_lemon_cream/female/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1310-01.NCGR: data/graphics/sprites/alcremie_clover_sweet/male/back.png
+build/pokemonpic/1310-01.NCGR: data/graphics/sprites/alcremie_lemon_cream/male/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1310-02.NCGR: data/graphics/sprites/alcremie_clover_sweet/female/front.png
+build/pokemonpic/1310-02.NCGR: data/graphics/sprites/alcremie_lemon_cream/female/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1310-03.NCGR: data/graphics/sprites/alcremie_clover_sweet/male/front.png
+build/pokemonpic/1310-03.NCGR: data/graphics/sprites/alcremie_lemon_cream/male/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1310-04.NCLR: data/graphics/sprites/alcremie_clover_sweet/male/front.png
+build/pokemonpic/1310-04.NCLR: data/graphics/sprites/alcremie_lemon_cream/male/front.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
-build/pokemonpic/1310-05.NCLR: data/graphics/sprites/alcremie_clover_sweet/male/back.png
+build/pokemonpic/1310-05.NCLR: data/graphics/sprites/alcremie_lemon_cream/male/back.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
 POKEGRA_DEPENDENCIES += build/pokemonpic/1310-00.NCGR build/pokemonpic/1310-01.NCGR build/pokemonpic/1310-02.NCGR build/pokemonpic/1310-03.NCGR build/pokemonpic/1310-04.NCLR build/pokemonpic/1310-05.NCLR
-build/pokemonow/3_1310.btx0: data/graphics/sprites/alcremie_clover_sweet/overworld.png
+build/pokemonow/3_1310.btx0: data/graphics/sprites/alcremie_lemon_cream/overworld.png
 	$(BTX) $< $@
-ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_clover_sweet/overworld.png
+ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_lemon_cream/overworld.png
 ALL_OVERWORLDS_OBJS += build/pokemonow/3_1310.btx0
-build/pokemonicon/1_1310.NCGR: data/graphics/sprites/alcremie_clover_sweet/icon.png
+build/pokemonicon/1_1310.NCGR: data/graphics/sprites/alcremie_lemon_cream/icon.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += build/pokemonicon/1_1310.NCGR
 
 
-build/pokemonpic/1311-00.NCGR: data/graphics/sprites/alcremie_flower_sweet/female/back.png
+build/pokemonpic/1311-00.NCGR: data/graphics/sprites/alcremie_salted_cream/female/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1311-01.NCGR: data/graphics/sprites/alcremie_flower_sweet/male/back.png
+build/pokemonpic/1311-01.NCGR: data/graphics/sprites/alcremie_salted_cream/male/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1311-02.NCGR: data/graphics/sprites/alcremie_flower_sweet/female/front.png
+build/pokemonpic/1311-02.NCGR: data/graphics/sprites/alcremie_salted_cream/female/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1311-03.NCGR: data/graphics/sprites/alcremie_flower_sweet/male/front.png
+build/pokemonpic/1311-03.NCGR: data/graphics/sprites/alcremie_salted_cream/male/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1311-04.NCLR: data/graphics/sprites/alcremie_flower_sweet/male/front.png
+build/pokemonpic/1311-04.NCLR: data/graphics/sprites/alcremie_salted_cream/male/front.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
-build/pokemonpic/1311-05.NCLR: data/graphics/sprites/alcremie_flower_sweet/male/back.png
+build/pokemonpic/1311-05.NCLR: data/graphics/sprites/alcremie_salted_cream/male/back.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
 POKEGRA_DEPENDENCIES += build/pokemonpic/1311-00.NCGR build/pokemonpic/1311-01.NCGR build/pokemonpic/1311-02.NCGR build/pokemonpic/1311-03.NCGR build/pokemonpic/1311-04.NCLR build/pokemonpic/1311-05.NCLR
-build/pokemonow/3_1311.btx0: data/graphics/sprites/alcremie_flower_sweet/overworld.png
+build/pokemonow/3_1311.btx0: data/graphics/sprites/alcremie_salted_cream/overworld.png
 	$(BTX) $< $@
-ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_flower_sweet/overworld.png
+ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_salted_cream/overworld.png
 ALL_OVERWORLDS_OBJS += build/pokemonow/3_1311.btx0
-build/pokemonicon/1_1311.NCGR: data/graphics/sprites/alcremie_flower_sweet/icon.png
+build/pokemonicon/1_1311.NCGR: data/graphics/sprites/alcremie_salted_cream/icon.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += build/pokemonicon/1_1311.NCGR
 
 
-build/pokemonpic/1312-00.NCGR: data/graphics/sprites/alcremie_ribbon_sweet/female/back.png
+build/pokemonpic/1312-00.NCGR: data/graphics/sprites/alcremie_ruby_swirl/female/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1312-01.NCGR: data/graphics/sprites/alcremie_ribbon_sweet/male/back.png
+build/pokemonpic/1312-01.NCGR: data/graphics/sprites/alcremie_ruby_swirl/male/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1312-02.NCGR: data/graphics/sprites/alcremie_ribbon_sweet/female/front.png
+build/pokemonpic/1312-02.NCGR: data/graphics/sprites/alcremie_ruby_swirl/female/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1312-03.NCGR: data/graphics/sprites/alcremie_ribbon_sweet/male/front.png
+build/pokemonpic/1312-03.NCGR: data/graphics/sprites/alcremie_ruby_swirl/male/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1312-04.NCLR: data/graphics/sprites/alcremie_ribbon_sweet/male/front.png
+build/pokemonpic/1312-04.NCLR: data/graphics/sprites/alcremie_ruby_swirl/male/front.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
-build/pokemonpic/1312-05.NCLR: data/graphics/sprites/alcremie_ribbon_sweet/male/back.png
+build/pokemonpic/1312-05.NCLR: data/graphics/sprites/alcremie_ruby_swirl/male/back.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
 POKEGRA_DEPENDENCIES += build/pokemonpic/1312-00.NCGR build/pokemonpic/1312-01.NCGR build/pokemonpic/1312-02.NCGR build/pokemonpic/1312-03.NCGR build/pokemonpic/1312-04.NCLR build/pokemonpic/1312-05.NCLR
-build/pokemonow/3_1312.btx0: data/graphics/sprites/alcremie_ribbon_sweet/overworld.png
+build/pokemonow/3_1312.btx0: data/graphics/sprites/alcremie_ruby_swirl/overworld.png
 	$(BTX) $< $@
-ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_ribbon_sweet/overworld.png
+ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_ruby_swirl/overworld.png
 ALL_OVERWORLDS_OBJS += build/pokemonow/3_1312.btx0
-build/pokemonicon/1_1312.NCGR: data/graphics/sprites/alcremie_ribbon_sweet/icon.png
+build/pokemonicon/1_1312.NCGR: data/graphics/sprites/alcremie_ruby_swirl/icon.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += build/pokemonicon/1_1312.NCGR
 
 
-build/pokemonpic/1313-00.NCGR: data/graphics/sprites/alcremie_filler_1/female/back.png
+build/pokemonpic/1313-00.NCGR: data/graphics/sprites/alcremie_caramel_swirl/female/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1313-01.NCGR: data/graphics/sprites/alcremie_filler_1/male/back.png
+build/pokemonpic/1313-01.NCGR: data/graphics/sprites/alcremie_caramel_swirl/male/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1313-02.NCGR: data/graphics/sprites/alcremie_filler_1/female/front.png
+build/pokemonpic/1313-02.NCGR: data/graphics/sprites/alcremie_caramel_swirl/female/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1313-03.NCGR: data/graphics/sprites/alcremie_filler_1/male/front.png
+build/pokemonpic/1313-03.NCGR: data/graphics/sprites/alcremie_caramel_swirl/male/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1313-04.NCLR: data/graphics/sprites/alcremie_filler_1/male/front.png
+build/pokemonpic/1313-04.NCLR: data/graphics/sprites/alcremie_caramel_swirl/male/front.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
-build/pokemonpic/1313-05.NCLR: data/graphics/sprites/alcremie_filler_1/male/back.png
+build/pokemonpic/1313-05.NCLR: data/graphics/sprites/alcremie_caramel_swirl/male/back.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
 POKEGRA_DEPENDENCIES += build/pokemonpic/1313-00.NCGR build/pokemonpic/1313-01.NCGR build/pokemonpic/1313-02.NCGR build/pokemonpic/1313-03.NCGR build/pokemonpic/1313-04.NCLR build/pokemonpic/1313-05.NCLR
-build/pokemonow/3_1313.btx0: data/graphics/sprites/alcremie_filler_1/overworld.png
+build/pokemonow/3_1313.btx0: data/graphics/sprites/alcremie_caramel_swirl/overworld.png
 	$(BTX) $< $@
-ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_filler_1/overworld.png
+ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_caramel_swirl/overworld.png
 ALL_OVERWORLDS_OBJS += build/pokemonow/3_1313.btx0
-build/pokemonicon/1_1313.NCGR: data/graphics/sprites/alcremie_filler_1/icon.png
+build/pokemonicon/1_1313.NCGR: data/graphics/sprites/alcremie_caramel_swirl/icon.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += build/pokemonicon/1_1313.NCGR
 
 
-build/pokemonpic/1314-00.NCGR: data/graphics/sprites/alcremie_filler_2/female/back.png
+build/pokemonpic/1314-00.NCGR: data/graphics/sprites/alcremie_rainbow_swirl/female/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1314-01.NCGR: data/graphics/sprites/alcremie_filler_2/male/back.png
+build/pokemonpic/1314-01.NCGR: data/graphics/sprites/alcremie_rainbow_swirl/male/back.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1314-02.NCGR: data/graphics/sprites/alcremie_filler_2/female/front.png
+build/pokemonpic/1314-02.NCGR: data/graphics/sprites/alcremie_rainbow_swirl/female/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1314-03.NCGR: data/graphics/sprites/alcremie_filler_2/male/front.png
+build/pokemonpic/1314-03.NCGR: data/graphics/sprites/alcremie_rainbow_swirl/male/front.png
 	$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_SPRITE)
-build/pokemonpic/1314-04.NCLR: data/graphics/sprites/alcremie_filler_2/male/front.png
+build/pokemonpic/1314-04.NCLR: data/graphics/sprites/alcremie_rainbow_swirl/male/front.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/front.png,$(POKEGRA_SPRITES_DIR)/%/female/front.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
-build/pokemonpic/1314-05.NCLR: data/graphics/sprites/alcremie_filler_2/male/back.png
+build/pokemonpic/1314-05.NCLR: data/graphics/sprites/alcremie_rainbow_swirl/male/back.png
 	if test -s $<; then \
 		$(GFX) $< $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	elif test -s $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<); then \
 		$(GFX) $(patsubst $(POKEGRA_SPRITES_DIR)/%/male/back.png,$(POKEGRA_SPRITES_DIR)/%/female/back.png,$<) $@ $(POKEGRA_GFX_FLAGS_PAL); \
 	fi
 POKEGRA_DEPENDENCIES += build/pokemonpic/1314-00.NCGR build/pokemonpic/1314-01.NCGR build/pokemonpic/1314-02.NCGR build/pokemonpic/1314-03.NCGR build/pokemonpic/1314-04.NCLR build/pokemonpic/1314-05.NCLR
-build/pokemonow/3_1314.btx0: data/graphics/sprites/alcremie_filler_2/overworld.png
+build/pokemonow/3_1314.btx0: data/graphics/sprites/alcremie_rainbow_swirl/overworld.png
 	$(BTX) $< $@
-ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_filler_2/overworld.png
+ALL_OVERWORLDS_SRCS += data/graphics/sprites/alcremie_rainbow_swirl/overworld.png
 ALL_OVERWORLDS_OBJS += build/pokemonow/3_1314.btx0
-build/pokemonicon/1_1314.NCGR: data/graphics/sprites/alcremie_filler_2/icon.png
+build/pokemonicon/1_1314.NCGR: data/graphics/sprites/alcremie_rainbow_swirl/icon.png
 	$(GFX) $< $@ -clobbersize -version101 -bitdepth 4
 
 ICONGFX_OBJS += build/pokemonicon/1_1314.NCGR
