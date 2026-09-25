@@ -21,7 +21,7 @@ $(DEPDIR): ; @mkdir -p $@
 	$(CXX) $(CXXFLAGS) $(DEPFLAGS) -c -o $@ $<
 
 clean:
-	$(RM) o2narc o2narc.exe
+	$(RM) o2narc o2narc.exe $(CXXOBJS) $(DEPDIR)
 
 DEPFILES := $(CXXSRCS:%.cpp=$(DEPDIR)/%.d)
 $(DEPFILES):
