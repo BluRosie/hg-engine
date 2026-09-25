@@ -1180,8 +1180,10 @@ so all i care about is building a dictionary that can be accessed just fine
             dec[0xbb7] = 0
             arm9.write(dec)
             shutil.copyfile("build/arm9.bin", "base/arm9.bin")
+        else:
+            arm9.write(bin)
         rom.close()
-        arm9.close()
+    arm9.close()
 
     arm9 = open("build/arm9.bin", "rb")
     headerDictionary = []
