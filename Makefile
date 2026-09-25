@@ -160,7 +160,7 @@ include dump.mk
 ####################### Build Tools #######################
 MSGENC_SOURCES := $(wildcard tools/source/msgenc/*.cpp) $(wildcard tools/source/msgenc/*.h)
 $(MSGENC): tools/source/msgenc/*
-	cd tools/source/msgenc ; $(MAKE)
+	cd tools/source/msgenc ; $(MAKE) clean; $(MAKE)
 	mv tools/source/msgenc/msgenc tools/msgenc
 
 TOOLS += $(MSGENC)
@@ -216,45 +216,45 @@ TOOLS += tools/ntrWavTool.py
 
 NITROGFX_SOURCES := $(wildcard tools/source/nitrogfx/*.c) $(wildcard tools/source/nitrogfx/*.h)
 $(GFX): $(NITROGFX_SOURCES)
-	cd tools/source/nitrogfx ; $(MAKE)
+	cd tools/source/nitrogfx ; $(MAKE) clean; $(MAKE)
 	mv tools/source/nitrogfx/nitrogfx $(GFX)
 
 TOOLS += $(GFX)
 
 $(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/Moves.c include/move_data.h include/config.h
-	cd tools/source/movedatagen ; $(MAKE)
+	cd tools/source/movedatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(MOVEDATAGEN)
 
 $(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSort.c data/PokedexArea.c include/pokedex_archive_data.h include/constants/pokedex.h
-	cd tools/source/pokedexdatagen ; $(MAKE)
+	cd tools/source/pokedexdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(POKEDEXDATAGEN)
 
 $(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/Species.c include/species_data.h include/config.h
-	cd tools/source/speciesdatagen ; $(MAKE)
+	cd tools/source/speciesdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(SPECIESDATAGEN)
 
 $(TRAINERDATAGEN): $(wildcard tools/source/trainerdatagen/*.c) data/Trainers.c include/trainer_data.h include/constants/trainerclass.h include/constants/pokemon.h
-	cd tools/source/trainerdatagen ; $(MAKE)
+	cd tools/source/trainerdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(TRAINERDATAGEN)
 
 $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
-	cd tools/source/o2narc ; $(MAKE)
+	cd tools/source/o2narc ; $(MAKE) clean; $(MAKE)
 	mv tools/source/o2narc/o2narc $(O2NARC)
 
 TOOLS += $(O2NARC)
 
 $(ENCODEPWIMG):
-	cd tools/source/DECODEIMG ; $(MAKE)
+	cd tools/source/DECODEIMG ; $(MAKE) clean; $(MAKE)
 	mv tools/source/DECODEIMG/ENCODE_IMG $(ENCODEPWIMG)
 
 TOOLS += $(ENCODEPWIMG)
 
 $(BTX):
-	cd tools/source/btx ; $(MAKE)
+	cd tools/source/btx ; $(MAKE) clean; $(MAKE)
 	mv tools/source/btx/btx $(BTX)
 
 TOOLS += $(BTX)
