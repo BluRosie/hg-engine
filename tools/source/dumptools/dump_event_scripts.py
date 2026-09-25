@@ -482,14 +482,14 @@ class NormalScriptParser:
         cds = list(CoordEvent.iter_unpack(raw[pos:pos + ncd * CoordEvent.size])); pos += ncd * CoordEvent.size
 
         if bgs:
-            ret["bgs"] = [
+            ret["bg_events"] = [
                 {
-                    "scriptId": scr_get(bg.scriptId),
+                    "script": scr_get(bg.scriptId),
                     "type": bg.type,
                     "x": bg.x,
                     "z": bg.z,
                     "y": bg.y,
-                    "dir": bg.dir,
+                    "player_facing_dir": bg.dir,
                 } for bg in bgs
             ]
 
@@ -508,50 +508,50 @@ class NormalScriptParser:
 
                 self.objects.append((obj.id, obj_name))
 
-            ret["objects"] = []
+            ret["object_events"] = []
 
             for i, ob in enumerate(obs):
                 flag = self.constants["flag"].get(ob.eventFlag, ob.eventFlag)
 
-                ret["objects"].append({
+                ret["object_events"].append({
                     "id": self.objects[i + 2][1],
-                    "spriteId": self.constants["sprites"][ob.spriteId],
-                    "movement": ob.movement,
-                    "type": ob.type,
-                    "eventFlag": flag,
-                    "scriptId": scr_get(ob.scriptId),
-                    "facingDirection": ob.facingDirection,
+                    "graphics_id": self.constants["sprites"][ob.spriteId],
+                    "movement_type": ob.movement,
+                    "trainer_type": ob.type,
+                    "hidden_flag": flag,
+                    "script": scr_get(ob.scriptId),
+                    "initial_dir": ob.facingDirection,
                     "param0": ob.param0,
                     "param1": ob.param1,
                     "param2": ob.param2,
-                    "xRange": ob.xRange,
-                    "yRange": ob.yRange,
+                    "movement_range_x": ob.xRange,
+                    "movement_range_z": ob.yRange,
                     "x": ob.x,
                     "z": ob.z,
                     "y": ob.y,
                 })
 
         if wps:
-            ret["warps"] = [
+            ret["warp_events"] = [
                 {
                     "x": wp.x,
                     "z": wp.z,
-                    "header": self.constants["maps"].get(wp.header, wp.header),
-                    "anchor": wp.anchor,
+                    "dest_header_id": self.constants["maps"].get(wp.header, wp.header),
+                    "dest_warp_id": wp.anchor,
                     "y": wp.y,
                 } for wp in wps
             ]
 
         if cds:
-            ret["coords"] = [
+            ret["coord_events"] = [
                 {
-                    "scriptId": scr_get(cd.scriptId),
+                    "script": scr_get(cd.scriptId),
                     "x": cd.x,
                     "z": cd.z,
-                    "w": cd.w,
-                    "h": cd.h,
+                    "width": cd.w,
+                    "length": cd.h,
                     "y": cd.y,
-                    "val": cd.val,
+                    "value": cd.val,
                     "var": self.constants["var"].get(cd.var, cd.var),
                 } for cd in cds
             ]

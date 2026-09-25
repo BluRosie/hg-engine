@@ -277,7 +277,6 @@
 // Dumped scripts are not built into the rom unless the matching define below is uncommented, so that a rom.nds edited with
 // DSPRE, PokeText, or any other external tool keeps its own version of everything hg-engine does not itself change.
 // hg-engine's own text archives and its common and trainer scripts are always built.
-// #define BUILD_DUMPED_TEXT
 // #define BUILD_DUMPED_EVENTDATA
 // #define BUILD_DUMPED_SCR_SEQ
 
