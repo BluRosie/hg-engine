@@ -50975,7 +50975,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_BERRY_SWEET] = {
+    [SPECIES_ALCREMIE_RUBY_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51014,7 +51014,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_LOVE_SWEET] = {
+    [SPECIES_ALCREMIE_MATCHA_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51053,7 +51053,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_STAR_SWEET] = {
+    [SPECIES_ALCREMIE_MINT_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51092,7 +51092,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_CLOVER_SWEET] = {
+    [SPECIES_ALCREMIE_LEMON_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51131,7 +51131,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_FLOWER_SWEET] = {
+    [SPECIES_ALCREMIE_SALTED_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51170,7 +51170,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_RIBBON_SWEET] = {
+    [SPECIES_ALCREMIE_RUBY_SWIRL] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51209,7 +51209,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_FILLER_1] = {
+    [SPECIES_ALCREMIE_CARAMEL_SWIRL] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51248,7 +51248,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_FILLER_2] = {
+    [SPECIES_ALCREMIE_RAINBOW_SWIRL] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,

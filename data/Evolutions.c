@@ -18312,7 +18312,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ALCREMIE_BERRY_SWEET] = {
+    [SPECIES_ALCREMIE_RUBY_CREAM] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -18326,7 +18326,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ALCREMIE_LOVE_SWEET] = {
+    [SPECIES_ALCREMIE_MATCHA_CREAM] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -18340,7 +18340,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ALCREMIE_STAR_SWEET] = {
+    [SPECIES_ALCREMIE_MINT_CREAM] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -18354,7 +18354,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ALCREMIE_CLOVER_SWEET] = {
+    [SPECIES_ALCREMIE_LEMON_CREAM] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -18368,7 +18368,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ALCREMIE_FLOWER_SWEET] = {
+    [SPECIES_ALCREMIE_SALTED_CREAM] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -18382,7 +18382,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ALCREMIE_RIBBON_SWEET] = {
+    [SPECIES_ALCREMIE_RUBY_SWIRL] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -18396,7 +18396,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ALCREMIE_FILLER_1] = {
+    [SPECIES_ALCREMIE_CARAMEL_SWIRL] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
@@ -18410,7 +18410,7 @@ const EvolutionTable __data[MAX_SPECIES_INCLUDING_FORMS + 1] =
         },
     },
 
-    [SPECIES_ALCREMIE_FILLER_2] = {
+    [SPECIES_ALCREMIE_RAINBOW_SWIRL] = {
         .entries = {
             { EVO_NONE, 0, SPECIES_NONE },
             { EVO_NONE, 0, SPECIES_NONE },
