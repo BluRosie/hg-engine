@@ -255,7 +255,7 @@ $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/
 TOOLS += $(O2NARC)
 
 $(JSONPROC): $(wildcard tools/source/jsonproc/*.cpp) $(wildcard tools/source/jsonproc/*.h) $(wildcard tools/source/jsonproc/*.hpp) $(wildcard tools/source/jsonproc/nlohmann/*.hpp)
-	cd tools/source/jsonproc ; $(MAKE)
+	cd tools/source/jsonproc ; $(MAKE) clean; $(MAKE)
 	mv tools/source/jsonproc/jsonproc $(JSONPROC)
 
 TOOLS += $(JSONPROC)
