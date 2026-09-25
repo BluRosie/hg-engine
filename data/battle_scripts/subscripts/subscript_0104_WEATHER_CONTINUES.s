@@ -35,7 +35,7 @@ _095:
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_TEMP_DATA, 2, _107
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_BATTLE_STATUS, BATTLE_STATUS_NO_BLINK
     AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
-    //no more message in gen9+
+    // no more message in Gen 8+
     // {0} is hurt by its {1}!
     //PrintMessage 1090, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     GoTo _112
