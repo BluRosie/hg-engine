@@ -56,7 +56,7 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp);
 void Task_DistributeExp_Extend(void *arg0, void *work);
 BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_client_no);
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
-BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw UNUSED, struct BattleStruct *sp);
 BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_7c_beat_up_hit_count(void *bw, struct BattleStruct *sp);
@@ -1639,54 +1639,11 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw UNUSED, struct BattleStruct *sp)
 {
-    u16 hit;
     IncrementBattleScriptPtr(sp, 1);
-
-    sp->server_status_flag |= SERVER_STATUS_FLAG_OTHER_ACCURACY_CALC;
-
-    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STURDY) == TRUE) {
-        sp->waza_status_flag |= MOVE_STATUS_STURDY;
-    } else {
-        if (((sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON) == 0)
-            && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_NO_GUARD)
-            && (GetBattlerAbility(sp, sp->defence_client) != ABILITY_NO_GUARD)) {
-            hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
-            if (((BattleRand(bw) % 100) < hit)
-                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level)) {
-                hit = 1;
-            } else {
-                hit = 0;
-            }
-        } else {
-            if ((((sp->battlemon[sp->defence_client].moveeffect.battlerIdLockOn == sp->attack_client) && (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON))
-                    || (GetBattlerAbility(sp, sp->attack_client) == ABILITY_NO_GUARD)
-                    || (GetBattlerAbility(sp, sp->defence_client) == ABILITY_NO_GUARD))
-                && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level)) {
-                hit = 1;
-            } else {
-                hit = sp->moveTbl[sp->current_move_index].accuracy + (sp->battlemon[sp->attack_client].level - sp->battlemon[sp->defence_client].level);
-                if (((BattleRand(bw) % 100) < hit)
-                    && (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level)) {
-                    hit = 1;
-                } else {
-                    hit = 0;
-                }
-            }
-            sp->waza_status_flag |= MOVE_STATUS_BYPASSED_ACCURACY;
-        }
-        if (hit) {
-            sp->damage = sp->battlemon[sp->defence_client].hp * -1;
-            sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO;
-        } else {
-            if (sp->battlemon[sp->attack_client].level >= sp->battlemon[sp->defence_client].level) {
-                sp->waza_status_flag |= FLAG_CONTACT;
-            } else {
-                sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO_FAILED;
-            }
-        }
-    }
+    sp->damage = sp->battlemon[sp->defence_client].hp * -1;
+    sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO;
 
     return FALSE;
 }

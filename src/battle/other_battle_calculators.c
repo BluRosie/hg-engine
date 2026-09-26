@@ -2681,11 +2681,31 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
         return TRUE;
     }
 
-    if (!(sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE) // TODO: Is this flag a debug flag to ignore hit rates..?
-        && ((sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON
-                && sp->battlemon[battlerIdTarget].moveeffect.battlerIdLockOn == battlerIdAttacker)
-            || GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD
-            || GetBattlerAbility(sp, battlerIdTarget) == ABILITY_NO_GUARD)) {
+    BOOL lockOnOrNoGuard = (GetBattlerAbility(sp, battlerIdAttacker) == ABILITY_NO_GUARD) || (GetBattlerAbility(sp, battlerIdTarget) == ABILITY_NO_GUARD)
+        || (sp->battlemon[battlerIdTarget].effect_of_moves & MOVE_EFFECT_FLAG_LOCK_ON
+            && sp->battlemon[battlerIdTarget].moveeffect.battlerIdLockOn == battlerIdAttacker);
+
+    if (sp->moveTbl[move].effect == MOVE_EFFECT_ONE_HIT_KO) // || sp->server_status_flag & BATTLE_STATUS_FLAT_HIT_RATE
+    {
+        int levelDiff = (sp->battlemon[battlerIdAttacker].level - sp->battlemon[battlerIdTarget].level);
+        int accuracy = sp->moveTbl[move].accuracy;
+
+        if (move == MOVE_SHEER_COLD && !HasType(sp, battlerIdAttacker, TYPE_ICE)) {
+            accuracy = 20;
+        }
+        accuracy += levelDiff;
+        if (levelDiff >= 0) {
+            if (lockOnOrNoGuard || ((BattleRand(bw) % 100) < accuracy)) {
+                sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
+                sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO;
+                return TRUE;
+            }
+        }
+
+        sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO_FAILED;
+        return FALSE;
+
+    } else if (lockOnOrNoGuard) { // non-OHKO move always hits
         sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
         return TRUE;
     }
