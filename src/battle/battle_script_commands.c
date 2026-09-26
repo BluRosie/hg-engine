@@ -56,7 +56,7 @@ BOOL btl_scr_cmd_27_shouldgetexp(void *bw, struct BattleStruct *sp);
 void Task_DistributeExp_Extend(void *arg0, void *work);
 BOOL Task_DistributeExp_capture_experience(void *arg0, void *work, u32 get_client_no);
 BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp);
-BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp);
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw UNUSED, struct BattleStruct *sp);
 BOOL btl_scr_cmd_5f_trysleeptalk(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_6f_fury_cutter_damage_calc(void *bw, struct BattleStruct *sp);
 BOOL btl_scr_cmd_7c_beat_up_hit_count(void *bw, struct BattleStruct *sp);
@@ -1639,7 +1639,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_54_ohko_move_handle(void *bw, struct BattleStruct *sp)
+BOOL btl_scr_cmd_54_ohko_move_handle(void *bw UNUSED, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
     sp->damage = sp->battlemon[sp->defence_client].hp * -1;
