@@ -1118,7 +1118,7 @@ def grab_mapname_dict():
         mapname_bin_len = int(os.path.getsize("base/root/fielddata/maptable/mapname.bin") / 16)
         for i in range(0, mapname_bin_len):
             fp.seek(16 * i, 0)
-            mapname_dict[i] = fp.read(16).decode().split("\x00")[0]
+            mapname_dict[i] = fp.read(16).decode().split("\x00")[0].replace(" ", "_")
     return mapname_dict
 
 def read_mapping(rom):
