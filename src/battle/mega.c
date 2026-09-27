@@ -15,13 +15,15 @@
 struct MegaStruct {
     u32 monindex : 12;
     u32 itemindex : 12;
-    u32 form : 8;
+    u32 targetForm : 4;
+    u32 baseForm : 4;
 };
 
 struct MegaStructMove {
     u32 monindex : 12;
     u32 moveindex : 12;
-    u32 form : 8;
+    u32 targetForm : 4;
+    u32 baseForm : 4;
 };
 
 #ifdef MEGA_EVOLUTIONS
@@ -29,457 +31,578 @@ const struct MegaStruct sMegaTable[] = {
     {
         .monindex = SPECIES_VENUSAUR,
         .itemindex = ITEM_VENUSAURITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_CHARIZARD,
         .itemindex = ITEM_CHARIZARDITE_X,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     }, // x
     {
         .monindex = SPECIES_CHARIZARD,
         .itemindex = ITEM_CHARIZARDITE_Y,
-        .form = 2,
+        .targetForm = 2,
+        .baseForm = 0,
     }, // y
     {
         .monindex = SPECIES_BLASTOISE,
         .itemindex = ITEM_BLASTOISINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_BEEDRILL,
         .itemindex = ITEM_BEEDRILLITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_PIDGEOT,
         .itemindex = ITEM_PIDGEOTITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_RAICHU,
         .itemindex = ITEM_RAICHUNITE_X,
-        .form = 2,
+        .targetForm = 2,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_RAICHU,
         .itemindex = ITEM_RAICHUNITE_Y,
-        .form = 3,
+        .targetForm = 3,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_CLEFABLE,
         .itemindex = ITEM_CLEFABLITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_ALAKAZAM,
         .itemindex = ITEM_ALAKAZITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_VICTREEBEL,
         .itemindex = ITEM_VICTREEBELITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SLOWBRO,
         .itemindex = ITEM_SLOWBRONITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GENGAR,
         .itemindex = ITEM_GENGARITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_KANGASKHAN,
         .itemindex = ITEM_KANGASKHANITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_STARMIE,
         .itemindex = ITEM_STARMINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_PINSIR,
         .itemindex = ITEM_PINSIRITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GYARADOS,
         .itemindex = ITEM_GYARADOSITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_AERODACTYL,
         .itemindex = ITEM_AERODACTYLITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_DRAGONITE,
         .itemindex = ITEM_DRAGONINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_MEWTWO,
         .itemindex = ITEM_MEWTWONITE_X,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     }, // x
     {
         .monindex = SPECIES_MEWTWO,
         .itemindex = ITEM_MEWTWONITE_Y,
-        .form = 2,
+        .targetForm = 2,
+        .baseForm = 0,
     }, // y
     {
         .monindex = SPECIES_MEGANIUM,
         .itemindex = ITEM_MEGANIUMITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_FERALIGATR,
         .itemindex = ITEM_FERALIGITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_AMPHAROS,
         .itemindex = ITEM_AMPHAROSITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_STEELIX,
         .itemindex = ITEM_STEELIXITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SCIZOR,
         .itemindex = ITEM_SCIZORITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_HERACROSS,
         .itemindex = ITEM_HERACRONITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SKARMORY,
         .itemindex = ITEM_SKARMORITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_HOUNDOOM,
         .itemindex = ITEM_HOUNDOOMINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_TYRANITAR,
         .itemindex = ITEM_TYRANITARITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SCEPTILE,
         .itemindex = ITEM_SCEPTILITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_BLAZIKEN,
         .itemindex = ITEM_BLAZIKENITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SWAMPERT,
         .itemindex = ITEM_SWAMPERTITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GARDEVOIR,
         .itemindex = ITEM_GARDEVOIRITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SABLEYE,
         .itemindex = ITEM_SABLENITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_MAWILE,
         .itemindex = ITEM_MAWILITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_AGGRON,
         .itemindex = ITEM_AGGRONITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_MEDICHAM,
         .itemindex = ITEM_MEDICHAMITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_MANECTRIC,
         .itemindex = ITEM_MANECTITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SHARPEDO,
         .itemindex = ITEM_SHARPEDONITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_CAMERUPT,
         .itemindex = ITEM_CAMERUPTITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_ALTARIA,
         .itemindex = ITEM_ALTARIANITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_BANETTE,
         .itemindex = ITEM_BANETTITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_CHIMECHO,
         .itemindex = ITEM_CHIMECHITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_ABSOL,
         .itemindex = ITEM_ABSOLITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_ABSOL,
         .itemindex = ITEM_ABSOLITE_Z,
-        .form = 2,
+        .targetForm = 2,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GLALIE,
         .itemindex = ITEM_GLALITITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SALAMENCE,
         .itemindex = ITEM_SALAMENCITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_METAGROSS,
         .itemindex = ITEM_METAGROSSITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_LATIAS,
         .itemindex = ITEM_LATIASITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_LATIOS,
         .itemindex = ITEM_LATIOSITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_LATIOS,
         .itemindex = ITEM_LATIOSITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_STARAPTOR,
         .itemindex = ITEM_STARAPTITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_LOPUNNY,
         .itemindex = ITEM_LOPUNNITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GARCHOMP,
         .itemindex = ITEM_GARCHOMPITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GARCHOMP,
         .itemindex = ITEM_GARCHOMPITE_Z,
-        .form = 2,
+        .targetForm = 2,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_LUCARIO,
         .itemindex = ITEM_LUCARIONITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_LUCARIO,
         .itemindex = ITEM_LUCARIONITE_Z,
-        .form = 2,
+        .targetForm = 2,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_ABOMASNOW,
         .itemindex = ITEM_ABOMASITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GALLADE,
         .itemindex = ITEM_GALLADITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_FROSLASS,
         .itemindex = ITEM_FROSLASSITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
+    },
+    {
+        .monindex = SPECIES_HEATRAN,
+        .itemindex = ITEM_HEATRANITE,
+        .targetForm = 1,
+        .baseForm = 0,
+    },
+    {
+        .monindex = SPECIES_DARKRAI,
+        .itemindex = ITEM_DARKRANITE,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_EMBOAR,
         .itemindex = ITEM_EMBOARITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_EXCADRILL,
         .itemindex = ITEM_EXCADRITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_AUDINO,
         .itemindex = ITEM_AUDINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SCOLIPEDE,
         .itemindex = ITEM_SCOLIPITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SCRAFTY,
         .itemindex = ITEM_SCRAFTINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_EELEKTROSS,
         .itemindex = ITEM_EELEKTROSSITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_CHANDELURE,
         .itemindex = ITEM_CHANDELURITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GOLURK,
         .itemindex = ITEM_GOLURKITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_CHESNAUGHT,
         .itemindex = ITEM_CHESNAUGHTITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_DELPHOX,
         .itemindex = ITEM_DELPHOXITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GRENINJA,
         .itemindex = ITEM_GRENINJITE,
-        .form = 3,
+        .targetForm = 3,
+        .baseForm = 0,
+    },
+    {
+        .monindex = SPECIES_GRENINJA,
+        .itemindex = ITEM_GRENINJITE,
+        .targetForm = 3,
+        .baseForm = 1, // TODO come back for form reversion
     },
     {
         .monindex = SPECIES_PYROAR,
         .itemindex = ITEM_PYROARITE,
-        .form = 2,
+        .targetForm = 2,
+        .baseForm = 0,
+    },
+    {
+        .monindex = SPECIES_PYROAR,
+        .itemindex = ITEM_PYROARITE,
+        .targetForm = 3,
+        .baseForm = 1,
     },
     {
         .monindex = SPECIES_FLOETTE,
         .itemindex = ITEM_FLOETTITE,
-        .form = 6,
+        .targetForm = 6,
+        .baseForm = 5,
     },
     {
         .monindex = SPECIES_MEOWSTIC,
         .itemindex = ITEM_MEOWSTICITE,
-        .form = 2,
+        .targetForm = 2,
+        .baseForm = 0,
+    },
+    {
+        .monindex = SPECIES_MEOWSTIC,
+        .itemindex = ITEM_MEOWSTICITE,
+        .targetForm = 3,
+        .baseForm = 1,
     },
     {
         .monindex = SPECIES_MALAMAR,
         .itemindex = ITEM_MALAMARITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_BARBARACLE,
         .itemindex = ITEM_BARBARACITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_DRAGALGE,
         .itemindex = ITEM_DRAGALGITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_HAWLUCHA,
         .itemindex = ITEM_HAWLUCHANITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
-    {
-        .monindex = SPECIES_ZYGARDE,
-        .itemindex = ITEM_ZYGARDITE,
-        .form = 6,
-    },
+    //{
+    //    .monindex = SPECIES_ZYGARDE, //TODO
+    //    .itemindex = ITEM_ZYGARDITE,
+    //    .targetForm = 6,
+    //    .baseForm = 2,
+    //},
     {
         .monindex = SPECIES_DIANCIE,
         .itemindex = ITEM_DIANCITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_CRABOMINABLE,
         .itemindex = ITEM_CRABOMINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GOLISOPOD,
         .itemindex = ITEM_GOLISOPITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_DRAMPA,
         .itemindex = ITEM_DRAMPANITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_MAGEARNA,
         .itemindex = ITEM_MAGEARNITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_ZERAORA,
         .itemindex = ITEM_ZERAORITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_FALINKS,
         .itemindex = ITEM_FALINKSITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_SCOVILLAIN,
         .itemindex = ITEM_SCOVILLAINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_GLIMMORA,
         .itemindex = ITEM_GLIMMORANITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_TATSUGIRI,
         .itemindex = ITEM_TATSUGIRINITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
     {
         .monindex = SPECIES_BAXCALIBUR,
         .itemindex = ITEM_BAXCALIBRITE,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
 };
 
@@ -487,12 +610,13 @@ const struct MegaStructMove sMegaMoveTable[] = {
     {
         .monindex = SPECIES_RAYQUAZA,
         .moveindex = MOVE_DRAGON_ASCENT,
-        .form = 1,
+        .targetForm = 1,
+        .baseForm = 0,
     },
 };
 #endif // MEGA_EVOLUTIONS
 
-static BOOL CheckMegaMoveData(u32 mon, u16 *moves);
+static BOOL CheckMegaMoveData(u32 mon, u16 *moves, u32 form);
 
 BOOL CheckCanMega(struct BattleStruct *battle, int client)
 {
@@ -508,15 +632,11 @@ BOOL CheckCanMega(struct BattleStruct *battle, int client)
         return FALSE;
     }
 
-    if (form) {
-        return FALSE;
-    }
-
     if (battle->playerActions[client][3] != SELECT_FIGHT_COMMAND) {
         return FALSE;
     }
 
-    return CheckMegaData(mon, item) || CheckMegaMoveData(mon, battle->battlemon[client].move);
+    return CheckMegaData(mon, item, form) || CheckMegaMoveData(mon, battle->battlemon[client].move, form);
 }
 
 BOOL IsMegaSpecies(u32 mon, u32 form)
@@ -524,7 +644,7 @@ BOOL IsMegaSpecies(u32 mon, u32 form)
 #ifdef MEGA_EVOLUTIONS
     u32 i;
     for (i = 0; i < NELEMS(sMegaTable); i++) {
-        if (sMegaTable[i].monindex == mon && sMegaTable[i].form == form) {
+        if (sMegaTable[i].monindex == mon && sMegaTable[i].targetForm == form) {
             return TRUE;
         }
     }
@@ -600,12 +720,12 @@ BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip)
 #endif // PRIMAL_REVERSION
 }
 
-BOOL LONG_CALL CheckMegaData(u32 mon, u32 item)
+BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form)
 {
 #ifdef MEGA_EVOLUTIONS
     u32 i;
     for (i = 0; i < NELEMS(sMegaTable); i++) {
-        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item) {
+        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item && sMegaTable[i].baseForm == form) {
             return TRUE;
         }
     }
@@ -613,30 +733,30 @@ BOOL LONG_CALL CheckMegaData(u32 mon, u32 item)
     return FALSE;
 }
 
-u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item)
+u32 LONG_CALL GrabMegaTargetForm(u32 mon, u32 item, u32 form)
 {
 #ifdef MEGA_EVOLUTIONS
     u32 i;
     for (i = 0; i < NELEMS(sMegaTable); i++) {
-        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item) {
-            return sMegaTable[i].form;
+        if (sMegaTable[i].monindex == mon && sMegaTable[i].itemindex == item && sMegaTable[i].baseForm == form) {
+            return sMegaTable[i].targetForm;
         }
     }
     for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++) {
         if (sMegaMoveTable[i].monindex == mon) {
-            return sMegaMoveTable[i].form;
+            return sMegaMoveTable[i].targetForm;
         }
     }
 #endif // MEGA_EVOLUTIONS
     return 0;
 }
 
-static BOOL CheckMegaMoveData(u32 mon, u16 *moves)
+static BOOL CheckMegaMoveData(u32 mon, u16 *moves, u32 form)
 {
 #ifdef MEGA_EVOLUTIONS
     int i, j;
     for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++) {
-        if (sMegaMoveTable[i].monindex == mon) {
+        if (sMegaMoveTable[i].monindex == mon && sMegaMoveTable[i].baseForm == form) {
             for (j = 0; j < 4; j++) {
                 if (sMegaMoveTable[i].moveindex == moves[j]) {
                     return TRUE;
@@ -680,11 +800,11 @@ BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip)
     }
 
     form_no = GetMonData(pp, MON_DATA_FORM, 0);
-    if (form_no || (bip->bw->sp->battlemon[bip->client_no].condition2 & STATUS2_TRANSFORM)) { // can not draw mega button if form is nonzero.  only base form can mega evolve
+    if (bip->bw->sp->battlemon[bip->client_no].condition2 & STATUS2_TRANSFORM) { // can not draw mega button if form is nonzero.  only base form can mega evolve
         return FALSE;
     }
 
-    return CheckMegaData(mon, item) || CheckMegaMoveData(mon, moves);
+    return CheckMegaData(mon, item, form_no) || CheckMegaMoveData(mon, moves, form_no);
 }
 
 BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
@@ -696,7 +816,7 @@ BOOL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client)
     // move = GetBattlerSelectedMove(sp, client);
 
     for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++) {
-        if (species == sMegaMoveTable[i].monindex) {
+        if (species == sMegaMoveTable[i].monindex) { // no form check as the form is already overridden by targetForm
             for (j = 0; j < 4; j++) {
                 if (sp->battlemon[client].move[j] == sMegaMoveTable[i].moveindex) {
                     return TRUE;
@@ -715,7 +835,7 @@ BOOL IsMegaSpeciesByMove(u32 species, u32 form)
     int i;
 
     for (i = 0; i < (s32)NELEMS(sMegaMoveTable); i++) {
-        if (species == sMegaMoveTable[i].monindex && form == sMegaMoveTable[i].form) {
+        if (species == sMegaMoveTable[i].monindex && form == sMegaMoveTable[i].targetForm) {
             return TRUE;
         }
     }

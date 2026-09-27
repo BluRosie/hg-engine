@@ -4113,7 +4113,7 @@ u32 LONG_CALL RollMetronomeMove(struct BattleSystem *bsys)
  *  @param item the held item of the attacker
  *  @return TRUE if item can be removed, FALSE otherwise
  */
-BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
+BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item, u32 form)
 {
     // blanket item bans
     if (IS_ITEM_MAIL(item) || IS_ITEM_Z_CRYSTAL(item)) {
@@ -4144,7 +4144,7 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
 
     // then the other swathes of species
     if ((IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
-        || (CheckMegaData(species, item))) {
+        || (CheckMegaData(species, item, form))) {
         return FALSE;
     }
 
@@ -4154,13 +4154,7 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item)
 BOOL LONG_CALL CanItemBeRemovedFromClient(u32 species, u32 item, u32 form)
 {
     // bypass klutz and friends probably
-
-    // CheckMegaData will gladly tell you a galarian slowbro can't lose its slowbronite...  we have to take over
-    if (species == SPECIES_SLOWBRO && item == ITEM_SLOWBRONITE && form == 2) {
-        return TRUE;
-    } else {
-        return CanItemBeRemovedFromSpecies(species, item);
-    }
+    return CanItemBeRemovedFromSpecies(species, item, form);
 }
 
 /**

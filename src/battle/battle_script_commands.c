@@ -2867,16 +2867,22 @@ BOOL btl_scr_cmd_FD_trymegaorultraburstduringpursuit(void *bw, struct BattleStru
     int failAddress = read_battle_script_param(sp);
     sp->temp_work = 0;
 
-    if (newBS.needMega[sp->attack_client] == MEGA_NEED && sp->battlemon[sp->attack_client].hp) {
-        if (BattleTypeGet(bw) & BATTLE_TYPE_MULTI) {
-            if (sp->attack_client == 0 || (sp->attack_client == 2 && sp->battlemon[sp->attack_client].id_no == sp->battlemon[0].id_no)) {
-                newBS.PlayerMegaed = TRUE;
-            }
-        } else if (sp->attack_client == 0 || sp->attack_client == 2) {
+    if (newBS.needMega[sp->attack_client] == MEGA_NEED && newBS.SideMega[sp->attack_client] != TRUE && sp->battlemon[sp->attack_client].hp) {
+        newBS.SideMega[sp->attack_client] = TRUE;
+        if (sp->attack_client == 0) {
             newBS.PlayerMegaed = TRUE;
         }
 
-        sp->battlemon[sp->attack_client].form_no = GrabMegaTargetForm(sp->battlemon[sp->attack_client].species, sp->battlemon[sp->attack_client].item);
+        if (!DoesSideHave2Battlers(bw, sp->attack_client)) {
+            if (sp->attack_client == 0 || sp->attack_client == 2) {
+                newBS.PlayerMegaed = TRUE;
+            }
+            int ally = BATTLER_ALLY(sp->attack_client);
+            newBS.SideMega[ally] = TRUE;
+        }
+
+        int form = sp->battlemon[sp->attack_client].form_no;
+        sp->battlemon[sp->attack_client].form_no = GrabMegaTargetForm(sp->battlemon[sp->attack_client].species, sp->battlemon[sp->attack_client].item, form);
         BattleFormChange(sp->attack_client, sp->battlemon[sp->attack_client].form_no, bw, sp, TRUE);
 
         newBS.needMega[sp->attack_client] = MEGA_NO_NEED;
@@ -3955,12 +3961,12 @@ BOOL BtlCmd_GenerateEndOfBattleItem(struct BattleSystem *bw, struct BattleStruct
  *  @param defender_species the defender species
  *  @return TRUE if the interacting species and items can trick, FALSE otherwise
  */
-BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species)
+BOOL LONG_CALL CanTrickHeldItemManual(u16 attacker_item, u16 attacker_species, u16 defender_item, u16 defender_species, u32 attacker_form, u32 defender_form)
 {
-    return CanItemBeRemovedFromSpecies(attacker_species, attacker_item)
-        && CanItemBeRemovedFromSpecies(attacker_species, defender_item)
-        && CanItemBeRemovedFromSpecies(defender_species, attacker_item)
-        && CanItemBeRemovedFromSpecies(defender_species, defender_item);
+    return CanItemBeRemovedFromSpecies(attacker_species, attacker_item, attacker_form)
+        && CanItemBeRemovedFromSpecies(attacker_species, defender_item, attacker_form)
+        && CanItemBeRemovedFromSpecies(defender_species, attacker_item, defender_form)
+        && CanItemBeRemovedFromSpecies(defender_species, defender_item, defender_form);
 }
 
 BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defender)
@@ -3972,23 +3978,7 @@ BOOL LONG_CALL CanTrickHeldItem(struct BattleStruct *ctx, u32 attacker, u32 defe
     u32 defenderItem = ctx->battlemon[defender].item; // bypass klutz and friends probably
     u32 defenderForm = ctx->battlemon[defender].form_no;
 
-    BOOL attackerSlowbroHandling = (attackerSpecies == SPECIES_SLOWBRO && (attackerItem == ITEM_SLOWBRONITE || defenderItem == ITEM_SLOWBRONITE) && attackerForm == 2);
-    BOOL defenderSlowbroHandling = (defenderSpecies == SPECIES_SLOWBRO && (attackerItem == ITEM_SLOWBRONITE || defenderItem == ITEM_SLOWBRONITE) && defenderForm == 2);
-
-    // CheckMegaData will gladly tell you a galarian slowbro can't trick its slowbronite away...  we have to take over
-    if (attackerSlowbroHandling && defenderSlowbroHandling) {
-        return TRUE;
-    } else if (attackerSlowbroHandling || defenderSlowbroHandling) {
-        u32 offendingItem = attackerItem == ITEM_SLOWBRONITE ? 1 : defenderItem == ITEM_SLOWBRONITE ? 2
-                                                                                                    : 0;
-        if (offendingItem == 1) {
-            attackerItem = ITEM_POKE_BALL;
-        } else if (offendingItem == 2) {
-            defenderItem = ITEM_POKE_BALL;
-        }
-    }
-
-    return CanTrickHeldItemManual(attackerItem, attackerSpecies, defenderItem, defenderSpecies);
+    return CanTrickHeldItemManual(attackerItem, attackerSpecies, defenderItem, defenderSpecies, attackerForm, defenderForm);
 }
 
 BOOL BtlCmd_TrySwapItems(void *bw, struct BattleStruct *sp)

@@ -12,5 +12,6 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip);
 BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip);
 BOOL LONG_CALL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client);
 BOOL IsMegaSpeciesByMove(u32 species, u32 form);
+BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form);
 
 #endif
