@@ -168,6 +168,9 @@ u32 LONG_CALL GfGfxLoader_LoadCharData(u32 narcId, s32 memberNo, void *bgConfig,
 void LONG_CALL PaletteData_LoadNarc(void *data, u32 narcID, s32 memberNo, u32 heapID, u32 bufferID, u32 size, u16 pos);
 void LONG_CALL DrawFrameAndWindow2(void *window, BOOL dont_copy_to_vram, u16 baseTile, u8 palette_num);
 void LONG_CALL AddWindowParameterized(void *bgConfig, void *window, u8 bgId, u8 x, u8 y, u8 width, u8 height, u8 paletteNum, u16 baseTile);
+void LONG_CALL Sprite_SetDrawFlag(void *sprite, BOOL draw);
+void *LONG_CALL GfGfxLoader_GetCharData(u32 narcId, s32 memberNo, BOOL isCompressed, void **ppCharData, u32 heapId);
+BOOL LONG_CALL SpriteSystem_LoadCharResObjAtEndWithHardwareMappingType(void *spriteSystem, void *spriteManager, int narcId, int fileId, BOOL compressed, int vram, int resId);
 
 // SPA functions - names are speculative
 void LONG_CALL LoadOpenSPAToEmitter(/*SPLEmitter*/ void *emitter, void *data, u32 flag, BOOL loadNow);

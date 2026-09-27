@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-.include "asm/include/abilities.inc"
-.include "asm/include/items.inc"
-.include "asm/include/species.inc"
-.include "asm/include/moves.inc"
-
 // fix helping hand: original makes target go left 1 pixel
 
 .create "build/move/move_anim/0_270", 0

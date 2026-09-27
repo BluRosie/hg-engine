@@ -1,27 +1,29 @@
-#include "../../include/types.h"
-#include "../../include/pokemon.h"
-#include "../../include/bag.h"
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/game.h"
-#include "../../include/constants/generated/learnsets.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/sndseq.h"
-#include "../../include/constants/species.h"
-#include "../../include/constants/weather_numbers.h"
-#include "../../include/debug.h"
-#include "../../include/overlay.h"
-#include "../../include/party_menu.h"
-#include "../../include/rtc.h"
-#include "../../include/save.h"
-#include "../../include/script.h"
-#include "../../include/sound.h"
+#include "config.h"
+#include "debug.h"
+#include "types.h"
 
-int __attribute__((section (".init"))) PartyMenu_HandleUseItemOnMon_Internal(struct PartyMenu *partyMenu);
+#include "constants/ability.h"
+#include "constants/file.h"
+#include "constants/game.h"
+#include "constants/generated/learnsets.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/moves.h"
+#include "constants/sndseq.h"
+#include "constants/species.h"
+#include "constants/weather_numbers.h"
+
+#include "bag.h"
+#include "battle.h"
+#include "overlay.h"
+#include "party_menu.h"
+#include "pokemon.h"
+#include "rtc.h"
+#include "save.h"
+#include "script.h"
+#include "sound.h"
+
+int __attribute__((section(".init"))) PartyMenu_HandleUseItemOnMon_Internal(struct PartyMenu *partyMenu);
 u32 UseItemMonAttrChangeCheck(struct PartyMenu *wk, void *dat);
 BOOL CanUseRevealGlass(struct PartyPokemon *pp);
 BOOL CanUseNectar(struct PartyPokemon *pp, u16 nectar);
@@ -62,7 +64,7 @@ u16 NatureToMintItem[] = {
     [NATURE_SERIOUS] = ITEM_SERIOUS_MINT,
 };
 
-int __attribute__((section (".init"))) PartyMenu_HandleUseItemOnMon_Internal(struct PartyMenu *partyMenu)
+int __attribute__((section(".init"))) PartyMenu_HandleUseItemOnMon_Internal(struct PartyMenu *partyMenu)
 {
     struct ItemData *itemData = LoadItemDataOrGfx(partyMenu->args->itemId, 0, HEAP_ID_PARTY_MENU);
 

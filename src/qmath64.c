@@ -1,7 +1,7 @@
-#include "../include/types.h"
 #include "../include/config.h"
 #include "../include/debug.h"
 #include "../include/q412.h"
+#include "../include/types.h"
 
 // complement to asm/qmath.s using 64-bit numbers
 

@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -12,6 +13,7 @@ _000:
     GotoIfCurrentMoveIsValidForParentalBond _016
 
 _009:
+    GoBackToBeforeMove
     GoToMoveScript FALSE
     End
 

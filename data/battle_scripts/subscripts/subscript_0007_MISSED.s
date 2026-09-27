@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -99,4 +100,5 @@ _179:
 _189:
     UnlockMoveChoice BATTLER_CATEGORY_ATTACKER
     Call BATTLE_SUBSCRIPT_CRASH_ON_MISS
+    Call BATTLE_SUBSCRIPT_HEAVY_RECOIL
     End

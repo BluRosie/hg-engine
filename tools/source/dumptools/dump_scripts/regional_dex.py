@@ -26,10 +26,14 @@ def dump_regionaldex_c(data):
         "{",
     ]
 
+    regionalOrder = {}
     for idx in range(0, len(data), 2):
         value = int.from_bytes(data[idx:idx + 2], "little")
         species = idx // 2
-        lines.append(f"    [{lookup_species(species)}] = {value},")
+        regionalOrder[value] = species
+        #lines.append(f"    [{lookup_species(species)}] = {value},")
+    for idx in range(1, len(regionalOrder)):
+        lines.append(f"    [{lookup_species(regionalOrder[idx])}] = {idx},")
 
     lines.extend([
         "};",

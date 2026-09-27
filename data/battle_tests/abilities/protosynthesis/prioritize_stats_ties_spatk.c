@@ -1,8 +1,8 @@
 // Test: Protosynthesis prioritizes stats in the case of a tie in the following order: Attack, Defense, Sp. Attack, Sp. Defense, Speed - Sp. Atk case
 // Flutter Mane with these parameters will be: 75 Atk, 75 Def, 155 Sp.Atk, 155 Sp.Def, 155 Speed.
 {
-    .battleType = BATTLE_TYPE_SINGLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_TRAINER,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 

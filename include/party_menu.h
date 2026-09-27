@@ -10,11 +10,11 @@
 #define MAX_MON_MOVES             4
 #define MAX_BUTTONS_IN_PARTY_MENU 8
 
-#define TEXT_SPEED_INSTANT        0    // Transfers to VRAM
-#define TEXT_SPEED_NOTRANSFER     0xFF // Defers VRAM transfer
+#define TEXT_SPEED_INSTANT    0 // Transfers to VRAM
+#define TEXT_SPEED_NOTRANSFER 0xFF // Defers VRAM transfer
 
-#define TILEMAP_FILL_KEEP_PAL 16   // Do not replace the selected palette index
-#define TILEMAP_FILL_OVWT_PAL 17   // Fill value includes palette
+#define TILEMAP_FILL_KEEP_PAL 16 // Do not replace the selected palette index
+#define TILEMAP_FILL_OVWT_PAL 17 // Fill value includes palette
 
 #define LIST_HEADER         -3
 #define LIST_CANCEL         -2
@@ -138,39 +138,39 @@ typedef enum PartyMonContextMenuItem {
     PARTY_MON_CONTEXT_MENU_ITEM,
     PARTY_MON_CONTEXT_MENU_GIVE,
     PARTY_MON_CONTEXT_MENU_TAKE,
-    PARTY_MON_CONTEXT_MENU_MAIL,             // 5
+    PARTY_MON_CONTEXT_MENU_MAIL, // 5
     PARTY_MON_CONTEXT_MENU_READ_MAIL,
     PARTY_MON_CONTEXT_MENU_TAKE_MAIL,
     PARTY_MON_CONTEXT_MENU_STORE,
     PARTY_MON_CONTEXT_MENU_QUIT,
-    PARTY_MON_CONTEXT_MENU_UNUSED,           // 10
+    PARTY_MON_CONTEXT_MENU_UNUSED, // 10
     PARTY_MON_CONTEXT_MENU_ENTER,
     PARTY_MON_CONTEXT_MENU_NO_ENTRY,
     PARTY_MON_CONTEXT_MENU_CONTEST_ENTER,
     PARTY_MON_CONTEXT_MENU_SET,
-    PARTY_MON_CONTEXT_MENU_CONFIRM,          // 15
+    PARTY_MON_CONTEXT_MENU_CONFIRM, // 15
     // field moves
     PARTY_MON_CONTEXT_MENU_CUT,
     PARTY_MON_CONTEXT_MENU_FLY,
     PARTY_MON_CONTEXT_MENU_SURF,
     PARTY_MON_CONTEXT_MENU_STRENGTH,
-    PARTY_MON_CONTEXT_MENU_ROCK_SMASH,       // 20
+    PARTY_MON_CONTEXT_MENU_ROCK_SMASH, // 20
     PARTY_MON_CONTEXT_MENU_WATERFALL,
     PARTY_MON_CONTEXT_MENU_ROCK_CLIMB,
     PARTY_MON_CONTEXT_MENU_WHIRLPOOL,
     PARTY_MON_CONTEXT_MENU_FLASH,
-    PARTY_MON_CONTEXT_MENU_TELEPORT,         // 25
+    PARTY_MON_CONTEXT_MENU_TELEPORT, // 25
     PARTY_MON_CONTEXT_MENU_DIG,
     PARTY_MON_CONTEXT_MENU_SWEET_SCENT,
     PARTY_MON_CONTEXT_MENU_CHATTER,
     PARTY_MON_CONTEXT_MENU_HEADBUTT,
-    PARTY_MON_CONTEXT_MENU_MILK_DRINK,       // 30
+    PARTY_MON_CONTEXT_MENU_MILK_DRINK, // 30
     PARTY_MON_CONTEXT_MENU_SOFTBOILED,
     PARTY_MON_CONTEXT_MENU_MAX,
 
     PARTY_MON_CONTEXT_MENU_FIELD_MOVES_BEGIN = PARTY_MON_CONTEXT_MENU_CUT,
     PARTY_MON_CONTEXT_MENU_FIELD_MOVES_COUNT = PARTY_MON_CONTEXT_MENU_MAX - PARTY_MON_CONTEXT_MENU_FIELD_MOVES_BEGIN,
-    PARTY_MON_CONTEXT_MENU_NUM_STRINGS       = PARTY_MON_CONTEXT_MENU_CUT + MAX_MON_MOVES,
+    PARTY_MON_CONTEXT_MENU_NUM_STRINGS = PARTY_MON_CONTEXT_MENU_CUT + MAX_MON_MOVES,
 } PartyMonContextMenuItem;
 
 typedef enum PartyMenuState {
@@ -179,32 +179,32 @@ typedef enum PartyMenuState {
     PARTY_MENU_STATE_HANDLE_CONTEXT_MENU_INPUT,
     PARTY_MENU_STATE_3,
     PARTY_MENU_STATE_USE_ITEM_SELECT_MON,
-    PARTY_MENU_STATE_ITEM_USE_CB,                    // 5
+    PARTY_MENU_STATE_ITEM_USE_CB, // 5
     PARTY_MENU_STATE_SELECT_MOVE,
     PARTY_MENU_STATE_SACRED_ASH,
     PARTY_MENU_STATE_GIVE_ITEM_SELECT_MON,
     PARTY_MENU_STATE_PRINT_ASK_SWITCH_ITEMS,
-    PARTY_MENU_STATE_YESNO_ASK_SWITCH_ITEMS,         // 10
+    PARTY_MENU_STATE_YESNO_ASK_SWITCH_ITEMS, // 10
     PARTY_MENU_STATE_PRINT_ITEM_SWAP_MESSAGE,
     PARTY_MENU_STATE_PRINT_GIVE_GRISEOUS_ORB_MESSAGE,
     PARTY_MENU_STATE_WAIT_GIVE_GRISEOUS_ORB_ANIM,
     PARTY_MENU_STATE_14,
-    PARTY_MENU_STATE_HANDLE_SUBCONTEXT_MENU_INPUT,   // 15
+    PARTY_MENU_STATE_HANDLE_SUBCONTEXT_MENU_INPUT, // 15
     PARTY_MENU_STATE_GIVE_ITEM_TO_MON,
     PARTY_MENU_STATE_PRINT_TAKE_ITEM_MESSAGE,
     PARTY_MENU_STATE_PRINT_TAKE_GRISEOUS_ORB_MESSAGE,
     PARTY_MENU_STATE_WAIT_TAKE_GRISEOUS_ORB_ANIM,
-    PARTY_MENU_STATE_AFTER_TAKE_MAIL,                // 20
+    PARTY_MENU_STATE_AFTER_TAKE_MAIL, // 20
     PARTY_MENU_STATE_USE_TMHM,
     PARTY_MENU_STATE_TMHM_LEARN_MOVE,
     PARTY_MENU_STATE_SELECT_MONS_ERROR_MSG_CLOSE,
     PARTY_MENU_STATE_WAIT_TEXT_PRINTER,
-    PARTY_MENU_STATE_AFTER_MESSAGE_BEGIN_EXIT,       // 25
+    PARTY_MENU_STATE_AFTER_MESSAGE_BEGIN_EXIT, // 25
     PARTY_MENU_STATE_YES_NO_INIT,
     PARTY_MENU_STATE_YES_NO_HANDLE_INPUT,
     PARTY_MENU_STATE_SELECT_SWITCH_MON,
     PARTY_MENU_STATE_29,
-    PARTY_MENU_STATE_SOFTBOILED,                     // 30
+    PARTY_MENU_STATE_SOFTBOILED, // 30
     PARTY_MENU_STATE_FORM_CHANGE_ANIM,
     PARTY_MENU_STATE_BEGIN_EXIT,
     PARTY_MENU_STATE_WAIT_EXIT_FADE_OUT,
@@ -281,31 +281,31 @@ typedef struct LISTMENUITEM {
 
 typedef struct PartyMenuMonsDrawState {
     String *nickname; // 828
-    u16 species;      // 82C
-    u16 hp;           // 82E
-    u16 maxHp;        // 830
-    u16 level;        // 832
-    u16 heldItem;     // 834
-    u16 status : 12;  // 836
+    u16 species; // 82C
+    u16 hp; // 82E
+    u16 maxHp; // 830
+    u16 level; // 832
+    u16 heldItem; // 834
+    u16 status : 12; // 836
     u16 dontPrintGenderSymbol : 1;
     u16 gender : 2;
     u16 isContestCompatible : 1;
-    u8 isEgg;                     // 838
-    u8 form;                      // 839
-    u16 capsule;                  // 83A
-    s8 unk_14;                    // 83C
-    s8 unk_15;                    // 83D
-    s16 iconX;                    // 83E
-    s16 iconY;                    // 840
-    s16 statusIconX;              // 842
-    s16 statusIconY;              // 844
-    s16 heldItemX;                // 846
-    s16 heldItemY;                // 848
-    u8 filler_22[2];              // alignment padding
-    void *iconSprite;           // 84C
+    u8 isEgg; // 838
+    u8 form; // 839
+    u16 capsule; // 83A
+    s8 unk_14; // 83C
+    s8 unk_15; // 83D
+    s16 iconX; // 83E
+    s16 iconY; // 840
+    s16 statusIconX; // 842
+    s16 statusIconY; // 844
+    s16 heldItemX; // 846
+    s16 heldItemY; // 848
+    u8 filler_22[2]; // alignment padding
+    void *iconSprite; // 84C
     void *mainScreenIconSprite; // 850
-    u8 unk_2C;                    // 854
-    u8 active;                    // 855
+    u8 unk_2C; // 854
+    u8 active; // 855
 } PartyMenuMonsDrawState;
 
 typedef struct PartyMenuContextMenu {
@@ -362,32 +362,32 @@ typedef struct PartyMenuContextButtonAnimData {
 struct PartyMenu {
     void *bgConfig;
     struct Window windows[_PARTY_MENU_WINDOW_ID_MAX];
-    struct Window levelUpStatsWindow[1];       // 0x284
+    struct Window levelUpStatsWindow[1]; // 0x284
     struct Window contextMenuButtonWindows[8]; // 0x294
     u16 unk_314[6 * 0x10];
     u16 unk_3D4[6 * 0x10];
     u16 unk_494[6 * 0x10];
     u16 hpBarPalettes[0x80];
     PartyMenuArgs *args; // 0x654
-    /* 0x658 */ void* /*SpriteSystem **/ spriteRenderer;
-    /* 0x65C */ void* /*SpriteManager **/ spriteGfxHandler;
-    /* 0x660 */ void* /*Sprite **/ sprites[_PARTY_MENU_SPRITE_ID_MAX]; // 0x660
+    /* 0x658 */ void * /*SpriteSystem **/ spriteRenderer;
+    /* 0x65C */ void * /*SpriteManager **/ spriteGfxHandler;
+    /* 0x660 */ void * /*Sprite **/ sprites[_PARTY_MENU_SPRITE_ID_MAX]; // 0x660
     void *unk_6D4[PARTY_MENU_SPRITE_ID_MAX];
     void *mainScreenStatusSprites[29]; // 0x748
-    void *msgPrinter;          // 0x7bc
-    MsgData *msgData;                    // 0x7c0
-    MessageFormat *msgFormat;            // 0x7c4
-    String *formattedStrBuf;             // 0x7c8
+    void *msgPrinter; // 0x7bc
+    MsgData *msgData; // 0x7c0
+    MessageFormat *msgFormat; // 0x7c4
+    String *formattedStrBuf; // 0x7c8
     String *unformattedStrBuf;
-    String *contextMenuStrings[20];      // 0x7d0
-    LISTMENUITEM *listMenuItems;         // 0x820
+    String *contextMenuStrings[20]; // 0x7d0
+    LISTMENUITEM *listMenuItems; // 0x820
     struct PartyMenuContextMenuCursor *contextMenuCursor;
     struct PartyMenuMonsDrawState monsDrawState[6]; // 0x828
     const struct UnkStruct_02020654 *unk_948;
     PartyMenuSwapMonsData swapMonsData;
     int (*itemUseCallback)(struct PartyMenu *);
     int (*yesCallback)(struct PartyMenu *); // 0xc58
-    int (*noCallback)(struct PartyMenu *);  // 0xc5c
+    int (*noCallback)(struct PartyMenu *); // 0xc5c
     u8 unk_C60;
     u8 unk_C61;
     u8 afterTextPrinterState;
@@ -403,7 +403,7 @@ struct PartyMenu {
     int topScreenPanelYPos;
     BOOL topScreenPanelShow;
     void *iconFormChange; // C80
-    void *gf3dVramMan;           // C84
+    void *gf3dVramMan; // C84
     void *yesNoPrompt;
     u8 filler_C8C[4];
     struct PartyMenuContextButtonAnimData contextMenuButtonAnim;
@@ -428,7 +428,7 @@ u8 LONG_CALL sub_0207B2DC(struct PartyMenu *wk, u8 *buf);
 void LONG_CALL PartyMenu_OpenContextMenu(struct PartyMenu *wk, u8 *items, u8 numItems);
 void LONG_CALL sub_0207D1C8(struct PartyMenu *wk);
 void LONG_CALL PartyMenu_PrintMessageOnWindow33(struct PartyMenu *wk, int msgId, BOOL drawFrame);
-void LONG_CALL thunk_Sprite_SetPalIndex(void* sprites, int);
+void LONG_CALL thunk_Sprite_SetPalIndex(void *sprites, int);
 void LONG_CALL Heap_FreeExplicit(u32 heapId, void *ptr);
 void LONG_CALL PartyMenu_PrintMessageOnWindow32(struct PartyMenu *partyMenu, int msgId, BOOL drawFrame);
 u16 LONG_CALL PartyMenu_GetCurrentMapSec(struct PartyMenu *partyMenu);

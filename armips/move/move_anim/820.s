@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-.include "asm/include/abilities.inc"
-.include "asm/include/items.inc"
-.include "asm/include/species.inc"
-.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_820", 0
 
 a010_820: //wicked blow
@@ -26,8 +21,6 @@ a010_820: //wicked blow
     changebg 5, 0x800001 //giga impact bg
     playsepan 1847, -117
     waitstate
-
-
 
     callfunction 57, 4, 4, 32, -16, 258, "NaN", "NaN", "NaN", "NaN", "NaN", "NaN"
     waitstate

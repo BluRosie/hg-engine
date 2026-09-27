@@ -1,7 +1,7 @@
 // Test: Orichalcum Pulse only boosts Physical Damage in Harsh Sunlight. This boost still applies even if the target holds Utility Umbrella.
 {
-    .battleType = BATTLE_TYPE_SINGLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_TRAINER,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 

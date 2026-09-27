@@ -133,11 +133,6 @@ jobs:
           wget https://github.com/BluRosie/hg-engine/raw/workflows/assets/test.sav -P $GITHUB_WORKSPACE/
         working-directory: ~
 
-      - name: Set Swap Space
-        uses: pierotofy/set-swap-space@master
-        with:
-          swap-size-gb: 19
-
       - name: Build hg-engine
         run: |
           unset CC

@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-.include "asm/include/abilities.inc"
-.include "asm/include/items.inc"
-.include "asm/include/species.inc"
-.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_559", 0
 
 a010_559:
@@ -50,8 +45,6 @@ a010_559:
     shaketargetmon 5, 3 //shake 'em a bit
     
     waitparticle
-
-
 
     unloadparticle 0
     unloadparticle 1

@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -8,8 +9,8 @@ _000:
     AbilityPopup BATTLER_CATEGORY_DEFENDER
     // All Pokémon hearing the song will faint in three turns!
     PrintMessage 1571, TAG_NONE
-    Wait 
+    Wait
     WaitButtonABTime 30
 
 _045:
-    End 
+    End

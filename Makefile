@@ -43,25 +43,17 @@ endif
 ifeq ($(shell echo $$DEVKITARM),)
 ifeq ($(MSYS2), 0)
 PREFIX = /mingw64/bin/arm-none-eabi-
-AS = $(PREFIX)as
-CC = $(PREFIX)gcc
-LD = $(PREFIX)ld
-OBJCOPY = $(PREFIX)objcopy
 else
 PREFIX = arm-none-eabi-
-AS = $(PREFIX)as
-CC = $(PREFIX)gcc
-LD = $(PREFIX)ld
-OBJCOPY = $(PREFIX)objcopy
 endif
 else
 # support legacy devkitpro instructions
-PREFIX = bin/arm-none-eabi-
-AS = $(DEVKITARM)/$(PREFIX)as
-CC = $(DEVKITARM)/$(PREFIX)gcc
-LD = $(DEVKITARM)/$(PREFIX)ld
-OBJCOPY = $(DEVKITARM)/$(PREFIX)objcopy
+PREFIX = $(DEVKITARM)/bin/arm-none-eabi-
 endif
+AS = $(PREFIX)gcc -x assembler-with-cpp
+CC = $(PREFIX)gcc
+LD = $(PREFIX)ld
+OBJCOPY = $(PREFIX)objcopy
 PYTHON_NO_VENV = python3
 VENV = .venv
 PYTHON_VENV_VERSION := $(shell $(PYTHON_NO_VENV) -m ensurepip 2>&1 | grep -i -q 'No module named'; echo $$?)
@@ -123,15 +115,16 @@ DSROM_BRIDGE = $(PYTHON) scripts/dsrom_bridge.py --dsrom-bin $(DSROM) --dsrom-di
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
+JSONPROC := tools/jsonproc
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
-ASFLAGS = -mthumb
-CFLAGS = -mthumb -mno-thumb-interwork -mcpu=arm7tdmi -mtune=arm7tdmi -mno-long-calls -march=armv4t -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
+ASFLAGS =  -I"$(shell pwd)/asm/include" -I"$(shell pwd)/include" -mthumb -mcpu=arm946e-s -mtune=arm946e-s
+CFLAGS =  -I"$(shell pwd)/include" -mthumb -mno-thumb-interwork -mcpu=arm946e-s -mtune=arm946e-s -mno-long-calls -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 0
 
 ifeq ($(AUTO_TEST),Y)
-    CFLAGS += -DDEBUG_BATTLE_SCENARIOS -DDEBUG_AUTO_CONTINUE_GAME
+    CFLAGS += -DDEBUG_BATTLE_SCENARIOS -DDEBUG_AUTO_CONTINUE_GAME -Werror
     ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 1
 endif
 
@@ -160,6 +153,12 @@ OBJS     := $(C_OBJS) $(ASM_OBJS)
 
 REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
+####################### Config Toggles #######################
+CONFIG_H := $(INCLUDE_SUBDIR)/config.h
+config_enabled = $(shell grep -E -c '^[[:space:]]*\#define[[:space:]]+$(1)[[:space:]]*$$' $(CONFIG_H))
+
+BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
+BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -173,7 +172,7 @@ include dump.mk
 ####################### Build Tools #######################
 MSGENC_SOURCES := $(wildcard tools/source/msgenc/*.cpp) $(wildcard tools/source/msgenc/*.h)
 $(MSGENC): tools/source/msgenc/*
-	cd tools/source/msgenc ; $(MAKE)
+	cd tools/source/msgenc ; $(MAKE) clean; $(MAKE)
 	mv tools/source/msgenc/msgenc tools/msgenc
 
 TOOLS += $(MSGENC)
@@ -244,45 +243,51 @@ TOOLS += tools/ntrWavTool.py
 
 NITROGFX_SOURCES := $(wildcard tools/source/nitrogfx/*.c) $(wildcard tools/source/nitrogfx/*.h)
 $(GFX): $(NITROGFX_SOURCES)
-	cd tools/source/nitrogfx ; $(MAKE)
+	cd tools/source/nitrogfx ; $(MAKE) clean; $(MAKE)
 	mv tools/source/nitrogfx/nitrogfx $(GFX)
 
 TOOLS += $(GFX)
 
 $(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/Moves.c include/move_data.h include/config.h
-	cd tools/source/movedatagen ; $(MAKE)
+	cd tools/source/movedatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(MOVEDATAGEN)
 
 $(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSort.c data/PokedexArea.c include/pokedex_archive_data.h include/constants/pokedex.h
-	cd tools/source/pokedexdatagen ; $(MAKE)
+	cd tools/source/pokedexdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(POKEDEXDATAGEN)
 
 $(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/Species.c include/species_data.h include/config.h
-	cd tools/source/speciesdatagen ; $(MAKE)
+	cd tools/source/speciesdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(SPECIESDATAGEN)
 
 $(TRAINERDATAGEN): $(wildcard tools/source/trainerdatagen/*.c) data/Trainers.c include/trainer_data.h include/constants/trainerclass.h include/constants/pokemon.h
-	cd tools/source/trainerdatagen ; $(MAKE)
+	cd tools/source/trainerdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(TRAINERDATAGEN)
 
 $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
-	cd tools/source/o2narc ; $(MAKE)
+	cd tools/source/o2narc ; $(MAKE) clean; $(MAKE)
 	mv tools/source/o2narc/o2narc $(O2NARC)
 
 TOOLS += $(O2NARC)
 
+$(JSONPROC): $(wildcard tools/source/jsonproc/*.cpp) $(wildcard tools/source/jsonproc/*.h) $(wildcard tools/source/jsonproc/*.hpp) $(wildcard tools/source/jsonproc/nlohmann/*.hpp)
+	cd tools/source/jsonproc ; $(MAKE) clean; $(MAKE)
+	mv tools/source/jsonproc/jsonproc $(JSONPROC)
+
+TOOLS += $(JSONPROC)
+
 $(ENCODEPWIMG):
-	cd tools/source/DECODEIMG ; $(MAKE)
+	cd tools/source/DECODEIMG ; $(MAKE) clean; $(MAKE)
 	mv tools/source/DECODEIMG/ENCODE_IMG $(ENCODEPWIMG)
 
 TOOLS += $(ENCODEPWIMG)
 
 $(BTX):
-	cd tools/source/btx ; $(MAKE)
+	cd tools/source/btx ; $(MAKE) clean; $(MAKE)
 	mv tools/source/btx/btx $(BTX)
 
 TOOLS += $(BTX)
@@ -389,6 +394,11 @@ CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8
 CODE_ADDON_ARTIFACTS := $(filter-out $(BUILD)/a028/8_1 $(BUILD)/a028/8_2 $(BUILD)/a028/8_3 $(BUILD)/a028/8_4 $(BUILD)/a028/8_5 $(BUILD)/a028/8_6, $(CODE_ADDON_ARTIFACTS))
 
 move_narc: $(NARC_FILES)
+ifneq ($(strip $(ZONE_EVENT_OBJS)),)
+	@echo "zone events:"
+	cp $(ZONE_EVENT_NARC) $(ZONE_EVENT_TARGET)
+endif
+
 	@echo "battle hud layout:"
 	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
 
@@ -506,8 +516,10 @@ move_narc: $(NARC_FILES)
 	@echo "textbox:"
 	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
 
+ifneq ($(strip $(SCR_SEQ_OBJS)),)
 	@echo "scripts:"
 	cp $(SCR_SEQ_NARC) $(SCR_SEQ_TARGET)
+endif
 
 	@echo "headbutt trees:"
 	cp $(HEADBUTT_NARC) $(HEADBUTT_TARGET)
@@ -573,6 +585,9 @@ move_narc: $(NARC_FILES)
 	@echo "hidden item params:"
 	cp $(HIDDEN_ITEM_PARAMS_BIN) $(HIDDEN_ITEM_PARAMS_TARGET)
 
+	@echo "ability flag params:"
+	cp $(ABILITY_FLAG_PARAMS_BIN) $(ABILITY_FLAG_PARAMS_TARGET)
+
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
 	@echo "Updated item descriptions and sprites. Double check formatting"
@@ -583,3 +598,5 @@ update_machine_moves: $(VENV_ACTIVATE)
 
 ####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
+
+contents-% : ; $(info $($*)) @true

@@ -1,8 +1,8 @@
 // Test: Quark Drive will activate with Booster Energy instead of Electric Terrain, if the other Terrain setter goes first.
 // Variation of https://bsky.app/profile/nerdofnow.bsky.social/post/3lg3xoq5ye22f
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 

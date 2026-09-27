@@ -1,50 +1,46 @@
-#include "../include/types.h"
-#include "../include/config.h"
-#include "../include/debug.h"
-#include "../include/message.h"
-#include "../include/pokemon.h"
-#include "../include/pokemon_storage_system.h"
-#include "../include/save.h"
-#include "../include/script.h"
-#include "../include/sprite.h"
-#include "../include/task.h"
-#include "../include/constants/buttons.h"
+#include "config.h"
+#include "debug.h"
+#include "types.h"
 
+#include "save.h"
+
+#include "constants/buttons.h"
+
+#include "message.h"
+#include "pokemon.h"
+#include "pokemon_storage_system.h"
+#include "script.h"
+#include "sprite.h"
+#include "task.h"
 
 // these functions are configured to not hook from hooks directly under ALLOW_SAVE_CHANGES
 // can't get linking to work properly when i strip these
-
 
 u32 LONG_CALL Sav2_Misc_sizeof(void)
 {
     return sizeof(struct SAVE_MISC_DATA);
 }
 
-
 void LONG_CALL InitStoredMons(struct SAVE_MISC_DATA *saveMiscData)
 {
 #ifdef ALLOW_SAVE_CHANGES
 
-    memset(&saveMiscData->storedMons[0], 0, 4*sizeof(struct PartyPokemon) + 4); // catch isMonStored in this process
+    memset(&saveMiscData->storedMons[0], 0, 4 * sizeof(struct PartyPokemon) + 4); // catch isMonStored in this process
 
 #endif
 }
-
 
 void LONG_CALL Sav2_Misc_init_new_fields(struct SAVE_MISC_DATA *saveMiscData)
 {
     InitStoredMons(saveMiscData);
 }
 
-
 // convenience flag/var access functions
 u32 LONG_CALL SetScriptVar(u16 var_id, u16 value)
 {
-    if (var_id < 0x8000)
-    {
+    if (var_id < 0x8000) {
         return SetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id, value);
-    }
-    else // handle vars above 0x8000
+    } else // handle vars above 0x8000
     {
         u16 *var = GetVarPointer(gFieldSysPtr, var_id);
         *var = value;
@@ -54,15 +50,11 @@ u32 LONG_CALL SetScriptVar(u16 var_id, u16 value)
 
 u16 LONG_CALL GetScriptVar(u16 var_id)
 {
-    if (var_id < 0x4000)
-    {
+    if (var_id < 0x4000) {
         return var_id; // default to returning the number passed so that it's technically a "flex" parameter
-    }
-    else if (var_id < 0x8000)
-    {
+    } else if (var_id < 0x8000) {
         return GetScriptVarPassSave(SavArray_Flags_get(SaveBlock2_get()), var_id);
-    }
-    else // handle vars above 0x8000
+    } else // handle vars above 0x8000
     {
         u16 *var = GetVarPointer(gFieldSysPtr, var_id);
         return *var;
@@ -111,32 +103,30 @@ u32 LONG_CALL sqrt(u32 num)
     return reg_CP_SQRT_RESULT;
 }
 
-
 #ifdef DEBUG_PRINT_HEX_DUMP // will never pass ideally
 void LONG_CALL HexDumpMemory(u8 *start, u32 size)
 {
-    for (int i = 0x0; i < size; i += 0x10)
-    {
+    for (int i = 0x0; i < size; i += 0x10) {
         debug_printf("\n%08X:  ", (u32)&start[i]);
-        debug_printf("%02X %02X ", start[i+0], start[i+1]);
-        debug_printf("%02X %02X ", start[i+2], start[i+3]);
-        debug_printf("%02X %02X ", start[i+4], start[i+5]);
-        debug_printf("%02X %02X ", start[i+6], start[i+7]);
-        debug_printf("%02X %02X ", start[i+8], start[i+9]);
-        debug_printf("%02X %02X ", start[i+0xA], start[i+0xB]);
-        debug_printf("%02X %02X ", start[i+0xC], start[i+0xD]);
-        debug_printf("%02X %02X ", start[i+0xE], start[i+0xF]);
+        debug_printf("%02X %02X ", start[i + 0], start[i + 1]);
+        debug_printf("%02X %02X ", start[i + 2], start[i + 3]);
+        debug_printf("%02X %02X ", start[i + 4], start[i + 5]);
+        debug_printf("%02X %02X ", start[i + 6], start[i + 7]);
+        debug_printf("%02X %02X ", start[i + 8], start[i + 9]);
+        debug_printf("%02X %02X ", start[i + 0xA], start[i + 0xB]);
+        debug_printf("%02X %02X ", start[i + 0xC], start[i + 0xD]);
+        debug_printf("%02X %02X ", start[i + 0xE], start[i + 0xF]);
     }
 }
 #endif
-
 
 // let's do some quick save expansion :grin:
 
 #ifdef ALLOW_SAVE_CHANGES
 #ifdef EXPAND_PC_BOXES
 
-SaveData *SaveData_New(void) {
+SaveData *SaveData_New(void)
+{
     SaveData *ret;
     int status;
     int sp4;
@@ -191,12 +181,14 @@ SaveData *SaveData_New(void) {
     return ret;
 }
 
-void *SaveArray_Get(SaveData *saveData, int id) {
-    //GF_ASSERT(id < SAVE_BLOCK_NUM);
+void *SaveArray_Get(SaveData *saveData, int id)
+{
+    // GF_ASSERT(id < SAVE_BLOCK_NUM);
     return (void *)&saveData->dynamic_region[saveData->arrayHeaders[id].offset];
 }
 
-BOOL Save_DeleteAllData(SaveData *saveData) {
+BOOL Save_DeleteAllData(SaveData *saveData)
+{
     u8 *r6;
     int i;
 
@@ -218,7 +210,8 @@ BOOL Save_DeleteAllData(SaveData *saveData) {
     return TRUE;
 }
 
-int SaveGameNormal(SaveData *saveData) {
+int SaveGameNormal(SaveData *saveData)
+{
     int ret;
 
     if (!saveData->flashChipDetected) {
@@ -240,7 +233,8 @@ int SaveGameNormal(SaveData *saveData) {
     return ret;
 }
 
-int Save_NowWriteFile_AfterMGInit(SaveData *saveData, int a1) {
+int Save_NowWriteFile_AfterMGInit(SaveData *saveData, int a1)
+{
     int ret;
 
     GF_ASSERT(a1 < 2);
@@ -253,18 +247,21 @@ int Save_NowWriteFile_AfterMGInit(SaveData *saveData, int a1) {
     return ret;
 }
 
-void Save_InitDynamicRegion(SaveData *saveData) {
+void Save_InitDynamicRegion(SaveData *saveData)
+{
     saveData->isNewGame = TRUE;
     saveData->sectorCleanFlag[0] = 1;
     saveData->sectorCleanFlag[1] = 1;
     Save_InitDynamicRegion_Internal(saveData->dynamic_region, saveData->arrayHeaders);
 }
 
-void Save_PrepareForAsyncWrite(SaveData *saveData, int a1) {
+void Save_PrepareForAsyncWrite(SaveData *saveData, int a1)
+{
     Save_WriteManInit(saveData, &saveData->asyncWriteMan, a1);
 }
 
-int Save_WriteFileAsync(SaveData *saveData) {
+int Save_WriteFileAsync(SaveData *saveData)
+{
     int ret;
 
     if (saveData->asyncWriteMan.curSector == 1) {
@@ -278,11 +275,13 @@ int Save_WriteFileAsync(SaveData *saveData) {
     return ret;
 }
 
-void Save_Cancel(SaveData *saveData) {
+void Save_Cancel(SaveData *saveData)
+{
     CancelAsyncSave(saveData, &saveData->asyncWriteMan);
 }
 
-struct SaveChunkFooter *GetSaveSectorFooterPtr(SaveData *saveData, void *data, int idx) {
+struct SaveChunkFooter *GetSaveSectorFooterPtr(SaveData *saveData, void *data, int idx)
+{
     u8 *ret;
     struct SaveSlotSpec *spec;
 
@@ -292,7 +291,8 @@ struct SaveChunkFooter *GetSaveSectorFooterPtr(SaveData *saveData, void *data, i
     return (struct SaveChunkFooter *)(ret + spec->size - sizeof(struct SaveChunkFooter));
 }
 
-BOOL ValidateSaveSectorFooter(SaveData *saveData, void *data, int idx) {
+BOOL ValidateSaveSectorFooter(SaveData *saveData, void *data, int idx)
+{
     struct SaveSlotSpec *spec;
     struct SaveChunkFooter *footer;
     u32 offset;
@@ -300,7 +300,7 @@ BOOL ValidateSaveSectorFooter(SaveData *saveData, void *data, int idx) {
     spec = &saveData->saveSlotSpecs[idx];
     footer = GetSaveSectorFooterPtr(saveData, data, idx);
     offset = spec->offset;
-    //SaveFooterDebugPrn(footer);
+    // SaveFooterDebugPrn(footer);
     if (footer->size != spec->size) {
         return FALSE;
     }
@@ -313,7 +313,8 @@ BOOL ValidateSaveSectorFooter(SaveData *saveData, void *data, int idx) {
     return SaveArray_CalcCRC16MinusFooter(saveData, (u8 *)data + offset, spec->size) == footer->crc;
 }
 
-void SaveSlot_BuildFooter(SaveData *saveData, void *data, int idx) {
+void SaveSlot_BuildFooter(SaveData *saveData, void *data, int idx)
+{
     struct SaveSlotSpec *spec;
     struct SaveChunkFooter *footer;
     u32 offset;
@@ -326,13 +327,14 @@ void SaveSlot_BuildFooter(SaveData *saveData, void *data, int idx) {
     footer->magic = SAVE_CHUNK_MAGIC;
     footer->slot = idx;
     footer->crc = SaveArray_CalcCRC16MinusFooter(saveData, (u8 *)data + offset, spec->size);
-    //SaveFooterDebugPrn(footer);
+    // SaveFooterDebugPrn(footer);
 }
 
 #endif // EXPAND_PC_BOXES
 #endif // ALLOW_SAVE_CHANGES
 
-void Save_RecordWhichLatestGoodSector(SaveData *saveData, struct SaveSlotCheck *checks_main, struct SaveSlotCheck *checks_sub UNUSED, int idx) {
+void Save_RecordWhichLatestGoodSector(SaveData *saveData, struct SaveSlotCheck *checks_main, struct SaveSlotCheck *checks_sub UNUSED, int idx)
+{
 #ifdef ALLOW_SAVE_CHANGES
 #ifdef EXPAND_PC_BOXES
     saveData->saveCounter = checks_main[idx].count;
@@ -346,13 +348,14 @@ void Save_RecordWhichLatestGoodSector(SaveData *saveData, struct SaveSlotCheck *
 
 // instead of writing Save_GetFilesStatus to here, can just write offset of sectorCleanFlag to 020279E8 (0x23308)
 
-BOOL Save_LoadDynamicRegion(SaveData *saveData) {
+BOOL Save_LoadDynamicRegion(SaveData *saveData)
+{
     int i;
     u8 *data;
     u32 pc_offs;
     u32 pc_size;
 
-    //struct SaveSlotSpec *specs = saveData->saveSlotSpecs;
+    // struct SaveSlotSpec *specs = saveData->saveSlotSpecs;
 
     for (i = 0; i < 2; i++) {
         data = saveData->dynamic_region;
@@ -367,7 +370,7 @@ BOOL Save_LoadDynamicRegion(SaveData *saveData) {
         saveData->arrayHeaders[i].crc = GF_CalcCRC16(SaveArray_Get(saveData, i), saveData->arrayHeaders[i].size);
     }
     pc_offs = saveData->saveSlotSpecs[1].offset;
-    //pc_size = PCStorage_GetSizeOfBox() * PCStorage_GetNumBoxes();
+    // pc_size = PCStorage_GetSizeOfBox() * PCStorage_GetNumBoxes();
     pc_size = 0x1000 * NUM_PC_BOXES;
     saveData->pcStorageLastCRC = GF_CalcCRC16(data + pc_offs, pc_size);
     sub_020310A0(saveData);
@@ -375,7 +378,8 @@ BOOL Save_LoadDynamicRegion(SaveData *saveData) {
     return TRUE;
 }
 
-int Save_WriteSlotAsync(SaveData *saveData, int idx, u8 slot) {
+int Save_WriteSlotAsync(SaveData *saveData, int idx, u8 slot)
+{
     struct SaveSlotSpec *spec;
 
     spec = &saveData->saveSlotSpecs[idx];
@@ -383,7 +387,8 @@ int Save_WriteSlotAsync(SaveData *saveData, int idx, u8 slot) {
     return FlashWriteChunkInternal(GetChunkOffsetFromCurrentSaveSlot(slot, spec), saveData->dynamic_region + spec->offset, spec->size - sizeof(struct SaveChunkFooter));
 }
 
-int Save_WriteChunkFooterAsync(SaveData *saveData, int idx, u8 slot) {
+int Save_WriteChunkFooterAsync(SaveData *saveData, int idx, u8 slot)
+{
     struct SaveSlotSpec *spec;
     u32 size;
 
@@ -392,7 +397,8 @@ int Save_WriteChunkFooterAsync(SaveData *saveData, int idx, u8 slot) {
     return FlashWriteChunkInternal(GetChunkOffsetFromCurrentSaveSlot(slot, spec) + size - sizeof(struct SaveChunkFooter), saveData->dynamic_region + spec->offset + size - sizeof(struct SaveChunkFooter), sizeof(struct SaveChunkFooter));
 }
 
-void Save_WriteManInit(SaveData *saveData, struct AsyncWriteManager *writeMan, int a2 UNUSED) {
+void Save_WriteManInit(SaveData *saveData, struct AsyncWriteManager *writeMan, int a2 UNUSED)
+{
     sub_0202C714(saveData);
     sub_02031084(saveData);
 
@@ -411,7 +417,8 @@ void Save_WriteManInit(SaveData *saveData, struct AsyncWriteManager *writeMan, i
 
 // HandleWriteSaveAsync_NormalData just needs offset of lastGoodSector written to 02027CE8 (0x2330A)
 
-void Save_WriteManFinish(SaveData *saveData, struct AsyncWriteManager *writeMan, int a2) {
+void Save_WriteManFinish(SaveData *saveData, struct AsyncWriteManager *writeMan, int a2)
+{
     saveData->numModifiedBoxes = 0;
     saveData->nextBoxToWrite = 0;
     if (a2 == WRITE_STATUS_TOTAL_FAIL) {
@@ -430,7 +437,8 @@ void Save_WriteManFinish(SaveData *saveData, struct AsyncWriteManager *writeMan,
     Sys_ClearSleepDisableFlag(1);
 }
 
-void CancelAsyncSave(SaveData *saveData, struct AsyncWriteManager *writeMan) {
+void CancelAsyncSave(SaveData *saveData, struct AsyncWriteManager *writeMan)
+{
     if (writeMan->rollbackCounter) {
         saveData->saveCounter = writeMan->count;
     }
@@ -459,7 +467,8 @@ void CancelAsyncSave(SaveData *saveData, struct AsyncWriteManager *writeMan) {
 
 // ReadExtraSaveChunk just needs lastGoodSaveSlot offset (0x232F0) at 020284A0
 
-void SaveData_InitSlotSpecs(struct SaveSlotSpec *slotSpecs, struct SaveArrayHeader *headers) {
+void SaveData_InitSlotSpecs(struct SaveSlotSpec *slotSpecs, struct SaveArrayHeader *headers)
+{
     int i;
     int adrs;
     int npage;
@@ -488,7 +497,8 @@ void SaveData_InitSlotSpecs(struct SaveSlotSpec *slotSpecs, struct SaveArrayHead
     GF_ASSERT(npage <= SAVE_PAGE_MAX);
 }
 
-int HandleWriteSaveAsync_PCBoxes(SaveData *saveData, struct AsyncWriteManager *writeMan) {
+int HandleWriteSaveAsync_PCBoxes(SaveData *saveData, struct AsyncWriteManager *writeMan)
+{
     u32 r7;
     int r0;
     int sp0;
@@ -498,7 +508,7 @@ int HandleWriteSaveAsync_PCBoxes(SaveData *saveData, struct AsyncWriteManager *w
         saveData->newBoxModifiedFlags = Save_CalcPCBoxModifiedFlags(saveData);
         saveData->numModifiedBoxes = PCModifiedFlags_CountModifiedBoxes(saveData->newBoxModifiedFlags);
         saveData->nextBoxToWrite = 0;
-        //r7 = PCStorage_GetSizeOfBox() * PCStorage_GetNumBoxes();
+        // r7 = PCStorage_GetSizeOfBox() * PCStorage_GetNumBoxes();
         r7 = 0x1000 * NUM_PC_BOXES;
         saveData->pcStorageCRC = GF_CalcCRC16(SaveArray_Get(saveData, 41), r7);
         if (saveData->numModifiedBoxes == 0) {
@@ -550,7 +560,8 @@ int HandleWriteSaveAsync_PCBoxes(SaveData *saveData, struct AsyncWriteManager *w
     return WRITE_STATUS_CONTINUE;
 }
 
-int Save_WritePCBoxes(SaveData *saveData, struct AsyncWriteManager *writeMan) {
+int Save_WritePCBoxes(SaveData *saveData, struct AsyncWriteManager *writeMan)
+{
     int write_ok;
 
     switch (writeMan->state_sub) {
@@ -595,7 +606,8 @@ int Save_WritePCBoxes(SaveData *saveData, struct AsyncWriteManager *writeMan) {
     return 2;
 }
 
-int Save_WriteNextPCBox(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot) {
+int Save_WriteNextPCBox(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot)
+{
     u32 boxno;
     u32 box_size;
     u32 offset;
@@ -607,7 +619,8 @@ int Save_WriteNextPCBox(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot) 
     return FlashWriteChunkInternal(offset + box_size * boxno, saveData->dynamic_region + spec->offset + box_size * boxno, box_size);
 }
 
-int Save_WritePCFooter(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot) {
+int Save_WritePCFooter(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot)
+{
     u32 sector_size;
     struct SaveChunkFooter *footer;
     u32 spec_offset;
@@ -617,7 +630,7 @@ int Save_WritePCFooter(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot) {
     u32 pc_size;
     u16 crc;
 
-    //pc_size = PCStorage_GetSizeOfBox() * PCStorage_GetNumBoxes();
+    // pc_size = PCStorage_GetSizeOfBox() * PCStorage_GetNumBoxes();
     pc_size = 0x1000 * NUM_PC_BOXES;
     offset = GetChunkOffsetFromCurrentSaveSlot(slot, spec);
     data = saveData->dynamic_region + spec->offset;
@@ -631,7 +644,8 @@ int Save_WritePCFooter(SaveData *saveData, struct SaveSlotSpec *spec, u8 slot) {
     return FlashWriteChunkInternal(offset + pc_size, data + pc_size, sector_size - pc_size);
 }
 
-u32 Save_CalcPCBoxModifiedFlags(SaveData *saveData) {
+u32 Save_CalcPCBoxModifiedFlags(SaveData *saveData)
+{
     u32 ret;
 
     ret = Save_GetPCBoxModifiedFlags(saveData);
@@ -642,12 +656,13 @@ u32 Save_CalcPCBoxModifiedFlags(SaveData *saveData) {
     return ret;
 }
 
-u32 PCModifiedFlags_CountModifiedBoxes(u32 flags) {
+u32 PCModifiedFlags_CountModifiedBoxes(u32 flags)
+{
     u8 i, n;
     u32 t;
 
     n = 0;
-    //t = PCStorage_GetNumBoxes();
+    // t = PCStorage_GetNumBoxes();
     t = NUM_PC_BOXES;
     for (i = 0; i < t; i++) {
         if (flags & 1) {
@@ -659,12 +674,13 @@ u32 PCModifiedFlags_CountModifiedBoxes(u32 flags) {
     return n;
 }
 
-u32 PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last) {
+u32 PCModifiedFlags_GetIndexOfNthModifiedBox(u32 flags, u8 last)
+{
     u8 i, n;
     u32 t;
 
     n = 0;
-    //t = PCStorage_GetNumBoxes();
+    // t = PCStorage_GetNumBoxes();
     t = NUM_PC_BOXES;
     for (i = 0; i < t; i++) {
         if (flags & 1) {
@@ -700,33 +716,32 @@ BOOL LONG_CALL IsElementInArray(const void *array, void *element, u32 len, u32 s
     u32 i, j;
     const u8 *arr = array;
     u8 *elem = element;
-    //u8 buf[64];
-    //sprintf(buf, "Called IsElementInArray(0x%08X, 0x%08X, 0x%X, 0x%X)\n", (const u32)array, (u32)element, len, size);
-    //debugsyscall(buf);
-    for (i = 0; i < len; i++)
-    {
-        for (j = 0; j < size; j++)
-        {
+    // u8 buf[64];
+    // sprintf(buf, "Called IsElementInArray(0x%08X, 0x%08X, 0x%X, 0x%X)\n", (const u32)array, (u32)element, len, size);
+    // debugsyscall(buf);
+    for (i = 0; i < len; i++) {
+        for (j = 0; j < size; j++) {
             const u8 *currElem = &arr[i * size];
-            if (j[currElem] != elem[j])
-            {
+            if (j[currElem] != elem[j]) {
                 break;
             }
         }
-        if (j == size)
+        if (j == size) {
             return TRUE;
+        }
     }
-    //debugsyscall("Element is not in array!");
+    // debugsyscall("Element is not in array!");
     return FALSE;
 }
 
 #if defined(DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES) || defined(DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL)
 
-#define sErrorMessagePrinterLock *(u32 *)(0x021D43B4)
-#define CRASH_MESSAGE_HEAP_CHAR_START 79
+#define sErrorMessagePrinterLock         *(u32 *)(0x021D43B4)
+#define CRASH_MESSAGE_HEAP_CHAR_START    79
 #define CRASH_MESSAGE_RETADDR_CHAR_START 132
 
-void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
+void PrintCrashMessageAndReset(u32 heapId, u32 retAddr)
+{
     u32 window;
 
     if (sErrorMessagePrinterLock == TRUE) {
@@ -743,7 +758,7 @@ void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
     sub_0200FBF4(1, 0);
 
     OS_DisableIrqMask(1);
-    OS_SetIrqFunction(1, (void *)(0x2096318|1));
+    OS_SetIrqFunction(1, (void *)(0x2096318 | 1));
     OS_EnableIrqMask(1);
 
     Main_SetVBlankIntrCB(NULL, NULL);
@@ -756,7 +771,7 @@ void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
 
     SetKeyRepeatTimers(4, 8);
 
-    //gSystem.screensFlipped = FALSE;
+    // gSystem.screensFlipped = FALSE;
     *(u8 *)(0x21D116C) = FALSE;
 
     GfGfx_SwapDisplay();
@@ -766,7 +781,7 @@ void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
     GXS_SetVisibleWnd(0);
     GfGfx_SetBanks((void *)0x0210855C);
 
-    void * bg_config = BgConfig_Alloc(0);
+    void *bg_config = BgConfig_Alloc(0);
     SetBothScreensModesAndDisable((void *)0x02108530);
     InitBgFromTemplate(bg_config, 0, (void *)0x02108540, 0);
     BgClearTilemapBufferAndCommit(bg_config, 0);
@@ -786,16 +801,16 @@ void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
     DrawFrameAndWindow1(&window, FALSE, 0x1F7, 2);
 
     ReadMsgDataIntoString(error_msgdata, 126, error_str);
-    error_str->data[  CRASH_MESSAGE_HEAP_CHAR_START] = 0x0121 + (heapId / 10);
-    error_str->data[CRASH_MESSAGE_HEAP_CHAR_START+1] = 0x0121 + (heapId % 10);
-    error_str->data[  CRASH_MESSAGE_RETADDR_CHAR_START] = 0x0121 + ((retAddr >> 28) & 0xF);
-    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+1] = 0x0121 + ((retAddr >> 24) & 0xF);
-    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+2] = 0x0121 + ((retAddr >> 20) & 0xF);
-    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+3] = 0x0121 + ((retAddr >> 16) & 0xF);
-    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+4] = 0x0121 + ((retAddr >> 12) & 0xF);
-    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+5] = 0x0121 + ((retAddr >>  8) & 0xF);
-    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+6] = 0x0121 + ((retAddr >>  4) & 0xF);
-    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START+7] = 0x0121 + (retAddr & 0xF);
+    error_str->data[CRASH_MESSAGE_HEAP_CHAR_START] = 0x0121 + (heapId / 10);
+    error_str->data[CRASH_MESSAGE_HEAP_CHAR_START + 1] = 0x0121 + (heapId % 10);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START] = 0x0121 + ((retAddr >> 28) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START + 1] = 0x0121 + ((retAddr >> 24) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START + 2] = 0x0121 + ((retAddr >> 20) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START + 3] = 0x0121 + ((retAddr >> 16) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START + 4] = 0x0121 + ((retAddr >> 12) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START + 5] = 0x0121 + ((retAddr >> 8) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START + 6] = 0x0121 + ((retAddr >> 4) & 0xF);
+    error_str->data[CRASH_MESSAGE_RETADDR_CHAR_START + 7] = 0x0121 + (retAddr & 0xF);
     AddTextPrinterParameterized(&window, 0, error_str, 0, 0, 0, NULL);
     String_Delete(error_str);
 
@@ -810,8 +825,7 @@ void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
         HandleDSLidAction();
         sub_02036144();
 
-        if (sub_02039AA4())
-        {
+        if (sub_02039AA4()) {
             break;
         }
         OS_WaitIrq(TRUE, 1);
@@ -839,18 +853,20 @@ void PrintCrashMessageAndReset(u32 heapId, u32 retAddr) {
 
 #endif // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
 
-void AllocFail(u32 retAddr UNUSED) {
+void AllocFail(u32 retAddr UNUSED)
+{
 #ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
     // r5 is actually always heap id, spC is lr.  AllocFail_hook will pass us the retAddr
     register u32 heapId asm("r5");
-    //if (sub_02037D78())
+    // if (sub_02037D78())
     {
         PrintCrashMessageAndReset(heapId, retAddr);
     }
 #endif // DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES
 }
 
-void GF_AssertFail(void) {
+void GF_AssertFail(void)
+{
 #ifdef DEBUG_PRINT_HEAP_OVERFLOW_MESSAGES_ASSERT_FAIL
     register u32 retAddr asm("lr");
     PrintCrashMessageAndReset(255, retAddr);
@@ -861,17 +877,17 @@ void GF_AssertFail(void) {
 extern u32 AllocFromHeapInternal_return_address;
 #endif
 
-void *AllocFromHeapInternal(void * heap UNUSED, u32 size UNUSED, s32 alignment UNUSED, u32 heapId UNUSED) {
+void *AllocFromHeapInternal(void *heap UNUSED, u32 size UNUSED, s32 alignment UNUSED, u32 heapId UNUSED)
+{
 #ifdef DEBUG_PRINT_HEAP_ALLOCATION
-    //GF_ASSERT(heap);
-    // sp+0x14 is always retAddr from AllocFromHeap/Lo.  we store it in r5 before jumping here
+    // GF_ASSERT(heap);
+    //  sp+0x14 is always retAddr from AllocFromHeap/Lo.  we store it in r5 before jumping here
     register u32 retAddr asm("r5");
     u32 retAddrPerm = retAddr;
-    BOOL better = (AllocFromHeapInternal_return_address == (0x0201AAEC|1));
+    BOOL better = (AllocFromHeapInternal_return_address == (0x0201AAEC | 1));
 
     if ((*(u32 *)0x0225F18C == 0xFFFFE9E0) // overlay 123 is loaded
-     && (size == 1000 || (retAddrPerm >= 0x0225F020 && retAddrPerm <= 0x02260D74)))
-    {
+        && (size == 1000 || (retAddrPerm >= 0x0225F020 && retAddrPerm <= 0x02260D74))) {
         debug_printf("[AllocFromHeapInternal] Return address in overlay 123/124 territory.  Assume clobber attempt.\n");
         return NULL;
     }
@@ -896,26 +912,28 @@ void *AllocFromHeapInternal(void * heap UNUSED, u32 size UNUSED, s32 alignment U
 }
 
 // now get to find out just *what* fails to load i guess
-void FreeToHeap(u8 *ptr UNUSED) {
+void FreeToHeap(u8 *ptr UNUSED)
+{
 #ifdef DEBUG_PRINT_HEAP_ALLOCATION
     u8 heapId = ptr[-4]; // trust bro
     debug_printf("[FreeToHeap]    Freeing 0x%08X from heap %2d...  new free space: 0x%05X\n", (u32)ptr, heapId, GF_ExpHeap_FndGetTotalFreeSize(heapId));
 #endif
 }
-void FreeToHeapExplicit(u8 *ptr UNUSED) {
+void FreeToHeapExplicit(u8 *ptr UNUSED)
+{
 #ifdef DEBUG_PRINT_HEAP_ALLOCATION
     u8 heapId = ptr[0xC];
     debug_printf("[FreeToHeap] EX Freeing 0x%08X from heap %2d...  new free space: 0x%05X\n", (u32)&ptr[0x10], heapId, GF_ExpHeap_FndGetTotalFreeSize(heapId));
 #endif
 }
 
-
 #ifdef DEBUG_PRINT_HEAP_CREATION
-u8 parentHeaps[256] = {0};
-u32 heapSizes[100] = {0};
+u8 parentHeaps[256] = { 0 };
+u32 heapSizes[100] = { 0 };
 #endif
 
-void CreateHeapInternal(u32 parent UNUSED, u32 child UNUSED, u32 size UNUSED, s32 alignment UNUSED) {
+void CreateHeapInternal(u32 parent UNUSED, u32 child UNUSED, u32 size UNUSED, s32 alignment UNUSED)
+{
 #ifdef DEBUG_PRINT_HEAP_CREATION
     debug_printf("[CreateHeapInternal] Heap %2d (0x%05X bytes) created from heap %2d (pre-size 0x%05X bytes) at the %s.\n", child, size, parent, GF_ExpHeap_FndGetTotalFreeSize(parent), alignment == 4 ? "start" : "end");
     parentHeaps[child] = parent;
@@ -923,7 +941,8 @@ void CreateHeapInternal(u32 parent UNUSED, u32 child UNUSED, u32 size UNUSED, s3
 #endif
 }
 
-void DestroyHeap(u32 heapId UNUSED) {
+void DestroyHeap(u32 heapId UNUSED)
+{
 #ifdef DEBUG_PRINT_HEAP_CREATION
     debug_printf("[DestroyHeap] Destroyed heap %2d (size 0x%05X) from parent heap %2d. New size: 0x%05X\n", heapId, heapId < NELEMS(heapSizes) ? heapSizes[heapId] : -1, parentHeaps[heapId], GF_ExpHeap_FndGetTotalFreeSize(parentHeaps[heapId]));
     parentHeaps[heapId] = 0;

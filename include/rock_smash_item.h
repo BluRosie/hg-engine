@@ -1,10 +1,10 @@
 #ifndef ROCK_SMASH_ITEM_H
 #define ROCK_SMASH_ITEM_H
 
-#include "battle.h"
-
 #include "constants/ability.h"
 #include "constants/item.h"
+
+#include "battle.h"
 
 typedef struct {
     u16 odds;

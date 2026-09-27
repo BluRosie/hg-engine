@@ -14,8 +14,8 @@ const struct TestBattleScenario BattleTests[] = {
 #endif
 
     {
-        .battleType = BATTLE_TYPE_SINGLE,
-        .weather = WEATHER_NONE,
+        .battleType = BATTLE_TYPE_TRAINER,
+        .weather = FIELD_CONDITION_NONE,
         .fieldCondition = 0,
         .terrain = TERRAIN_NONE,
         .playerParty = {
@@ -100,6 +100,7 @@ const struct TestBattleScenario BattleTests[] = {
             }
         },
         .expectations = {
+            { .expectationType = EXPECTATION_TYPE_PARTY_FORM, .battlerIDOrPartySlot = 0, .expectationValue.formID = 1 },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 109, 109, 111, 112, 114, 115, 117, 118, 118, 120, 121, 123, 124, 126, 127, 129 } },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 105, 106, 108, 109, 109, 111, 112, 114, 115, 117, 117, 118, 120, 121, 123, 124 } },
             { .expectationType = EXPECTATION_OVERWORLD_FORM, .battlerIDOrPartySlot = 0, .expectationValue.formID = 0 },

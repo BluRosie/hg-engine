@@ -8,6 +8,7 @@ import subprocess
 import sys
 import tempfile
 import time
+from typing import Union
 
 from desmume.emulator import DeSmuME, DeSmuME_Memory
 
@@ -64,13 +65,13 @@ TEST_END_INDEX = 0
 TOTAL_NUMBER_OF_TESTS = 0
 
 
-def get_current_test_name() -> str | None:
+def get_current_test_name() -> Union[str, None]:
     if current_test_case < 0 or current_test_case >= len(test_case_names):
         return None
     return test_case_names[current_test_case]
 
 
-def get_current_global_test_index() -> int | None:
+def get_current_global_test_index() -> Union[int, None]:
     if current_test_case < 0 or current_test_case >= TOTAL_NUMBER_OF_TESTS:
         return None
     return TEST_START_INDEX + current_test_case
@@ -108,11 +109,11 @@ def get_partition_index() -> int:
     return int(os.environ.get("TEST_RUNNER_PARTITION_INDEX", "0"))
 
 
-def get_result_file() -> str | None:
+def get_result_file() -> Union[str, None]:
     return os.environ.get("TEST_RUNNER_RESULT_FILE")
 
 
-def get_live_result_file() -> str | None:
+def get_live_result_file() -> Union[str, None]:
     return os.environ.get("TEST_RUNNER_LIVE_RESULT_FILE")
 
 
@@ -227,7 +228,7 @@ def get_result_payload(partition_count: int, partition_index: int) -> dict:
     }
 
 
-def write_result_payload(result_file: str | None, payload: dict) -> None:
+def write_result_payload(result_file: Union[str, None], payload: dict) -> None:
     if result_file is None:
         return
 

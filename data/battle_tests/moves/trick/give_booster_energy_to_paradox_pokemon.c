@@ -1,8 +1,8 @@
 // Test: Trick doesn't work on Paradox Pokemon with Booster Energy, besides Raging Bolt, Gouging Fire, Iron Boulder and Iron Crown.
 // https://x.com/DaWoblefet/status/1737659599480565762
 {
-    .battleType = BATTLE_TYPE_DOUBLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 

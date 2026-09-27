@@ -1,8 +1,8 @@
 // Test: Pursuit - mega queued after pursuit is resolved
 #include "../../battle_tests.h"
 BEGIN_TEST {
-    .battleType = BATTLE_TYPE_DOUBLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
@@ -121,6 +121,9 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric used Pursuit!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric's Attack fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Meganiumite is reacting to the Key Stone!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Weather Ball!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom's Flash Fire" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The power of Houndoom's Fire-type moves rose!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manectric used Sleep Talk!" },
     },
 } END_TEST

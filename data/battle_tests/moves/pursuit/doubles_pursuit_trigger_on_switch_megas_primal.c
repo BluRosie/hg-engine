@@ -1,8 +1,8 @@
 // Test: Pursuit - trigger pursuit on hard switch in doubles and mega against Primal-Groudon
 #include "../../battle_tests.h"
 BEGIN_TEST {
-    .battleType = BATTLE_TYPE_DOUBLE,
-    .weather = WEATHER_NONE,
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {

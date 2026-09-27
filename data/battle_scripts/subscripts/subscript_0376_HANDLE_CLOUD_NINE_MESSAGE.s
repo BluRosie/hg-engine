@@ -1,8 +1,10 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
 _000:
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
     // The effects of the weather disappeared.
     PrintMessage 1470, TAG_NONE
     Wait 

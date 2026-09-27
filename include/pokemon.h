@@ -3,11 +3,12 @@
 
 #include "config.h"
 // #include "save.h"
+#include "types.h"
+
 #include "constants/pokemon.h"
 
 #include "party_menu.h"
 #include "trainer_data.h"
-#include "types.h"
 #include "window.h"
 
 #define POKEMON_GENDER_MALE    0
@@ -709,6 +710,9 @@ typedef struct
     u8 dummy[3];
     u32 personal_rnd;
 } MON_PIC;
+
+#define MON_PIC_FACING_BACK  0
+#define MON_PIC_FACING_FRONT 2
 
 #define NEEDS_REVERSION 0x8000
 

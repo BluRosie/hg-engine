@@ -59,18 +59,20 @@ Macros:
 SortIncludes: CaseSensitive
 IncludeBlocks: Regroup
 IncludeCategories:
+  - Regex: '"(types|config|debug).h"'
+    Priority: -1
   - Regex: '((<.+>)|("nitro/.*\.h"))'
     Priority: 1
   - Regex: '"(consts|constants|generated)/.*\.h"'
     Priority: 2
   - Regex: '"(struct_(decls|defs))/.*\.h"'
     Priority: 3
-  - Regex: '"(constdata|res)/.*\.(h|naix)"'
-    Priority: 6
   - Regex: '"[[:alnum:]_]+/.*\.(h|naix)"'
     Priority: 4
   - Regex: '"[[:alnum:]_]+\.(h|naix)"'
     Priority: 5
+  - Regex: '"(constdata|res)/.*\.(h|naix)"'
+    Priority: 6
   - Regex: ".*"
     Priority: 7
 

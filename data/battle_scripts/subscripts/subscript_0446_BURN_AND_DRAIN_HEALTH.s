@@ -1,9 +1,13 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
 // matcha gotcha -- handle burn part first
 Start:
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_BATTLER_TARGET, BATTLER_NONE, NoBurn
+    CompareMonDataToVar OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_HP, 0, NoBurn
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_STAT_CHANGE, BSCRIPT_VAR_BATTLER_TARGET
     CheckEffectActivation NoBurn
     Call BATTLE_SUBSCRIPT_BURN
 

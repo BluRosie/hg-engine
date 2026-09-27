@@ -1,4 +1,5 @@
-.include "asm/include/battle_commands.inc"
+#include "constants/battle_constants.h"
+.include "battle_commands.inc"
 
 .data
 
@@ -87,16 +88,16 @@ _182:
     PlayBattleAnimation BATTLER_CATEGORY_SIDE_EFFECT_MON, BATTLE_ANIMATION_ASLEEP
     Wait
 
-.if SLEEP_TURNS_GENERATION >= 5
+#if SLEEP_TURNS_GENERATION >= 5
     Random 2, 2
-.if SLEEP_TURNS_GENERATION == GEN_CHAMPIONS
+#if SLEEP_TURNS_GENERATION == GEN_CHAMPIONS
     CompareVarToValue OPCODE_LTE, BSCRIPT_VAR_CALC_TEMP, 3, _lowerThanThreeTurns
     UpdateVar OPCODE_SET, BSCRIPT_VAR_CALC_TEMP, 3
 _lowerThanThreeTurns:
-.endif
-.else 
+#endif
+#else 
     Random 3, 2
-.endif
+#endif
 
     UpdateMonDataFromVar OPCODE_FLAG_ON, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, BSCRIPT_VAR_CALC_TEMP
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _205

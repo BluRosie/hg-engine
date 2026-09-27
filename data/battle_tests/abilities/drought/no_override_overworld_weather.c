@@ -2,8 +2,8 @@
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_SINGLE,
-    .weather = WEATHER_RAIN_PERMANENT,
+    .battleType = BATTLE_TYPE_TRAINER,
+    .weather = FIELD_CONDITION_RAIN_PERMANENT,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
 

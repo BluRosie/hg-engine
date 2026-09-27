@@ -3,11 +3,6 @@
 
 .include "armips/include/animscriptcmd.s"
 
-.include "asm/include/abilities.inc"
-.include "asm/include/items.inc"
-.include "asm/include/species.inc"
-.include "asm/include/moves.inc"
-
 .create "build/move/move_anim/0_757", 0
 
 //Bolt Beak
@@ -30,8 +25,6 @@ a010_757:
 
     jumpifside 0, _01CC, _024C
     end
-
-
 
 _01CC:
     addparticle 1, 6, 4 //horndrill effects

@@ -4657,10 +4657,6 @@
         "Move": "MOVE_ENERGY_BALL"
       },
       {
-        "Level": 25,
-        "Move": "MOVE_IRON_HEAD"
-      },
-      {
         "Level": 34,
         "Move": "MOVE_PSYCHIC"
       },
@@ -4678,11 +4674,7 @@
       "MOVE_SHADOW_BALL",
       "MOVE_GIGA_IMPACT",
       "MOVE_HYPER_BEAM",
-      "MOVE_PSYCHIC",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_IRON_HEAD",
-      "MOVE_FLASH_CANNON",
-      "MOVE_STEEL_BEAM"
+      "MOVE_PSYCHIC"
     ]
   },
   "SPECIES_MOTHIM": {
@@ -7753,118 +7745,6 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_499": {
-    "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_STRUGGLE_BUG"
-      },
-      {
-        "Level": 6,
-        "Move": "MOVE_GUST"
-      },
-      {
-        "Level": 11,
-        "Move": "MOVE_CONFUSION"
-      },
-      {
-        "Level": 18,
-        "Move": "MOVE_SILVER_WIND"
-      },
-      {
-        "Level": 25,
-        "Move": "MOVE_EARTH_POWER"
-      },
-      {
-        "Level": 34,
-        "Move": "MOVE_PSYCHIC"
-      },
-      {
-        "Level": 43,
-        "Move": "MOVE_BUG_BUZZ"
-      }
-    ],
-    "MachineMoves": [],
-    "EggMoves": [],
-    "TutorMoves": [
-      "MOVE_REST",
-      "MOVE_SHADOW_BALL",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_HYPER_BEAM",
-      "MOVE_PSYCHIC",
-      "MOVE_BULLDOZE",
-      "MOVE_STEALTH_ROCK",
-      "MOVE_EARTH_POWER"
-    ]
-  },
-  "SPECIES_501": {
-    "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_SHADOW_SNEAK"
-      },
-      {
-        "Level": 6,
-        "Move": "MOVE_ANCIENT_POWER"
-      },
-      {
-        "Level": 12,
-        "Move": "MOVE_HEX"
-      },
-      {
-        "Level": 19,
-        "Move": "MOVE_SHADOW_CLAW"
-      },
-      {
-        "Level": 27,
-        "Move": "MOVE_AURA_SPHERE"
-      },
-      {
-        "Level": 30,
-        "Move": "MOVE_SHADOW_BALL"
-      },
-      {
-        "Level": 36,
-        "Move": "MOVE_DRAGON_CLAW"
-      },
-      {
-        "Level": 42,
-        "Move": "MOVE_DRAGON_PULSE"
-      },
-      {
-        "Level": 55,
-        "Move": "MOVE_EARTH_POWER"
-      },
-      {
-        "Level": 60,
-        "Move": "MOVE_SHADOW_FORCE"
-      }
-    ],
-    "MachineMoves": [],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
-  "SPECIES_502": {
-    "LevelMoves": [],
-    "MachineMoves": [],
-    "EggMoves": [],
-    "TutorMoves": [
-      "MOVE_AERIAL_ACE",
-      "MOVE_SWIFT",
-      "MOVE_MAGICAL_LEAF",
-      "MOVE_OMINOUS_WIND",
-      "MOVE_REST",
-      "MOVE_BABY_DOLL_EYES",
-      "MOVE_ZEN_HEADBUTT",
-      "MOVE_ENERGY_BALL",
-      "MOVE_EARTH_POWER",
-      "MOVE_DAZZLING_GLEAM",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_PLAY_ROUGH",
-      "MOVE_HYPER_BEAM",
-      "MOVE_PSYCHIC"
-    ]
-  },
   "SPECIES_OSHAWOTT": {
     "LevelMoves": [
       {
@@ -9646,5 +9526,162 @@
       "MOVE_GIGA_IMPACT",
       "MOVE_HYPER_BEAM"
     ]
+  },
+  "SPECIES_WORMADAM_SANDY": {
+    "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_STRUGGLE_BUG"
+      },
+      {
+        "Level": 6,
+        "Move": "MOVE_GUST"
+      },
+      {
+        "Level": 11,
+        "Move": "MOVE_CONFUSION"
+      },
+      {
+        "Level": 18,
+        "Move": "MOVE_SILVER_WIND"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_EARTH_POWER"
+      },
+      {
+        "Level": 34,
+        "Move": "MOVE_PSYCHIC"
+      },
+      {
+        "Level": 43,
+        "Move": "MOVE_BUG_BUZZ"
+      }
+    ],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_REST",
+      "MOVE_SHADOW_BALL",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_HYPER_BEAM",
+      "MOVE_PSYCHIC",
+      "MOVE_BULLDOZE",
+      "MOVE_STEALTH_ROCK",
+      "MOVE_EARTH_POWER"
+    ]
+  },
+  "SPECIES_WORMADAM_TRASH": {
+    "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_STRUGGLE_BUG"
+      },
+      {
+        "Level": 6,
+        "Move": "MOVE_GUST"
+      },
+      {
+        "Level": 11,
+        "Move": "MOVE_CONFUSION"
+      },
+      {
+        "Level": 18,
+        "Move": "MOVE_SILVER_WIND"
+      },
+      {
+        "Level": 25,
+        "Move": "MOVE_IRON_HEAD"
+      },
+      {
+        "Level": 34,
+        "Move": "MOVE_PSYCHIC"
+      },
+      {
+        "Level": 43,
+        "Move": "MOVE_BUG_BUZZ"
+      }
+    ],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_REST",
+      "MOVE_SHADOW_BALL",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_HYPER_BEAM",
+      "MOVE_PSYCHIC",
+      "MOVE_STEALTH_ROCK",
+      "MOVE_IRON_HEAD",
+      "MOVE_FLASH_CANNON",
+      "MOVE_STEEL_BEAM"
+    ]
+  },
+  "SPECIES_SHAYMIN_SKY": {
+    "LevelMoves": [],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": [
+      "MOVE_AERIAL_ACE",
+      "MOVE_SWIFT",
+      "MOVE_MAGICAL_LEAF",
+      "MOVE_OMINOUS_WIND",
+      "MOVE_REST",
+      "MOVE_BABY_DOLL_EYES",
+      "MOVE_ZEN_HEADBUTT",
+      "MOVE_ENERGY_BALL",
+      "MOVE_EARTH_POWER",
+      "MOVE_DAZZLING_GLEAM",
+      "MOVE_GIGA_IMPACT",
+      "MOVE_PLAY_ROUGH",
+      "MOVE_HYPER_BEAM",
+      "MOVE_PSYCHIC"
+    ]
+  },
+  "SPECIES_GIRATINA_ORIGIN": {
+    "LevelMoves": [
+      {
+        "Level": 1,
+        "Move": "MOVE_SHADOW_SNEAK"
+      },
+      {
+        "Level": 6,
+        "Move": "MOVE_ANCIENT_POWER"
+      },
+      {
+        "Level": 12,
+        "Move": "MOVE_HEX"
+      },
+      {
+        "Level": 19,
+        "Move": "MOVE_SHADOW_CLAW"
+      },
+      {
+        "Level": 27,
+        "Move": "MOVE_AURA_SPHERE"
+      },
+      {
+        "Level": 30,
+        "Move": "MOVE_SHADOW_BALL"
+      },
+      {
+        "Level": 36,
+        "Move": "MOVE_DRAGON_CLAW"
+      },
+      {
+        "Level": 42,
+        "Move": "MOVE_DRAGON_PULSE"
+      },
+      {
+        "Level": 55,
+        "Move": "MOVE_EARTH_POWER"
+      },
+      {
+        "Level": 60,
+        "Move": "MOVE_SHADOW_FORCE"
+      }
+    ],
+    "MachineMoves": [],
+    "EggMoves": [],
+    "TutorMoves": []
   }
 }

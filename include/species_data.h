@@ -1,14 +1,14 @@
 #ifndef SPECIES_DATA_H
 #define SPECIES_DATA_H
 
+#include "config.h"
+
 #include <stdint.h>
 
 #include "constants/ability.h"
 #include "constants/item.h"
 #include "constants/pokemon.h"
 #include "constants/species.h"
-
-#include "config.h"
 
 #ifndef TYPES_H
 typedef uint8_t u8;

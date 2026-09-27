@@ -3,6 +3,8 @@
 
 #include "types.h"
 
+#include "battle.h"
+
 BOOL LONG_CALL CheckCanMega(struct BattleStruct *battle, int client);
 BOOL CheckCanDrawMegaButton(struct BI_PARAM *bip);
 BOOL CheckIsMega(struct BI_PARAM *bip);
@@ -10,5 +12,6 @@ BOOL CheckIsPrimalGroudon(struct BI_PARAM *bip);
 BOOL CheckIsPrimalKyogre(struct BI_PARAM *bip);
 BOOL LONG_CALL CheckCanSpeciesMegaEvolveByMove(struct BattleStruct *sp, u32 client);
 BOOL IsMegaSpeciesByMove(u32 species, u32 form);
+BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form);
 
 #endif

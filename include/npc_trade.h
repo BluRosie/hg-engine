@@ -1,10 +1,8 @@
 #ifndef POKEHEARTGOLD_NPC_TRADE_H
 #define POKEHEARTGOLD_NPC_TRADE_H
 
-#include "pokemon.h"
 #include "message.h"
-
-
+#include "pokemon.h"
 
 typedef enum NpcTradeNum {
     NPC_TRADE_ROCKY_ONIX,
@@ -25,7 +23,6 @@ typedef enum NpcTradeNum {
 
 // Used to index into NARC_msg_msg_0200_bin
 #define NPC_TRADE_OT_NUM(tradeNum) (tradeNum + NPC_TRADE_MAX)
-
 
 typedef struct NPCTrade {
     s32 give_species;
@@ -51,11 +48,9 @@ typedef struct NPCTrade {
     s32 unk_50;
 } NPCTrade; // size=0x54
 
-
-
 void LONG_CALL _CreateTradeMon(struct PartyPokemon *mon, struct NPCTrade *trade_dat, u32 level, u32 tradeno, u32 mapno, u32 met_level_strat, u32 heapId);
 
-String* LONG_CALL _GetNpcTradeName(u32 heapId, u32 msgno);
+String *LONG_CALL _GetNpcTradeName(u32 heapId, u32 msgno);
 u16 LONG_CALL MapHeader_GetMapSec(u32 map_no);
 void LONG_CALL MonSetTrainerMemo(struct PartyPokemon *mon, void *profile, int strat, int mapsec, u32 heapId);
 

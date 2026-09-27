@@ -1,17 +1,19 @@
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/file.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/debug.h"
-#include "../../include/overlay.h"
-#include "../../include/pokemon.h"
-#include "../../include/q412.h"
-#include "../../include/types.h"
+#include "config.h"
+#include "debug.h"
+#include "types.h"
+
+#include "constants/ability.h"
+#include "constants/file.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+
+#include "battle.h"
+#include "overlay.h"
+#include "pokemon.h"
+#include "q412.h"
 
 // function declarations
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond, u32 field_cond, u16 pow, u8 type, u8 attacker, u8 defender, u8 critical);
@@ -161,7 +163,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         damageCalc.clients[attacker].type2 = GetMonData(pp, MON_DATA_TYPE_2, 0);
         damageCalc.clients[attacker].type3 = TYPE_TYPELESS;
         damageCalc.clients[attacker].isGrounded = TRUE;
-        if ((damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING)) //&& !(sp->field_condition & FIELD_STATUS_GRAVITY)) //unknown
+        if (damageCalc.clients[attacker].type1 == TYPE_FLYING || damageCalc.clients[attacker].type2 == TYPE_FLYING) //&& !(sp->field_condition & FIELD_CONDITION_GRAVITY)) //unknown
         {
             damageCalc.clients[attacker].isGrounded = FALSE;
         }
@@ -212,6 +214,10 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
         return 0;
     }
 
+    if ((sp->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM) && sp->magicRoomCounter) {
+        return 0;
+    }
+
     return sp->battlemon[client_no].item;
 }
 
@@ -254,9 +260,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         // Mimikyu or Mimikyu-Large
         && (sp->battlemon[defender].form_no == 0 || sp->battlemon[defender].form_no == 2)
         // Not transformed
-        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORM)) {
+        sp->waza_status_flag &= ~MOVE_STATUS_SUPER_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_NOT_VERY_EFFECTIVE;
         sp->damage = 0;
         return;
     }
@@ -265,10 +271,10 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         && (sp->battlemon[defender].species == SPECIES_EISCUE)
         && (sp->battlemon[defender].form_no == 0)
         // Not transformed
-        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORMED)
+        && !(sp->battlemon[defender].condition2 & STATUS2_TRANSFORM)
         && (movesplit == SPLIT_PHYSICAL)) {
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_SUPER_EFFECTIVE;
-        sp->waza_status_flag &= ~MOVE_STATUS_FLAG_NOT_VERY_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_SUPER_EFFECTIVE;
+        sp->waza_status_flag &= ~MOVE_STATUS_NOT_VERY_EFFECTIVE;
         sp->damage = 0;
         return;
     }
@@ -314,11 +320,11 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         }
     }
 
-    if ((battle_type & BATTLE_TYPE_DOUBLE) && IsTargetFoes(bw, sp, moveno) && (numTargetedFoes >= 2)) {
+    if ((battle_type & BATTLE_TYPE_DOUBLES) && IsTargetFoes(bw, sp, moveno) && (numTargetedFoes >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
-    if ((battle_type & BATTLE_TYPE_DOUBLE) && IsTargetFoesAndAlly(bw, sp, moveno) && (numTargetedAll >= 2)) {
+    if ((battle_type & BATTLE_TYPE_DOUBLES) && IsTargetFoesAndAlly(bw, sp, moveno) && (numTargetedAll >= 2)) {
         damage = QMul_RoundDown(damage, UQ412__0_75);
     }
 
@@ -368,7 +374,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 
     // 6.3 Weather Modifier
 
-    if (weather & WEATHER_RAIN_ANY) {
+    if (weather & FIELD_CONDITION_RAIN_ALL) {
         switch (type) {
         case TYPE_FIRE:
             damage = QMul_RoundDown(damage, UQ412__0_5);
@@ -379,7 +385,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         }
     }
 
-    if (weather & WEATHER_SUNNY_ANY) {
+    if (weather & FIELD_CONDITION_SUN_ALL) {
         switch (type) {
         case TYPE_FIRE:
             damage = QMul_RoundDown(damage, UQ412__1_5);
@@ -402,7 +408,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 
     // 6.3.5 Glaive Rush
     // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-10498744
-    if (sp->moveConditionsFlags[defender].glaiveRush) {
+    if (sp->moveConditionsFlags[defender].wideOpen) {
         damage = damage * 200 / 100;
     }
 
@@ -583,20 +589,20 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
     // 6.9.14 Doubled-damage moves
 
     // 6.9.14.1 Minimize
-    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZED
+    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_MINIMIZE
         && !sp->battlemon[defender].is_currently_dynamaxed
         && IsMoveInMinimizeVulnerabilityMovesList(moveno)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.2 Dig
-    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIGGING
+    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIG
         && moveno == MOVE_EARTHQUAKE) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
     // 6.9.14.3 Dive
-    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_IS_DIVING
+    if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIVE
         && (moveno == MOVE_SURF || moveno == MOVE_WHIRLPOOL)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
@@ -637,7 +643,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         && (sp->critical == 1)
         && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
         && (attackerAbility != ABILITY_INFILTRATOR)) {
-        if (battle_type & BATTLE_TYPE_DOUBLE) {
+        if (battle_type & BATTLE_TYPE_DOUBLES) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_6666);
         } else {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -649,7 +655,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         && (sp->critical == 1)
         && (sp->moveTbl[moveno].effect != MOVE_EFFECT_REMOVE_SCREENS)
         && (attackerAbility != ABILITY_INFILTRATOR)) {
-        if (battle_type & BATTLE_TYPE_DOUBLE) {
+        if (battle_type & BATTLE_TYPE_DOUBLES) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_6666);
         } else {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
@@ -783,13 +789,28 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         // 6.9.16 Ice Scales
         // handle Ice Scales - halve damage if move is special, regardless of if it uses defense stat
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8319925
-        if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE && movesplit == SPLIT_SPECIAL) {
+        if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
+            && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_ICE_SCALES) == TRUE)
+            && (movesplit == SPLIT_SPECIAL)) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
             debug_printf("\n=================\n");
             debug_printf("[CalcBaseDamage] 6.9.16 Ice Scales\n");
             debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
 #endif
+        }
+
+        if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
+            && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_AURA_GUARD)) {
+            // 6.9.17 Aura Guard (contact moves) //TODO: confirm location
+            if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), attackerItemHeldEffect, HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
+                finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
+#ifdef DEBUG_DAMAGE_CALC
+                debug_printf("\n=================\n");
+                debug_printf("[CalcBaseDamage] 6.9.17 Aura Guard (contact moves)\n");
+                debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
+            }
         }
     }
 

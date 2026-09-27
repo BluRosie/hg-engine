@@ -1,35 +1,32 @@
-#include "../../include/battle.h"
-#include "../../include/config.h"
-#include "../../include/debug.h"
-#include "../../include/pokemon.h"
-#include "../../include/sound.h"
-#include "../../include/types.h"
-#include "../../include/constants/ability.h"
-#include "../../include/constants/hold_item_effects.h"
-#include "../../include/constants/battle_script_constants.h"
-#include "../../include/constants/item.h"
-#include "../../include/constants/move_effects.h"
-#include "../../include/constants/moves.h"
-#include "../../include/constants/species.h"
-#include "../../include/constants/file.h"
+#include "config.h"
+#include "debug.h"
+#include "types.h"
 
+#include "constants/ability.h"
+#include "constants/battle_script_constants.h"
+#include "constants/file.h"
+#include "constants/hold_item_effects.h"
+#include "constants/item.h"
+#include "constants/move_effects.h"
+#include "constants/moves.h"
+#include "constants/species.h"
+
+#include "battle.h"
+#include "pokemon.h"
+#include "sound.h"
 
 void AnimScrCmd_ChangePermanentBattleBackground(ANIM_CMD_STRUCT *animCmdStruct);
 
 // need this to change the permanent battle bg properly
 ALIGN4 struct BattleSystem *gBattleSystem = NULL;
 
-
-ALIGN4 const anim_scr_cmd_func gNewAnimScrTable[] =
-{
+ALIGN4 const anim_scr_cmd_func gNewAnimScrTable[] = {
     [0x58 - NUM_VANILLA_ANIM_SCRIPT_COMMANDS] = AnimScrCmd_ChangePermanentBattleBackground,
 };
 
-
 anim_scr_cmd_func GrabAnimScriptCommand(u32 command)
 {
-    if (command >= NUM_VANILLA_ANIM_SCRIPT_COMMANDS)
-    {
+    if (command >= NUM_VANILLA_ANIM_SCRIPT_COMMANDS) {
         return gNewAnimScrTable[command - NUM_VANILLA_ANIM_SCRIPT_COMMANDS];
     }
     return gAnimScrTable[command];
@@ -47,12 +44,10 @@ void AnimScrCmd_ChangePermanentBattleBackground(ANIM_CMD_STRUCT *animCmdStruct)
     terrain = *(animCmdStruct->animScriptPtr);
     animCmdStruct->animScriptPtr++;
 
-    if (bg == -1u)
-    {
+    if (bg == -1u) {
         bg = bw->sp->original_bgId;
     }
-    if (terrain == -1u)
-    {
+    if (terrain == -1u) {
         terrain = bw->sp->original_terrain;
     }
     LoadDifferentBattleBackground(bw, bg, terrain);
@@ -63,9 +58,10 @@ BOOL AnimCmd_PlayCryEdit(u32 client)
 {
     struct BattleStruct *sp = gBattleSystem->sp;
     u32 form = sp->battlemon[client].form_no;
-    if (form)
+    if (form) {
         PlayCry(sp->battlemon[client].species, form);
-    return (form != 0);
+    }
+    return form != 0;
 }
 
 #ifdef DEBUG_BATTLE_SCENARIOS
@@ -74,5 +70,3 @@ BOOL LONG_CALL CheckTrainerMessage(struct BattleSystem *bw UNUSED, struct Battle
     return FALSE;
 }
 #endif // DEBUG_BATTLE_SCENARIOS
-
-

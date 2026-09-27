@@ -5,8 +5,7 @@ typedef struct SysTaskQueue SysTaskQueue;
 typedef void (*SysTaskFunc)(SysTask *task, void *data);
 typedef void (*GFIntrCB)(void *);
 
-struct System
-{
+struct System {
     GFIntrCB vBlankIntr;
     void *vBlankIntrArg;
     GFIntrCB hBlankIntr;
