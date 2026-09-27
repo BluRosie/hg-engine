@@ -75,8 +75,6 @@ move_narc clean restore: NOSCAN = 1
 
 NOSCAN ?= 0
 
-ROM_TOOL ?= ndstool
-
 
 default: all
 
@@ -116,6 +114,8 @@ NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
 JSONPROC := tools/jsonproc
+
+ROM_TOOL ?= $(DSROM)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
@@ -190,7 +190,7 @@ ifeq (,$(wildcard $(NDSTOOL)))
 	rm -r -f tools/source/ndstool
 endif
 
-ifeq ($(ROM_TOOL),dsrom)
+ifeq ($(ROM_TOOL),$(DSROM))
 TOOLS += $(DSROM)
 else
 TOOLS += $(NDSTOOL)
@@ -203,7 +203,7 @@ ifeq (,$(wildcard $(DSROM)))
 	cd tools/source/ds-rom ; git checkout 3bfef542191764df2afa39254bbf18f68c621d22
 	cd tools/source/ds-rom ; cargo build --release -p ds-rom-cli
 	@# keep both names
-	if [ -f tools/source/ds-rom/target/release/dsrom.exe ]; then cp tools/source/ds-rom/target/release/dsrom.exe tools/dsrom.exe; mv tools/source/ds-rom/target/release/dsrom.exe tools/dsrom; else mv tools/source/ds-rom/target/release/dsrom tools/dsrom; fi
+	cp tools/source/ds-rom/target/release/dsrom $(DSROM)
 	rm -r -f tools/source/ds-rom
 endif
 
@@ -332,7 +332,7 @@ $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
 # only reextract from the rom if the romname is newer than the extracted arm9.bin
-ifeq ($(ROM_TOOL),dsrom)
+ifeq ($(ROM_TOOL),$(DSROM))
 $(BASE)/arm9.bin: $(ROMNAME) $(DSROM) $(VENV_ACTIVATE)
 	rm -rf $(BASE) $(BASE)_dsrom
 	@mkdir -p $(REQUIRED_DIRECTORIES)
@@ -355,7 +355,7 @@ all: $(OUTPUT) $(OVERLAY_OUTPUTS) $(TOOLS) $(BASE)/arm9.bin
 	$(ARMIPS) armips/global.s $(ARMIPS_FLAGS)
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM..."
-ifeq ($(ROM_TOOL),dsrom)
+ifeq ($(ROM_TOOL),$(DSROM))
 	$(DSROM_BRIDGE) pack --rom $(BUILDROM)
 else
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin

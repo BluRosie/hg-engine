@@ -44,6 +44,7 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following command:
     * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi pkg-config```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
@@ -52,18 +53,21 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
     * ```apk add libpng-dev build-base cmake python3 git automake autoconf```
     * Grab your Alpine Linux version using the command `grep PRETTY_NAME /etc/os-release`.  I get `PRETTY_NAME='Alpine Linux v3.14'`, so my version is `v3.14`.  Substitute that into the next command for `[version]`.
     * ```apk add --no-cache binutils-arm-none-eabi gcc-arm-none-eabi newlib-arm-none-eabi --repository http://dl-cdn.alpinelinux.org/alpine/[version]/community```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Linux with dnf or yum)
 1. In a Terminal window, run the following command (replace `dnf` with `yum` if applicable):
     * ```sudo dnf install libpng-devel arm-none-eabi-gcc-cs arm-none-eabi-newlib.noarch cmake python3 git automake autoconf make```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Linux with pacman)
 1. In a Terminal window, run the following command:
     * ```sudo pacman -S libpng cmake python-pip python git automake autoconf arm-none-eabi-gcc arm-none-eabi-newlib pkg-config base-devel```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
@@ -74,6 +78,7 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
     * ```brew install python3 libpng automake autoconf cmake zlib pkg-config zstd```
     * ```brew install --cask gcc-arm-embedded```
     * ```export PKG_CONFIG_PATH=$(brew --prefix zlib)/lib/pkgconfig```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
@@ -91,6 +96,8 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 5. In WSL, run the following commands:
     * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip python3-venv cmake automake autoconf gcc-arm-none-eabi pkg-config```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
+
 6. Once the last process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
@@ -99,7 +106,7 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 2. Open up the base MSYS2 with the light purple background.
 3. Execute the commands:
     * ```pacman -Syu```
-    * ```pacman -S gcc base-devel cmake python git automake autoconf mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel```
+    * ```pacman -S gcc base-devel cmake python git automake autoconf mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel mingw-w64-x86_64-rust```
     * ```export PATH=$PATH:/mingw64/bin```
     * ```echo export PATH='$'PATH:/mingw64/bin >> ~/.bashrc```
     * ```python3 -m ensurepip --upgrade```
@@ -148,14 +155,6 @@ git clone --recursive https://github.com/BluRosie/hg-engine.git
 cd hg-engine
 ```
 2. Continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
-
-## Optional: dsrom
-
-`dsrom` is written in Rust, so building it from source requires a Rust toolchain in addition to whatever you installed above:
-* **Linux/macOS**: install [rustup](https://rustup.rs/) (`curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh`), or use your package manager's `rust`/`cargo` package if it's reasonably current.
-* **Windows (WSL or MSYS2)**: install [rustup](https://rustup.rs/) the same way as Linux from within WSL, or run `pacman -S mingw-w64-x86_64-rust` from MSYS2.
-
-Once the Rust toolchain is installed, `make ROM_TOOL=dsrom` will clone and build `dsrom` the same way it builds `armips` or `ndstool`; no other setup is needed.
 
 ## Build Instructions (All Platforms) (Continued from Further Setup Instructions)
 
