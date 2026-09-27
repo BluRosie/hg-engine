@@ -3431,7 +3431,7 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
             ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp, 8);
         }
     }
-
+    ctx->battlerIdTemp = battlerId;
     return FALSE;
 }
 

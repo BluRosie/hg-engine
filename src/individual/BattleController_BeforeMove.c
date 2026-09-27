@@ -1026,7 +1026,9 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 #endif
 
         ctx->wb_seq_no++;
-        BattleController_CheckAbilityFailures4_OtherAromaVeilSturdy(bsys, ctx);
+        if (BattleController_CheckAbilityFailures4_OtherAromaVeilSturdy(bsys, ctx)) {
+            return;
+        }
         FALLTHROUGH;
     }
     case BEFORE_MOVE_STATE_MOVE_ACCURACY: {
@@ -3775,11 +3777,14 @@ BOOL BattleController_CheckAbilityFailures4_OtherAromaVeilSturdy(struct BattleSy
 
     if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->defence_client, ABILITY_STURDY) && moveEffect == MOVE_EFFECT_ONE_HIT_KO) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
-        ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = MOVE_STATUS_FAILED;
+        ctx->moveStatusFlagForSpreadMoves[ctx->defence_client] = MOVE_STATUS_ONE_HIT_KO_FAILED;
         ctx->battlerIdTemp = ctx->defence_client;
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY);
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        ctx->waza_status_flag |= MOVE_STATUS_NO_MORE_WORK;
+        ctx->wb_seq_no = BEFORE_MOVE_START;
+
         return TRUE;
     }
     return FALSE;
