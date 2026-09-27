@@ -110,8 +110,8 @@ BEGIN_TEST
         } },
 
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom’s Solar Power" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Toxicroak’s Dry Skin" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Houndoom's Solar Power" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Toxicroak's Dry Skin" },
     }
 }
 END_TEST

@@ -119,9 +119,9 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mew used Sheer Cold!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle's Sturdy" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Shuckle..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Shuckle..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mew used Sheer Cold!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Lapras..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect the opposing Lapras..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Torterra!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mew used Sheer Cold!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Torterra is unaffected!" },
