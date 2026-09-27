@@ -94,7 +94,7 @@ jobs:
         run: |
           sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
           sudo apt update
-          sudo apt -y --allow-downgrades install libpng-dev build-essential cmake python3-pip python3-venv git autoconf gcc-arm-none-eabi pkg-config
+          sudo apt -y --allow-downgrades install libpng-dev build-essential python3-pip python3-venv git gcc-arm-none-eabi pkg-config
           sudo apt curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
 
       - name: Move built file (1)
