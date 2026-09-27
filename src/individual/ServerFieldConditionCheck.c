@@ -528,6 +528,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                             && (sp->battlemon[BATTLER_ALLY(battlerId)].hp)
                             && (BattleRand(bw) % 10 < 3)) // 30% chance
                         {
+                            sp->state_client = battlerId;
                             battlerId = BATTLER_ALLY(battlerId);
                             seq_no = BATTLE_SUBSCRIPT_HANDLE_HEALER;
                             ret = TRUE;

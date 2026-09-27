@@ -15,7 +15,7 @@ BEGIN_TEST
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
-            .status = STATUS_BURN,
+            .status = STATUS_POISON,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
@@ -105,7 +105,12 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Manaphy's Hydration" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Manaphy woke up!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dewgong's Hydration" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dewgong was cured of its poisoning!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Seel's Hydration" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Seel was cured of paralysis!" },
     }
 }
 END_TEST
