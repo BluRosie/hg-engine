@@ -86,7 +86,7 @@ venv: $(VENV_ACTIVATE)
 $(VENV_ACTIVATE):
 	$(PYTHON_NO_VENV) -m venv $(VENV)
 ifeq ($(MSYS2), 0)
-	$(PYTHON) -m pip install ndspy==4.1.0
+	$(PYTHON) -m pip install ndspy==4.1.0 PyYAML
 else
 	$(PYTHON) -m pip install -r $(REQUIREMENTS)
 endif
@@ -107,10 +107,15 @@ SPECIESDATAGEN := tools/speciesdatagen
 TRAINERDATAGEN := tools/trainerdatagen
 NARCHIVE := $(PYTHON) tools/narcpy.py
 NDSTOOL := tools/ndstool
+DSROM := tools/dsrom
+# recursive (=) assignment: $(BASE)/$(FILESYS) are not defined until the Output section below
+DSROM_BRIDGE = $(PYTHON) scripts/dsrom_bridge.py --dsrom-bin $(DSROM) --dsrom-dir $(BASE)_dsrom --base $(BASE) --filesys $(FILESYS)
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
 JSONPROC := tools/jsonproc
+
+ROM_TOOL ?= $(DSROM)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
@@ -185,7 +190,26 @@ ifeq (,$(wildcard $(NDSTOOL)))
 	rm -r -f tools/source/ndstool
 endif
 
+ifeq ($(ROM_TOOL),$(DSROM))
+TOOLS += $(DSROM)
+else
 TOOLS += $(NDSTOOL)
+endif
+
+$(DSROM):
+ifeq (,$(wildcard $(DSROM)))
+	rm -r -f tools/source/ds-rom
+	cd tools/source ; git clone https://github.com/AetiasHax/ds-rom.git
+	cd tools/source/ds-rom ; git checkout 3bfef542191764df2afa39254bbf18f68c621d22
+	cd tools/source/ds-rom ; cargo build --release -p ds-rom-cli
+	@# workaround for cargo build with spaces in the project path
+ifeq (,$(CARGO_TARGET_DIR))
+	cp tools/source/ds-rom/target/release/dsrom $(DSROM)
+else
+	cp $(CARGO_TARGET_DIR)/release/dsrom $(DSROM)
+endif
+	rm -r -f tools/source/ds-rom
+endif
 
 $(ARMIPS):
 ifeq (,$(wildcard $(ARMIPS)))
@@ -312,11 +336,19 @@ $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
 # only reextract from the rom if the romname is newer than the extracted arm9.bin
+ifeq ($(ROM_TOOL),$(DSROM))
+$(BASE)/arm9.bin: $(ROMNAME) $(DSROM) $(VENV_ACTIVATE)
+	rm -rf $(BASE) $(BASE)_dsrom
+	@mkdir -p $(REQUIRED_DIRECTORIES)
+	$(DSROM_BRIDGE) extract --rom $(ROMNAME)
+	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+else
 $(BASE)/arm9.bin: $(ROMNAME) $(NDSTOOL) $(VENV_ACTIVATE)
 	rm -rf $(BASE)
 	@mkdir -p $(REQUIRED_DIRECTORIES)
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+endif
 
 all: $(OUTPUT) $(OVERLAY_OUTPUTS) $(TOOLS) $(BASE)/arm9.bin
 	@# find and delete macOS and windows files
@@ -327,7 +359,11 @@ all: $(OUTPUT) $(OVERLAY_OUTPUTS) $(TOOLS) $(BASE)/arm9.bin
 	$(ARMIPS) armips/global.s $(ARMIPS_FLAGS)
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM..."
+ifeq ($(ROM_TOOL),$(DSROM))
+	$(DSROM_BRIDGE) pack --rom $(BUILDROM)
+else
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
+endif
 	@echo "Done.  See output $(BUILDROM)."
 
 
@@ -343,7 +379,7 @@ restore_build: | restore all
 
 ####################### Clean #######################
 clean:
-	rm -rf $(BUILD) $(BASE) $(BUILD)/rom_gen.ld $(BUILD)/rom_gen_battle.ld
+	rm -rf $(BUILD) $(BASE) $(BASE)_dsrom $(BUILD)/rom_gen.ld $(BUILD)/rom_gen_battle.ld
 	rm -rf $(shell find . -type d -name "generated")
 	@echo "Build artifacts removed."
 

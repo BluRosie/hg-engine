@@ -4,6 +4,7 @@
 *.mch
 build/*
 base/*
+base_dsrom/*
 narc/*
 *_DSPRE_contents/*
 /tools/*.s
@@ -30,6 +31,7 @@ narc/*
 /tools/pokedexdatagen*
 /tools/speciesdatagen*
 /tools/trainerdatagen*
+/tools/dsrom*
 
 *.o
 *.d
@@ -62,3 +64,8 @@ test_logs.txt
 dumped_armips/
 dumped_c/
 test_filter.txt
+
+/scripts/data/*
+/scripts/fixed/moves-updated.s
+
+/hg-engine.wiki/

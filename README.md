@@ -43,27 +43,31 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following command:
-    * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi pkg-config```
+    * ```sudo apt-get install libpng-dev build-essential python3-pip python3-venv git gcc-arm-none-eabi pkg-config```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Linux with apk)
 1. In a Terminal window, run the following command:
-    * ```apk add libpng-dev build-base cmake python3 git automake autoconf```
+    * ```apk add libpng-dev build-base python3 git```
     * Grab your Alpine Linux version using the command `grep PRETTY_NAME /etc/os-release`.  I get `PRETTY_NAME='Alpine Linux v3.14'`, so my version is `v3.14`.  Substitute that into the next command for `[version]`.
     * ```apk add --no-cache binutils-arm-none-eabi gcc-arm-none-eabi newlib-arm-none-eabi --repository http://dl-cdn.alpinelinux.org/alpine/[version]/community```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Linux with dnf or yum)
 1. In a Terminal window, run the following command (replace `dnf` with `yum` if applicable):
-    * ```sudo dnf install libpng-devel arm-none-eabi-gcc-cs arm-none-eabi-newlib.noarch cmake python3 git automake autoconf make```
+    * ```sudo dnf install libpng-devel arm-none-eabi-gcc-cs arm-none-eabi-newlib.noarch python3 git make```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
 ## Setup Instructions (Linux with pacman)
 1. In a Terminal window, run the following command:
-    * ```sudo pacman -S libpng cmake python-pip python git automake autoconf arm-none-eabi-gcc arm-none-eabi-newlib pkg-config base-devel```
+    * ```sudo pacman -S libpng python-pip python git arm-none-eabi-gcc arm-none-eabi-newlib pkg-config base-devel```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
@@ -71,9 +75,10 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 1. If you don't have it already, install `brew` by running the following in Terminal: ```/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"```
 2. In a Terminal window, run the following commands:
     * ```xcode-select --install```
-    * ```brew install python3 libpng automake autoconf cmake zlib pkg-config zstd```
+    * ```brew install python3 libpng zlib pkg-config zstd```
     * ```brew install --cask gcc-arm-embedded```
     * ```export PKG_CONFIG_PATH=$(brew --prefix zlib)/lib/pkgconfig```
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 3. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
@@ -89,8 +94,10 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 4. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take quite a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
     * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
 5. In WSL, run the following commands:
-    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip python3-venv cmake automake autoconf gcc-arm-none-eabi pkg-config```
+    * ```sudo apt-get install build-essential git libpng-dev gdebi-core python3 python3-pip python3-venv gcc-arm-none-eabi pkg-config```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
+    * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
+
 6. Once the last process has finished, continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
 
@@ -99,7 +106,7 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 2. Open up the base MSYS2 with the light purple background.
 3. Execute the commands:
     * ```pacman -Syu```
-    * ```pacman -S gcc base-devel cmake python git automake autoconf mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel```
+    * ```pacman -S gcc base-devel python git mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel mingw-w64-x86_64-rust```
     * ```export PATH=$PATH:/mingw64/bin```
     * ```echo export PATH='$'PATH:/mingw64/bin >> ~/.bashrc```
     * ```python3 -m ensurepip --upgrade```
@@ -212,6 +219,7 @@ If the CLI indicates merge conflicts, check [this article][github-merge-conflict
 * [**PokeDiamond decompilation projects (nitrogfx, msgenc)**][diamond]
 * [**Mikelan98, Nomura (ARM9 Expansion Subroutine )**][ARM9]
 * Rafael Vuijk (ndstool)
+* [Aetias (dsrom)](https://github.com/AetiasHax/ds-rom)
 * Come swing by the [Kingdom of DS Hacking](https://discord.gg/zAtqJDW2jC) or [DS Modding Community](https://discord.gg/YBtdN3aXfv) Discord servers for any help with this!
 
 [MONEXPAND]: https://github.com/BluRosie/hgss-monexpansion
