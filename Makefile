@@ -202,8 +202,12 @@ ifeq (,$(wildcard $(DSROM)))
 	cd tools/source ; git clone https://github.com/AetiasHax/ds-rom.git
 	cd tools/source/ds-rom ; git checkout 3bfef542191764df2afa39254bbf18f68c621d22
 	cd tools/source/ds-rom ; cargo build --release -p ds-rom-cli
-	@# keep both names
+	@# workaround for cargo build with spaces in the project path
+ifeq (,$(CARGO_TARGET_DIR))
 	cp tools/source/ds-rom/target/release/dsrom $(DSROM)
+else
+	cp $(CARGO_TARGET_DIR)/release/dsrom $(DSROM)
+endif
 	rm -r -f tools/source/ds-rom
 endif
 
