@@ -2694,7 +2694,8 @@ BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, i
             accuracy = 20;
         }
         accuracy += levelDiff;
-        if (levelDiff >= 0) {
+        //if (levelDiff >= 0) //checked in BeforeMove
+        {
             if (lockOnOrNoGuard || ((BattleRand(bw) % 100) < accuracy)) {
                 sp->waza_status_flag &= ~MOVE_STATUS_MISSED;
                 sp->waza_status_flag |= MOVE_STATUS_ONE_HIT_KO;
