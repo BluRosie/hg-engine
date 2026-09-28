@@ -86,7 +86,7 @@ venv: $(VENV_ACTIVATE)
 $(VENV_ACTIVATE):
 	$(PYTHON_NO_VENV) -m venv $(VENV)
 ifeq ($(MSYS2), 0)
-	$(PYTHON) -m pip install ndspy==4.1.0
+	$(PYTHON) -m pip install ndspy==4.1.0 PyYAML
 else
 	$(PYTHON) -m pip install -r $(REQUIREMENTS)
 endif
