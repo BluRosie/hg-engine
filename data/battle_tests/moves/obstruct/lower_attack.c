@@ -88,6 +88,6 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Obstagoon protected itself!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Lopunny used Pound!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Obstagoon protected itself!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Lopunny's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Lopunny's Defense harshly fell!" },
     },
 } END_TEST
