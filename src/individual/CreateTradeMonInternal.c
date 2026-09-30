@@ -1,22 +1,19 @@
 #include "../../include/constants/species.h"
-#include "../../include/constants/pokemon_nickname.h"
 #include "../../include/npc_trade.h"
 #include "../../include/pokemon.h"
 #include "../../include/save.h"
 #include "../../include/types.h"
 
-
-
 void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokemon *mon, struct NPCTrade *trade_dat, u32 level, u32 tradeno, u32 mapno, u32 met_level_strat, u32 heapId)
 {
     String *name;
+    u8 nickname_flag;
     u32 mapsec;
     int heapId_2;
 
     u16 OtIdLow = 0;
     u16 OtIdHigh = 0;
     u32 klayrtrade = GetScriptVar(0x4007); //in scripting, setVar 0x4007 before calling the gift/trade
-    trade_dat->heldItem = ITEM_NONE;
     u16 Move1 = 65535;
     u16 Move2 = 65535;     // just default it to max, unlikely 65535 moves will ever be defined
     u16 Move3 = 65535;
@@ -41,6 +38,8 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     // pid for a shiny Kenya is 3420899336, for example if struggling to engineer a shiny trade
 #ifdef TRADE_EXPANSION
     if (tradeno == 7) {      // just in case 0x4000 is dirty, and/or you care about vanilla trades
+
+
         if (klayrtrade == 1) {               // same as 0x4000 to access this trade.
 
             // EXAMPLE TRADE FOR YOUR PLEASURE
@@ -76,6 +75,7 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
 
 
         if (klayrtrade == 77) { // Let's make a completly random mon!
+
         // weeding species is gonna take some work, so stay with the mess!
         bool goodspecies = 0;
         while (goodspecies == 0){
@@ -149,8 +149,10 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
             EncodeName(customOT, encodedOTName);
         }
 
+        
+        
+        
     }
-
 #endif //TRADE_EXPANSION
 
     // there is ALOT of data you COULD inject if you want. You can find a list in
@@ -162,8 +164,6 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     if (OtIdHigh + OtIdLow != 0){                   // see if user inputted a trainer ID
     trade_dat->otId = (OtIdHigh * 65536)+OtIdLow;}  //combine OTID and SID into one var
 
-
-
     PokeParaSet(mon, trade_dat->give_species, level, 32, TRUE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId);
 
     heapId_2 = (int)heapId;
@@ -174,8 +174,7 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     else{SetMonData(mon, MON_DATA_NICKNAME_3 /*MON_DATA_NICKNAME_STRING = 119*/, name);}
 
     String_Delete(name);
-
-    u8 nickname_flag = TRUE;
+    nickname_flag = TRUE;
     SetMonData(mon, MON_DATA_HAS_NICKNAME, &nickname_flag);
 
     if(ability != 65535){
@@ -188,6 +187,11 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     SetMonData(mon, MON_DATA_SPATK_IV, &trade_dat->spAtkIv);
     SetMonData(mon, MON_DATA_SPDEF_IV, &trade_dat->spDefIv);
 
+    SetMonData(mon, MON_DATA_COOL, &trade_dat->cool);
+    SetMonData(mon, MON_DATA_BEAUTY, &trade_dat->beauty);
+    SetMonData(mon, MON_DATA_CUTE, &trade_dat->cute);
+    SetMonData(mon, MON_DATA_SMART, &trade_dat->smart);
+    SetMonData(mon, MON_DATA_TOUGH, &trade_dat->tough);
 
     if(Move1 != 65535){
         SetMonData(mon, MON_DATA_MOVE1, &Move1);}
@@ -204,11 +208,8 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     SetMonData(mon, MON_DATA_HELD_ITEM, &trade_dat->heldItem);
 
     name = _GetNpcTradeName(heapId_2, NPC_TRADE_OT_NUM(tradeno));
-
     if(encodedOTName[0] != 0){SetMonData(mon, MON_DATA_OT_NAME, encodedOTName);}
     else{SetMonData(mon, MON_DATA_OT_NAME_2, name);}
-
-
     String_Delete(name);
 
     SetMonData(mon, MON_DATA_MET_GENDER, &trade_dat->gender);
