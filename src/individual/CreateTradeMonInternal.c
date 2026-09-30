@@ -38,10 +38,10 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
 
     // pid for a shiny Kenya is 3420899336, for example if struggling to engineer a shiny trade
 #ifdef TRADE_EXPANSION
-    if (tradeno == 7) {      // just in case 0x4000 is dirty, and/or you care about vanilla trades
+    if (tradeno == 7) {      // just in case 0x4007 is dirty, and/or you care about vanilla trades
 
 
-        if (klayrtrade == 1) {               // same as 0x4000 to access this trade.
+        if (klayrtrade == 1) {               // same as 0x4007 to access this trade.
 
             // EXAMPLE TRADE FOR YOUR PLEASURE
             trade_dat->give_species = SPECIES_SPEAROW;   // species/form. forms have species names too
