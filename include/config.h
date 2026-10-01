@@ -99,7 +99,7 @@
 
 // UPDATE_OVERWORLD_POISON will remove overworld poison if enabled
 // comment the line out below to retain overworld poison
-// #define UPDATE_OVERWORLD_POISON
+#define UPDATE_OVERWORLD_POISON
 
 // DISABLE_END_OF_TURN_WEATHER_MESSAGE removes the weather messages at the end of the turn.  instead the bottom screen icon can be used
 // uncomment the line out to get this functionality
@@ -112,7 +112,7 @@
 // IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS allows wild species to appear with different forms if it has multiple forms.
 // Normally you will use monwithform, encounterwithform, headbuttencounterwithform to specify different forms (similar to Gen 5+)
 // Uncomment this line to enable this functionality
-#define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
+// #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
 
 // Some forms only exist in their debut games, with accompying mechanics. IMPLEMENT_GONE_SPECIES_MECHANICS lets these forms' mechanics coexist with the latest mechanics. Examples include Noble Pokémon
 #define IMPLEMENT_DEXIT_FORMS_MECHANICS
@@ -124,11 +124,11 @@
 // SHINY_ODDS are the odds that a pokémon will be shiny.  actual odds are SHINY_ODDS over 65,536, by default 8 / 65536 or 1 / 8192
 // note that changing this still has no chance of spawning shiny mons in for trainers like the tutorial's method does
 // this will change existing mons too!  if you want to change the odds of wild mons only, you will have to add a certain amount of pid rerolls to the AddWildPartyPokemon routine
-#define SHINY_ODDS 15
+#define SHINY_ODDS 8
 
 // FRIENDSHIP_EVOLUTION_THRESHOLD defines the amount of friendship needed to evolve mons with friendship-related evolutions
 // modern generations have this value at 160, older ones at 220.  still max out at 255
-#define FRIENDSHIP_EVOLUTION_THRESHOLD 170
+#define FRIENDSHIP_EVOLUTION_THRESHOLD 160
 
 // Friendship grants additional bonuses.
 // Comment out the line below to revert back to Gen 5- behaviour
@@ -136,16 +136,16 @@
 
 // RESTORE_ITEMS_AT_BATTLE_END will restore held items that are single-use at the end of battle (Gen 9)
 // comment out the line below to revert back to Gen 8- behavior
-// #define RESTORE_ITEMS_AT_BATTLE_END
+#define RESTORE_ITEMS_AT_BATTLE_END
 
 // AI_CAN_GRAB_ITEMS allows to use Trick, Switcheroo, (Thief still todo) on the Player and actually grab items. This can result in lost items.
 #define AI_CAN_GRAB_ITEMS
 
 // PROTEAN_GENERATION defines the behavior that Protean should exhibit, where it either changes type every move (<=8) or changes type once per appearance in battle (>=9)
-#define PROTEAN_GENERATION 3
+#define PROTEAN_GENERATION GEN_LATEST
 
 // BATTLE_BOND_GENERATION defines the behavior that Battle Bond should exhibit, where it either changes Greninja's Form to Ash-Greninja (<=8) or it raises Atk, Spatk, Speed once per battle (>=9)
-#define BATTLE_BOND_GENERATION 6
+#define BATTLE_BOND_GENERATION GEN_LATEST
 
 // CORROSIVE_GAS_IMPLIED_BEHAVIOUR defines the behavior that Corrosive Gas should exhibit, where it either does it does not affect a Kyogre, a Groudon, or species holding their respective Mega Stones to not lose their Blue Orb, Red Orb, and Mega Stones respectively (TRUE), or affects species in the above cases (FALSE).
 #define CORROSIVE_GAS_IMPLIED_BEHAVIOUR TRUE
@@ -153,7 +153,7 @@
 // SNOW_WARNING_GENERATION controls whether to summon Snow or Hail when the ability is activated.
 // 9 or above: Snow
 // Otherwise: Hail
-#define SNOW_WARNING_GENERATION 3
+#define SNOW_WARNING_GENERATION GEN_LATEST
 
 // IMPLEMENT_REUSABLE_REPELS defines whether or not a prompt to use another repel automatically appears upon the previous repel being used up
 #define IMPLEMENT_REUSABLE_REPELS
@@ -168,13 +168,16 @@
 #define REUSABLE_TMS
 
 // DELETABLE_HMS allows HMs to be forgotten, this also makes their quantity reduce, but the infinite TMs change prevents this.
-#define DELETABLE_HMS
+// #define DELETABLE_HMS
 
 // MART_EXPANSION allows for adding and modifying items to the mart inventories
 #define MART_EXPANSION
 
 // TRADE_EXPANSION allows use of scripting variable 0x4000 to allow for custom&more in game trades/loans
 #define TRADE_EXPANSION
+
+// TRADE_EXPANSION allows use of scripting variable 0x4000 to allow for custom&more in game trades/loans
+// #define TRADE_EXPANSION
 
 // POKEATHLON_EXPANSION allows for adding and modifying items to the Pokéathlon shop inventories
 // #define POKEATHLON_SHOP_EXPANSION
@@ -201,14 +204,14 @@
 #define MOON_BALL_GENERATION   GEN_LATEST
 
 // If caught, the Pokémon's friendship is set to 200 in Generations II through VII, or 150 in Generation VIII onwards.
-#define FRIEND_BALL_GENERATION 4
+#define FRIEND_BALL_GENERATION GEN_LATEST
 
 // THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN makes the Thunder & Storm map header weathers set permanent
 // Electric Terrain (and rain) in battle
 // #define THUNDER_STORM_WEATHER_ELECTRIC_TERRAIN
 
 // FOG_SETS_MISTY_TERRAIN makes the Fog map header weather set permanent Misty Terrain in battle
-#define FOG_WEATHER_MISTY_TERRAIN
+// #define FOG_WEATHER_MISTY_TERRAIN
 
 // NATURAL_GIFT_POWER_GEN defines the power of Natural Gift based on generation. Gen 6 or higher are modernized values.
 #define NATURAL_GIFT_POWER_GEN GEN_LATEST
@@ -244,7 +247,7 @@
 
 // SKIP_TUTORIAL_INFO will skip the tutorial when starting a new game and go straight to Professor Oak greeting you.
 // uncomment the line out to get this functionality
-#define SKIP_TUTORIAL_INFO
+// #define SKIP_TUTORIAL_INFO
 
 // Champions-specific move configurations. Set to 0 to use Scarlet/Violet values.
 #define CHAMPIONS_POWER_CHANGES         1
@@ -273,6 +276,14 @@
 
 // PLAY_MON_VICTORY_POSE enables the victory pose for Pokémon when fainting an opponent.
 // Comment out this define if you want to disable this feature.
-#define PLAY_MON_VICTORY_POSE
+// #define PLAY_MON_VICTORY_POSE
+
+// Dumps of the vanilla text (data/text), zone event data (data/eventdata/zone_event), and field scripts (data/scr_seq)
+// are shipped as a reference so that a hack can be diffed against what the game originally shipped with.
+// Dumped scripts are not built into the rom unless the matching define below is uncommented, so that a rom.nds edited with
+// DSPRE, PokeText, or any other external tool keeps its own version of everything hg-engine does not itself change.
+// hg-engine's own text archives and its common and trainer scripts are always built.
+// #define BUILD_DUMPED_EVENTDATA
+// #define BUILD_DUMPED_SCR_SEQ
 
 #endif
