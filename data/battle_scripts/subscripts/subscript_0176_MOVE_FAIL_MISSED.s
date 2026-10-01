@@ -4,6 +4,7 @@
 .data
 
 _000:
+    PrintAttackMessage
     // {0} avoided the attack!
     PrintMessage 24, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
     Wait 
