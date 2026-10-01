@@ -44,9 +44,9 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
         if (klayrtrade == 1) {               // same as 0x4007 to access this trade.
 
             // EXAMPLE TRADE FOR YOUR PLEASURE
-            trade_dat->give_species = SPECIES_CLEFFA;   // species/form. forms have species names too
+            trade_dat->give_species = SPECIES_SPEAROW;   // species/form. forms have species names too
             level = 10;
-            trade_dat->heldItem = ITEM_MOON_STONE; // Held item, changed default to none.
+            trade_dat->heldItem = ITEM_NONE; // Held item, changed default to none.
             ability = ABILITY_KEEN_EYE;      // defaults to an appropriate one for the species
             ball = ITEM_POKE_BALL;            //just put the item ID of the ball you'd like it to be in 
 
