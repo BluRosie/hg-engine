@@ -38,22 +38,22 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
 
     // pid for a shiny Kenya is 3420899336, for example if struggling to engineer a shiny trade
 #ifdef TRADE_EXPANSION
-    if (tradeno == 7) {      // just in case 0x4000 is dirty, and/or you care about vanilla trades
-
-
-        if (klayrtrade == 1) {               // same as 0x4000 to access this trade.
+    if (tradeno == 7) {      // have to call A trade. I was just using Kenya cause easy to test
+                            // and making it have to be a specific trade lowers the -already low- chance of
+                            // a dirty variable causing accidental calls.
+        if (klayrtrade == 1) {               // same as 0x4007 to access this trade.
 
             // EXAMPLE TRADE FOR YOUR PLEASURE
             trade_dat->give_species = SPECIES_CLEFFA;   // species/form. forms have species names too
             level = 10;
             trade_dat->heldItem = ITEM_MOON_STONE; // Held item, changed default to none.
             ability = ABILITY_KEEN_EYE;      // defaults to an appropriate one for the species
-            ball = ITEM_POKE_BALL;
+            ball = ITEM_POKE_BALL;            //just put the item ID of the ball you'd like it to be in 
 
             char customnickname[] = "Kenya""@";   //max 10;   add an @ after (its an _end char)
             char customOT[] = "Webster""@";       //max 7;    The max for both is NOT counting the @
 
-            trade_dat->pid = 27486;    	// Personality ID, in DECIMAL.   Controls Gender & Nature
+            trade_dat->pid = 27486;    	// Personality ID, remember, if HEX you need to 0x   Controls Gender & Nature
             OtIdLow = 1001;    	   	    // Original Trainer ID # remove front 0's'   MAX 65535
             OtIdHigh = 00000;			// Secret ID  remove front 0's. untested     MAX 65535
 
@@ -165,8 +165,8 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     // you might need to make a script to copy that weird kinda data from an existing mon
     // cause im sure spinda markings, or Ball Seals data is all kinds of complicated.
 
-    if (OtIdHigh + OtIdLow != 0){                   // see if user inputted a trainer ID
-    trade_dat->otId = (OtIdHigh * 65536)+OtIdLow;}  //combine OTID and SID into one var
+    if (OtIdHigh + OtIdLow != 0){                   // see if user inputted a trainer ID (sorry if you wanted all 0's)
+    trade_dat->otId = (OtIdHigh + 65536)+OtIdLow;}  //combine OTID and SID into one var
 
     PokeParaSet(mon, trade_dat->give_species, level, 32, TRUE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId);
 
