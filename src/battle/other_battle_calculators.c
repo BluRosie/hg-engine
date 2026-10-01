@@ -4553,7 +4553,7 @@ void LONG_CALL PrintBallBlockedMessage(struct tcb_skill_intp_work *data)
 }
 
 // Modifying this switch case allows you to assign any music to victory over a specific trainer class.
-void LONG_CALL PlayTrainerVictoryBGM(struct TrainerData *trainer)
+void LONG_CALL PlayTrainerVictoryBGM(struct Trainer *trainer)
 {
     switch (trainer->data.trainerClass) {
     case TRAINERCLASS_LEADER_FALKNER:
