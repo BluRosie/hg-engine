@@ -49610,46 +49610,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 1,
         .shadowSize = 3,
     },
-    [SPECIES_ZYGARDE_10_COMPLETE] = {
-        .frontHeader = {
-            .cryDelay = 0,
-            .animation = 2,
-            .animationDelay = 0,
-        },
-        .frontFrames = {
-                { .frameNo = 0, .duration = 4, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 10, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .backHeader = {
-            .cryDelay = 9,
-            .animation = 5,
-            .animationDelay = 11,
-        },
-        .backFrames = {
-                { .frameNo = 0, .duration = 11, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 15, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .spriteYOffset = -1,
-        .shadowXOffset = -3,
-        .shadowSize = 3,
-    },
-    [SPECIES_ZYGARDE_50_COMPLETE] = {
+    [SPECIES_ZYGARDE_COMPLETE] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51014,7 +50975,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_BERRY_SWEET] = {
+    [SPECIES_ALCREMIE_RUBY_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51053,7 +51014,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_LOVE_SWEET] = {
+    [SPECIES_ALCREMIE_MATCHA_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51092,7 +51053,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_STAR_SWEET] = {
+    [SPECIES_ALCREMIE_MINT_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51131,7 +51092,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_CLOVER_SWEET] = {
+    [SPECIES_ALCREMIE_LEMON_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51170,7 +51131,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_FLOWER_SWEET] = {
+    [SPECIES_ALCREMIE_SALTED_CREAM] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51209,7 +51170,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_RIBBON_SWEET] = {
+    [SPECIES_ALCREMIE_RUBY_SWIRL] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51248,7 +51209,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = -1,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_FILLER_1] = {
+    [SPECIES_ALCREMIE_CARAMEL_SWIRL] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -51287,7 +51248,7 @@ const SpriteFrameData __data[] = {
         .shadowXOffset = 0,
         .shadowSize = 2,
     },
-    [SPECIES_ALCREMIE_FILLER_2] = {
+    [SPECIES_ALCREMIE_RAINBOW_SWIRL] = {
         .frontHeader = {
             .cryDelay = 0,
             .animation = 2,
@@ -53352,201 +53313,6 @@ const SpriteFrameData __data[] = {
         },
         .spriteYOffset = -11,
         .shadowXOffset = 4,
-        .shadowSize = 2,
-    },
-    [SPECIES_REVAVROOM_SEGIN] = {
-        .frontHeader = {
-            .cryDelay = 0,
-            .animation = 2,
-            .animationDelay = 0,
-        },
-        .frontFrames = {
-                { .frameNo = 0, .duration = 4, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 10, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .backHeader = {
-            .cryDelay = 9,
-            .animation = 5,
-            .animationDelay = 11,
-        },
-        .backFrames = {
-                { .frameNo = 0, .duration = 11, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 15, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .spriteYOffset = 0,
-        .shadowXOffset = 0,
-        .shadowSize = 2,
-    },
-    [SPECIES_REVAVROOM_SCHEDAR] = {
-        .frontHeader = {
-            .cryDelay = 0,
-            .animation = 2,
-            .animationDelay = 0,
-        },
-        .frontFrames = {
-                { .frameNo = 0, .duration = 4, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 10, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .backHeader = {
-            .cryDelay = 9,
-            .animation = 5,
-            .animationDelay = 11,
-        },
-        .backFrames = {
-                { .frameNo = 0, .duration = 11, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 15, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .spriteYOffset = 0,
-        .shadowXOffset = 0,
-        .shadowSize = 2,
-    },
-    [SPECIES_REVAVROOM_NAVI] = {
-        .frontHeader = {
-            .cryDelay = 0,
-            .animation = 2,
-            .animationDelay = 0,
-        },
-        .frontFrames = {
-                { .frameNo = 0, .duration = 4, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 10, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .backHeader = {
-            .cryDelay = 9,
-            .animation = 5,
-            .animationDelay = 11,
-        },
-        .backFrames = {
-                { .frameNo = 0, .duration = 11, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 15, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .spriteYOffset = 0,
-        .shadowXOffset = 0,
-        .shadowSize = 2,
-    },
-    [SPECIES_REVAVROOM_RUCHBAH] = {
-        .frontHeader = {
-            .cryDelay = 0,
-            .animation = 2,
-            .animationDelay = 0,
-        },
-        .frontFrames = {
-                { .frameNo = 0, .duration = 4, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 10, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .backHeader = {
-            .cryDelay = 9,
-            .animation = 5,
-            .animationDelay = 11,
-        },
-        .backFrames = {
-                { .frameNo = 0, .duration = 11, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 15, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .spriteYOffset = 0,
-        .shadowXOffset = 0,
-        .shadowSize = 2,
-    },
-    [SPECIES_REVAVROOM_CAPH] = {
-        .frontHeader = {
-            .cryDelay = 0,
-            .animation = 2,
-            .animationDelay = 0,
-        },
-        .frontFrames = {
-                { .frameNo = 0, .duration = 4, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 10, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .backHeader = {
-            .cryDelay = 9,
-            .animation = 5,
-            .animationDelay = 11,
-        },
-        .backFrames = {
-                { .frameNo = 0, .duration = 11, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = 1, .duration = 15, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-                { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
-        },
-        .spriteYOffset = 0,
-        .shadowXOffset = 0,
         .shadowSize = 2,
     },
     [SPECIES_KORAIDON_LIMITED_BUILD] = {
