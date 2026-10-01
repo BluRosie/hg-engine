@@ -174,7 +174,7 @@
 #define MART_EXPANSION
 
 // TRADE_EXPANSION allows use of scripting variable 0x4007 to allow for custom&more in game trades/loans
-..#define TRADE_EXPANSION
+//#define TRADE_EXPANSION
 
 // POKEATHLON_EXPANSION allows for adding and modifying items to the Pokéathlon shop inventories
 // #define POKEATHLON_SHOP_EXPANSION
