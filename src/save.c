@@ -5,7 +5,9 @@
 #include "save.h"
 
 #include "constants/buttons.h"
+#include "constants/file.h"
 
+#include "map_events_internal.h"
 #include "message.h"
 #include "pokemon.h"
 #include "pokemon_storage_system.h"
@@ -948,4 +950,28 @@ void DestroyHeap(u32 heapId UNUSED)
     parentHeaps[heapId] = 0;
     heapSizes[heapId] = 0;
 #endif
+}
+
+/**
+ * @brief Intentionally hides the follower when loading a save to force the intended follower creation logic to run
+ *
+ * @param fieldSystem
+ */
+void LONG_CALL FieldSystem_RestoreMapObjectsFromSave(FieldSystem *fieldSystem)
+{
+    struct SavedMapObjectList *unk = Save_MapObjects_Get(fieldSystem->savedata);
+    struct SavedMapObject *follower = NULL;
+
+    for (u32 i = 0; i < NELEMS(unk->subs); i++) {
+        if ((unk->subs[i].flags & MAPOBJECTFLAG_ACTIVE) != 0 && unk->subs[i].objId == obj_partner_poke) {
+            follower = &unk->subs[i];
+            break;
+        }
+    }
+
+    if (follower != NULL) {
+        follower->flags &= ~MAPOBJECTFLAG_ACTIVE;
+    }
+
+    MapObjectManager_RestoreFromSave(fieldSystem->mapObjectMan, unk->subs, 64);
 }
