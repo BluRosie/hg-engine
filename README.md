@@ -172,7 +172,7 @@ cd hg-engine
     * Make sure to undo your changes to Terminal after you are done so it will run as a native arm64 application again (uncheck the checkbox from before).
 3. After the process completes, a new file will appear in the `hg-engine` folder named **test.nds**.
    * It is important to note that this alone will not add new Pokémon to the wild, trainers, etc...; it simply makes them available in your game. It is up to you to place them.
-   * You can edit various game data such as trainers, dex entries, Pokémon stats, and more in the files in `armips/data`.
+   * You can edit various game data such as trainers, dex entries, Pokémon stats, and more in the files in `data/` (for example `data/Trainers.c`, `data/Species.c`, `data/Moves.c` and `data/Encounters.c`).
 
 ## Build Instructions (Docker)
 
