@@ -898,3 +898,7 @@ $(MSGDATA_NARC): $(MSGDATA_DEPENDENCIES) $(MSGDATA_COMPILETIME_DEPENDENCIES) $(w
 		$(MSGENC) -e -c $(CHARMAP) $${key:+-k $$key} $$file $(MSGDATA_DIR)/7_$$archive; \
 	done
 	$(NARCHIVE) create $@ $(MSGDATA_DIR) -nf
+
+# rebuild every build so edits other tools make to base/root are not overwritten by a stale copy
+.PHONY: $(BATTLEHUD_NARC) $(MOVEPARTICLES_NARC) $(OPENDEMO_NARC) $(BAGGFX_NARC) $(DEXGFX_NARC) $(BATTLEGFX_NARC)
+.PHONY: $(OTHERPOKE_NARC) $(FONT_NARC) $(TEXTBOX_NARC) $(BALL_SPA_NARC) $(MSGDATA_NARC)
