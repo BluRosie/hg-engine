@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
 
 """
-Reads the script narc (a/0/1/2), the zone event narc (a/0/3/2), and the message narc (a/0/2/7) straight out of the ROM and regenerates data/scr_seq/scr_seq_*.s, data/scr_seq/event_*.inc, data/eventdata/zone_event/*.json, and data/text/*.txt.
+Reads the script narc (a/0/1/2), the zone event narc (a/0/3/2), and the message narc (a/0/2/7) straight out of the ROM and regenerates data/scr_seq/scr_seq_*.s, data/scr_seq/include/event_*.inc, data/eventdata/zone_event/*.json, and data/text/custom/*.txt.
 
-The mapping between narc subfiles and source file names ships in event_mapping.csv and the script command table lives in scrcmd.json. Symbol names are resolved from the repo's own constant includes. Command names, constants, and event data layouts follow the pret/pokeheartgold decompilation (https://github.com/pret/pokeheartgold), which this tool was templated on.
+The mapping between narc subfiles and source file names comes from the map header table in arm9 (or a/0/5/0 with the dynamic headers patch) and fielddata/maptable/mapname.bin, and the script command table lives in scrcmd.json. Symbol names are resolved from the repo's own constant includes. Command names, constants, and event data layouts follow the pret/pokeheartgold decompilation (https://github.com/pret/pokeheartgold), which this tool was templated on.
 
 Two script narc subfiles are hand-maintained instead of dumped: 2_003 (commonscript) and 2_953 (trainerscript). The text archives hg-engine edits or adds are hand-maintained the same way. Both are skipped unless --include-engine-managed is given, because a dump would replace an engine source with whatever the ROM happens to hold.
 
@@ -1169,8 +1169,8 @@ so all i care about is building a dictionary that can be accessed just fine
                                [956,725]]
     shutil.copyfile("base/arm9.bin", "build/arm9.bin")
     arm9 = open("build/arm9.bin", "wb+")
-    with open("base/arm9.bin", 'rb') as rom:
-        bin = rom.read()
+    with open("base/arm9.bin", 'rb') as base_arm9:
+        bin = base_arm9.read()
         if len(bin) < 0xBC000:
             print("Decompress arm9...")
             dec = bytearray(ndspy.codeCompression.decompress(bin))
@@ -1182,7 +1182,6 @@ so all i care about is building a dictionary that can be accessed just fine
             shutil.copyfile("build/arm9.bin", "base/arm9.bin")
         else:
             arm9.write(bin)
-        rom.close()
     arm9.close()
 
     arm9 = open("build/arm9.bin", "rb")
@@ -1206,10 +1205,10 @@ so all i care about is building a dictionary that can be accessed just fine
 
     for i in range(0, total_header_number):
         if (dynamicHeaderPatch == 0xB500): # read from a050
-            zone_event_idx = int.from_bytes(header_members[i][0x10:0x11], "little")
-            script_file_idx = int.from_bytes(header_members[i][0x6:0x7], "little")
-            level_script_idx = int.from_bytes(header_members[i][0x8:0x9], "little")
-            text_file_idx = int.from_bytes(header_members[i][0xA:0xB], "little")
+            zone_event_idx = int.from_bytes(header_members[i][0x10:0x12], "little")
+            script_file_idx = int.from_bytes(header_members[i][0x6:0x8], "little")
+            level_script_idx = int.from_bytes(header_members[i][0x8:0xA], "little")
+            text_file_idx = int.from_bytes(header_members[i][0xA:0xC], "little")
         else:
             # headers
             baseEntryOffset = 0x0F6BE0 + 0x18*i
