@@ -16,7 +16,7 @@ check_dump_rom:
 dump_prepare: check_dump_rom $(VENV_ACTIVATE) $(TOOLS) | $(DUMP_WORKDIRS)
 	rm -rf $(BASE) $(BASE)_dsrom
 	@mkdir -p $(REQUIRED_DIRECTORIES)
-ifeq ($(ROM_TOOL),dsrom)
+ifeq ($(ROM_TOOL),$(DSROM))
 	$(DSROM_BRIDGE) extract --rom "$(DUMP_ROM)"
 else
 	chmod +x $(DUMP_SCRIPT_LOCATION)/*.sh
