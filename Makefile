@@ -159,6 +159,7 @@ config_enabled = $(shell grep -E -c '^[[:space:]]*\#define[[:space:]]+$(1)[[:spa
 
 BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
 BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
+IMPLEMENT_TRANSPARENT_TEXTBOXES := $(call config_enabled,IMPLEMENT_TRANSPARENT_TEXTBOXES)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -514,11 +515,13 @@ endif
 	@echo "pokewalker icons:"
 	cp $(PW_POKEICON_NARC) $(PW_POKEICON_TARGET)
 
+ifneq ($(IMPLEMENT_TRANSPARENT_TEXTBOXES),0)
 	@echo "font:"
-	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
+	cp $(FONT_NARC) $(FONT_TARGET)
 
 	@echo "textbox:"
-	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
+	cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET)
+endif
 
 ifneq ($(strip $(SCR_SEQ_OBJS)),)
 	@echo "scripts:"
