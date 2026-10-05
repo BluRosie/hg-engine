@@ -1,4 +1,9 @@
-./tools/source/dumptools/dumprom.sh
+if [ -n "$1" ]; then
+    make dump_prepare DUMP_ROM="$1"
+elif [ ! -d base/root ]; then
+    echo "Run make first, or pass a ROM to dump: $0 path/to/rom.nds" >&2
+    exit 1
+fi
 rm -rf build/move
 mkdir -p build build/move/
 . .venv/bin/activate; python3 tools/narcpy.py extract base/root/a/0/0/0 -o build/move/battle_move_seq
