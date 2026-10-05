@@ -394,7 +394,7 @@ clean_code:
 	rm -f $(ALL_CODE_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) $(BUILD)/rom_gen.ld $(BUILD)/rom_gen_battle.ld
 
 ####################### Final ROM Build #######################
-CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8_1*) $(wildcard build/$(BUILD)/8_2*) $(BUILD)/a028/8_07 $(BUILD)/a028/8_08 $(BUILD)/a028/8_09
+CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8_1*) $(wildcard $(BUILD)/a028/8_2*) $(BUILD)/a028/8_07 $(BUILD)/a028/8_08 $(BUILD)/a028/8_09
 CODE_ADDON_ARTIFACTS := $(filter-out $(BUILD)/a028/8_1 $(BUILD)/a028/8_2 $(BUILD)/a028/8_3 $(BUILD)/a028/8_4 $(BUILD)/a028/8_5 $(BUILD)/a028/8_6, $(CODE_ADDON_ARTIFACTS))
 
 move_narc: $(NARC_FILES)
