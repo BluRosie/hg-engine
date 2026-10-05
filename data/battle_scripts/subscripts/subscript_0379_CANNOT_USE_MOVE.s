@@ -5,6 +5,8 @@
 
 _000:
     PrintAttackMessage
+    Wait
+    WaitButtonABTime 30
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED
     AbilityPopUp BATTLER_CATEGORY_MSG_BATTLER_TEMP
     
