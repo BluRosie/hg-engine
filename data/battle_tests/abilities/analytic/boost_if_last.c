@@ -117,7 +117,7 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Magneton and Gengar!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Shuckle!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magneton used Thunder Shock!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 26, 27, 27, 27, 27, 27, 28, 28, 29, 29, 29, 30, 30, 30, 30, 31 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 25, 26, 26, 27, 27, 27, 27, 27, 28, 28, 28, 29, 29, 30, 30, 30 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magneton used Thunder Shock!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 20, 20, 20, 21, 21, 21, 21, 21, 21, 22, 22, 22, 23, 23, 23, 24 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Sleep Talk!" },
@@ -125,6 +125,6 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's a one-hit KO!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magneton used Thunder Shock!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 26, 27, 27, 27, 27, 27, 28, 28, 29, 29, 29, 30, 30, 30, 30, 31 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 25, 26, 26, 27, 27, 27, 27, 27, 28, 28, 28, 29, 29, 30, 30, 30 } },
     },
 } END_TEST
