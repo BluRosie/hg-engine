@@ -147,5 +147,6 @@ struct TrainerMoney PrizeMoney[] = // 0x34C04 in Overlay 12; 2 bytes for trainer
         { .class = TRAINERCLASS_LEADER_BYRON, .multiplier = 30 },
         { .class = TRAINERCLASS_LEADER_CANDICE, .multiplier = 30 },
         { .class = TRAINERCLASS_LEADER_VOLKNER, .multiplier = 30 },
+        { .class = TRAINERCLASS_CHAMPION_CYNTHIA, .multiplier = 50 },
     };
 #endif // EXPAND_TRAINER_PRIZE_MONEY

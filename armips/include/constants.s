@@ -277,6 +277,7 @@
 .equ TRAINERCLASS_LEADER_BYRON,               134
 .equ TRAINERCLASS_LEADER_CANDICE,             135
 .equ TRAINERCLASS_LEADER_VOLKNER,             136
+.equ TRAINERCLASS_CHAMPION_CYNTHIA,           137
 // pokedex data constants
 .equ DEX_END_AREA_DATA, 0x0
 
