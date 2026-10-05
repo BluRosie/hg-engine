@@ -105,8 +105,19 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Blissey used Final Gambit!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Aron's Sturdy" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Blissey fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Chansey used Seismic Toss!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Aron's Sturdy" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Aron used Metal Burst!" },
-        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 542 }, // 641-(100-1)
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 148, 148, 148, 148, 148, 148, 148, 148, 148, 148, 148, 148, 148, 148, 148, 148 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Aron used Metal Burst!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 0, .expectationValue.currentHP = 493 }, // 641-((100-1)*15/10) = 641 - 148
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Aron can act faster than normal, thanks to its Custap Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
     }
 }
 END_TEST
