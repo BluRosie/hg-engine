@@ -113,7 +113,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Palossand's HP is full!" },//failed move does not overwrite lastMove 
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstic used Copycat!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstic used Thunder Wave!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn’t affect the opposing Dedenne..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "It doesn’t affect the opposing" }, //random target
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Infernape used Ember!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dedenne used Copycat!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dedenne used Ember!" },
