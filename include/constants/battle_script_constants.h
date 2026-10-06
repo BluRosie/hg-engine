@@ -759,16 +759,6 @@
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
 
-// additional effect constants
-#define ADD_STATUS_NONE        (0)
-#define ADD_STATUS_DIRECT      (1)
-#define ADD_STATUS_INDIRECT    (2)
-#define ADD_STATUS_ABILITY     (3)
-#define ADD_STATUS_MOVE_EFFECT (4)
-#define ADD_STATUS_SOUBIITEM   (5)
-#define ADD_STATUS_DOKUBISI    (6)
-#define ADD_STATUS_IGNORE      (7)
-
 #define BATTLE_ANIMATION_NONE               0
 #define BATTLE_ANIMATION_ASLEEP             1
 #define BATTLE_ANIMATION_POISONED           2
