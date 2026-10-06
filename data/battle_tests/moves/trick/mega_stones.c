@@ -106,9 +106,9 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Steelix has Mega Evolved into Mega Steelix!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstick used Trick!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstic used Trick!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mewscarada switched items with its target!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstick used Trick!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstic used Trick!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Steelix used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Steelix used Sleep Talk!" },
