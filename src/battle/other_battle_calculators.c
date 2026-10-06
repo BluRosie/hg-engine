@@ -4165,7 +4165,8 @@ BOOL LONG_CALL CanItemBeRemovedFromSpecies(u16 species, u16 item, u32 form)
 
     // then the other swathes of species
     if ((IS_SPECIES_PARADOX_FORM(species) && item == ITEM_BOOSTER_ENERGY)
-        || (CheckMegaData(species, item, form))) {
+        || CheckMegaData(species, item, form) 
+        || IsMegaSpecies(species, form)) {
         return FALSE;
     }
 
