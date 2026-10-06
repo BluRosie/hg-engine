@@ -179,10 +179,10 @@ void LONG_CALL ov12_0224D23C(struct BattleSystem *bsys, struct BattleStruct *ctx
     if (!(ctx->server_status_flag & BATTLE_STATUS_NO_MOVE_SET)) {
         if (ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE) {
             ctx->moveProtect[ctx->attack_client] = ctx->current_move_index;
-            //ctx->lastSuccessfulMove = ctx->moveNoTemp; // we overwrite the previous move in MoveEnd only if successful (gen5+)
+            // ctx->lastSuccessfulMove = ctx->moveNoTemp; // we overwrite the previous move in MoveEnd only if successful (gen5+)
         } else {
             ctx->moveProtect[ctx->attack_client] = MOVE_NONE;
-            //ctx->lastSuccessfulMove = MOVE_NONE;
+            // ctx->lastSuccessfulMove = MOVE_NONE;
         }
         if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED) {
             ctx->waza_no_old[ctx->attack_client] = ctx->moveNoTemp;
