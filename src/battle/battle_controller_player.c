@@ -179,10 +179,10 @@ void LONG_CALL ov12_0224D23C(struct BattleSystem *bsys, struct BattleStruct *ctx
     if (!(ctx->server_status_flag & BATTLE_STATUS_NO_MOVE_SET)) {
         if (ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE) {
             ctx->moveProtect[ctx->attack_client] = ctx->current_move_index;
-            ctx->waza_no_last = ctx->moveNoTemp;
+            //ctx->lastSuccessfulMove = ctx->moveNoTemp; // we overwrite the previous move in MoveEnd only if successful (gen5+)
         } else {
             ctx->moveProtect[ctx->attack_client] = MOVE_NONE;
-            ctx->waza_no_last = MOVE_NONE;
+            //ctx->lastSuccessfulMove = MOVE_NONE;
         }
         if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED) {
             ctx->waza_no_old[ctx->attack_client] = ctx->moveNoTemp;
@@ -227,12 +227,10 @@ void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStru
                 ctx->waza_no_hit[ctx->defence_client] = ctx->current_move_index;
                 ctx->waza_no_hit_client[ctx->defence_client] = ctx->attack_client;
                 ctx->waza_no_hit_type[ctx->defence_client] = moveType;
-                ctx->waza_no_last = ctx->moveNoTemp;
             } else {
                 ctx->waza_no_hit[ctx->defence_client] = MOVE_NONE;
                 ctx->waza_no_hit_client[ctx->defence_client] = BATTLER_NONE;
                 ctx->waza_no_hit_type[ctx->defence_client] = 0; // Intended to be 'no type' but is technically TYPE_NORMAL.
-                ctx->waza_no_last = MOVE_NONE;
             }
 
             if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED && !(ctx->waza_status_flag & MOVE_STATUS_FAILED)) {

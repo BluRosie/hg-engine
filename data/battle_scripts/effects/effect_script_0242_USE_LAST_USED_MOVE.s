@@ -5,9 +5,9 @@
 
 _000:
     SetPsychicTerrainMoveUsedFlag 
-    TryCopycat _011
     PrintAttackMessage 
     Wait 
+    TryCopycat _011
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait 
     GotoIfCurrentMoveIsValidForParentalBond _016

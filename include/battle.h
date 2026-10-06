@@ -974,7 +974,7 @@ struct BattleStruct {
     /*0x3044*/ u32 current_move_index;
     // u8 unk_bytes4[0x74];
 
-    /*0x3048*/ u32 waza_no_last; // The most recently used move in the battle (other than the current one).
+    /*0x3048*/ u32 lastSuccessfulMove; // The most recently used move in the battle (other than the current one).
     /*0x304C*/ u32 waza_no_keep[CLIENT_MAX];
 
     /*0x305C*/ u16 moveProtect[CLIENT_MAX];
@@ -3113,6 +3113,7 @@ BOOL LONG_CALL CanUndergoPrimalReversion(struct BattleStruct *sp, u8 client_no);
 
 // defined in mega.c
 BOOL LONG_CALL CheckMegaData(u32 mon, u32 item, u32 form);
+BOOL LONG_CALL IsMegaSpecies(u32 mon, u32 form);
 
 /**
  *  @brief grab mega form of a specific species with specific item

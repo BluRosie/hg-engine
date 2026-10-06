@@ -1,8 +1,8 @@
-// Test: Copycat - calls previous used move, if successful
+// Test: Copycat - calls last successful used move
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_TRAINER,
+    .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -20,7 +20,7 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_MEOSTIC,
+            .species = SPECIES_MEOWSTIC,
             .level = 50,
             .form = 0,
             .ability = ABILITY_PRANKSTER,
@@ -66,7 +66,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-                          { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -96,7 +96,7 @@ BEGIN_TEST
                      },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -106,7 +106,16 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstic used Copycat!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Infernape used Ember!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dedenne used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Palossand used Shore Up!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Palossand's HP is full!" },//failed move does not overwrite lastMove 
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstic used Copycat!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meowstic used Thunder Wave!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Infernape used Ember!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dedenne used Copycat!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Dedenne used Ember!" },
     }
 }
 END_TEST

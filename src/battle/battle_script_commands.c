@@ -5694,16 +5694,16 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
-BOOL BtlCmd_Copycat(struct BattleSystem *bsys, struct BattleStruct *ctx)
+BOOL BtlCmd_TryCopycat(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     int adrs = read_battle_script_param(ctx);
 
-    if (ctx->waza_no_last && CheckLegalMetronomeMove(bsys, ctx, ctx->attack_client, ctx->waza_no_last))
+    if (ctx->lastSuccessfulMove && CheckLegalMetronomeMove(bsys, ctx, ctx->attack_client, ctx->lastSuccessfulMove))
     {
-        ctx->waza_work = ctx->waza_no_last;
-        ctx->moveNoTemp = ctx->waza_no_last;
-        ctx->current_move_index = ctx->waza_no_last;
+        ctx->waza_work = ctx->lastSuccessfulMove;
+        ctx->moveNoTemp = ctx->lastSuccessfulMove;
+        ctx->current_move_index = ctx->lastSuccessfulMove;
     }
     else
     {

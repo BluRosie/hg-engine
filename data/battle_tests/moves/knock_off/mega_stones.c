@@ -105,10 +105,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Steelix has Mega Evolved into Mega Steelix!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Steelix has Mega Evolved into Mega Steelix!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 26, 26, 26, 27, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31 } }, // boosted
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler lost some of its HP!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler knocked off the opposing Steelix's Meganiumite!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 16, 16, 16, 16, 16, 17, 17, 17, 17, 17, 18, 18, 18, 18, 18, 19 } }, // not boosted
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "knocked off" },
     }
 }
 END_TEST
