@@ -11,8 +11,8 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     u32 mapsec;
     int heapId_2;
 
-    u16 OtIdLow = 0;
-    u16 OtIdHigh = 0;
+    u16 otIdLow = 0;
+    u16 otIdHigh = 0;
     u32 newTrade = GetScriptVar(0x4007); //in scripting, setVar 0x4007 before calling the gift/trade
     u16 Move1 = 65535;
     u16 Move2 = 65535;    
@@ -51,8 +51,8 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
             char customOT[] = "Webster""@";       //max 7;    The max for both is NOT counting the @s
 
             trade_dat->pid = 27486;    	// Personality IDControls Gender & Nature
-            OtIdLow = 1001;    	   	    // Original Trainer ID # remove front 0's'   MAX 65535
-            OtIdHigh = 00000;			// Secret ID  remove front 0's. untested     MAX 65535
+            otIdLow = 1001;    	   	    // Original Trainer ID # remove front 0's'   MAX 65535
+            otIdHigh = 00000;			// Secret ID  remove front 0's. untested     MAX 65535
 
             trade_dat->hpIv = 15;        // 0-31
             trade_dat->atkIv = 20;		
@@ -80,8 +80,8 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
     // include/pokemon.h, change its stats, give PP ups, a ribbon, all kind of nicher cases
 
 
-    if (OtIdHigh + OtIdLow != 0){                   
-    trade_dat->otId = (OtIdHigh + 65536)+OtIdLow;}  
+    if (otIdHigh + otIdLow != 0){                   
+    trade_dat->otId = (OtIdHigh + 65536)+otIdLow;}  
 
     PokeParaSet(mon, trade_dat->give_species, level, 32, TRUE, trade_dat->pid, OT_ID_PRESET, trade_dat->otId);
 
