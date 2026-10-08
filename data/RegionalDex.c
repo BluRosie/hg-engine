@@ -1,9 +1,13 @@
+#ifdef POKEDEX_DATAGEN
+#include "../include/pokedex_archive_data.h"
+#else
 #include "../include/types.h"
 #include "../include/config.h"
+#endif
 #include "../include/constants/species.h"
 
 // defines the number for the species in the regional dex. 0 means not in regional dex
-const u16 UNUSED RegionalDex[] =
+const u16 RegionalDex[] =
 {
     [SPECIES_CHIKORITA] = 1,
     [SPECIES_BAYLEEF] = 2,

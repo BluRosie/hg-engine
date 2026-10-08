@@ -349,6 +349,15 @@ _21EE86A:
 .org 0x021EEB30 // just a way to mark it as done
     .word 0x1030
 
+// Height/weight banks now contain all expanded species. Load only the requested
+// message instead of allocating the entire bank during the results transition.
+// The native NewString_ReadMsgData/DestroyMsgData functions support lazy banks.
+.org 0x021EEA96
+    mov r0, #1 // MSGDATA_LOAD_LAZY for height text
+
+.org 0x021EEB46
+    mov r0, #1 // MSGDATA_LOAD_LAZY for weight text
+
 
 .org 0x021EEBB6 // take care of a 1032, the same way?  oh?
 
@@ -662,7 +671,7 @@ sub_21F8884:
     mov r4, r1
     ldr r1, [r5, r2] // old:  add r1, r5, r2
     mov r0, #0
-    lsr r2, r2, #1
+    ldr r2, =((NUM_OF_MONS + 19) * 4) // clear the full allocated display list
     blx 0x20D47EC
     cmp r4, #1 // national dex comparison?  check it because it needs to be edited anyway
     ldr r7, =0x102C // old:  ldr r0, =0x102C
@@ -817,9 +826,9 @@ _21F892A:
 .area 0x14, 0xFF
 
 get_dex_num: // god i wish this could be well-rewritten
-    push {lr}
+    push {r3, lr} // list callers retain their workspace offset in r3
     bl get_dex_num_patch
-    pop {pc}
+    pop {r3, pc}
 
 .pool
 
@@ -1018,6 +1027,9 @@ CopyPokedexStruct: // rewrite for new struct size
 
 .org 0x02029408
 
+// The next native routine starts at 0x02029424; do not overwrite its prologue.
+.area 0x02029424-., 0xFF
+
 IsMonNotValid:
 //    push {r3, lr}
 //    cmp r0, #0
@@ -1036,8 +1048,27 @@ IsMonNotValid:
     bx lr
 //    pop {r3, pc}
 
+// Dex flag readers must not interpret eggs/reserved IDs as species flags.
+// In particular, bits 505..512 contain the Deoxys form-order sentinels.
+// Keep the existing registration validator above unchanged.
+DexFlagSpeciesIsReserved:
+    mov r1, #247
+    lsl r1, #1 // 494: first egg/reserved ID
+    cmp r0, r1
+    blo @@_valid
+    add r1, #50 // 544: first Generation V species
+    cmp r0, r1
+    blo @@_reserved
+@@_valid:
+    mov r0, #0
+    bx lr
+@@_reserved:
+    mov r0, #1
+    bx lr
+
 .pool
 
+.endarea
 
 // edits to SetGenderBit
 
@@ -1279,7 +1310,7 @@ GetCaughtFlag: // 0x02029FF8
 //    bl 0x0202551C
 //@@_0202A00A:
     add r0, r4, #0
-    bl 0x02029408
+    bl DexFlagSpeciesIsReserved
     cmp r0, #0
     beq @@_0202A018
     mov r0, #0
@@ -1345,7 +1376,7 @@ GetSeenFlag: // 0x0202A044
 //    bl 0x0202551C
 //@@_0202A056:
     add r0, r4, #0
-    bl 0x02029408
+    bl DexFlagSpeciesIsReserved
     cmp r0, #0
     beq @@_0202A064
     mov r0, #0
