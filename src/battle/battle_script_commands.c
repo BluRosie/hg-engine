@@ -5694,6 +5694,22 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
+BOOL BtlCmd_TryCopycat(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int adrs = read_battle_script_param(ctx);
+
+    if (ctx->lastSuccessfulMove && CheckLegalMetronomeMove(bsys, ctx, ctx->attack_client, ctx->lastSuccessfulMove)) {
+        ctx->waza_work = ctx->lastSuccessfulMove;
+        ctx->moveNoTemp = ctx->lastSuccessfulMove;
+        ctx->current_move_index = ctx->lastSuccessfulMove;
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
 BOOL btl_scr_cmd_126_TryHealingWish(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);

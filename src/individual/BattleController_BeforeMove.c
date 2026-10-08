@@ -2473,7 +2473,7 @@ BOOL BattleController_CheckStolenBySnatch(struct BattleSystem *bw UNUSED, struct
                 sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
                 sp->lastClientMoveType[sp->attack_client] = GetAdjustedMoveType(sp, sp->attack_client, sp->moveNoTemp);
-                sp->waza_no_last = sp->moveNoTemp;
+                sp->lastSuccessfulMove = sp->moveNoTemp;
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
             }
             LoadBattleSubSeqScript(sp, 1, BATTLE_SUBSCRIPT_SNATCH);
@@ -4537,11 +4537,11 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         if (attackerItem == ITEM_NONE
             || defenderItem != ITEM_NONE // THIS IS A PROBLEM FOR SOME REASON
             || IS_ITEM_MAIL(attackerItem)
-            || IS_ITEM_MEGA_STONE(attackerItem)
             || IS_ITEM_Z_CRYSTAL(attackerItem)
             || ((attackerSpecies == SPECIES_KYOGRE || defenderSpecies == SPECIES_KYOGRE) && attackerItem == ITEM_BLUE_ORB)
             || ((attackerSpecies == SPECIES_GROUDON || defenderSpecies == SPECIES_GROUDON) && attackerItem == ITEM_RED_ORB)
             || (CheckMegaData(attackerSpecies, attackerItem, attackerForm) || CheckMegaData(defenderSpecies, attackerItem, defenderForm))
+            || (IsMegaSpecies(attackerSpecies, attackerForm) || IsMegaSpecies(defenderSpecies, defenderForm))
             || ((attackerSpecies == SPECIES_GIRATINA || defenderSpecies == SPECIES_GIRATINA) && attackerItem == ITEM_GRISEOUS_CORE)
             || ((attackerSpecies == SPECIES_ARCEUS || defenderSpecies == SPECIES_ARCEUS) && IS_ITEM_ARCEUS_PLATE(attackerItem))
             || ((attackerSpecies == SPECIES_GENESECT || defenderSpecies == SPECIES_GENESECT) && IS_ITEM_GENESECT_DRIVE(attackerItem))

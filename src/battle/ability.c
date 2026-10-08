@@ -996,7 +996,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             if ((sp->server_status_flag & (BATTLE_STATUS_NO_MOVE_SET)) == 0) {
                 sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
-                sp->waza_no_last = sp->moveNoTemp;
+                sp->lastSuccessfulMove = sp->moveNoTemp;
                 sp->lastClientMoveType[sp->attack_client] = GetAdjustedMoveType(sp, sp->attack_client, sp->moveNoTemp);
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
             }

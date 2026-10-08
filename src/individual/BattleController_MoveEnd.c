@@ -28,6 +28,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     int script;
     u32 battleType = BattleTypeGet(bsys);
 
+    if ((ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0) {
+        ctx->lastSuccessfulMove = ctx->current_move_index;
+    }
+
     if (ctx->pursuitContext.isActive == TRUE) {
         ctx->pursuitContext.isActive = FALSE;
         ctx->attack_client = ctx->pursuitContext.originalAttacker;

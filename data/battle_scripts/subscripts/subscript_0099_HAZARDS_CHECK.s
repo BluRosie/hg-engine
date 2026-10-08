@@ -8,6 +8,7 @@ _checkAsOne:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_GLASTRIER, _printAsOneMessage
     CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_SPECTRIER, _checkUnnerve
 _printAsOneMessage:
+    AbilityPopup BATTLER_CATEGORY_SWITCHED_MON
     // {0} has two Abilities!
     PrintMessage 1463, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
@@ -18,6 +19,7 @@ _checkUnnerve:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_SPECTRIER, _printUnnerveMessage
     CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_UNNERVE, _landingPad
 _printUnnerveMessage:
+    AbilityPopup BATTLER_CATEGORY_SWITCHED_MON, ABILITY_UNNERVE
     // {0}’s {1} makes the opposing team too nervous to eat Berries!
     PrintMessage 1282, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_SWITCHED_MON, BATTLER_CATEGORY_SWITCHED_MON
     Wait
