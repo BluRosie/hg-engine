@@ -2,6 +2,7 @@
 #include <stdlib.h>
 
 #include "../../../include/pokedex_archive_data.h"
+#include "../../../data/RegionalDex.c"
 
 static int Streq(const char *lhs, const char *rhs) {
     while (*lhs != '\0' && *lhs == *rhs) {
@@ -38,10 +39,31 @@ static int WritePokedexSortArchive(const char *outDir) {
     char path[512];
     u32 member, count = sPokedexSortListCount;
 
+    // The regional species order and number lookup must share the same source.
+    u16 regionalOrder[sizeof(RegionalDex) / sizeof(*RegionalDex)];
+    u32 regionalCount = 0;
+    for (u32 species = 1; species < sizeof(RegionalDex) / sizeof(*RegionalDex); species++) {
+        if (RegionalDex[species] != 0) {
+            u32 position = regionalCount;
+            while (position > 0 && RegionalDex[regionalOrder[position - 1]] > RegionalDex[species]) {
+                regionalOrder[position] = regionalOrder[position - 1];
+                position--;
+            }
+            regionalOrder[position] = species;
+            regionalCount++;
+        }
+    }
+
     for (member = 0; member < count; member++) {
         const PokedexU16List *list = &sPokedexSortLists[member];
 
         snprintf(path, sizeof(path), "%s/%03u.bin", outDir, member + POKEDEX_SORT_FIXED_MEMBER_COUNT);
+        if (member == 1) {
+            if (WriteFile(path, regionalOrder, regionalCount * sizeof(*regionalOrder)) != 0) {
+                return 1;
+            }
+            continue;
+        }
         if (WriteFile(path, list->data, list->count * sizeof(*list->data)) != 0) {
             return 1;
         }
