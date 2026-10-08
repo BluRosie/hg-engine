@@ -755,51 +755,55 @@ A variety of the mysterious Mega Stones.\nA Dragalge holding this stone will be\
 A variety of the mysterious Mega Stones.\nA Hawlucha holding this stone will be\nable to Mega Evolve during battle.
 A variety of the mysterious Mega Stones.\nA Zygarde holding this stone will be\nable to Mega Evolve during battle.
 A variety of the mysterious Mega Stones.\nA Drampa holding this stone will be\nable to Mega Evolve during battle.
+A variety of the mysterious Mega Stones.\nA Zeraora holding this stone will be\nable to Mega Evolve during battle.
 A variety of the mysterious Mega Stones.\nA Falinks holding this stone will be\nable to Mega Evolve during battle.
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
+Key to Room 202
+Super Lumiose Galette
+Lab Key Card A
+Lab Key Card B
+Lab Key Card C
+???
+???
+Pebble
+Cherished Ring
+Autographed Plush
+Tasty Trash
+Revitalizing Twig
+Lida’s Things
+Lumiosian Butter
+Nice Butter
+Great Butter
+Amazing Butter
+Supreme Butter
+Hyperspace Butter
+Hoennian Salt
+Épice Noire
+Arboliva Oil
+Popping Candy
+Important Letter
+Cherished Ring
+Dirty Scarf
+???
+???
+???
+???
+Mega Shard
+Colorful Screw
+Red Canari Plush
+Red Canari Plush
+Red Canari Plush
+Gold Canari Plush
+Gold Canari Plush
+Gold Canari Plush
+Pink Canari Plush
+Pink Canari Plush
+Pink Canari Plush
+Green Canari Plush
+Green Canari Plush
+Green Canari Plush
+Blue Canari Plush
+Blue Canari Plush
+Blue Canari Plush
 A variety of the mysterious Mega Stones.\nA Raichu holding this stone will be\nable to Mega Evolve during battle.
 A variety of the mysterious Mega Stones.\nA Raichu holding this stone will be\nable to Mega Evolve during battle.
 A variety of the mysterious Mega Stones.\nA Chimecho holding this stone will be\nable to Mega Evolve during battle.
@@ -816,36 +820,37 @@ A variety of the mysterious Mega Stones.\nA Scovillain holding this stone will b
 A variety of the mysterious Mega Stones.\nA Baxcalibur holding this stone will be\nable to Mega Evolve during battle.
 A variety of the mysterious Mega Stones.\nA Tatsugiri holding this stone will be\nable to Mega Evolve during battle.
 A variety of the mysterious Mega Stones.\nA Glimmora holding this stone will be\nable to Mega Evolve during battle.
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
-TEMP
+Hyper Cheri Berry
+Hyper Chesto Berry
+Hyper Pecha Berry
+Hyper Rawst Berry
+Hyper Aspear Berry
+Hyper Oran Berry
+Hyper Persim Berry
+Hyper Lum Berry
+Hyper Sitrus Berry
+Hyper Pomeg Berry
+Hyper Kelpsy Berry
+Hyper Qualot Berry
+Hyper Hondew Berry
+Hyper Grepa Berry
+Hyper Tamato Berry
+Hyper Occa Berry
+Hyper Passho Berry
+Hyper Wacan Berry
+Hyper Rindo Berry
+Hyper Yache Berry
+Hyper Chople Berry
+Hyper Kebia Berry
+Hyper Shuca Berry
+Hyper Coba Berry
+Hyper Payapa Berry
+Hyper Tanga Berry
+Hyper Charti Berry
+Hyper Kasib Berry
+Hyper Haban Berry
+Hyper Colbur Berry
+Hyper Babiri Berry
+Hyper Chilan Berry
+Hyper Roseli Berry
+Canari Bread
