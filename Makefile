@@ -337,7 +337,7 @@ $(OUTPUT):$(LINK)
 
 # only reextract from the rom if the romname is newer than the extracted arm9.bin
 ifeq ($(ROM_TOOL),$(DSROM))
-$(BASE)/arm9.bin: $(ROMNAME) $(DSROM) $(VENV_ACTIVATE)
+$(BASE)/arm9.bin: $(ROMNAME) $(DSROM) $(VENV_ACTIVATE) scripts/dsrom_bridge.py
 	rm -rf $(BASE) $(BASE)_dsrom
 	@mkdir -p $(REQUIRED_DIRECTORIES)
 	$(DSROM_BRIDGE) extract --rom $(ROMNAME)
