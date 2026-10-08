@@ -117,7 +117,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         if ((IsMoveWindMove(sp->current_move_index)) && (attacker != defender)) {
             scriptnum = BATTLE_SUBSCRIPT_HANDLE_WIND_RIDER;
             sp->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE;
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = defender;
             sp->battlerIdTemp = defender;
             // scriptnum = BATTLE_SUBSCRIPT_BOOST_STATS;
@@ -456,7 +456,7 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
             && (BattleRand(bw) % 10 < 3)
 #endif
         ) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = sp->defence_client;
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = BATTLE_SUBSCRIPT_POISON;
@@ -467,7 +467,7 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
         if (sp->oneTurnFlag[sp->defence_client].protectFlag
             && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
             && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             seq_no[0] = BATTLE_SUBSCRIPT_UNSEEN_FIST;
             ret = TRUE;
         }
@@ -573,7 +573,7 @@ BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int se
     seq_no = 0;
 
     if (TryGetSynchronizeStatusSubsequence(sp, &seq_no) == TRUE) {
-        sp->addeffect_type = ADD_STATUS_ABILITY;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
         sp->next_server_seq_no = server_seq_no;
         sp->server_seq_no = 22;
@@ -603,7 +603,7 @@ BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int se
 
     if (ret == TRUE) {
         seq_no = BATTLE_SUBSCRIPT_INFATUATE;
-        sp->addeffect_type = ADD_STATUS_SOUBIITEM;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_HELD_ITEM;
         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
         sp->next_server_seq_no = server_seq_no;
         sp->server_seq_no = 22;
@@ -717,7 +717,7 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
             && IsMoveAffectedByKingsRock(sp, sp->current_move_index)
             && (sp->battlemon[sp->defence_client].hp)) {
             sp->state_client = sp->defence_client;
-            sp->addeffect_type = ADD_STATUS_INDIRECT;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FLINCH_MON);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = 22;

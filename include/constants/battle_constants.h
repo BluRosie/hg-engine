@@ -862,6 +862,7 @@ typedef enum BattleBg {
 // new
 #define SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY 0x8
 #define SIDE_EFFECT_TYPE_STICKY_WEB         0x9
+#define SIDE_EFFECT_TYPE_CONTACT_PROTECTED  0xA
 
 #ifndef __ASSEMBLER__
 typedef enum Terrain {

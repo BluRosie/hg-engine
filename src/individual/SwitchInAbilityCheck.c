@@ -392,7 +392,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 } else {
                                     sp->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE;
                                 }
-                                sp->addeffect_type = ADD_STATUS_ABILITY;
+                                sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                                 sp->state_client = client_no;
                                 scriptnum = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -704,7 +704,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_INTREPID_SWORD)) {
                         sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].intrepidSwordFlag = TRUE;
                         sp->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE;
-                        sp->addeffect_type = ADD_STATUS_ABILITY;
+                        sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                         sp->state_client = client_no;
                         scriptnum = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -719,7 +719,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_DAUNTLESS_SHIELD)) {
                         sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].dauntlessShieldFlag = TRUE;
                         sp->addeffect_param = MOVE_SUBSCRIPT_PTR_DEFENSE_UP_1_STAGE;
-                        sp->addeffect_type = ADD_STATUS_ABILITY;
+                        sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                         sp->state_client = client_no;
                         scriptnum = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -757,7 +757,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         && (sp->battlemon[client_no].ability_activated_flag == 0)) {
                         sp->battlemon[client_no].ability_activated_flag = TRUE; // make sure to reset when clearing tailwind
                         sp->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE;
-                        sp->addeffect_type = ADD_STATUS_ABILITY;
+                        sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                         sp->state_client = client_no;
                         sp->battlerIdTemp = client_no;
                         sp->current_move_index = MOVE_TAILWIND;
