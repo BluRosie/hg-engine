@@ -22,7 +22,7 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_MAGEARNA,
-            .level = 5,
+            .level = 15,
             .form = 0,
             .ability = ABILITY_SOUL_HEART,
             .item = ITEM_NONE,
@@ -38,7 +38,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_COMALA,
+                        .species = SPECIES_KOMALA,
                         .level = 5,
                         .form = 0,
                         .ability = ABILITY_COMATOSE,
@@ -76,7 +76,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -86,7 +86,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -106,8 +106,15 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Comala fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Komala fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Muk's Power Of Alchemy" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magearna's Sp. Atk rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magearna fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Passimian's Receiver" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Passimian's Soul-Heart" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Magearna's Soul-Heart was taken over!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Passimian's Soul-Heart" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Passimian's Sp. Atk rose!" },
     }
 }
 END_TEST
