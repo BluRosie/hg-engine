@@ -5887,8 +5887,6 @@ BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct 
     return FALSE;
 }
 
-
-
 BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
@@ -5900,9 +5898,7 @@ BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx)
 
     if (AbilityNoReceiver(ability)) {
         IncrementBattleScriptPtr(ctx, noReceiver);
-    }
-    else
-    {
+    } else {
         ctx->battlerIdTemp = BATTLER_ALLY(faintedClient);
     }
 
