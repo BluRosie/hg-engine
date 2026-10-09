@@ -51,10 +51,10 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_MUK,
-            .level = 49,
+            .level = 60,
             .form = 0,
             .ability = ABILITY_POWER_OF_ALCHEMY,
-            .item = ITEM_NONE,
+            .item = ITEM_CHOICE_BAND,
             .moves = { MOVE_CRUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
