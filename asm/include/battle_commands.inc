@@ -1633,7 +1633,7 @@
     .long (((\arg_2 - .) / 4) - 1)
     .endm
 
-    .macro TryReceiver arg_0, arg_1
+    .macro TryActivateReceiver arg_0, arg_1
     .long 299
     .long \arg_0
     .long (((\arg_1 - .) / 4) - 1)
