@@ -162,11 +162,6 @@ BOOL LONG_CALL AbilityDisabledByNeutralizingGas(int ability);
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityFailRolePlay(int ability);
 
-/// @brief Check if ability causes Receiver and Power of Alchemy to fail
-/// @param ability
-/// @return `TRUE` or `FALSE`
-BOOL LONG_CALL AbilityNoReceiver(int ability);
-
 /// @brief Check if ability causes Entrainment to fail
 /// @param ability
 /// @return `TRUE` or `FALSE`
@@ -5094,14 +5089,6 @@ BOOL LONG_CALL AbilityDisabledByNeutralizingGas(int ability)
 BOOL LONG_CALL AbilityFailRolePlay(int ability)
 {
     return GetAbilityFlags(ability).failsRolePlay;
-}
-
-/// @brief Check if ability causes Receiver and Power of Alchemy to fail
-/// @param ability
-/// @return `TRUE` or `FALSE`
-BOOL LONG_CALL AbilityNoReceiver(int ability)
-{
-    return GetAbilityFlags(ability).failsReceiver;
 }
 
 /// @brief Check if ability causes Entrainment to fail

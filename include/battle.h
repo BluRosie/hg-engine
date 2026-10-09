@@ -3801,4 +3801,10 @@ BOOL LONG_CALL sub_02017068(void *animManager, int battlerId);
 void LONG_CALL *ov12_0223B750(struct BattleSystem *battleSystem);
 void LONG_CALL ov12_022600F0(SysTask *task, void *data); // Task_PlayFaintingSequence
 
+
+/// @brief Check if ability causes Receiver and Power of Alchemy to fail
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoReceiver(int ability);
+
 #endif // BATTLE_H
