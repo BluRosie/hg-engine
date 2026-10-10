@@ -112,6 +112,7 @@ BEGIN_TEST
 
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It started to rain!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RoarinMoon's Protosynthesis" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing RoarinMoon used the Booster Energy to activate Protosynthesis!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing RoarinMoon's Attack was heightened!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing RoarinMoon's Attack fell!" },

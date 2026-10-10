@@ -1,20 +1,20 @@
-// Test: Unburden - activate on consumed terrain seed on switch in
+// Test: Unburden - activate on when item is thiefed
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_TRAINER,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
-    .terrain = GRASSY_TERRAIN,
+    .terrain = TERRAIN_NONE,
     .playerParty = {
         {
             .species = SPECIES_HAWLUCHA,
             .level = 50,
             .form = 0,
             .ability = ABILITY_UNBURDEN,
-            .item = ITEM_GRASSY_SEED,
+            .item = ITEM_ORAN_BERRY,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 136, // 153
+            .hp = 136, //153
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -31,7 +31,7 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_LEVITATE,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_NIGHT_SHADE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_THIEF, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -44,7 +44,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -63,8 +63,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .enemyScript = { {
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
                          { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -83,7 +83,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Grassy Seed boosted Hawlucha’s Defense!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mismagius used Thief!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Mismagius stole Hawlucha's" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hawlucha used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hawlucha used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mismagius used Sleep Talk!" },
     }
