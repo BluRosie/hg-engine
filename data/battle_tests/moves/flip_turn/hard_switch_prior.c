@@ -105,7 +105,8 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan, come back!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Donphan" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Parasect!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Qwilfish used Flip Turn!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The opposing Qwilfish went back" },
