@@ -47,6 +47,24 @@ def unpack_flags(value):
     return size, compressed, signed
 
 
+def copy_asset_tree(source, destination):
+    """Copy ROM bytes and directories, without host permissions/timestamps.
+
+    Directory copystat can fail on WSL's Windows mounts even when copying
+    files succeeds. Host metadata is not part of the ROM filesystem.
+    """
+    os.makedirs(destination)  # Preserve copytree's fail-if-destination-exists behavior.
+    with os.scandir(source) as entries:
+        for entry in entries:
+            target = os.path.join(destination, entry.name)
+            if entry.is_symlink():
+                raise ValueError(f"Unexpected symlink in ROM assets: {entry.path}")
+            if entry.is_dir():
+                copy_asset_tree(entry.path, target)
+            else:
+                shutil.copyfile(entry.path, target)
+
+
 def extract(dsrom_bin, rom, dsrom_dir, base, filesys):
     if os.path.isdir(dsrom_dir):
         shutil.rmtree(dsrom_dir)
@@ -55,12 +73,11 @@ def extract(dsrom_bin, rom, dsrom_dir, base, filesys):
     os.makedirs(base, exist_ok=True)
     os.makedirs(os.path.join(base, "overlay"), exist_ok=True)
 
-    shutil.copyfile(os.path.join(dsrom_dir, "arm9", "arm9.bin"), os.path.join(base, "arm9.bin"))
     shutil.copyfile(os.path.join(dsrom_dir, "arm7", "arm7.bin"), os.path.join(base, "arm7.bin"))
 
     if os.path.isdir(filesys):
         shutil.rmtree(filesys)
-    shutil.copytree(os.path.join(dsrom_dir, "files"), filesys)
+    copy_asset_tree(os.path.join(dsrom_dir, "files"), filesys)
 
     overlays_yaml_path = os.path.join(dsrom_dir, "arm9_overlays", "overlays.yaml")
     data = read_yaml(overlays_yaml_path)
@@ -83,13 +100,16 @@ def extract(dsrom_bin, rom, dsrom_dir, base, filesys):
     with open(os.path.join(base, "overarm9.bin"), "wb") as f:
         f.write(table)
 
+    # Make uses arm9.bin as the extraction target; publish it only on success.
+    shutil.copyfile(os.path.join(dsrom_dir, "arm9", "arm9.bin"), os.path.join(base, "arm9.bin"))
+
 
 def pack(dsrom_bin, rom, dsrom_dir, base, filesys):
     shutil.copyfile(os.path.join(base, "arm9.bin"), os.path.join(dsrom_dir, "arm9", "arm9.bin"))
 
     dsrom_files = os.path.join(dsrom_dir, "files")
     shutil.rmtree(dsrom_files)
-    shutil.copytree(filesys, dsrom_files)
+    copy_asset_tree(filesys, dsrom_files)
 
     overlays_yaml_path = os.path.join(dsrom_dir, "arm9_overlays", "overlays.yaml")
     data = read_yaml(overlays_yaml_path)
