@@ -115,6 +115,7 @@
 
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The sunlight turned harsh!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "BruteBonet's Protosynthesis" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight activated BruteBonet's Protosynthesis!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "BruteBonet's Attack was heightened!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Koraidon turned the sunlight harsh, sending its ancient pulse into a frenzy!" },

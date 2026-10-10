@@ -1,31 +1,29 @@
-// Test: Protosynthesis activates with Booster Energy immediately after non-Sun Weather setting ability.
-// https://bsky.app/profile/nerdofnow.bsky.social/post/3lg2ox2cdlc2v
+// Test: Unburden - reset and not activated when switched out and in again
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_DOUBLES,
+    .battleType = BATTLE_TYPE_TRAINER,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
-
     .playerParty = {
         {
-            .species = SPECIES_INCINEROAR,
+            .species = SPECIES_HAWLUCHA,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_INTIMIDATE,
-            .item = ITEM_NONE,
+            .ability = ABILITY_UNBURDEN,
+            .item = ITEM_ORAN_BERRY,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
+            .hp = 136, //153
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_URSHIFU,
+            .species = SPECIES_GYARADOS,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_UNSEEN_FIST,
+            .ability = ABILITY_INTIMIDATE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -38,41 +36,28 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
-
     .enemyParty = { {
-                        .species = SPECIES_ROARING_MOON,
-                        .level = 50,
+                        .species = SPECIES_MISMAGIUS,
+                        .level = 60,
                         .form = 0,
-                        .ability = ABILITY_PROTOSYNTHESIS,
-                        .item = ITEM_BOOSTER_ENERGY,
-                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .ability = ABILITY_LEVITATE,
+                        .item = ITEM_NONE,
+                        .moves = { MOVE_KNOCK_OFF, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
-        {
-            .species = SPECIES_PELIPPER,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_DRIZZLE,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
-
     .playerScript = { {
-                          { ACTION_NONE, 0 },
-                          { ACTION_NONE, 0 },
-                          { ACTION_NONE, 0 },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_SWITCH_SLOT_1, 0 },
+                          { ACTION_SWITCH_SLOT_0, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -88,12 +73,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
         } },
-
     .enemyScript = { {
-                         { ACTION_NONE, 0 },
-                         { ACTION_NONE, 0 },
-                         { ACTION_NONE, 0 },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -109,14 +93,15 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
         } },
-
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It started to rain!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RoarinMoon's Protosynthesis" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing RoarinMoon used the Booster Energy to activate Protosynthesis!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing RoarinMoon's Attack was heightened!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing RoarinMoon's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pelipper's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mismagius used Knock Off!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Mismagius knocked off Hawlucha's" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gyarados's Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mismagius used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Hawlucha!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mismagius used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mismagius used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hawlucha used Sleep Talk!" },
     }
 }
 END_TEST

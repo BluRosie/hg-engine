@@ -3709,7 +3709,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
         doesNotAffect = TRUE;
     }
 
-    if ((MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_INSOMNIA))
+    if ((MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_INSOMNIA) || (MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_VITAL_SPIRIT)))
         && (moveEffect == MOVE_EFFECT_STATUS_SLEEP || moveEffect == MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN || moveEffect == MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP)) {
         doesNotAffect = TRUE;
     }
@@ -5201,5 +5201,6 @@ void RemoveItemOnFlingFailure(struct BattleStruct *ctx)
     if (ctx->current_move_index == MOVE_FLING) {
         ctx->recycle_item[ctx->attack_client] = ctx->battlemon[ctx->attack_client].item;
         ctx->battlemon[ctx->attack_client].item = ITEM_NONE;
+        ctx->battlemon[ctx->attack_client].moveeffect.knockOffFlag = TRUE;
     }
 }
