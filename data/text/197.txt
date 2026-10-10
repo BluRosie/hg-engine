@@ -1793,3 +1793,6 @@ The healing wish came true for\nthe wild {STRVAR_1 1, 0, 0}!
 The healing wish came true for\nthe opposing {STRVAR_1 1, 0, 0}!
 It created a bizarre area in which\nPokémon’s held items lose\ftheir effects!
 Magic Room wore off, and held items’\neffects returned to normal!
+{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
+The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
+The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
