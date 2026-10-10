@@ -4019,6 +4019,7 @@ BOOL btl_scr_cmd_104_tryincinerate(void *bw UNUSED, struct BattleStruct *sp)
         sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
         sp->mp.param[1] = item;
         sp->battlemon[sp->defence_client].item = 0; // no recycle
+        sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
     } else {
         IncrementBattleScriptPtr(sp, adrs);
     }

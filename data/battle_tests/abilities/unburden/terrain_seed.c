@@ -83,7 +83,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Grassy Seed boosted Hawlucha’s Defense!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Grassy Seed boosted Hawlucha's Defense!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Hawlucha used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mismagius used Sleep Talk!" },
     }
