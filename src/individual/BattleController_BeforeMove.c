@@ -2556,11 +2556,9 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
 
 BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender)
 {
-    u32 moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+    u32 moveHasProtectFlag = (ctx->moveTbl[ctx->current_move_index].flag & FLAG_PROTECT) != 0;
     u32 ability = GetBattlerAbility(ctx, attacker);
-    if (moveEffect == MOVE_EFFECT_REMOVE_PROTECT
-        || moveEffect == MOVE_EFFECT_SHADOW_FORCE
-        || moveEffect == MOVE_EFFECT_IGNORE_PROTECT
+    if (!moveHasProtectFlag
         || (ctx->current_move_index == MOVE_CURSE && HasType(ctx, attacker, TYPE_GHOST))
         || ((ability == ABILITY_UNSEEN_FIST
                 || ability == ABILITY_PIERCING_DRILL)
