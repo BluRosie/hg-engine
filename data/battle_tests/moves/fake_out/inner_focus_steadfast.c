@@ -105,7 +105,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golbat won't flinch because of its Inner Focus!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golbat used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Lucario flinched and couldn't move!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Lucario's Steadfast" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Lucario's Speed rose!" },
