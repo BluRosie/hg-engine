@@ -288,8 +288,14 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_1\n");
 
 #endif
-
             sp->fcc_seq_no++;
+            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+            
             break;
         }
         // TODO
@@ -630,7 +636,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_2\n");
 
 #endif
-
+            sp->fcc_seq_no++;
+            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
             sp->fcc_seq_no++;
             break;
         }
@@ -1229,7 +1241,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_3\n");
 
 #endif
-
+            sp->fcc_seq_no++;
+            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
             sp->fcc_seq_no++;
             break;
         }
@@ -1812,7 +1830,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_4\n");
 
 #endif
-
+            sp->fcc_seq_no++;
+            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
             sp->fcc_seq_no++;
             break;
         }
