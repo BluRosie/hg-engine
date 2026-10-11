@@ -2118,7 +2118,7 @@ int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
         break;
     case MOVE_EFFECT_RECOIL_HALF_MAX_HP: // chloroplast
         seq_no = BATTLE_SUBSCRIPT_RECOIL_HALF_MAX_HP;
-        ctx->recoilDamage = (-1)* (ctx->battlemon[ctx->attack_client].maxhp + 1) / 2;
+        ctx->recoilDamage = (-1) * (ctx->battlemon[ctx->attack_client].maxhp + 1) / 2;
         break;
     default:
         break;
@@ -2661,13 +2661,12 @@ int LONG_CALL Activate_WimpOut_EmergencyExit(void *bsys, struct BattleStruct *ct
 
         if ((ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
             && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
-            || (GetBattlerAbility(ctx,  client_no) == ABILITY_EMERGENCY_EXIT))
+                || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
             && ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0)
             && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))) {
             BOOL canActivate = FALSE;
             if (ctx->attack_client == client_no) {
-                if ((ctx->battlemon[client_no].hp - ctx->recoilDamage) > (s32)(ctx->battlemon[client_no].maxhp / 2))
-                {
+                if ((ctx->battlemon[client_no].hp - ctx->recoilDamage) > (s32)(ctx->battlemon[client_no].maxhp / 2)) {
                     canActivate = TRUE;
                 }
             } else {
@@ -2682,8 +2681,7 @@ int LONG_CALL Activate_WimpOut_EmergencyExit(void *bsys, struct BattleStruct *ct
                 }
             }
 
-            if (canActivate)
-            {
+            if (canActivate) {
                 ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 ctx->state_client = client_no;
                 ctx->battlerIdTemp = client_no;

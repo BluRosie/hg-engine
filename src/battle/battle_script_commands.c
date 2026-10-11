@@ -5887,7 +5887,6 @@ BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct 
     return FALSE;
 }
 
-
 BOOL btl_scr_cmd_12B_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
@@ -5906,9 +5905,7 @@ BOOL btl_scr_cmd_12B_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;
         ctx->battlerIdTemp = client_no;
-    }
-    else
-    {
+    } else {
         IncrementBattleScriptPtr(ctx, noActivation);
     }
 

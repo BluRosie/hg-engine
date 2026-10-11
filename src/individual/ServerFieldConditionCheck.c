@@ -295,7 +295,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
-            
+
             break;
         }
         // TODO
@@ -643,7 +643,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
-            sp->fcc_seq_no++;
+
             break;
         }
         case ENDTURN_AQUA_RING: {
@@ -1248,7 +1248,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
-            sp->fcc_seq_no++;
+
             break;
         }
         case ENDTURN_SECOND_EVENT_BLOCK: {
@@ -1837,7 +1837,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
-            sp->fcc_seq_no++;
+
             break;
         }
         // TODO
