@@ -2662,6 +2662,7 @@ int LONG_CALL Activate_WimpOut_EmergencyExit(void *bsys, struct BattleStruct *ct
         if ((ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
             && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
             || (GetBattlerAbility(ctx,  client_no) == ABILITY_EMERGENCY_EXIT))
+            && ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0)
             && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))) {
             BOOL canActivate = FALSE;
             if (ctx->attack_client == client_no) {

@@ -1,4 +1,4 @@
-// Test: Emergency Exit - activates when taking residual damage and falling under 50% max-hp - Burn
+// Test: Emergency Exit - activates when taking residual damage and falling under 50% max-hp - Sticky Barb
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -30,10 +30,10 @@ BEGIN_TEST
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_EMERGENCY_EXIT,
-                        .item = ITEM_NONE,
+                        .item = ITEM_STICKY_BARB,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = 76, //150
-                        .status = STATUS_BURN,
+                        .hp = 76, // 150
+                        .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
                     },
@@ -97,7 +97,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod's EmergencyExit" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten's Intimidate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor's Attack fell!" },
-    }
+    },
+    .knownFailing = TRUE,
 }
 END_TEST

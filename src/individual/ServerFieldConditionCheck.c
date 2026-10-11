@@ -1970,6 +1970,8 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             sp->playerSideHasFaintedTeammateThisTurn = 0;
             sp->enemySideHasFaintedTeammateThisTurn = 0;
             ret = 2;
+
+            sp->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
             break;
         }
         }
