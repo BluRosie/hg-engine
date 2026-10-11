@@ -1634,7 +1634,7 @@
     .endm
 
     .macro TryActivateEmergencyExit arg_0, arg_1
-    .long 298
+    .long 299
     .long \arg_0
     .long (((\arg_1 - .) / 4) - 1)
     .endm

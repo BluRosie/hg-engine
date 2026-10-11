@@ -5896,7 +5896,8 @@ BOOL btl_scr_cmd_12B_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
 
     int noActivation = read_battle_script_param(ctx);
 
-    if ((ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+    if (ctx->battlemon[client_no].hp
+        && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
         && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
             || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
         && ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0)
