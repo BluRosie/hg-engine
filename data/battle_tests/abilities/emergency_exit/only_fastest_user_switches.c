@@ -54,7 +54,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_EMERGENCY_EXIT,
             .item = ITEM_FOCUS_SASH,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_DRAGON_DANCE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -72,7 +72,6 @@ BEGIN_TEST
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE } },
@@ -118,7 +117,10 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Donphan used Earthquake!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on the opposing Golisopod or Golisopod." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective on the opposing Golisopod or Golisopod." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod's EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten's Intimidate" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golisopod used Sleep Talk!" },
     }

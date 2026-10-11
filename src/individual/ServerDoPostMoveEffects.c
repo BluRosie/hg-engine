@@ -2104,17 +2104,21 @@ int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
     switch (moveEffect) {
     case MOVE_EFFECT_RECOIL_QUARTER: // wild charge
         seq_no = BATTLE_SUBSCRIPT_RECOIL_1_4;
+        ctx->recoilDamage = ctx->store_damage[ctx->attack_client] / 4;
         break;
     case MOVE_EFFECT_RECOIL_PARALYZE_HIT: // volt tackle
     case MOVE_EFFECT_RECOIL_BURN_HIT: // flare blitz
     case MOVE_EFFECT_RECOIL_THIRD: // double edge, brave bird
         seq_no = BATTLE_SUBSCRIPT_RECOIL_1_3;
+        ctx->recoilDamage = ctx->store_damage[ctx->attack_client] / 3;
         break;
     case MOVE_EFFECT_RECOIL_HALF: // head smash, light of ruin
         seq_no = BATTLE_SUBSCRIPT_RECOIL_1_2;
+        ctx->recoilDamage = ctx->store_damage[ctx->attack_client] / 2;
         break;
     case MOVE_EFFECT_RECOIL_HALF_MAX_HP: // chloroplast
         seq_no = BATTLE_SUBSCRIPT_RECOIL_HALF_MAX_HP;
+        ctx->recoilDamage = (-1)* (ctx->battlemon[ctx->attack_client].maxhp + 1) / 2;
         break;
     default:
         break;
@@ -2655,19 +2659,30 @@ int LONG_CALL Activate_WimpOut_EmergencyExit(void *bsys, struct BattleStruct *ct
             continue;
         }
 
-        if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, client_no, ABILITY_WIMP_OUT)
-            || MoldBreakerAbilityCheck(ctx, ctx->attack_client, client_no, ABILITY_EMERGENCY_EXIT)) {
-            if ((ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
-                && ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2)
-                && ((ctx->oneSelfFlag[client_no].physical_damage) || (ctx->oneSelfFlag[client_no].special_damage))
-                // EE doesn't activate if the Pokémon gets attacked by a sheer force boosted move
-                && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
-                && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
-                && (
-                    // checks if the pokémon has gone below half HP from the current damage instance
-                    // physical_damage and special_damage contain the relevant damage value that was just dealt, but the value is negative
-                    ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].physical_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2)
-                    || ((ctx->battlemon[client_no].hp - (ctx->oneSelfFlag[client_no].special_damage)) > (s32)ctx->battlemon[client_no].maxhp / 2))) {
+        if ((ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+            && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
+            || (GetBattlerAbility(ctx,  client_no) == ABILITY_EMERGENCY_EXIT))
+            && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))) {
+            BOOL canActivate = FALSE;
+            if (ctx->attack_client == client_no) {
+                if ((ctx->battlemon[client_no].hp - ctx->recoilDamage) > (s32)(ctx->battlemon[client_no].maxhp / 2))
+                {
+                    canActivate = TRUE;
+                }
+            } else {
+                int overallDamage = ctx->store_damage[ctx->defence_client];
+                if ((ctx->oneSelfFlag[client_no].physical_damage || ctx->oneSelfFlag[client_no].special_damage)
+                    // EE doesn't activate if the Pokémon gets attacked by a sheer force boosted move
+                    && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
+                    && (
+                        // checks if the pokémon has gone below half HP from the current damage instance
+                        (ctx->battlemon[client_no].hp - overallDamage) > (s32)ctx->battlemon[client_no].maxhp / 2)) {
+                    canActivate = TRUE;
+                }
+            }
+
+            if (canActivate)
+            {
                 ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                 ctx->state_client = client_no;
                 ctx->battlerIdTemp = client_no;

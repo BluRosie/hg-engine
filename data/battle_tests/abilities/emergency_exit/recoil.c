@@ -11,7 +11,7 @@ BEGIN_TEST
             .species = SPECIES_STARAPTOR,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_POISON_HEAL,
+            .ability = ABILITY_RECKLESS,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -96,6 +96,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golisopod was damaged by the recoil!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod's EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten's Intimidate" },
     }
 }

@@ -1,4 +1,4 @@
-// Test: Emergency Exit - activates after last hit of a multi-hit move and falling under 50% max-hp
+// Test: Emergency Exit - activates after last hit of a multi-hit move and falling under 50% max-hp 
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -32,7 +32,7 @@ BEGIN_TEST
                         .ability = ABILITY_EMERGENCY_EXIT,
                         .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = 149, //150
+                        .hp = 95, //150
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -100,8 +100,8 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 18 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 18 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod's EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten's Intimidate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor's Attack fell!" },
     }
 }
 END_TEST

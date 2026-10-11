@@ -1089,6 +1089,8 @@ struct BattleStruct {
     HealingWishQueue healingWishQueue;
     int field_condition2; // gen5+ field conditions
     int magicRoomCounter;
+
+    int recoilDamage;
 };
 
 enum {

@@ -1,4 +1,4 @@
-// Test: Emergency Exit - Recoil, Oran Berry, Switch
+// Test: Emergency Exit - activates after last hit of a multi-hit move and falling under 50% max-hp on last hit
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,12 +8,12 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_STARAPTOR,
-            .level = 40,
+            .species = SPECIES_BRELOOM,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_RECKLESS,
+            .ability = ABILITY_SKILL_LINK,
             .item = ITEM_NONE,
-            .moves = { MOVE_BRAVE_BIRD, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_BULLET_SEED, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -30,9 +30,9 @@ BEGIN_TEST
                         .level = 50,
                         .form = 0,
                         .ability = ABILITY_EMERGENCY_EXIT,
-                        .item = ITEM_ORAN_BERRY,
+                        .item = ITEM_NONE,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = FULL_HP,
+                        .hp = 149, //150
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -94,12 +94,14 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 96, 96, 98, 98, 98, 102, 102, 102, 104, 104, 108, 108, 108, 110, 110, 114 } },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was damaged by the recoil!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golisopod restored its health using its Oran Berry!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 18 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 18 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 18 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 18 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 18 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod's EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten's Intimidate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor's Attack fell!" },
     }
 }
 END_TEST
