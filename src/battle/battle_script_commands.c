@@ -5972,6 +5972,7 @@ BOOL btl_scr_cmd_12B_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;
         ctx->battlerIdTemp = client_no;
+        ctx->hazardQueueTracker = 0; // TODO: script command for this would be better?
     } else {
         IncrementBattleScriptPtr(ctx, noActivation);
     }
