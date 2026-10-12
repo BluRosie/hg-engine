@@ -2666,6 +2666,7 @@ int LONG_CALL Activate_WimpOut_EmergencyExit(void *bsys, struct BattleStruct *ct
             && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))) {
             BOOL canActivate = FALSE;
             if (ctx->attack_client == client_no) {
+                // EE can be triggered by recoil if attacker. Recoil damage is stored earlier when applied
                 if ((ctx->battlemon[client_no].hp - ctx->recoilDamage) > (s32)(ctx->battlemon[client_no].maxhp / 2)) {
                     canActivate = TRUE;
                 }
@@ -2686,7 +2687,7 @@ int LONG_CALL Activate_WimpOut_EmergencyExit(void *bsys, struct BattleStruct *ct
                 ctx->state_client = client_no;
                 ctx->battlerIdTemp = client_no;
 
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT);
+                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return TRUE;

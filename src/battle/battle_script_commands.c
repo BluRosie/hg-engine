@@ -5901,6 +5901,7 @@ BOOL btl_scr_cmd_12B_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
             || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
         && ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0)
         && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
+        // EE can be triggered by any residual damage, such as Burn, Sandstorm, etc
         && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)) {
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;

@@ -504,7 +504,7 @@
 #define BATTLE_SUBSCRIPT_BATCH_EFFECTIVENESS                    (495)
 #define BATTLE_SUBSCRIPT_BATCH_FOLLOWUP                         (496)
 #define BATTLE_SUBSCRIPT_SUBSTITUTE_FADES                       (497)
-#define BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT                        (498)
+#define BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT         (498)
 #define BATTLE_SUBSCRIPT_RECOIL_HALF_MAX_HP                     (499)
 #define BATTLE_SUBSCRIPT_FUTURE_SIGHT_DAMAGE                    (500)
 #define BATTLE_SUBSCRIPT_HANDLE_HOSPITALITY                     (501)
