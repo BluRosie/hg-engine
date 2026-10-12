@@ -1979,6 +1979,12 @@ u8 LONG_CALL IsClientEnemy(void *bw, int client);
 int LONG_CALL TypeCalc(void *bw, struct BattleStruct *sp, int movenum, int movetype, int attacker, int defender, int damage, u32 *flag);
 
 /**
+ *  @brief used to calculate effectiveness of Stealth Rock during switch-in
+ *
+ */
+int LONG_CALL CalculateTypeEffectiveness(u8 typeMove, u8 typeMon1, u8 typeMon2);
+
+/**
  *  @brief sees if anticipation will automatially log a certain move (i.e. OHKO moves)
  *
  *  @param sp global battle structure
@@ -3802,5 +3808,7 @@ PokepicManager LONG_CALL *BattleSystem_GetPokepicManager(struct BattleSystem *ba
 BOOL LONG_CALL sub_02017068(void *animManager, int battlerId);
 void LONG_CALL *ov12_0223B750(struct BattleSystem *battleSystem);
 void LONG_CALL ov12_022600F0(SysTask *task, void *data); // Task_PlayFaintingSequence
+
+BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId);
 
 #endif // BATTLE_H

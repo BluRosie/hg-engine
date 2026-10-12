@@ -4624,3 +4624,14 @@ BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *ctx, int attack_c
 
     return ret;
 }
+
+BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId)
+{
+    if (ctx->battlemon[battlerId].hp == 0) {
+        return FALSE;
+    }
+    if (ctx->client_status[battlerId] & 1) { // switched out
+        return FALSE;
+    }
+    return TRUE;
+}

@@ -3147,6 +3147,72 @@ BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct Battle
     return FALSE;
 }
 
+BOOL BtlCmd_CheckSpikes(void *bw, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int category = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerId = GrabClientFromBattleScriptParam(bw, ctx, category);
+    int fieldSide = (1 & battlerId);
+
+    if (ctx->scw[fieldSide].spikesLayers && IsBattlerOnField(ctx, battlerId)) {
+        ctx->hp_calc_work = (5 - ctx->scw[fieldSide].spikesLayers) * 2;
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, ctx->hp_calc_work);
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_CheckStealthRock(void *bw, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int category = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerId = GrabClientFromBattleScriptParam(bw, ctx, category);
+    int fieldSide = (1 & battlerId);
+
+    // TODO deal with terra
+    int type1 = GetBattlerVar(ctx, battlerId, BMON_DATA_TYPE_1, NULL);
+    int type2 = GetBattlerVar(ctx, battlerId, BMON_DATA_TYPE_2, NULL);
+
+    if (ctx->side_condition[fieldSide] & SIDE_STATUS_STEALTH_ROCK && IsBattlerOnField(ctx, battlerId)) {
+        switch (CalculateTypeEffectiveness(TYPE_ROCK, type1, type2)) {
+        case 160:
+            ctx->hp_calc_work = 2;
+            break;
+        case 80:
+            ctx->hp_calc_work = 4;
+            break;
+        case 40:
+            ctx->hp_calc_work = 8;
+            break;
+        case 20:
+            ctx->hp_calc_work = 16;
+            break;
+        case 10:
+            ctx->hp_calc_work = 32;
+            break;
+        case 0:
+            IncrementBattleScriptPtr(ctx, adrs);
+            return FALSE;
+        default:
+            GF_ASSERT(FALSE);
+            break;
+        }
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, ctx->hp_calc_work);
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
@@ -5895,13 +5961,13 @@ BOOL btl_scr_cmd_12B_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
 
     int noActivation = read_battle_script_param(ctx);
 
-    if (ctx->battlemon[client_no].hp
+    if (IsBattlerOnField(ctx, client_no)
         && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
         && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
             || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
-        && ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0)
+        //&& ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0) // unsure if bug
         && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
-        // EE can be triggered by any residual damage, such as Burn, Sandstorm, etc
+        // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
         && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)) {
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;

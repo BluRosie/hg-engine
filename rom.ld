@@ -225,6 +225,7 @@ GetHeldItemFlingPower = 0x022558F8 | 1;
 GetHeldItemModifier = 0x02255844 | 1;
 GetNaturalGiftPower = 0x02255890 | 1;
 GetNaturalGiftType = 0x022558A4 | 1;
+CalculateTypeEffectiveness = 0x0225264C | 1;
 
 GetArceusType = 0x02071C28 | 1;
 BattleWorkBattleStatusFlagGet = 0x0223B514 | 1;
