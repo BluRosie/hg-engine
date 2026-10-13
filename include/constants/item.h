@@ -2696,8 +2696,9 @@
 
 #define MAX_TOTAL_ITEM_NUM ITEM_CANARI_BREAD
 
-#define NUM_MEGA_STONES (48) // includes the pixie plate, doesn't include plza megas due to overflowing bag
-#define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
+#define NUM_MEGA_STONES   (48) // includes the pixie plate, doesn't include plza megas due to overflowing bag
+#define NUM_HMS           (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
+#define NUM_MACHINE_MOVES 340
 
 // ITEM_BLANK_PLATE and ITEM_LEGEND_PLATE are not included in this list as they have only ever been key items and this list is currently just used for held item interactions.
 // Feel free to add them yourself, though.
