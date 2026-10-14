@@ -1,50 +1,50 @@
 XXXXXXXXXXXXXXXXXXXX
-Please come again!
-Is that right?\nWell, come back anytime!
-Come back again!
-Is that right?\nWell, come back anytime!\fHee hee!
-Come back anytime!\nWell, not in the evening. We’re closed.
-Is there anything else I may do\nfor you? {YESNO 0}
-Do you need anything else? {YESNO 0}
-Do you need anything else?\nAnything at all? {YESNO 0}
-Do you need anything else?\nHee hee! {YESNO 0}
-Do you want anything else? {YESNO 0}
-You don’t have enough money.
-{STRVAR_1 8, 0, 0}? Certainly.\nHow many would you like?
+Nous espérons vous revoir bientôt!
+Très bien. A la prochaine!
+Reviens me voir!
+Ah oui, vraiment?\nReviens-nous vite!\fFyuuuyuuu!
+N’hésite pas à revenir!\nMais n’oublie pas que nous fermons\fle soir!
+Souhaitez-vous autre chose? {YESNO 0}
+T’as besoin d’autre chose? {YESNO 0}
+Y-t’faut encore quéqu’chose? {YESNO 0}
+Besoin d’autre chose?\nFyuuu! Fyuuu! {YESNO 0}
+Autre chose? {YESNO 0}
+Vous n’avez pas assez d’argent.
+{STRVAR_1 8, 0, 0}? OK!\nCombien en voulez-vous?
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-OK, {STRVAR_1 51, 0, 0}. That’ll be\n${STRVAR_1 55, 1, 0}.
-Here you are.\nThanks for shopping with us.
-You don’t have enough room.
-CANCEL
-${STRVAR_1 53, 0, 0}
-{STRVAR_1 53, 0, 0}P
-You also get a Premier Ball as\nan added bonus.
+{STRVAR_1 51, 0, 0}, ça fait\n{STRVAR_1 55, 1, 0} $.
+Voilà!\nMerci beaucoup!{WAIT 1}\rVous placez votre achat\ndans la Poche {STRVAR_1 27, 1, 0}.
+Vous n’avez plus de place pour cela.
+RETOUR
+{STRVAR_1 53, 0, 0} $
+{STRVAR_1 53, 0, 0} P
+Vous obtenez une Honor Ball en\ncadeau.
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 XXXXXXXXXXXXXXXXXXXXXXXX
-You placed the {STRVAR_1 10, 0, 0}\nin the Seal Case. {WAIT 1}
-The Seal Case is full.\nYou have no more room for Seals.
-You can’t buy any more today!
-You already have this!
+Vous placez votre achat\ndans la Boîte Sceaux.{WAIT 1}
+La Boîte Sceaux est pleine.\nVous n’avez plus de place.
+C’est fini pour aujourd’hui!
+Vous l’avez déjà!
 XXXXXX
 XXXXXX
 XXX
-Money
-${STRVAR_1 55, 0, 0}
-{STRVAR_1 55, 0, 0}P
-Athlete Pts.
+Argent
+{STRVAR_1 55, 0, 0} $
+{STRVAR_1 55, 0, 0} P
+Pts Athlète
 XXXXXXXXXXXXX
-In Bag:
+Sac:
 {STRVAR_1 52, 0, 0}
 XXXXXX
-${STRVAR_1 55, 0, 0}
+{STRVAR_1 55, 0, 0} $
 XX
 XXX
 XXXXXXX
-BUY
+ACHETER
 {STRVAR_1 51, 0, 0}/{STRVAR_1 51, 1, 0}
 {STRVAR_1 50, 0, 0}
 {STRVAR_1 50, 1, 0}
-Would you like\n{STRVAR_1 8, 0, 0}?
+Vous avez choisi:\n{STRVAR_1 8, 0, 0}, c’est\fbien cela?
 XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-You don’t have enough points!
-All right, here you go.\nCome back anytime! {WAIT 1}
+Vous n’avez pas suffisamment de points!
+Parfait!\nEncore merci pour tout!{WAIT 1}
