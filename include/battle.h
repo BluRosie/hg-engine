@@ -522,7 +522,7 @@ struct __attribute__((packed)) side_condition_work {
 
     u32 followMeFlag : 1;
     u32 battlerIdFollowMe : 2;
-    u32 knockoff_item : 6;
+    u32 knockoff_item : 6; // unused
     u32 oikaze_count : 3;
 
     u32 spikesLayers : 2;
