@@ -1,537 +1,537 @@
 ???
-The best Poké Ball with the ultimate\nlevel of performance. With it, you will\ncatch any wild Pokémon without fail.
-An ultra-high-performance Poké Ball\nthat provides a higher success rate\nfor catching Pokémon than a Great Ball.
-A good, high-performance Poké Ball that\nprovides a higher Pokémon catch rate\nthan a standard Poké Ball.
-A device for catching wild Pokémon.\nIt’s thrown like a ball at a Pokémon,\ncomfortably encapsulating its target.
-A special Poké Ball that was used in the\nSafari Zone in the Kanto region and in\nthe Great Marsh in the Sinnoh region.
-A somewhat different Poké Ball that\nis more effective when catching\nWater- or Bug-type Pokémon.
-A somewhat different Poké Ball that\nis more effective when catching\nPokémon in or on the water.
-A somewhat different Poké Ball that\nbecomes more effective the lower the\nlevel of the wild Pokémon.
-A somewhat different Poké Ball that\nworks especially well on a Pokémon\nspecies that has been caught before.
-A somewhat different Poké Ball that\nbecomes progressively better the\nmore turns there are in a battle.
-A particularly comfortable Poké Ball\nthat makes a wild Pokémon quickly\ngrow friendlier after being caught.
-A somewhat rare Poké Ball made to\ncommemorate a special occasion\nof some sort.
-A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nat night or in dark places like caves.
-A remedial Poké Ball that restores\nHP and eliminates status conditions\nfor a Pokémon caught with it.
-A somewhat different Poké Ball that\nis more effective at catching Pokémon\nwhen used first thing in a battle.
-A quite rare Poké Ball made to\ncommemorate a special occasion of\nsome sort.
-A spray-type medicine for treating\nwounds. It can be used to restore\n20 HP to a Pokémon.
-A spray-type medicine for poisoning.\nIt can be used once to lift the effects\nof being poisoned from a Pokémon.
-A spray-type medicine for treating\nburns. It can be used to cure a\nPokémon suffering from a burn.
-A spray-type medicine for treating\nfreezing. It can be used to thaw out\na Pokémon that has been frozen solid.
-A spray-type medicine to wake the\nsleeping. It can be used to rouse a\nPokémon from the clutches of sleep.
-A spray-type medicine for treating\nparalysis. It can be used to free a\nPokémon that has been paralyzed.
-A medicine that can be used to fully\nrestore the max HP of a Pokémon and\ncure any status conditions it may have.
-A spray-type medicine for treating\nwounds. It can be used to fully\nrestore the max HP of a Pokémon.
-A spray-type medicine for treating\nwounds. It can be used to restore\n200 HP to a Pokémon.
-A spray-type medicine for treating\nwounds. It can be used to restore\n50 HP to a Pokémon.
-A spray-type medicine that is broadly\neffective. It can be used to cure any\nstatus condition a Pokémon may have.
-A medicine that can be used to revive\na Pokémon that has fainted. It also\nrestores half the Pokémon’s max HP.
-A medicine that can be used to revive\na Pokémon that has fainted. It also\nfully restores the Pokémon’s max HP.
-Water with high mineral content.\nIt can be used to restore 30 HP\nto a Pokémon.
-A highly carbonated soda drink.\nIt can be used to restore 50 HP\nto a Pokémon.
-A very sweet and refreshing drink.\nIt can be used to restore 70 HP\nto a Pokémon.
-A bottle of highly nutritious milk.\nIt can be used to restore 100 HP\nto a Pokémon.
-A very bitter medicinal powder.\nIt can be used to restore 60 HP\nto a Pokémon.
-A very bitter medicinal root.\nIt can be used to restore 120 HP\nto a Pokémon.
-A very bitter medicinal powder.\nIt can be used to cure any status\ncondition a Pokémon may have.
-A terribly bitter medicinal herb.\nIt revives a fainted Pokémon\nand fully restores its max HP.
-A medicine that can be used to\nrestore 10 PP to a single move\nthat a Pokémon knows.
-A medicine that can be used to fully\nrestore the max PP of a single move\nthat a Pokémon knows.
-A medicine that can be used to\nrestore 10 PP to all four moves\nthat a Pokémon knows.
-A medicine that can be used to fully\nrestore the max PP of all four moves\nthat a Pokémon knows.
-Lavaridge Town’s local specialty.\nIt can be used to cure any status\ncondition a Pokémon may have.
-A 100 percent pure juice made from\nBerries. It can be used to restore\n20 HP to a Pokémon.
-Ash that can be used to revive all party\nPokémon that have fainted. It also fully\nrestores the Pokémon’s max HP.
-A nutritious drink for Pokémon.\nThis drink increases base points\nfor a Pokémon’s HP stat.
-A nutritious drink for Pokémon.\nThis drink increases base points\nfor a Pokémon’s Attack stat.
-A nutritious drink for Pokémon.\nThis drink increases base points\nfor a Pokémon’s Defense stat.
-A nutritious drink for Pokémon.\nThis drink increases base points\nfor a Pokémon’s Speed stat.
-A nutritious drink for Pokémon.\nThis drink increases base points\nfor a Pokémon’s Sp. Atk stat.
-A candy that is packed with energy.\nIf consumed, it raises a Pokémon’s\nlevel by one.
-A medicine that can be used to slightly\nraise the max PP of a single move that\na Pokémon knows.
-A nutritious drink for Pokémon.\nThis drink increases base points\nfor a Pokémon’s Sp. Def stat.
-A medicine that can be used to raise the\nmax PP of a single move that a Pokémon\nknows as high as it can possibly go.
-A hidden gem found in the Old Chateau.\nIt can be used to cure any status\ncondition a Pokémon may have.
-An item that prevents Pokémon on\nyour side from having their stats\nlowered in battle for five turns.
-An item that raises the critical-hit\nratio. It can be used only once and\nwears off if the Pokémon is withdrawn.
-An item that boosts the Attack stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
-An item that boosts the Defense stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
-An item that boosts the Speed stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
-An item that boosts the Accuracy stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
-An item that boosts the Sp. Atk stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
-An item that boosts the Sp. Def stat of\na Pokémon during battle. It wears off\nonce the Pokémon is withdrawn.
-A doll that attracts the attention\nof Pokémon. It guarantees escape\nfrom any battle with wild Pokémon.
-A toy that attracts the attention of\nPokémon. It guarantees escape from\nany battle with wild Pokémon.
-A flute made from blue glass.\nIt awakens sleeping Pokémon.
-A flute made from yellow glass.\nIt snaps Pokémon out of confusion.
-A flute made from red glass.\nIt snaps Pokémon out of infatuation.
-A flute made from black glass.\nIt makes it easier to encounter high-level\nPokémon in the place you use it.
-A flute made from white glass.\nIt makes it easier to encounter low-level\nPokémon in the place you use it.
-Salt that was found inside Shoal Cave.
-A seashell that was found inside\nShoal Cave.
-A small red shard.\nIt appears to be a fragment of some\nsort of implement made long ago.
-A small blue shard.\nIt appears to be a fragment of some\nsort of implement made long ago.
-A small yellow shard.\nIt appears to be a fragment of some\nsort of implement made long ago.
-A small green shard.\nIt appears to be a fragment of some\nsort of implement made long ago.
-An item that prevents low-level wild\nPokémon from jumping out at you for a time.\nIt lasts longer than Repel.
-An item that prevents low-level wild\nPokémon from jumping out at you for a time.\nIt lasts longer than Super Repel.
-A long and durable rope.\nUse it to escape instantly from\nlocations like caves or dungeons.
-An item that prevents low-level wild\nPokémon from jumping out at you for\na short time.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt burns as red as the evening sun.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt is dark like the night sky.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt has a fiery orange heart.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt has a distinct thunderbolt pattern.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt is the clear blue of a deep pool.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt has an unmistakable leaf pattern.
-A small and rare mushroom.\nIt’s quite popular with a\ncertain class of collectors.
-A large and rare mushroom.\nIt’s extremely popular with a\ncertain class of collectors.
-A rather small pearl that has a nice\nsilvery sheen to it.\nIt can be sold at a low price to shops.
-A rather large pearl that has a nice\nsilvery sheen to it.\nIt can be sold at a high price to shops.
-Lovely red sand that flows between\nthe fingers with a loose, silky feel.\nIt can be sold at a low price to shops.
-A small shard of a beautiful gem\nthat gives off a distinctly red sparkle.\nIt can be sold at a high price to shops.
-A nugget of pure gold that gives off\na lustrous gleam.\nIt can be sold at a high price to shops.
-A pretty, heart-shaped scale that is\nextremely rare. Certain people are\ndelighted to be given one of these.
-Honey collected thanks to Pokémon’s\nefforts. It has a sweet aroma and\ncan be sold at a low price to shops.
-A fertilizer to be spread on soft soil.\nIt speeds up the growth of Berries.\nHowever, it also dries the soil faster.
-A fertilizer to be spread on soft soil.\nIt slows the growth of Berries and\ncauses the soil to dry slower.
-A fertilizer to be spread on soft soil.\nIt extends the time ripened Berries\nremain on their plants before falling.
-A fertilizer to be spread on soft soil.\nIt ups the number of times new plants\ngrow where mature plants withered.
-A fossil from a prehistoric Pokémon\nthat once lived in the sea.\nIt appears to be part of a plant’s root.
-A fossil from a prehistoric Pokémon\nthat once lived in the sea.\nIt appears to be a fragment of a claw.
-A fossil from a prehistoric Pokémon\nthat once lived in the sea.\nIt might be a piece of a seashell.
-A fossil from a prehistoric Pokémon\nthat once lived in the sea.\nIt could be a shell or carapace.
-A piece of amber that contains the\ngenetic material of an ancient Pokémon.\nIt’s clear with a tawny, reddish tint.
-A fossil from a prehistoric Pokémon\nthat once lived on the land.\nIt appears to be part of a protective collar.
-A fossil from a prehistoric Pokémon\nthat once lived on the land.\nIt appears as though it’s part of a head.
-A rare bone that is extremely valuable\nfor the study of Pokémon archeology.\nIt can be sold at a high price to shops.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt shines with a dazzling light.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt holds dark shadows within it.
-A peculiar stone that can make\ncertain species of Pokémon evolve.\nIt sparkles like a glittering eye.
-A peculiar stone that can make a\ncertain species of Pokémon evolve.\nIt is round and smooth.
-A vital item that is needed to keep a\nstone tower from collapsing.\nVoices can be heard from it occasionally.
-A shining gem to be held by Giratina.\nIt boosts the power of Giratina’s\nDragon- and Ghost-type moves.
-Aromatic tea that has a slightly\nbitter taste.\nIt soothes a dry throat.
+La meilleure des Poké Balls, au niveau\nde performance ultime. Avec elle,\nvous attraperez à coup sûr\nn’importe quel Pokémon sauvage.
+Une Poké Ball ultra-performante\nqui offre un taux de capture supérieur\nà celui d’une Super Ball.
+Une Poké Ball performante et fiable\nqui offre un taux de capture supérieur\nà celui d’une Poké Ball classique.
+Un dispositif permettant d’attraper\nles Pokémon sauvages.\nElle est lancée comme une balle\npour capturer confortablement sa cible.
+Une Poké Ball spéciale utilisée dans\nle Parc Safari de Kanto et dans\nle Grand Marais de Sinnoh.
+Une Poké Ball un peu particulière,\nplus efficace pour attraper\nles Pokémon de type Eau ou Insecte.
+Une Poké Ball un peu particulière,\nplus efficace pour attraper\nles Pokémon vivant dans ou sur l’eau.
+Une Poké Ball un peu particulière,\ndont l’efficacité augmente\nsi le Pokémon sauvage est\nde niveau faible.
+Une Poké Ball un peu particulière,\nparticulièrement efficace sur une\nespèce déjà capturée auparavant.
+Une Poké Ball un peu particulière,\ndont l’efficacité augmente\nau fil des tours de combat.
+Une Poké Ball particulièrement confortable\nqui rend rapidement plus amical\nun Pokémon sauvage une fois capturé.
+Une Poké Ball plutôt rare,\ncréée pour commémorer\nun événement spécial.
+Une Poké Ball un peu particulière,\nplus efficace pour attraper des\nPokémon la nuit ou dans des endroits\nsombres comme les grottes.
+Une Poké Ball de secours qui restaure\nles PV et soigne les altérations\nd’état du Pokémon capturé avec elle.
+Une Poké Ball un peu particulière,\nplus efficace lorsqu’elle est utilisée\ndès le début d’un combat.
+Une Poké Ball assez rare,\ncréée pour commémorer\nun événement spécial.
+Un médicament en spray pour soigner\nles blessures.\nRestaure 20 PV à un Pokémon.
+Un médicament en spray contre le poison.\nPermet de soigner une fois\nun Pokémon empoisonné.
+Un médicament en spray contre les brûlures.\nPermet de soigner un Pokémon\nsouffrant d’une brûlure.
+Un médicament en spray contre le gel.\nPermet de dégeler un Pokémon\ncomplètement gelé.
+Un médicament en spray pour réveiller.\nPermet de tirer un Pokémon\ndu sommeil.
+Un médicament en spray contre la paralysie.\nPermet de libérer un Pokémon\nparalysé.
+Un médicament permettant de restaurer\nentièrement les PV max d’un Pokémon\net de soigner toute altération d’état.
+Un médicament en spray pour soigner\nles blessures.\nRestaure entièrement les PV max\nd’un Pokémon.
+Un médicament en spray pour soigner\nles blessures.\nRestaure 200 PV à un Pokémon.
+Un médicament en spray pour soigner\nles blessures.\nRestaure 50 PV à un Pokémon.
+Un médicament en spray très polyvalent.\nPermet de soigner toute altération\nd’état d’un Pokémon.
+Un médicament permettant de ranimer\nun Pokémon K.O.\nRestaure également la moitié\nde ses PV max.
+Un médicament permettant de ranimer\nun Pokémon K.O.\nRestaure également entièrement\nses PV max.
+Une eau riche en minéraux.\nRestaure 30 PV à un Pokémon.
+Une boisson gazeuse très pétillante.\nRestaure 50 PV à un Pokémon.
+Une boisson très sucrée et rafraîchissante.\nRestaure 70 PV à un Pokémon.
+Une bouteille de lait très nutritif.\nRestaure 100 PV à un Pokémon.
+Une poudre médicinale très amère.\nRestaure 60 PV à un Pokémon.
+Une racine médicinale très amère.\nRestaure 120 PV à un Pokémon.
+Une poudre médicinale très amère.\nSoigne toute altération d’état\nd’un Pokémon.
+Une herbe médicinale extrêmement amère.\nRanime un Pokémon K.O.\net restaure entièrement ses PV max.
+Un médicament permettant de restaurer\n10 PP d’une capacité connue\nd’un Pokémon.
+Un médicament permettant de restaurer\nentièrement les PP max d’une capacité\nconnue d’un Pokémon.
+Un médicament permettant de restaurer\n10 PP aux quatre capacités\nconnues d’un Pokémon.
+Un médicament permettant de restaurer\nentièrement les PP max des quatre\ncapacités connues d’un Pokémon.
+La spécialité locale de Vermilava.\nPermet de soigner toute altération\nd’état d’un Pokémon.
+Un jus 100% pur à base de Baies.\nRestaure 20 PV à un Pokémon.
+Une cendre capable de ranimer tous les\nPokémon K.O. de l’équipe.\nRestaure également entièrement\nleurs PV max.
+Une boisson nutritive pour Pokémon.\nAugmente les points de base des PV.
+Une boisson nutritive pour Pokémon.\nAugmente les points de base de l’Attaque.
+Une boisson nutritive pour Pokémon.\nAugmente les points de base de la Défense.
+Une boisson nutritive pour Pokémon.\nAugmente les points de base de la Vitesse.
+Une boisson nutritive pour Pokémon.\nAugmente les points de base de l’Attaque Spé.
+Un bonbon débordant d’énergie.\nS’il est consommé, il augmente\nd’un niveau celui d’un Pokémon.
+Un médicament permettant d’augmenter\nlégèrement les PP max d’une capacité\nconnue d’un Pokémon.
+Une boisson nutritive pour Pokémon.\nAugmente les points de base de la\nDéfense Spé.
+Un médicament permettant d’augmenter\nles PP max d’une capacité d’un Pokémon\njusqu’à leur maximum possible.
+Un joyau caché trouvé dans le Vieux Château.\nPermet de soigner toute altération\nd’état d’un Pokémon.
+Un objet empêchant les statistiques\ndes Pokémon de votre équipe de\nbaisser pendant cinq tours.
+Un objet augmentant fortement le taux\nde coups critiques.\nUsage unique, effet annulé si le Pokémon\nest retiré du combat.
+Un objet augmentant fortement l’Attaque\nd’un Pokémon en combat.\nL’effet disparaît si le Pokémon\nest retiré.
+Un objet augmentant fortement la Défense\nd’un Pokémon en combat.\nL’effet disparaît si le Pokémon\nest retiré.
+Un objet augmentant fortement la Vitesse\nd’un Pokémon en combat.\nL’effet disparaît si le Pokémon\nest retiré.
+Un objet augmentant fortement la Précision\nd’un Pokémon en combat.\nL’effet disparaît si le Pokémon\nest retiré.
+Un objet augmentant fortement l’Attaque Spé.\nd’un Pokémon en combat.\nL’effet disparaît si le Pokémon\nest retiré.
+Un objet augmentant fortement la Défense Spé.\nd’un Pokémon en combat.\nL’effet disparaît si le Pokémon\nest retiré.
+Une poupée attirant l’attention\ndes Pokémon.\nGarantit la fuite face à tout\nPokémon sauvage.
+Un jouet attirant l’attention\ndes Pokémon.\nGarantit la fuite face à tout\nPokémon sauvage.
+Une Flûte Bleue en verre.\nRéveille les Pokémon endormis.
+Une Flûte Jaune en verre.\nSoigne la confusion.
+Une Flûte Rouge en verre.\nMet fin à l’infatuation.
+Une Flûte Noire en verre.\nFacilite la rencontre de Pokémon\nde haut niveau à l’endroit utilisé.
+Une Flûte Blanche en verre.\nFacilite la rencontre de Pokémon\nde bas niveau à l’endroit utilisé.
+Du sel trouvé dans la Grotte Tréfonds.
+Un coquillage trouvé dans\nla Grotte Tréfonds.
+Un petit Tesson Rouge.\nFragment d’un ancien objet\nd’origine inconnue.
+Un petit Tesson Bleu.\nFragment d’un ancien objet\nd’origine inconnue.
+Un petit Tesson Jaune.\nFragment d’un ancien objet\nd’origine inconnue.
+Un petit Tesson Vert.\nFragment d’un ancien objet\nd’origine inconnue.
+Un objet empêchant les Pokémon\nsauvages de bas niveau d’apparaître\npendant un certain temps.\nDure plus longtemps qu’un Repousse.
+Un objet empêchant les Pokémon\nsauvages de bas niveau d’apparaître\npendant un certain temps.\nDure plus longtemps qu’un Super Repousse.
+Une corde longue et solide.\nPermet de s’échapper instantanément\nd’endroits comme les grottes\nou les donjons.
+Un objet empêchant les Pokémon\nsauvages de bas niveau d’apparaître\npendant un court moment.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle brûle d’un rouge semblable\nau soleil couchant.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle est sombre comme le ciel nocturne.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle possède un cœur orange flamboyant.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle présente un motif en forme\nd’éclair.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle est d’un bleu limpide comme\nune eau profonde.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle arbore un motif de feuille\ninimitable.
+Un petit champignon rare.\nTrès prisé par certains\ncollectionneurs.
+Un grand champignon rare.\nExtrêmement prisé par certains\ncollectionneurs.
+Une petite Perle à l’éclat argenté.\nPeut être vendue à bas prix\naux boutiques.
+Une grande Perle à l’éclat argenté.\nPeut être vendue à prix élevé\naux boutiques.
+Un sable rouge magnifique,\nfin et soyeux entre les doigts.\nPeut être vendu à bas prix\naux boutiques.
+Un petit fragment d’une gemme superbe\némettant une lueur rouge éclatante.\nPeut être vendu à prix élevé\naux boutiques.
+Un lingot d’or pur à l’éclat brillant.\nPeut être vendu à prix élevé\naux boutiques.
+Une jolie Écaille Cœur très rare.\nCertaines personnes sont ravies\nd’en recevoir une.
+Du Miel récolté grâce aux efforts\ndes Pokémon.\nSon parfum sucré permet de le vendre\nà bas prix aux boutiques.
+Un engrais à répandre sur un sol meuble.\nAccélère la croissance des Baies,\nmais assèche plus vite la terre.
+Un engrais à répandre sur un sol meuble.\nRalentit la croissance des Baies\net ralentit l’assèchement du sol.
+Un engrais à répandre sur un sol meuble.\nProlonge la durée pendant laquelle\nles Baies mûres restent sur la plante\navant de tomber.
+Un engrais à répandre sur un sol meuble.\nAugmente les chances que de nouvelles\nplantes poussent là où les anciennes\nont fané.
+Un Fossile d’un Pokémon préhistorique\nayant vécu dans la mer.\nIl semble s’agir d’une racine végétale.
+Un Fossile d’un Pokémon préhistorique\nayant vécu dans la mer.\nIl semble s’agir d’un fragment de griffe.
+Un Fossile d’un Pokémon préhistorique\nayant vécu dans la mer.\nIl pourrait s’agir d’un morceau de coquillage.
+Un Fossile d’un Pokémon préhistorique\nayant vécu dans la mer.\nCela pourrait être une coquille\nou une carapace.
+Un morceau d’Ambre contenant\nle matériel génétique d’un Pokémon ancien.\nIl est limpide, teinté d’un rouge ambré.
+Un Fossile d’un Pokémon préhistorique\nayant vécu sur la terre ferme.\nIl semble faire partie d’un col protecteur.
+Un Fossile d’un Pokémon préhistorique\nayant vécu sur la terre ferme.\nIl semble s’agir d’une partie de tête.
+Un Os Rare d’une grande valeur\npour l’étude de l’archéologie Pokémon.\nPeut être vendu à prix élevé\naux boutiques.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle brille d’une lumière éblouissante.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle renferme de sombres ombres.
+Une pierre étrange capable de faire évoluer\ncertaines espèces de Pokémon.\nElle scintille comme un œil étincelant.
+Une pierre étrange capable de faire évoluer\nune certaine espèce de Pokémon.\nElle est ronde et lisse.
+Un objet indispensable pour empêcher\nune tour de pierre de s’effondrer.\nDes voix s’en échappent parfois.
+Une gemme étincelante destinée à être\ntenue par Giratina.\nAugmente la puissance des capacités\nde type Dragon et Spectre de Giratina.
+Un thé aromatique au goût légèrement\namer.\nIl apaise la gorge sèche.
 - - -
-The autograph you got from the\nVermilion City Gym Leader, Lt. Surge.\nHe wrote, “Good luck!“
-A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast\nmove so it becomes Water type.
-A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast\nmove so it becomes Electric type.
-A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast\nmove so it becomes Fire type.
-A cassette to be held by Genesect.\nIt changes Genesect’s Techno Blast\nmove so it becomes Ice type.
-- - -
-- - -
-- - -
-- - -
-- - -
-- - -
-A very light trunk that can carry\nclothing for you and your Pokémon.
+L’autographe obtenu du Champion\nde l’Arène de Carmin-sur-Mer, Major Bob.\nIl a écrit : Bonne chance !
+Une Cassette à tenir par Genesect.\nTransforme sa capacité Techno-Buster\nen type Eau.
+Une Cassette à tenir par Genesect.\nTransforme sa capacité Techno-Buster\nen type Électrik.
+Une Cassette à tenir par Genesect.\nTransforme sa capacité Techno-Buster\nen type Feu.
+Une Cassette à tenir par Genesect.\nTransforme sa capacité Techno-Buster\nen type Glace.
 - - -
 - - -
 - - -
 - - -
 - - -
 - - -
+Une malle très légère capable de transporter\nles vêtements des Dresseurs\net de leurs Pokémon.
 - - -
-A piece of cloyingly sweet chocolate.\nIt can be used to restore 20 HP to a\nPokémon.
-A brightly shining gem to be held by Dialga.\nIt boosts the power of Dialga’s\nDragon- and Steel-type moves.
-A beautifully shining gem to be held by\nPalkia. It boosts the power of Palkia’s\nDragon- and Water-type moves.
-Stationery featuring a print\nof a refreshingly green field.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof flames in blazing red.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof a blue world underwater.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof pretty floral patterns.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof a dimly lit coal mine.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof cool mechanical designs.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof giant heart patterns.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof a chilly, snow-covered world.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\ndepicting the huge expanse of space.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof colorful letter sets.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof a vivid rainbow pattern.\nLet a Pokémon hold it for delivery.
-Stationery featuring a print\nof a tough-looking brick pattern.\nLet a Pokémon hold it for delivery.
-If a Pokémon holds one of these Berries,\nit will be able to free itself from\nparalysis.
-If a Pokémon holds one of these Berries,\nit will be able to wake itself from sleep.
-If a Pokémon holds one of these Berries,\nit will be able to lift the effects of\nbeing poisoned from itself.
-If a Pokémon holds one of these Berries,\nit will be able to cure itself of a burn.
-If a Pokémon holds one of these Berries,\nit will be able to thaw itself after being\n frozen.
-If a Pokémon holds one of these Berries,\nit will be able to restore 10 PP to a\nmove.
-If a Pokémon holds one of these Berries,\nit will be able to restore 10 HP to\nitself.
-If a Pokémon holds one of these Berries,\nit will be able to cure itself of\nconfusion.
-If a Pokémon holds one of these Berries,\nit will be able to cure itself of any\nstatus condition it may have.
-If a Pokémon holds one of these Berries,\nit will be able to restore a small amount\nof HP to itself.
-If a Pokémon holds one of these Berries,\nit restores their HP in a pinch, but will\ncause confusion if it hates the taste.
-If a Pokémon holds one of these Berries,\nit restores their HP in a pinch, but will\ncause confusion if it hates the taste.
-If a Pokémon holds one of these Berries,\nit restores their HP in a pinch, but will\ncause confusion if it hates the taste.
-If a Pokémon holds one of these Berries,\nit restores their HP in a pinch, but will\ncause confusion if it hates the taste.
-If a Pokémon holds one of these Berries,\nit restores their HP in a pinch, but will\ncause confusion if it hates the taste.
-Used to make Pokéblocks\nthat will enhance Coolness.\nIts red flesh is spicy if eaten.
-Used to make Pokéblocks\nthat will enhance Beauty.\nIts blue flesh is dry if eaten.
-Used to make Pokéblocks\nthat will enhance Cuteness.\nIts pink flesh is sweet if eaten.
-Used to make Pokéblocks\nthat will enhance Cleverness.\nIts green flesh is bitter if eaten.
-Used to make Pokéblocks\nthat will enhance Toughness.\nIts yellow flesh is sour if eaten.
-If a Pokémon is fed this Berry,\nit will grow more friendly, but it\nwill lose base points for its HP stat.
-If a Pokémon is fed this Berry,\nit will grow more friendly, but it\nwill lose base points for its Attack stat.
-If a Pokémon is fed this Berry,\nit will grow more friendly, but it\nwill lose base points for its Defense stat.
-If a Pokémon is fed this Berry,\nit will grow more friendly, but it\nwill lose base points for its Sp. Atk stat.
-If a Pokémon is fed this Berry,\nit will grow more friendly, but it\nwill lose base points for its Sp. Def stat.
-If a Pokémon is fed this Berry,\nit will grow more friendly, but it\nwill lose base points for its Speed stat.
-Used to make Pokéblocks that will\nenhance Beauty.\nThis Berry is rare in other regions.
-Used to make Pokéblocks that will\nenhance Cuteness.\nThis Berry is rare in other regions.
-Used to make Pokéblocks that will\nenhance Cleverness.\nThis Berry is rare in other regions.
-Used to make Pokéblocks that will\nenhance Toughness.\nThis Berry is rare in other regions.
-Used to make Pokéblocks that will\nenhance Cuteness.\nThis Berry is rare in other regions.
-Used to make Pokéblocks that will\nenhance Beauty.\nThis Berry is rare in other regions.
-Used to make Pokéblocks that will\nenhance Cleverness.\nThis Berry is rare in other regions.
-Used to make Pokéblocks that will\nenhance Cleverness.\nThis Berry is rare in other regions.
-Used to make Pokéblocks that will\nenhance Beauty.\nThis Berry is rare in other regions.
-If a Pokémon holding this Berry is hit\nwith a supereffective Fire-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Water-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Electric-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Grass-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Ice-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Fighting-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Poison-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Ground-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Flying-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Psychic-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Bug-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Rock-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Ghost-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Dragon-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Dark-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a supereffective Steel-type move,\nthe power of that move will be weakened.
-If a Pokémon holding this Berry is hit\nwith a Normal-type move, the power of\nthat move will be weakened.
-If a Pokémon holds one of these Berries,\nits Attack stat will be boosted should\nit find itself in a pinch.
-If a Pokémon holds one of these Berries,\nits Defense stat will be boosted should\nit find itself in a pinch.
-If a Pokémon holds one of these Berries,\nits Speed stat will be boosted should\nit find itself in a pinch.
-If a Pokémon holds one of these Berries,\nits Sp. Atk stat will be boosted should\nit find itself in a pinch.
-If a Pokémon holds one of these Berries,\nits Sp. Def stat will be boosted should\nit find itself in a pinch.
-If a Pokémon holds one of these Berries,\nits critical-hit ratio will be boosted\nshould it find itself in a pinch.
-If a Pokémon holds one of these Berries,\none of its stats will be sharply boosted\nshould it find itself in a pinch.
-If a Pokémon holds one of these Berries,\nit will be able to regain some HP if it is\nhit with a supereffective move.
-If a Pokémon holds one of these Berries,\nits accuracy will be boosted just once\nshould it find itself in a pinch.
-If a Pokémon holds one of these Berries,\nit will be able to act faster just once\nshould it find itself in a pinch.
-If a Pokémon holding this Berry is hit\nwith a physical move, the attacker will\nalso take damage.
-If a Pokémon holding this Berry is hit\nwith a special move, the attacker will\nalso take damage.
-An item to be held by a Pokémon.\nIt casts a tricky glare that lowers\nthe opposing Pokémon’s accuracy.
-An item to be held by a Pokémon.\nIt will restore any lowered stat\nin battle--but only once.
-An item to be held by a Pokémon.\nThis stiff, heavy brace helps Pokémon\ngrow strong but cuts Speed in battle.
-An item to be held by a Pokémon.\nThe holder gets a share of a battle’s\nExp. Points without battling.
-An item to be held by a Pokémon.\nThis light, sharp claw lets the\nholder move first occasionally.
-An item to be held by a Pokémon.\nThe comforting chime of this bell\ncalms the holder, making it friendly.
-An item to be held by a Pokémon.\nIt snaps the user out of move-binding\neffects to move freely--but only once.
-An item to be held by a Pokémon.\nThis curious headband boosts Attack\nbut only allows the use of one move.
-An item to be held by a Pokémon.\nWhen the holder successfully inflicts\ndamage, the target may also flinch.
-An item to be held by a Pokémon.\nIt’s a shiny silver powder that boosts\nthe power of the holder’s Bug-type moves.
-An item to be held by a Pokémon.\nIt doubles any prize money received\nif the holding Pokémon joins a battle.
-An item to be held by a Pokémon.\nIt helps keep wild Pokémon away when\nthe holder is the head of the party.
-A wondrous orb to be held by Latios or\nLatias. It boosts the power of their\nPsychic- and Dragon-type moves.
-An item to be held by Clamperl.\nThis fang gleams a sharp silver\nand boosts Clamperl’s Sp. Atk stat.
-An item to be held by Clamperl.\nThis scale shines with a faint pink\nand boosts Clamperl’s Sp. Def stat.
-An item to be held by a Pokémon.\nIt enables the holder to flee from any\nwild Pokémon encounter without fail.
-An item to be held by a Pokémon.\nA Pokémon holding this peculiar stone\nis prevented from evolving.
-An item to be held by a Pokémon.\nThe holder may endure a potential KO attack,\nleaving it with just 1 HP.
-An item to be held by a Pokémon.\nIt’s an egg filled with happiness that\nearns the holder extra Exp. Points.
-An item to be held by a Pokémon.\nIt’s a lens for scoping out weak points.\nIt boosts the holder’s critical-hit ratio.
-An item to be held by a Pokémon.\nIt is a special metallic film that\nboosts the power of Steel-type moves.
-An item to be held by a Pokémon.\nThe holder’s HP is slowly but steadily\nrestored throughout a battle.
-A very tough and inflexible scale.\nDragon-type Pokémon may be holding\nthis item when caught.
-An item to be held by Pikachu.\nIt’s a mysterious orb that boosts\nPikachu’s Attack and Sp. Atk stats.
-An item to be held by a Pokémon.\nIt’s a loose, silky sand that boosts\nthe power of the Ground-type moves.
-An item to be held by a Pokémon.\nIt’s a durable stone that boosts\nthe power of Rock-type moves.
-An item to be held by a Pokémon.\nIt’s a seed imbued with life-force that\nboosts the power of Grass-type moves.
-An item to be held by a Pokémon.\nIt’s a pair of shady-looking glasses that\nboost the power of Dark-type moves.
-An item to be held by a Pokémon.\nThis belt helps with focus and boosts\nthe power of Fighting-type moves.
-An item to be held by a Pokémon.\nIt’s a powerful magnet that boosts\nthe power of Electric-type moves.
-An item to be held by a Pokémon.\nThis teardrop-shaped gem boosts\nthe power of Water-type moves.
-An item to be held by a Pokémon.\nIt’s a long, sharp beak that boosts\nthe power of the Flying-type moves.
-An item to be held by a Pokémon.\nThis small poisonous barb boosts\nthe power of Poison-type moves.
-An item to be held by a Pokémon.\nIt’s a heat-repelling piece of ice that\nboosts the power of Ice-type moves.
-An item to be held by a Pokémon.\nIt’s a sinister, eerie tag that\nboosts the power of Ghost-type moves.
-An item to be held by a Pokémon.\nImbued with telekinetic power, the spoon\nboosts the power of Psychic-type moves.
-An item to be held by a Pokémon.\nIt’s a combustible fuel that boosts\nthe power of Fire-type moves.
-An item to be held by a Pokémon.\nThis hard, sharp fang boosts the power\nof the holder’s Dragon-type moves.
-An item to be held by a Pokémon.\nIt’s a sumptuous scarf that boosts\nthe power of Normal-type moves.
-A transparent device somehow filled\nwith all sorts of data.\nIt was produced by Silph Co.
-An item to be held by a Pokémon.\nThe holder restores a little HP every\ntime it inflicts damage on others.
-An item to be held by a Pokémon.\nThis incense has a curious aroma that\nboosts the power of Water-type moves.
-An item to be held by a Pokémon.\nThe curious aroma of this incense\nmay cause moves to miss its holder.
-An item to be held by Chansey.\nThis lucky boxing glove boosts the\ncritical-hit ratio of Chansey’s moves.
-An item to be held by Ditto.\nExtremely fine yet hard, this odd\npowder boosts Ditto’s Defense stat.
-An item to be held by Cubone or Marowak.\nThis hard bone of unknown origin boosts\ntheir Attack stat.
-An item to be held by Farfetch’d.\nThis very long and stiff stalk of\nleek boosts its critical-hit ratio.
-When a Pokémon holds this during\na contest, it looks even cooler\nthan usual.
-When a Pokémon holds this during\na contest, it looks even more\nbeautiful than usual.
-When a Pokémon holds this during\na contest, it looks even cuter than\nusual.
-When a Pokémon holds this during\na contest, it looks even cleverer than\nusual.
-When a Pokémon holds this during\na contest, it looks even tougher than\nusual.
-An item to be held by a Pokémon.\nIt’s a magnifying lens that slightly\nboosts the accuracy of moves.
-An item to be held by a Pokémon.\nThis headband exudes strength, slightly\nboosting the power of physical moves.
-An item to be held by a Pokémon.\nThis thick pair of glasses slightly\nboosts the power of special moves.
-An item to be held by a Pokémon.\nIt’s a well-worn belt that slightly boosts\nthe power of supereffective moves.
-An item to be held by a Pokémon.\nProtective moves like Light Screen\nand Reflect will be effective longer.
-An item to be held by a Pokémon.\nIt boosts the power of moves but\nat the cost of some HP on each hit.
-An item to be held by a Pokémon.\nIt allows the instant use of a move that\ncharges on the first turn--but only once.
-An item to be held by a Pokémon.\nIt’s a bizarre orb that will badly\npoison the holder during battle.
-An item to be held by a Pokémon.\nIt’s a bizarre orb that will afflict\nthe holder with a burn during battle.
-An item to be held by Ditto.\nExtremely fine yet hard, this odd\npowder boosts Ditto’s Speed stat.
-An item to be held by a Pokémon.\nIf it has full HP, the holder will endure\none potential KO attack, leaving 1 HP.
-An item to be held by a Pokémon.\nWhen the holder acts after its target,\nits move will be more accurate than usual.
-An item to be held by a Pokémon.\nIt boosts moves used consecutively\nbut only until a different move is used.
-A Pokémon held item that cuts Speed.\nIt makes Flying-type and levitating\nholders susceptible to Ground moves.
-An item to be held by a Pokémon.\nIt is tremendously heavy and makes\nthe holder move slower than usual.
-An item to be held by a Pokémon.\nIf the holder becomes infatuated,\nthe opposing Pokémon will be, too.
-An item to be held by a Pokémon.\nIt gradually restores HP to Poison-type\nPokémon. It damages any other type.
-An item to be held by a Pokémon.\nWhen the weather changes to snow,\nit will persist longer than usual.
-An item to be held by a Pokémon.\nWhen the weather changes to sandstorm,\nit will persist longer than usual.
-An item to be held by a Pokémon.\nWhen the weather changes to harsh sunlight,\nit will persist longer than usual.
-An item to be held by a Pokémon.\nWhen the weather changes to rain,\nit will persist longer than usual.
-An item to be held by a Pokémon.\nIt extends the duration of multi-turn\nattacks, such as Bind and Wrap.
-An item to be held by a Pokémon.\nThis curious scarf boosts Speed\nbut only allows the use of one move.
-An item to be held by a Pokémon.\nIt damages the holder every turn and may\nlatch on to Pokémon that touch the holder.
-An item to be held by a Pokémon.\nIt reduces Speed but allows the holder’s\nAttack stat to grow more after battling.
-An item to be held by a Pokémon.\nIt reduces Speed but allows the holder’s\nDefense stat to grow more after battling.
-An item to be held by a Pokémon.\nIt reduces Speed but allows the holder’s\nSp. Atk stat to grow more after battling.
-An item to be held by a Pokémon.\nIt reduces Speed but allows the holder’s\nSp. Def stat to grow more after battling.
-An item to be held by a Pokémon.\nIt reduces Speed but allows the holder’s\nSpeed stat to grow more after battling.
-An item to be held by a Pokémon.\nIt reduces Speed but allows the holder’s\nHP stat to grow more after battling.
-An item to be held by a Pokémon.\nThis discarded carapace enables the holder\nto switch out of battle without fail.
-An item to be held by a Pokémon.\nIt boosts the amount of HP the holder\nrestores from HP-stealing moves.
-An item to be held by a Pokémon.\nThese curious glasses boost Sp. Atk\nbut only allow the use of one move.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Fire-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Water-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Electric-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Grass-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Ice-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Fighting-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Poison-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Ground-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Flying-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Psychic-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Bug-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Rock-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Ghost-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Dragon-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Dark-type moves.
-An item to be held by a Pokémon.\nIt’s a stone tablet that boosts\nthe power of Steel-type moves.
-An item to be held by a Pokémon.\nThis incense has a curious aroma that\nboosts the power of Psychic-type moves.
-An item to be held by a Pokémon.\nThis incense has a curious aroma that\nboosts the power of Rock-type moves.
-An item to be held by a Pokémon.\nThis incense has a curious aroma that\nmakes the holder move slower than usual.
-An item to be held by a Pokémon.\nThis incense has a curious aroma that\nboosts the power of Water-type moves.
-An item to be held by a Pokémon.\nThis incense has a curious aroma that\nboosts the power of Grass-type moves.
-An item to be held by a Pokémon.\nIt doubles any prize money received as long\nas the holder joins the battle at least once.
-An item to be held by a Pokémon.\nIt helps keep wild Pokémon away when\nthe holder is the head of the party.
-A protective item of some sort.\nIt is extremely stiff and heavy.\nIt’s loved by a certain Pokémon.
-A box packed with a tremendous amount\nof electric energy.\nIt’s loved by a certain Pokémon.
-A box packed with a tremendous amount\nof magma energy.\nIt’s loved by a certain Pokémon.
-A transparent device overflowing with\ndubious data.\nIt’s loved by a certain Pokémon.
-A cloth imbued with horrifyingly strong\nspiritual energy.\nIt’s loved by a certain Pokémon.
-An item to be held by a Pokémon.\nThis sharply hooked claw boosts the\ncritical-hit ratio of the holder’s moves.
-An item to be held by a Pokémon.\nWhen the holder successfully inflicts\ndamage, the target may also flinch.
-The user focuses its mind before\nlaunching this attack. It will fail\nif the user is hit before it is used.
-Sharp, huge claws hook and slash\nthe foe quickly and with great\npower.
-The foe is hit with a pulsing blast\nof water. It may also confuse the\ntarget.
-The user quietly focuses its mind and\ncalms its spirit to raise its Sp. Atk\nand Sp. Def stats.
-The foe is scared off, to be replaced\nby another Pokémon in its party.\nIn the wild, the battle ends.
-A move that leaves the foe badly\npoisoned. This poison damage\nworsens every turn.
-Summons a hailstorm that lasts for\nfive turns. The hailstorm damages\nall types except Ice.
-The user tenses its muscles to bulk up\nits body, boosting both its Attack and\nDefense stats.
-The user forcefully shoots seeds at\nthe foe. Two to five seeds are shot in\nrapid succession.
-A variable move that changes type\nand power depending on the hidden\nability of the Pokémon using it.
-The user intensifies the sun for\nfive turns, powering up Fire-type\nmoves.
-The foe is taunted into a rage that\nallows it to use only attack moves for\ntwo to four turns.
-The foe is struck with an icy-cold\nbeam of energy. It may also freeze\nthe target solid.
-A howling blizzard is summoned to\nstrike the foe. It may also freeze\nthe target solid.
-The foe is attacked with a powerful\nbeam. The user must rest on the next\nturn to regain its energy.
-A wondrous wall of light is put up to\nsuppress damage from special attacks\nfor five turns.
-It enables the user to evade all\nattacks. Its chance of failing rises\nif it is used in succession.
-The user summons a heavy rain that\nfalls for five turns, powering up\nWater-type moves.
-A nutrient-draining attack. The user’s\nHP is restored by half the damage\ntaken by the target.
-The user creates a protective field\nthat prevents status problems like\npoison, paralysis, burn, and sleep.
-A full-power attack that grows more\npowerful the less the user likes its\nTrainer.
-A two-turn attack. The user gathers\nlight, then blasts a bundled beam on\nthe second turn.
-The foe is slammed with a sturdy\ntail of steel. It may also lower the\ntarget’s Defense stat if it hits.
-A strong electric blast is loosed at\nthe foe. It may also leave the foe\nparalyzed.
-A wicked thunderbolt is dropped on the\nfoe to inflict damage. It may also\nleave the target paralyzed.
-The user sets off an earthquake\nthat hits all the Pokémon in the\nbattle.
-A full-power attack that grows more\npowerful the more the user likes its\nTrainer.
-The user burrows, then attacks on the\nsecond turn. It can also be used to\nexit dungeons.
-The foe is hit by a strong telekinetic\nforce. It may also reduce the foe’s\nSp. Def stat.
-The user hurls a shadowy blob at the\nfoe. It may also lower the foe’s\nSp. Def stat.
-The user attacks with tough fists,\netc. It can also break any barrier\nsuch as Light Screen and Reflect.
-The user begins moving so quickly\nthat it creates illusory copies to\nraise its evasiveness.
-A wondrous wall of light is put up to\nsuppress damage from physical attacks\nfor five turns.
-The user strikes the foe with a quick\njolt of electricity. This attack cannot\nbe evaded.
-The foe is scorched with an intense\nblast of fire. The target may also be\nleft with a burn.
-Unsanitary sludge is hurled at\nthe foe. It may also poison the\ntarget.
-A five-turn sandstorm is summoned\nto hurt all combatants except the\nRock, Ground, and Steel types.
-The foe is attacked with an intense\nblast of all-consuming fire. It may\nalso leave the target with a burn.
-Large boulders are hurled at the foe\nto inflict damage. It lowers the foe’s\nSpeed.
-The user confounds the foe with speed,\nthen strikes. The attack lands without\nfail.
-The user torments and enrages the\nfoe, making it incapable of using the\nsame move twice in a row.
-An attack move that doubles its power\nif the user is poisoned, paralyzed, or\nhas a burn.
-An attack move with effects that\nvary depending on the user’s\nenvironment.
-The user goes to sleep for two\nturns. It fully restores the user’s HP\nand heals any status problem.
-If it is the opposite gender of the\nuser, the foe becomes infatuated\nand less likely to attack.
-The user attacks and steals the foe’s\nheld item simultaneously. It can’t\nsteal if the user holds an item.
-The foe is hit with wings of steel.\nIt may also raise the user’s Defense\nstat.
-The user employs its psychic power to\nexchange abilities with the foe.\n
-The user steals the effects of any\nhealing or status-changing move the\nfoe attempts to use.
-The user attacks the foe at full\npower using fiery energy. It also\nsharply reduces the user’s Sp. Atk.
-The user lands and rests its body.\nIt restores the user’s HP by up to\nhalf of its max HP.
-The user attacks at full power.\nIt may also lower the foe’s Sp. Def\nstat if it hits.
-The user draws power from nature and\nfires it at the foe. It may also lower\nthe target’s Sp. Def.
-A restrained attack that prevents the\nfoe from fainting. The target is left\nwith at least 1 HP.
-If the foe’s HP is down to under half,\nthis attack will hit with double the\npower.
-The user flings its held item at the\nfoe to attack. Its power and effects\ndepend on the item.
-The user attacks with an electric\ncharge. The user may use any remaining\nelectricity to raise its Sp. Atk stat.
-The user endures any attack, leaving\n1 HP. Its chance of failing rises if it\nis used in succession.
-The foe is attacked with a shock\nwave generated by the user’s gaping\nmouth.
-An energy-draining punch. The user’s\nHP is restored by half the damage\ntaken by the target.
-The user shoots a sinister, bluish\nwhite flame at the foe to inflict a\nburn.
-The foe is attacked with powdery\nscales blown by wind. It may also\nraise all the user’s stats.
-It prevents the foe from using its\nheld item. Its Trainer is also\nprevented from using items on it.
-The user explodes to inflict damage on\nall Pokémon in battle. The user faints\nupon using this move.
-The user slashes with a sharp claw\nmade from shadows. It has a high\ncritical-hit ratio.
-The user stores power, then attacks.\nIf the user can use this attack after\nthe foe, its power is doubled.
-The user recycles a single-use item\nthat has been used in battle so it can\nbe used again.
-The user charges the foe using every\nbit of its power. It must rest on the\nnext turn to recover.
-The user polishes its body to reduce\ndrag. It sharply raises the Speed\nstat.
-The user flashes a light that cuts the\nfoe’s accuracy. It can also be used to\nilluminate caves.
-The user stabs the foe with a\nsharpened stone from below. It has\na high critical-hit ratio.
-An attack move that inflicts double\nthe damage if the user has been hurt\nby the foe in the same turn.
-A weak electric charge is launched\nat the foe. It causes paralysis if it\nhits.
-The user tackles the foe from a\nhigh-speed spin. The slower the user,\nthe greater the damage.
-A frenetic dance to uplift the fighting\nspirit. It sharply raises the user’s\nAttack stat.
-The user lays a trap of levitating\nstones around the foe. The trap hurts\nfoes that switch into battle.
-The user hypnotizes itself into\ncopying any stat change made\nby the foe.
-If it is the opposite gender of the\nuser, the foe is charmed into sharply\nlowering its Sp. Atk stat.
-The user releases a horrible aura\nimbued with dark thoughts. It may also\nmake the target flinch.
-Large boulders are hurled at the foe\nto inflict damage. It may also make the\ntarget flinch.
-The user slashes at the foe by\ncrossing its scythes or claws as if\nthey were a pair of scissors.
-While it is asleep, the user\nrandomly uses one of the moves\nit knows.
-The user draws power from the Berry\nit is holding to attack. The Berry\ndetermines its type and power.
-The foe is stabbed with a tentacle or\narm steeped with poison. It may also\npoison the foe.
-An attack that works only on a\nsleeping foe. It absorbs half the\ndamage caused to heal the user’s HP.
-The user snares the foe with grass\nand trips it. The heavier the foe, the\ngreater the damage.
-The user enrages the foe into\nconfusion. However, it also sharply\nraises the foe’s Attack stat.
-The user pecks the foe. If the foe is\nholding a Berry, the user plucks it and\ngains its effect.
-After making its attack, the user\nrushes back to switch places with a\nparty Pokémon in waiting.
-The user makes a copy of itself using\nsome of its HP. The copy serves as\nthe user’s decoy.
-The user gathers all its light energy\nand releases it in one shot. It may\nalso lower the foe’s Sp. Def stat.
-The user creates a bizarre space in\nwhich slower Pokémon get to move\nfirst for five turns.
-The foe is cut with a scythe or a claw.\nIt can also be used to cut down thin\ntrees.
-The user soars, then strikes on the\nsecond turn. It can also be used to\nfly to any familiar town.
-It swamps the entire battlefield with\na giant wave. It can also be used\nto cross water.
-The foe is slugged with a punch thrown\nat maximum power. It can also be used\nto move boulders.
-Traps foes in a violent swirling\nwhirlpool. It can also be used to\ntraverse whirlpools.
-The user slugs the foe with a\nshattering punch. It can also smash\ncracked boulders.
-The user charges the foe at an\nawesome speed. It can also be used\nto climb a waterfall.
-A charging attack that may also leave\nthe foe confused. It can also be used\nto scale rocky walls.
-A bag filled with convenient tools for\nexploring. It provides access to the\nUnderground in the Sinnoh region.
-A sturdy, spacious bag that is used\nto carry any treasures or loot\nobtained in the coal mine.
-It lists the rules for holding battles.\nFor Link Battles, you may choose which\nset of rules you wish to use.
-A tool that can search out Pokémon\nthat are hiding in the tall grass.\nIts battery is recharged as you walk.
-A card that lists how many Battle\nPoints you have earned.
-A notebook that keeps a record of\nyour adventure so far.
-A case for storing Stickers that can\nbe applied to Ball Capsules.
-A wondrous, pretty case to store\nlots of colorful Props for your\nPokémon to wear in a musical.
-A tiny bag that can hold 10 Stickers\nfor decorating Ball Capsules.
-A convenient notepad that is used to\nregister your friends and keep a\nrecord of your gameplay.
-A large key for operating the doors of\nthe Valley Windworks in the canyon.\nIt was held by a Team Galactic Grunt.
-An ancient good-luck charm made of\nPokémon bones to be taken to the\nelder of Celestic Town.
-A card key for disengaging the security\nsystems in the Galactic HQ. Losing it\ncan result in punishment, apparently.
-A mythical chain that is said to\nbind the Legendary Pokémon that\ncreated the Sinnoh region.
-A very convenient map that can be\nviewed anytime. It even shows you\nyour present location in the region.
-A device that indicates Trainers who\nwant to battle.\nIts battery charges while you walk.
-A case for holding coins obtained at the\nGame Corner.\nIt can hold up to 50,000 coins.
-An old and beat-up fishing rod.\nUse it at bodies of water to fish\nfor Pokémon.
-A new, good-quality fishing rod.\nUse it at bodies of water to fish\nfor Pokémon.
-An awesome, high-spec fishing rod.\nUse it at bodies of water to fish\nfor Pokémon.
-A watering can shaped like a Psyduck.\nIt helps promote the healthy growth\nof any Berries planted in good, soft soil.
-A case for storing Poffins cooked\nfrom Berries.
-A folding bike that enables a rider\nto get around much faster than with\nRunning Shoes.
-A key to one of the suites at a certain\nluxury hotel by a lake.\nFor some odd reason, it often disappears.
-A letter from Professor Oak.\nWritten in it is a request\nfor you to go to Route 224.
-A feather that glows like the moon.\nIt’s said to possess the power to\ndispel nightmares.
-A card needed for entering the inn\nin Canalave City. Oddly, the last\ndate marked on it was 50 years ago.
-A flute that puts out echoing sounds\nthat do not seem to be of this world.\nNo one knows who made it or when.
-A ticket required for sailing on\nthe high-speed ferry S.S. Aqua.\nIt has a drawing of a ship on it.
-A pass required for entering Pokémon\nContests. It has a drawing of an\naward ribbon on its front.
-A stone formed by boulders melting in\nintensely hot magma, then hardening.\nMagma remains sealed inside it.
-A parcel entrusted into your care.\nYou’re supposed to deliver it to your\nchildhood friend who left Twinleaf Town.
-A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupons are needed.
-A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupons are needed.
-A coupon to be exchanged for a\nPokémon Watch- Pokétch for short.\nThree coupons are needed.
-The key to Team Galactic’s sinister\nwarehouse located at the edge of\nVeilstone City.
-A fantastic medicine dispensed by the\npharmacy in Cianwood City.\nIt fully heals a Pokémon of any ailment.
-An amazing device that can record a\nbattle between friends or the battles\nat certain special battle facilities.
-A flower sometimes bundled in\nbouquets to convey gratitude on\nspecial occasions, such as birthdays.
-A high-tech key that has to be used at\na specific location. It emits a special\nelectronic signal to open a door.
-A handy box where you can store up\nto 99 of each kind of Apricorn.
-A report of all the discovered kinds\nof Unown.
-Portable containers that allow you\nto easily cultivate Berries anywhere\nand anytime.
-The latest device for showing the\nlocation of hidden items.\nIt’s worn on the head when in use.
-A card to save points for the\nBuena’s Password show.
-A very tasty tail of something.\nIt can be sold at a high price to shops.
-A very old-fashioned bell that makes\na gentle ringing sound.
-A card key that opens a shutter in\nthe Radio Tower.
-A key that opens a door in the\nGoldenrod Tunnel.
-A bottle used for watering plants in\nthe Berry Pots.
-A scale from a red Gyarados that\nappeared at the Lake of Rage.\nIt glows red like a flame.
-The Mime Jr. doll that was lost by\nthe Copycat.
-A pass required for riding the Magnet Train.\nIt allows you to ride whenever and however\nmuch you’d like.
-An important part of a machine that\nwas stolen from the Power Plant.
-A strange feather that gleams with a\nsilvery color.
-A strange feather that gleams in\nrainbow colors.
-An Egg obtained from Mr. Pokémon.\nIt has a mysterious pattern on it,\nand what is in the Egg is unknown.
-A red Apricorn.\nIt has a pungent scent that assails the\nnostrils.
-A yellow Apricorn.\nIt has a light, refreshing scent.
-A blue Apricorn.\nIt has a slightly grassy smell to it.
-A green Apricorn.\nIt has a mysterious and aromatic scent.
-A pink Apricorn.\nIt has a pleasantly sweet scent.
-A white Apricorn.\nIt doesn’t have any aroma at all.
-A black Apricorn.\nIt has a smell that cannot be captured\nin words.
-A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nthat are usually very quick to run away.
-A somewhat different Poké Ball that\nbecomes more effective the lower the\nlevel of the Pokémon compared to your own.
-A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nin or on the water.
-A somewhat different Poké Ball that\nbecomes more effective the heavier\nthe Pokémon is.
-A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nof the opposite gender to your own.
-A somewhat different Poké Ball that\nmakes a wild Pokémon more friendly\ntoward you immediately.
-A somewhat different Poké Ball that is\nmore effective when catching Pokémon\nthat can be evolved using a Moon Stone.
-A special Poké Ball that is used\nduring the Bug-Catching Contest.
-A special Poké Ball used in the Pal\nPark.
-A nice photo album for storing all\nthe photos taken along your\nadventure.
-A music player that allows you to listen\nto nostalgic songs. It’s operated with\nthe flip of a single switch.
-A very old-fashioned bell that makes\na gentle ringing sound.
-Mahogany Town’s famous candy.\nMany tourists like to buy them\nto take home.
-It holds Pokéathlon records. It is a\ncard that shows how many victories\nyou have had in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many losses you\nhave had in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon dashed in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon jumped in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Hurdle Dash.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Relay Run.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Pennant Capture.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Block Smash.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Disc Catch.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Snow Throw.
-It holds Pokéathlon records. It is a\ncard that shows how many points your\nPokémon scored in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon failed in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon impeded themselves.
-It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon tackled in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon fell down in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Ring Drop.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Lamp Jump.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Circle Push.
-It holds Pokéathlon records. It is a\ncard that shows how many Link\nPokéathlon wins you have had.
-It holds Pokéathlon records. It is a\ncard that shows how many Link\nPokéathlon losses you have had.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nhave won a Pokéathlon event.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nhave lost a Pokéathlon event.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nswitched Pokémon in the Pokéathlon.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\nwon the Pokéathlon’s Goal Roll.
-It holds Pokéathlon records. It is a\ncard that shows how many times your\nPokémon won individual prizes.
-It holds Pokéathlon records. It is a\ncard that shows how many times you\ninstructed your Pokémon.
-It holds Pokéathlon records. It is a\ncard that shows how much time you\nspent participating in the Pokéathlon.
-A shiny green orb that is said\nto have a deep connection to\na legend of the Hoenn region.
-A sturdy Capsule that can only be\nopened with a special key.
-A shiny red orb that is said\nto have a deep connection to\na legend of the Hoenn region.
-A shiny blue orb that is said\nto have a deep connection to\na legend of the Hoenn region.
-A crystal ball that was excavated from\nthe ground. It is covered with bits of rock\nand earth, but it is still very beautiful.
+- - -
+- - -
+- - -
+- - -
+- - -
+- - -
+Un morceau de chocolat extrêmement sucré.\nRestaure 20 PV à un Pokémon.
+Une gemme éclatante destinée à être tenue\npar Dialga.\nAugmente la puissance des capacités\nde type Dragon et Acier de Dialga.
+Une gemme magnifiquement brillante destinée\nà être tenue par Palkia.\nAugmente la puissance des capacités\nde type Dragon et Eau de Palkia.
+Du Papier Lettre orné d’un motif\nde prairie verdoyante.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nde flammes rouge ardent.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nd’un monde sous-marin azur.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nde jolies fleurs.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nde mine de charbon sombre.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nmécanique et moderne.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nde cœurs géants.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nde monde enneigé et glacé.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nreprésentant l’immensité de l’espace.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nde lettres colorées.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nd’arc-en-ciel éclatant.\nÀ faire tenir à un Pokémon\npour la livraison.
+Du Papier Lettre orné d’un motif\nde briques robustes.\nÀ faire tenir à un Pokémon\npour la livraison.
+Si un Pokémon tient cette Baie,\nil pourra se libérer de la paralysie.
+Si un Pokémon tient cette Baie,\nil pourra se réveiller du sommeil.
+Si un Pokémon tient cette Baie,\nil pourra se soigner du poison.
+Si un Pokémon tient cette Baie,\nil pourra guérir d’une brûlure.
+Si un Pokémon tient cette Baie,\nil pourra se dégeler après avoir\nété gelé.
+Si un Pokémon tient cette Baie,\nil pourra restaurer 10 PP\nd’une capacité.
+Si un Pokémon tient cette Baie,\nil pourra restaurer 10 PV.
+Si un Pokémon tient cette Baie,\nil pourra se soigner de la confusion.
+Si un Pokémon tient cette Baie,\nil pourra soigner toute altération\nd’état.
+Si un Pokémon tient cette Baie,\nil restaurera une petite quantité\nde PV.
+Si un Pokémon tient cette Baie,\nil restaurera des PV en cas d’urgence,\nmais deviendra confus s’il n’aime pas\nson goût.
+Si un Pokémon tient cette Baie,\nil restaurera des PV en cas d’urgence,\nmais deviendra confus s’il n’aime pas\nson goût.
+Si un Pokémon tient cette Baie,\nil restaurera des PV en cas d’urgence,\nmais deviendra confus s’il n’aime pas\nson goût.
+Si un Pokémon tient cette Baie,\nil restaurera des PV en cas d’urgence,\nmais deviendra confus s’il n’aime pas\nson goût.
+Si un Pokémon tient cette Baie,\nil restaurera des PV en cas d’urgence,\nmais deviendra confus s’il n’aime pas\nson goût.
+Permet de confectionner des Pokéblocs\nqui augmentent le Sang-froid.\nSa chair rouge est épicée.
+Permet de confectionner des Pokéblocs\nqui augmentent la Beauté.\nSa chair bleue est sèche.
+Permet de confectionner des Pokéblocs\nqui augmentent le Mignon.\nSa chair rose est sucrée.
+Permet de confectionner des Pokéblocs\nqui augmentent l’Intelligence.\nSa chair verte est amère.
+Permet de confectionner des Pokéblocs\nqui augmentent la Robustesse.\nSa chair jaune est acide.
+Si un Pokémon mange cette Baie,\nil deviendra plus amical,\nmais perdra des points de base\nen PV.
+Si un Pokémon mange cette Baie,\nil deviendra plus amical,\nmais perdra des points de base\nen Attaque.
+Si un Pokémon mange cette Baie,\nil deviendra plus amical,\nmais perdra des points de base\nen Défense.
+Si un Pokémon mange cette Baie,\nil deviendra plus amical,\nmais perdra des points de base\nen Attaque Spé.
+Si un Pokémon mange cette Baie,\nil deviendra plus amical,\nmais perdra des points de base\nen Défense Spé.
+Si un Pokémon mange cette Baie,\nil deviendra plus amical,\nmais perdra des points de base\nen Vitesse.
+Permet de confectionner des Pokéblocs\nqui augmentent la Beauté.\nCette Baie est rare dans d’autres régions.
+Permet de confectionner des Pokéblocs\nqui augmentent le Mignon.\nCette Baie est rare dans d’autres régions.
+Permet de confectionner des Pokéblocs\nqui augmentent l’Intelligence.\nCette Baie est rare dans d’autres régions.
+Permet de confectionner des Pokéblocs\nqui augmentent la Robustesse.\nCette Baie est rare dans d’autres régions.
+Permet de confectionner des Pokéblocs\nqui augmentent le Mignon.\nCette Baie est rare dans d’autres régions.
+Permet de confectionner des Pokéblocs\nqui augmentent la Beauté.\nCette Baie est rare dans d’autres régions.
+Permet de confectionner des Pokéblocs\nqui augmentent l’Intelligence.\nCette Baie est rare dans d’autres régions.
+Permet de confectionner des Pokéblocs\nqui augmentent l’Intelligence.\nCette Baie est rare dans d’autres régions.
+Permet de confectionner des Pokéblocs\nqui augmentent la Beauté.\nCette Baie est rare dans d’autres régions.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Feu super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Eau super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Électrik super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Plante super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Glace super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Combat super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Poison super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Sol super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Vol super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Psy super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Insecte super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Roche super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Spectre super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Dragon super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Ténèbres super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Acier super efficace,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie et subit\nune attaque de type Normal,\nla puissance de cette attaque sera réduite.
+Si un Pokémon tient cette Baie,\nson Attaque sera augmentée en cas de situation critique.
+Si un Pokémon tient cette Baie,\nsa Défense sera augmentée en cas de situation critique.
+Si un Pokémon tient cette Baie,\nsa Vitesse sera augmentée en cas de situation critique.
+Si un Pokémon tient cette Baie,\nson Attaque Spéciale sera augmentée en cas de situation critique.
+Si un Pokémon tient cette Baie,\nsa Défense Spéciale sera augmentée en cas de situation critique.
+Si un Pokémon tient cette Baie,\nson taux de coups critiques sera augmenté\nen cas de situation critique.
+Si un Pokémon tient cette Baie,\nl’une de ses statistiques sera fortement augmentée\nen cas de situation critique.
+Si un Pokémon tient cette Baie,\nil pourra récupérer des PV s’il est frappé\npar une attaque super efficace.
+Si un Pokémon tient cette Baie,\nsa Précision sera augmentée une seule fois\nen cas de situation critique.
+Si un Pokémon tient cette Baie,\nil pourra agir plus vite une seule fois\nen cas de situation critique.
+Si un Pokémon tient cette Baie et subit\nune attaque physique, l’attaquant subira\négalement des dégâts.
+Si un Pokémon tient cette Baie et subit\nune attaque spéciale, l’attaquant subira\négalement des dégâts.
+Objet à faire tenir à un Pokémon.\nIl émet un regard trompeur qui réduit\nla Précision de l’adversaire.
+Objet à faire tenir à un Pokémon.\nIl restaure toute statistique diminuée en combat,\nmais une seule fois.
+Objet à faire tenir à un Pokémon.\nCette attelle rigide et lourde renforce\nle Pokémon, mais réduit sa Vitesse en combat.
+Objet à faire tenir à un Pokémon.\nLe porteur reçoit une partie des points d’expérience\ndu combat sans avoir combattu.
+Objet à faire tenir à un Pokémon.\nCette griffe légère et tranchante permet\nde parfois agir en premier.
+Objet à faire tenir à un Pokémon.\nLe tintement apaisant de cette cloche\nrend le porteur amical.
+Objet à faire tenir à un Pokémon.\nPermet de se libérer d’un effet de blocage\nd’une capacité, mais une seule fois.
+Objet à faire tenir à un Pokémon.\nCe bandeau curieux augmente l’Attaque,\nmais ne permet d’utiliser qu’une seule capacité.
+Objet à faire tenir à un Pokémon.\nLorsque le porteur inflige des dégâts avec succès,\nl’adversaire peut aussi être effrayé.
+Objet à faire tenir à un Pokémon.\nPoudre argentée brillante qui augmente la puissance\ndes attaques de type Insecte du porteur.
+Objet à faire tenir à un Pokémon.\nDouble les gains de Pokédollars reçus si le Pokémon\nporteur participe au combat.
+Objet à faire tenir à un Pokémon.\nAide à éloigner les Pokémon sauvages lorsque\nle porteur est en tête du groupe.
+Orbe merveilleux à faire tenir à Latios ou Latias.\nAugmente la puissance de leurs attaques de type\nPsy et Dragon.
+Objet à faire tenir à Clamperl.\nCette dent argentée brillante augmente l’Attaque Spéciale\nde Clamperl.
+Objet à faire tenir à Clamperl.\nCette écaille rosée augmente la Défense Spéciale\nde Clamperl.
+Objet à faire tenir à un Pokémon.\nPermet au porteur de fuir n’importe quelle rencontre\navec un Pokémon sauvage sans échouer.
+Objet à faire tenir à un Pokémon.\nUn Pokémon tenant cette pierre particulière\nne peut pas évoluer.
+Objet à faire tenir à un Pokémon.\nLe porteur peut survivre à une attaque pouvant le KO,\nrestant avec 1 PV seulement.
+Objet à faire tenir à un Pokémon.\nŒuf rempli de bonheur qui rapporte des points d’expérience\nsupplémentaires au porteur.
+Objet à faire tenir à un Pokémon.\nUne lentille pour détecter les points faibles.\nAugmente le taux de coups critiques du porteur.
+Objet à faire tenir à un Pokémon.\nFilm métallique spécial qui augmente la puissance\ndes attaques de type Acier.
+Objet à faire tenir à un Pokémon.\nLe porteur récupère lentement mais sûrement des PV\npendant le combat.
+Écaille très dure et inflexible.\nLes Pokémon de type Dragon peuvent la tenir\nlorsqu’ils sont attrapés.
+Objet à faire tenir à Pikachu.\nOrbe mystérieuse qui augmente l’Attaque et l’Attaque Spéciale\nde Pikachu.
+Objet à faire tenir à un Pokémon.\nSable doux et soyeux qui augmente la puissance\ndes attaques de type Sol.
+Objet à faire tenir à un Pokémon.\nPierre durable qui augmente la puissance\ndes attaques de type Roche.
+Objet à faire tenir à un Pokémon.\nGraine imprégnée de force vitale qui augmente la puissance\ndes attaques de type Plante.
+Objet à faire tenir à un Pokémon.\nLunettes sombres qui augmentent la puissance\ndes attaques de type Ténèbres.
+Objet à faire tenir à un Pokémon.\nCeinture qui aide à se concentrer et augmente la puissance\ndes attaques de type Combat.
+Objet à faire tenir à un Pokémon.\nAimant puissant qui augmente la puissance\ndes attaques de type Électrik.
+Objet à faire tenir à un Pokémon.\nGemme en forme de larme qui augmente la puissance\ndes attaques de type Eau.
+Objet à faire tenir à un Pokémon.\nLong bec tranchant qui augmente la puissance\ndes attaques de type Vol.
+Objet à faire tenir à un Pokémon.\nPetit dard empoisonné qui augmente la puissance\ndes attaques de type Poison.
+Objet à faire tenir à un Pokémon.\nPièce de glace qui repousse la chaleur et augmente la puissance\ndes attaques de type Glace.
+Objet à faire tenir à un Pokémon.\nÉtiquette sinistre qui augmente la puissance\ndes attaques de type Spectre.
+Objet à faire tenir à un Pokémon.\nCuillère imprégnée de télékinésie qui augmente la puissance\ndes attaques de type Psy.
+Objet à faire tenir à un Pokémon.\nCombustible qui augmente la puissance\ndes attaques de type Feu.
+Objet à faire tenir à un Pokémon.\nDent dure et tranchante qui augmente la puissance\ndes attaques de type Dragon.
+Objet à faire tenir à un Pokémon.\nÉcharpe somptueuse qui augmente la puissance\ndes attaques de type Normal.
+Appareil transparent rempli de données.\nProduit par Silph Co.
+Objet à faire tenir à un Pokémon.\nLe porteur récupère un peu de PV chaque fois qu’il inflige\ndes dégâts aux autres.
+Objet à faire tenir à un Pokémon.\nEncens dont l’arôme curieux augmente la puissance\ndes attaques de type Eau.
+Objet à faire tenir à un Pokémon.\nL’arôme curieux de cet encens peut faire rater des attaques\nà celui qui le tient.
+Objet à faire tenir à Chansey.\nGant de boxe chanceux qui augmente le taux de coups critiques\ndes attaques de Chansey.
+Objet à faire tenir à Ditto.\nPoudre extrêmement fine et dure qui augmente la Défense\nde Ditto.
+Objet à faire tenir à Cubone ou Marowak.\nOs dur d’origine inconnue qui augmente l’Attaque\ndu porteur.
+Objet à faire tenir à Canarticho.\nLong et rigide poireau qui augmente le taux de coups critiques\ndu porteur.
+Lorsqu’un Pokémon tient cet objet pendant\nun concours, il a l’air encore plus cool\nque d’habitude.
+Lorsqu’un Pokémon tient cet objet pendant\nun concours, il a l’air encore plus\nbeau que d’habitude.
+Lorsqu’un Pokémon tient cet objet pendant\nun concours, il a l’air encore plus mignon\nque d’habitude.
+Lorsqu’un Pokémon tient cet objet pendant\nun concours, il a l’air encore plus intelligent\nque d’habitude.
+Lorsqu’un Pokémon tient cet objet pendant\nun concours, il a l’air encore plus robuste\nque d’habitude.
+Un objet à tenir par un Pokémon.\nC’est une loupe qui augmente légèrement\nla précision des attaques.
+Un objet à tenir par un Pokémon.\nCe bandeau dégage de la force et augmente\nlégèrement la puissance des attaques physiques.
+Un objet à tenir par un Pokémon.\nCette épaisse paire de lunettes augmente\nlégèrement la puissance des attaques spéciales.
+Un objet à tenir par un Pokémon.\nC’est une ceinture usée qui augmente légèrement\nla puissance des attaques très efficaces.
+Un objet à tenir par un Pokémon.\nLes protections comme Mur Lumière\net Mur de Fer durent plus longtemps.
+Un objet à tenir par un Pokémon.\nIl augmente la puissance des attaques mais\nau prix de quelques PV à chaque coup.
+Un objet à tenir par un Pokémon.\nIl permet d’utiliser instantanément une attaque\nqui nécessite un tour de chargement - mais une seule fois.
+Un objet à tenir par un Pokémon.\nC’est un orbe étrange qui empoisonne gravement\nle porteur pendant le combat.
+Un objet à tenir par un Pokémon.\nC’est un orbe étrange qui inflige une brûlure\nau porteur pendant le combat.
+Un objet à tenir par Métamorph.\nPoudre très fine et dure, cet étrange\nobjet augmente la Vitesse de Métamorph.
+Un objet à tenir par un Pokémon.\nSi le porteur a tous ses PV, il survivra\nà une attaque qui pourrait le mettre K.O., laissant 1 PV.
+Un objet à tenir par un Pokémon.\nLorsque le porteur agit après sa cible,\nson attaque sera plus précise que d’habitude.
+Un objet à tenir par un Pokémon.\nIl augmente la puissance des attaques\nutilisées consécutivement mais seulement\njusqu’à ce qu’une autre attaque soit utilisée.
+Un objet tenu par un Pokémon qui réduit la Vitesse.\nIl rend les Pokémon Vol et Lévitateur\nvulnérables aux attaques de type Sol.
+Un objet à tenir par un Pokémon.\nIl est extrêmement lourd et ralentit le\nmouvement du porteur.
+Un objet à tenir par un Pokémon.\nSi le porteur tombe amoureux, le Pokémon\nadverse le sera aussi.
+Un objet à tenir par un Pokémon.\nIl restaure progressivement les PV des\nPokémon de type Poison et en inflige aux autres types.
+Un objet à tenir par un Pokémon.\nLorsque le temps devient neige,\nil persiste plus longtemps que d’habitude.
+Un objet à tenir par un Pokémon.\nLorsque le temps devient tempête de sable,\nil persiste plus longtemps que d’habitude.
+Un objet à tenir par un Pokémon.\nLorsque le temps devient soleil intense,\nil persiste plus longtemps que d’habitude.
+Un objet à tenir par un Pokémon.\nLorsque le temps devient pluie,\nil persiste plus longtemps que d’habitude.
+Un objet à tenir par un Pokémon.\nIl prolonge la durée des attaques sur\nplusieurs tours, comme Ligotage et Enveloppement.
+Un objet à tenir par un Pokémon.\nCette écharpe curieuse augmente la Vitesse\nmais ne permet l’usage que d’une seule attaque.
+Un objet à tenir par un Pokémon.\nIl inflige des dégâts au porteur à chaque tour et\npeut se coller aux Pokémon qui touchent le porteur.
+Un objet à tenir par un Pokémon.\nIl réduit la Vitesse mais permet à l’Attaque\ndu porteur d’augmenter davantage après le combat.
+Un objet à tenir par un Pokémon.\nIl réduit la Vitesse mais permet à la Défense\ndu porteur d’augmenter davantage après le combat.
+Un objet à tenir par un Pokémon.\nIl réduit la Vitesse mais permet à l’Attaque Sp.\ndu porteur d’augmenter davantage après le combat.
+Un objet à tenir par un Pokémon.\nIl réduit la Vitesse mais permet à la Défense Sp.\ndu porteur d’augmenter davantage après le combat.
+Un objet à tenir par un Pokémon.\nIl réduit la Vitesse mais permet à la Vitesse\ndu porteur d’augmenter davantage après le combat.
+Un objet à tenir par un Pokémon.\nIl réduit la Vitesse mais permet aux PV\ndu porteur d’augmenter davantage après le combat.
+Un objet à tenir par un Pokémon.\nCette carapace abandonnée permet au porteur\nde changer de Pokémon en combat sans faute.
+Un objet à tenir par un Pokémon.\nIl augmente la quantité de PV que le porteur\nrécupère via les attaques drainantes.
+Un objet à tenir par un Pokémon.\nCes lunettes curieuses augmentent l’Attaque Sp.\nmais ne permettent l’usage que d’une seule attaque.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\nla puissance des attaques de type Feu.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\nla puissance des attaques de type Eau.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Électrik.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Plante.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Glace.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Combat.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Poison.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Sol.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Vol.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Psy.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Insecte.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Roche.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Spectre.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Dragon.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Ténèbres.
+Un objet à tenir par un Pokémon.\nC’est une tablette de pierre qui augmente\ndu pouvoir des attaques de type Acier.
+Un objet à tenir par un Pokémon.\nCet encens a un parfum curieux qui\naugmente le pouvoir des attaques de type Psy.
+Un objet à tenir par un Pokémon.\nCet encens a un parfum curieux qui\naugmente le pouvoir des attaques de type Roche.
+Un objet à tenir par un Pokémon.\nCet encens a un parfum curieux qui\nralentit le déplacement du porteur.
+Un objet à tenir par un Pokémon.\nCet encens a un parfum curieux qui\naugmente le pouvoir des attaques de type Eau.
+Un objet à tenir par un Pokémon.\nCet encens a un parfum curieux qui\naugmente le pouvoir des attaques de type Plante.
+Un objet à tenir par un Pokémon.\nIl double toutes les récompenses en argent\ntant que le porteur participe à la bataille au moins une fois.
+Un objet à tenir par un Pokémon.\nIl aide à éloigner les Pokémon sauvages lorsque\nle porteur est en tête de l’équipe.
+Un objet protecteur quelconque.\nIl est extrêmement rigide et lourd.\nIl est adoré par un certain Pokémon.
+Une boîte remplie d’une immense quantité\nd’énergie électrique.\nElle est adorée par un certain Pokémon.
+Une boîte remplie d’une immense quantité\nd’énergie de magma.\nElle est adorée par un certain Pokémon.
+Un dispositif transparent débordant de\ndonnées douteuses.\nIl est adoré par un certain Pokémon.
+Un tissu imprégné d’une énergie spirituelle\nterriblement puissante.\nIl est adoré par un certain Pokémon.
+Un objet à tenir par un Pokémon.\nCette griffe fortement recourbée augmente\nle ratio de coups critiques des attaques du porteur.
+Un objet à tenir par un Pokémon.\nLorsque le porteur inflige des dégâts avec succès,\nla cible peut aussi reculer (flinch).
+L’utilisateur concentre son esprit avant\nd’exécuter cette attaque. Elle échouera\nsi l’utilisateur est touché avant son utilisation.
+Des griffes aiguës et énormes lacèrent l’ennemi\nrapidement et avec puissance.
+L’ennemi est frappé par une rafale d’eau pulsante.\nIl peut aussi devenir confus.
+L’utilisateur se concentre en silence et\ncalme son esprit pour augmenter ses\nstats Sp. Atk et Sp. Def.
+L’ennemi est effrayé et remplacé\npar un autre Pokémon de son équipe.\nDans la nature, la bataille se termine.
+Une attaque qui empoisonne gravement l’ennemi.\nLes dégâts de poison s’aggravent chaque tour.
+Invoque une tempête de grêle qui dure\ncinq tours. Elle blesse tous les types sauf Glace.
+L’utilisateur tend ses muscles pour se renforcer,\naugmentant ses stats Attaque et Défense.
+L’utilisateur projette des graines sur l’ennemi.\nDeux à cinq graines sont tirées en\nsuccession rapide.
+Une attaque variable qui change de type\net de puissance selon l’aptitude cachée\ndu Pokémon qui l’utilise.
+L’utilisateur intensifie le soleil pendant\ncinq tours, renforçant les attaques de type Feu.
+L’ennemi est provoqué et ne peut utiliser\nque des attaques pendant deux à quatre tours.
+L’ennemi est frappé par un rayon glacé.\nIl peut aussi être gelé.
+Une tempête de neige hurlante frappe l’ennemi.\nElle peut aussi geler la cible.
+L’ennemi est attaqué par un puissant rayon.\nL’utilisateur doit se reposer au tour suivant.
+Un mur de lumière merveilleux est érigé\npour réduire les dégâts des attaques spéciales\npendant cinq tours.
+Il permet à l’utilisateur d’éviter toutes\nles attaques. Les chances d’échec augmentent\nsi utilisé successivement.
+L’utilisateur invoque une forte pluie pendant\ncinq tours, renforçant les attaques de type Eau.
+Une attaque qui draine les nutriments.\nL’utilisateur récupère la moitié des dégâts\ninfligés à la cible.
+L’utilisateur crée un champ protecteur\nprévenant les problèmes de statut comme\npoison, paralysie, brûlure et sommeil.
+Une attaque à pleine puissance qui devient plus\npuissante moins l’utilisateur aime son Dresseur.
+Une attaque sur deux tours. L’utilisateur accumule\nla lumière, puis libère un rayon concentré au second tour.
+L’ennemi est frappé par une queue en acier.\nPeut aussi réduire la Défense de la cible.
+Une puissante décharge électrique frappe l’ennemi.\nPeut aussi paralyser l’ennemi.
+Un terrible éclair frappe l’ennemi pour infliger des dégâts.\nPeut aussi paralyser la cible.
+L’utilisateur provoque un séisme\nqui touche tous les Pokémon au combat.
+Une attaque à pleine puissance qui devient plus\npuissante plus l’utilisateur aime son Dresseur.
+L’utilisateur creuse, puis attaque au deuxième tour.\nPeut aussi servir à sortir de donjons.
+L’ennemi est frappé par une force télékinétique.\nPeut aussi réduire la Sp. Def de l’ennemi.
+L’utilisateur lance une masse d’ombre sur l’ennemi.\nPeut aussi réduire la Sp. Def de l’ennemi.
+L’utilisateur frappe avec des poings puissants.\nPeut briser des barrières comme Mur Lumière ou Abri.
+L’utilisateur bouge si vite qu’il crée des copies illusoires\npour augmenter son esquive.
+Un mur de lumière merveilleux est érigé\npour réduire les dégâts des attaques physiques\npendant cinq tours.
+L’utilisateur frappe l’ennemi avec un choc électrique rapide.\nCette attaque ne peut pas être évitée.
+L’ennemi est brûlé par un puissant jet de feu.\nPeut aussi provoquer une brûlure.
+De la boue insalubre est projetée sur l’ennemi.\nPeut aussi empoisonner la cible.
+Une tempête de sable de cinq tours est invoquée\npour blesser tous les combattants sauf\nles types Roche, Sol et Acier.
+L’ennemi est frappé par un feu intense.\nPeut aussi provoquer une brûlure.
+De gros rochers sont lancés sur l’ennemi.\nPeut aussi réduire sa Vitesse.
+L’utilisateur perturbe l’ennemi avec sa vitesse,\npuis frappe. L’attaque réussit sans échec.
+L’utilisateur tourmente et enrage l’ennemi,\nempêchant l’usage de la même attaque deux fois.
+Une attaque qui double sa puissance si l’utilisateur est\nempoisonné, paralysé ou brûlé.
+Une attaque dont les effets varient selon l’environnement\nde l’utilisateur.
+L’utilisateur dort pendant deux tours.\nRestaure complètement ses PV et soigne les statuts.
+Si le Pokémon est de sexe opposé,\nl’ennemi tombe amoureux et attaque moins souvent.
+L’utilisateur attaque et vole l’objet tenu de l’ennemi.\nImpossible si l’utilisateur tient déjà un objet.
+L’ennemi est frappé par des ailes d’acier.\nPeut aussi augmenter la Défense de l’utilisateur.
+L’utilisateur utilise son pouvoir psychique pour\néchanger ses capacités avec l’ennemi.
+L’utilisateur vole les effets de toute attaque\nsoignante ou changeant le statut que\nl’ennemi tente d’utiliser.
+L’utilisateur attaque l’ennemi à pleine puissance\navec de l’énergie de feu. Cela réduit aussi\nfortement la Sp. Atk de l’utilisateur.
+L’utilisateur atterrit et repose son corps.\nIl restaure jusqu’à la moitié de ses PV max.
+L’utilisateur attaque à pleine puissance.\nPeut aussi réduire la Sp. Def de l’ennemi.
+L’utilisateur puise son énergie dans la nature\net la projette sur l’ennemi. Peut aussi réduire\nla Sp. Def de la cible.
+Une attaque restreinte qui empêche l’ennemi\nde tomber KO. La cible reste avec au moins 1 PV.
+Si les PV de l’ennemi sont inférieurs à la moitié,\nl’attaque inflige le double de dégâts.
+L’utilisateur lance l’objet qu’il tient sur l’ennemi.\nSa puissance et ses effets dépendent de l’objet.
+L’utilisateur attaque avec une charge électrique.\nPeut utiliser l’électricité restante pour augmenter\nsa Sp. Atk.
+L’utilisateur endure n’importe quelle attaque,\nrestant à 1 PV. Les chances d’échec augmentent\nsi utilisée successivement.
+L’ennemi est frappé par une onde de choc\ngénérée par la bouche grande ouverte de l’utilisateur.
+Un coup de poing drainant l’énergie.\nLes PV de l’utilisateur sont restaurés à moitié des dégâts infligés.
+L’utilisateur tire une flamme sinistre, bleu-blanc,\nsur l’ennemi pour infliger une brûlure.
+L’ennemi est attaqué par des écailles poudreuses\nsoufflées par le vent. Peut aussi augmenter\ntous les stats de l’utilisateur.
+Empêche l’ennemi d’utiliser son objet tenu.\nLe Dresseur de l’ennemi ne peut pas non plus utiliser d’objets.
+L’utilisateur explose pour infliger des dégâts\nà tous les Pokémon en combat. L’utilisateur s’évanouit.
+L’utilisateur tranche avec une griffe acérée\nfaite d’ombre. Ratio de coups critiques élevé.
+L’utilisateur accumule de l’énergie, puis attaque.\nSi l’attaque est utilisée après l’ennemi, sa puissance double.
+L’utilisateur recycle un objet à usage unique\nutilisé en combat pour pouvoir le réutiliser.
+L’utilisateur charge l’ennemi avec toute sa puissance.\nDoit se reposer au tour suivant pour récupérer.
+L’utilisateur polit son corps pour réduire la traînée.\nAugmente fortement sa Vitesse.
+L’utilisateur projette une lumière qui réduit\nla précision de l’ennemi. Peut aussi éclairer les grottes.
+L’utilisateur transperce l’ennemi avec\nune pierre aiguisée depuis le sol.\nRatio de coups critiques élevé.
+Une attaque qui inflige le double de dégâts\nsi l’utilisateur a été blessé par l’ennemi le même tour.
+Une faible décharge électrique est lancée sur l’ennemi.\nCause la paralysie si elle touche.
+L’utilisateur charge l’ennemi avec un spin à grande vitesse.\nPlus l’utilisateur est lent, plus les dégâts sont grands.
+Une danse frénétique pour stimuler le courage.\nAugmente fortement l’Attaque de l’utilisateur.
+L’utilisateur crée un piège de pierres flottantes autour de l’ennemi.\nLe piège blesse les ennemis qui entrent au combat.
+L’utilisateur s’hypnotise pour copier tout changement de stat de l’ennemi.
+Si l’ennemi est de sexe opposé, il est charmé et réduit fortement\nsa Sp. Atk.
+L’utilisateur libère une aura horrible\nemplie de pensées sombres. Peut aussi\nfaire reculer la cible.
+De gros rochers sont lancés sur l’ennemi.\nPeut aussi provoquer un recul.
+L’utilisateur frappe l’ennemi en croisant ses faucilles ou griffes\ncomme une paire de ciseaux.
+Pendant qu’il dort, l’utilisateur utilise au hasard\nune attaque qu’il connaît.
+L’utilisateur puise l’énergie de la Baie qu’il tient\npour attaquer. La Baie détermine le type et la puissance.
+L’ennemi est transpercé par un tentacule ou bras imbibé de poison.\nPeut aussi empoisonner la cible.
+Une attaque qui ne fonctionne que sur un ennemi endormi.\nAbsorbe la moitié des dégâts pour soigner l’utilisateur.
+L’utilisateur piège l’ennemi avec de l’herbe et le fait tomber.\nPlus l’ennemi est lourd, plus les dégâts sont grands.
+L’utilisateur rend l’ennemi confus de rage.\nAugmente fortement son Attaque également.
+L’utilisateur picore l’ennemi. Si celui-ci tient une Baie,\nl’utilisateur la prend et en bénéficie.
+Après son attaque, l’utilisateur recule\npour échanger sa place avec un Pokémon en attente.
+L’utilisateur crée un double de lui-même en utilisant\nune partie de ses PV. Le double sert de leurre.
+L’utilisateur rassemble toute son énergie lumineuse\net la libère en un seul tir. Peut aussi réduire la Sp. Def de l’ennemi.
+L’utilisateur crée un espace bizarre\noù les Pokémon plus lents agissent en premier\npendant cinq tours.
+L’ennemi est coupé par une faucille ou griffe.\nPeut aussi couper de fins arbres.
+L’utilisateur s’élève puis frappe au second tour.\nPeut aussi servir à voler vers une ville connue.
+Il inonde tout le terrain avec une vague géante.\nPeut aussi servir à traverser l’eau.
+L’ennemi est frappé par un coup de poing à puissance maximale.\nPeut aussi déplacer des rochers.
+Piège les ennemis dans un tourbillon violent.\nPeut aussi servir à traverser des tourbillons.
+L’utilisateur frappe l’ennemi avec un poing écrasant.\nPeut aussi briser des rochers fissurés.
+L’utilisateur charge l’ennemi à grande vitesse.\nPeut aussi servir à grimper une cascade.
+Une attaque de charge qui peut aussi rendre l’ennemi confus.\nPeut aussi servir à escalader des parois rocheuses.
+Un sac rempli d’outils pratiques pour l’exploration.\nDonne accès au Monde Souterrain dans la région de Sinnoh.
+Un sac solide et spacieux pour transporter\nles trésors ou butins obtenus dans la mine de charbon.
+Il énumère les règles des combats à tenir.\nPour les Combats Link, vous pouvez choisir\nle jeu de règles à utiliser.
+Un outil qui peut rechercher des Pokémon\ncachés dans les hautes herbes.\nSa batterie se recharge en marchant.
+Une carte qui indique combien de Points\nde Combat vous avez gagnés.
+Un carnet qui garde un enregistrement de\nvotre aventure jusqu’à présent.
+Un étui pour ranger des Autocollants à\nappliquer sur les Capsules de Poké Ball.
+Un joli et merveilleux étui pour stocker\nbeaucoup d’Accessoires colorés que\nvos Pokémon peuvent porter dans un spectacle musical.
+Un petit sac pouvant contenir 10 Autocollants\npour décorer des Capsules de Poké Ball.
+Un carnet pratique pour enregistrer vos amis\net tenir un compte rendu de votre partie.
+Une grande clé pour ouvrir les portes des\nAteliers du Vent dans le canyon.\nElle était détenue par un sbire de la Team Galactic.
+Un ancien porte-bonheur fait d’os de Pokémon\nà remettre à l’aîné de Lavanville.
+Une carte-clé pour désactiver les systèmes\nde sécurité du QG Galactic. La perdre\npeut entraîner une punition, apparemment.
+Une chaîne mythique censée lier le Pokémon\nLégendaire qui a créé la région de Sinnoh.
+Une carte très pratique qui peut être\nconsultée à tout moment.\nElle indique même votre position actuelle dans la région.
+Un dispositif qui indique les Dresseurs\nsouhaitant combattre.\nSa batterie se recharge en marchant.
+Un étui pour conserver les pièces obtenues\nau Game Corner.\nPeut contenir jusqu’à 50 000 pièces.
+Une vieille canne à pêche usée.\nÀ utiliser dans les étendues d’eau pour pêcher des Pokémon.
+Une nouvelle canne à pêche de bonne qualité.\nÀ utiliser dans les étendues d’eau pour pêcher des Pokémon.
+Une canne à pêche impressionnante et haut de gamme.\nÀ utiliser dans les étendues d’eau pour pêcher des Pokémon.
+Un arrosoir en forme de Psykokwak.\nAide à la croissance saine des Baies plantées\ndans un sol doux et fertile.
+Un étui pour conserver les Poffins\npréparés à partir de Baies.
+Un vélo pliant permettant de se déplacer\nbeaucoup plus rapidement qu’avec des Chaussures de Course.
+Une clé d’une des suites d’un certain hôtel de luxe au bord d’un lac.\nPour une raison étrange, elle disparaît souvent.
+Une lettre du Professeur Chen.\nElle contient une demande\npour vous rendre à la Route 224.
+Une plume qui brille comme la lune.\nOn dit qu’elle a le pouvoir de chasser les cauchemars.
+Une carte nécessaire pour entrer à l’auberge\nde Voilaroc.\nÉtrangement, la dernière date inscrite remonte à 50 ans.
+Une flûte qui produit des sons résonnants\nqui semblent hors de ce monde.\nPersonne ne sait qui l’a fabriquée ni quand.
+Un billet requis pour naviguer sur le ferry à grande vitesse S.S. Aqua.\nIl comporte un dessin d’un navire.
+Un laissez-passer nécessaire pour participer aux Concours Pokémon.\nIl présente un ruban d’honneur sur le devant.
+Une pierre formée par la fusion de rochers dans\nun magma extrêmement chaud, puis durcie.\nLe magma reste scellé à l’intérieur.
+Un colis confié à vos soins.\nVous devez le livrer à votre ami d’enfance\nqui a quitté Doublonville.
+Un coupon à échanger contre une Montre Pokémon - Pokétch.\nTrois coupons sont nécessaires.
+Un coupon à échanger contre une Montre Pokémon - Pokétch.\nTrois coupons sont nécessaires.
+Un coupon à échanger contre une Montre Pokémon - Pokétch.\nTrois coupons sont nécessaires.
+La clé de l’entrepôt sinistre de la Team Galactic\nsitué à la périphérie de Vestigion.
+Un médicament fantastique distribué par\nla pharmacie de Célestelle.\nIl soigne complètement n’importe quelle maladie d’un Pokémon.
+Un dispositif incroyable pouvant enregistrer un combat\nentre amis ou des combats dans certains\ncentres de combat spéciaux.
+Une fleur parfois offerte en bouquet\npour exprimer sa gratitude lors d’occasions spéciales,\ncomme anniversaires ou commémorations.
+Une clé high-tech à utiliser à un endroit précis.\nElle émet un signal électronique spécial pour ouvrir une porte.
+Une boîte pratique où l’on peut stocker\njusqu’à 99 de chaque type d’Apricorn.
+Un rapport sur tous les types d’Unown découverts.
+Des contenants portables permettant de cultiver\nfacilement des Baies partout et à tout moment.
+Le dernier dispositif pour montrer l’emplacement\nd’objets cachés.\nIl se porte sur la tête lorsqu’il est utilisé.
+Une carte pour sauvegarder des points\npour l’émission “Mot de Buena”.
+Une queue très savoureuse.\nPeut être vendue à prix élevé aux magasins.
+Une cloche très ancienne qui produit\nun son doux.
+Une carte-clé qui ouvre un volet dans la Tour Radio.
+Une clé qui ouvre une porte dans le Tunnel d’Or.
+Une bouteille utilisée pour arroser les plantes\ndans les pots à Baies.
+Une écaille d’un Léviator rouge apparu au Lac Colère.\nElle brille rouge comme une flamme.
+La poupée Mime Jr. perdue par l’Imitateur.
+Un laissez-passer pour monter dans le Train Magnétique.\nPermet de voyager à volonté et autant que souhaité.
+Une pièce importante d’une machine\nvolée à la Centrale.
+Une plume étrange qui brille d’une couleur argentée.
+Une plume étrange qui brille aux couleurs de l’arc-en-ciel.
+Un Œuf obtenu de M. Pokémon.\nIl présente un motif mystérieux,\net son contenu est inconnu.
+Un Apricorn rouge.\nIl dégage une odeur piquante qui attaque les narines.
+Un Apricorn jaune.\nIl a une odeur légère et rafraîchissante.
+Un Apricorn bleu.\nIl a une légère odeur herbacée.
+Un Apricorn vert.\nIl a une odeur mystérieuse et aromatique.
+Un Apricorn rose.\nIl a une odeur agréablement sucrée.
+Un Apricorn blanc.\nIl n’a aucune odeur.
+Un Apricorn noir.\nIl a une odeur indescriptible.
+Une Poké Ball un peu différente,\nplus efficace pour attraper des Pokémon\nguère rapides à s’enfuir.
+Une Poké Ball un peu différente,\nplus efficace lorsque le niveau du Pokémon\nest inférieur au vôtre.
+Une Poké Ball un peu différente,\nplus efficace pour attraper des Pokémon\ndans ou sur l’eau.
+Une Poké Ball un peu différente,\nplus efficace selon le poids du Pokémon.
+Une Poké Ball un peu différente,\nplus efficace pour attraper des Pokémon\ndu sexe opposé à votre Pokémon.
+Une Poké Ball un peu différente,\nqui rend un Pokémon sauvage plus amical\naprès sa capture.
+Une Poké Ball un peu différente,\nplus efficace pour attraper des Pokémon\névolutifs avec une Pierre Lune.
+Une Poké Ball spéciale utilisée\npendant le Concours Attrape-Insectes.
+Une Poké Ball spéciale utilisée au Pal Park.
+Un bel album photo pour conserver toutes\nles photos prises durant votre aventure.
+Un lecteur de musique permettant\nd’écouter des chansons nostalgiques.\nIl s’active par un simple interrupteur.
+Une cloche très ancienne qui produit\nun son doux.
+La célèbre friandise de Bois Dormant.\nBeaucoup de touristes aiment en acheter\npour en rapporter chez eux.
+Il contient les records du Pokéathlon.\nCarte montrant combien de victoires\nvous avez obtenues au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte montrant combien de défaites\nvous avez subies au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte montrant combien de fois vos\nPokémon ont sprinté au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte montrant combien de fois vos\nPokémon ont sauté au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte montrant combien de fois vous\navez gagné le Hurdle Dash du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné le Relais du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné la Capture de Fanion du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné le Casse-Briques du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné la Prise de Disque du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné le Lancer de Neige du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de points vos\nPokémon ont obtenus au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vos\nPokémon ont échoué au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vos\nPokémon se sont gênés eux-mêmes.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vos\nPokémon ont chargé au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vos\nPokémon sont tombés au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné le Lancer d’Anneaux du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné le Saut de Lampe du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné la Poussée de Cercle du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de victoires\nvous avez obtenues aux Pokéathlon Link.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de défaites\nvous avez subies aux Pokéathlon Link.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez remporté un événement Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez perdu un événement Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez changé de Pokémon au Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez gagné le But du Rouleau du Pokéathlon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vos\nPokémon ont remporté des prix individuels.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de fois vous\navez donné des instructions à vos Pokémon.
+Il contient les records du Pokéathlon.\nCarte indiquant combien de temps vous\navez passé à participer au Pokéathlon.
+Une sphère verte brillante, censée\navoir un lien profond avec\nune légende de la région de Hoenn.
+Une Capsule solide qui ne peut être\noouverte qu’avec une clé spéciale.
+Une sphère rouge brillante, censée\navoir un lien profond avec\nune légende de la région de Hoenn.
+Une sphère bleue brillante, censée\navoir un lien profond avec\nune légende de la région de Hoenn.
+Une boule de cristal excavée du sol.\nElle est couverte de morceaux de roche\net de terre, mais reste très belle.
