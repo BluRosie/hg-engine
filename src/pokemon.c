@@ -1317,6 +1317,7 @@ void LONG_CALL CreateBoxMonData(struct BoxPokemon *boxmon, int species, int leve
     i = ITEM_POKE_BALL;
     SetBoxMonData(boxmon, MON_DATA_POKEBALL, (u8 *)&i);
 
+    pow=31;
     if (pow <= MAX_IVS) {
         SetBoxMonData(boxmon, MON_DATA_HP_IV, (u8 *)&pow);
         SetBoxMonData(boxmon, MON_DATA_ATK_IV, (u8 *)&pow);
