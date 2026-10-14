@@ -1,12 +1,12 @@
-USE
-TRASH
-REGISTER
-GIVE
+UTILISER
+JETER
+ENREG.
+DONNER
      
-CONFIRM
-WALK
+OK
+MARCHER
    
-CANCEL
+ANNULER
    
    
      
@@ -14,9 +14,9 @@ CANCEL
    
     
     
-CHECK
+VOIR
   
-DESELECT
+DESENREG.
    
      
  
@@ -41,29 +41,29 @@ DESELECT
   
        
    
-The {STRVAR_1 8, 0, 0} item is selected.
+Sélection: {STRVAR_1 8, 0, 0}
                      
             
-Move the {STRVAR_1 8, 0, 0}.
-The {STRVAR_1 8, 0, 0} can’t be held.
+Où voulez-vous placer {STRVAR_1 8, 0, 0}?
+Impossible de tenir {STRVAR_1 8, 0, 0}!
                           
                   
                     
                 
                              
-Throw away how many\n{STRVAR_1 8, 0, 0}(s)?
-Threw away {STRVAR_1 51, 1, 0} {STRVAR_1 8, 0, 0}.
-Is it OK to throw away\n{STRVAR_1 52, 1, 0}?
+En jeter combien?
+{STRVAR_1 8, 0, 0}:\n{STRVAR_1 51, 1, 0} en moins.
+{STRVAR_1 8, 0, 0}:\nen jeter {STRVAR_1 52, 1, 0}?
                                          
-You can’t dismount your Bike here.
-Your Coins: {STRVAR_1 54, 0, 0}
-You booted up the TM.{WAIT 3}{WAIT 4}\n
-You booted up the TM.{WAIT 3}{WAIT 4}\n
-It contained\n{STRVAR_1 6, 0, 0}.\rTeach {STRVAR_1 6, 0, 0}\nto a Pokémon?
-You used the\n{STRVAR_1 8, 1, 0}.
-Since a Repel’s effects still linger,\nyou can’t use this now.
-You used the\n{STRVAR_1 8, 1, 0}.\rWild Pokémon will be lured.
-You used the\n{STRVAR_1 8, 1, 0}.\rWild Pokémon will be repelled.
+Impossible de descendre de\nBicyclette ici.
+Jetons: {STRVAR_1 54, 0, 0}
+CT activée.{WAIT 3}{WAIT 4}\n
+CS activée.{WAIT 3}{WAIT 4}\n
+Elle contient\n{STRVAR_1 6, 0, 0}.\rApprendre {STRVAR_1 6, 0, 0}\nà un Pokémon?
+{STRVAR_1 3, 0, 0} utilise\n{STRVAR_1 8, 1, 0}!
+Mais le Repousse précédent est\ntoujours actif.
+{STRVAR_1 3, 0, 0} utilise\n{STRVAR_1 8, 1, 0}!\rÇa va attirer les Pokémon sauvages.
+{STRVAR_1 3, 0, 0} utilise\n{STRVAR_1 8, 1, 0}!\rÇa va repousser les Pokémon\nsauvages.
               
              
             
@@ -73,38 +73,38 @@ You used the\n{STRVAR_1 8, 1, 0}.\rWild Pokémon will be repelled.
                               
              
                        
-MOVE
-{STRVAR_1 8, 0, 0}? Oh, no.\nI can’t buy that.
-{STRVAR_1 8, 0, 0}? \nHow many will you sell?
-I can pay ${STRVAR_1 55, 0, 0}.\nWould that be OK?
-Turned over the {STRVAR_1 8, 0, 0}\nand received ${STRVAR_1 55, 1, 0}.
-Money
+DEPLACER
+{STRVAR_1 8, 0, 0}? Oh, non.\nJe ne peux pas acheter ça.
+{STRVAR_1 8, 0, 0}? Combien\nvoulez-vous en vendre?
+Je peux vous en donner\n{STRVAR_1 55, 0, 0} $. Ça vous va?
+Obtenu {STRVAR_1 55, 1, 0} $\npour cette vente.
+Argent
 ${STRVAR_1 55, 0, 0}
       
 +${STRVAR_1 55, 0, 0}
   
    
-SELL
+VENDRE
 x{STRVAR_1 52, 0, 0}
     
 PP
-POWER
-ACCURACY
-CATEGORY
+POUVOIR
+PRECISION
+CATEGORIE
 {STRVAR_1 51, 0, 0}
 {STRVAR_1 52, 0, 0}
-Seals: {STRVAR_1 53, 0, 0}
-Accessories: {STRVAR_1 52, 0, 0}\nBackdrops: {STRVAR_1 51, 1, 0}
+Sceaux: {STRVAR_1 53, 0, 0}
+Accessoires: {STRVAR_1 52, 0, 0}\nDécors: {STRVAR_1 51, 1, 0}
          
    
    
-Saved Battle Points:\n{STRVAR_1 53, 0, 0} BP
+Points de Combat sauvegardés:\n{STRVAR_1 53, 0, 0} PCo
 TYPE
-A Key Item in the Bag can be assigned\nto this button for instant use.
-You can only register up to two items\nto buttons!
-Turned on the power for\nGB Sounds!
-Turned off the power for\nGB Sounds!
-Can’t use the {STRVAR_1 8, 0, 0}.
+Un Objet Rare peut être assigné à ce\nbouton et être utilisé instantanément.
+Seulement deux Objets Rares\npeuvent être enregistrés!
+Le Lecteur GB est allumé.
+Le Lecteur GB est éteint.
+{STRVAR_1 8, 0, 0} est inutilisable.
                   
               
                     
@@ -116,14 +116,14 @@ Can’t use the {STRVAR_1 8, 0, 0}.
        
          
                                
-Can’t be used when you have someone\nwith you!
-You can’t be doing that now!
-Item Pocket\nFor items that will be useful during your\nadventure.
-Medicine Pocket\nFor items to regain your Pokémon’s\nHP and PP.
-Poké Ball Pocket\nFor all different types of Poké Balls.
-TMs & HMs Pocket\nFor all different types of TMs and HMs.
-Berry Pocket\nFor sorting and storing different\nBerries.
-Mail Pocket\nFor sorting and storing vibrant\nstationery.
-Battle Items Pocket\nFor items that are useful during battle.
-Key Items Pocket\nFor items that are indispensable for\nyour adventure.
-STOP
+Vous ne pouvez pas l’utiliser s’il y a\nquelqu’un avec vous.
+Ce n’est pas le moment pour ça!
+Poche OBJETS\nLes objets utiles pour l’aventure\ny sont rangés.
+Poche MEDICAMENTS\nLes objets permettant de restaurer les\nPP et les PV des Pokémon y sont rangés.
+Poche BALLS\nLes diverses sortes de Poké Balls\ny sont rangées.
+Poche CT & CS\nLes diverses sortes de Capsules\ny sont rangées.
+Poche BAIES\nLes diverses sortes de Baies\ny sont rangées.
+Poche LETTRES\nLes papiers à lettres hauts en couleurs\ny sont rangés.
+Poche OBJETS COMBAT\nLes objets utiles pendant un\ncombat y sont rangés.
+Poche OBJETS RARES\nLes objets indispensables pour\nl’aventure y sont rangés.
+ETEINDRE
