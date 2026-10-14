@@ -1,1 +1,1 @@
-a {COLOR 255}Custom Item{COLOR 0}
+un {COLOR 255}Objet Personnalisé{COLOR 0}
