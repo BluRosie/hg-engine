@@ -454,7 +454,7 @@ def build_parser():
 
     # input
     parser.add_argument("--moves", default="data/Moves.c", type=Path, help="Path to shared move data source")
-    parser.add_argument("--machines", default="src/item.c", type=Path, help="C file defining sMachineMoves[]")
+    parser.add_argument("--machines", default="data/MachineMoves.c", type=Path, help="C file defining sMachineMoves[]")
     parser.add_argument("--items-header", default="include/constants/item.h", type=Path, help="Path to include/constants/item.h")
 
     # output

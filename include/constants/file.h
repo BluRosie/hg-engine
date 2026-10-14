@@ -63,6 +63,7 @@
 #define CODE_ADDON_BACKGROUND_GFX_IDS     17
 #define CODE_ADDON_HIDDEN_ITEM_PARAMS     18
 #define CODE_ADDON_ABILITY_FLAGS          19
+#define CODE_ADDON_MACHINE_MOVES          20
 
 // a015 file indexes
 #define BAG_HM_ICON 37

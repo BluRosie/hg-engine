@@ -217,7 +217,7 @@ def generate_learnset_outputs(species_header_path, moves_header_path, out_learns
             tutor_name = numToTutorName.get(location, f"UNKNOWN_{location}")
             print(f"{{ {move_name}, {cost}, {tutor_name} }},")
 
-    print("\nTM/HM Move List (TM001–HM08). Copy this into the sMachineMoves array in src/item.c if you changed the vals in your hack:\n")
+    print("\nTM/HM Move List (TM001–HM08). Copy this into the sMachineMoves array in data/MachineMoves.c if you changed the vals in your hack:\n")
     with open("base/arm9.bin", "rb") as f:
         for i in range(100):
             f.seek(0x1000CC + i * 2)
