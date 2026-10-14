@@ -2,9 +2,9 @@
 
     movename movenum, name
     movenamecaps movenum, name
-    userusedmovename 3*movenum, "{STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
-    userusedmovename 3*movenum+1, "The wild {STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
-    userusedmovename 3*movenum+2, "The opposing {STRVAR_1 1, 0, 0} used\\n" + fullname + "!"
+    userusedmovename 3*movenum, "{STRVAR_1 1, 0, 0} utilise\\n" + fullname + "!"
+    userusedmovename 3*movenum+1, "Le {STRVAR_1 1, 0, 0} sauvage utilise\\n" + fullname + "!"
+    userusedmovename 3*movenum+2, "Le {STRVAR_1 1, 0, 0} ennemi utilise\\n" + fullname + "!"
 
 	.if movenum < 10
 		.create "build/a011/move_00" + movenum,0
