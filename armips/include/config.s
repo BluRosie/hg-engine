@@ -33,13 +33,13 @@ CRY_PSEUDOBANK_START equ 778
 BATTLE_MODE_FORCE_SET equ 0
 
 // ALWAYS_HAVE_NATIONAL_DEX defines whether or not the player will always have the national dex unlocked.
-ALWAYS_HAVE_NATIONAL_DEX equ 0
+ALWAYS_HAVE_NATIONAL_DEX equ 1
 
 // ALWAYS_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will always be uncapped, including in the overworld.
-ALWAYS_UNCAPPED_FRAME_RATE equ 0
+ALWAYS_UNCAPPED_FRAME_RATE equ 1
 
 // BATTLES_UNCAPPED_FRAME_RATE defines whether or not the frame rate of the game will be uncapped solely in battles or not.
-BATTLES_UNCAPPED_FRAME_RATE equ 0
+BATTLES_UNCAPPED_FRAME_RATE equ 1
 
 // FAST_TEXT_PRINTING will make the text print quickly, almost instantly
 FAST_TEXT_PRINTING equ 0
