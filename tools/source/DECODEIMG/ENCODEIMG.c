@@ -251,12 +251,15 @@ int main(int argc, char** argv)
                 case 0b00: // white - do nothing
                     break;
                 case 0b01: // dark gray
+                case 0x80:
                     encoded[k] |= (0x001 << r2);
                     break;
                 case 0b10: // light gray
+                case 0xC0:
                     encoded[k] |= (0x100 << r2);
                     break;
                 case 0b11: // black
+                case 0xFF:
                     encoded[k] |= (0x101 << r2);
                     break;
                 default:
