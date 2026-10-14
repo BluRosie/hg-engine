@@ -1,1 +1,1 @@
-Custom item description
+Description personnalisée de l’objet
