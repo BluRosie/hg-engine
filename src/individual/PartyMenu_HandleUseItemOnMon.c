@@ -103,7 +103,7 @@ int __attribute__((section(".init"))) PartyMenu_HandleUseItemOnMon_Internal(stru
         }
     } else {
         PartyMenu_PrintMessageOnWindow34(partyMenu, 102, TRUE);
-        //partyMenu->partyMonIndex = 8;
+        // partyMenu->partyMonIndex = 8;
         partyMenu->itemUseCallback = PartyMenu_ItemUseFunc_WaitTextPrinterThenExit;
     }
     sys_FreeMemoryEz(itemData);
