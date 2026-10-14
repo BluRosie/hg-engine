@@ -1,127 +1,127 @@
 {STRVAR_1 0, 0, 0}
 {STRVAR_1 1, 0, 0}
-
-
-
+    
+    
+    
 {STRVAR_1 11, 0, 0}
-BOX 1
-BOX 2
-BOX 3
-BOX 4
-BOX 5
-BOX 6
-BOX 7
-BOX 8
-BOX 9
-BOX 10
-BOX 11
-BOX 12
-BOX 13
-BOX 14
-BOX 15
-BOX 16
-BOX 17
-BOX 18
+BOITE 1
+BOITE 2
+BOITE 3
+BOITE 4
+BOITE 5
+BOITE 6
+BOITE 7
+BOITE 8
+BOITE 9
+BOITE 10
+BOITE 11
+BOITE 12
+BOITE 13
+BOITE 14
+BOITE 15
+BOITE 16
+BOITE 17
+BOITE 18
 {STRVAR_1 51, 0, 0}/{STRVAR_1 51, 1, 0}
-
-WALLPAPER
-NAME
-
-
+    
+FONDS
+NOM
 
 
 
 
 
-FOREST
-CITY
+
+
+FORET
+VILLE
 DESERT
-SAVANNA
-CRAG
-VOLCANO
-SNOW
-CAVE
-BEACH
-SEAFLOOR
-RIVER
-SKY
-POKé CENTER
-MACHINE
-CHECKS
-SIMPLE
-HEART
-SOUL
-BIG BROTHER
+SAVANE
+ROCHERS
+VOLCAN
+NEIGE
+GROTTE
+PLAGE
+MER
+RIVIERE
+CIEL
+CENTRE PKMN
+METAL
+VICHY
+UNI
+COEUR
+AME
+CASTOR
 POKéATHLON
 TRIO
-SPIKY PIKA
-KIMONO GIRL
-REVIVAL
+PIKAPIKA
+KIMONO
+RENOUVEAU
 －
-PARTY ₧₦
-MOVE
-RETURN
-CHANGE BOX
-SORT ITEMS
-SUMMARY
-HELD ITEMS
-MARKING
-RELEASE
-WITHDRAW
-DEPOSIT
-EXIT
-CONFIRM
-CANCEL
-SWITCH
-EXIT
-EXIT
-CHANGE\nBOX
-CHANGE\nWALLPAPER
-DEPOSIT\nPOKéMON
-BAG
-GIVE
-㊚
-㊛
+EQUIPE ₧₦
+DEPLACER
+RETOUR
+AUTRE BOITE
+BOUGER OBJ.
+RESUME
+OBJET
+MARQUER
+RELACHER
+RETIRER
+DEPOSER
+RETOUR
+CONFIRM.
+ANNULER
+CHANGER
+ANNULER
+FERMER
+AUTRE\nBOITE
+FONDS
+DEPOSER
+SAC
+DONNER
+♂
+♀
 {STRVAR_1 5, 0, 0}
 {STRVAR_1 7, 0, 0}
 {STRVAR_1 8, 0, 0}
 NATURE
-ABILITY
-ITEM
+CAPACITE SPEC.
+OBJET
 {STRVAR_1 52, 0, 0}
 {STRVAR_1 52, 0, 0}
-None
+Aucun
 ???
 
-Box 1
-Box 2
-Box 3
-Box 4
-Box 5
-Box 6
-Box 7
-Box 8
-Box 9
-Box 10
-Box 11
-Box 12
-Box 13
-Box 14
-Box 15
-Box 16
-Box 17
-Box 18
-Box 19
-Box 20
-Box 21
-Box 22
-Box 23
-Box 24
-Box 25
-Box 26
-Box 27
-Box 28
-Box 29
-Box 30
+Boîte 1
+Boîte 2
+Boîte 3
+Boîte 4
+Boîte 5
+Boîte 6
+Boîte 7
+Boîte 8
+Boîte 9
+Boîte 10
+Boîte 11
+Boîte 12
+Boîte 13
+Boîte 14
+Boîte 15
+Boîte 16
+Boîte 17
+Boîte 18
+Boîte 19
+Boîte 20
+Boîte 21
+Boîte 22
+Boîte 23
+Boîte 24
+Boîte 25
+Boîte 26
+Boîte 27
+Boîte 28
+Boîte 29
+Boîte 30
 
-OOPSIE WOOPSIE!! Uwu\n\nWe made a fucky wucky!!\nA wittle fucko boingo!\nYour heap XX overflowed!\n\nThe allocating return point was at\n0xXXXXXXXX.\nPress the A Button to reset.
+Oups !\n\nOn a fait un putain de truc !!\nUn petit connard de boingo !\nVotre tas XX a débordé !\n\nLe point de retour d’allocation était à\n0xXXXXXXXX.\nAppuyez sur le bouton A pour réinitialiser.
