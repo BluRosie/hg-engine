@@ -4624,3 +4624,22 @@ BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *ctx, int attack_c
 
     return ret;
 }
+
+/// @brief Check if ability causes Receiver and Power of Alchemy to fail
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoReceiver(int ability)
+{
+    return GetAbilityFlags(ability).failsReceiver;
+}
+
+BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId)
+{
+    if (ctx->battlemon[battlerId].hp == 0) {
+        return FALSE;
+    }
+    if (ctx->client_status[battlerId] & 1) { // switched out
+        return FALSE;
+    }
+    return TRUE;
+}

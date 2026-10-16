@@ -595,6 +595,9 @@ endif
 	@echo "ability flag params:"
 	cp $(ABILITY_FLAG_PARAMS_BIN) $(ABILITY_FLAG_PARAMS_TARGET)
 
+	@echo "machine moves:"
+	cp $(MACHINE_MOVES_PARAMS_BIN) $(MACHINE_MOVES_PARAMS_TARGET)
+
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
 	@echo "Updated item descriptions and sprites. Double check formatting"

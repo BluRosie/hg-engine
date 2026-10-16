@@ -67,7 +67,9 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             return;
         }
 
-        if (ctx->moveConditionsFlags[ctx->attack_client].wideOpen && ctx->current_move_index != MOVE_GLAIVE_RUSH) {
+        if (ctx->moveConditionsFlags[ctx->attack_client].wideOpen
+            && ctx->current_move_index != MOVE_GLAIVE_RUSH
+            && !ctx->futureSightHitTurn) {
             ctx->moveConditionsFlags[ctx->attack_client].wideOpen = FALSE;
         }
 
@@ -131,6 +133,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->futureSightSTAB = 0;
     ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
     ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam = FALSE;
+    ctx->recoilDamage = 0;
 
     ctx->moveContext.hitFoesCount = 0;
     ctx->moveContext.hitSubstituteCount = 0;
