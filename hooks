@@ -164,6 +164,8 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_Metronome 0224089C 3
 0012 BtlCmd_TryCopycat 02243A0C 3
 0012 BtlCmd_RemoveItem 02244EF8 3
+0012 BtlCmd_CheckSpikes 02241980 3
+0012 BtlCmd_CheckStealthRock 022446AC 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3

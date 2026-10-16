@@ -141,6 +141,7 @@ BOOL btl_scr_cmd_128_IsFieldCondition2On(void *bsys UNUSED, struct BattleStruct 
 BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -485,6 +486,7 @@ const u8 *BattleScrCmdNames[] = {
     "SetFieldCondition2",
     "GoToIfMoveConditionFlagSet",
     "TryActivateReceiver"
+    "TryActivateEmergencyExit"
     // "YourCustomCommand",
 };
 
@@ -492,7 +494,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12B
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12C
 
 // clang-format off
 const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
@@ -571,6 +573,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x129 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_129_SetFieldCondition2,
     [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
     [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_TryActivateReceiver,
+    [0x12C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12C_TryActivateEmergencyExit,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -3148,6 +3151,72 @@ BOOL btl_scr_cmd_102_removeentryhazardfromqueue(void *bsys UNUSED, struct Battle
     return FALSE;
 }
 
+BOOL BtlCmd_CheckSpikes(void *bw, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int category = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerId = GrabClientFromBattleScriptParam(bw, ctx, category);
+    int fieldSide = (1 & battlerId);
+
+    if (ctx->scw[fieldSide].spikesLayers && IsBattlerOnField(ctx, battlerId)) {
+        ctx->hp_calc_work = (5 - ctx->scw[fieldSide].spikesLayers) * 2;
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, ctx->hp_calc_work);
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_CheckStealthRock(void *bw, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    int category = read_battle_script_param(ctx);
+    int adrs = read_battle_script_param(ctx);
+
+    int battlerId = GrabClientFromBattleScriptParam(bw, ctx, category);
+    int fieldSide = (1 & battlerId);
+
+    // TODO deal with terra
+    int type1 = GetBattlerVar(ctx, battlerId, BMON_DATA_TYPE_1, NULL);
+    int type2 = GetBattlerVar(ctx, battlerId, BMON_DATA_TYPE_2, NULL);
+
+    if (ctx->side_condition[fieldSide] & SIDE_STATUS_STEALTH_ROCK && IsBattlerOnField(ctx, battlerId)) {
+        switch (CalculateTypeEffectiveness(TYPE_ROCK, type1, type2)) {
+        case 160:
+            ctx->hp_calc_work = 2;
+            break;
+        case 80:
+            ctx->hp_calc_work = 4;
+            break;
+        case 40:
+            ctx->hp_calc_work = 8;
+            break;
+        case 20:
+            ctx->hp_calc_work = 16;
+            break;
+        case 10:
+            ctx->hp_calc_work = 32;
+            break;
+        case 0:
+            IncrementBattleScriptPtr(ctx, adrs);
+            return FALSE;
+        default:
+            GF_ASSERT(FALSE);
+            break;
+        }
+        ctx->hp_calc_work = BattleDamageDivide(ctx->battlemon[battlerId].maxhp * -1, ctx->hp_calc_work);
+    } else {
+        IncrementBattleScriptPtr(ctx, adrs);
+    }
+
+    return FALSE;
+}
+
 BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
@@ -4648,9 +4717,11 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
     int fieldSide = IsClientEnemy(bsys, battlerID);
 
     if (ctx->scw[fieldSide].toxicSpikesLayers) {
-        ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;
-        ctx->addeffect_type = SIDE_EFFECT_TYPE_TOXIC_SPIKES;
-        ctx->state_client = battlerID;
+        if (IsBattlerOnField(ctx, battlerID)) {
+            ctx->calc_work = ctx->scw[fieldSide].toxicSpikesLayers;
+            ctx->addeffect_type = SIDE_EFFECT_TYPE_TOXIC_SPIKES;
+            ctx->state_client = battlerID;
+        }
         if (HasType(ctx, battlerID, TYPE_POISON)) {
             ctx->side_condition[fieldSide] &= ~SIDE_EFFECT_TYPE_TOXIC_SPIKES;
             ctx->scw[fieldSide].toxicSpikesLayers = 0;
@@ -5920,6 +5991,33 @@ BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx)
         IncrementBattleScriptPtr(ctx, noReceiver);
     } else {
         ctx->battlerIdTemp = BATTLER_ALLY(faintedClient);
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 side = read_battle_script_param(ctx);
+    u32 client_no = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    int noActivation = read_battle_script_param(ctx);
+
+    if (IsBattlerOnField(ctx, client_no)
+        && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+        && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
+            || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
+        //&& ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0) // unsure if bug
+        && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
+        // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
+        && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)) {
+        ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
+        ctx->state_client = client_no;
+        ctx->battlerIdTemp = client_no;
+        ctx->hazardQueueTracker = 0; // TODO: script command for this would be better?
+    } else {
+        IncrementBattleScriptPtr(ctx, noActivation);
     }
 
     return FALSE;

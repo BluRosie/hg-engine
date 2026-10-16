@@ -1,4 +1,4 @@
-// Test: Emergency Exit - Recoil, Oran Berry, Switch
+// Test: Emergency Exit - does not switch out when going below 50% max-HP but healed via item above 50% max-HP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -27,10 +27,10 @@ BEGIN_TEST
     },
     .enemyParty = { {
                         .species = SPECIES_GOLISOPOD,
-                        .level = 50,
+                        .level = 55,
                         .form = 0,
                         .ability = ABILITY_EMERGENCY_EXIT,
-                        .item = ITEM_ORAN_BERRY,
+                        .item = ITEM_SITRUS_BERRY,
                         .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
@@ -94,10 +94,10 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 96, 96, 98, 98, 98, 102, 102, 102, 104, 104, 108, 108, 108, 110, 110, 114 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 86, 90, 90, 90, 92, 92, 92, 96, 96, 96, 98, 98, 98, 102, 102, 104 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was damaged by the recoil!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golisopod restored its health using its Oran Berry!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golisopod restored its health using its Sitrus Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golisopod used Sleep Talk!" },
     }
 }
 END_TEST

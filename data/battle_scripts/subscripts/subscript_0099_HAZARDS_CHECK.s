@@ -51,6 +51,11 @@ _checkSpikes:
     PrintMessage 429, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
+    TryActivateEmergencyExit BATTLER_CATEGORY_MSG_BATTLER_TEMP, _noWimpOutFromSpikes
+    Call BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT
+    GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
+
+_noWimpOutFromSpikes:
     GoTo _landingPad
 
 _checkIfShouldDoTSpikes:
@@ -124,4 +129,9 @@ _checkStealthRock:
     PrintMessage 1079, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
+    TryActivateEmergencyExit BATTLER_CATEGORY_MSG_BATTLER_TEMP, _noWimpOutFromRocks
+    Call BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT
+    GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
+
+_noWimpOutFromRocks:
     GoTo _landingPad
