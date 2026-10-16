@@ -522,7 +522,7 @@ struct __attribute__((packed)) side_condition_work {
 
     u32 followMeFlag : 1;
     u32 battlerIdFollowMe : 2;
-    u32 knockoff_item : 6;
+    u32 knockoff_item : 6; // unused
     u32 oikaze_count : 3;
 
     u32 spikesLayers : 2;
@@ -3808,6 +3808,11 @@ PokepicManager LONG_CALL *BattleSystem_GetPokepicManager(struct BattleSystem *ba
 BOOL LONG_CALL sub_02017068(void *animManager, int battlerId);
 void LONG_CALL *ov12_0223B750(struct BattleSystem *battleSystem);
 void LONG_CALL ov12_022600F0(SysTask *task, void *data); // Task_PlayFaintingSequence
+
+/// @brief Check if ability causes Receiver and Power of Alchemy to fail
+/// @param ability
+/// @return `TRUE` or `FALSE`
+BOOL LONG_CALL AbilityNoReceiver(int ability);
 
 BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId);
 

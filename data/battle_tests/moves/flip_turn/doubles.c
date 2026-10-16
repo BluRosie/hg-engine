@@ -1,4 +1,4 @@
-// Test: Feint - hit through Protect
+// Test: Flip Turn - no switch on move failure
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
