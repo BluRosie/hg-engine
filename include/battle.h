@@ -1089,6 +1089,8 @@ struct BattleStruct {
     HealingWishQueue healingWishQueue;
     int field_condition2; // gen5+ field conditions
     int magicRoomCounter;
+
+    int recoilDamage;
 };
 
 enum {
@@ -1975,6 +1977,12 @@ u8 LONG_CALL IsClientEnemy(void *bw, int client);
  *  @return adjusted damage value.  also store move flags in flag
  */
 int LONG_CALL TypeCalc(void *bw, struct BattleStruct *sp, int movenum, int movetype, int attacker, int defender, int damage, u32 *flag);
+
+/**
+ *  @brief used to calculate effectiveness of Stealth Rock during switch-in
+ *
+ */
+int LONG_CALL CalculateTypeEffectiveness(u8 typeMove, u8 typeMon1, u8 typeMon2);
 
 /**
  *  @brief sees if anticipation will automatially log a certain move (i.e. OHKO moves)
@@ -3805,5 +3813,7 @@ void LONG_CALL ov12_022600F0(SysTask *task, void *data); // Task_PlayFaintingSeq
 /// @param ability
 /// @return `TRUE` or `FALSE`
 BOOL LONG_CALL AbilityNoReceiver(int ability);
+
+BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId);
 
 #endif // BATTLE_H

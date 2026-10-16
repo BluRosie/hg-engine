@@ -679,7 +679,7 @@ static int TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct Ba
 static BOOL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
 {
     return sCurrentScenario != NULL
-        && (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND)
+        //&& (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) // do it for all
         && (ctx->client_status[battler] & 1)
         && TestBattle_FindNextLivePartySlot(bsys, ctx, battler) != 6;
 }
