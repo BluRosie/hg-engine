@@ -63,6 +63,7 @@ enum EndTurnResolutionOrder {
     ENDTURN_RESOLVE_SWITCHES_4,
     ENDTURN_FORM_CHANGE,
     ENDTURN_FOURTH_EVENT_BLOCK,
+    ENDTURN_RESOLVE_SWITCHES_5,
     ENDTURN_ION_DELUGE_FADING,
     ENDTURN_END,
 };
@@ -288,13 +289,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_1\n");
 
 #endif
-            sp->fcc_seq_no++;
-            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+            if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -636,13 +637,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_2\n");
 
 #endif
-            sp->fcc_seq_no++;
-            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+           if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -1242,13 +1243,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_3\n");
 
 #endif
-            sp->fcc_seq_no++;
-            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+            if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -1831,13 +1832,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_4\n");
 
 #endif
-            sp->fcc_seq_no++;
-            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+            if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -1932,6 +1933,21 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 
             break;
         }
+        case ENDTURN_RESOLVE_SWITCHES_5: {
+#ifdef DEBUG_ENDTURN_LOGIC
+            debug_printf("In ENDTURN_RESOLVE_SWITCHES_5\n");
+
+#endif
+            if (AnyPendingSwitches(bw, sp)) {
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+            sp->fcc_seq_no++;
+
+            break;
+        }
         case ENDTURN_ION_DELUGE_FADING: { // Ion Deluge has no actual requirement for synchronicity as it lacks a message and all moves have been executed by this point. It's just here because it needs to be reset somewhere.
 #ifdef DEBUG_ENDTURN_LOGIC
             debug_printf("In ENDTURN_ION_DELUGE_FADING\n");
@@ -1981,6 +1997,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->moveConditionsFlags[i].laserFocusTimer--;
                 }
                 sp->moveConditionsFlags[i].anyStatLoweredThisTurn = 0;
+                sp->moveConditionsFlags[i].ejectPackFlag = 0;
                 if (sp->moveConditionsFlags[i].throatChopTimer > 0) {
                     sp->moveConditionsFlags[i].throatChopTimer--;
                 }

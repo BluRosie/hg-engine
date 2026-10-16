@@ -4643,3 +4643,15 @@ BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId)
     }
     return TRUE;
 }
+
+BOOL LONG_CALL AnyPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    for (int i = 0; i < maxBattlers; ++i)
+    {
+        if (ctx->client_status[i] & 1) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}

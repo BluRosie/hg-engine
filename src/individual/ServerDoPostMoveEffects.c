@@ -122,7 +122,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
             debug_printf("in MOVE_PERFORMANCE_STEP_4_1_STORE_DAMAGE (%d)+(%d)\n", ctx->store_damage[ctx->attack_client], ctx->hit_damage);
         }
 #endif
-
+        ctx->recoilDamage = 0;
         if (IsAttackerOnField(ctx)) {
             ctx->store_damage[ctx->attack_client] += ctx->hit_damage;
         }
@@ -1533,11 +1533,7 @@ int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *s
 
     switch (hold_effect) {
     case HOLD_EFFECT_HP_RESTORE_ON_DMG: {
-        if (
-            //((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-            //&& (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
-            //&&
-            (sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
+        if ((sp->oneSelfFlag[sp->attack_client].shell_bell_damage)
             && (sp->attack_client != sp->defence_client)
             && (sp->battlemon[sp->attack_client].hp < (s32)sp->battlemon[sp->attack_client].maxhp)
             && (sp->battlemon[sp->attack_client].hp)) {
@@ -1552,11 +1548,10 @@ int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *s
     }
     case HOLD_EFFECT_HP_DRAIN_ON_ATK: {
         if ((GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
-            //&& ((sp->server_status_flag2 & SERVER_STATUS_FLAG2_U_TURN) == 0)
-            //&& (sp->server_status_flag & SERVER_STATUS_FLAG_MOVE_HIT)
             && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS)
             && (sp->battlemon[sp->attack_client].hp)) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
+            sp->recoilDamage += sp->hp_calc_work; //store for EE/WO
             sp->battlerIdTemp = sp->attack_client;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LOSE_HP_FROM_ITEM);
             sp->next_server_seq_no = sp->server_seq_no;

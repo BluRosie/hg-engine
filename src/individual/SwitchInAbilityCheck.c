@@ -1069,13 +1069,18 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 #endif
             // only one eject pack can activate
             sp->switch_in_check_seq_no++;
-            /* for (i = 0; i < client_set_max; i++) {
+             for (i = 0; i < client_set_max; i++) {
                 client_no = sp->turnOrder[i];
 
                 if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP
-                    && sp->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING) {
-                    if (sp->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
-                        sp->addeffect_type = ADD_EFFECT_STICKY_WEB;
+                    && !sp->ejectPackActivated
+                    && (sp->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+                    && CanSwitchMon(bw, sp, client_no)) {
+                    if (sp->moveConditionsFlags[client_no].ejectPackFlag) {
+                        for (int k = 0; k < client_set_max; k++) {
+                            sp->moveConditionsFlags[k].ejectPackFlag = 0;
+                        }
+                        //sp->addeffect_type = ADD_EFFECT_STICKY_WEB;
                         sp->battlerIdTemp = client_no;
                         sp->state_client = client_no;
                         scriptnum = BATTLE_SUBSCRIPT_HANDLE_SWITCHING_ITEMS;
@@ -1089,7 +1094,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->switch_in_check_seq_no = 0;
                 break;
             }
-           */
+         
             FALLTHROUGH;
         }
         case SWITCH_IN_CHECK_END:

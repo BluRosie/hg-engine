@@ -416,6 +416,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         }
 
         sp->moveConditionsFlags[sp->state_client].anyStatLoweredThisTurn = TRUE;
+        sp->moveConditionsFlags[sp->state_client].ejectPackFlag = TRUE;
     }
 
     // debug_printf("Final: %d\n", battlemon->states[STAT_ATTACK + stattochange]);

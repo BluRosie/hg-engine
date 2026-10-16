@@ -780,7 +780,8 @@ typedef struct MoveConditionsFlags {
     u8 dragonDartsStatus : 3;
     u8 grounded : 1;
     u8 mindBlownOrSteelBeam : 1;
-    u8 padding : 3;
+    u8 ejectPackFlag : 1;
+    u8 padding : 2;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -1075,7 +1076,8 @@ struct BattleStruct {
     u8 futureSightHitTurn : 1;
     u8 futureSightNoAttacker : 1;
     u8 futureSightSTAB : 1;
-    u8 gemBoostingMovePadding : 4;
+    u8 ejectPackActivated: 1;
+    u8 gemBoostingMovePadding : 3;
 
     int currentMoveSwitchStatus;
 
@@ -3815,5 +3817,10 @@ void LONG_CALL ov12_022600F0(SysTask *task, void *data); // Task_PlayFaintingSeq
 BOOL LONG_CALL AbilityNoReceiver(int ability);
 
 BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId);
+
+BOOL LONG_CALL AnyPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+BOOL LONG_CALL CanSwitchMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
 
 #endif // BATTLE_H

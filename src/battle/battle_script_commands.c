@@ -6005,13 +6005,13 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
     int noActivation = read_battle_script_param(ctx);
 
     if (IsBattlerOnField(ctx, client_no)
-        && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
         && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
             || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
         //&& ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0) // unsure if bug
         && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
         // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
-        && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)) {
+        && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)
+        && CanSwitchMon(bsys, ctx, client_no)) {
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;
         ctx->battlerIdTemp = client_no;
