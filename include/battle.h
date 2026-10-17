@@ -781,7 +781,9 @@ typedef struct MoveConditionsFlags {
     u8 grounded : 1;
     u8 mindBlownOrSteelBeam : 1;
     u8 ejectPackFlag : 1;
-    u8 padding : 2;
+    u8 firstTurnOut : 2;
+
+    // new var
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -1076,7 +1078,7 @@ struct BattleStruct {
     u8 futureSightHitTurn : 1;
     u8 futureSightNoAttacker : 1;
     u8 futureSightSTAB : 1;
-    u8 ejectPackActivated: 1;
+    u8 ejectPackActivated : 1;
     u8 gemBoostingMovePadding : 3;
 
     int currentMoveSwitchStatus;
@@ -3819,6 +3821,7 @@ BOOL LONG_CALL AbilityNoReceiver(int ability);
 BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId);
 
 BOOL LONG_CALL AnyPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL BattlerFirstTurnOut(struct BattleStruct *ctx, int battlerId);
 
 BOOL LONG_CALL CanSwitchMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 

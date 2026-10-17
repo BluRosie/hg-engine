@@ -6023,13 +6023,12 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
     return FALSE;
 }
 
-
 BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     u32 side = read_battle_script_param(ctx);
 
-    int battlerId;
+    int battlerId = 0;
 
     switch (side) {
     case BATTLER_CATEGORY_ATTACKER:
@@ -6043,6 +6042,7 @@ BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *c
         break;
     }
 
+    ctx->moveConditionsFlags[battlerId].firstTurnOut = 2;
     ctx->client_status[battlerId] &= ~1;
     ctx->no_reshuffle_client &= (No2Bit(battlerId) ^ ~0);
     ctx->sel_mons_no[battlerId] = ctx->reshuffle_sel_mons_no[battlerId];

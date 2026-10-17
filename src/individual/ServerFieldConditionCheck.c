@@ -637,7 +637,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_2\n");
 
 #endif
-           if (AnyPendingSwitches(bw, sp)) {
+            if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -2001,7 +2001,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 }
                 sp->moveConditionsFlags[i].anyStatLoweredThisTurn = 0;
                 sp->moveConditionsFlags[i].ejectPackFlag = 0;
-                
+
                 if (sp->moveConditionsFlags[i].throatChopTimer > 0) {
                     sp->moveConditionsFlags[i].throatChopTimer--;
                 }
@@ -2009,6 +2009,10 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->moveConditionsFlags[i].endure = 0;
                 sp->moveConditionsFlags[i].mindBlownOrSteelBeam = 0;
                 sp->moveProtect[i] = 0;
+
+                if (sp->moveConditionsFlags[i].firstTurnOut > 0) {
+                    sp->moveConditionsFlags[i].firstTurnOut--;
+                }
             }
 
             sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;

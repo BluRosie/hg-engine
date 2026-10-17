@@ -279,7 +279,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         && (sp->battlemon[client_no].item != ITEM_GRISEOUS_ORB)
                         && (sp->battlemon[sp->defence_client_work].hp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_TRACE)) {
-                        sp->switch_in_check_seq_no = 0; //reset to activate all abilities
+                        sp->switch_in_check_seq_no = 0; // reset to activate all abilities
                         sp->battlerIdTemp = client_no;
                         scriptnum = BATTLE_SUBSCRIPT_TRACE;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -1069,8 +1069,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("faintClient %d, switchClient %d\n", sp->fainting_client, sp->reshuffle_client);
 #endif
             // only one eject pack can activate
-            //sp->switch_in_check_seq_no++;
-             for (i = 0; i < client_set_max; i++) {
+            // sp->switch_in_check_seq_no++;
+            for (i = 0; i < client_set_max; i++) {
                 client_no = sp->turnOrder[i];
 
                 if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP
@@ -1082,7 +1082,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                             sp->moveConditionsFlags[k].ejectPackFlag = 0;
                         }
                         sp->ejectPackActivated = TRUE;
-                        sp->addeffect_type = SIDE_EFFECT_TYPE_STICKY_WEB; //to trigger switch-in immediately
+                        sp->addeffect_type = SIDE_EFFECT_TYPE_STICKY_WEB; // to trigger switch-in immediately
                         sp->battlerIdTemp = client_no;
                         sp->state_client = client_no;
                         scriptnum = BATTLE_SUBSCRIPT_HANDLE_SWITCHING_ITEMS;
@@ -1096,7 +1096,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->switch_in_check_seq_no++;
                 break;
             }
-         
+
             FALLTHROUGH;
         }
         case SWITCH_IN_CHECK_END:

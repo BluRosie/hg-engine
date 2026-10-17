@@ -1551,7 +1551,7 @@ int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *s
             && (GetMoveSplit(sp, sp->current_move_index) != SPLIT_STATUS)
             && (sp->battlemon[sp->attack_client].hp)) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 10);
-            sp->recoilDamage += sp->hp_calc_work; //store for EE/WO
+            sp->recoilDamage += sp->hp_calc_work; // store for EE/WO
             sp->battlerIdTemp = sp->attack_client;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_LOSE_HP_FROM_ITEM);
             sp->next_server_seq_no = sp->server_seq_no;

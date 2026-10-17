@@ -1193,6 +1193,9 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->moveConditionsFlags[client].endure = 0;
     sp->moveConditionsFlags[client].grounded = 0;
     sp->moveConditionsFlags[client].mindBlownOrSteelBeam = 0;
+    if (sp->moveConditionsFlags[client].firstTurnOut != 2) {
+        sp->moveConditionsFlags[client].firstTurnOut = 1;
+    }
 
     sp->ejectPackActivated = FALSE;
 
