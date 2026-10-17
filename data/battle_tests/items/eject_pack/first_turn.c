@@ -99,5 +99,4 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Incineroar used Fake Out!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Growlithe flinched and couldn't move!" },
     },
-    .knownFailing = TRUE,
 } END_TEST
