@@ -12,7 +12,7 @@ FRAME1_TMP="tmp_f1.png"
 FRAME2_TMP="tmp_f2.png"
 PALETTE_TMP="tmp_pal.png"
 
-# 1. Create a physical 4-color palette file 
+# 1. Create a physical 4-color palette file
 convert -size 1x1 xc:#FFFFFF xc:#C0C0C0 xc:#808080 xc:#000000 +append "$PALETTE_TMP"
 
 # 2. Get the dimensions dynamically from the input sheet
