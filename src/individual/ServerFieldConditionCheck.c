@@ -1893,25 +1893,28 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 #ifdef DEBUG_ENDTURN_LOGIC
                     debug_printf("In FOURTH_EVENT_BLOCK_EJECT_PACK\n", NULL);
 #endif
+                    sp->endTurnEventBlockSequenceNumber++;
 
-                    /*
-                    if (HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP) {
-                        int stat;
-                        for (stat = 0; stat < 8; stat++) {
-                            if (sp->battlemon[battlerId].states[stat] < 6) {
-                                sp->battlemon[battlerId].states[stat] = 6;
-                                ret = TRUE;
+                    if (HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP
+                        && !sp->ejectPackActivated
+                        && CanSwitchMon(bw, sp, battlerId)) {
+                        if (sp->moveConditionsFlags[battlerId].ejectPackFlag) {
+                            for (int ll = 0; ll < client_set_max; ll++) {
+                                sp->moveConditionsFlags[ll].ejectPackFlag = 0;
                             }
-                        }
-                        if (ret == TRUE) {
+                            sp->ejectPackActivated = TRUE;
+                            sp->addeffect_type = SIDE_EFFECT_TYPE_NONE;
+                            sp->battlerIdTemp = battlerId;
+                            sp->state_client = battlerId;
+
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_SWITCHING_ITEMS);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
+                            ret = 1;
+                            break;
                         }
                     }
-                    */
 
-                    sp->endTurnEventBlockSequenceNumber++;
                     break;
                 }
                 case FOURTH_EVENT_BLOCK_END: {

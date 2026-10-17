@@ -3822,5 +3822,7 @@ BOOL LONG_CALL AnyPendingSwitches(struct BattleSystem *bsys, struct BattleStruct
 
 BOOL LONG_CALL CanSwitchMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
+void LONG_CALL InitSwitchWork(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+void LONG_CALL ov12_02256F78(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, u8 selectedMonIndex);
 
 #endif // BATTLE_H

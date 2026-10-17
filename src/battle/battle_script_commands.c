@@ -6022,3 +6022,38 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
 
     return FALSE;
 }
+
+
+BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 side = read_battle_script_param(ctx);
+
+    int battlerId;
+
+    switch (side) {
+    case BATTLER_CATEGORY_ATTACKER:
+        battlerId = ctx->attack_client;
+        break;
+    case BATTLER_CATEGORY_SWITCHED_MON:
+        battlerId = ctx->reshuffle_client;
+        break;
+    case BATTLER_CATEGORY_FORCED_OUT:
+        battlerId = ctx->defence_client;
+        break;
+    }
+
+    ctx->client_status[battlerId] &= ~1;
+    ctx->no_reshuffle_client &= (No2Bit(battlerId) ^ ~0);
+    ctx->sel_mons_no[battlerId] = ctx->reshuffle_sel_mons_no[battlerId];
+    ctx->reshuffle_sel_mons_no[battlerId] = 6;
+
+    BattleSystem_GetBattleMon(bsys, ctx, battlerId, ctx->sel_mons_no[battlerId]);
+    ov12_02256F78(bsys, ctx, battlerId, ctx->sel_mons_no[battlerId]);
+
+    ctx->hp_temp = ctx->battlemon[1].hp;
+
+    InitSwitchWork(bsys, ctx, battlerId);
+
+    return FALSE;
+}
