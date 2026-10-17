@@ -30,7 +30,7 @@ int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStru
 int LONG_CALL Activate_ThroatSpray_BlunderPolicy(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp);
-int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_FormChange(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bw, struct BattleStruct *ctx);
 int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct BattleStruct *ctx);
@@ -40,7 +40,7 @@ int LONG_CALL Activate_Disguise_IceFace(void *bsys, struct BattleStruct *sp);
 int LONG_CALL Activate_SecondaryEffects(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_HowlLifeDew(void *bsys, struct BattleStruct *ctx);
 
-int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx);
+int LONG_CALL Activate_Switch(void *bsys, struct BattleStruct *ctx);
 
 int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStruct *ctx);
@@ -1770,6 +1770,7 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
             if ((ctx->battlemon[client_no].hp)
                 && !ctx->ejectPackActivated
                 && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+                && ctx->moveConditionsFlags[client_no].ejectPackFlag
                 && CanSwitchMon(bsys, ctx, client_no)) {
                 ctx->ejectPackActivated = TRUE;
 
@@ -1835,7 +1836,8 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
                 && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
-                    || (ctx->oneSelfFlag[client_no].special_damage))) {
+                    || (ctx->oneSelfFlag[client_no].special_damage))
+                && CanSwitchMon(bsys, ctx, ctx->attack_client)) {
 
                 ctx->battlerIdTemp = client_no;
                 ctx->state_client = client_no;
@@ -2139,14 +2141,15 @@ int LONG_CALL Activate_RecoilDamage(void *bsys UNUSED, struct BattleStruct *ctx)
     return FALSE;
 }
 
-int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
+int LONG_CALL Activate_Switch(void *bsys, struct BattleStruct *ctx)
 {
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     switch (moveEffect) {
     case MOVE_EFFECT_SWITCH_HIT: // U-Turn, Flip Turn
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)) {
+            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+            && CanSwitchMon(bsys, ctx, ctx->attack_client)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_ATTACK_THEN_SWITCH_OUT);
@@ -2158,7 +2161,8 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_EFFECT_SHED_TAIL:
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)) {
+            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+            && CanSwitchMon(bsys, ctx, ctx->attack_client)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->battlerIdTemp = ctx->attack_client;
             ctx->state_client = ctx->attack_client;
@@ -2171,7 +2175,8 @@ int LONG_CALL Activate_Switch(void *bsys UNUSED, struct BattleStruct *ctx)
     case MOVE_EFFECT_PARTING_SHOT:
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)) {
+            && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+            && CanSwitchMon(bsys, ctx, ctx->attack_client)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->battlerIdTemp = ctx->attack_client;
             ctx->state_client = ctx->attack_client;
@@ -2664,7 +2669,8 @@ int LONG_CALL Activate_WimpOut_EmergencyExit(void *bsys, struct BattleStruct *ct
                 || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
             && (ctx->pursuitContext.isActive == FALSE)
             //&& ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0) // unsure if bug
-            && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))) {
+            && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
+            && CanSwitchMon(bsys, ctx, client_no)) {
             BOOL canActivate = FALSE;
             if (ctx->attack_client == client_no) {
                 // EE can be triggered by recoil if attacker. Recoil damage is stored earlier when applied
