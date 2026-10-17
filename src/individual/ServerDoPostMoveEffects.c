@@ -1768,9 +1768,14 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
         case HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP: // Eject Pack
             // Defender is alive after the attack
             if ((ctx->battlemon[client_no].hp)
+                && !ctx->ejectPackActivated
                 && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
-                // Any Sat lowered
-                && ctx->moveConditionsFlags[client_no].anyStatLoweredThisTurn) {
+                && CanSwitchMon(bsys, ctx, client_no)) {
+                ctx->ejectPackActivated = TRUE;
+
+                for (int k = 0; k < BattleWorkClientSetMaxGet(bsys); k++) {
+                    ctx->moveConditionsFlags[k].ejectPackFlag = 0;
+                }
 
                 ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
                 ctx->battlerIdTemp = client_no;

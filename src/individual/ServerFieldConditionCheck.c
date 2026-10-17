@@ -1998,6 +1998,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 }
                 sp->moveConditionsFlags[i].anyStatLoweredThisTurn = 0;
                 sp->moveConditionsFlags[i].ejectPackFlag = 0;
+                
                 if (sp->moveConditionsFlags[i].throatChopTimer > 0) {
                     sp->moveConditionsFlags[i].throatChopTimer--;
                 }
@@ -2011,9 +2012,11 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             sp->enemySideHasFaintedTeammateLastTurn = sp->enemySideHasFaintedTeammateThisTurn;
             sp->playerSideHasFaintedTeammateThisTurn = 0;
             sp->enemySideHasFaintedTeammateThisTurn = 0;
-            ret = 2;
 
+            sp->ejectPackActivated = FALSE;
             sp->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
+
+            ret = 2;
             break;
         }
         }
