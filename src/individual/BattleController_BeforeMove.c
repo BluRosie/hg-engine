@@ -1958,7 +1958,8 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         // Clangorous Soul when user lacks HP to execute the move
         || ((currentMoveIndex == MOVE_CLANGOROUS_SOUL) && (attackClient.hp < (s32)(attackClient.maxhp / 3)))
         // Fake Out / First Impression / Mat Block after user has already performed an action
-        || ((currentMoveIndex == MOVE_FAKE_OUT || currentMoveIndex == MOVE_FIRST_IMPRESSION || currentMoveIndex == MOVE_MAT_BLOCK) && attackClient.moveeffect.fakeOutCount != ctx->total_turn)
+        || ((currentMoveIndex == MOVE_FAKE_OUT || currentMoveIndex == MOVE_FIRST_IMPRESSION || currentMoveIndex == MOVE_MAT_BLOCK)
+            && !BattlerFirstTurnOut(ctx, ctx->attack_client))
         // Follow Me / Rage Powder in singles
         || ((currentMoveIndex == MOVE_FOLLOW_ME || currentMoveIndex == MOVE_RAGE_POWDER) && !(BattleTypeGet(bsys) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES)))
         // Future Sight / Doom Desire into target that already has future attack

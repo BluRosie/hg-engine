@@ -63,6 +63,7 @@ enum EndTurnResolutionOrder {
     ENDTURN_RESOLVE_SWITCHES_4,
     ENDTURN_FORM_CHANGE,
     ENDTURN_FOURTH_EVENT_BLOCK,
+    ENDTURN_RESOLVE_SWITCHES_5,
     ENDTURN_ION_DELUGE_FADING,
     ENDTURN_END,
 };
@@ -288,13 +289,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_1\n");
 
 #endif
-            sp->fcc_seq_no++;
-            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+            if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -636,13 +637,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_2\n");
 
 #endif
-            sp->fcc_seq_no++;
-            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+            if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -1242,13 +1243,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_3\n");
 
 #endif
-            sp->fcc_seq_no++;
-            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+            if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -1831,13 +1832,13 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             debug_printf("In ENDTURN_RESOLVE_SWITCHES_4\n");
 
 #endif
-            sp->fcc_seq_no++;
-            if (sp->currentMoveSwitchStatus == CURRENT_MOVE_SWITCH_PENDING) {
+            if (AnyPendingSwitches(bw, sp)) {
                 LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
                 sp->next_server_seq_no = sp->server_seq_no;
                 sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
                 return;
             }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -1892,25 +1893,28 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
 #ifdef DEBUG_ENDTURN_LOGIC
                     debug_printf("In FOURTH_EVENT_BLOCK_EJECT_PACK\n", NULL);
 #endif
+                    sp->endTurnEventBlockSequenceNumber++;
 
-                    /*
-                    if (HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP) {
-                        int stat;
-                        for (stat = 0; stat < 8; stat++) {
-                            if (sp->battlemon[battlerId].states[stat] < 6) {
-                                sp->battlemon[battlerId].states[stat] = 6;
-                                ret = TRUE;
+                    if (HeldItemHoldEffectGet(sp, battlerId) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP
+                        && !sp->ejectPackActivated
+                        && CanSwitchMon(bw, sp, battlerId)) {
+                        if (sp->moveConditionsFlags[battlerId].ejectPackFlag) {
+                            for (int ll = 0; ll < client_set_max; ll++) {
+                                sp->moveConditionsFlags[ll].ejectPackFlag = 0;
                             }
-                        }
-                        if (ret == TRUE) {
+                            sp->ejectPackActivated = TRUE;
+                            sp->addeffect_type = SIDE_EFFECT_TYPE_NONE;
+                            sp->battlerIdTemp = battlerId;
+                            sp->state_client = battlerId;
+
                             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_SWITCHING_ITEMS);
                             sp->next_server_seq_no = sp->server_seq_no;
                             sp->server_seq_no = 22;
+                            ret = 1;
+                            break;
                         }
                     }
-                    */
 
-                    sp->endTurnEventBlockSequenceNumber++;
                     break;
                 }
                 case FOURTH_EVENT_BLOCK_END: {
@@ -1929,6 +1933,21 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->scc_work = 0;
                 sp->fcc_seq_no++;
             }
+
+            break;
+        }
+        case ENDTURN_RESOLVE_SWITCHES_5: {
+#ifdef DEBUG_ENDTURN_LOGIC
+            debug_printf("In ENDTURN_RESOLVE_SWITCHES_5\n");
+
+#endif
+            if (AnyPendingSwitches(bw, sp)) {
+                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
+                sp->next_server_seq_no = sp->server_seq_no;
+                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                return;
+            }
+            sp->fcc_seq_no++;
 
             break;
         }
@@ -1981,6 +2000,8 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->moveConditionsFlags[i].laserFocusTimer--;
                 }
                 sp->moveConditionsFlags[i].anyStatLoweredThisTurn = 0;
+                sp->moveConditionsFlags[i].ejectPackFlag = 0;
+
                 if (sp->moveConditionsFlags[i].throatChopTimer > 0) {
                     sp->moveConditionsFlags[i].throatChopTimer--;
                 }
@@ -1988,15 +2009,21 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                 sp->moveConditionsFlags[i].endure = 0;
                 sp->moveConditionsFlags[i].mindBlownOrSteelBeam = 0;
                 sp->moveProtect[i] = 0;
+
+                if (sp->moveConditionsFlags[i].firstTurnOut > 0) {
+                    sp->moveConditionsFlags[i].firstTurnOut--;
+                }
             }
 
             sp->playerSideHasFaintedTeammateLastTurn = sp->playerSideHasFaintedTeammateThisTurn;
             sp->enemySideHasFaintedTeammateLastTurn = sp->enemySideHasFaintedTeammateThisTurn;
             sp->playerSideHasFaintedTeammateThisTurn = 0;
             sp->enemySideHasFaintedTeammateThisTurn = 0;
-            ret = 2;
 
+            sp->ejectPackActivated = FALSE;
             sp->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
+
+            ret = 2;
             break;
         }
         }

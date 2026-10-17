@@ -6005,13 +6005,13 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
     int noActivation = read_battle_script_param(ctx);
 
     if (IsBattlerOnField(ctx, client_no)
-        && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
         && ((GetBattlerAbility(ctx, client_no) == ABILITY_WIMP_OUT) // not affected by Mold Breaker
             || (GetBattlerAbility(ctx, client_no) == ABILITY_EMERGENCY_EXIT))
         //&& ((ctx->battlemon[client_no].effect_of_moves & MOVE_EFFECT_FLAG_SEMI_INVULNERABLE) == 0) // unsure if bug
         && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
         // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
-        && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)) {
+        && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)
+        && CanSwitchMon(bsys, ctx, client_no)) {
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;
         ctx->battlerIdTemp = client_no;
@@ -6019,6 +6019,41 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
     } else {
         IncrementBattleScriptPtr(ctx, noActivation);
     }
+
+    return FALSE;
+}
+
+BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    u32 side = read_battle_script_param(ctx);
+
+    int battlerId = 0;
+
+    switch (side) {
+    case BATTLER_CATEGORY_ATTACKER:
+        battlerId = ctx->attack_client;
+        break;
+    case BATTLER_CATEGORY_SWITCHED_MON:
+        battlerId = ctx->reshuffle_client;
+        break;
+    case BATTLER_CATEGORY_FORCED_OUT:
+        battlerId = ctx->defence_client;
+        break;
+    }
+
+    ctx->moveConditionsFlags[battlerId].firstTurnOut = 2;
+    ctx->client_status[battlerId] &= ~1;
+    ctx->no_reshuffle_client &= (No2Bit(battlerId) ^ ~0);
+    ctx->sel_mons_no[battlerId] = ctx->reshuffle_sel_mons_no[battlerId];
+    ctx->reshuffle_sel_mons_no[battlerId] = 6;
+
+    BattleSystem_GetBattleMon(bsys, ctx, battlerId, ctx->sel_mons_no[battlerId]);
+    ov12_02256F78(bsys, ctx, battlerId, ctx->sel_mons_no[battlerId]);
+
+    ctx->hp_temp = ctx->battlemon[1].hp;
+
+    InitSwitchWork(bsys, ctx, battlerId);
 
     return FALSE;
 }
