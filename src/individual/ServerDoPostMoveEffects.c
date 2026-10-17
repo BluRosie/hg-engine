@@ -1837,7 +1837,7 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
                 && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))
-                && CanSwitchMon(bsys, ctx, ctx->attack_client)) {
+                && CanSwitchMon(bsys, ctx, client_no)) {
 
                 ctx->battlerIdTemp = client_no;
                 ctx->state_client = client_no;
