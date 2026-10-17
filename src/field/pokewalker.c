@@ -144,7 +144,7 @@ u32 GrabPokewalkerMonSpriteIndex(u32 species, u32 isFemale, u32 form)
     int i;
 
     // old handling for getting forms in there
-    //for (i = 0; i < (s32)NELEMS(sMapOldSpeciesToBaseFormIndex); i++) {
+    // for (i = 0; i < (s32)NELEMS(sMapOldSpeciesToBaseFormIndex); i++) {
     //    if (species == sMapOldSpeciesToBaseFormIndex[i][0]) {
     //        return sMapOldSpeciesToBaseFormIndex[i][1] + form;
     //    }
