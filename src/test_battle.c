@@ -639,7 +639,15 @@ static BOOL TestBattle_IsPartySlotAlreadyActive(struct BattleSystem *bsys, struc
     u8 side = IsClientEnemy(bsys, battler);
 
     for (int other = 0; other < maxBattlers; other++) {
-        if (IsClientEnemy(bsys, other) == side && ctx->sel_mons_no[other] == partySlot) {
+        if (IsClientEnemy(bsys, other) != side) {
+            continue;
+        }
+
+        if (ctx->sel_mons_no[other] == partySlot) {
+            return TRUE;
+        }
+
+        if (other != battler && ctx->reshuffle_sel_mons_no[other] == partySlot) {
             return TRUE;
         }
     }
