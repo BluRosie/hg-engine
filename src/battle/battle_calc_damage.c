@@ -879,7 +879,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 
         // 6.9.13 Resist Berries
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-            && typeToBerryMapping[type] == GetBattleMonItem(ctx, defender)
+            && typeToBerryMapping[type] == GetBattleMonItem(sp, defender)
             && ((type == TYPE_NORMAL) || (type != TYPE_NORMAL && moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE))) {
             finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
@@ -933,7 +933,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 #if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
             || (attackerAbility == ABILITY_UNSEEN_FIST)
 #endif
-            )
+                )
         && sp->oneTurnFlag[defender].protectFlag) {
         damage = QMul_RoundDown(damage, UQ412__0_25);
 #ifdef DEBUG_DAMAGE_ROLLS
