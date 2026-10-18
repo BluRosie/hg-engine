@@ -1,0 +1,23 @@
+version: Original
+title:
+  japanese: |-
+    hg-engine
+    Nintendo, hg-engine contributors
+  english: |-
+    hg-engine
+    Nintendo, hg-engine contributors
+  french: |-
+    hg-engine
+    Nintendo, hg-engine contributors
+  german: |-
+    hg-engine
+    Nintendo, hg-engine contributors
+  italian: |-
+    hg-engine
+    Nintendo, hg-engine contributors
+  spanish: |-
+    hg-engine
+    Nintendo, hg-engine contributors
+images:
+  bitmap_path: bitmap.png
+  palette_path: palette.png
