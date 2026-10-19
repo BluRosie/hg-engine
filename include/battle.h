@@ -3264,6 +3264,19 @@ BOOL LONG_CALL ov12_0224DD18(struct BattleStruct *ctx, ControllerCommand a1, Con
 // Possibly BattleController_CheckBattleOver
 BOOL LONG_CALL ov12_0224D7EC(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
+/**
+ *  @brief at the end of the turn, ask for a replacement for every fainted battler that can still be replaced
+ *  https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/src/battle/battle_controller_player.c#L3416
+ *  in EndTurn
+ *  @param bsys battle system structure
+ *  @param ctx global battle structure
+ *  @return TRUE if a replacement script was loaded
+ */
+BOOL LONG_CALL ov12_0224D540(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+// 0 = shift, 1 = set
+u32 LONG_CALL BattleSystem_GetBattleStyle(struct BattleSystem *bsys);
+
 // Possibly BattleController_ToggleSemiInvulnMons
 BOOL LONG_CALL ov12_0224E130(struct BattleSystem *bsys, struct BattleStruct *ctx);
 

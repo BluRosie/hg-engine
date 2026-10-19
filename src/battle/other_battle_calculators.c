@@ -4659,3 +4659,100 @@ BOOL LONG_CALL BattlerFirstTurnOut(struct BattleStruct *ctx, int battlerId)
 {
     return ctx->moveConditionsFlags[battlerId].firstTurnOut > 0;
 }
+
+/**
+ *  @brief count the mons in a battler's party that could be sent out
+ *
+ *  @param bsys battle system structure
+ *  @param ctx global battle structure
+ *  @param battlerId battler whose party is checked
+ *  @param excludePartner TRUE to also leave out the mon the partner has on the field (doubles with a shared party)
+ *  @return number of mons that are not an egg, have HP left and are not on the field
+ */
+static int CountReplacementMons(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, BOOL excludePartner)
+{
+    int count = 0;
+    int partySize = BattleWorkPokeCountGet(bsys, battlerId);
+
+    for (int i = 0; i < partySize; i++) {
+        struct PartyPokemon *mon = BattleWorkPokemonParamGet(bsys, battlerId, i);
+        int species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
+
+        if (species == SPECIES_NONE || species == SPECIES_EGG || GetMonData(mon, MON_DATA_HP, NULL) == 0) {
+            continue;
+        }
+        if (excludePartner && ctx->sel_mons_no[BATTLER_ALLY(battlerId)] == i) {
+            continue;
+        }
+        count++;
+    }
+
+    return count;
+}
+
+/**
+ *  @brief at the end of the turn, ask for a replacement for every fainted battler that can still be replaced
+ *
+ *  hooked over the vanilla function.  vanilla skipped the right slot in doubles while its partner was also fainted,
+ *  so each replacement got its own SHOW_PARTY_LIST run and its own switch-in check.  this asks for as many fainted
+ *  slots on a side as that side has mons left, so all replacements are sent out before the switch-in check runs
+ *
+ *  @param bsys battle system structure
+ *  @param ctx global battle structure
+ *  @return TRUE if a replacement script was loaded
+ */
+BOOL LONG_CALL ov12_0224D540(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    BOOL ret = FALSE;
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    u32 battleType = BattleTypeGet(bsys);
+    int battlerId;
+
+    for (battlerId = 0; battlerId < maxBattlers; battlerId++) {
+        ctx->client_status[battlerId] &= ~1;
+    }
+
+    for (battlerId = 0; battlerId < maxBattlers; battlerId++) {
+        if (ctx->battlemon[battlerId].hp != 0) {
+            continue;
+        }
+
+        int available;
+        if (((battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG)))
+            || ((battleType & BATTLE_TYPE_TAG) && IsClientEnemy(bsys, battlerId) == 0)) {
+            // both slots share a party: the left slot was handled first, and its pick is not known yet
+            available = CountReplacementMons(bsys, ctx, battlerId, TRUE);
+            if ((battlerId & 2) && (ctx->client_status[BATTLER_ALLY(battlerId)] & 1)) {
+                available--;
+            }
+        } else {
+            available = CountReplacementMons(bsys, ctx, battlerId, FALSE);
+        }
+
+        if (available <= 0) {
+            ctx->no_reshuffle_client |= No2Bit(battlerId);
+            ctx->sel_mons_no[battlerId] = 6;
+        } else {
+            ctx->client_status[battlerId] |= 1;
+            ret = TRUE;
+        }
+    }
+
+    if (ret) {
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+
+        // singles with the shift battle style: offer the player a switch when only the enemy fainted
+        if (!(battleType & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_LINK))
+            && BattleSystem_GetBattleStyle(bsys) == 0
+            && (!(ctx->client_status[0] & 1) || !(ctx->client_status[1] & 1))
+            && CanSwitchMon(bsys, ctx, 0)) {
+            ctx->temp_work = (ctx->client_status[0] & 1) ? 0 : 1;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_REPLACE_FAINTED);
+        } else {
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
+        }
+    }
+
+    return ret;
+}
