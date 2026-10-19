@@ -160,6 +160,14 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 // Heal from Healing Wish, Lunar Dance, Z-Memento, or Z-Parting Shot if applicable
                 {
+                    if (!sp->switchInFlags[client_no].healingWishProcessed) {
+                        sp->switchInFlags[client_no].healingWishProcessed = TRUE;
+                        if (sp->battlemon[client_no].hp) {
+                            sp->battlerIdTemp = client_no;
+                            scriptnum = BATTLE_SUBSCRIPT_HEALING_WISH;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        }
+                    }
                 }
 
                 // Need to trigger script
@@ -181,6 +189,15 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 // Entry hazards
                 {
+                    if (!sp->switchInFlags[client_no].hazardsProcessed) {
+                        sp->switchInFlags[client_no].hazardsProcessed = TRUE;
+                        if (sp->battlemon[client_no].hp) {
+                            // BATTLE_SUBSCRIPT_HAZARDS_CHECK works on BATTLER_CATEGORY_SWITCHED_MON
+                            sp->reshuffle_client = client_no;
+                            scriptnum = BATTLE_SUBSCRIPT_HAZARDS_CHECK;
+                            ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        }
+                    }
                 }
 
                 // Need to trigger script

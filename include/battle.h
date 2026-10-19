@@ -842,6 +842,13 @@ typedef struct HealingWishQueue {
     HealingWishCounter counter[CLIENT_MAX];
 } HealingWishQueue;
 
+
+typedef struct SwitchInFlags {
+    u8 healingWishProcessed : 1;
+    u8 hazardsProcessed : 1;
+    u8 padding : 6;
+} SwitchInFlags;
+
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
 /**
@@ -1091,6 +1098,7 @@ struct BattleStruct {
     DancerContext dancerContext;
     MagicBounceContext magicBounceContext;
     HealingWishQueue healingWishQueue;
+    SwitchInFlags switchInFlags[CLIENT_MAX];
     int field_condition2; // gen5+ field conditions
     int magicRoomCounter;
 
@@ -2358,6 +2366,11 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
 BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no);
+
+/**
+ *  @brief helper to just get the script from the held item
+ */
+BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**

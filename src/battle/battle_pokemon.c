@@ -1196,7 +1196,10 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     if (sp->moveConditionsFlags[client].firstTurnOut != 2) {
         sp->moveConditionsFlags[client].firstTurnOut = 1;
     }
+    sp->switchInFlags[client].healingWishProcessed = 0;
+    sp->switchInFlags[client].hazardsProcessed = 0;
 
+    sp->hazardQueueTracker = 0;
     sp->ejectPackActivated = FALSE;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
