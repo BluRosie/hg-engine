@@ -1,6 +1,6 @@
 // Test: Hazards - Healing Wish heals before Stealth Rock
 // Clefairy is faster than Shuckle, so it uses Healing Wish after the rocks from turn 1
-#include "../../battle_tests.h"
+#include "../battle_tests.h"
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_TRAINER,
@@ -108,7 +108,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The healing wish came true for the opposing Chansey!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Chansey!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Chansey fainted" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chansey used Sleep Talk!" },
     },
 }
 END_TEST

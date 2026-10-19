@@ -1,5 +1,5 @@
 // Test: Hazards - fainted mon does not clear Toxic Spikes
-#include "../../battle_tests.h"
+#include "../battle_tests.h"
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_TRAINER,

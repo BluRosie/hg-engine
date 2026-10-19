@@ -1,5 +1,5 @@
 // Test: Hazards - doubles, second switch-in still gets every hazard
-#include "../../battle_tests.h"
+#include "../battle_tests.h"
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_DOUBLES,
@@ -39,7 +39,7 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_LITTEN,
-            .level = 50,
+            .level = 5,
             .form = 0,
             .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
@@ -50,7 +50,7 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_LITTEN,
+            .species = SPECIES_CHARMANDER,
             .level = 50,
             .form = 0,
             .ability = ABILITY_BLAZE,
@@ -68,7 +68,7 @@ BEGIN_TEST
             .ability = ABILITY_VOLT_ABSORB,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1, // faster than Torterra, so it switches in first
+            .hp = 1,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,

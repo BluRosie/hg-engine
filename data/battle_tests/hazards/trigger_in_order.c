@@ -1,5 +1,5 @@
 // Test: Hazards - trigger in order
-#include "../../battle_tests.h"
+#include "../battle_tests.h"
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_TRAINER,
@@ -94,12 +94,18 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones float in the air around the opposing side!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A sticky web has been laid out on the ground on the opposing side!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Spikes were scattered on the ground all around the opposing side!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poison spikes were scattered on the ground all around the opposing side!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones float in the air around the opposing side!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Pyroar!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pyroar's Unnerve" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar was caught in a sticky web!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar’s Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar was hurt by the spikes!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar was poisoned!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Pyroar!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "was poisoned!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar was hurt by its poisoning!" },
     },
 }
 END_TEST

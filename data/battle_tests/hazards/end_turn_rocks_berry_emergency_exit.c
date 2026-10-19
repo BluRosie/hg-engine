@@ -1,15 +1,14 @@
-// Test: Hazards - faint from rocks
-#include "../../battle_tests.h"
-BEGIN_TEST
-{
-    .battleType = BATTLE_TYPE_TRAINER,
+// Test: Hazards - Hazards, Berry, Emergency Exit check
+#include "../battle_tests.h"
+BEGIN_TEST {
+    .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
             .species = SPECIES_SHUCKLE,
-            .level = 40,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_GLUTTONY,
             .item = ITEM_NONE,
@@ -19,15 +18,25 @@ BEGIN_TEST
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
+        {
+            .species = SPECIES_TORTERRA,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_OVERGROW,
+            .item = ITEM_NONE,
+            .moves = { MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
-    },
+        { .species = SPECIES_NONE } },
     .enemyParty = { {
                         .species = SPECIES_LITTEN,
-                        .level = 50,
+                        .level = 5,
                         .form = 0,
                         .ability = ABILITY_BLAZE,
                         .item = ITEM_NONE,
@@ -38,24 +47,57 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_MASQUERAIN,
-            .level = 50,
+            .species = SPECIES_CHARMANDER,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_UNNERVE,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 70,//145
+            .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_GOLISOPOD,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_EMERGENCY_EXIT,
+            .item = ITEM_ORAN_BERRY,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 76, // 150
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_WIMPOD,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_WIMP_OUT,
+            .item = ITEM_SITRUS_BERRY,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 71, // 100
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_CLEFABLE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_MAGIC_GUARD,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -64,7 +106,7 @@ BEGIN_TEST
                           { ACTION_NONE, 0 },
                       },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -75,7 +117,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_SWITCH_SLOT_1, 0 },
+                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -84,7 +126,7 @@ BEGIN_TEST
                          { ACTION_NONE, 0 },
                      },
         {
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -102,5 +144,4 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Litten!" },
     },
-}
-END_TEST
+} END_TEST

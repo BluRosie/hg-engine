@@ -1,5 +1,5 @@
-// Test: Hazards - faint from rocks
-#include "../../battle_tests.h"
+// Test: Hazards - Doubles, both enemy faints - one replacement faints, second replacement triggers hazards
+#include "../battle_tests.h"
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_DOUBLES,
@@ -20,36 +20,25 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_TURTWIG,
+            .species = SPECIES_TORTERRA,
             .level = 50,
             .form = 0,
             .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
-            .moves = { MOVE_STEALTH_ROCK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_EARTHQUAKE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        {
-            .species = SPECIES_TORTERRA,
-            .level = 40,
-            .form = 0,
-            .ability = ABILITY_OVERGROW,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+        { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
                         .species = SPECIES_LITTEN,
-                        .level = 50,
+                        .level = 5,
                         .form = 0,
                         .ability = ABILITY_BLAZE,
                         .item = ITEM_NONE,
@@ -60,12 +49,12 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_FERROSEED,
-            .level = 50,
+            .species = SPECIES_CHARMANDER,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_IRON_BARBS,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
-            .moves = { MOVE_STEALTH_ROCK, MOVE_TOXIC_SPIKES, MOVE_SPIKES, MOVE_STICKY_WEB },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -95,11 +84,22 @@ BEGIN_TEST
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
-        { .species = SPECIES_NONE },
+        {
+            .species = SPECIES_CLEFABLE,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_MAGIC_GUARD,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -109,7 +109,7 @@ BEGIN_TEST
                       },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_SWITCH_SLOT_2, 0 },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -119,7 +119,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_SWITCH_SLOT_2, 0 },
+                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -129,7 +129,7 @@ BEGIN_TEST
                      },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_SWITCH_SLOT_3, 0 },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },

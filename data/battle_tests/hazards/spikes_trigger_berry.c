@@ -1,5 +1,5 @@
 // Test: Hazards - spikes trigger Sitrus Berry
-#include "../../battle_tests.h"
+#include "../battle_tests.h"
 BEGIN_TEST
 {
     .battleType = BATTLE_TYPE_TRAINER,
