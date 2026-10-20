@@ -43,8 +43,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
-    // turnOrder is sorted at the start of the turn, so it still has the speed of mons that got replaced since.
-    // sort a copy by current speed instead of turnOrder itself, the end of turn loops over turnOrder while this runs
+    // copy to not mess with turn/execution Order
     u8 switchInOrder[CLIENT_MAX];
     for (i = 0; i < client_set_max; i++) {
         switchInOrder[i] = sp->turnOrder[i];
@@ -208,7 +207,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     if (!sp->switchInFlags[client_no].hazardsProcessed) {
                         sp->switchInFlags[client_no].hazardsProcessed = TRUE;
                         if (sp->battlemon[client_no].hp) {
-                            // BATTLE_SUBSCRIPT_HAZARDS_CHECK works on BATTLER_CATEGORY_SWITCHED_MON
                             sp->reshuffle_client = client_no;
                             scriptnum = BATTLE_SUBSCRIPT_HAZARDS_CHECK;
                             ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -230,8 +228,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 #ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
             debug_printf("in SWITCH_IN_CHECK_RESOLVE_SWITCHES %d\n", sp->switch_in_check_seq_no);
 #endif
-            // Emergency Exit / Wimp Out from hazards only marks the switch: send the replacements out here,
-            // then start over so they get their own entry effects (the switch-in flags skip everyone else)
+            // Emergency Exit / Wimp Out switch out from hazards
+            // sent-out happens after all EE activated
             if (AnyPendingSwitches(bw, sp)) {
                 scriptnum = BATTLE_SUBSCRIPT_SEND_OUT_PENDING_SWITCHES;
                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;

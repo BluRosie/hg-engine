@@ -4681,7 +4681,7 @@ int LONG_CALL CountReplacementMons(struct BattleSystem *bsys, struct BattleStruc
     return count;
 }
 
-BOOL LONG_CALL ov12_0224D540(struct BattleSystem *bsys, struct BattleStruct *ctx)
+BOOL LONG_CALL EndTurn_CheckIfReplacementsCanBeSendOut(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     BOOL ret = FALSE;
     int maxBattlers = BattleWorkClientSetMaxGet(bsys);
@@ -4700,7 +4700,6 @@ BOOL LONG_CALL ov12_0224D540(struct BattleSystem *bsys, struct BattleStruct *ctx
         int available;
         if (((battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG)))
             || ((battleType & BATTLE_TYPE_TAG) && IsClientEnemy(bsys, battlerId) == 0)) {
-            // both slots share a party: the left slot was handled first, and its pick is not known yet
             available = CountReplacementMons(bsys, ctx, battlerId, TRUE);
             if ((battlerId & 2) && (ctx->client_status[BATTLER_ALLY(battlerId)] & 1)) {
                 available--;
@@ -4722,7 +4721,7 @@ BOOL LONG_CALL ov12_0224D540(struct BattleSystem *bsys, struct BattleStruct *ctx
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
 
-        // singles with the shift battle style: offer the player a switch when only the enemy fainted
+        // replace with asking player to switch in shift mode
         if (!(battleType & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_LINK))
             && BattleSystem_GetBattleStyle(bsys) == 0
             && (!(ctx->client_status[0] & 1) || !(ctx->client_status[1] & 1))

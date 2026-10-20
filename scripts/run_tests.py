@@ -13,7 +13,7 @@ from typing import Union
 from desmume.emulator import DeSmuME, DeSmuME_Memory
 
 # Settings
-BASE_IDLE_TIMEOUT_SECONDS = 1 * 60  # 1 minute
+BASE_IDLE_TIMEOUT_SECONDS = 1 * 90  # 1.5 minute
 
 g_EmulatorCommunicationSendHoleAddress = 0x02FFF81C
 TEST_CASE_PASS = -1

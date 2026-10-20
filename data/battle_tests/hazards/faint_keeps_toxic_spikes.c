@@ -1,4 +1,4 @@
-// Test: Hazards - fainted mon does not clear Toxic Spikes, new replacement triggers all hazards
+// Test: Hazards - fainted non-poison mon does not clear Toxic Spikes, new replacement triggers all hazards
 #include "../battle_tests.h"
 BEGIN_TEST
 {

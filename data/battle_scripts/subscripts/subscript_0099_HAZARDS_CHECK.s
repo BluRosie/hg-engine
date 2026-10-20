@@ -37,7 +37,7 @@ _checkSpikes:
     PrintMessage 429, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
-    // Emergency Exit needs the hazard damage in BSCRIPT_VAR_HP_CALC, Berry/Cheek Pouch overwrite it
+    // Emergency Exit needs the hazard damage in BSCRIPT_VAR_HP_CALC, Berry/Cheek Pouch would overwrite it
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_FLING_DATA, BSCRIPT_VAR_HP_CALC
     TryEatHpBerry BATTLER_CATEGORY_SWITCHED_MON, _noBerryFromSpikes
     CallFromVar BSCRIPT_VAR_TEMP_DATA
@@ -122,8 +122,7 @@ _checkStealthRock:
     PrintMessage 1079, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
-    // Emergency Exit needs the hazard damage in BSCRIPT_VAR_HP_CALC, but the berry (and Cheek Pouch) overwrite it
-    // fling data is only used inside the Fling subscript, so it is free to hold the damage here
+    // EE needs the hazard damage in BSCRIPT_VAR_HP_CALC, but the berry (and Cheek Pouch) would overwrite it
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_FLING_DATA, BSCRIPT_VAR_HP_CALC
     TryEatHpBerry BATTLER_CATEGORY_SWITCHED_MON, _noBerryFromRocks
     CallFromVar BSCRIPT_VAR_TEMP_DATA

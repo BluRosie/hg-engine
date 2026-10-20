@@ -4730,7 +4730,6 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
             ctx->scw[fieldSide].toxicSpikesLayers = 0;
             ctx->calc_work = 0;
         } else if (!IsBattlerOnField(ctx, battlerID)) {
-            // fainted to an earlier hazard: a Poison type still absorbs them, but nothing else happens
             IncrementBattleScriptPtr(ctx, adrs);
         }
     } else {

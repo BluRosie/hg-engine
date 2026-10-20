@@ -1,5 +1,4 @@
 // Test: Hazards - Healing Wish heals before Stealth Rock
-// Clefairy is faster than Shuckle, so it uses Healing Wish after the rocks from turn 1
 #include "../battle_tests.h"
 BEGIN_TEST
 {
