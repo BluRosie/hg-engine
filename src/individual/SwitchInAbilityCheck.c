@@ -43,6 +43,22 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
     client_set_max = BattleWorkClientSetMaxGet(bw);
 
+    // turnOrder is sorted at the start of the turn, so it still has the speed of mons that got replaced since.
+    // sort a copy by current speed instead of turnOrder itself, the end of turn loops over turnOrder while this runs
+    u8 switchInOrder[CLIENT_MAX];
+    for (i = 0; i < client_set_max; i++) {
+        switchInOrder[i] = sp->turnOrder[i];
+    }
+    for (i = 0; i < client_set_max - 1; i++) {
+        for (int j = i + 1; j < client_set_max; j++) {
+            if (CalcSpeed(bw, sp, switchInOrder[i], switchInOrder[j], CALCSPEED_FLAG_NO_PRIORITY)) {
+                u8 temp = switchInOrder[i];
+                switchInOrder[i] = switchInOrder[j];
+                switchInOrder[j] = temp;
+            }
+        }
+    }
+
     // 022531A8
     do {
         switch (sp->switch_in_check_seq_no) {
@@ -98,7 +114,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_NEUTRALIZING_GAS_TERA_SHIFT %d\n", sp->switch_in_check_seq_no);
 #endif
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 switch (GetBattlerAbility(sp, client_no)) {
                 case ABILITY_NEUTRALIZING_GAS:
@@ -125,7 +141,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_UNNERVE %d\n", sp->switch_in_check_seq_no);
 #endif
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 // Unnerve / As One
                 {
@@ -156,7 +172,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_HEALING_WISH %d\n", sp->switch_in_check_seq_no);
 #endif
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 // Heal from Healing Wish, Lunar Dance, Z-Memento, or Z-Parting Shot if applicable
                 {
@@ -185,7 +201,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_HAZARDS %d\n", sp->switch_in_check_seq_no);
 #endif
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 // Entry hazards
                 {
@@ -229,7 +245,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON %d\n", sp->switch_in_check_seq_no);
 #endif
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 // Abilities with entry effects can announce, except Neutralizing Gas/Unnerve (earlier) and form-changing abilities (later)
 
@@ -864,7 +880,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_PRIMAL_REVERSION_SEEDS_SCHOOLING_SHIELDS_DOWN %d\n", sp->switch_in_check_seq_no);
 #endif
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 // Primal Reversion
                 {
@@ -929,7 +945,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY %d\n", sp->switch_in_check_seq_no);
 #endif
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 // White Herb, etc
                 {
@@ -1052,7 +1068,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
         } break;
         case SWITCH_IN_CHECK_ENTRY_EFFECT_OPPORTUNIST: {
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 // Opportunist
                 {
@@ -1070,7 +1086,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
         } break;
         case SWITCH_IN_CHECK_AMULET_COIN: {
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
                 if (BattleItemDataGet(sp, sp->battlemon[client_no].item, 1) == HOLD_EFFECT_MONEY_UP) {
                     sp->money_multiplier = 2;
                 }
@@ -1083,7 +1099,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             debug_printf("in SWITCH_IN_CHECK_ABILITY_HEAL_STATUS %d\n", sp->switch_in_check_seq_no);
 #endif
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
                 if (AbilityStatusRecoverCheck(bw, sp, client_no, 1) == TRUE) {
                     scriptnum = BATTLE_SUBSCRIPT_ABILITY_FORBIDS_STATUS;
                     ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
@@ -1102,7 +1118,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             // only one eject pack can activate
             // sp->switch_in_check_seq_no++;
             for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
+                client_no = switchInOrder[i];
 
                 if (HeldItemHoldEffectGet(sp, client_no) == HOLD_EFFECT_SWITCH_OUT_ON_STAT_DROP
                     && !sp->ejectPackActivated

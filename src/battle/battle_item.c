@@ -330,7 +330,6 @@ BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int 
     return *seq_no != 0;
 }
 
-
 BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *ctx, int battlerId, int *seq_no)
 {
     BOOL ret = FALSE;

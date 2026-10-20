@@ -842,7 +842,6 @@ typedef struct HealingWishQueue {
     HealingWishCounter counter[CLIENT_MAX];
 } HealingWishQueue;
 
-
 typedef struct SwitchInFlags {
     u8 healingWishProcessed : 1;
     u8 hazardsProcessed : 1;

@@ -4660,16 +4660,7 @@ BOOL LONG_CALL BattlerFirstTurnOut(struct BattleStruct *ctx, int battlerId)
     return ctx->moveConditionsFlags[battlerId].firstTurnOut > 0;
 }
 
-/**
- *  @brief count the mons in a battler's party that could be sent out
- *
- *  @param bsys battle system structure
- *  @param ctx global battle structure
- *  @param battlerId battler whose party is checked
- *  @param excludePartner TRUE to also leave out the mon the partner has on the field (doubles with a shared party)
- *  @return number of mons that are not an egg, have HP left and are not on the field
- */
-static int CountReplacementMons(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, BOOL excludePartner)
+int LONG_CALL CountReplacementMons(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, BOOL excludePartner)
 {
     int count = 0;
     int partySize = BattleWorkPokeCountGet(bsys, battlerId);
@@ -4690,17 +4681,6 @@ static int CountReplacementMons(struct BattleSystem *bsys, struct BattleStruct *
     return count;
 }
 
-/**
- *  @brief at the end of the turn, ask for a replacement for every fainted battler that can still be replaced
- *
- *  hooked over the vanilla function.  vanilla skipped the right slot in doubles while its partner was also fainted,
- *  so each replacement got its own SHOW_PARTY_LIST run and its own switch-in check.  this asks for as many fainted
- *  slots on a side as that side has mons left, so all replacements are sent out before the switch-in check runs
- *
- *  @param bsys battle system structure
- *  @param ctx global battle structure
- *  @return TRUE if a replacement script was loaded
- */
 BOOL LONG_CALL ov12_0224D540(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     BOOL ret = FALSE;

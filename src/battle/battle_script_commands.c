@@ -6063,7 +6063,6 @@ BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *c
     return FALSE;
 }
 
-
 BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);

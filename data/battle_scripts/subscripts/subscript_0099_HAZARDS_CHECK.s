@@ -11,7 +11,7 @@ _landingPad:
 
 // anything that should be done after the hazards should go right here...  but we do most of it in JumpToCurrentEntryHazard
 _end:
-    // the queue is done here, so a mon that fainted to a hazard is handled once all hazards ran
+    // queue is done here, mon can faint now
     CompareVarToValue OPCODE_GT, BSCRIPT_VAR_BATTLER_FAINTED, BATTLER_ENEMY2, _noFaint
     UpdateVarFromVar OPCODE_FLAG_INDEX, BSCRIPT_VAR_TEMP_DATA, BSCRIPT_VAR_BATTLER_FAINTED
     UpdateVar OPCODE_LEFT_SHIFT, BSCRIPT_VAR_TEMP_DATA, 24
@@ -37,8 +37,7 @@ _checkSpikes:
     PrintMessage 429, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
-    // Emergency Exit needs the hazard damage in BSCRIPT_VAR_HP_CALC, but the berry (and Cheek Pouch) overwrite it
-    // fling data is only used inside the Fling subscript, so it is free to hold the damage here
+    // Emergency Exit needs the hazard damage in BSCRIPT_VAR_HP_CALC, Berry/Cheek Pouch overwrite it
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_FLING_DATA, BSCRIPT_VAR_HP_CALC
     TryEatHpBerry BATTLER_CATEGORY_SWITCHED_MON, _noBerryFromSpikes
     CallFromVar BSCRIPT_VAR_TEMP_DATA
