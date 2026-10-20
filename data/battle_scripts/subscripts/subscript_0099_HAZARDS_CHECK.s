@@ -47,7 +47,7 @@ _checkSpikes:
 _noBerryFromSpikes:
     TryActivateEmergencyExit BATTLER_CATEGORY_MSG_BATTLER_TEMP, _noWimpOutFromSpikes
     Call BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT
-    GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
+    End
 
 _noWimpOutFromSpikes:
     GoTo _landingPad
@@ -133,7 +133,7 @@ _checkStealthRock:
 _noBerryFromRocks:
     TryActivateEmergencyExit BATTLER_CATEGORY_MSG_BATTLER_TEMP, _noWimpOutFromRocks
     Call BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT
-    GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
+    End
 
 _noWimpOutFromRocks:
     GoTo _landingPad

@@ -1,4 +1,4 @@
-// Test: Hazards - Doubles, both enemy faints - one replacement faints, second replacement triggers hazards
+// Test: Hazards - Doubles, both enemy faints - both replacements sent out, Unnerve, Hazards, both faint
 #include "../battle_tests.h"
 BEGIN_TEST
 {
@@ -37,7 +37,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE }
     },
     .enemyParty = { {
-                        .species = SPECIES_LITTEN,
+                        .species = SPECIES_LITTEN, //speed 13
                         .level = 5,
                         .form = 0,
                         .ability = ABILITY_BLAZE,
@@ -49,8 +49,8 @@ BEGIN_TEST
                         .moveEffectFlags = 0,
                     },
         {
-            .species = SPECIES_CHARMANDER,
-            .level = 5,
+            .species = SPECIES_CHARMANDER, //speed 14
+            .level = 6,
             .form = 0,
             .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
@@ -138,13 +138,18 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Charmander fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Litten fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones float in the air around the opposing side!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Masquerain!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Snom!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Masquerain's Unnerve" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Masquerain!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Masquerain fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Litten!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Snom!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snom fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "out Clefable!" },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = 1, .expectationValue.currentHP = 170 }, // full
     },
 }
 END_TEST

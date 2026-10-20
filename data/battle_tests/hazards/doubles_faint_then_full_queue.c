@@ -1,4 +1,4 @@
-// Test: Hazards - doubles, second switch-in still gets every hazard
+// Test: Hazards - doubles, switch out in speed order, first replacement faints and slot stays empty
 #include "../battle_tests.h"
 BEGIN_TEST
 {
@@ -114,7 +114,7 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_SWITCH_SLOT_2, 0 },
+            { ACTION_SWITCH_SLOT_3, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -124,7 +124,7 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_SWITCH_SLOT_3, 0 },
+            { ACTION_SWITCH_SLOT_2, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -133,12 +133,15 @@ BEGIN_TEST
         }
     },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Charmander!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Jolteon!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Jolteon!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "withdrew Litten!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Torterra!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Torterra!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Torterra is hurt by the spikes!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Torterra was hurt by the spikes!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten!" },
     },
 }
 END_TEST
