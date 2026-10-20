@@ -210,6 +210,20 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 sp->switch_in_check_seq_no++;
             }
         } break;
+        case SWITCH_IN_CHECK_RESOLVE_SWITCHES: {
+#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
+            debug_printf("in SWITCH_IN_CHECK_RESOLVE_SWITCHES %d\n", sp->switch_in_check_seq_no);
+#endif
+            // Emergency Exit / Wimp Out from hazards only marks the switch: send the replacements out here,
+            // then start over so they get their own entry effects (the switch-in flags skip everyone else)
+            if (AnyPendingSwitches(bw, sp)) {
+                scriptnum = BATTLE_SUBSCRIPT_SEND_OUT_PENDING_SWITCHES;
+                ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                sp->switch_in_check_seq_no = SWITCH_IN_CHECK_WEATHER;
+            } else {
+                sp->switch_in_check_seq_no++;
+            }
+        } break;
         case SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON: {
 #ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
             debug_printf("in SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON %d\n", sp->switch_in_check_seq_no);

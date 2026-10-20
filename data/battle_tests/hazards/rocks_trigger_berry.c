@@ -1,4 +1,4 @@
-// Test: Hazards - faint from rocks
+// Test: Hazards - rocks trigger berry
 #include "../battle_tests.h"
 BEGIN_TEST
 {
@@ -42,7 +42,7 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_UNNERVE,
-            .item = ITEM_NONE,
+            .item = ITEM_IAPAPA_BERRY,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = 73,//145
             .status = 0,

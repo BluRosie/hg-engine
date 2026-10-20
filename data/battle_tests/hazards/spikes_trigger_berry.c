@@ -101,7 +101,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Torterra!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Torterra is hurt by the spikes!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Torterra was hurt by the spikes!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Torterra restored its health using its Sitrus Berry!" },
     },
 }
