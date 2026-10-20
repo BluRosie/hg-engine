@@ -9,5 +9,5 @@ _000:
     PrintMessage 1440, TAG_NONE
     Wait 
     WaitButtonABTime 30
-    Call BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
+    GoToSubscript BATTLE_SUBSCRIPT_SWITCH_IN_ABILITY_CHECK
     End 

@@ -145,7 +145,7 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wimpod restored its health using its Sitrus Berry!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Golisopod!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Golisopod restored its health using its Oran Berry!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod’s EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod's EmergencyExit" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Clefable!" },
     },
 } END_TEST
