@@ -330,13 +330,14 @@ BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int 
     return *seq_no != 0;
 }
 
-BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
+BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *ctx, int battlerId, int *seq_no)
 {
     BOOL ret = FALSE;
-    int script;
+    int script = 0;
     int itemHeldEffect;
     int boost;
 
+    *seq_no = 0;
     if (battlerId == BATTLER_NONE) {
         return FALSE;
     }
@@ -550,19 +551,28 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
         default:
             break;
         }
-        if (ret == TRUE) {
-            ctx->battlerIdTemp = battlerId;
-            ctx->item_work = GetBattleMonItem(ctx, battlerId);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, script);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = 22;
-
-            if (IS_ITEM_BERRY(ctx->item_work)) {
-                ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch = TRUE;
-            }
-        }
     }
+    *seq_no = script;
     return ret;
+}
+
+BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
+{
+    int script = 0;
+
+    if (GetHeldItemUseSubscript(bw, ctx, battlerId, &script) == TRUE) {
+        ctx->battlerIdTemp = battlerId;
+        ctx->item_work = GetBattleMonItem(ctx, battlerId);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, script);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+
+        if (IS_ITEM_BERRY(ctx->item_work)) {
+            ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch = TRUE;
+        }
+        return TRUE;
+    }
+    return FALSE;
 }
 
 BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int battlerId)
