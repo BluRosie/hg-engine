@@ -845,7 +845,8 @@ typedef struct HealingWishQueue {
 typedef struct SwitchInFlags {
     u8 healingWishProcessed : 1;
     u8 hazardsProcessed : 1;
-    u8 padding : 6;
+    u8 pastelVeilProcessed : 1;
+    u8 padding : 5;
 } SwitchInFlags;
 
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
@@ -2238,6 +2239,8 @@ void LONG_CALL SCIO_IncRecord(void *bw, int attack_client, int param1, int param
  */
 BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitch(struct BattleStruct *sp, int ability, int condition);
 
+BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct *ctx, int ability, int status);
+
 /**
  *  @brief check if pressure should further decrement power points
  *
@@ -2623,7 +2626,6 @@ enum {
     SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY,
     SWITCH_IN_CHECK_ENTRY_EFFECT_OPPORTUNIST,
     SWITCH_IN_CHECK_AMULET_COIN,
-    SWITCH_IN_CHECK_ABILITY_HEAL_STATUS,
     SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK,
     SWITCH_IN_CHECK_END,
 };

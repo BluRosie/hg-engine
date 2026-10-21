@@ -624,7 +624,6 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_27_0_ABILITIES_2 %d\n", ctx->swoam_seq_no);
 #endif
 
-        // TODO remove from switchInAbilityCheck?
         for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
             int client_no = ctx->turnOrder[battler];
             if (Activate_AbilityHealingStatusCondition(bsys, ctx, client_no, 1) == TRUE) { // TODO check if flag is 0 here

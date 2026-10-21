@@ -1,0 +1,119 @@
+// Test: Pastel Veil - curing both on switch-in
+#include "../../battle_tests.h"
+BEGIN_TEST
+{
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
+    .fieldCondition = 0,
+    .terrain = TERRAIN_NONE,
+    .playerParty = {
+        {
+            .species = SPECIES_SNOM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_ICE_SCALES,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = STATUS_POISON,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_PONYTA,
+            .level = 50,
+            .form = 1,
+            .ability = ABILITY_PASTEL_VEIL,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = STATUS_BAD_POISON,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE }
+    },
+    .enemyParty = {
+        {
+            .species = SPECIES_CHANSEY,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SERENE_GRACE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = STATUS_POISON,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_BLISSEY,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_SERENE_GRACE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = STATUS_POISON,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE }
+    },
+    .playerScript = {
+        {
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        },
+        {
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        }
+    },
+    .enemyScript = {
+        {
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        },
+        {
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        }
+    },
+    .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta was cured of its poisoning!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snom was cured of its poisoning!" },
+    }
+}
+END_TEST
