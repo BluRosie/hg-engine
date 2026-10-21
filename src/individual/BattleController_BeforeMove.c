@@ -3297,6 +3297,7 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
 
     // If the defender is Grass-type and either the defender or the defender's ally has Flower Veil as an ability
     BOOL hasFlowerVeil = HasType(ctx, defender, TYPE_GRASS) && (MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FLOWER_VEIL) || MoldBreakerAbilityCheck(ctx, ctx->attack_client, BATTLER_ALLY(defender), ABILITY_FLOWER_VEIL));
+    int flowerVeilHolder = MoldBreakerAbilityCheck(ctx, ctx->attack_client, defender, ABILITY_FLOWER_VEIL) ? defender : BATTLER_ALLY(defender);
 
     int subscriptToRun = 0;
 
@@ -3606,6 +3607,9 @@ int BattleController_CheckAbilityFailures4_StatBasedFailures(struct BattleSystem
         LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, subscriptToRun);
         ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
         ctx->battlerIdTemp = defender;
+        if (subscriptToRun == BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL) {
+            ctx->ability_client = flowerVeilHolder;
+        }
         ctx->next_server_seq_no = ctx->server_seq_no;
         ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
         return subscriptToRun;
@@ -3626,6 +3630,9 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
     BOOL hasPastelVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_PASTEL_VEIL);
     BOOL allyHasPastelVeil = MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_PASTEL_VEIL);
     BOOL hasSweetVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SWEET_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_SWEET_VEIL);
+    // the popup shows the mon that has the ability, the message the defender
+    int flowerVeilHolder = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_FLOWER_VEIL) ? defender : BATTLER_ALLY(defender);
+    int sweetVeilHolder = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SWEET_VEIL) ? defender : BATTLER_ALLY(defender);
 
     if (hasFlowerVeil) {
         switch (moveEffect) {
@@ -3638,6 +3645,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
             ctx->battlerIdTemp = defender;
+            ctx->ability_client = flowerVeilHolder;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FLOWER_VEIL_FAIL);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -3656,6 +3664,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
             ctx->battlerIdTemp = defender;
+            ctx->ability_client = sweetVeilHolder;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SWEET_VEIL_FAIL);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -3686,6 +3695,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
             BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, FALSE);
             ctx->moveStatusFlagForSpreadMoves[defender] = MOVE_STATUS_FAILED;
             ctx->battlerIdTemp = defender;
+            ctx->ability_client = sweetVeilHolder;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SWEET_VEIL_FAIL);
             ctx->next_server_seq_no = ctx->server_seq_no;
             ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
