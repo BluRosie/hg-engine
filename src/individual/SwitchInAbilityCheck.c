@@ -840,7 +840,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_PASTEL_VEIL)) {
                         sp->battlemon[client_no].ability_activated_flag = TRUE;
                         sp->switchInFlags[client_no].pastelVeilProcessed = TRUE;
-                        
+
                         sp->switchInFlags[ally].pastelVeilProcessed = 1;
 
                         if ((sp->battlemon[client_no].condition & STATUS_POISON_ALL)
@@ -857,7 +857,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         && (sp->battlemon[client_no].hp)
                         && (sp->battlemon[ally].hp)
                         && (GetBattlerAbility(sp, ally) == ABILITY_PASTEL_VEIL)) {
-                        
+
                         if (sp->battlemon[client_no].condition & STATUS_POISON_ALL) {
                             sp->battlerIdTemp = ally;
                             sp->state_client = client_no;
@@ -870,8 +870,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 // TODO: remaining ability forbids status triggers
                 {
-
-
                 }
 
                 // Need to trigger script
