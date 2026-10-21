@@ -3630,7 +3630,7 @@ BOOL BattleController_CheckAbilityFailures4_StatusBasedFailures(struct BattleSys
     BOOL hasPastelVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_PASTEL_VEIL);
     BOOL allyHasPastelVeil = MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_PASTEL_VEIL);
     BOOL hasSweetVeil = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SWEET_VEIL) || MoldBreakerAbilityCheck(ctx, attacker, BATTLER_ALLY(defender), ABILITY_SWEET_VEIL);
-    // the popup shows the mon that has the ability, the message the defender
+    // for popup
     int flowerVeilHolder = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_FLOWER_VEIL) ? defender : BATTLER_ALLY(defender);
     int sweetVeilHolder = MoldBreakerAbilityCheck(ctx, attacker, defender, ABILITY_SWEET_VEIL) ? defender : BATTLER_ALLY(defender);
 
