@@ -38,7 +38,7 @@ BEGIN_TEST
     },
     .enemyParty = { {
                         .species = SPECIES_VILEPLUME,
-                        .level = 50,
+                        .level = 5,
                         .form = 0,
                         .ability = ABILITY_MOLD_BREAKER,
                         .item = ITEM_NONE,
@@ -50,7 +50,7 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_ODDISH,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_CHLOROPHYLL,
             .item = ITEM_NONE,
@@ -66,7 +66,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -76,7 +76,7 @@ BEGIN_TEST
                       },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -86,7 +86,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -96,7 +96,7 @@ BEGIN_TEST
                      },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },

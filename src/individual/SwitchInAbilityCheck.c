@@ -818,6 +818,54 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     sp->battlemon[client_no].air_balloon_flag = 1;
                 }
 
+                // Comatose
+                {
+                    if ((sp->battlemon[client_no].ability_activated_flag == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_COMATOSE)) {
+                        sp->battlemon[client_no].ability_activated_flag = 1;
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_COMATOSE;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+
+                // Pastel Veil
+                // https://wiki.pokemonwiki.com/wiki/パステルベール
+                {
+                    int ally = BATTLER_ALLY(client_no);
+
+                    if ((sp->battlemon[client_no].ability_activated_flag == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_PASTEL_VEIL)
+                        && ((sp->battlemon[client_no].condition & STATUS_POISON_ALL)
+                            || (sp->battlemon[ally].condition & STATUS_POISON_ALL))) {
+                        sp->switchInFlags[client_no].pastelVeilProcessed = TRUE;
+                        sp->battlemon[client_no].ability_activated_flag = TRUE;
+                        sp->battlerIdTemp = client_no;
+                        sp->state_client = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_PASTEL_VEIL;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+
+                    // Poisoned mon enters next to a Pastel Veil mon that is already on the field
+                    // If the Pastel Veil mon is entering too, it cures this mon when its own ability activates
+                    if ((sp->switchInFlags[client_no].pastelVeilProcessed == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (sp->battlemon[client_no].condition & STATUS_POISON_ALL)
+                        && (sp->battlemon[ally].hp)
+                        && (GetBattlerAbility(sp, ally) == ABILITY_PASTEL_VEIL)) {
+                        sp->switchInFlags[client_no].pastelVeilProcessed = 1;
+                        sp->battlerIdTemp = ally;
+                        sp->state_client = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_PASTEL_VEIL;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+
                 // Need to trigger script
                 if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
                     break;

@@ -842,6 +842,13 @@ typedef struct HealingWishQueue {
     HealingWishCounter counter[CLIENT_MAX];
 } HealingWishQueue;
 
+typedef struct SwitchInFlags {
+    u8 healingWishProcessed : 1;
+    u8 hazardsProcessed : 1;
+    u8 pastelVeilProcessed : 1;
+    u8 padding : 6;
+} SwitchInFlags;
+
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
 
 /**
@@ -1091,6 +1098,7 @@ struct BattleStruct {
     DancerContext dancerContext;
     MagicBounceContext magicBounceContext;
     HealingWishQueue healingWishQueue;
+    SwitchInFlags switchInFlags[CLIENT_MAX];
     int field_condition2; // gen5+ field conditions
     int magicRoomCounter;
 

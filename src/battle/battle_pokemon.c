@@ -1197,6 +1197,8 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
         sp->moveConditionsFlags[client].firstTurnOut = 1;
     }
 
+    sp->switchInFlags[client].pastelVeilProcessed = 0;
+
     sp->ejectPackActivated = FALSE;
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
