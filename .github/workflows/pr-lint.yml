@@ -20,17 +20,8 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install clang-format 18
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y clang-format-18
-
       - name: Run formatter and report any failure
         run: |
-          CLANG_FORMAT_BIN=clang-format-18
-          echo "clang-format version:"
-          "$CLANG_FORMAT_BIN" --version
-
           ./.githooks/pre-commit
           git diff --staged --name-only |
           while IFS= read -r f; do

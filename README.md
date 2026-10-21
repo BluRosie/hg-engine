@@ -43,7 +43,7 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 
 ## Setup Instructions (Linux with apt)
 1. In a Terminal window, run the following command:
-    * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git gcc-arm-none-eabi pkg-config```
+    * ```sudo apt-get install libpng-dev build-essential cmake python3-pip python3-venv git gcc-arm-none-eabi pkg-config pipx```
     * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
@@ -66,7 +66,7 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 
 ## Setup Instructions (Linux with pacman)
 1. In a Terminal window, run the following command:
-    * ```sudo pacman -S libpng cmake python-pip python git arm-none-eabi-gcc arm-none-eabi-newlib pkg-config base-devel```
+    * ```sudo pacman -S libpng cmake python-pip python git arm-none-eabi-gcc arm-none-eabi-newlib pkg-config base-devel python-pipx```
     * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 2. Continue to [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections)
 
@@ -94,7 +94,7 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 4. In WSL, type in ```sudo apt update```, and after it finishes processing, type in ```sudo apt upgrade```. This will take quite a while, so find something else to do in the meantime. These two commands together will update all of the packages that came pre-installed with Ubuntu.
     * At some point during the process, you'll be asked to confirm whether you want WSL to restart automatically during package updates. We'll select "Yes" and press Enter. The process will then proceed.
 5. In WSL, run the following commands:
-    * ```sudo apt-get install build-essential git libpng-dev gdebi-core cmake python3 python3-pip python3-venv gcc-arm-none-eabi pkg-config```
+    * ```sudo apt-get install build-essential git libpng-dev gdebi-core cmake python3 python3-pip python3-venv gcc-arm-none-eabi pkg-config pipx```
         * You will be asked to confirm the installation, so press "y" followed by Enter to do so.
     * ```curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh``` to install [rustup](https://rustup.rs/).
 
@@ -106,7 +106,7 @@ If you are looking to contribute to hg-engine, please see the [CONTRIBUTING.md](
 2. Open up the base MSYS2 with the light purple background.
 3. Execute the commands:
     * ```pacman -Syu```
-    * ```pacman -S gcc base-devel cmake python git mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel mingw-w64-x86_64-rust```
+    * ```pacman -S gcc base-devel cmake python git mingw-w64-x86_64-arm-none-eabi-gcc p7zip zlib-devel mingw-w64-x86_64-rust pipx```
     * ```export PATH=$PATH:/mingw64/bin```
     * ```echo export PATH='$'PATH:/mingw64/bin >> ~/.bashrc```
     * ```python3 -m ensurepip --upgrade```
