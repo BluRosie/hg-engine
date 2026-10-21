@@ -846,7 +846,7 @@ typedef struct SwitchInFlags {
     u8 healingWishProcessed : 1;
     u8 hazardsProcessed : 1;
     u8 pastelVeilProcessed : 1;
-    u8 padding : 6;
+    u8 padding : 5;
 } SwitchInFlags;
 
 #define BATTLE_SCRIPT_PUSH_DEPTH 4
@@ -2368,6 +2368,9 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
 BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no);
+
+// helpers
+BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
 BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
@@ -2617,6 +2620,7 @@ enum {
     SWITCH_IN_CHECK_ENTRY_EFFECT_UNNERVE,
     SWITCH_IN_CHECK_ENTRY_EFFECT_HEALING_WISH,
     SWITCH_IN_CHECK_ENTRY_EFFECT_HAZARDS,
+    SWITCH_IN_CHECK_RESOLVE_SWITCHES, // EE/WO from hazards
     SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON,
     SWITCH_IN_CHECK_ENTRY_EFFECT_PRIMAL_REVERSION_SEEDS_SCHOOLING_SHIELDS_DOWN,
     SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY,
@@ -3259,6 +3263,19 @@ BOOL LONG_CALL ov12_0224DD18(struct BattleStruct *ctx, ControllerCommand a1, Con
 
 // Possibly BattleController_CheckBattleOver
 BOOL LONG_CALL ov12_0224D7EC(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+/**
+ *  @brief at the end of the turn, ask for a replacement for every fainted battler that can still be replaced
+ *  https://github.com/pret/pokeheartgold/blob/6988158691eb6178cff697cda0428045ddcba5fb/src/battle/battle_controller_player.c#L3416
+ *  in EndTurn
+ *  @param bsys battle system structure
+ *  @param ctx global battle structure
+ *  @return TRUE if a replacement script was loaded
+ */
+BOOL LONG_CALL EndTurn_CheckIfReplacementsCanBeSendOut(struct BattleSystem *bsys, struct BattleStruct *ctx);
+
+// 0 = shift, 1 = set
+u32 LONG_CALL BattleSystem_GetBattleStyle(struct BattleSystem *bsys);
 
 // Possibly BattleController_ToggleSemiInvulnMons
 BOOL LONG_CALL ov12_0224E130(struct BattleSystem *bsys, struct BattleStruct *ctx);
