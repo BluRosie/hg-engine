@@ -1967,27 +1967,6 @@ BOOL btl_scr_cmd_d0_checkshouldleavewith1hp(void *bw, struct BattleStruct *sp)
     return FALSE;
 }
 
-BOOL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct *ctx, int ability, int status)
-{
-    switch (ability) {
-    case ABILITY_PASTEL_VEIL:
-        if (status & STATUS_POISON_ALL) {
-            return TRUE;
-        }
-        break;
-    case ABILITY_THERMAL_EXCHANGE:
-    case ABILITY_WATER_BUBBLE:
-        if (status & STATUS_BURN) {
-            return TRUE;
-        }
-        break;
-    default:
-        break;
-    }
-
-    return CheckStatusRecoverFromAbilityOnSwitch(ctx, ability, status);
-}
-
 /**
  *  @brief script command to handle natural cure.  expanded for meloetta/regenerator
  *
@@ -1997,7 +1976,7 @@ BOOL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct *ctx, int 
  */
 BOOL BtlCmd_TryRestoreStatusOnSwitch(struct BattleSystem *bw, struct BattleStruct *sp)
 {
-    int side, client_no, address, ability, condition;
+    int side, client_no, address, condition;
     struct PartyPokemon *pp;
 
     IncrementBattleScriptPtr(sp, 1);
@@ -2007,7 +1986,6 @@ BOOL BtlCmd_TryRestoreStatusOnSwitch(struct BattleSystem *bw, struct BattleStruc
     client_no = GrabClientFromBattleScriptParam(bw, sp, side);
     if ((sp->battlemon[client_no].hp) && (sp->sel_mons_no[client_no] != 6)) {
         pp = BattleWorkPokemonParamGet(bw, client_no, sp->sel_mons_no[client_no]);
-        ability = GetMonData(pp, MON_DATA_ABILITY, NULL);
         condition = GetMonData(pp, MON_DATA_STATUS, NULL);
 
         // handle meloetta pirouette form changing back to normal when switched out
@@ -2015,18 +1993,20 @@ BOOL BtlCmd_TryRestoreStatusOnSwitch(struct BattleSystem *bw, struct BattleStruc
             && (sp->battlemon[client_no].form_no != 0)) {
             u32 form_no = 0;
             sp->battlemon[client_no].form_no = form_no;
-            BattleFormChange(sp->battlerIdTemp, sp->battlemon[sp->battlerIdTemp].form_no, bw, sp, 1);
+            BattleFormChange(client_no, sp->battlemon[client_no].form_no, bw, sp, 1);
             SetMonData(pp, MON_DATA_FORM, (u8 *)&form_no);
         }
 
-        // natural cure is checked for here but handled by SwitchAbilityStatusRecoverCheck/the battle scripts this command is used in
-        if ((sp->battlemon[client_no].ability != ABILITY_NATURAL_CURE)
-            && (CheckStatusRecoverFromAbilityOnSwitchWrapper(sp, ability, condition) == FALSE)) {
+        // can be suppressed
+        int battlerAbility = GetBattlerAbility(sp, client_no);
+        if ((battlerAbility != ABILITY_NATURAL_CURE)
+            && (CheckStatusRecoverFromAbilityOnSwitchWrapper(sp, battlerAbility, condition) == FALSE)) {
             IncrementBattleScriptPtr(sp, address);
         }
 
-        // handle regenerator--mon restores 1/3 hp on switch
-        if (ability == ABILITY_REGENERATOR) // switching mon ability is regenerator--not affected by gastro acid or etc
+        // https://github.com/rh-hideout/pokeemerald-expansion/blob/master/src/battle_util.c#L4923
+        //  handle regenerator--mon restores 1/3 hp on switch
+        if (battlerAbility == ABILITY_REGENERATOR) // can be suppressed
         {
             int hp = GetMonData(pp, MON_DATA_HP, NULL), hpmax = GetMonData(pp, MON_DATA_MAXHP, NULL);
 

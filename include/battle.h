@@ -2239,6 +2239,8 @@ void LONG_CALL SCIO_IncRecord(void *bw, int attack_client, int param1, int param
  */
 BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitch(struct BattleStruct *sp, int ability, int condition);
 
+BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct *ctx, int ability, int status);
+
 /**
  *  @brief check if pressure should further decrement power points
  *
@@ -2620,7 +2622,6 @@ enum {
     SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY,
     SWITCH_IN_CHECK_ENTRY_EFFECT_OPPORTUNIST,
     SWITCH_IN_CHECK_AMULET_COIN,
-    SWITCH_IN_CHECK_ABILITY_HEAL_STATUS,
     SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK,
     SWITCH_IN_CHECK_END,
 };

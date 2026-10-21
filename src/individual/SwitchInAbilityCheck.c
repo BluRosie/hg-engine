@@ -868,8 +868,29 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
 
-                // TODO: remaining ability forbids status triggers
+                // Immunity Abilities (Immunity, Limber, Insomnia, Water Bubble, ...)
                 {
+                    u32 condition = sp->battlemon[client_no].condition;
+                    if (sp->battlemon[client_no].hp
+                        && (condition & STATUS_ANY_PERSISTENT)
+                        && (CheckStatusRecoverFromAbilityOnSwitchWrapper(sp, GetBattlerAbility(sp, client_no), condition) == TRUE)) {
+                        if (condition & STATUS_SLEEP) {
+                            sp->msg_work = MSG_HEAL_SLEEP;
+                        } else if (condition & STATUS_POISON_ALL) {
+                            sp->msg_work = MSG_HEAL_PIOSON;
+                        } else if (condition & STATUS_BURN) {
+                            sp->msg_work = MSG_HEAL_BURN;
+                        } else if (condition & STATUS_PARALYSIS) {
+                            sp->msg_work = MSG_HEAL_PARALYSIS;
+                        } else {
+                            sp->msg_work = MSG_HEAL_FREEZE;
+                        }
+                        sp->battlerIdTemp = client_no;
+                        sp->tokusei_work = GetBattlerAbility(sp, client_no);
+                        scriptnum = BATTLE_SUBSCRIPT_ABILITY_FORBIDS_STATUS;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
                 }
 
                 // Need to trigger script
@@ -1099,23 +1120,6 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                 }
             }
             sp->switch_in_check_seq_no++;
-        } break;
-            // 02253CFC
-        case SWITCH_IN_CHECK_ABILITY_HEAL_STATUS: {
-#ifdef DEBUG_SWITCH_IN_ABILITY_CHECK
-            debug_printf("in SWITCH_IN_CHECK_ABILITY_HEAL_STATUS %d\n", sp->switch_in_check_seq_no);
-#endif
-            for (i = 0; i < client_set_max; i++) {
-                client_no = sp->turnOrder[i];
-                if (AbilityStatusRecoverCheck(bw, sp, client_no, 1) == TRUE) {
-                    scriptnum = BATTLE_SUBSCRIPT_ABILITY_FORBIDS_STATUS;
-                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
-                    break;
-                }
-            }
-            if (i == client_set_max) {
-                sp->switch_in_check_seq_no++;
-            }
         } break;
         case SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK: {
 #ifdef DEBUG_SWITCH_IN_ABILITY_CHECK

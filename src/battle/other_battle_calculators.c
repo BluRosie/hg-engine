@@ -4659,3 +4659,24 @@ BOOL LONG_CALL BattlerFirstTurnOut(struct BattleStruct *ctx, int battlerId)
 {
     return ctx->moveConditionsFlags[battlerId].firstTurnOut > 0;
 }
+
+BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct *ctx, int ability, int status)
+{
+    switch (ability) {
+    case ABILITY_PASTEL_VEIL:
+        if (status & STATUS_POISON_ALL) {
+            return TRUE;
+        }
+        break;
+    case ABILITY_THERMAL_EXCHANGE:
+    case ABILITY_WATER_BUBBLE:
+        if (status & STATUS_BURN) {
+            return TRUE;
+        }
+        break;
+    default:
+        break;
+    }
+
+    return CheckStatusRecoverFromAbilityOnSwitch(ctx, ability, status);
+}
