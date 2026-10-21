@@ -877,13 +877,13 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         if (condition & STATUS_SLEEP) {
                             sp->msg_work = MSG_HEAL_SLEEP;
                         } else if (condition & STATUS_POISON_ALL) {
-                            sp->msg_work = MSG_HEAL_PIOSON;
+                            sp->msg_work = MSG_HEAL_POISON;
                         } else if (condition & STATUS_BURN) {
                             sp->msg_work = MSG_HEAL_BURN;
                         } else if (condition & STATUS_PARALYSIS) {
                             sp->msg_work = MSG_HEAL_PARALYSIS;
                         } else {
-                            sp->msg_work = MSG_HEAL_FREEZE;
+                            sp->msg_work = MSG_HEAL_FROZEN;
                         }
                         sp->battlerIdTemp = client_no;
                         sp->tokusei_work = GetBattlerAbility(sp, client_no);
