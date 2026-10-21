@@ -105,11 +105,17 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Ponyta..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Vileplume used Toxic!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta was badly poisoned!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta was cured of its poisoning!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Ponyta..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Snom..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Vileplume used Toxic!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snom was badly poisoned!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snom was hurt by its poisoning!" },
     }
 }
 END_TEST

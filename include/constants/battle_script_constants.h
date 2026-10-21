@@ -532,8 +532,9 @@
 #define BATTLE_SUBSCRIPT_RECEIVER                               (523)
 #define BATTLE_SUBSCRIPT_PASTEL_VEIL                            (524)
 #define BATTLE_SUBSCRIPT_COMATOSE                               (525)
+#define BATTLE_SUBSCRIPT_DOESNT_AFFECT_ALLY_ABILITY             (526)
 
-#define MAX_BASE_SUBSCRIPT_NUM 525
+#define MAX_BASE_SUBSCRIPT_NUM 526
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
