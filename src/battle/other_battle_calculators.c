@@ -4357,19 +4357,16 @@ BOOL LONG_CALL CanIgnoreRedirection(struct BattleStruct *ctx, int attacker, int 
 {
     int user = ctx->scw[side].battlerIdFollowMe;
 
-    // no center of attention on the opposing side
     if (!ctx->scw[side].followMeFlag || !ctx->battlemon[user].hp) {
         return TRUE;
     }
 
-    // Snipe Shot, Propeller Tail and Stalwart ignore redirection
     if (ctx->current_move_index == MOVE_SNIPE_SHOT
         || GetBattlerAbility(ctx, attacker) == ABILITY_PROPELLER_TAIL
         || GetBattlerAbility(ctx, attacker) == ABILITY_STALWART) {
         return TRUE;
     }
 
-    // Rage Powder is a powder move: Grass types, Overcoat and Safety Goggles are not affected
     if (ctx->moveConditionsFlags[user].usedRagePowder
         && (HasType(ctx, attacker, TYPE_GRASS)
             || GetBattlerAbility(ctx, attacker) == ABILITY_OVERCOAT
