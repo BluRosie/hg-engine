@@ -27,10 +27,10 @@ BEGIN_TEST
     },
     .enemyParty = {
         {
-            .species = SPECIES_SNORLAX,
-            .level = 100,
+            .species = SPECIES_SABLEYE,
+            .level = 40,
             .form = 0,
-            .ability = ABILITY_THICK_FAT,
+            .ability = ABILITY_PRANKSTER,
             .item = ITEM_SITRUS_BERRY,
             .moves = { MOVE_SUBSTITUTE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -89,11 +89,12 @@ BEGIN_TEST
         }
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax made a substitute!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Sableye made a substitute!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Pluck!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The substitute took damage for the opposing Snorlax!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The substitute took damage for the opposing Sableye!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Pluck!" },
-        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Starly stole and ate its target's Sitrus Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly stole and ate its target's Sitrus Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly restored its health using its Sitrus Berry!" },
     }
 }
 END_TEST

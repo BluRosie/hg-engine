@@ -1673,7 +1673,8 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                             sp->addeffect_param = MOVE_SUBSCRIPT_PTR_SPEED_UP_1_STAGE;
                             sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                             sp->state_client = battlerId;
-                            seq_no = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
+                            sp->battlerIdTemp = battlerId;
+                            seq_no = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
                             ret = TRUE;
                         }
                         break;

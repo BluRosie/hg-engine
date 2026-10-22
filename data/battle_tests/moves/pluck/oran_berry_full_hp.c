@@ -28,7 +28,7 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_SNORLAX,
-            .level = 100,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_THICK_FAT,
             .item = ITEM_ORAN_BERRY,

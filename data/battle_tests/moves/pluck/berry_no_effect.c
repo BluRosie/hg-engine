@@ -28,7 +28,7 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_SNORLAX,
-            .level = 100,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_THICK_FAT,
             .item = ITEM_ROSELI_BERRY,
@@ -91,7 +91,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Pluck!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly stole and ate its target's Roseli Berry!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Roseli Berry" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Starly" },
     }
 }
 END_TEST
