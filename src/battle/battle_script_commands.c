@@ -142,6 +142,7 @@ BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *
 BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -487,6 +488,7 @@ const u8 *BattleScrCmdNames[] = {
     "GoToIfMoveConditionFlagSet",
     "TryActivateReceiver"
     "TryActivateEmergencyExit"
+    "TryEatHpBerry"
     // "YourCustomCommand",
 };
 
@@ -494,7 +496,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12C
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12D
 
 // clang-format off
 const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
@@ -574,6 +576,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
     [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_TryActivateReceiver,
     [0x12C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12C_TryActivateEmergencyExit,
+    [0x12D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12D_TryEatHpBerry,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -4726,6 +4729,8 @@ BOOL BtlCmd_CheckToxicSpikes(struct BattleSystem *bsys, struct BattleStruct *ctx
             ctx->side_condition[fieldSide] &= ~SIDE_EFFECT_TYPE_TOXIC_SPIKES;
             ctx->scw[fieldSide].toxicSpikesLayers = 0;
             ctx->calc_work = 0;
+        } else if (!IsBattlerOnField(ctx, battlerID)) {
+            IncrementBattleScriptPtr(ctx, adrs);
         }
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
@@ -5864,38 +5869,37 @@ BOOL btl_scr_cmd_127_ActivateHealingWish(void *bsys UNUSED, struct BattleStruct 
     int adrs = read_battle_script_param(ctx);
     ctx->hp_calc_work = 0;
 
-    if (ctx->reshuffle_client == BATTLER_NONE || ctx->healingWishQueue.counter[ctx->reshuffle_client].count == 0) {
+    if (ctx->battlerIdTemp == BATTLER_NONE || ctx->healingWishQueue.counter[ctx->battlerIdTemp].count == 0) {
         IncrementBattleScriptPtr(ctx, adrs);
         return FALSE;
     }
 
-    u8 front = ctx->healingWishQueue.counter[ctx->reshuffle_client].front;
+    u8 front = ctx->healingWishQueue.counter[ctx->battlerIdTemp].front;
     BOOL isLunarDance = FALSE;
-    if (ctx->healingWishQueue.queue[ctx->reshuffle_client][front] == HEALING_CONDITION_HEALING_LUNAR_DANCE) {
+    if (ctx->healingWishQueue.queue[ctx->battlerIdTemp][front] == HEALING_CONDITION_HEALING_LUNAR_DANCE) {
         isLunarDance = TRUE;
     }
 
-    if (canHealingWishActivate(ctx, ctx->reshuffle_client, isLunarDance)) {
-        ctx->battlerIdTemp = ctx->reshuffle_client;
+    if (canHealingWishActivate(ctx, ctx->battlerIdTemp, isLunarDance)) {
         ctx->mp.id = BATTLE_MSG_HEALING_WISH; // "The healing wish came true for {0}!"
         ctx->mp.tag = TAG_NICKNAME;
-        ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->reshuffle_client);
+        ctx->mp.param[0] = CreateNicknameTag(ctx, ctx->battlerIdTemp);
 
-        ctx->battlemon[ctx->reshuffle_client].condition = 0;
-        ctx->battlemon[ctx->reshuffle_client].condition2 &= ~(STATUS2_CONFUSION); // TODO: once we have ally switch
-        ctx->hp_calc_work = (s32)ctx->battlemon[ctx->reshuffle_client].maxhp;
+        ctx->battlemon[ctx->battlerIdTemp].condition = 0;
+        ctx->battlemon[ctx->battlerIdTemp].condition2 &= ~(STATUS2_CONFUSION); // TODO: once we have ally switch
+        ctx->hp_calc_work = (s32)ctx->battlemon[ctx->battlerIdTemp].maxhp;
 
         if (isLunarDance) {
             ctx->mp.id = BATTLE_MSG_LUNAR_DANCE; // "{0} became cloaked in mystical moonlight!"
 
             for (unsigned i = 0; i < MAX_MON_MOVES; i++) {
-                u8 maxpp = ctx->battlemon[ctx->reshuffle_client].pp_count[i];
-                ctx->battlemon[ctx->reshuffle_client].pp[i] = maxpp;
+                u8 maxpp = ctx->battlemon[ctx->battlerIdTemp].pp_count[i];
+                ctx->battlemon[ctx->battlerIdTemp].pp[i] = maxpp;
             }
         }
 
-        ctx->healingWishQueue.counter[ctx->reshuffle_client].front = (front + 1) % 2;
-        ctx->healingWishQueue.counter[ctx->reshuffle_client].count--;
+        ctx->healingWishQueue.counter[ctx->battlerIdTemp].front = (front + 1) % 2;
+        ctx->healingWishQueue.counter[ctx->battlerIdTemp].count--;
     } else {
         IncrementBattleScriptPtr(ctx, adrs);
     }
@@ -6054,6 +6058,44 @@ BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *c
     ctx->hp_temp = ctx->battlemon[1].hp;
 
     InitSwitchWork(bsys, ctx, battlerId);
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int side = read_battle_script_param(ctx);
+    int failAddress = read_battle_script_param(ctx);
+    int script = 0;
+    int battler = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    if (IsBattlerOnField(ctx, battler)) {
+        switch (HeldItemHoldEffectGet(ctx, battler)) {
+        case HOLD_EFFECT_HP_RESTORE: // oran berry, berry juice
+        case HOLD_EFFECT_HP_PCT_RESTORE: // sitrus berry
+        case HOLD_EFFECT_HP_RESTORE_SPICY: // figy berry
+        case HOLD_EFFECT_HP_RESTORE_DRY: // wiki berry
+        case HOLD_EFFECT_HP_RESTORE_SWEET: // mago berry
+        case HOLD_EFFECT_HP_RESTORE_BITTER: // aguav berry
+        case HOLD_EFFECT_HP_RESTORE_SOUR: // iapapa berry
+
+            if (GetHeldItemUseSubscript(bsys, ctx, battler, &script) == TRUE) {
+                ctx->battlerIdTemp = battler;
+                ctx->item_work = GetBattleMonItem(ctx, battler);
+                ctx->temp_work = script;
+
+                if (IS_ITEM_BERRY(ctx->item_work)) {
+                    ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battler)][ctx->sel_mons_no[battler]].berryEatenAndCanBelch = TRUE;
+                }
+            }
+        default:
+            break;
+        }
+    }
+    if (script == 0) {
+        IncrementBattleScriptPtr(ctx, failAddress);
+    }
 
     return FALSE;
 }

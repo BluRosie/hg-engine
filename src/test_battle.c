@@ -642,7 +642,6 @@ static BOOL TestBattle_IsPartySlotAlreadyActive(struct BattleSystem *bsys, struc
         if (IsClientEnemy(bsys, other) != side) {
             continue;
         }
-
         if (ctx->sel_mons_no[other] == partySlot) {
             return TRUE;
         }
