@@ -1633,7 +1633,7 @@ BOOL BattlerController_RedirectTarget(struct BattleSystem *bsys, struct BattleSt
 
     side = IsClientEnemy(bsys, battlerIdAttacker) ^ 1;
 
-    if (ctx->scw[side].followMeFlag && ctx->battlemon[ctx->scw[side].battlerIdFollowMe].hp) {
+    if (!CanIgnoreRedirection(ctx, battlerIdAttacker, side)) {
         return FALSE;
     }
 

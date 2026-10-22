@@ -5213,6 +5213,9 @@ BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
             ctx->moveConditionsFlags[client_no].throatChopTimer = 2;
         }
         break;
+    case MOVE_RAGE_POWDER:
+        ctx->moveConditionsFlags[client_no].usedRagePowder = TRUE;
+        break;
     default:
         break;
     }
