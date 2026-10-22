@@ -111,6 +111,7 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
         client.rolloutCount = sp->battlemon[i].moveeffect.rolloutCount;
         client.stockpileCount = sp->battlemon[i].moveeffect.stockpileCount;
         client.parentalBondFlag = sp->oneTurnFlag[i].parental_bond_flag;
+        client.assuranceDamage = sp->oneTurnFlag[i].assuranceDamage;
         client.helpingHandFlag = sp->oneTurnFlag[i].helping_hand_flag;
         client.sheerForceFlag = sp->battlemon[i].sheer_force_flag;
         client.effectOfMoves = sp->battlemon[i].effect_of_moves;
@@ -251,6 +252,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         attackerItemHeldEffect = HeldItemHoldEffectGet(sp, attacker);
     }
     u32 defenderAbility = GetBattlerAbility(sp, defender);
+    BOOL defenderHasUtilityUmbrella = HeldItemHoldEffectGet(sp, defender) == HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN;
     u32 weather = GetWeather(bw, sp, attacker);
 
     u32 damage = 0;
@@ -373,8 +375,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 #endif
 
     // 6.3 Weather Modifier
+    // a defending Utility Umbrella blocks the modifier, except for Hydro Steam's sun boost
 
-    if (weather & FIELD_CONDITION_RAIN_ALL) {
+    if ((weather & FIELD_CONDITION_RAIN_ALL) && !defenderHasUtilityUmbrella) {
         switch (type) {
         case TYPE_FIRE:
             damage = QMul_RoundDown(damage, UQ412__0_5);
@@ -388,13 +391,15 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
     if (weather & FIELD_CONDITION_SUN_ALL) {
         switch (type) {
         case TYPE_FIRE:
-            damage = QMul_RoundDown(damage, UQ412__1_5);
+            if (!defenderHasUtilityUmbrella) {
+                damage = QMul_RoundDown(damage, UQ412__1_5);
+            }
             break;
         case TYPE_WATER:
             // If the current weather is Sunny Day and the user is not holding Utility Umbrella, this move's damage is multiplied by 1.5 instead of halved for being Water type.
             if (moveno == MOVE_HYDRO_STEAM && attackerItemHeldEffect != HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN) {
                 damage = QMul_RoundDown(damage, UQ412__1_5);
-            } else {
+            } else if (!defenderHasUtilityUmbrella) {
                 damage = QMul_RoundDown(damage, UQ412__0_5);
             }
             break;
@@ -597,7 +602,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
 
     // 6.9.14.2 Dig
     if (sp->battlemon[defender].effect_of_moves & MOVE_EFFECT_FLAG_DIG
-        && moveno == MOVE_EARTHQUAKE) {
+        && (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE)) {
         finalModifier = QMul_RoundUp(finalModifier, UQ412__2_0);
     }
 
@@ -867,20 +872,21 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
                 debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
 #endif
             }
-
-            // 6.9.13 Resist Berries
-            if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
-                && CanActivateDamageReductionBerry(sp, defender)) {
-                finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
-#ifdef DEBUG_DAMAGE_CALC
-                debug_printf("\n=================\n");
-                debug_printf("[CalcBaseDamage] 6.9.13 Resist Berries (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
-                debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
-#endif
-            }
             break;
         default:
             break;
+        }
+
+        // 6.9.13 Resist Berries
+        if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
+            && typeToBerryMapping[type] == GetBattleMonItem(sp, defender)
+            && ((type == TYPE_NORMAL) || (type != TYPE_NORMAL && moveEffectiveness >= TYPE_MUL_SUPER_EFFECTIVE))) {
+            finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
+#ifdef DEBUG_DAMAGE_CALC
+            debug_printf("\n=================\n");
+            debug_printf("[CalcBaseDamage] 6.9.13 Resist Berries (client %d loop %d)\n", sp->rawSpeedNonRNGClientOrder[i], i);
+            debug_printf("[CalcBaseDamage] finalModifier: %d\n", finalModifier);
+#endif
         }
 
         // 6.9.12 Life Orb
@@ -925,8 +931,9 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
     // 0.25x damage into protect
     if (((attackerAbility == ABILITY_PIERCING_DRILL)
 #if UNSEEN_FIST_GENERATION >= GEN_CHAMPIONS
-            || (attackerAbility == ABILITY_UNSEEN_FIST))
+            || (attackerAbility == ABILITY_UNSEEN_FIST)
 #endif
+                )
         && sp->oneTurnFlag[defender].protectFlag) {
         damage = QMul_RoundDown(damage, UQ412__0_25);
 #ifdef DEBUG_DAMAGE_ROLLS
