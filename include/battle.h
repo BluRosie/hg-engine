@@ -783,7 +783,8 @@ typedef struct MoveConditionsFlags {
     u8 ejectPackFlag : 1;
     u8 firstTurnOut : 2;
 
-    // new var
+    u8 usedRagePowder : 1;
+    u8 padding : 7;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -3052,6 +3053,8 @@ BOOL LONG_CALL IsValidParentalBondMove(void *bw, struct BattleStruct *sp, BOOL c
  * @return TRUE if it is a Powder move
  */
 BOOL LONG_CALL IsPowderMove(u32 moveIndex);
+
+BOOL LONG_CALL CanIgnoreRedirection(struct BattleStruct *ctx, int attacker, int side);
 
 /**
  * @brief Check if the current move is a Weight move
