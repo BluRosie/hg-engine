@@ -91,7 +91,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Tackle!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pikachu's Static" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly is paralyzed! It may be unable to move!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly is paralyzed, so it may be unable to move!" },
     }
 }
 END_TEST

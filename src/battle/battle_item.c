@@ -575,7 +575,6 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
     return FALSE;
 }
 
-
 void GetFlingOrPluckItemEffect(struct BattleSystem *bsys, struct BattleStruct *sp, int target, int effect, int mod)
 {
     sp->flingScript = 0;
@@ -835,7 +834,7 @@ void GetFlingOrPluckItemEffect(struct BattleSystem *bsys, struct BattleStruct *s
         break;
     }
 }
-//TODO: ripen
+// TODO: ripen
 BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int battlerId)
 {
     int item = GetHeldItemFlingEffect(sp, battlerId);
@@ -865,7 +864,7 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
 }
 
 // TODO: ripen
-//since Pluck and Fling are basically identical we can use the fling variables here as helpers
+// since Pluck and Fling are basically identical we can use the fling variables here as helpers
 BOOL LONG_CALL TryPluckBerry(struct BattleSystem *bsys, struct BattleStruct *sp, int battlerId)
 {
     u16 item = sp->battlemon[battlerId].item;
