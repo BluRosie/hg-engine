@@ -4182,15 +4182,12 @@ BOOL BtlCmd_TryPluck(void *bw, struct BattleStruct *sp)
     u32 adrs2 UNUSED = read_battle_script_param(sp);
     u32 item = sp->battlemon[sp->defence_client].item;
 
-    BOOL isBerry = IS_ITEM_BERRY(item);
-    // sticky hold and substitute will keep the mon's held item
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
-    if (isBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp) {
+    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp) {
         sp->mp.id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
         sp->mp.tag = TAG_NICKNAME;
         sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
-    } else if (isBerry && TryEatOpponentBerry(bw, sp, sp->defence_client)) // TODO: needs expansion/wrapper for newer berries
-    {
+    } else if (TryPluckBerry(bw, sp, sp->defence_client)) {
         sp->mp.id = BATTLE_MSG_STOLE_BERRY;
         sp->mp.tag = TAG_NICKNAME_ITEM;
         sp->mp.param[0] = CreateNicknameTag(sp, sp->attack_client);

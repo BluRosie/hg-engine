@@ -1271,7 +1271,9 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         break;
     case MOVE_EFFECT_EAT_BERRY: // pluck, bug bite
         if (ctx->attack_client != BATTLER_NONE
-            && ctx->battlemon[ctx->attack_client].hp > 0) {
+            && ctx->battlemon[ctx->attack_client].hp > 0
+            && IS_ITEM_BERRY(ctx->battlemon[ctx->defence_client].item)
+            && CheckSubstitute(ctx, ctx->defence_client) == FALSE) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_PLUCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2249,6 +2251,7 @@ int LONG_CALL MovePerformance_Step_9(void *bsys, struct BattleStruct *ctx, int *
                 && CheckSubstitute(ctx, ctx->defence_client) == FALSE) {
                 ctx->state_client = ctx->defence_client;
                 ctx->battlerIdTemp = ctx->defence_client;
+                ctx->hp_calc_work = ctx->flingData;
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, ctx->flingScript);
                 ctx->next_server_seq_no = ctx->server_seq_no;
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
