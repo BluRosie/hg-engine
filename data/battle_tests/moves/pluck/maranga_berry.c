@@ -32,7 +32,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_THICK_FAT,
             .item = ITEM_MARANGA_BERRY,
-            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -90,8 +90,8 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Pluck!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Maranga Berry" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Starly's Sp. Def" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Starly stole and ate its target’s Maranga Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "The Maranga Berry boosted Starly’s Sp. Def!" },
     }
 }
 END_TEST

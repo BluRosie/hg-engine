@@ -28,11 +28,11 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_MUK,
-            .level = 50,
+            .level = 5,
             .form = 0,
             .ability = ABILITY_STICKY_HOLD,
             .item = ITEM_MARANGA_BERRY,
-            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = 1,
             .status = 0,
             .condition2 = 0,
@@ -44,7 +44,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_THICK_FAT,
             .item = ITEM_NONE,
-            .moves = { MOVE_SPLASH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,

@@ -36,7 +36,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_THICK_FAT,
             .item = ITEM_LEPPA_BERRY,
-            .moves = { MOVE_SPLASH, MOVE_CELEBRATE, MOVE_HARDEN, MOVE_GROWL },
+            .moves = { MOVE_SLEEP_TALK, MOVE_CELEBRATE, MOVE_HARDEN, MOVE_GROWL },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -94,7 +94,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Pluck!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Leppa Berry" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly stole and ate its target’s Leppa Berry!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly restored PP to its move Growl using its Leppa Berry!" },
     }
 }
