@@ -1915,7 +1915,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     int cnt = GetBattlerLearnedMoveCount(bsys, ctx, ctx->attack_client);
     int move;
     int attackerAbility = GetBattlerAbility(ctx, ctx->attack_client);
-    u32 weather = GetWeather(bsys, ctx, 0xFF); // Mega Sol does not affect Aurora Veil
+    u32 weather = GetWeather(bsys, ctx, ctx->attack_client);
     int attackerItem = GetBattleMonItem(ctx, ctx->attack_client);
 
     // For Sucker Punch

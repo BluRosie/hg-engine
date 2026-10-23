@@ -1,4 +1,4 @@
-// Test: Shore Up - restores 2732/4096 of max HP in a sandstorm
+// Test: Shore Up - heals ~2/3 in sandstorm
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

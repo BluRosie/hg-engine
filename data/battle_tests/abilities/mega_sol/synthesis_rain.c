@@ -1,4 +1,4 @@
-// Test: Mega Sol - Synthesis restores 2/3 in rain
+// Test: Mega Sol - Synthesis restores ~2/3 in rain
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
