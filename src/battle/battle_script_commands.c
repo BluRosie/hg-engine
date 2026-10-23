@@ -5293,7 +5293,9 @@ BOOL BtlCmd_TryFaintMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     // skip processing fainted battlers if simultaneous damage active and they didn't take damage from the move
 
-    if ((ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE) && ctx->damageForSpreadMoves[battlerId] == 0) {
+    if ((ctx->server_status_flag & SERVER_STATUS_FLAG_SIMULTANEOUS_DAMAGE) 
+        && ctx->damageForSpreadMoves[battlerId] == 0 
+        && battlerId != ctx->attack_client) {
         return FALSE;
     }
 

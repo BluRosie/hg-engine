@@ -694,10 +694,10 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         if (ctx->moveTbl[ctx->current_move_index].effect == MOVE_EFFECT_HALVE_DEFENSE) {
             u32 attacker = ctx->attack_client;
             ctx->server_status_flag |= (No2Bit(attacker) << BATTLE_STATUS_SELFDESTRUCTED_SHIFT);
-            ctx->fainting_client = attacker;
-            ctx->battlemon[attacker].hp = 0;
+            ctx->fainting_client = ctx->attack_client;
+            ctx->battlemon[ctx->attack_client].hp = 0;
             // apparently need to do this now
-            CopyBattleMonToPartyMon(bsys, ctx, attacker);
+            CopyBattleMonToPartyMon(bsys, ctx, ctx->attack_client);
         }
         ctx->wb_seq_no++;
         FALLTHROUGH;
