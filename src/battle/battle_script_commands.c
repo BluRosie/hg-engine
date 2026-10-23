@@ -20,6 +20,7 @@
 #include "nitro.h"
 #include "overlay.h"
 #include "pokemon.h"
+#include "q412.h"
 #include "save.h"
 #include "system.h"
 #include "window.h"
@@ -3338,7 +3339,7 @@ BOOL btl_scr_cmd_109_checktargetispartner(void *bw UNUSED, struct BattleStruct *
 }
 
 /**
- *  @brief script command to calculate the amount of HP should a client recover by using Moonlight, Morning Sun, or Synthesis
+ *  @brief script command to calculate the amount of HP should a client recover by using Moonlight, Morning Sun, Synthesis or Shore Up
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -3348,28 +3349,22 @@ BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    // u8 buf[64];
-    // sprintf(buf, "In BtlCmd_WeatherHPRecovery\n");
-    // debugsyscall(buf);
+    u32 weather = GetWeather(bw, sp, sp->attack_client);
+    u32 modifier = UQ412__0_5;
 
-    int attacker = sp->attack_client;
-    u32 weather = GetWeather(bw, sp, attacker);
-
-    // For Strong Winds, the moves Moonlight, Morning Sun, and Synthesis continue to recover ½ of max HP, as they do in clear weather.
     if (!(weather & FIELD_CONDITION_WEATHER) || (weather & FIELD_CONDITION_STRONG_WINDS)) {
-        // sprintf(buf, "Recover half\n");
-        // debugsyscall(buf);
-        sp->hp_calc_work = sp->battlemon[attacker].maxhp / 2;
-    } else if ((sp->current_move_index != MOVE_SHORE_UP && weather & FIELD_CONDITION_SUN_ALL)
-        || (sp->current_move_index == MOVE_SHORE_UP && weather & FIELD_CONDITION_SANDSTORM_ALL)) {
-        // sprintf(buf, "Recover 2/3\n");
-        // debugsyscall(buf);
-        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[attacker].maxhp * 20, 30);
+        modifier = UQ412__0_5;
+    } else if (sp->current_move_index == MOVE_SHORE_UP) {
+        if (weather & FIELD_CONDITION_SANDSTORM_ALL) {
+            modifier = UQ412__0_6666;
+        }
     } else {
-        // sprintf(buf, "Recover 1/4\n");
-        // debugsyscall(buf);
-        sp->hp_calc_work = BattleDamageDivide(sp->battlemon[attacker].maxhp, 4);
+        if (weather & FIELD_CONDITION_SUN_ALL) {
+            modifier = UQ412__0_6666;
+        }
     }
+
+    sp->hp_calc_work = QMul_RoundDown(sp->battlemon[sp->attack_client].maxhp, modifier);
 
     return FALSE;
 }

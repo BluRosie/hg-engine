@@ -2294,7 +2294,6 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
     BOOL needToRunScript = FALSE;
     BOOL continueMoveExecution = FALSE;
     u32 weatherConsideringMegaSol = GetWeather(bsys, ctx, ctx->attack_client);
-    u32 weatherIgnoringMegaSol = GetWeather(bsys, ctx, 0xFF);
 
     if (!(ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE)) {
         switch (moveEffect) {
@@ -2348,7 +2347,7 @@ BOOL BattleController_CheckChargeMoves(struct BattleSystem *bsys, struct BattleS
             needToRunScript = TRUE;
             break;
         case MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS:
-            if (weatherIgnoringMegaSol & FIELD_CONDITION_RAIN_ALL) {
+            if (weatherConsideringMegaSol & FIELD_CONDITION_RAIN_ALL) {
                 needToRunScript = FALSE;
                 continueMoveExecution = TRUE;
             } else {
@@ -2394,7 +2393,6 @@ BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct Ba
     int moveEffect = ctx->moveTbl[ctx->current_move_index].effect;
     BOOL needToRunScript = FALSE;
     u32 weatherConsideringMegaSol = GetWeather(bsys, ctx, ctx->attack_client);
-    u32 weatherIgnoringMegaSol = GetWeather(bsys, ctx, 0xFF);
 
     // debug_printf("locked into move: %d\n", (ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE));
     // debug_printf("hold effect: %d\n", HeldItemHoldEffectGet(ctx, ctx->attack_client));
@@ -2414,7 +2412,7 @@ BOOL BattleController_CheckPowerHerb(struct BattleSystem *bsys UNUSED, struct Ba
         if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_LOCKED_INTO_MOVE) && HeldItemHoldEffectGet(ctx, ctx->attack_client) == HOLD_EFFECT_CHARGE_SKIP) {
             needToRunScript = TRUE;
 
-            if (weatherIgnoringMegaSol & FIELD_CONDITION_RAIN_ALL) {
+            if (weatherConsideringMegaSol & FIELD_CONDITION_RAIN_ALL) {
                 needToRunScript = FALSE;
             }
         }
