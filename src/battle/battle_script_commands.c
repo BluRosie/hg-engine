@@ -686,6 +686,20 @@ void LONG_CALL PushAndLoadBattleScript(struct BattleStruct *sp, int kind, int in
 #endif
 }
 
+BOOL LONG_CALL PopBattleScript(struct BattleStruct *sp)
+{
+    if (sp->push_count) {
+        sp->push_count--;
+#ifdef DEBUG_BATTLE_SCRIPT_COMMANDS
+        debug_printf("\n=================\Popping script index %d...\n\n", sp->push_count);
+#endif
+        LoadBattleSubSeqScript(sp, sp->push_skill_arc_kind[sp->push_count], sp->push_skill_arc_index[sp->push_count]);
+        sp->skill_seq_no = sp->push_skill_seq_no[sp->push_count];
+        return FALSE;
+    }
+    return TRUE;
+}
+
 /**
  *  @brief resolve read battle script parameter into a specific battler type.  determined by BTL_PARAM_* consts right above func definition
  *
