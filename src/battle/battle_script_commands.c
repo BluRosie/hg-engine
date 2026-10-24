@@ -1831,28 +1831,23 @@ BOOL btl_scr_cmd_87_tryknockoff(void *bw UNUSED, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    u32 adrs = read_battle_script_param(sp);
-    // u32 side = IsClientEnemy(bw, sp->defence_client);
-    u32 item = sp->battlemon[sp->defence_client].item;
+    u32 stickyHold = read_battle_script_param(sp);
 
     // sticky hold and substitute will keep the mon's held item, but the damage boost will still apply
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
-    if (sp->battlemon[sp->defence_client].item && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp) {
+    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp) {
         sp->mp.id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
         sp->mp.tag = TAG_NICKNAME;
         sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
-    } else if (CanKnockOffApply(sp, sp->attack_client, sp->defence_client)) {
+        IncrementBattleScriptPtr(sp, stickyHold);
+    } else {
         sp->mp.id = BATTLE_MSG_MON_KNOCKED_OFF_ITEM;
         sp->mp.tag = TAG_NICKNAME_NICKNAME_ITEM;
         sp->mp.param[0] = CreateNicknameTag(sp, sp->attack_client);
         sp->mp.param[1] = CreateNicknameTag(sp, sp->defence_client);
-        sp->mp.param[2] = item;
+        sp->mp.param[2] = sp->battlemon[sp->defence_client].item;
         sp->battlemon[sp->defence_client].item = 0;
         sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
-        // update:  no longer render further items unusable--just set the item to 0 here
-        // sp->scw[side].knockoff_item |= No2Bit(sp->sel_mons_no[sp->defence_client]);
-    } else {
-        IncrementBattleScriptPtr(sp, adrs);
     }
 
     return FALSE;
@@ -4074,29 +4069,22 @@ BOOL btl_scr_cmd_104_tryincinerate(void *bw UNUSED, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    u32 adrs = read_battle_script_param(sp);
-    if (CanActivateDamageReductionBerry(sp, sp->defence_client)) {
-        IncrementBattleScriptPtr(sp, adrs);
-        return FALSE;
-    }
+    u32 stickyHold = read_battle_script_param(sp);
 
-    u32 item = sp->battlemon[sp->defence_client].item;
-    BOOL isItemGemOrBerry = (IS_ITEM_BERRY(item) || IS_ITEM_GEM(item));
     // sticky hold and substitute will keep the mon's held item
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
-    if (isItemGemOrBerry && MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp) {
+    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_STICKY_HOLD) == TRUE && sp->battlemon[sp->defence_client].hp) {
         sp->mp.id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
         sp->mp.tag = TAG_NICKNAME;
         sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
-    } else if (isItemGemOrBerry) {
+        IncrementBattleScriptPtr(sp, stickyHold);
+    } else {
         sp->mp.id = BATTLE_MSG_ITEM_INCINERATED;
         sp->mp.tag = TAG_NICKNAME_ITEM;
         sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
-        sp->mp.param[1] = item;
+        sp->mp.param[1] = sp->battlemon[sp->defence_client].item;
         sp->battlemon[sp->defence_client].item = 0; // no recycle
         sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
-    } else {
-        IncrementBattleScriptPtr(sp, adrs);
     }
 
     return FALSE;
@@ -4178,8 +4166,8 @@ BOOL BtlCmd_TryPluck(void *bw, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    u32 adrs = read_battle_script_param(sp);
-    u32 adrs2 UNUSED = read_battle_script_param(sp);
+    u32 noBerry = read_battle_script_param(sp);
+    u32 stickyHold = read_battle_script_param(sp);
     u32 item = sp->battlemon[sp->defence_client].item;
 
     // If the Pokémon is knocked out by the attack, Sticky Hold does not protect the held item.
@@ -4187,6 +4175,7 @@ BOOL BtlCmd_TryPluck(void *bw, struct BattleStruct *sp)
         sp->mp.id = BATTLE_MSG_ITEM_CANNOT_BE_REMOVED;
         sp->mp.tag = TAG_NICKNAME;
         sp->mp.param[0] = CreateNicknameTag(sp, sp->defence_client);
+        IncrementBattleScriptPtr(sp, stickyHold);
     } else if (TryPluckBerry(bw, sp, sp->defence_client)) {
         sp->mp.id = BATTLE_MSG_STOLE_BERRY;
         sp->mp.tag = TAG_NICKNAME_ITEM;
@@ -4199,7 +4188,7 @@ BOOL BtlCmd_TryPluck(void *bw, struct BattleStruct *sp)
             sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->attack_client)][sp->sel_mons_no[sp->attack_client]].berryEatenAndCanBelch = TRUE;
         }
     } else {
-        IncrementBattleScriptPtr(sp, adrs);
+        IncrementBattleScriptPtr(sp, noBerry);
     }
 
     return FALSE;

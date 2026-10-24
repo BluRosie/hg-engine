@@ -28,12 +28,12 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_MUK,
-            .level = 5,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_STICKY_HOLD,
             .item = ITEM_MARANGA_BERRY,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = 1,
+            .hp = 35,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
@@ -58,7 +58,7 @@ BEGIN_TEST
     .playerScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -80,7 +80,7 @@ BEGIN_TEST
     .enemyScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -101,6 +101,10 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Pluck!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Muk's Sticky Hold" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Muk's item cannot be removed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Pluck!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Muk fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly stole and ate its target's Maranga Berry!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Maranga Berry boosted Starly's Sp. Def!" },
     }

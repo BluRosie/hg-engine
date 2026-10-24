@@ -1104,6 +1104,12 @@ int LONG_CALL Activate_Incinerate(void *bsys UNUSED, struct BattleStruct *ctx)
         return FALSE;
     }
 
+    u32 item = ctx->battlemon[ctx->defence_client].item;
+    BOOL isItemGemOrBerry = (IS_ITEM_BERRY(item) || IS_ITEM_GEM(item));
+    if (!isItemGemOrBerry) {
+        return FALSE;
+    }
+
     LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_INCINERATE);
     ctx->next_server_seq_no = ctx->server_seq_no;
     ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1247,7 +1253,9 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
     case MOVE_EFFECT_REMOVE_HELD_ITEM:
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && CheckSubstitute(ctx, ctx->defence_client) == FALSE) {
+            && ctx->battlemon[ctx->attack_client].item != ITEM_NONE
+            && CheckSubstitute(ctx, ctx->defence_client) == FALSE
+            && CanKnockOffApply(ctx, ctx->attack_client, ctx->defence_client)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_KNOCK_OFF);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1259,9 +1267,9 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         if (ctx->attack_client != BATTLER_NONE
             && ctx->gemBoostingMove == FALSE // cannot steal item when boosted by gem https://discord.com/channels/419213663107416084/1368163973366681712/1484346665090678854
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && CheckSubstitute(ctx, ctx->defence_client) == FALSE)
-        // if (ctx->battlemon[ctx->attack_client].item == ITEM_NONE)
-        {
+            && ctx->battlemon[ctx->defence_client].item
+            && CheckSubstitute(ctx, ctx->defence_client) == FALSE
+            && CanKnockOffApply(ctx, ctx->attack_client, ctx->defence_client)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_STEAL_ITEM);
             ctx->next_server_seq_no = ctx->server_seq_no;

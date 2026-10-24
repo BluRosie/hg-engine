@@ -94,7 +94,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly used Pluck!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly stole and ate its target’s Leppa Berry!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly stole and ate its target's Leppa Berry!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Starly restored PP to its move Growl using its Leppa Berry!" },
     }
 }
