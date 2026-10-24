@@ -848,7 +848,8 @@ typedef struct SwitchInFlags {
     u8 padding : 6;
 } SwitchInFlags;
 
-#define BATTLE_SCRIPT_PUSH_DEPTH 4
+#define VANILLA_BATTLE_SCRIPT_PUSH_DEPTH 4
+#define BATTLE_SCRIPT_PUSH_DEPTH         10
 
 /**
  *  @brief the entire battle structure that we are interested in (for the most part)
@@ -905,9 +906,9 @@ struct BattleStruct {
     /*0xB0*/ int skill_arc_index;
     /*0xB4*/ int skill_seq_no;
     /*0xB8*/ int push_count;
-    /*0xBC*/ int push_skill_arc_kind[BATTLE_SCRIPT_PUSH_DEPTH];
-    /*0xCC*/ int push_skill_arc_index[BATTLE_SCRIPT_PUSH_DEPTH];
-    /*0xDC*/ int push_skill_seq_no[BATTLE_SCRIPT_PUSH_DEPTH];
+    /*0xBC*/ int push_skill_arc_kind_old[VANILLA_BATTLE_SCRIPT_PUSH_DEPTH]; // unused
+    /*0xCC*/ int push_skill_arc_index_old[VANILLA_BATTLE_SCRIPT_PUSH_DEPTH]; // unused
+    /*0xDC*/ int push_skill_seq_no_old[VANILLA_BATTLE_SCRIPT_PUSH_DEPTH]; // unused, callstack for subscripts
     /*0xEC*/ int executionIndex;
     /*0xF0*/ int wait_cnt;
     /*0xF4*/ BattleMessage mp; // buffMsg
@@ -977,7 +978,10 @@ struct BattleStruct {
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
     /*0x2700*/ struct ABILITY_POPUP_WORK *abilityPopupWork;
-    /*0x2704*/ int SkillSeqWorkOld[399];
+    /*0x2704*/ int SkillSeqWorkOld[399 - 3 * BATTLE_SCRIPT_PUSH_DEPTH]; // unused, we knock off bytes here to safe space
+    /*0x2CC8*/ int push_skill_arc_kind[BATTLE_SCRIPT_PUSH_DEPTH]; //new subscript callstack
+    /*0x2CF0*/ int push_skill_arc_index[BATTLE_SCRIPT_PUSH_DEPTH];//new subscript callstack
+    /*0x2D18*/ int push_skill_seq_no[BATTLE_SCRIPT_PUSH_DEPTH];//new subscript callstack
     /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; // 0xc0
     /*0x3040*/ u32 moveNoTemp;
     /*0x3044*/ u32 current_move_index;
@@ -2814,6 +2818,8 @@ s32 LONG_CALL GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp,
  *  @param index number to load
  */
 void LONG_CALL LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
+/* https://github.com/pret/pokeheartgold/blob/master/src/battle/overlay_12_0224E4FC.c#L202 */
+BOOL LONG_CALL PopBattleScript(struct BattleStruct *sp);
 
 /**
  *  @brief load battle script and queue up the current one to go after this one
