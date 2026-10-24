@@ -849,7 +849,7 @@ typedef struct SwitchInFlags {
 } SwitchInFlags;
 
 #define VANILLA_BATTLE_SCRIPT_PUSH_DEPTH 4
-#define BATTLE_SCRIPT_PUSH_DEPTH         10
+#define BATTLE_SCRIPT_PUSH_DEPTH         8
 
 /**
  *  @brief the entire battle structure that we are interested in (for the most part)
@@ -978,10 +978,7 @@ struct BattleStruct {
     /*0x2200*/ u8 ServerQue[4][4][16];
     /*0x2300*/ u8 server_buffer[4][256];
     /*0x2700*/ struct ABILITY_POPUP_WORK *abilityPopupWork;
-    /*0x2704*/ int SkillSeqWorkOld[399 - 3 * BATTLE_SCRIPT_PUSH_DEPTH]; // unused, we knock off bytes here to safe space
-    /*0x2CC8*/ int push_skill_arc_kind[BATTLE_SCRIPT_PUSH_DEPTH]; // new subscript callstack
-    /*0x2CF0*/ int push_skill_arc_index[BATTLE_SCRIPT_PUSH_DEPTH]; // new subscript callstack
-    /*0x2D18*/ int push_skill_seq_no[BATTLE_SCRIPT_PUSH_DEPTH]; // new subscript callstack
+    /*0x2704*/ int SkillSeqWorkOld[399]; // unused, we knock off bytes here to safe space
     /*0x2D40*/ struct BattlePokemon battlemon[CLIENT_MAX]; // 0xc0
     /*0x3040*/ u32 moveNoTemp;
     /*0x3044*/ u32 current_move_index;
@@ -1106,6 +1103,9 @@ struct BattleStruct {
     int magicRoomCounter;
 
     int recoilDamage;
+    int push_skill_arc_kind[BATTLE_SCRIPT_PUSH_DEPTH]; // new subscript callstack
+    int push_skill_arc_index[BATTLE_SCRIPT_PUSH_DEPTH]; // new subscript callstack
+    int push_skill_seq_no[BATTLE_SCRIPT_PUSH_DEPTH]; // new subscript callstack
 };
 
 enum {
