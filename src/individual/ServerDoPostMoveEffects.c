@@ -1253,7 +1253,7 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
     case MOVE_EFFECT_REMOVE_HELD_ITEM:
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
-            && ctx->battlemon[ctx->attack_client].item != ITEM_NONE
+            && ctx->battlemon[ctx->defence_client].item != ITEM_NONE
             && CheckSubstitute(ctx, ctx->defence_client) == FALSE
             && CanKnockOffApply(ctx, ctx->attack_client, ctx->defence_client)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
