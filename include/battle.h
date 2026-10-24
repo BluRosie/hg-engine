@@ -3744,6 +3744,8 @@ BOOL LONG_CALL TryEatOpponentBerry(struct BattleSystem *bsys, struct BattleStruc
 
 BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
+BOOL LONG_CALL TryPluckBerry(struct BattleSystem *bsys, struct BattleStruct *sp, int battlerId);
+
 void LONG_CALL BattleController_EmitPlayFaintAnimation(struct BattleSystem *bsys, struct BattleStruct *ctx, int batlterId);
 
 void LONG_CALL InitFaintedWork(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);

@@ -84,7 +84,8 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 40, 40, 42, 42, 42, 43, 43, 44, 44, 44, 45, 45, 45, 47, 47, 48 } }, // boosted
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler's Poison Touch poisoned the opposing Onix!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sneasler's Poison Touch" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Onix was poisoned!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Onix's Lum Berry cured its poison!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Onix's Weak Armor" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Onix's Defense fell!" },
