@@ -15,7 +15,7 @@ void __attribute__((section(".init"))) CreateTradeMon_Internal(struct PartyPokem
 
     heapId_2 = (int)heapId;
     name = _GetNpcTradeName(heapId_2, tradeno);
-    SetMonData(mon, MON_DATA_NICKNAME_3 /*MON_DATA_NICKNAME_STRING = 119*/, name);
+    SetMonData(mon, MON_DATA_NICKNAME_STRING, name);
     String_Delete(name);
 
     nickname_flag = TRUE;

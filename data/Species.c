@@ -7584,7 +7584,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_EEVEE] = {
         .textData = {
-            .name = "Eevee",
+            .name = "EeveeBut20CharsTotal",
             .pokedexEntry = "It has the ability to alter the\\ncomposition of its body to suit its\\nsurrounding environment.",
             .classification = "Evolution Pokémon",
             .height = "1’00”",
@@ -40587,7 +40587,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_FLETCHINDER] = {
         .textData = {
-            .name = "Flechinder",
+            .name = "Fletchinder",
             .pokedexEntry = "Its speed right after takeoff already\\nputs it in the top speed class of all\\nbird Pokémon.",
             .classification = "Ember Pokémon",
             .height = "2’04”",
@@ -45033,7 +45033,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_CRABOMINABLE] = {
         .textData = {
-            .name = "Crabomnabl",
+            .name = "Crabominable",
             .pokedexEntry = "It stores coldness in its pincers and\\npummels its foes. It can even smash\\nthick walls of ice to bits!",
             .classification = "Woolly Crab Pokémon",
             .height = "5’07”",
@@ -48795,7 +48795,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_BLACEPHALON] = {
         .textData = {
-            .name = "Blacefalon",
+            .name = "Blacephalon",
             .pokedexEntry = "It causes explosions, then takes\\nadvantage of opponents’ surprise to rob\\nthem of their vitality.",
             .classification = "Fireworks Pokémon",
             .height = "5’11”",
@@ -49764,7 +49764,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_CORVIKNIGHT] = {
         .textData = {
-            .name = "Corviknite",
+            .name = "Corviknight",
             .pokedexEntry = "The black luster of its steel body\\ncould drive terror into the heart of\\nany foe.",
             .classification = "Raven Pokémon",
             .height = "7’03”",
@@ -51132,7 +51132,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_BARRASKEWDA] = {
         .textData = {
-            .name = "Baraskewda",
+            .name = "Barraskewda",
             .pokedexEntry = "Its jaw that’s as sharp as a spear and\\nas strong as steel. It spins its tail fins\\nto surge forward at over 100 knots.",
             .classification = "Skewer Pokémon",
             .height = "4’03”",
@@ -51360,7 +51360,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_CENTISKORCH] = {
         .textData = {
-            .name = "Centskorch",
+            .name = "Centiskorch",
             .pokedexEntry = "This excessively hostile Pokémon has\\nlarge and very sharp fangs in addition\\nto its dangerous burning body. ",
             .classification = "Radiator Pokémon",
             .height = "9’10”",
@@ -51588,7 +51588,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_POLTEAGEIST] = {
         .textData = {
-            .name = "Poltegeist",
+            .name = "Polteageist",
             .pokedexEntry = "This species lives in antique teapots.\\nMost pots are forgeries, but on rare\\noccasions, an authentic work is found.",
             .classification = "Black Tea Pokémon",
             .height = "0’08”",
@@ -52671,7 +52671,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_STONJOURNER] = {
         .textData = {
-            .name = "Stonjorner",
+            .name = "Stonjourner",
             .pokedexEntry = "Once a year, on a specific date and\\nat a specific time, they gather out of\\nnowhere and form up in a circle.",
             .classification = "Big Rock Pokémon",
             .height = "8’02”",
@@ -54267,7 +54267,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_BASCULEGION] = {
         .textData = {
-            .name = "Basclegion",
+            .name = "Basculegion",
             .pokedexEntry = "This Pokémon is cloaked in the souls of its\\ncomrades who perished during a punishing\\njourney to the river of their birth.",
             .classification = "Big Fish Pokémon",
             .height = "9’10”",
@@ -54609,7 +54609,7 @@ const SpeciesDataEntry sSpeciesData[MAX_SPECIES_INCLUDING_FORMS + 1] = {
 
     [SPECIES_MEOWSCARADA] = {
         .textData = {
-            .name = "Mewscarada",
+            .name = "Meowscarada",
             .pokedexEntry = "With skillful misdirection, it rigs foes with\\npollen-packed flower bombs, and sets them\\noff before its foes realize what’s going on.",
             .classification = "Magician Pokémon",
             .height = "4’11”",

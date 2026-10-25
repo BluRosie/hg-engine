@@ -7,6 +7,7 @@
 #include "constants/ability.h"
 #include "constants/file.h"
 #include "constants/game.h"
+#include "constants/gba_chars.h"
 #include "constants/generated/learnsets.h"
 #include "constants/hold_item_effects.h"
 #include "constants/item.h"
@@ -392,6 +393,102 @@ void LONG_CALL SetBoxMonAbility(struct BoxPokemon *boxmon) // actually takes box
     BoxMonSetFastModeOff(boxmon, fastMode);
 }
 
+
+// this is rather english-focused.
+// other languages can do whatever they want
+u16 sGBACharToDSChars[][2] = {
+    {GBA_CHAR_EOS, 0xFFFF},
+    {GBA_CHAR_A, 0x012B},
+    {GBA_CHAR_B, 0x012C},
+    {GBA_CHAR_C, 0x012D},
+    {GBA_CHAR_D, 0x012E},
+    {GBA_CHAR_E, 0x012F},
+    {GBA_CHAR_F, 0x0130},
+    {GBA_CHAR_G, 0x0131},
+    {GBA_CHAR_H, 0x0132},
+    {GBA_CHAR_I, 0x0133},
+    {GBA_CHAR_J, 0x0134},
+    {GBA_CHAR_K, 0x0135},
+    {GBA_CHAR_L, 0x0136},
+    {GBA_CHAR_M, 0x0137},
+    {GBA_CHAR_N, 0x0138},
+    {GBA_CHAR_O, 0x0139},
+    {GBA_CHAR_P, 0x013A},
+    {GBA_CHAR_Q, 0x013B},
+    {GBA_CHAR_R, 0x013C},
+    {GBA_CHAR_S, 0x013D},
+    {GBA_CHAR_T, 0x013E},
+    {GBA_CHAR_U, 0x013F},
+    {GBA_CHAR_V, 0x0140},
+    {GBA_CHAR_W, 0x0141},
+    {GBA_CHAR_X, 0x0142},
+    {GBA_CHAR_Y, 0x0143},
+    {GBA_CHAR_Z, 0x0144},
+    {GBA_CHAR_a, 0x0145},
+    {GBA_CHAR_b, 0x0146},
+    {GBA_CHAR_c, 0x0147},
+    {GBA_CHAR_d, 0x0148},
+    {GBA_CHAR_e, 0x0149},
+    {GBA_CHAR_f, 0x014A},
+    {GBA_CHAR_g, 0x014B},
+    {GBA_CHAR_h, 0x014C},
+    {GBA_CHAR_i, 0x014D},
+    {GBA_CHAR_j, 0x014E},
+    {GBA_CHAR_k, 0x014F},
+    {GBA_CHAR_l, 0x0150},
+    {GBA_CHAR_m, 0x0151},
+    {GBA_CHAR_n, 0x0152},
+    {GBA_CHAR_o, 0x0153},
+    {GBA_CHAR_p, 0x0154},
+    {GBA_CHAR_q, 0x0155},
+    {GBA_CHAR_r, 0x0156},
+    {GBA_CHAR_s, 0x0157},
+    {GBA_CHAR_t, 0x0158},
+    {GBA_CHAR_u, 0x0159},
+    {GBA_CHAR_v, 0x015A},
+    {GBA_CHAR_w, 0x015B},
+    {GBA_CHAR_x, 0x015C},
+    {GBA_CHAR_y, 0x015D},
+    {GBA_CHAR_z, 0x015E},
+    {GBA_CHAR_SPACE, 0/*0x01DE*/},
+    {GBA_CHAR_0, 0x0121},
+    {GBA_CHAR_1, 0x0122},
+    {GBA_CHAR_2, 0x0123},
+    {GBA_CHAR_3, 0x0124},
+    {GBA_CHAR_4, 0x0125},
+    {GBA_CHAR_5, 0x0126},
+    {GBA_CHAR_6, 0x0127},
+    {GBA_CHAR_7, 0x0128},
+    {GBA_CHAR_8, 0x0129},
+    {GBA_CHAR_9, 0x012A},
+    {GBA_CHAR_E_ACUTE, 0x0168}, // for flabébé
+    {GBA_CHAR_e_GRAVE, 0x0188},
+    {GBA_CHAR_EXCL_MARK, 0x01AB},
+    {GBA_CHAR_QUESTION_MARK, 0x01AC},
+    {GBA_CHAR_PERIOD, 0x01AE},
+    {GBA_CHAR_HYPHEN, 0x01BE},
+    {GBA_CHAR_BULLET, 0x01B0},
+    {GBA_CHAR_ELLIPSIS, 0x01AF},
+    {GBA_CHAR_DBL_QUOTE_LEFT, 0x00EA},
+    {GBA_CHAR_DBL_QUOTE_RIGHT, 0x00EB},
+    {GBA_CHAR_SGL_QUOTE_LEFT, 0x01B2},
+    {GBA_CHAR_SGL_QUOTE_RIGHT, 0x01B3},
+    {GBA_CHAR_MALE, 0x01BB},
+    {GBA_CHAR_FEMALE, 0x01BC},
+    {GBA_CHAR_CURRENCY, 0x0112},
+    {GBA_CHAR_COMMA, 0x01AD},
+    {GBA_CHAR_MULT_SIGN, 0x0176},
+    {GBA_CHAR_SLASH, 0x01B1},
+    {GBA_CHAR_BLACK_TRIANGLE, 0x011F},
+    {GBA_CHAR_COLON, 0x01C4},
+    {GBA_CHAR_A_DIAERESIS, 0x0163},
+    {GBA_CHAR_O_DIAERESIS, 0x0175},
+    {GBA_CHAR_U_DIAERESIS, 0x017B},
+    {GBA_CHAR_a_DIAERESIS, 0x0183},
+    {GBA_CHAR_o_DIAERESIS, 0x0195},
+    {GBA_CHAR_u_DIAERESIS, 0x019B},
+};
+
 struct BoxMonSubstructs {
     PokemonDataBlockA *blockA;
     PokemonDataBlockB *blockB;
@@ -443,9 +540,53 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
         ret = TRUE;
         break;
     }
+    case MON_DATA_SPECIES_NAME:
+    case MON_DATA_NICKNAME_FLAT_COMPARE:
+    case MON_DATA_NICKNAME_STRING_AND_FLAG:
+    case MON_DATA_NICKNAME_STRING:
+    case MON_DATA_NICKNAME: {
+        // we'll see how this goes naturally
+        u16 nameBuf[POKEMON_NAME_LENGTH_EXTENDED];
+        u16 *src16;
+        u8 *dest8 = (u8 *)(&blockC->nickname[0]);
+        String *srcString = NULL;
+        if (field == MON_DATA_NICKNAME || field == MON_DATA_NICKNAME_FLAT_COMPARE) {
+            src16 = (u16 *)data;
+        } else if (field == MON_DATA_SPECIES_NAME) {
+            GetSpeciesNameIntoArray(blockA->species, HEAPID_DEFAULT, nameBuf);
+            src16 = &nameBuf[0];
+        } else {
+            srcString = (String *)data;
+            src16 = (u16 *)(&srcString->data[0]);
+        }
+        dest8[0] = POKEMON_NAME_EXTENDED_LENGTH_CONTROL_CHAR;
+        for (ret = 0; ret < POKEMON_NAME_LENGTH_EXTENDED-1; ret++) {
+            u32 i, storedEos = FALSE;
+            if (storedEos) {
+                dest8[ret + 1] = 0x00;
+                debug_printf("Storing character %d as %d converted...\n", src16[ret], dest8[ret + 1]);
+            } else {
+                for (i = 0; i < NELEMS(sGBACharToDSChars); i++) {
+                    if (sGBACharToDSChars[i][1] == src16[ret]) {
+                        break;
+                    }
+                }
+                debug_printf("Storing character %d as %d converted...\n", src16[ret], sGBACharToDSChars[i][0]);
+                dest8[ret + 1] = sGBACharToDSChars[i][0];
+                if (sGBACharToDSChars[i][0]) {
+                    storedEos = TRUE;
+                }
+            }
+        }
+        // dest8[ret + 1] = GBA_CHAR_EOS;
+        // handle nickname setting in a second
+        ret = TRUE;
+        break;
+    }
     }
     return ret;
 }
+
 
 /**
  *  @brief edited fields in GetBoxMonData.  can add new fields here and edit existing ones
@@ -456,12 +597,12 @@ BOOL SetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void 
  *  @param retBool pointer to signal to the hook that it shouldn't return to vanilla handling
  *  @return result of GetBoxMonData if one of these fields applies and return data is containable in variable
  */
-u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *data UNUSED, BOOL *retBool)
+u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *data, BOOL *retBool)
 {
     u32 ret = 0;
 
     PokemonDataBlockA *blockA = blocks->blockA;
-    PokemonDataBlockB *blockB UNUSED = blocks->blockB;
+    PokemonDataBlockB *blockB = blocks->blockB;
     PokemonDataBlockC *blockC UNUSED = blocks->blockC;
     PokemonDataBlockD *blockD = blocks->blockD;
 
@@ -497,6 +638,61 @@ u32 GetBoxMonData_EditedCases(struct BoxMonSubstructs *blocks, u32 field, void *
         debug_printf("Current level returned: %d\n", ret);
 #endif
         break;
+    case MON_DATA_NICKNAME_FLAT_COMPARE:
+    case MON_DATA_NICKNAME_STRING_AND_FLAG:
+    case MON_DATA_NICKNAME_STRING:
+    case MON_DATA_NICKNAME: {
+        /* if (boxMon->checksumFailed) {
+            GetSpeciesNameIntoArray(SPECIES_MANAPHY_EGG, HEAP_ID_DEFAULT, dest);
+        } else { */
+        u16 *dest16;
+        String *destString = NULL;
+        u8 *src8 = (u8 *)(&blockC->nickname[0]);
+        if (field == MON_DATA_NICKNAME || field == MON_DATA_NICKNAME_FLAT_COMPARE) {
+            dest16 = (u16 *)data;
+        } else {
+            destString = (String *)data;
+            dest16 = destString->data;
+        }
+
+        if (src8[0] == POKEMON_NAME_EXTENDED_LENGTH_CONTROL_CHAR) {
+            // convert from stored gba encoded name
+            u8 *src = &src8[1];
+            debug_printf("GBA encoded name.\n");
+            for (ret = 0; ret < POKEMON_NAME_LENGTH_EXTENDED; ret++) {
+                u32 i;
+                for (i = 0; i < NELEMS(sGBACharToDSChars); i++) {
+                    if (sGBACharToDSChars[i][0] == src[ret]) {
+                        break;
+                    }
+                }
+                debug_printf("  Returned character %d converts to %d\n", src[ret], sGBACharToDSChars[i][1]);
+                dest16[ret] = sGBACharToDSChars[i][1];
+                if (src[ret] == GBA_CHAR_EOS) {
+                    break;
+                }
+            }
+        } else {
+            debug_printf("Normally encoded name.\n");
+            for (ret = 0; ret < POKEMON_NAME_LENGTH; ret++) {
+                debug_printf("  Returned character %d original encoding.\n", blockC->nickname[ret]);
+                dest16[ret] = blockC->nickname[ret];
+                if (blockC->nickname[ret] == 0xFFFF) {
+                    break;
+                }
+            }
+        }
+
+        // dest16[ret] = 0xFFFF;
+        if (destString != NULL) {
+            destString->size = ret; // maybe +1 for terminator?
+        }
+        if (field == MON_DATA_NICKNAME_STRING_AND_FLAG) {
+            ret = blockB->isNicknamed;
+        }
+        *retBool = TRUE;
+        break;
+    }
     }
 #ifdef DEBUG_BOXMONDATA_EDITED_CASES
     // debug_printf("Modified GetBoxMonData called...\n    blocks %08X,\n    field %d,\n    data %08X,\n    retBool %08X\n", blocks, field, data, retBool);

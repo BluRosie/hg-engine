@@ -108,4 +108,8 @@
 #define MON_OVERWORLD_TAG_START (2500)
 #define OW_FEMALE_MASK          0x8000
 
+#define POKEMON_NAME_LENGTH 11
+// total length minus control character
+#define POKEMON_NAME_LENGTH_EXTENDED (POKEMON_NAME_LENGTH * 2) - 1
+
 #endif
