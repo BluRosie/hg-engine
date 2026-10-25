@@ -1671,11 +1671,6 @@
 
 #define MAX_SPECIES_INCLUDING_FORMS (MAX_SPECIES_CANONICAL_FORM_NUM)
 
-#define MAX_TOTEM_FORMS_CANONICAL ((SPECIES_KOMMO_O_LARGE - SPECIES_RATICATE_ALOLAN_LARGE) + 1)
-// Add the amount of custom Totem forms to this constant to make sure they use the appropriate weight in battle.
-// Don't bother making custom forms unless you want them to be caught.
-#define MAX_TOTEM_FORMS (MAX_TOTEM_FORMS_CANONICAL)
-
 // these forms are not "real forms" that need full movesets,
 // but are used as constants for overworld mons that aren't significant form differences that require different entries
 // if you would like to add a new one, the _OVERWORLD_ string is necessary in the constant define.
