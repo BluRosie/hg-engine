@@ -1,0 +1,128 @@
+// Test: Sweet Veil - Rest fails for the Sweet Veil mon and its ally with the popup on the Sweet Veil mon, the enemies can still use Rest
+#include "../../battle_tests.h"
+BEGIN_TEST
+{
+    .battleType = BATTLE_TYPE_DOUBLES,
+    .weather = FIELD_CONDITION_NONE,
+    .fieldCondition = 0,
+    .terrain = TERRAIN_NONE,
+    .playerParty = {
+        {
+            .species = SPECIES_SLURPUFF,
+            .level = 100,
+            .form = 0,
+            .ability = ABILITY_SWEET_VEIL,
+            .item = ITEM_NONE,
+            .moves = { MOVE_REST, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 10,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_SNOM,
+            .level = 10,
+            .form = 0,
+            .ability = ABILITY_ICE_SCALES,
+            .item = ITEM_NONE,
+            .moves = { MOVE_REST, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 10,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE }
+    },
+    .enemyParty = {
+        {
+            .species = SPECIES_BLISSEY,
+            .level = 70,
+            .form = 0,
+            .ability = ABILITY_SERENE_GRACE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_REST, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 10,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        {
+            .species = SPECIES_CHANSEY,
+            .level = 40,
+            .form = 0,
+            .ability = ABILITY_SERENE_GRACE,
+            .item = ITEM_NONE,
+            .moves = { MOVE_REST, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = 10,
+            .status = 0,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE }
+    },
+    .playerScript = {
+        {
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        },
+        {
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        }
+    },
+    .enemyScript = {
+        {
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        },
+        {
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
+        }
+    },
+    .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slurpuff used Rest!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slurpuff's Sweet Veil" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slurpuff can't fall asleep due to a veil of sweetness!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Blissey used Rest!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Blissey went to sleep!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Blissey's HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chansey used Rest!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chansey went to sleep!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chansey's HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snom used Rest!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Slurpuff's Sweet Veil" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snom can't fall asleep due to a veil of sweetness!" },
+    }
+}
+END_TEST

@@ -1198,6 +1198,7 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     }
     sp->switchInFlags[client].healingWishProcessed = 0;
     sp->switchInFlags[client].hazardsProcessed = 0;
+    sp->switchInFlags[client].pastelVeilProcessed = 0;
 
     sp->hazardQueueTracker = 0;
     sp->ejectPackActivated = FALSE;

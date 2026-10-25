@@ -38,7 +38,7 @@ BEGIN_TEST
     },
     .enemyParty = { {
                         .species = SPECIES_VILEPLUME,
-                        .level = 50,
+                        .level = 5,
                         .form = 0,
                         .ability = ABILITY_MOLD_BREAKER,
                         .item = ITEM_NONE,
@@ -50,7 +50,7 @@ BEGIN_TEST
                     },
         {
             .species = SPECIES_ODDISH,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_CHLOROPHYLL,
             .item = ITEM_NONE,
@@ -66,7 +66,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -76,7 +76,7 @@ BEGIN_TEST
                       },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -86,7 +86,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -96,7 +96,7 @@ BEGIN_TEST
                      },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -105,11 +105,17 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Ponyta..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Vileplume used Toxic!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta was badly poisoned!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta was cured of its poisoning!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ponyta's Pastel Veil" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Ponyta..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It doesn't affect Snom..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Vileplume used Toxic!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snom was badly poisoned!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snom was hurt by its poisoning!" },
     }
 }
 END_TEST
