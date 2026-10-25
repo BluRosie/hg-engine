@@ -440,7 +440,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                                 }
                                 sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                                 sp->state_client = client_no;
-                                scriptnum = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
+                                sp->battlerIdTemp = client_no;
+                                scriptnum = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
                                 ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                                 break;
                             }
@@ -752,7 +753,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         sp->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE;
                         sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                         sp->state_client = client_no;
-                        scriptnum = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                         break;
                     }
@@ -767,7 +769,8 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         sp->addeffect_param = MOVE_SUBSCRIPT_PTR_DEFENSE_UP_1_STAGE;
                         sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
                         sp->state_client = client_no;
-                        scriptnum = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                         break;
                     }
@@ -807,7 +810,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                         sp->state_client = client_no;
                         sp->battlerIdTemp = client_no;
                         sp->current_move_index = MOVE_TAILWIND;
-                        scriptnum = BATTLE_SUBSCRIPT_UPDATE_STAT_STAGE;
+                        scriptnum = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
                         break;
                     }
