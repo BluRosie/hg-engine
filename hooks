@@ -610,6 +610,8 @@ arm9 ScrCmd_WildBattle 02043E5C 1
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
 0012 TryUseHeldItem_Vanilla 0225471C 3
+0012 GetNaturalGiftPower 02255890 2
+0012 GetNaturalGiftType 022558A4 2
 0012 TryFling 02255F7C 3
 
 arm9 PartyMenu_HandleUseItemOnMon 0207C288 1

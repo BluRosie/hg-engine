@@ -2661,6 +2661,24 @@ enum {
  */
 u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
+/**
+ *  @brief grab a battler's item like GetBattleMonItem, but a berry is still returned while an opposing pokemon has unnerve
+ *
+ *  @param sp global battle structure
+ *  @param client_no battler to grab the item of
+ *  @return item that the client_no is holding accounting for embargo and such
+ */
+u16 LONG_CALL GetBattleMonItemIgnoringUnnerve(struct BattleStruct *sp, int client_no);
+
+/**
+ *  @brief check if a battler has an ability that makes the opposing side too nervous to eat berries
+ *
+ *  @param sp global battle structure
+ *  @param client_no battler to check
+ *  @return TRUE if the battler has Unnerve or As One
+ */
+BOOL LONG_CALL HasUnnerveAbility(struct BattleStruct *sp, int client_no);
+
 // defined in battle_pokemon.c
 /**
  *  @brief get total entries in TypeEffectivenessTable

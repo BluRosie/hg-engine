@@ -199,6 +199,25 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
  */
 u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
 {
+    u16 item = GetBattleMonItemIgnoringUnnerve(sp, client_no);
+
+    if (((HasUnnerveAbility(sp, BATTLER_OPPONENT(client_no)) && sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0)
+            || (HasUnnerveAbility(sp, BATTLER_ACROSS(client_no)) && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0))
+        && (IS_ITEM_BERRY(item))) {
+        return 0;
+    }
+
+    return item;
+}
+
+BOOL LONG_CALL HasUnnerveAbility(struct BattleStruct *sp, int client_no)
+{
+    int ability = GetBattlerAbility(sp, client_no);
+    return ability == ABILITY_UNNERVE || ability == ABILITY_AS_ONE_GLASTRIER || ability == ABILITY_AS_ONE_SPECTRIER;
+}
+
+u16 LONG_CALL GetBattleMonItemIgnoringUnnerve(struct BattleStruct *sp, int client_no)
+{
     if (client_no == BATTLER_NONE) {
         return 0;
     }
@@ -208,13 +227,6 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
     if (sp->battlemon[client_no].moveeffect.embargoFlag) {
         return 0;
     }
-    // handle unnerve:  if an opposing pokemon has unnerve and the item it is holding is a berry, then no item will be read.
-    if (((GetBattlerAbility(sp, BATTLER_OPPONENT(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0)
-            || (GetBattlerAbility(sp, BATTLER_ACROSS(client_no)) == ABILITY_UNNERVE && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0))
-        && (IS_ITEM_BERRY(sp->battlemon[client_no].item))) {
-        return 0;
-    }
-
     if ((sp->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM) && sp->magicRoomCounter) {
         return 0;
     }

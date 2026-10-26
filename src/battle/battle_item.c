@@ -448,6 +448,16 @@ BOOL LONG_CALL TryUseHeldItem_Vanilla(void *bw, struct BattleStruct *ctx, int ba
     return TryUseHeldItem(bw, ctx, battlerId, HELD_ITEM_USE_ANY);
 }
 
+int LONG_CALL GetNaturalGiftPower(struct BattleStruct *ctx, int battlerId)
+{
+    return BattleItemDataGet(ctx, GetBattleMonItemIgnoringUnnerve(ctx, battlerId), ITEM_PARAM_NATURAL_GIFT_POWER);
+}
+
+int LONG_CALL GetNaturalGiftType(struct BattleStruct *ctx, int battlerId)
+{
+    return BattleItemDataGet(ctx, GetBattleMonItemIgnoringUnnerve(ctx, battlerId), ITEM_PARAM_NATURAL_GIFT_TYPE);
+}
+
 void GetFlingOrPluckItemEffect(struct BattleSystem *bsys, struct BattleStruct *sp, int target, int effect, int mod)
 {
     sp->flingScript = 0;
