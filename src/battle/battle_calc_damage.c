@@ -190,19 +190,18 @@ int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond 
     return ret;
 }
 
-/**
- *  @brief grab a battler's item.  returns 0 if the battler is in embargo or can't hold an item for any other reason
- *
- *  @param sp global battle structure
- *  @param client_no battler to grab the item of
- *  @return item that the client_no is holding accounting for embargo and such
- */
+BOOL IsUnnerveActive(struct BattleStruct *sp, int client_no)
+{
+    return HasUnnerveAbility(sp, client_no)
+        && sp->battlemon[client_no].hp != 0
+        && !sp->switchInFlags[client_no].unnerveInactive;
+}
+
 u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
 {
     u16 item = GetBattleMonItemIgnoringUnnerve(sp, client_no);
 
-    if (((HasUnnerveAbility(sp, BATTLER_OPPONENT(client_no)) && sp->battlemon[BATTLER_OPPONENT(client_no)].hp != 0)
-            || (HasUnnerveAbility(sp, BATTLER_ACROSS(client_no)) && sp->battlemon[BATTLER_ACROSS(client_no)].hp != 0))
+    if ((IsUnnerveActive(sp, BATTLER_OPPONENT(client_no)) || IsUnnerveActive(sp, BATTLER_ACROSS(client_no)))
         && (IS_ITEM_BERRY(item))) {
         return 0;
     }
@@ -212,8 +211,15 @@ u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no)
 
 BOOL LONG_CALL HasUnnerveAbility(struct BattleStruct *sp, int client_no)
 {
-    int ability = GetBattlerAbility(sp, client_no);
-    return ability == ABILITY_UNNERVE || ability == ABILITY_AS_ONE_GLASTRIER || ability == ABILITY_AS_ONE_SPECTRIER;
+    switch (GetBattlerAbility(sp, client_no)) {
+    case ABILITY_UNNERVE:
+    case ABILITY_AS_ONE_GLASTRIER:
+    case ABILITY_AS_ONE_SPECTRIER:
+        return TRUE;
+    default:
+        break;
+    }
+    return FALSE;
 }
 
 u16 LONG_CALL GetBattleMonItemIgnoringUnnerve(struct BattleStruct *sp, int client_no)

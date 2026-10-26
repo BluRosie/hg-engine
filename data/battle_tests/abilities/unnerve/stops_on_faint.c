@@ -119,6 +119,7 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Haxorus used Earthquake!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pyroar fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Aerodactyl's Lum Berry healed its burn!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Corviknite restored its health using its Oran Berry!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Haxorus lost some of its HP!" },
     },
 } END_TEST

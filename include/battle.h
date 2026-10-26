@@ -847,7 +847,8 @@ typedef struct SwitchInFlags {
     u8 healingWishProcessed : 1;
     u8 hazardsProcessed : 1;
     u8 pastelVeilProcessed : 1;
-    u8 padding : 5;
+    u8 unnerveInactive : 1; // marks switching/fainting unnerve mon
+    u8 padding : 4;
 } SwitchInFlags;
 
 #define VANILLA_BATTLE_SCRIPT_PUSH_DEPTH 4

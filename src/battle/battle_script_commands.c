@@ -6021,8 +6021,17 @@ BOOL btl_scr_cmd_12D_TryClearUnnerve(void *bsys, struct BattleStruct *ctx)
     int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, side);
     int ally = BATTLER_ALLY(battlerId);
 
-    if (!HasUnnerveAbility(ctx, battlerId)
-        || ((BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLES) && ctx->battlemon[ally].hp != 0 && HasUnnerveAbility(ctx, ally))) {
+    if (!HasUnnerveAbility(ctx, battlerId)) {
+        IncrementBattleScriptPtr(ctx, failAddress);
+        return FALSE;
+    }
+
+    ctx->switchInFlags[battlerId].unnerveInactive = TRUE;
+
+    if ((BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLES)
+        && ctx->battlemon[ally].hp != 0
+        && !ctx->switchInFlags[ally].unnerveInactive
+        && HasUnnerveAbility(ctx, ally)) {
         IncrementBattleScriptPtr(ctx, failAddress);
     }
 
