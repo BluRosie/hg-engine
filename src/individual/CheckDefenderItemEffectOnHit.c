@@ -24,7 +24,7 @@
  *  @param seq_no subscript to load if TRUE is returned
  *  @return TRUE if there's an item effect to run in *seq_no; FALSE otherwise
  */
-BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL CheckDefenderItemEffectOnHit(void *bw UNUSED, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
 
@@ -36,7 +36,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
     // Check for defender's items
     int itemHoldEffect = HeldItemHoldEffectGet(sp, sp->defence_client);
     int itemPower = HeldItemAtkGet(sp, sp->defence_client, 0);
-    int side = IsClientEnemy(bw, sp->attack_client);
     switch (itemHoldEffect) {
     // vanilla gen4 effects
     case HOLD_EFFECT_DMG_USER_CONTACT_XFR: // Sticky Barb
