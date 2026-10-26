@@ -402,7 +402,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         debug_printf("in MOVE_PERFORMANCE_STEP_13_0_MULTIHIT_MOVE_ATTACKER_ITEMS_4 %d\n", ctx->swoam_seq_no);
 #endif
         if (ctx->multiHitCount > 0) {
-            if (TryUseHeldItem(bsys, ctx, ctx->attack_client) == TRUE) {
+            if (TryUseHeldItem(bsys, ctx, ctx->attack_client, (HELD_ITEM_USE_CHANGE_HP | HELD_ITEM_USE_REMOVE_CONDITION | HELD_ITEM_USE_PINCH_BERRY)) == TRUE) {
                 return;
             }
         }
@@ -415,7 +415,7 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
 #endif
 
         if (ctx->multiHitCount > 0) {
-            if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE) {
+            if (TryUseHeldItem(bsys, ctx, ctx->defence_client, (HELD_ITEM_USE_CHANGE_HP | HELD_ITEM_USE_REMOVE_CONDITION | HELD_ITEM_USE_PINCH_BERRY)) == TRUE) {
                 return;
             }
         }
@@ -788,162 +788,12 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
     ctx->swoak_work = 0;
     ctx->server_seq_no = CONTROLLER_COMMAND_32;
 }
-/*
-// Sort clients because moves may affect ctxeed
-DynamicSortClientExecutionOrder(bsys, ctx, FALSE);
-switch (ctx->swoam_seq_no) {
-    case SWOAK_SEQ_VANISH_ON_OFF: {
-        int ret = 0;
-        while (ctx->swoak_work < BattleWorkClientSetMaxGet(bsys))
-        {
-            if (((ctx->battlemon[ctx->swoak_work].effect_of_moves & (MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)) == 0)
-             && (ctx->battlemon[ctx->swoak_work].effect_of_moves_temp & (MOVE_EFFECT_FLAG_SEMI_INVULNERABLE)))
-            {
-                ctx->battlemon[ctx->swoak_work].effect_of_moves_temp &= ~(MOVE_EFFECT_FLAG_SEMI_INVULNERABLE);
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_VANISH_OFF);
-                ctx->battlerIdTemp = ctx->swoak_work;
-                ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ret = 1;
-            }
-
-            ctx->swoak_work++;
-
-            if (ret)
-                return;
-        }
-    }
-    ctx->swoam_seq_no++;
-    ctx->swoak_work = 0;
-    FALLTHROUGH;
-case SWOAK_SEQ_SYNCHRONIZE_CHECK:
-    ctx->swoam_seq_no++;
-    if (SynchroniseAbilityCheck(bsys, ctx, ctx->server_seq_no) == TRUE)
-        return;
-    FALLTHROUGH;
-case SWOAK_SEQ_POKE_APPEAR_CHECK:
-    {
-        int seq_no;
-
-        seq_no = ST_ServerPokeAppearCheck(bsys, ctx);   //switch in ability check
-
-        if (seq_no)
-        {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return;
-        }
-    }
-    ctx->swoam_seq_no++;
-    FALLTHROUGH;
-case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_ATTACKER:
-    ctx->swoam_seq_no++;
-    if (TryUseHeldItem(bsys, ctx, ctx->attack_client) == TRUE) // will eventually need TryUseHeldItem anyway.  generic berry function thing
-        return;
-    FALLTHROUGH;
-case SWOAK_SEQ_CHECK_HELD_ITEM_EFFECT_DEFENDER:
-    ctx->swoam_seq_no++;
-    if (ctx->defence_client != 0xFF)
-    {
-        if (TryUseHeldItem(bsys, ctx, ctx->defence_client) == TRUE)
-            return;
-    }
-    FALLTHROUGH;
-case SWOAK_SEQ_CHECK_DEFENDER_ITEM_ON_HIT:
-    {
-        int seq_no;
-
-        ctx->swoam_seq_no++;
-        if (CheckDefenderItemEffectOnHit(bsys, ctx, &seq_no) == TRUE)
-        {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return;
-        }
-    }
-    FALLTHROUGH;
-case SWOAK_SEQ_THAW_ICE:
-    {
-        int movetype;
-        u16 currMove = ctx->current_move_index;
-
-        movetype = GetAdjustedMoveType(ctx, ctx->attack_client, currMove); // new normalize checks
-
-        ctx->swoam_seq_no++;
-
-        if (ctx->defence_client != 0xFF)
-        {
-            if ((ctx->battlemon[ctx->defence_client].condition & STATUS_FREEZE)
-             && ((ctx->waza_status_flag & MOVE_STATUS_MULTI_HIT_DISRUPTED) == 0)
-             && (ctx->defence_client != ctx->attack_client)
-             && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
-             && (ctx->battlemon[ctx->defence_client].hp)
-             && ((movetype == TYPE_FIRE) || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)))) // scald can also melt opponents as of gen 6
-             && ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag == 0)
-            {
-                ctx->battlerIdTemp = ctx->defence_client;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
-                ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                return;
-            }
-        }
-    }
-    FALLTHROUGH;
-case SWOAK_SEQ_CHECK_HEALING_ITEMS:
-    {
-        int client_no;
-        int ret=0;
-        int seq_no;
-
-        while (ctx->swoak_work < BattleWorkClientSetMaxGet(bsys))
-        {
-            client_no = ctx->turnOrder[ctx->swoak_work];
-            if (ctx->no_reshuffle_client & No2Bit(client_no))
-            {
-                ctx->swoak_work++;
-                continue;
-            }
-
-            ctx->swoak_work++;
-
-            if (HeldItemHealStatusCheck(bsys, ctx, client_no, &seq_no) == TRUE) // will also probably need this one too
-            {
-                ctx->battlerIdTemp = client_no;
-                LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, seq_no);
-                ctx->next_server_seq_no = ctx->server_seq_no;
-                ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                ret = 1;
-                break;
-            }
-        }
-
-        if (ret == 0)
-        {
-            ctx->swoam_seq_no++;
-            ctx->swoak_work = 0;
-        }
-    }
-    FALLTHROUGH;
-case SWOAK_SEQ_CLEAR_MAGIC_COAT:
-    ctx->swoam_seq_no++;
-    break;
-default:
-    break;
-}
-//ctx->swoam_seq_no = 0;
-ctx->swoak_work = 0;
-ctx->server_seq_no = CONTROLLER_COMMAND_32;
-
-}*/
 
 int LONG_CALL Activate_AllBattlerItems(void *bsys, struct BattleStruct *ctx)
 {
     for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
         int client_no = ctx->turnOrder[battler];
-        if (TryUseHeldItem(bsys, ctx, client_no) == TRUE) {
+        if (TryUseHeldItem(bsys, ctx, client_no, (HELD_ITEM_USE_CHANGE_HP | HELD_ITEM_USE_CHANGE_PP | HELD_ITEM_USE_REMOVE_CONDITION | HELD_ITEM_USE_PINCH_BERRY)) == TRUE) {
             return TRUE;
         }
     }

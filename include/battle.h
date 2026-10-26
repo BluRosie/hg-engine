@@ -2366,12 +2366,18 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
  *  @param client_no is the battler to check
+ *  @param filter HELD_ITEM_USE_* flags (constants/battle_constants.h) of the held items that are allowed to activate, HELD_ITEM_USE_ANY for all
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
-BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no);
+BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no, u32 filter);
+
+/**
+ *  @brief TryUseHeldItem with HELD_ITEM_USE_ANY.  hooked over the vanilla TryUseHeldItem, whose callers only pass three arguments
+ */
+BOOL LONG_CALL TryUseHeldItem_Vanilla(void *bw, struct BattleStruct *sp, int client_no);
 
 // helpers
-BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *sp, int client_no, int *seq_no);
+BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *sp, int client_no, int *seq_no, u32 filter);
 BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *sp, int client_no, int *seq_no);
 
 /**
@@ -2617,17 +2623,25 @@ extern struct BattleSystem *gBattleSystem;
 enum {
     SWITCH_IN_CHECK_WEATHER = 0,
     SWITCH_IN_CHECK_FIELD, // SwSh DLC Psychic Terrain, Toxic Spikes
-    SWITCH_IN_CHECK_ENTRY_EFFECT_NEUTRALIZING_GAS_TERA_SHIFT,
-    SWITCH_IN_CHECK_ENTRY_EFFECT_UNNERVE,
-    SWITCH_IN_CHECK_ENTRY_EFFECT_HEALING_WISH,
-    SWITCH_IN_CHECK_ENTRY_EFFECT_HAZARDS,
+    // https://bulbapedia.bulbagarden.net/wiki/User:FIQ/Turn_sequence
+    SWITCH_IN_CHECK_4_TERA_SHIFT,
+    SWITCH_IN_CHECK_5_NEUTRALIZING_GAS,
+    SWITCH_IN_CHECK_6_UNNERVE_AS_ONE,
+    SWITCH_IN_CHECK_7A_HEALING_WISH_LUNAR_DANCE,
+    SWITCH_IN_CHECK_7B_ENTRY_HAZARDS,
     SWITCH_IN_CHECK_RESOLVE_SWITCHES, // EE/WO from hazards
-    SWITCH_IN_CHECK_ENTRY_EFFECT_ABILITIES_AIR_BALLOON,
-    SWITCH_IN_CHECK_ENTRY_EFFECT_PRIMAL_REVERSION_SEEDS_SCHOOLING_SHIELDS_DOWN,
-    SWITCH_IN_CHECK_ENTRY_EFFECT_WHITE_HERB_FLOWER_GIFT_FORECAST_ICE_FACE_COSTAR_COMMANDER_PROTOSYNTHESIS_QUARK_DRIVE_HOSPITALITY,
-    SWITCH_IN_CHECK_ENTRY_EFFECT_OPPORTUNIST,
+    SWITCH_IN_CHECK_7C_ENTRY_ABILITIES,
+    SWITCH_IN_CHECK_7D_BERRIES_FRUIT_JUICE_AIR_BALLOON_MENTAL_HERB,
+    SWITCH_IN_CHECK_8A_MIMICRY_SCHOOLING_SHIELDS_DOWN,
+    SWITCH_IN_CHECK_8B_TERRAIN_SEEDS_ROOM_SERVICE,
+    SWITCH_IN_CHECK_8C_PRIMAL_REVERSION,
+    SWITCH_IN_CHECK_9A_ICE_FACE_COSTAR_QUARK_DRIVE_PROTOSYNTHESIS_COMMANDER_HOSPITALITY_FORECAST_FLOWER_GIFT,
+    SWITCH_IN_CHECK_9B_BOOSTER_ENERGY,
+    SWITCH_IN_CHECK_10_WHITE_HERB,
+    SWITCH_IN_CHECK_11_OPPORTUNIST,
+    SWITCH_IN_CHECK_12_MIRROR_HERB,
     SWITCH_IN_CHECK_AMULET_COIN,
-    SWITCH_IN_CHECK_ENTRY_EFFECT_EJECT_PACK,
+    SWITCH_IN_CHECK_13_EJECT_PACK,
     SWITCH_IN_CHECK_END,
 };
 
@@ -2732,17 +2746,6 @@ u32 LONG_CALL SanitizeClientForTeamAccess(void *bw, u32 client);
 BOOL LONG_CALL DoesSideHave2Battlers(void *bw, u32 client);
 
 BOOL LONG_CALL ClientBelongsToPlayer(struct BattleSystem *bsys, int client);
-
-// defined in battle_item.c
-/**
- *  @brief queue up or perform item effects on u-turn hit
- *
- *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param sp global battle structure
- *  @param seq_no battle subscript to run
- *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
- */
-u32 LONG_CALL MoveHitUTurnHeldItemEffectCheck(void *bw, struct BattleStruct *sp, int *seq_no);
 
 /**
  *  @brief handle shell bell hp restore, rage is building message, and life orb after getting a hit

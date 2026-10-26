@@ -568,7 +568,6 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 
         if (IsAttackerOnField(ctx) && ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy) {
             ctx->boostedAccuracy = TRUE;
-            ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy = 0;
         }
 
         ctx->wb_seq_no++;
