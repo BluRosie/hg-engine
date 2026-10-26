@@ -1915,7 +1915,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     int move;
     int attackerAbility = GetBattlerAbility(ctx, ctx->attack_client);
     u32 weather = GetWeather(bsys, ctx, ctx->attack_client);
-    int attackerItem = GetBattleMonItemIgnoringUnnerve(ctx, ctx->attack_client); // unnerve does not prevent Fling and Natural Gift
+    int attackerItem = GetBattleMonItemIgnoringUnnerve(ctx, ctx->attack_client);
 
     // For Sucker Punch
     if (ctx->battlemon[ctx->defence_client].moveeffect.encoredMove && ctx->battlemon[ctx->defence_client].moveeffect.encoredMove == ctx->battlemon[ctx->defence_client].move[ctx->battlemon[ctx->defence_client].moveeffect.encoredMoveIndex]) {

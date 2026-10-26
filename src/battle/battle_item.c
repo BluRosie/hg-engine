@@ -150,12 +150,6 @@ BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int 
     return *seq_no != 0;
 }
 
-/**
- *  @brief get the HELD_ITEM_USE_* category of a hold effect handled by GetHeldItemUseSubscript
- *
- *  @param itemHeldEffect HOLD_EFFECT_* of the held item
- *  @return HELD_ITEM_USE_* flag of the item; HELD_ITEM_USE_ANY if the item is in no category and only activates without a filter
- */
 static u32 GetHeldItemUseCategory(int itemHeldEffect)
 {
     switch (itemHeldEffect) {
@@ -400,7 +394,7 @@ BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *ctx, int b
                 || ctx->battlemon[battlerId].moveeffect.encoredTurns
                 || ctx->battlemon[battlerId].moveeffect.healBlockTurns
                 || ctx->battlemon[battlerId].moveeffect.disabledTurns) {
-                ctx->msg_work = 6; // infatuation status name for the cure message, same as GetFlingOrPluckItemEffect
+                ctx->msg_work = 6;
                 script = BATTLE_SUBSCRIPT_HELD_ITEM_HEAL_MENTAL_CONDITIONS;
                 ret = TRUE;
             }
@@ -409,7 +403,7 @@ BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *ctx, int b
             if (GetBattlerAbility(ctx, battlerId) == ABILITY_GLUTTONY) {
                 boost /= 2;
             }
-            // a Micle Berry obtained while the boost of the last one is still pending is only used after the holder's next action
+
             if (ctx->battlemon[battlerId].hp <= ((s32)(ctx->battlemon[battlerId].maxhp) / boost)
                 && !ctx->battlemon[battlerId].moveeffect.boostedAccuracy) {
                 script = BATTLE_SUBSCRIPT_HELD_ITEM_TEMP_ACC_UP;

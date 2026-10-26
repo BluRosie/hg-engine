@@ -5237,18 +5237,11 @@ BOOL btl_scr_cmd_11A_TrySynchronizeStatus(void *bsys UNUSED, struct BattleStruct
     return FALSE;
 }
 
-/**
- *  @brief script command to check if a held item of the battler activates.  stores the item subscript in temp_work or jumps to the fail address
- *
- *  @param bsys battle work structure
- *  @param ctx global battle structure
- *  @return FALSE
- */
 BOOL btl_scr_cmd_11B_TryEatBerry(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     int side = read_battle_script_param(ctx);
-    u32 filter = read_battle_script_param(ctx); // HELD_ITEM_USE_* flags of the held items that are allowed to activate
+    u32 filter = read_battle_script_param(ctx);
     int failAddress = read_battle_script_param(ctx);
     int script = 0;
     int battler = GrabClientFromBattleScriptParam(bsys, ctx, side);

@@ -1217,7 +1217,7 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
             }
         } break;
         case SWITCH_IN_CHECK_9B_BOOSTER_ENERGY:
-            // TODO: Booster Energy activates with Protosynthesis and Quark Drive in ActivateParadoxAbility (9a.)
+            // TODO: activates with Protosynthesis/Quark Drive (9a.)
             sp->switch_in_check_seq_no++;
             break;
         case SWITCH_IN_CHECK_10_WHITE_HERB: {

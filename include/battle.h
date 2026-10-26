@@ -2371,14 +2371,11 @@ BOOL LONG_CALL Battle_IsFishingEncounter(void *bw);
  *  @param bw battle work structure; void * because we haven't defined the battle work structure
  *  @param sp global battle structure
  *  @param client_no is the battler to check
- *  @param filter HELD_ITEM_USE_* flags (constants/battle_constants.h) of the held items that are allowed to activate, HELD_ITEM_USE_ANY for all
+ *  @param filter timing
  *  @return TRUE if a held item effect is going to happen; FALSE otherwise
  */
 BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *sp, int client_no, u32 filter);
 
-/**
- *  @brief TryUseHeldItem with HELD_ITEM_USE_ANY.  hooked over the vanilla TryUseHeldItem, whose callers only pass three arguments
- */
 BOOL LONG_CALL TryUseHeldItem_Vanilla(void *bw, struct BattleStruct *sp, int client_no);
 
 // helpers
@@ -2666,22 +2663,8 @@ enum {
  */
 u16 LONG_CALL GetBattleMonItem(struct BattleStruct *sp, int client_no);
 
-/**
- *  @brief grab a battler's item like GetBattleMonItem, but a berry is still returned while an opposing pokemon has unnerve
- *
- *  @param sp global battle structure
- *  @param client_no battler to grab the item of
- *  @return item that the client_no is holding accounting for embargo and such
- */
 u16 LONG_CALL GetBattleMonItemIgnoringUnnerve(struct BattleStruct *sp, int client_no);
 
-/**
- *  @brief check if a battler has an ability that makes the opposing side too nervous to eat berries
- *
- *  @param sp global battle structure
- *  @param client_no battler to check
- *  @return TRUE if the battler has Unnerve or As One
- */
 BOOL LONG_CALL HasUnnerveAbility(struct BattleStruct *sp, int client_no);
 
 // defined in battle_pokemon.c
