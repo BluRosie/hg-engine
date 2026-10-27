@@ -86,7 +86,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales used Aurora Veil!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Aurora Veil made your side stronger against physical and special moves!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Aurora Veil!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Aurora Veil made the opposing side stronger against physical and special moves!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Weather Ball!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .expectationValue.hpTaken = { 77, 78, 79, 80, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91 } },
     }

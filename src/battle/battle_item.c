@@ -330,13 +330,14 @@ BOOL LONG_CALL GetHeldItemStatusRecoverySubscript(struct BattleStruct *ctx, int 
     return *seq_no != 0;
 }
 
-BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
+BOOL LONG_CALL GetHeldItemUseSubscript(void *bw, struct BattleStruct *ctx, int battlerId, int *seq_no)
 {
     BOOL ret = FALSE;
-    int script;
+    int script = 0;
     int itemHeldEffect;
     int boost;
 
+    *seq_no = 0;
     if (battlerId == BATTLER_NONE) {
         return FALSE;
     }
@@ -550,21 +551,290 @@ BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
         default:
             break;
         }
-        if (ret == TRUE) {
-            ctx->battlerIdTemp = battlerId;
-            ctx->item_work = GetBattleMonItem(ctx, battlerId);
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, script);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = 22;
-
-            if (IS_ITEM_BERRY(ctx->item_work)) {
-                ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch = TRUE;
-            }
-        }
     }
+    *seq_no = script;
     return ret;
 }
 
+BOOL LONG_CALL TryUseHeldItem(void *bw, struct BattleStruct *ctx, int battlerId)
+{
+    int script = 0;
+
+    if (GetHeldItemUseSubscript(bw, ctx, battlerId, &script) == TRUE) {
+        ctx->battlerIdTemp = battlerId;
+        ctx->item_work = GetBattleMonItem(ctx, battlerId);
+        LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, script);
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+
+        if (IS_ITEM_BERRY(ctx->item_work)) {
+            ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, battlerId)][ctx->sel_mons_no[battlerId]].berryEatenAndCanBelch = TRUE;
+        }
+        return TRUE;
+    }
+    return FALSE;
+}
+
+void GetFlingOrPluckItemEffect(struct BattleSystem *bsys, struct BattleStruct *sp, int target, int effect, int mod)
+{
+    sp->flingScript = 0;
+    sp->flingData = 0;
+
+    switch (effect) {
+    case STEAL_EFFECT_RESTORE_HP:
+    case STEAL_EFFECT_RESTORE_HP_PERCENT:
+    case STEAL_EFFECT_RESTORE_SPICY:
+    case STEAL_EFFECT_RESTORE_DRY:
+    case STEAL_EFFECT_RESTORE_SWEET:
+    case STEAL_EFFECT_RESTORE_BITTER:
+    case STEAL_EFFECT_RESTORE_SOUR:
+        if (sp->battlemon[target].hp == (s32)sp->battlemon[target].maxhp) {
+            return;
+        }
+        break;
+    default:
+        break;
+    }
+
+    switch (effect) {
+    case STEAL_EFFECT_RESTORE_HP: // Oran Berry
+        sp->flingData = mod;
+        sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
+        break;
+    case STEAL_EFFECT_RESTORE_HP_PERCENT: // Sitrus Berry
+        sp->flingData = BattleDamageDivide(sp->battlemon[target].maxhp * mod, 100);
+        sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
+        break;
+    case STEAL_EFFECT_CURE_PARALYSIS: // Cheri Berry
+        if (sp->battlemon[target].condition & STATUS_PARALYSIS) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PRZ_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_CURE_SLEEP: // Chesto Berry
+        if (sp->battlemon[target].condition & STATUS_SLEEP) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_SLP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_CURE_POISON: // Pecha Berry
+        if (sp->battlemon[target].condition & STATUS_POISON_ALL) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PSN_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_CURE_BURN: // Rawst Berry
+        if (sp->battlemon[target].condition & STATUS_BURN) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_BRN_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_CURE_FREEZE: // Aspear Berry
+        if (sp->battlemon[target].condition & STATUS_FREEZE) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_FRZ_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_PP: // Leppa Berry
+    {
+        int index;
+        int missingPP = 0;
+        // Gen 5+ restored first missing PP
+        for (index = 0; index < 4; index++) { // 4 == MAX_MON_MOVES
+            if (sp->battlemon[target].move[index]) {
+                missingPP = GetMoveMaxPP(sp->battlemon[target].move[index], sp->battlemon[target].pp_count[index]) - sp->battlemon[target].pp[index];
+                if (missingPP > 0) {
+                    break;
+                }
+            }
+        }
+        if (index < 4) {
+            if (mod > missingPP) {
+                mod = missingPP;
+            }
+            sp->battlemon[target].pp[index] += mod;
+            CopyBattleMonToPartyMon(bsys, sp, target);
+            sp->waza_work = sp->battlemon[target].move[index];
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PP_RESTORE;
+        }
+        break;
+    }
+    case STEAL_EFFECT_CURE_CONFUSION: // Persim Berry
+        if (sp->battlemon[target].condition2 & STATUS2_CONFUSION) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_CNF_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_CURE_ALL: // Lum Berry
+        if ((sp->battlemon[target].condition & STATUS_ALL) || (sp->battlemon[target].condition2 & STATUS2_CONFUSION)) {
+            if (sp->battlemon[target].condition & STATUS_PARALYSIS) {
+                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PRZ_RESTORE;
+            }
+            if (sp->battlemon[target].condition & STATUS_SLEEP) {
+                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_SLP_RESTORE;
+            }
+            if (sp->battlemon[target].condition & STATUS_POISON_ALL) {
+                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PSN_RESTORE;
+            }
+            if (sp->battlemon[target].condition & STATUS_BURN) {
+                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_BRN_RESTORE;
+            }
+            if (sp->battlemon[target].condition & STATUS_FREEZE) {
+                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_FRZ_RESTORE;
+            }
+            if (sp->battlemon[target].condition2 & STATUS2_CONFUSION) {
+                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_CNF_RESTORE;
+            }
+            if ((sp->battlemon[target].condition & STATUS_ALL) && (sp->battlemon[target].condition2 & STATUS2_CONFUSION)) {
+                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_MULTI_RESTORE;
+            }
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_SPICY: // Figy Berry
+        sp->flingData = BattleDamageDivide(sp->battlemon[target].maxhp, mod);
+        sp->msg_work = FLAVOR_SPICY;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[target].personal_rnd, FLAVOR_SPICY) == -1) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
+        } else {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_DRY: // Wiki Berry
+        sp->flingData = BattleDamageDivide(sp->battlemon[target].maxhp, mod);
+        sp->msg_work = FLAVOR_DRY;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[target].personal_rnd, FLAVOR_DRY) == -1) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
+        } else {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_SWEET: // Mago Berry
+        sp->flingData = BattleDamageDivide(sp->battlemon[target].maxhp, mod);
+        sp->msg_work = FLAVOR_SWEET;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[target].personal_rnd, FLAVOR_SWEET) == -1) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
+        } else {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_BITTER: // Aguav Berry
+        sp->flingData = BattleDamageDivide(sp->battlemon[target].maxhp, mod);
+        sp->msg_work = FLAVOR_BITTER;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[target].personal_rnd, FLAVOR_BITTER) == -1) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
+        } else {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESTORE_SOUR: // Iapapa Berry
+        sp->flingData = BattleDamageDivide(sp->battlemon[target].maxhp, mod);
+        sp->msg_work = FLAVOR_SOUR;
+        if (GetFlavorPreferenceFromPID(sp->battlemon[target].personal_rnd, FLAVOR_SOUR) == -1) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
+        } else {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
+        }
+        break;
+    case STEAL_EFFECT_RESET_STATS: // White Herb
+    {
+        int stat;
+        for (stat = 0; stat < 8; stat++) {
+            if (sp->battlemon[target].states[stat] < 6) {
+                sp->battlemon[target].states[stat] = 6;
+                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_STATDOWN_RESTORE;
+            }
+        }
+    } break;
+    case STEAL_EFFECT_CURE_MENTAL_CONDITIONS: // Mental Herb
+        if (sp->battlemon[target].condition2 & STATUS2_ATTRACT
+            || sp->battlemon[target].condition2 & STATUS2_TORMENT
+            || sp->battlemon[target].moveeffect.tauntTurns
+            || sp->battlemon[target].moveeffect.encoredTurns
+            || sp->battlemon[target].moveeffect.healBlockTurns
+            || sp->battlemon[target].moveeffect.disabledTurns) {
+            sp->msg_work = 6; // TODO: Check if this msg_work should have an infatuate const.
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HEAL_MENTAL_CONDITIONS;
+        }
+        break;
+    case STEAL_EFFECT_FLINCH: // King's Rock, Razor Fang
+        sp->state_client = target;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
+        sp->flingScript = BATTLE_SUBSCRIPT_FLINCH_MON;
+        break;
+    case STEAL_EFFECT_PARALYZE: // Light Ball
+        sp->state_client = target;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
+        sp->flingScript = BATTLE_SUBSCRIPT_PARALYZE;
+        break;
+    case STEAL_EFFECT_POISON: // Poison Barb
+        sp->state_client = target;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
+        sp->flingScript = BATTLE_SUBSCRIPT_POISON;
+        break;
+    case STEAL_EFFECT_BAD_POISON: // Toxic Orb
+        sp->state_client = target;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
+        sp->flingScript = BATTLE_SUBSCRIPT_BADLY_POISON;
+        break;
+    case STEAL_EFFECT_BURN: // Flame Orb
+        sp->state_client = target;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
+        sp->flingScript = BATTLE_SUBSCRIPT_BURN;
+        break;
+    case STEAL_EFFECT_ATK_UP: // Liechi Berry
+        if (sp->battlemon[target].states[STAT_ATTACK] < 12) {
+            sp->msg_work = STAT_ATTACK;
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
+        }
+        break;
+    case STEAL_EFFECT_DEF_UP: // Ganlon Berry, Kee Berry
+        if (sp->battlemon[target].states[STAT_DEFENSE] < 12) {
+            sp->msg_work = STAT_DEFENSE;
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
+        }
+        break;
+    case STEAL_EFFECT_SPEED_UP: // Salac Berry
+        if (sp->battlemon[target].states[STAT_SPEED] < 12) {
+            sp->msg_work = STAT_SPEED;
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
+        }
+        break;
+    case STEAL_EFFECT_SPATK_UP: // Petaya Berry
+        if (sp->battlemon[target].states[STAT_SPECIAL_ATTACK] < 12) {
+            sp->msg_work = STAT_SPECIAL_ATTACK;
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
+        }
+        break;
+    case STEAL_EFFECT_SPDEF_UP: // Apicot Berry, Maranga Berry
+        if (sp->battlemon[target].states[STAT_SPECIAL_DEFENSE] < 12) {
+            sp->msg_work = STAT_SPECIAL_DEFENSE;
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
+        }
+        break;
+    case STEAL_EFFECT_RANDOM_UP: // Starf Berry
+    {
+        int stat;
+        for (stat = 0; stat < 5; stat++) {
+            if (sp->battlemon[target].states[1 + stat] < 12) {
+                break;
+            }
+        }
+        if (stat != 5) {
+            do {
+                stat = BattleRand(bsys) % 5;
+            } while (sp->battlemon[target].states[1 + stat] == 12);
+            sp->msg_work = stat + 1;
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_SHARPLY_RAISE_STAT;
+        }
+        break;
+    }
+    case STEAL_EFFECT_CRITRATE_UP: // Lansat Berry
+        if (!(sp->battlemon[target].condition2 & STATUS2_FOCUS_ENERGY)) {
+            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_CRIT;
+        }
+        break;
+    case STEAL_EFFECT_ACC_UP: // Micle Berry
+        sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_TEMP_ACC_UP;
+        break;
+    default:
+        break;
+    }
+}
+// TODO: ripen
 BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int battlerId)
 {
     int item = GetHeldItemFlingEffect(sp, battlerId);
@@ -578,251 +848,7 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
         return FALSE;
     }
 
-    switch (item) {
-    case STEAL_EFFECT_RESTORE_HP: // Oran Berry
-        sp->flingData = mod;
-        sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
-        break;
-    case STEAL_EFFECT_RESTORE_HP_PERCENT: // Sitrus Berry
-        sp->flingData = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp * mod, 100);
-        sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
-        break;
-    case STEAL_EFFECT_CURE_PARALYSIS: // Cheri Berry
-        if (sp->battlemon[sp->defence_client].condition & STATUS_PARALYSIS) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PRZ_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_CURE_SLEEP: // Chesto Berry
-        if (sp->battlemon[sp->defence_client].condition & STATUS_SLEEP) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_SLP_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_CURE_POISON: // Pecha Berry
-        if (sp->battlemon[sp->defence_client].condition & STATUS_POISON_ALL) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PSN_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_CURE_BURN: // Rawst Berry
-        if (sp->battlemon[sp->defence_client].condition & STATUS_BURN) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_BRN_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_CURE_FREEZE: // Aspear Berry
-        if (sp->battlemon[sp->defence_client].condition & STATUS_FREEZE) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PRZ_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_RESTORE_PP: // Leppa Berry
-    {
-        int missingPP;
-        int index;
-        int mostMissingPP = 0;
-        int mostMissingIndex;
-        // Restore PP to the move with the most missing PP.
-        for (index = 0; index < 4; index++) { // 4 == MAX_MON_MOVES
-            // If there is a move at the current index...
-            if (sp->battlemon[sp->defence_client].move[index]) {
-                // Get the missing PP from the move.
-                missingPP = GetMoveMaxPP(sp->battlemon[sp->defence_client].move[index], sp->battlemon[sp->defence_client].pp_count[index]) - sp->battlemon[sp->defence_client].pp[index];
-                // If this move is missing the most PP so far, keep track of it.
-                if (missingPP > mostMissingPP) {
-                    mostMissingPP = missingPP;
-                    mostMissingIndex = index;
-                }
-            }
-        }
-        // If any of our moves are missing PP, mostMissingPP will be greater than 0.
-        if (mostMissingPP) {
-            // Make sure we don't restore above max PP.
-            if (mod > mostMissingPP) {
-                mod = mostMissingPP;
-            }
-            sp->battlemon[sp->defence_client].pp[mostMissingIndex] += mod;
-            CopyBattleMonToPartyMon(bsys, sp, sp->defence_client);
-            sp->waza_work = sp->battlemon[sp->defence_client].move[mostMissingIndex];
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PP_RESTORE;
-        }
-        break;
-    }
-    case STEAL_EFFECT_CURE_CONFUSION: // Persim Berry
-        if (sp->battlemon[sp->defence_client].condition2 & STATUS2_CONFUSION) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_CNF_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_CURE_ALL: // Lum Berry
-        if ((sp->battlemon[sp->defence_client].condition & STATUS_ALL) || (sp->battlemon[sp->defence_client].condition2 & STATUS2_CONFUSION)) {
-            if (sp->battlemon[sp->defence_client].condition & STATUS_PARALYSIS) {
-                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PRZ_RESTORE;
-            }
-            if (sp->battlemon[sp->defence_client].condition & STATUS_SLEEP) {
-                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_SLP_RESTORE;
-            }
-            if (sp->battlemon[sp->defence_client].condition & STATUS_POISON_ALL) {
-                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PSN_RESTORE;
-            }
-            if (sp->battlemon[sp->defence_client].condition & STATUS_BURN) {
-                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_BRN_RESTORE;
-            }
-            if (sp->battlemon[sp->defence_client].condition & STATUS_FREEZE) {
-                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_PRZ_RESTORE;
-            }
-            if (sp->battlemon[sp->defence_client].condition2 & STATUS2_CONFUSION) {
-                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_CNF_RESTORE;
-            }
-            if ((sp->battlemon[sp->defence_client].condition & STATUS_ALL) && (sp->battlemon[sp->defence_client].condition2 & STATUS2_CONFUSION)) {
-                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_MULTI_RESTORE;
-            }
-        }
-        break;
-    case STEAL_EFFECT_RESTORE_SPICY: // Figy Berry
-        sp->flingData = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
-        sp->msg_work = FLAVOR_SPICY;
-        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_SPICY) == -1) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
-        } else {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_RESTORE_DRY: // Wiki Berry
-        sp->flingData = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
-        sp->msg_work = FLAVOR_DRY;
-        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_DRY) == -1) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
-        } else {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_RESTORE_SWEET: // Mago Berry
-        sp->flingData = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
-        sp->msg_work = FLAVOR_SWEET;
-        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_SWEET) == -1) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
-        } else {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_RESTORE_BITTER: // Aguav Berry
-        sp->flingData = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
-        sp->msg_work = FLAVOR_BITTER;
-        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_BITTER) == -1) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
-        } else {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_RESTORE_SOUR: // Iapapa Berry
-        sp->flingData = BattleDamageDivide(sp->battlemon[sp->defence_client].maxhp, mod);
-        sp->msg_work = FLAVOR_SOUR;
-        if (GetFlavorPreferenceFromPID(sp->battlemon[sp->defence_client].personal_rnd, FLAVOR_SOUR) == -1) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_DISLIKE_FLAVOR;
-        } else {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HP_RESTORE;
-        }
-        break;
-    case STEAL_EFFECT_RESET_STATS: // White Herb
-    {
-        int stat;
-        for (stat = 0; stat < 8; stat++) {
-            if (sp->battlemon[sp->defence_client].states[stat] < 6) {
-                sp->battlemon[sp->defence_client].states[stat] = 6;
-                sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_STATDOWN_RESTORE;
-            }
-        }
-    } break;
-    case STEAL_EFFECT_CURE_MENTAL_CONDITIONS: // Mental Herb
-        if (sp->battlemon[sp->defence_client].condition2 & STATUS2_ATTRACT
-            || sp->battlemon[sp->defence_client].condition2 & STATUS2_TORMENT
-            || sp->battlemon[sp->defence_client].moveeffect.tauntTurns
-            || sp->battlemon[sp->defence_client].moveeffect.encoredTurns
-            || sp->battlemon[sp->defence_client].moveeffect.healBlockTurns
-            || sp->battlemon[sp->defence_client].moveeffect.disabledTurns) {
-            sp->msg_work = 6; // TODO: Check if this msg_work should have an infatuate const.
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_HEAL_MENTAL_CONDITIONS;
-        }
-        break;
-    case STEAL_EFFECT_FLINCH: // King's Rock, Razor Fang
-        sp->state_client = battlerId;
-        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
-        sp->flingScript = BATTLE_SUBSCRIPT_FLINCH_MON;
-        break;
-    case STEAL_EFFECT_PARALYZE: // Light Ball
-        sp->state_client = battlerId;
-        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
-        sp->flingScript = BATTLE_SUBSCRIPT_PARALYZE;
-        break;
-    case STEAL_EFFECT_POISON: // Poison Barb
-        sp->state_client = battlerId;
-        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
-        sp->flingScript = BATTLE_SUBSCRIPT_POISON;
-        break;
-    case STEAL_EFFECT_BAD_POISON: // Toxic Orb
-        sp->state_client = battlerId;
-        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
-        sp->flingScript = BATTLE_SUBSCRIPT_BADLY_POISON;
-        break;
-    case STEAL_EFFECT_BURN: // Flame Orb
-        sp->state_client = battlerId;
-        sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
-        sp->flingScript = BATTLE_SUBSCRIPT_BURN;
-        break;
-    case STEAL_EFFECT_ATK_UP: // Liechi Berry
-        if (sp->battlemon[sp->defence_client].states[STAT_ATTACK] < 12) {
-            sp->msg_work = STAT_ATTACK;
-            sp->flingScript = BATTLE_SUBSCRIPT_BADLY_POISON;
-        }
-        break;
-    case STEAL_EFFECT_DEF_UP: // Ganlon Berry, Kee Berry
-        if (sp->battlemon[sp->defence_client].states[STAT_DEFENSE] < 12) {
-            sp->msg_work = STAT_DEFENSE;
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
-        }
-        break;
-    case STEAL_EFFECT_SPEED_UP: // Salac Berry
-        if (sp->battlemon[sp->defence_client].states[STAT_SPEED] < 12) {
-            sp->msg_work = STAT_SPEED;
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
-        }
-        break;
-    case STEAL_EFFECT_SPATK_UP: // Petaya Berry
-        if (sp->battlemon[sp->defence_client].states[STAT_SPECIAL_ATTACK] < 12) {
-            sp->msg_work = STAT_SPECIAL_ATTACK;
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
-        }
-        break;
-    case STEAL_EFFECT_SPDEF_UP: // Apicot Berry, Maranga Berry
-        if (sp->battlemon[sp->defence_client].states[STAT_SPECIAL_DEFENSE] < 12) {
-            sp->msg_work = STAT_SPECIAL_DEFENSE;
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_STAT;
-        }
-        break;
-    case STEAL_EFFECT_RANDOM_UP: // Starf Berry
-    {
-        int stat;
-        for (stat = 0; stat < 5; stat++) {
-            if (sp->battlemon[sp->defence_client].states[1 + stat] < 12) {
-                break;
-            }
-        }
-        if (stat != 5) {
-            do {
-                stat = BattleRand(bsys) % 5;
-            } while (sp->battlemon[sp->defence_client].states[1 + stat] == 12);
-            sp->msg_work = stat + 1;
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_SHARPLY_RAISE_STAT;
-        }
-        break;
-    }
-    case STEAL_EFFECT_CRITRATE_UP: // Lansat Berry
-        if (!(sp->battlemon[sp->defence_client].condition2 & STATUS2_FOCUS_ENERGY)) {
-            sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_RAISE_CRIT;
-        }
-        break;
-    case STEAL_EFFECT_ACC_UP: // Micle Berry
-        sp->flingScript = BATTLE_SUBSCRIPT_HELD_ITEM_TEMP_ACC_UP;
-        break;
-    default:
-        break;
-    }
+    GetFlingOrPluckItemEffect(bsys, sp, sp->defence_client, item, mod);
 
     if (sp->battlemon[sp->defence_client].effect_of_moves & MOVE_EFFECT_FLAG_EMBARGO) {
         sp->flingScript = 0;
@@ -833,6 +859,24 @@ BOOL LONG_CALL TryFling(struct BattleSystem *bsys, struct BattleStruct *sp, int 
         }
         sp->battlerIdTemp = sp->defence_client;
     }
+
+    return TRUE;
+}
+
+// TODO: ripen
+// since Pluck and Fling are basically identical we can use the fling variables here as helpers
+BOOL LONG_CALL TryPluckBerry(struct BattleSystem *bsys, struct BattleStruct *sp, int battlerId)
+{
+    u16 item = sp->battlemon[battlerId].item;
+
+    GetFlingOrPluckItemEffect(bsys, sp, sp->attack_client, GetItemData(item, ITEM_PARAM_PLUCK_EFFECT, 5), GetHeldItemModifier(sp, battlerId, 1));
+
+    sp->hp_calc_work = sp->flingData;
+    sp->temp_work = sp->flingScript;
+    sp->item_work = item;
+    sp->oneSelfFlag[sp->attack_client].status_flag |= SELF_TURN_FLAG_PLUCK_BERRY;
+    sp->flingScript = 0;
+    sp->flingData = 0;
 
     return TRUE;
 }

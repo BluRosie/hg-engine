@@ -5,12 +5,15 @@
 
 
 _000:
-    CheckSubstitute BATTLER_CATEGORY_DEFENDER, _noitemlost
-    CompareMonDataToValue OPCODE_NEQ, BATTLER_CATEGORY_DEFENDER, BMON_DATA_CUSTAP_FLAG, 0, _noitemlost
-    TryIncinerate _noitemlost
+    TryIncinerate _stickyHold
     PrintBufferedMessage 
     Wait 
     WaitButtonABTime 30
-
-_noitemlost:
     End 
+
+_stickyHold:
+    AbilityPopup BATTLER_CATEGORY_DEFENDER
+    PrintBufferedMessage 
+    Wait 
+    WaitButtonABTime 30
+    End

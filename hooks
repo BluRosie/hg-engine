@@ -100,6 +100,7 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 ServerWazaKoyuuCheck 08014944 2
 #choose target from input
 0012 ov12_022506D4 022506D4
+0012 EndTurn_CheckIfReplacementsCanBeSendOut 0224D540
 
 0012 CheckLegalMimicMove 02257D6C 1
 0012 CheckLegalMetronomeMove 02257DA4 4
@@ -398,6 +399,7 @@ arm9 CapRareCandies 0208FEEA 1
 0012 read_battle_script_param 022454E8 1
 0012 LoadBattleSubSeqScript 0224EB9C 3
 0012 PushAndLoadBattleScript 0224EBDC 3
+0012 PopBattleScript 0224EC74 1
 
 0012 ServerInit 02248660 1
 

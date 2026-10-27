@@ -4,28 +4,6 @@
 .data
 
 _000:
-_checkAsOne:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_GLASTRIER, _printAsOneMessage
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_SPECTRIER, _checkUnnerve
-_printAsOneMessage:
-    AbilityPopup BATTLER_CATEGORY_SWITCHED_MON
-    // {0} has two Abilities!
-    PrintMessage 1463, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
-    Wait
-    WaitButtonABTime 30
-    SetAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
-_checkUnnerve:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_GLASTRIER, _printUnnerveMessage
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_AS_ONE_SPECTRIER, _printUnnerveMessage
-    CheckAbility CHECK_OPCODE_NOT_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_UNNERVE, _landingPad
-_printUnnerveMessage:
-    AbilityPopup BATTLER_CATEGORY_SWITCHED_MON, ABILITY_UNNERVE
-    // {0}’s {1} makes the opposing team too nervous to eat Berries!
-    PrintMessage 1282, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_SWITCHED_MON, BATTLER_CATEGORY_SWITCHED_MON
-    Wait
-    WaitButtonABTime 30
-    SetAbilityActivatedFlag BATTLER_CATEGORY_SWITCHED_MON
-
 _landingPad:
 // convert this to use a sort of queue system
 // TODO: sharp steel
@@ -33,6 +11,14 @@ _landingPad:
 
 // anything that should be done after the hazards should go right here...  but we do most of it in JumpToCurrentEntryHazard
 _end:
+    // queue is done here, mon can faint now
+    CompareVarToValue OPCODE_GT, BSCRIPT_VAR_BATTLER_FAINTED, BATTLER_ENEMY2, _noFaint
+    UpdateVarFromVar OPCODE_FLAG_INDEX, BSCRIPT_VAR_TEMP_DATA, BSCRIPT_VAR_BATTLER_FAINTED
+    UpdateVar OPCODE_LEFT_SHIFT, BSCRIPT_VAR_TEMP_DATA, 24
+    CompareVarToVar OPCODE_FLAG_NOT, BSCRIPT_VAR_BATTLE_STATUS, BSCRIPT_VAR_TEMP_DATA, _noFaint
+    Call BATTLE_SUBSCRIPT_FAINT_MON
+
+_noFaint:
     End
 
 _checkIfShouldDoSpikes:
@@ -51,9 +37,16 @@ _checkSpikes:
     PrintMessage 429, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
+    // Emergency Exit needs the hazard damage in BSCRIPT_VAR_HP_CALC, Berry/Cheek Pouch would overwrite it
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_FLING_DATA, BSCRIPT_VAR_HP_CALC
+    TryEatHpBerry BATTLER_CATEGORY_SWITCHED_MON, _noBerryFromSpikes
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_FLING_DATA
+
+_noBerryFromSpikes:
     TryActivateEmergencyExit BATTLER_CATEGORY_MSG_BATTLER_TEMP, _noWimpOutFromSpikes
     Call BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT
-    GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
+    End
 
 _noWimpOutFromSpikes:
     GoTo _landingPad
@@ -78,14 +71,14 @@ _checkToxicSpikes:
 _regularPoison:
     // a mon with comatose can not be poisoned by toxic spikes
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_COMATOSE, _landingPad
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _end
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
     Call BATTLE_SUBSCRIPT_POISON
     GoTo _landingPad
 
 _badlyPoison:
     // a mon with comatose can not be poisoned by toxic spikes
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, ABILITY_COMATOSE, _landingPad
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _end
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SWITCHED_MON, HOLD_EFFECT_IGNORE_ENTRY_HAZARDS, _landingPad
     Call BATTLE_SUBSCRIPT_BADLY_POISON
     GoTo _landingPad
 
@@ -129,9 +122,16 @@ _checkStealthRock:
     PrintMessage 1079, TAG_NICKNAME, BATTLER_CATEGORY_SWITCHED_MON
     Wait
     WaitButtonABTime 30
+    // EE needs the hazard damage in BSCRIPT_VAR_HP_CALC, but the berry (and Cheek Pouch) would overwrite it
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_FLING_DATA, BSCRIPT_VAR_HP_CALC
+    TryEatHpBerry BATTLER_CATEGORY_SWITCHED_MON, _noBerryFromRocks
+    CallFromVar BSCRIPT_VAR_TEMP_DATA
+    UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_FLING_DATA
+
+_noBerryFromRocks:
     TryActivateEmergencyExit BATTLER_CATEGORY_MSG_BATTLER_TEMP, _noWimpOutFromRocks
     Call BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT
-    GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
+    End
 
 _noWimpOutFromRocks:
     GoTo _landingPad

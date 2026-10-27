@@ -1,4 +1,4 @@
-// Test: Mega Sol - Growth does not work
+// Test: Mega Sol - Growth acts as under sun
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -84,7 +84,8 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Growth!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "rose!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Attack rose sharply!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's Sp. Atk rose sharply!" },
     }
 }
 END_TEST

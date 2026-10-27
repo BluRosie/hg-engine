@@ -71,8 +71,9 @@ _120:
     GoTo _146
 
 _140:
-    // {0}’s {1} paralyzed {2}! It may be unable to move!
-    PrintMessage 123, TAG_NICKNAME_ABILITY_NICKNAME, BATTLER_CATEGORY_MSG_TEMP, BATTLER_CATEGORY_MSG_BATTLER_TEMP, BATTLER_CATEGORY_SIDE_EFFECT_MON
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    // {0} is paralyzed! It may be unable to move!
+    PrintMessage 120, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
 
 _146:
     Wait

@@ -44671,8 +44671,8 @@ const ITEMDATA __data[] =
     ITEM_PRICE(80),
     .holdEffect = HOLD_EFFECT_BOOST_DEF_ON_PHYSICAL_HIT,
     .holdEffectParam = 0,
-    .pluckEffect = 0,
-    .flingEffect = 0,
+    .pluckEffect = 17, // STEAL_EFFECT_DEF_UP
+    .flingEffect = 17, // STEAL_EFFECT_DEF_UP
     .flingPower = 30,
     .naturalGiftPower = (NATURAL_GIFT_POWER_GEN < 6 ? 0 : 100),
     .naturalGiftType = 31,
@@ -44736,8 +44736,8 @@ const ITEMDATA __data[] =
     ITEM_PRICE(80),
     .holdEffect = HOLD_EFFECT_BOOST_SPDEF_ON_SPECIAL_HIT,
     .holdEffectParam = 0,
-    .pluckEffect = 0,
-    .flingEffect = 0,
+    .pluckEffect = 20, // STEAL_EFFECT_SPDEF_UP
+    .flingEffect = 20, // STEAL_EFFECT_SPDEF_UP
     .flingPower = 30,
     .naturalGiftPower = (NATURAL_GIFT_POWER_GEN < 6 ? 0 : 100),
     .naturalGiftType = 31,
