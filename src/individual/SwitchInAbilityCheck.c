@@ -15,6 +15,53 @@
 #include "battle.h"
 #include "pokemon.h"
 
+/*
+The lists below are done in a <number><letter> format. Number denotes a separate priority bracket. Letters are separate events that happen within the same bracket.
+For example, if multiple Pokémon are sent in at the same time, all events within a bracket happen at once, before moving onto the next Pokémon.
+
+Mon is sent out:
+1. Send-out animation
+2. Shiny effect
+3. Special start-of-battle animation based on Affection
+4. Tera Shift
+5. Neutralizing Gas
+6. Unnerve / As One
+7a. Healing Wish / Lunar Dance / Z-Memento / Z-Parting Shot
+7b. Spikes / Stealth Rock / Toxic Spikes*1 / Sticky Web / G-Max Steelsurge
+7c. Most entry abilities: Drizzle / Intimidate / Air Lock / Electric Surge / Aura Break / Frisk / Desolate Land / Mold Breaker / Imposter / Anticipation / Curious Medicine /
+Grassy Surge / Psychic Surge / Slow Start*2 / Sand Stream / Comatose / Supreme Overlord / Dark Aura / Turboblaze / Download / Teravolt / Delta Stream / Trace / Cloud Nine /
+Primordial Sea / Hadron Engine / Screen Cleaner / Drought / ??? / Fairy Aura / Orichalcum Pulse / Intrepid Sword / Dauntless Shield / Pressure / Zero to Hero / Misty Surge /
+Snow Warning / Forewarn / Vessel of Ruin / Sword of Ruin / Tablets of Ruin / Beads of Ruin
+    ...plus status immunity Abilities if the mon has the status problem: Limber / Water Bubble / Thermal Exchange / Pastel Veil*3 / Insomnia / Magma Armor / Water Veil / Immunity / Vital Spirit
+7d. Berries / Fruit Juice / Air Balloon / Mental Herb
+8a. Mimicry / Schooling / Shields Down
+8b. Terrain Seeds / Room Service
+8c. Primal Reversion*4
+9a. Ice Face / Costar / Quark Drive / Protosynthesis / Commander / Hospitality / Forecast / Flower Gift
+9b. Booster Energy
+10. White Herb
+11. Opportunist
+12. Mirror Herb
+13. Eject Pack
+
+Turn ordering:
+* From step 4, things trigger in the order of highest Speed
+* Before Generation VIII, Trick Room did not apply for steps 4-5
+* Step 6 uses modified Speed
+* Step 7+ uses raw Speed
+
+Other caveats:
+* If something within 7b-c would induce a later event to trigger as a response, perform the response immediately rather than letting the event run within its original event ordering. If this is a response to Electric Terrain going up, Quark Drive will trigger before Electric Seed.
+* If a pokémon faints from something within 7b, abilities from 7c will not trigger.
+* Pokémon that change forms from things within steps 8-9 will do so in the order of the Speed they had when sent out.
+* If multiple switches occur during battles outside end-of-turn, all on-entry events will run as a single block before moving onto the next switch-in.
+
+*1: This also happens if the Pokémon has fainted from the other hazards. If a Pokémon is fainted, its items and Abilities are ignored for the purpose of checking for Toxic Spikes absorption. Namely, Pokémon holding Air Balloon or with Levitate are considered grounded, while Flying/Poison types holding Iron Ball is considered airborne.
+*2: Slow Start does not activate until it announces itself, so for the purpose of determining the order between multiple Pokémon's entry abilities, Slow Start is ignored
+*3: Pastel Veil will first cure the ability user itself, it will then cure its allies
+*4: Drought/Drizzle will not activate when undergoing Primal Reversion
+*/
+
 static BOOL IsValidImposterTarget(struct BattleSystem *bw, struct BattleStruct *sp, u32 client);
 static int GetTraceClient(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerIdTarget1, int battlerIdTarget2);
 

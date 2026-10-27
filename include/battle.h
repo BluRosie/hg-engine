@@ -2625,7 +2625,7 @@ extern struct BattleSystem *gBattleSystem;
 enum {
     SWITCH_IN_CHECK_WEATHER = 0,
     SWITCH_IN_CHECK_FIELD, // SwSh DLC Psychic Terrain, Toxic Spikes
-    // https://bulbapedia.bulbagarden.net/wiki/User:FIQ/Turn_sequence
+    // we are using expansion, not https://bulbapedia.bulbagarden.net/wiki/User:FIQ/Turn_sequence
     SWITCH_IN_CHECK_4_TERA_SHIFT,
     SWITCH_IN_CHECK_5_NEUTRALIZING_GAS,
     SWITCH_IN_CHECK_6_UNNERVE_AS_ONE,

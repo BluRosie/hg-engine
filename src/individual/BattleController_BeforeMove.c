@@ -2034,8 +2034,10 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         sideB = IsClientEnemy(bsys, battlerId);
         if (!(ctx->oneTurnFlag[ctx->attack_client].special_damage[battlerId] && sideA != sideB && ctx->battlemon[battlerId].hp)) {
             ctx->oneSelfFlag[ctx->attack_client].no_pressure_flag = 1;
+            flag = TRUE;
         }
         break;
+    case MOVE_COMEUPPANCE:
     case MOVE_METAL_BURST:
         battlerId = ctx->oneTurnFlag[ctx->attack_client].last_damager;
         sideB = IsClientEnemy(bsys, battlerId);
