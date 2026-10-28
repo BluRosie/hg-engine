@@ -39,7 +39,7 @@ _checkSpikes:
     WaitButtonABTime 30
     // Emergency Exit needs the hazard damage in BSCRIPT_VAR_HP_CALC, Berry/Cheek Pouch would overwrite it
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_FLING_DATA, BSCRIPT_VAR_HP_CALC
-    TryEatHpBerry BATTLER_CATEGORY_SWITCHED_MON, _noBerryFromSpikes
+    TryEatBerry BATTLER_CATEGORY_SWITCHED_MON, HELD_ITEM_USE_CHANGE_HP|HELD_ITEM_USE_PINCH_BERRY, _noBerryFromSpikes
     CallFromVar BSCRIPT_VAR_TEMP_DATA
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_FLING_DATA
 
@@ -124,7 +124,7 @@ _checkStealthRock:
     WaitButtonABTime 30
     // EE needs the hazard damage in BSCRIPT_VAR_HP_CALC, but the berry (and Cheek Pouch) would overwrite it
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_FLING_DATA, BSCRIPT_VAR_HP_CALC
-    TryEatHpBerry BATTLER_CATEGORY_SWITCHED_MON, _noBerryFromRocks
+    TryEatBerry BATTLER_CATEGORY_SWITCHED_MON, HELD_ITEM_USE_CHANGE_HP|HELD_ITEM_USE_PINCH_BERRY, _noBerryFromRocks
     CallFromVar BSCRIPT_VAR_TEMP_DATA
     UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_HP_CALC, BSCRIPT_VAR_FLING_DATA
 

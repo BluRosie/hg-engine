@@ -24,7 +24,7 @@
  *  @param seq_no subscript to load if TRUE is returned
  *  @return TRUE if there's an item effect to run in *seq_no; FALSE otherwise
  */
-BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no)
+BOOL CheckDefenderItemEffectOnHit(void *bw UNUSED, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
 
@@ -36,7 +36,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
     // Check for defender's items
     int itemHoldEffect = HeldItemHoldEffectGet(sp, sp->defence_client);
     int itemPower = HeldItemAtkGet(sp, sp->defence_client, 0);
-    int side = IsClientEnemy(bw, sp->attack_client);
     switch (itemHoldEffect) {
     // vanilla gen4 effects
     case HOLD_EFFECT_DMG_USER_CONTACT_XFR: // Sticky Barb
@@ -44,8 +43,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
         if ((sp->battlemon[sp->attack_client].hp)
             // Attacker has no item
             && (sp->battlemon[sp->attack_client].item == ITEM_NONE)
-            // This side did not just get its item knocked off by the attacker
-            && ((sp->scw[side].knockoff_item & No2Bit(sp->sel_mons_no[sp->attack_client])) == 0)
             // Damage was dealt
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                 || (sp->oneSelfFlag[sp->defence_client].special_damage))
@@ -123,11 +120,6 @@ BOOL CheckDefenderItemEffectOnHit(void *bw, struct BattleStruct *sp, int *seq_no
         if ((sp->battlemon[sp->attack_client].hp)
             // Attacker does not have Magic Guard
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
-            // Attacker is not holding an item that prevents contact effects, e.g. Protective Pads
-            && (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_CONTACT_EFFECTS)
-            // punching glove & punching move foundation
-            // && ((HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG) &&
-            // IsElementInArray(IronFistMovesTable, (u16 *)&moveno, NELEMS(IronFistMovesTable), sizeof(IronFistMovesTable[0]))))
             // Damage was dealt
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage)
                 || (sp->oneSelfFlag[sp->defence_client].special_damage))
