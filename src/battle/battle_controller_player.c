@@ -93,8 +93,11 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
 
 #ifdef DEBUG_BATTLE_SCENARIOS
     if (TestBattle_IsComplete() && !ctx->fight_end_flag) {
+        // end like a flee, but skip the battle script run CONTROLLER_COMMAND_42 does for a flee: it runs whatever script
+        // is still loaded (e.g. the last replacement script), which can hang (e.g. with an empty enemy slot)
         BattleSystem_SetBattleOutcomeFlags(bsys, BATTLE_OUTCOME_PLAYER_FLED);
-        ctx->server_seq_no = CONTROLLER_COMMAND_42;
+        ctx->fight_end_flag = 1;
+        ctx->server_seq_no = CONTROLLER_COMMAND_44;
     }
 #endif
 

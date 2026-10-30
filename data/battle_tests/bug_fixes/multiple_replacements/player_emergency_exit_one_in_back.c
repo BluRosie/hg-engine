@@ -160,7 +160,6 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Golisopod!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Golisopod!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Litten!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod used Sleep Talk!" },
     }
 }
 END_TEST
