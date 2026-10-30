@@ -5978,6 +5978,8 @@ BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
+BOOL UnselectedFreePokemonInParty(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler);
+
 BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
@@ -5993,7 +5995,8 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
         && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
         // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
         && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)
-        && CanSwitchMon(bsys, ctx, client_no)) {
+        && CanSwitchMon(bsys, ctx, client_no)
+        && UnselectedFreePokemonInParty(bsys, ctx, client_no)) { // e.g. both replacements get Emergency Exit from hazards, one mon left
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;
         ctx->battlerIdTemp = client_no;
@@ -6073,6 +6076,189 @@ BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx)
     }
     if (script == 0) {
         IncrementBattleScriptPtr(ctx, failAddress);
+    }
+
+    return FALSE;
+}
+
+
+BOOL SideSharesParty(struct BattleSystem *bsys)
+{
+    u32 battleType = BattleTypeGet(bsys);
+    return (battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG));
+}
+
+BOOL IsReplacementAutoSelected(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battler UNUSED)
+{
+#ifdef DEBUG_BATTLE_SCENARIOS
+    return TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler);
+#else
+    return FALSE;
+#endif
+}
+
+static BOOL IsWaitingForLeftSlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    int leftSlot = BATTLER_ALLY(battler);
+    return (battler & 2) && SideSharesParty(bsys)
+        && (ctx->client_status[leftSlot] & 1)
+        && !IsReplacementAutoSelected(bsys, ctx, leftSlot)
+        && !IsReplacementAutoSelected(bsys, ctx, battler)
+        && !(ctx->server_status_flag2 & (MaskOfFlagNo(leftSlot) << BATTLE_STATUS_FAINTED_SHIFT));
+}
+
+BOOL LONG_CALL BtlCmd_ShowParty(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int promptedBattlers = 0;
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    // a replacement is picked fresh. the AI party menu task uses the planned hard switch slot first,
+    // and an old one (e.g. the mon it hard switched to earlier, now fainted) would send out a mon twice
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            ctx->ai_reshuffle_sel_mons_no[battler] = 6;
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            promptedBattlers |= MaskOfFlagNo(battler);
+            if (!IsReplacementAutoSelected(bsys, ctx, battler) && !IsWaitingForLeftSlot(bsys, ctx, battler)) {
+                BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
+            }
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (BattleTypeGet(bsys) == (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_LINK)) {
+            int partner = BattleWorkPartnerClientNoGet(bsys, battler);
+            if (!(promptedBattlers & MaskOfFlagNo(battler)) && !(promptedBattlers & MaskOfFlagNo(partner))) {
+                promptedBattlers |= MaskOfFlagNo(battler);
+                BattleController_EmitShowWaitMessage(bsys, battler);
+            }
+        } else if (!(promptedBattlers & MaskOfFlagNo(battler))) {
+            BattleController_EmitShowWaitMessage(bsys, battler);
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            ctx->reshuffle_client = battler;
+            break;
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_WaitMonSelection(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    int switchCnt = 0;
+    int autoSelected = 0;
+    int askedThisFrame = 0;
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (ctx->client_status[battler] & 1) {
+            switchCnt++;
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (!(ctx->client_status[battler] & 1)) {
+            continue;
+        }
+
+        if (IsReplacementAutoSelected(bsys, ctx, battler)) {
+#ifdef DEBUG_BATTLE_SCENARIOS
+            ctx->reshuffle_sel_mons_no[battler] = TestBattle_FindNextLivePartySlot(bsys, ctx, battler);
+#endif
+            autoSelected |= MaskOfFlagNo(battler);
+            switchCnt--;
+            continue;
+        }
+
+        // not asked yet (or only asked this frame), so its buffer still holds older data
+        if (IsWaitingForLeftSlot(bsys, ctx, battler) || (askedThisFrame & MaskOfFlagNo(battler))) {
+            continue;
+        }
+
+        if (BattleBuffer_GetNext(ctx, battler)) {
+            ctx->reshuffle_sel_mons_no[battler] = ctx->server_buffer[battler][0] - 1;
+            switchCnt--;
+            if (!(ctx->server_status_flag2 & (MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT))) {
+                ctx->server_status_flag2 |= MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT;
+                int rightSlot = BATTLER_ALLY(battler);
+                if (!(battler & 2) && SideSharesParty(bsys) && (ctx->client_status[rightSlot] & 1)
+                    && !IsReplacementAutoSelected(bsys, ctx, rightSlot)) {
+                    // left slot picked: ask the right slot now, without the mon that was just picked.
+                    // the AI's post KO switch in leaves out its partner's ai_reshuffle_sel_mons_no, so put the pick there too
+                    ctx->ai_reshuffle_sel_mons_no[battler] = ctx->reshuffle_sel_mons_no[battler];
+                    BattleController_EmitShowMonList(bsys, ctx, rightSlot, 1, 0, ctx->reshuffle_sel_mons_no[battler]);
+                    askedThisFrame |= MaskOfFlagNo(rightSlot);
+                } else {
+                    BattleController_EmitShowWaitMessage(bsys, battler);
+                }
+            }
+        }
+    }
+
+    if (switchCnt == 0) {
+        for (int battler = 0; battler < maxBattlers; battler++) {
+            if (!(ctx->client_status[battler] & 1)) {
+                continue;
+            }
+            if (autoSelected & MaskOfFlagNo(battler)) {
+                ov12_0223BDDC(bsys, battler, ctx->reshuffle_sel_mons_no[battler] + 1);
+            } else if (BattleBuffer_GetNext(ctx, battler)) {
+                ov12_0223BDDC(bsys, battler, ctx->server_buffer[battler][0]);
+                ctx->ai_reshuffle_sel_mons_no[battler] = 6;
+            }
+        }
+        ctx->server_status_flag2 &= 0xf0ffffff;
+        IncrementBattleScriptPtr(ctx, 1);
+    }
+
+    ctx->battle_progress_flag = 1;
+
+    return FALSE;
+}
+
+BOOL UnselectedFreePokemonInParty(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    int partner = BATTLER_ALLY(battler);
+    if (!SideSharesParty(bsys) || !(ctx->client_status[partner] & 1)) {
+        return TRUE;
+    }
+
+    int freeMons = 0;
+    int partySize = BattleWorkPokeCountGet(bsys, battler);
+    for (int i = 0; i < partySize; i++) {
+        struct PartyPokemon *mon = BattleWorkPokemonParamGet(bsys, battler, i);
+        int species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
+        if (species == SPECIES_NONE || species == SPECIES_EGG || GetMonData(mon, MON_DATA_HP, NULL) == 0
+            || i == ctx->sel_mons_no[battler] || i == ctx->sel_mons_no[partner]) {
+            continue;
+        }
+        freeMons++;
+    }
+    return freeMons > 1;
+}
+
+BOOL LONG_CALL BtlCmd_TryReplaceFaintedMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int side = read_battle_script_param(ctx);
+    int setSwitch = read_battle_script_param(ctx);
+    int failAddress = read_battle_script_param(ctx);
+    int battler = GrabClientFromBattleScriptParam(bsys, ctx, side);
+
+    if (!CanSwitchMon(bsys, ctx, battler) || !UnselectedFreePokemonInParty(bsys, ctx, battler)) {
+        IncrementBattleScriptPtr(ctx, failAddress);
+    } else if (setSwitch == 1) {
+        ctx->client_status[battler] |= 1;
     }
 
     return FALSE;

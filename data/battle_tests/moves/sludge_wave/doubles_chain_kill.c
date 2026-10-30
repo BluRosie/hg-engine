@@ -1,5 +1,4 @@
 // Test: Sludge Wave - Chain Kills in Doubles
-// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
