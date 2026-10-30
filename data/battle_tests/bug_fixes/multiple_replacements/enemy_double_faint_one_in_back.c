@@ -21,7 +21,7 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_CHARMANDER,
-            .level = 1,
+            .level = 5,
             .form = 0,
             .ability = ABILITY_RUN_AWAY,
             .item = ITEM_NONE,
@@ -101,7 +101,7 @@ BEGIN_TEST
         },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -113,7 +113,7 @@ BEGIN_TEST
     .enemyScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -123,7 +123,7 @@ BEGIN_TEST
         },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },

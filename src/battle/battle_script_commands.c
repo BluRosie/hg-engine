@@ -5978,8 +5978,6 @@ BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
-BOOL UnselectedFreePokemonInParty(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler);
-
 BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
@@ -5995,8 +5993,7 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
         && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
         // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
         && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)
-        && CanSwitchMon(bsys, ctx, client_no)
-        && UnselectedFreePokemonInParty(bsys, ctx, client_no)) { // e.g. both replacements get Emergency Exit from hazards, one mon left
+        && CanSwitchMon(bsys, ctx, client_no)) {
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;
         ctx->battlerIdTemp = client_no;
@@ -6222,44 +6219,6 @@ BOOL LONG_CALL BtlCmd_WaitMonSelection(struct BattleSystem *bsys, struct BattleS
     }
 
     ctx->battle_progress_flag = 1;
-
-    return FALSE;
-}
-
-BOOL UnselectedFreePokemonInParty(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
-{
-    int partner = BATTLER_ALLY(battler);
-    if (!SideSharesParty(bsys) || !(ctx->client_status[partner] & 1)) {
-        return TRUE;
-    }
-
-    int freeMons = 0;
-    int partySize = BattleWorkPokeCountGet(bsys, battler);
-    for (int i = 0; i < partySize; i++) {
-        struct PartyPokemon *mon = BattleWorkPokemonParamGet(bsys, battler, i);
-        int species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
-        if (species == SPECIES_NONE || species == SPECIES_EGG || GetMonData(mon, MON_DATA_HP, NULL) == 0
-            || i == ctx->sel_mons_no[battler] || i == ctx->sel_mons_no[partner]) {
-            continue;
-        }
-        freeMons++;
-    }
-    return freeMons > 1;
-}
-
-BOOL LONG_CALL BtlCmd_TryReplaceFaintedMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
-{
-    IncrementBattleScriptPtr(ctx, 1);
-    int side = read_battle_script_param(ctx);
-    int setSwitch = read_battle_script_param(ctx);
-    int failAddress = read_battle_script_param(ctx);
-    int battler = GrabClientFromBattleScriptParam(bsys, ctx, side);
-
-    if (!CanSwitchMon(bsys, ctx, battler) || !UnselectedFreePokemonInParty(bsys, ctx, battler)) {
-        IncrementBattleScriptPtr(ctx, failAddress);
-    } else if (setSwitch == 1) {
-        ctx->client_status[battler] |= 1;
-    }
 
     return FALSE;
 }

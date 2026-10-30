@@ -612,7 +612,7 @@ arm9 ScrCmd_WildBattle 02043E5C 1
 0012 BtlCmd_ShowParty 0223E8A0 2
 0012 BtlCmd_WaitMonSelection 0223E978 2
 
-0012 BtlCmd_TryReplaceFaintedMon 022421D4 2
+0012 CanSwitchMon 02252890 3
 
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
 0012 TryUseHeldItem 0225471C 3
