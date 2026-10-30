@@ -3381,6 +3381,7 @@ int LONG_CALL GetBattlerLearnedMoveCount(struct BattleSystem *bsys, struct Battl
 BOOL LONG_CALL SideSharesParty(struct BattleSystem *bsys);
 
 BOOL LONG_CALL CanSwitchMon(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+BOOL LONG_CALL CanSwitchMonConsideringPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move);
 

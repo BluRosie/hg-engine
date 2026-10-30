@@ -1,4 +1,4 @@
-// Test: Multiple replacements - Marshtomp uses Earthquake, its partner and both enemies faint, each side has two mons left: all three replacements are sent out
+// Test: Multiple replacements - enemy side sends out both replacements after double faint
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -23,7 +23,7 @@ BEGIN_TEST
             .species = SPECIES_CHARMANDER,
             .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -35,7 +35,7 @@ BEGIN_TEST
             .species = SPECIES_LITTEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -47,7 +47,7 @@ BEGIN_TEST
             .species = SPECIES_SNOM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_ICE_SCALES,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -63,7 +63,7 @@ BEGIN_TEST
             .species = SPECIES_CHIKORITA,
             .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -75,7 +75,7 @@ BEGIN_TEST
             .species = SPECIES_TREECKO,
             .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -87,7 +87,7 @@ BEGIN_TEST
             .species = SPECIES_CHANSEY,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_HEALER,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -99,7 +99,7 @@ BEGIN_TEST
             .species = SPECIES_LAPRAS,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_SHELL_ARMOR,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -155,7 +155,13 @@ BEGIN_TEST
         }
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "used Earthquake!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Marshtomp used Earthquake!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Treecko fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chikorita fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Litten" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Lapras!" },
     }
 }
 END_TEST

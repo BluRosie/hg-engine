@@ -1,4 +1,4 @@
-// Test: Multiple replacements - Marshtomp uses Earthquake, its partner and both enemies faint, each side has one mon left: one replacement per side is sent out
+// Test: Multiple replacements - enemy side sends out only replacement after double faint
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -23,7 +23,7 @@ BEGIN_TEST
             .species = SPECIES_CHARMANDER,
             .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -35,7 +35,7 @@ BEGIN_TEST
             .species = SPECIES_LITTEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -50,9 +50,9 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_CHIKORITA,
-            .level = 1,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -62,9 +62,9 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_TREECKO,
-            .level = 1,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -76,7 +76,7 @@ BEGIN_TEST
             .species = SPECIES_CHANSEY,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_HEALER,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -133,7 +133,12 @@ BEGIN_TEST
         }
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "used Earthquake!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Marshtomp used Earthquake!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Treecko fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chikorita fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Litten" },
     }
 }
 END_TEST

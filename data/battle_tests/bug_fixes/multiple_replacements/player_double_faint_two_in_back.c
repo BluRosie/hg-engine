@@ -1,4 +1,4 @@
-// Test: Multiple replacements - the opposing Marshtomp uses Earthquake, its partner and both player mons faint, each side has two mons left: all three replacements are sent out
+// Test: Multiple replacements - player side sends out both replacements after double faint
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -9,9 +9,9 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_CHARMANDER,
-            .level = 1,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -21,9 +21,9 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_CYNDAQUIL,
-            .level = 1,
+            .level = 8,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -35,7 +35,7 @@ BEGIN_TEST
             .species = SPECIES_LITTEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -47,7 +47,7 @@ BEGIN_TEST
             .species = SPECIES_SNOM,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_ICE_SCALES,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -73,9 +73,9 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_CHIKORITA,
-            .level = 1,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -87,7 +87,7 @@ BEGIN_TEST
             .species = SPECIES_CHANSEY,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_HEALER,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -99,7 +99,7 @@ BEGIN_TEST
             .species = SPECIES_LAPRAS,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_SHELL_ARMOR,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,

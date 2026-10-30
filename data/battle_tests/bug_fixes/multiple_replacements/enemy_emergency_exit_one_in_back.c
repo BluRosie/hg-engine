@@ -1,4 +1,4 @@
-// Test: Multiple replacements - both opposing replacements are Emergency Exit mons that drop below half from Stealth Rock, but only one mon is left: only the faster one switches out
+// Test: Multiple replacements - send out 2 EE's but only one replacement in the back
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -20,12 +20,12 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_SKARMORY,
-            .level = 50,
+            .species = SPECIES_CHARMANDER,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_KEEN_EYE,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
-            .moves = { MOVE_STEALTH_ROCK, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -35,7 +35,7 @@ BEGIN_TEST
             .species = SPECIES_LITTEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -50,9 +50,9 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_CHIKORITA,
-            .level = 1,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -62,9 +62,9 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_TREECKO,
-            .level = 1,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -100,7 +100,7 @@ BEGIN_TEST
             .species = SPECIES_CHANSEY,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_HEALER,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -157,9 +157,17 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Marshtomp used Earthquake!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Skarmory used Stealth Rock!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Treecko fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chikorita fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Golisopod!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Golisopod!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Litten!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Golisopod!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod’s EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Golisopod!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Golisopod’s EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into the opposing Chansey!" },
     }
 }
 END_TEST

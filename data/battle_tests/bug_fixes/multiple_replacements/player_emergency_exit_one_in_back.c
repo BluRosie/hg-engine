@@ -1,4 +1,4 @@
-// Test: Multiple replacements - both player replacements are Emergency Exit mons that drop below half from Stealth Rock, but only one mon is left: only the faster one switches out
+// Test: Multiple replacements - player sends out 2 EE's but only one replacement in the back
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -9,9 +9,9 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_CHARMANDER,
-            .level = 1,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -21,9 +21,9 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_CYNDAQUIL,
-            .level = 1,
+            .level = 8,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -59,7 +59,7 @@ BEGIN_TEST
             .species = SPECIES_LITTEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_BLAZE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -83,12 +83,12 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_SKARMORY,
-            .level = 50,
+            .species = SPECIES_CHIKORITA,
+            .level = 5,
             .form = 0,
-            .ability = ABILITY_KEEN_EYE,
+            .ability = ABILITY_OVERGROW,
             .item = ITEM_NONE,
-            .moves = { MOVE_STEALTH_ROCK, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -98,7 +98,7 @@ BEGIN_TEST
             .species = SPECIES_CHANSEY,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_RUN_AWAY,
+            .ability = ABILITY_HEALER,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
