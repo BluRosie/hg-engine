@@ -4774,6 +4774,12 @@ BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct 
 }
 
 
+BOOL LONG_CALL SideSharesParty(struct BattleSystem *bsys)
+{
+    u32 battleType = BattleTypeGet(bsys);
+    return (battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG));
+}
+
 /**
  *  @brief CanSwitchMon: TRUE if battler has a mon left in its party it can switch to.
  *         same as vanilla, except in a normal double battle a pending switch of the partner still takes one of the

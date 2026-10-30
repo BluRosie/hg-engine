@@ -6079,12 +6079,6 @@ BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx)
 }
 
 
-BOOL SideSharesParty(struct BattleSystem *bsys)
-{
-    u32 battleType = BattleTypeGet(bsys);
-    return (battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG));
-}
-
 BOOL IsReplacementAutoSelected(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battler UNUSED)
 {
 #ifdef DEBUG_BATTLE_SCENARIOS
