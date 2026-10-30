@@ -108750,129 +108750,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ZYGARDE_10_COMPLETE": {
-    "LevelMoves": [
-      {
-        "Level": 1,
-        "Move": "MOVE_BITE"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_DRAGON_BREATH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_BULLDOZE"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_THOUSAND_ARROWS"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_THOUSAND_WAVES"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_LANDS_WRATH"
-      },
-      {
-        "Level": 1,
-        "Move": "MOVE_CORE_ENFORCER"
-      },
-      {
-        "Level": 8,
-        "Move": "MOVE_HAZE"
-      },
-      {
-        "Level": 16,
-        "Move": "MOVE_DIG"
-      },
-      {
-        "Level": 24,
-        "Move": "MOVE_SAFEGUARD"
-      },
-      {
-        "Level": 32,
-        "Move": "MOVE_CRUNCH"
-      },
-      {
-        "Level": 40,
-        "Move": "MOVE_DRAGON_PULSE"
-      },
-      {
-        "Level": 44,
-        "Move": "MOVE_BREAKING_SWIPE"
-      },
-      {
-        "Level": 56,
-        "Move": "MOVE_GLARE"
-      },
-      {
-        "Level": 60,
-        "Move": "MOVE_SLUDGE_WAVE"
-      },
-      {
-        "Level": 70,
-        "Move": "MOVE_EXTREME_SPEED"
-      },
-      {
-        "Level": 80,
-        "Move": "MOVE_EARTHQUAKE"
-      },
-      {
-        "Level": 88,
-        "Move": "MOVE_OUTRAGE"
-      }
-    ],
-    "MachineMoves": [
-      "MOVE_BODY_SLAM",
-      "MOVE_BITE",
-      "MOVE_HYPER_BEAM",
-      "MOVE_EARTHQUAKE",
-      "MOVE_FISSURE",
-      "MOVE_DIG",
-      "MOVE_HAZE",
-      "MOVE_SWIFT",
-      "MOVE_GLARE",
-      "MOVE_ROCK_SLIDE",
-      "MOVE_TRI_ATTACK",
-      "MOVE_SUBSTITUTE",
-      "MOVE_PROTECT",
-      "MOVE_OUTRAGE",
-      "MOVE_ENDURE",
-      "MOVE_SAFEGUARD",
-      "MOVE_DRAGON_BREATH",
-      "MOVE_CRUNCH",
-      "MOVE_EXTREME_SPEED",
-      "MOVE_FACADE",
-      "MOVE_BRICK_BREAK",
-      "MOVE_HYPER_VOICE",
-      "MOVE_POISON_FANG",
-      "MOVE_DRAGON_PULSE",
-      "MOVE_FOCUS_BLAST",
-      "MOVE_EARTH_POWER",
-      "MOVE_GIGA_IMPACT",
-      "MOVE_ZEN_HEADBUTT",
-      "MOVE_DRACO_METEOR",
-      "MOVE_IRON_HEAD",
-      "MOVE_MAGNET_BOMB",
-      "MOVE_STONE_EDGE",
-      "MOVE_SLUDGE_WAVE",
-      "MOVE_BULLDOZE",
-      "MOVE_THOUSAND_ARROWS",
-      "MOVE_THOUSAND_WAVES",
-      "MOVE_LANDS_WRATH",
-      "MOVE_CORE_ENFORCER",
-      "MOVE_PSYCHIC_FANGS",
-      "MOVE_BREAKING_SWIPE",
-      "MOVE_SCALE_SHOT",
-      "MOVE_SCORCHING_SANDS"
-    ],
-    "EggMoves": [],
-    "TutorMoves": []
-  },
-  "SPECIES_ZYGARDE_50_COMPLETE": {
+  "SPECIES_ZYGARDE_COMPLETE": {
     "LevelMoves": [
       {
         "Level": 1,
@@ -129937,7 +129815,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ALCREMIE_BERRY_SWEET": {
+  "SPECIES_ALCREMIE_RUBY_CREAM": {
     "LevelMoves": [
       {
         "Level": 0,
@@ -130044,7 +129922,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ALCREMIE_LOVE_SWEET": {
+  "SPECIES_ALCREMIE_MATCHA_CREAM": {
     "LevelMoves": [
       {
         "Level": 0,
@@ -130151,7 +130029,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ALCREMIE_STAR_SWEET": {
+  "SPECIES_ALCREMIE_MINT_CREAM": {
     "LevelMoves": [
       {
         "Level": 0,
@@ -130258,7 +130136,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ALCREMIE_CLOVER_SWEET": {
+  "SPECIES_ALCREMIE_LEMON_CREAM": {
     "LevelMoves": [
       {
         "Level": 0,
@@ -130365,7 +130243,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ALCREMIE_FLOWER_SWEET": {
+  "SPECIES_ALCREMIE_SALTED_CREAM": {
     "LevelMoves": [
       {
         "Level": 0,
@@ -130472,7 +130350,7 @@
     "EggMoves": [],
     "TutorMoves": []
   },
-  "SPECIES_ALCREMIE_RIBBON_SWEET": {
+  "SPECIES_ALCREMIE_RUBY_SWIRL": {
     "LevelMoves": [
       {
         "Level": 0,
