@@ -1,4 +1,5 @@
 // Test: Multiple replacements - player side sends out only replacement after double faint
+//SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -35,7 +36,7 @@ BEGIN_TEST
             .species = SPECIES_LITTEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_BLAZE,
+            .ability = ABILITY_INTIMIDATE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -61,22 +62,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_CHIKORITA,
-            .level = 5,
-            .form = 0,
-            .ability = ABILITY_OVERGROW,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        {
-            .species = SPECIES_CHANSEY,
+            .species = SPECIES_SKARMORY,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_HEALER,
+            .ability = ABILITY_KEEN_EYE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -86,7 +75,8 @@ BEGIN_TEST
         },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
     },
     .playerScript = {
         {

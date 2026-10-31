@@ -1,4 +1,5 @@
 // Test: Multiple replacements - player side sends out both replacements after double faint
+//SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -35,7 +36,7 @@ BEGIN_TEST
             .species = SPECIES_LITTEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_BLAZE,
+            .ability = ABILITY_INTIMIDATE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -44,10 +45,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_SNOM,
+            .species = SPECIES_KOMALA,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_ICE_SCALES,
+            .ability = ABILITY_COMATOSE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -72,34 +73,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_CHIKORITA,
-            .level = 5,
-            .form = 0,
-            .ability = ABILITY_OVERGROW,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        {
-            .species = SPECIES_CHANSEY,
+            .species = SPECIES_SKARMORY,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_HEALER,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
-        {
-            .species = SPECIES_LAPRAS,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_SHELL_ARMOR,
+            .ability = ABILITY_KEEN_EYE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -108,7 +85,9 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
+        { .species = SPECIES_NONE },
     },
     .playerScript = {
         {

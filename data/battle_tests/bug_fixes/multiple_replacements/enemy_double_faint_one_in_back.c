@@ -20,10 +20,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_CHARMANDER,
-            .level = 5,
+            .species = SPECIES_SKARMORY,
+            .level = 50,
             .form = 0,
-            .ability = ABILITY_BLAZE,
+            .ability = ABILITY_KEEN_EYE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -35,7 +35,7 @@ BEGIN_TEST
             .species = SPECIES_LITTEN,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_BLAZE,
+            .ability = ABILITY_INTIMIDATE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -73,10 +73,10 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_CHANSEY,
+            .species = SPECIES_KOMALA,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_HEALER,
+            .ability = ABILITY_COMATOSE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
@@ -134,11 +134,10 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Marshtomp used Earthquake!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Treecko fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Chikorita fainted!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Chansey!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Litten" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Komala!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Komala's Comatose" },
     }
 }
 END_TEST
