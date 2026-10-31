@@ -1,5 +1,5 @@
 // Test: Multiple replacements - player side sends out only replacement after double faint
-//SKIP
+// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

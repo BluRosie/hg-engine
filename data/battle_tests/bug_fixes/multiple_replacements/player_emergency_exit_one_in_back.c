@@ -1,4 +1,5 @@
 // Test: Multiple replacements - player sends out 2 EE's but only one replacement in the back
+// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

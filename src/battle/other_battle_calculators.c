@@ -4780,15 +4780,7 @@ BOOL LONG_CALL SideSharesParty(struct BattleSystem *bsys)
     return (battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG));
 }
 
-/**
- *  @brief like CanSwitchMon, but in a normal double battle a pending switch of the partner still takes one of the free mons,
- *         so two are needed then (e.g. both replacements get Emergency Exit from hazards with one mon left)
- *
- *  @param bsys battle work structure
- *  @param ctx global battle structure
- *  @param battlerId battler that wants to switch
- *  @return TRUE if battler has a mon left in its party it can switch to
- */
+
 BOOL LONG_CALL CanSwitchMonConsideringPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId)
 {
     int partner = BattleWorkPartnerClientNoGet(bsys, battlerId);

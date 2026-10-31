@@ -6080,23 +6080,29 @@ BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx)
 }
 
 
-BOOL IsReplacementAutoSelected(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battler UNUSED)
+int GetAutoSelectedReplacement(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battler UNUSED)
 {
 #ifdef DEBUG_BATTLE_SCENARIOS
-    return TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler);
-#else
-    return FALSE;
+    if (TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
+        return TestBattle_FindNextLivePartySlot(bsys, ctx, battler);
+    }
 #endif
+    return 6;
 }
 
-static BOOL IsWaitingForLeftSlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+BOOL IsReplacementAutoSelected(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
 {
-    int leftSlot = BATTLER_ALLY(battler);
+    return GetAutoSelectedReplacement(bsys, ctx, battler) != 6;
+}
+
+BOOL IsWaitingForOtherSlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    int otherSlot = BATTLER_ALLY(battler);
     return (battler & 2) && SideSharesParty(bsys)
-        && (ctx->client_status[leftSlot] & 1)
-        && !IsReplacementAutoSelected(bsys, ctx, leftSlot)
+        && (ctx->client_status[otherSlot] & 1)
+        && !IsReplacementAutoSelected(bsys, ctx, otherSlot)
         && !IsReplacementAutoSelected(bsys, ctx, battler)
-        && !(ctx->server_status_flag2 & (MaskOfFlagNo(leftSlot) << BATTLE_STATUS_FAINTED_SHIFT));
+        && !(ctx->server_status_flag2 & (MaskOfFlagNo(otherSlot) << BATTLE_STATUS_FAINTED_SHIFT));
 }
 
 BOOL LONG_CALL BtlCmd_ShowParty(struct BattleSystem *bsys, struct BattleStruct *ctx)
@@ -6106,20 +6112,17 @@ BOOL LONG_CALL BtlCmd_ShowParty(struct BattleSystem *bsys, struct BattleStruct *
 
     IncrementBattleScriptPtr(ctx, 1);
 
-    // a replacement is picked fresh. the AI party menu task uses the planned hard switch slot first,
-    // and an old one (e.g. the mon it hard switched to earlier, now fainted) would send out a mon twice
     for (int battler = 0; battler < maxBattlers; battler++) {
-        if (ctx->client_status[battler] & 1) {
-            ctx->ai_reshuffle_sel_mons_no[battler] = 6;
+        if (!(ctx->client_status[battler] & 1)) {
+            continue;
         }
-    }
-
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        if (ctx->client_status[battler] & 1) {
-            promptedBattlers |= MaskOfFlagNo(battler);
-            if (!IsReplacementAutoSelected(bsys, ctx, battler) && !IsWaitingForLeftSlot(bsys, ctx, battler)) {
-                BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
-            }
+        if (!promptedBattlers) {
+            ctx->reshuffle_client = battler; // first battler that switches
+        }
+        promptedBattlers |= MaskOfFlagNo(battler);
+        ctx->ai_reshuffle_sel_mons_no[battler] = 6; // reset ai
+        if (!IsReplacementAutoSelected(bsys, ctx, battler) && !IsWaitingForOtherSlot(bsys, ctx, battler)) {
+            BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
         }
     }
 
@@ -6135,61 +6138,46 @@ BOOL LONG_CALL BtlCmd_ShowParty(struct BattleSystem *bsys, struct BattleStruct *
         }
     }
 
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        if (ctx->client_status[battler] & 1) {
-            ctx->reshuffle_client = battler;
-            break;
-        }
-    }
-
     return FALSE;
 }
 
 BOOL LONG_CALL BtlCmd_WaitMonSelection(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     int maxBattlers = BattleWorkClientSetMaxGet(bsys);
-    int switchCnt = 0;
+    int pending = 0; // battlers that switch
+    int chosen = 0; // already picked
     int autoSelected = 0;
-    int askedThisFrame = 0;
-
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        if (ctx->client_status[battler] & 1) {
-            switchCnt++;
-        }
-    }
+    int askedThisTime = 0;
 
     for (int battler = 0; battler < maxBattlers; battler++) {
         if (!(ctx->client_status[battler] & 1)) {
             continue;
         }
+        pending |= MaskOfFlagNo(battler);
 
-        if (IsReplacementAutoSelected(bsys, ctx, battler)) {
-#ifdef DEBUG_BATTLE_SCENARIOS
-            ctx->reshuffle_sel_mons_no[battler] = TestBattle_FindNextLivePartySlot(bsys, ctx, battler);
-#endif
+        int autoSlot = GetAutoSelectedReplacement(bsys, ctx, battler);
+        if (autoSlot != 6) {
+            ctx->reshuffle_sel_mons_no[battler] = autoSlot;
             autoSelected |= MaskOfFlagNo(battler);
-            switchCnt--;
+            chosen |= MaskOfFlagNo(battler);
             continue;
         }
 
-        // not asked yet (or only asked this frame), so its buffer still holds older data
-        if (IsWaitingForLeftSlot(bsys, ctx, battler) || (askedThisFrame & MaskOfFlagNo(battler))) {
+        if (IsWaitingForOtherSlot(bsys, ctx, battler) || (askedThisTime & MaskOfFlagNo(battler))) {
             continue;
         }
 
         if (BattleBuffer_GetNext(ctx, battler)) {
             ctx->reshuffle_sel_mons_no[battler] = ctx->server_buffer[battler][0] - 1;
-            switchCnt--;
+            chosen |= MaskOfFlagNo(battler);
             if (!(ctx->server_status_flag2 & (MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT))) {
                 ctx->server_status_flag2 |= MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT;
                 int rightSlot = BATTLER_ALLY(battler);
                 if (!(battler & 2) && SideSharesParty(bsys) && (ctx->client_status[rightSlot] & 1)
                     && !IsReplacementAutoSelected(bsys, ctx, rightSlot)) {
-                    // left slot picked: ask the right slot now, without the mon that was just picked.
-                    // the AI's post KO switch in leaves out its partner's ai_reshuffle_sel_mons_no, so put the pick there too
                     ctx->ai_reshuffle_sel_mons_no[battler] = ctx->reshuffle_sel_mons_no[battler];
                     BattleController_EmitShowMonList(bsys, ctx, rightSlot, 1, 0, ctx->reshuffle_sel_mons_no[battler]);
-                    askedThisFrame |= MaskOfFlagNo(rightSlot);
+                    askedThisTime |= MaskOfFlagNo(rightSlot);
                 } else {
                     BattleController_EmitShowWaitMessage(bsys, battler);
                 }
@@ -6197,9 +6185,9 @@ BOOL LONG_CALL BtlCmd_WaitMonSelection(struct BattleSystem *bsys, struct BattleS
         }
     }
 
-    if (switchCnt == 0) {
+    if (chosen == pending) {
         for (int battler = 0; battler < maxBattlers; battler++) {
-            if (!(ctx->client_status[battler] & 1)) {
+            if (!(pending & MaskOfFlagNo(battler))) {
                 continue;
             }
             if (autoSelected & MaskOfFlagNo(battler)) {
