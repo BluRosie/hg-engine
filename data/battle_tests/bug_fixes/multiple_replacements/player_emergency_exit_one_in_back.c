@@ -1,5 +1,4 @@
 // Test: Multiple replacements - player sends out 2 EE's but only one replacement in the back
-// SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -136,7 +135,7 @@ BEGIN_TEST
     .enemyScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -157,9 +156,16 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Marshtomp used Earthquake!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Cyndaquil fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Skarmory used Stealth Rock!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Golisopod!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Go! Golisopod!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Golisopod" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Golisopod" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into Golisopod!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod’s EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into Golisopod!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Litten" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into Litten!" },
     }
 }
 END_TEST

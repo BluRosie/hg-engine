@@ -103,7 +103,7 @@ BEGIN_TEST
     .enemyScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -123,7 +123,11 @@ BEGIN_TEST
         }
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "used Earthquake!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Marshtomp used Earthquake!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Cyndaquil fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Litten" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten’s Intimidate" },
     }
 }
 END_TEST

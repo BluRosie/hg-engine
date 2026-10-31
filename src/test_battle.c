@@ -691,6 +691,21 @@ BOOL LONG_CALL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, st
         && TestBattle_FindNextLivePartySlot(bsys, ctx, battler) != 6;
 }
 
+BOOL LONG_CALL TestBattle_WouldOpenSelectionMenu(struct BattleStruct *ctx, int battler, const struct BattleAction *script)
+{
+    int scriptIndex = GetScriptIndex(battler);
+
+    if (scriptIndex < AI_SCRIPT_MAX_MOVES && script[scriptIndex].action != ACTION_NONE) {
+        return FALSE;
+    }
+
+    if ((ctx->no_reshuffle_client & No2Bit(battler)) || ctx->battlemon[battler].hp == 0) {
+        return FALSE;
+    }
+
+    return !(ctx->battlemon[battler].condition2 & (STATUS2_RECHARGE | STATUS2_RAMPAGE | STATUS2_UPROAR | STATUS2_LOCKED_INTO_MOVE));
+}
+
 /**
  * @brief Auto-select moves/switches for player battlers in test scenarios
  *
@@ -733,6 +748,13 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
     }
 
     TestBattle_CheckScriptCompletion();
+
+    // idle mon would wait for player input
+    if (TestBattle_WouldOpenSelectionMenu(ctx, 0, sCurrentScenario->playerScript[0])
+        || ((BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLES) && TestBattle_WouldOpenSelectionMenu(ctx, 2, sCurrentScenario->playerScript[1]))) {
+        SetTestComplete(TRUE);
+        return;
+    }
 
     const struct BattleAction *script0 = sCurrentScenario->playerScript[0];
     int scriptIndex0 = GetScriptIndex(0);

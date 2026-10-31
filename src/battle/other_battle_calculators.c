@@ -4773,13 +4773,11 @@ BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct 
     return CheckStatusRecoverFromAbilityOnSwitch(ctx, ability, status);
 }
 
-
 BOOL LONG_CALL SideSharesParty(struct BattleSystem *bsys)
 {
     u32 battleType = BattleTypeGet(bsys);
     return (battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG));
 }
-
 
 BOOL LONG_CALL CanSwitchMonConsideringPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId)
 {
@@ -4803,4 +4801,3 @@ BOOL LONG_CALL CanSwitchMonConsideringPendingSwitches(struct BattleSystem *bsys,
 
     return freeMons >= 2;
 }
-
