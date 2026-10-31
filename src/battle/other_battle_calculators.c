@@ -4772,3 +4772,32 @@ BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct 
 
     return CheckStatusRecoverFromAbilityOnSwitch(ctx, ability, status);
 }
+
+BOOL LONG_CALL SideSharesParty(struct BattleSystem *bsys)
+{
+    u32 battleType = BattleTypeGet(bsys);
+    return (battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG));
+}
+
+BOOL LONG_CALL CanSwitchMonConsideringPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId)
+{
+    int partner = BattleWorkPartnerClientNoGet(bsys, battlerId);
+
+    if (!SideSharesParty(bsys) || !(ctx->client_status[partner] & 1)) {
+        return CanSwitchMon(bsys, ctx, battlerId);
+    }
+
+    struct Party *party = BattleWorkPokePartyGet(bsys, battlerId);
+    int partySize = Battle_GetClientPartySize(bsys, battlerId);
+    int freeMons = 0;
+
+    for (int i = 0; i < partySize; i++) {
+        struct PartyPokemon *mon = Party_GetMonByIndex(party, i);
+        if (GetMonData(mon, MON_DATA_SPECIES, NULL) && !GetMonData(mon, MON_DATA_IS_EGG, NULL) && GetMonData(mon, MON_DATA_HP, NULL)
+            && i != ctx->sel_mons_no[battlerId] && i != ctx->sel_mons_no[partner]) {
+            freeMons++;
+        }
+    }
+
+    return freeMons >= 2;
+}

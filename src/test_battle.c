@@ -654,7 +654,7 @@ static BOOL TestBattle_IsPartySlotAlreadyActive(struct BattleSystem *bsys, struc
     return FALSE;
 }
 
-static int TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+int LONG_CALL TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
 {
     int partyCount = BattleWorkPokeCountGet(bsys, battler);
 
@@ -683,7 +683,7 @@ static int TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct Ba
     return 6;
 }
 
-static BOOL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+BOOL LONG_CALL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
 {
     return sCurrentScenario != NULL
         //&& (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) // do it for all
@@ -691,96 +691,19 @@ static BOOL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, struc
         && TestBattle_FindNextLivePartySlot(bsys, ctx, battler) != 6;
 }
 
-BOOL LONG_CALL TestBattle_ShowParty(struct BattleSystem *bsys, struct BattleStruct *ctx)
+BOOL LONG_CALL TestBattle_WouldOpenSelectionMenu(struct BattleStruct *ctx, int battler, const struct BattleAction *script)
 {
-    int promptedBattlers = 0;
-    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    int scriptIndex = GetScriptIndex(battler);
 
-    IncrementBattleScriptPtr(ctx, 1);
-
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        if (ctx->client_status[battler] & 1) {
-            promptedBattlers |= MaskOfFlagNo(battler);
-            if (!TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
-                BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
-            }
-        }
+    if (scriptIndex < AI_SCRIPT_MAX_MOVES && script[scriptIndex].action != ACTION_NONE) {
+        return FALSE;
     }
 
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        if (BattleTypeGet(bsys) == (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_LINK)) {
-            int partner = BattleWorkPartnerClientNoGet(bsys, battler);
-            if (!(promptedBattlers & MaskOfFlagNo(battler)) && !(promptedBattlers & MaskOfFlagNo(partner))) {
-                promptedBattlers |= MaskOfFlagNo(battler);
-                BattleController_EmitShowWaitMessage(bsys, battler);
-            }
-        } else if (!(promptedBattlers & MaskOfFlagNo(battler))) {
-            BattleController_EmitShowWaitMessage(bsys, battler);
-        }
+    if ((ctx->no_reshuffle_client & No2Bit(battler)) || ctx->battlemon[battler].hp == 0) {
+        return FALSE;
     }
 
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        if (ctx->client_status[battler] & 1) {
-            ctx->reshuffle_client = battler;
-            break;
-        }
-    }
-
-    return FALSE;
-}
-
-BOOL LONG_CALL TestBattle_WaitMonSelection(struct BattleSystem *bsys, struct BattleStruct *ctx)
-{
-    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
-    int switchCnt = 0;
-    u8 autoSelected[CLIENT_MAX] = { 0 };
-
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        if (ctx->client_status[battler] & 1) {
-            switchCnt++;
-        }
-    }
-
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        if (!(ctx->client_status[battler] & 1)) {
-            continue;
-        }
-
-        int selectedSlot = TestBattle_FindNextLivePartySlot(bsys, ctx, battler);
-        if (TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
-            ctx->reshuffle_sel_mons_no[battler] = selectedSlot;
-            autoSelected[battler] = TRUE;
-            switchCnt--;
-            continue;
-        }
-
-        if (BattleBuffer_GetNext(ctx, battler)) {
-            ctx->reshuffle_sel_mons_no[battler] = ctx->server_buffer[battler][0] - 1;
-            switchCnt--;
-            if (!(ctx->server_status_flag2 & (MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT))) {
-                ctx->server_status_flag2 |= MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT;
-                BattleController_EmitShowWaitMessage(bsys, battler);
-            }
-        }
-    }
-
-    if (switchCnt == 0) {
-        for (int battler = 0; battler < maxBattlers; battler++) {
-            if (ctx->client_status[battler] & 1) {
-                if (autoSelected[battler]) {
-                    ov12_0223BDDC(bsys, battler, ctx->reshuffle_sel_mons_no[battler] + 1);
-                } else if (BattleBuffer_GetNext(ctx, battler)) {
-                    ov12_0223BDDC(bsys, battler, ctx->server_buffer[battler][0]);
-                }
-            }
-        }
-        ctx->server_status_flag2 &= 0xf0ffffff;
-        IncrementBattleScriptPtr(ctx, 1);
-    }
-
-    ctx->battle_progress_flag = 1;
-
-    return FALSE;
+    return !(ctx->battlemon[battler].condition2 & (STATUS2_RECHARGE | STATUS2_RAMPAGE | STATUS2_UPROAR | STATUS2_LOCKED_INTO_MOVE));
 }
 
 /**
@@ -825,6 +748,13 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
     }
 
     TestBattle_CheckScriptCompletion();
+
+    // idle mon would wait for player input
+    if (TestBattle_WouldOpenSelectionMenu(ctx, 0, sCurrentScenario->playerScript[0])
+        || ((BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLES) && TestBattle_WouldOpenSelectionMenu(ctx, 2, sCurrentScenario->playerScript[1]))) {
+        SetTestComplete(TRUE);
+        return;
+    }
 
     const struct BattleAction *script0 = sCurrentScenario->playerScript[0];
     int scriptIndex0 = GetScriptIndex(0);

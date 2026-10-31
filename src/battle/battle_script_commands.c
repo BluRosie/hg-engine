@@ -5993,7 +5993,8 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
         && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
         // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
         && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)
-        && CanSwitchMon(bsys, ctx, client_no)) {
+        // the partner may already be waiting for the last mon in the back
+        && CanSwitchMonConsideringPendingSwitches(bsys, ctx, client_no)) {
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;
         ctx->battlerIdTemp = client_no;
@@ -6074,6 +6075,132 @@ BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx)
     if (script == 0) {
         IncrementBattleScriptPtr(ctx, failAddress);
     }
+
+    return FALSE;
+}
+
+int GetAutoSelectedReplacement(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx UNUSED, int battler UNUSED)
+{
+#ifdef DEBUG_BATTLE_SCENARIOS
+    if (TestBattle_ShouldAutoSelectKOSwitch(bsys, ctx, battler)) {
+        return TestBattle_FindNextLivePartySlot(bsys, ctx, battler);
+    }
+#endif
+    return 6;
+}
+
+BOOL IsReplacementAutoSelected(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    return GetAutoSelectedReplacement(bsys, ctx, battler) != 6;
+}
+
+BOOL IsWaitingForOtherSlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    int otherSlot = BATTLER_ALLY(battler);
+    return (battler & 2) && SideSharesParty(bsys)
+        && (ctx->client_status[otherSlot] & 1)
+        && !IsReplacementAutoSelected(bsys, ctx, otherSlot)
+        && !IsReplacementAutoSelected(bsys, ctx, battler)
+        && !(ctx->server_status_flag2 & (MaskOfFlagNo(otherSlot) << BATTLE_STATUS_FAINTED_SHIFT));
+}
+
+BOOL LONG_CALL BtlCmd_ShowParty(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int promptedBattlers = 0;
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    IncrementBattleScriptPtr(ctx, 1);
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (!(ctx->client_status[battler] & 1)) {
+            continue;
+        }
+        if (!promptedBattlers) {
+            ctx->reshuffle_client = battler; // first battler that switches
+        }
+        promptedBattlers |= MaskOfFlagNo(battler);
+        ctx->ai_reshuffle_sel_mons_no[battler] = 6; // reset ai
+        if (!IsReplacementAutoSelected(bsys, ctx, battler) && !IsWaitingForOtherSlot(bsys, ctx, battler)) {
+            BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (BattleTypeGet(bsys) == (BATTLE_TYPE_TRAINER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_LINK)) {
+            int partner = BattleWorkPartnerClientNoGet(bsys, battler);
+            if (!(promptedBattlers & MaskOfFlagNo(battler)) && !(promptedBattlers & MaskOfFlagNo(partner))) {
+                promptedBattlers |= MaskOfFlagNo(battler);
+                BattleController_EmitShowWaitMessage(bsys, battler);
+            }
+        } else if (!(promptedBattlers & MaskOfFlagNo(battler))) {
+            BattleController_EmitShowWaitMessage(bsys, battler);
+        }
+    }
+
+    return FALSE;
+}
+
+BOOL LONG_CALL BtlCmd_WaitMonSelection(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    int pending = 0; // battlers that switch
+    int chosen = 0; // already picked
+    int autoSelected = 0;
+    int askedThisTime = 0;
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        if (!(ctx->client_status[battler] & 1)) {
+            continue;
+        }
+        pending |= MaskOfFlagNo(battler);
+
+        int autoSlot = GetAutoSelectedReplacement(bsys, ctx, battler);
+        if (autoSlot != 6) {
+            ctx->reshuffle_sel_mons_no[battler] = autoSlot;
+            autoSelected |= MaskOfFlagNo(battler);
+            chosen |= MaskOfFlagNo(battler);
+            continue;
+        }
+
+        if (IsWaitingForOtherSlot(bsys, ctx, battler) || (askedThisTime & MaskOfFlagNo(battler))) {
+            continue;
+        }
+
+        if (BattleBuffer_GetNext(ctx, battler)) {
+            ctx->reshuffle_sel_mons_no[battler] = ctx->server_buffer[battler][0] - 1;
+            chosen |= MaskOfFlagNo(battler);
+            if (!(ctx->server_status_flag2 & (MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT))) {
+                ctx->server_status_flag2 |= MaskOfFlagNo(battler) << BATTLE_STATUS_FAINTED_SHIFT;
+                int rightSlot = BATTLER_ALLY(battler);
+                if (!(battler & 2) && SideSharesParty(bsys) && (ctx->client_status[rightSlot] & 1)
+                    && !IsReplacementAutoSelected(bsys, ctx, rightSlot)) {
+                    ctx->ai_reshuffle_sel_mons_no[battler] = ctx->reshuffle_sel_mons_no[battler];
+                    BattleController_EmitShowMonList(bsys, ctx, rightSlot, 1, 0, ctx->reshuffle_sel_mons_no[battler]);
+                    askedThisTime |= MaskOfFlagNo(rightSlot);
+                } else {
+                    BattleController_EmitShowWaitMessage(bsys, battler);
+                }
+            }
+        }
+    }
+
+    if (chosen == pending) {
+        for (int battler = 0; battler < maxBattlers; battler++) {
+            if (!(pending & MaskOfFlagNo(battler))) {
+                continue;
+            }
+            if (autoSelected & MaskOfFlagNo(battler)) {
+                ov12_0223BDDC(bsys, battler, ctx->reshuffle_sel_mons_no[battler] + 1);
+            } else if (BattleBuffer_GetNext(ctx, battler)) {
+                ov12_0223BDDC(bsys, battler, ctx->server_buffer[battler][0]);
+                ctx->ai_reshuffle_sel_mons_no[battler] = 6;
+            }
+        }
+        ctx->server_status_flag2 &= 0xf0ffffff;
+        IncrementBattleScriptPtr(ctx, 1);
+    }
+
+    ctx->battle_progress_flag = 1;
 
     return FALSE;
 }
