@@ -162,7 +162,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Golisopod" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Golisopod" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into Golisopod!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod’s EmergencyExit" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Golisopod's EmergencyExit" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into Golisopod!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Litten" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pointed stones dug into Litten!" },

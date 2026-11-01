@@ -127,7 +127,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Cyndaquil fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Charmander fainted!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Litten" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten’s Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Litten's Intimidate" },
     }
 }
 END_TEST
