@@ -2460,6 +2460,16 @@ BOOL LONG_CALL IsDanceMove(u32 moveIndex)
     return FALSE;
 }
 
+BOOL LONG_CALL IsTriageBoostedMove(u32 moveIndex)
+{
+    for (u16 i = 0; i < NELEMS(TriageMovesList); i++) {
+        if (moveIndex == TriageMovesList[i]) {
+            return TRUE;
+        }
+    }
+    return FALSE;
+}
+
 /**
  * @brief gets the actual attack and defense for damage calculation
  * @param sp battle structure
@@ -4660,96 +4670,9 @@ BOOL LONG_CALL IsBattlerOnField(struct BattleStruct *ctx, int battlerId)
     return TRUE;
 }
 
-BOOL LONG_CALL AnyPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx)
-{
-    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
-    for (int i = 0; i < maxBattlers; ++i) {
-        if (ctx->client_status[i] & 1) {
-            return TRUE;
-        }
-    }
-    return FALSE;
-}
-
 BOOL LONG_CALL BattlerFirstTurnOut(struct BattleStruct *ctx, int battlerId)
 {
     return ctx->moveConditionsFlags[battlerId].firstTurnOut > 0;
-}
-
-int LONG_CALL CountReplacementMons(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, BOOL excludePartner)
-{
-    int count = 0;
-    int partySize = BattleWorkPokeCountGet(bsys, battlerId);
-
-    for (int i = 0; i < partySize; i++) {
-        struct PartyPokemon *mon = BattleWorkPokemonParamGet(bsys, battlerId, i);
-        int species = GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL);
-
-        if (species == SPECIES_NONE || species == SPECIES_EGG || GetMonData(mon, MON_DATA_HP, NULL) == 0) {
-            continue;
-        }
-        if (excludePartner && ctx->sel_mons_no[BATTLER_ALLY(battlerId)] == i) {
-            continue;
-        }
-        count++;
-    }
-
-    return count;
-}
-
-BOOL LONG_CALL EndTurn_CheckIfReplacementsCanBeSendOut(struct BattleSystem *bsys, struct BattleStruct *ctx)
-{
-    BOOL ret = FALSE;
-    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
-    u32 battleType = BattleTypeGet(bsys);
-    int battlerId;
-
-    for (battlerId = 0; battlerId < maxBattlers; battlerId++) {
-        ctx->client_status[battlerId] &= ~1;
-    }
-
-    for (battlerId = 0; battlerId < maxBattlers; battlerId++) {
-        if (ctx->battlemon[battlerId].hp != 0) {
-            continue;
-        }
-
-        int available;
-        if (((battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG)))
-            || ((battleType & BATTLE_TYPE_TAG) && IsClientEnemy(bsys, battlerId) == 0)) {
-            available = CountReplacementMons(bsys, ctx, battlerId, TRUE);
-            if ((battlerId & 2) && (ctx->client_status[BATTLER_ALLY(battlerId)] & 1)) {
-                available--;
-            }
-        } else {
-            available = CountReplacementMons(bsys, ctx, battlerId, FALSE);
-        }
-
-        if (available <= 0) {
-            ctx->no_reshuffle_client |= No2Bit(battlerId);
-            ctx->sel_mons_no[battlerId] = 6;
-        } else {
-            ctx->client_status[battlerId] |= 1;
-            ret = TRUE;
-        }
-    }
-
-    if (ret) {
-        ctx->next_server_seq_no = ctx->server_seq_no;
-        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-
-        // replace with asking player to switch in shift mode
-        if (!(battleType & (BATTLE_TYPE_FRONTIER | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_LINK))
-            && BattleSystem_GetBattleStyle(bsys) == 0
-            && (!(ctx->client_status[0] & 1) || !(ctx->client_status[1] & 1))
-            && CanSwitchMon(bsys, ctx, 0)) {
-            ctx->temp_work = (ctx->client_status[0] & 1) ? 0 : 1;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_REPLACE_FAINTED);
-        } else {
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SHOW_PARTY_LIST);
-        }
-    }
-
-    return ret;
 }
 
 BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct *ctx, int ability, int status)
@@ -4771,33 +4694,4 @@ BOOL LONG_CALL CheckStatusRecoverFromAbilityOnSwitchWrapper(struct BattleStruct 
     }
 
     return CheckStatusRecoverFromAbilityOnSwitch(ctx, ability, status);
-}
-
-BOOL LONG_CALL SideSharesParty(struct BattleSystem *bsys)
-{
-    u32 battleType = BattleTypeGet(bsys);
-    return (battleType & BATTLE_TYPE_DOUBLES) && !(battleType & (BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG));
-}
-
-BOOL LONG_CALL CanSwitchMonConsideringPendingSwitches(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId)
-{
-    int partner = BattleWorkPartnerClientNoGet(bsys, battlerId);
-
-    if (!SideSharesParty(bsys) || !(ctx->client_status[partner] & 1)) {
-        return CanSwitchMon(bsys, ctx, battlerId);
-    }
-
-    struct Party *party = BattleWorkPokePartyGet(bsys, battlerId);
-    int partySize = Battle_GetClientPartySize(bsys, battlerId);
-    int freeMons = 0;
-
-    for (int i = 0; i < partySize; i++) {
-        struct PartyPokemon *mon = Party_GetMonByIndex(party, i);
-        if (GetMonData(mon, MON_DATA_SPECIES, NULL) && !GetMonData(mon, MON_DATA_IS_EGG, NULL) && GetMonData(mon, MON_DATA_HP, NULL)
-            && i != ctx->sel_mons_no[battlerId] && i != ctx->sel_mons_no[partner]) {
-            freeMons++;
-        }
-    }
-
-    return freeMons >= 2;
 }
