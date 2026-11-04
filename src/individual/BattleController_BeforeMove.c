@@ -4313,7 +4313,18 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         break;
     }
     case MOVE_ENCORE: {
-        // TODO
+        // dirty hack: waza_no_sketch holds the last clicked move
+        struct BattlePokemon *target = &ctx->battlemon[ctx->defence_client];
+        u16 lastMove = ctx->waza_no_sketch[ctx->defence_client];
+        int movePos = BattleMon_GetMoveIndex(target, lastMove);
+
+        if (lastMove == MOVE_NONE
+            || !IsMoveEncored(ctx, lastMove)
+            || movePos == MAX_MON_MOVES
+            || target->pp[movePos] == 0
+            || target->moveeffect.encoredMove != MOVE_NONE) {
+            butItFailedFlag = TRUE;
+        }
         break;
     }
     case MOVE_SKETCH: {

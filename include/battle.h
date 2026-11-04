@@ -3365,6 +3365,7 @@ void LONG_CALL BattleControllerPlayer_RunInput(struct BattleSystem *bsys, struct
  *  @return move position (if the BattlePokemon has it), 4 if the move is not present
  */
 int LONG_CALL BattleMon_GetMoveIndex(struct BattlePokemon *mon, u16 move);
+BOOL LONG_CALL IsMoveEncored(struct BattleStruct *ctx, u16 moveNo);
 
 BOOL LONG_CALL CheckTruant(struct BattleStruct *ctx, int battlerId);
 
@@ -3397,6 +3398,26 @@ BOOL LONG_CALL RemoveType(struct BattleStruct *ctx, int battlerId, int type);
 
 void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx);
 void LONG_CALL ov12_0224D23C(struct BattleSystem *bsys, struct BattleStruct *ctx);
+void LONG_CALL BattleControllerPlayer_SelectionScreenInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL Battler_CanSelectAction(struct BattleStruct *ctx, int battlerId);
+u8 LONG_CALL ov12_02261264(struct CLIENT_PARAM *opponentData);
+void LONG_CALL BattleController_EmitSetCommandSelectionMenu(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int selectedMonIndex);
+void LONG_CALL BattleController_EmitStopGaugeAnimation(struct BattleSystem *bsys, int battlerId);
+void LONG_CALL BattleController_EmitShowMoveSelectMenu(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+void LONG_CALL ov12_0223BFFC(struct BattleSystem *bsys, int a1);
+void LONG_CALL BattleController_TryEmitExitRecording(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL ov12_0224DB64(struct BattleSystem *bsys, struct BattleStruct *ctx, u8 battlerId, u32 battleType, int *range, int movePos, u32 *side);
+void LONG_CALL BattleCommand_EmitShowTargetSelectMenu(struct BattleSystem *bsys, struct BattleStruct *ctx, int range, int battlerId);
+void LONG_CALL BattleController_EmitShowBagMenu(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+int LONG_CALL BattlerCanSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+int LONG_CALL ov12_0223AB0C(struct BattleSystem *bsys, int battlerId);
+void LONG_CALL BattleController_EmitShowYesNoMenu(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId, int msgId, int a4, int a5, int a6);
+void LONG_CALL BattleBuffer_Clear(struct BattleStruct *ctx, int battlerId);
+void LONG_CALL BattleController_EmitClearTouchScreen(struct BattleSystem *bsys, int battlerId);
+void LONG_CALL BattleController_EmitClearMessageBox(struct BattleSystem *bsys);
+void LONG_CALL BattleControllerPlayer_FightInput(struct BattleSystem *bsys, struct BattleStruct *ctx);
+void LONG_CALL ov12_0224E414(struct BattleSystem *bsys, struct BattleStruct *ctx);
+void LONG_CALL ov12_02237ED0(struct BattleSystem *bsys, int a1);
 void LONG_CALL ov12_02256694(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 u8 LONG_CALL ov12_02261258(struct CLIENT_PARAM *opponentData);

@@ -148,6 +148,7 @@ BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL BtlCmd_TryEncore(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryWish(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_TryFutureSight(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_SetMultiHit(struct BattleSystem *bsys, struct BattleStruct *ctx);
@@ -3459,6 +3460,23 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
         }
     }
     ctx->battlerIdTemp = battlerId;
+    return FALSE;
+}
+
+BOOL BtlCmd_TryEncore(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    //handled in BeforMove
+    int adrs UNUSED = read_battle_script_param(ctx);
+
+    struct BattlePokemon *target = &ctx->battlemon[ctx->defence_client];
+    u16 lastMove = ctx->waza_no_sketch[ctx->defence_client];
+
+    target->moveeffect.encoredMove = lastMove;
+    target->moveeffect.encoredMoveIndex = BattleMon_GetMoveIndex(target, lastMove);
+    target->moveeffect.encoredTurns = 3;
+
     return FALSE;
 }
 
