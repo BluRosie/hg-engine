@@ -1,5 +1,5 @@
 #include "../include/constants/species.h"
-#include "../include/bug_contest_encounter.h"
+#include "../include/bug_contest.h"
 
 u32 __size = sizeof(BugContestEncounter);
 
