@@ -330,7 +330,10 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
             && sp->battlemon[sp->attack_client].pp[move_pos] != 0 // pp is nonzero
             && sp->current_move_index != 0 // a move has already been used
             && sp->moveTbl[sp->current_move_index].power != 0
-            && BattleRand(bw) % 10 < 3) {
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && BattleRand(bw) % 10 < 3
+#endif
+        ) {
             sp->waza_work = sp->current_move_index;
             sp->battlemon[sp->attack_client].moveeffect.disabledMove = sp->waza_work;
             sp->battlemon[sp->attack_client].moveeffect.disabledTurns = 4; // cursed body disables for 4 turns every time
