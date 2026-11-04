@@ -1420,7 +1420,8 @@ BOOL BattleController_CheckChoiceItemMoveUsage(struct BattleStruct *ctx)
         int itemEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
         if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
             if (ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice
-                && ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice != ctx->current_move_index) {
+                && ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice != ctx->current_move_index
+                && ctx->current_move_index != MOVE_STRUGGLE) {
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
                 ctx->battlerIdTemp = ctx->attack_client;
                 ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] = MOVE_STATUS_FAILED;
