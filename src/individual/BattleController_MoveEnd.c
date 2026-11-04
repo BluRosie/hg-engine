@@ -126,6 +126,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->clientLoopForSpreadMoves = 0;
     ctx->movePerformanceSubstep = 0;
     ctx->clientLoopForAbility = 0;
+
+    if (ctx->boostedAccuracy) {
+        ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy = 0;
+    }
     ctx->boostedAccuracy = FALSE;
     ctx->gemBoostingMove = FALSE;
     ctx->futureSightHitTurn = FALSE;

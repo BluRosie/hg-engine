@@ -1,4 +1,4 @@
-// Test: Bestow - Invalid form-changing item (for user)
+// Test: Bestow - Invalid form-changing item (for target)
 #ifndef GET_TEST_CASE_ONLY
 
 #include "../../../../include/battle.h"
