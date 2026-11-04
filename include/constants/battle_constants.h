@@ -1126,4 +1126,13 @@ enum ForceExecutionOrder {
 #define HAZARD_IDX_STICKY_WEB   4
 #define HAZARD_IDX_SHARP_STEEL  5
 
+// berries timing
+#define HELD_ITEM_USE_ANY                  0 // all
+#define HELD_ITEM_USE_CHANGE_HP            (1 << 0) // HP restoring berries
+#define HELD_ITEM_USE_CHANGE_PP            (1 << 1) // Leppa Berry
+#define HELD_ITEM_USE_REMOVE_CONDITION     (1 << 2) // status curing berries, Mental Herb
+#define HELD_ITEM_USE_RESTORE_STAT_CHANGES (1 << 3) // White Herb
+#define HELD_ITEM_USE_COPY_STAT_CHANGES    (1 << 4) // Mirror Herb
+#define HELD_ITEM_USE_PINCH_BERRY          (1 << 5) // pinch
+
 #endif // GUARD_BATTLE_CONSTANTS
