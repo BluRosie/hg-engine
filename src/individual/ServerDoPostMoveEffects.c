@@ -1400,7 +1400,7 @@ int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *
 
 BOOL AttackerCameInThisTurn(struct BattleStruct *ctx)
 {
-    return ctx->moveConditionsFlags[ctx->attack_client].firstTurnOut == 2;
+    return ctx->moveConditionsFlags[ctx->attack_client].firstTurnOut == 2 && !ctx->futureSightHitTurn;
 }
 
 int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp)
