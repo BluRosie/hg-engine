@@ -223,8 +223,6 @@ IsMovingAfterClient = 0x0225561C | 1;
 GetHeldItemFlingEffect = 0x022558D0 | 1;
 GetHeldItemFlingPower = 0x022558F8 | 1;
 GetHeldItemModifier = 0x02255844 | 1;
-GetNaturalGiftPower = 0x02255890 | 1;
-GetNaturalGiftType = 0x022558A4 | 1;
 CalculateTypeEffectiveness = 0x0225264C | 1;
 CanSwitchMon = 0x02252890 | 1;
 InitSwitchWork = 0x022510BC | 1;
@@ -770,7 +768,6 @@ CopyBattleMonToPartyMon = 0x02250C40 | 1;
 LowestFlagNo = 0x020726E0 | 1;
 Battler_GetRandomOpposingBattlerId = 0x02253DA0 | 1;
 GetBattlerLearnedMoveCount = 0x02252EA8 | 1;
-CanSwitchMon = 0x02252890 | 1;
 BattleMon_AddVar = 0x0224F7AC | 1;
 GetFlavorPreferenceFromPID = 0x020718E8 | 1;
 

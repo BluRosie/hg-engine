@@ -578,7 +578,6 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 
         if (IsAttackerOnField(ctx) && ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy) {
             ctx->boostedAccuracy = TRUE;
-            ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy = 0;
         }
 
         ctx->wb_seq_no++;
@@ -1431,7 +1430,8 @@ BOOL BattleController_CheckChoiceItemMoveUsage(struct BattleStruct *ctx)
         int itemEffect = HeldItemHoldEffectGet(ctx, ctx->attack_client);
         if (itemEffect == HOLD_EFFECT_CHOICE_ATK || itemEffect == HOLD_EFFECT_CHOICE_SPEED || itemEffect == HOLD_EFFECT_CHOICE_SPATK) {
             if (ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice
-                && ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice != ctx->current_move_index) {
+                && ctx->battlemon[ctx->attack_client].moveeffect.moveNoChoice != ctx->current_move_index
+                && ctx->current_move_index != MOVE_STRUGGLE) {
                 BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
                 ctx->battlerIdTemp = ctx->attack_client;
                 ctx->moveStatusFlagForSpreadMoves[ctx->attack_client] = MOVE_STATUS_FAILED;
@@ -1926,7 +1926,7 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
     int move;
     int attackerAbility = GetBattlerAbility(ctx, ctx->attack_client);
     u32 weather = GetWeather(bsys, ctx, ctx->attack_client);
-    int attackerItem = GetBattleMonItem(ctx, ctx->attack_client);
+    int attackerItem = GetBattleMonItemIgnoringUnnerve(ctx, ctx->attack_client);
 
     // For Sucker Punch
     if (ctx->battlemon[ctx->defence_client].moveeffect.encoredMove && ctx->battlemon[ctx->defence_client].moveeffect.encoredMove == ctx->battlemon[ctx->defence_client].move[ctx->battlemon[ctx->defence_client].moveeffect.encoredMoveIndex]) {
@@ -2045,8 +2045,10 @@ BOOL BattleController_CheckMoveFailures1(struct BattleSystem *bsys, struct Battl
         sideB = IsClientEnemy(bsys, battlerId);
         if (!(ctx->oneTurnFlag[ctx->attack_client].special_damage[battlerId] && sideA != sideB && ctx->battlemon[battlerId].hp)) {
             ctx->oneSelfFlag[ctx->attack_client].no_pressure_flag = 1;
+            flag = TRUE;
         }
         break;
+    case MOVE_COMEUPPANCE:
     case MOVE_METAL_BURST:
         battlerId = ctx->oneTurnFlag[ctx->attack_client].last_damager;
         sideB = IsClientEnemy(bsys, battlerId);

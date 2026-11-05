@@ -125,7 +125,7 @@ BOOL btl_scr_cmd_117_activateparadoxability(void *bsys, struct BattleStruct *ctx
 BOOL btl_scr_cmd_118_resetparadoxability(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_119_SetCurrentMoveDoneSwitchingFlag(void *bsys UNUSED, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_11A_TrySynchronizeStatus(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_11B_TryCureStatusBerry(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_11B_TryEatBerry(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_11C_BatchUpdateHealthBar(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_11D_BatchUpdateHealthBarValue(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_11E_BatchFollowupMessage(void *bsys UNUSED, struct BattleStruct *ctx);
@@ -143,7 +143,7 @@ BOOL btl_scr_cmd_129_SetFieldCondition2(void *bsys UNUSED, struct BattleStruct *
 BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx);
-BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12D_TryClearUnnerve(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -472,7 +472,7 @@ const u8 *BattleScrCmdNames[] = {
     "ResetParadoxAbility",
     "SetCurrentMoveDoneSwitchingFlag",
     "TrySynchronizeStatus",
-    "TryCureStatusBerry",
+    "TryEatBerry",
     "BatchUpdateHealthBar",
     "BatchUpdateHealthBarValue",
     "BatchFollowupMessage",
@@ -488,9 +488,9 @@ const u8 *BattleScrCmdNames[] = {
     "IsFieldCondition2On",
     "SetFieldCondition2",
     "GoToIfMoveConditionFlagSet",
-    "TryActivateReceiver"
-    "TryActivateEmergencyExit"
-    "TryEatHpBerry"
+    "TryActivateReceiver",
+    "TryActivateEmergencyExit",
+    "TryClearUnnerve",
     // "YourCustomCommand",
 };
 
@@ -560,7 +560,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x118 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_118_resetparadoxability,
     [0x119 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_119_SetCurrentMoveDoneSwitchingFlag,
     [0x11A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11A_TrySynchronizeStatus,
-    [0x11B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11B_TryCureStatusBerry,
+    [0x11B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11B_TryEatBerry,
     [0x11C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11C_BatchUpdateHealthBar,
     [0x11D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11D_BatchUpdateHealthBarValue,
     [0x11E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_11E_BatchFollowupMessage,
@@ -578,7 +578,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x12A - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12A_GoToIfMoveConditionFlagSet,
     [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_TryActivateReceiver,
     [0x12C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12C_TryActivateEmergencyExit,
-    [0x12D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12D_TryEatHpBerry,
+    [0x12D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12D_TryClearUnnerve,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -3467,7 +3467,7 @@ BOOL BtlCmd_TryEncore(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
 {
     IncrementBattleScriptPtr(ctx, 1);
 
-    //handled in BeforMove
+    // handled in BeforMove
     int adrs UNUSED = read_battle_script_param(ctx);
 
     struct BattlePokemon *target = &ctx->battlemon[ctx->defence_client];
@@ -5255,15 +5255,16 @@ BOOL btl_scr_cmd_11A_TrySynchronizeStatus(void *bsys UNUSED, struct BattleStruct
     return FALSE;
 }
 
-BOOL btl_scr_cmd_11B_TryCureStatusBerry(void *bsys, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_11B_TryEatBerry(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     int side = read_battle_script_param(ctx);
+    u32 filter = read_battle_script_param(ctx);
     int failAddress = read_battle_script_param(ctx);
     int script = 0;
     int battler = GrabClientFromBattleScriptParam(bsys, ctx, side);
 
-    if (GetHeldItemStatusRecoverySubscript(ctx, battler, &script) == TRUE) {
+    if (IsBattlerOnField(ctx, battler) && GetHeldItemUseSubscript(bsys, ctx, battler, &script, filter) == TRUE) {
         ctx->battlerIdTemp = battler;
         ctx->item_work = GetBattleMonItem(ctx, battler);
         ctx->temp_work = script;
@@ -6011,7 +6012,8 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
         && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
         // EE can be triggered by any residual damage, such as Burn, Sandstorm, Curse, etc
         && ((ctx->battlemon[client_no].hp - ctx->hp_calc_work) > (s32)ctx->battlemon[client_no].maxhp / 2)
-        && CanSwitchMon(bsys, ctx, client_no)) {
+        // the partner may already be waiting for the last mon in the back
+        && CanSwitchMonConsideringPendingSwitches(bsys, ctx, client_no)) {
         ctx->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         ctx->state_client = client_no;
         ctx->battlerIdTemp = client_no;
@@ -6023,74 +6025,25 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
     return FALSE;
 }
 
-BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *ctx)
-{
-    IncrementBattleScriptPtr(ctx, 1);
-    u32 side = read_battle_script_param(ctx);
-
-    int battlerId = 0;
-
-    switch (side) {
-    case BATTLER_CATEGORY_ATTACKER:
-        battlerId = ctx->attack_client;
-        break;
-    case BATTLER_CATEGORY_SWITCHED_MON:
-        battlerId = ctx->reshuffle_client;
-        break;
-    case BATTLER_CATEGORY_FORCED_OUT:
-        battlerId = ctx->defence_client;
-        break;
-    }
-
-    //check for a replacement after FieldConditionCheck
-    ctx->moveConditionsFlags[battlerId].firstTurnOut = ctx->next_server_seq_no == CONTROLLER_COMMAND_TURN_END ? 1 : 2;
-    ctx->client_status[battlerId] &= ~1;
-    ctx->no_reshuffle_client &= (No2Bit(battlerId) ^ ~0);
-    ctx->sel_mons_no[battlerId] = ctx->reshuffle_sel_mons_no[battlerId];
-    ctx->reshuffle_sel_mons_no[battlerId] = 6;
-
-    BattleSystem_GetBattleMon(bsys, ctx, battlerId, ctx->sel_mons_no[battlerId]);
-    ov12_02256F78(bsys, ctx, battlerId, ctx->sel_mons_no[battlerId]);
-
-    ctx->hp_temp = ctx->battlemon[1].hp;
-
-    InitSwitchWork(bsys, ctx, battlerId);
-
-    return FALSE;
-}
-
-BOOL btl_scr_cmd_12D_TryEatHpBerry(void *bsys, struct BattleStruct *ctx)
+BOOL btl_scr_cmd_12D_TryClearUnnerve(void *bsys, struct BattleStruct *ctx)
 {
     IncrementBattleScriptPtr(ctx, 1);
     int side = read_battle_script_param(ctx);
     int failAddress = read_battle_script_param(ctx);
-    int script = 0;
-    int battler = GrabClientFromBattleScriptParam(bsys, ctx, side);
+    int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, side);
+    int ally = BATTLER_ALLY(battlerId);
 
-    if (IsBattlerOnField(ctx, battler)) {
-        switch (HeldItemHoldEffectGet(ctx, battler)) {
-        case HOLD_EFFECT_HP_RESTORE: // oran berry, berry juice
-        case HOLD_EFFECT_HP_PCT_RESTORE: // sitrus berry
-        case HOLD_EFFECT_HP_RESTORE_SPICY: // figy berry
-        case HOLD_EFFECT_HP_RESTORE_DRY: // wiki berry
-        case HOLD_EFFECT_HP_RESTORE_SWEET: // mago berry
-        case HOLD_EFFECT_HP_RESTORE_BITTER: // aguav berry
-        case HOLD_EFFECT_HP_RESTORE_SOUR: // iapapa berry
-
-            if (GetHeldItemUseSubscript(bsys, ctx, battler, &script) == TRUE) {
-                ctx->battlerIdTemp = battler;
-                ctx->item_work = GetBattleMonItem(ctx, battler);
-                ctx->temp_work = script;
-
-                if (IS_ITEM_BERRY(ctx->item_work)) {
-                    ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bsys, battler)][ctx->sel_mons_no[battler]].berryEatenAndCanBelch = TRUE;
-                }
-            }
-        default:
-            break;
-        }
+    if (!HasUnnerveAbility(ctx, battlerId)) {
+        IncrementBattleScriptPtr(ctx, failAddress);
+        return FALSE;
     }
-    if (script == 0) {
+
+    ctx->switchInFlags[battlerId].unnerveInactive = TRUE;
+
+    if ((BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLES)
+        && ctx->battlemon[ally].hp != 0
+        && !ctx->switchInFlags[ally].unnerveInactive
+        && HasUnnerveAbility(ctx, ally)) {
         IncrementBattleScriptPtr(ctx, failAddress);
     }
 

@@ -289,7 +289,6 @@ arm9 GetBoxMonSex 0806FF90 1
 arm9 grab_sex_for_GetBoxMonData 0806EA1A 1
 
 #item time baby - 02257FA0
-0012 MoveHitUTurnHeldItemEffectCheck 080206E0 3
 #0224E1BC - after move hit effects
 0012 ServerWazaHitAfterCheckAct 080168FC 2
 # post-move effects, not necessarily on hit
@@ -607,14 +606,18 @@ arm9 ScrCmd_WildBattle 02043E5C 1
 0010 TestBattle_AISelectMove 0221BEF4 2
 0010 TestBattle_AIPickCommand 022205BC 2
 0012 TestBattle_PostKOSwitchIn 02258800 2
-0012 TestBattle_ShowParty 0223E8A0 2
-0012 TestBattle_WaitMonSelection 0223E978 2
 0012 CheckTrainerMessage 02250D4C 2
 0012 BattleMessage_ExpandPlaceholders 0223CEF4
 #endif
 
+
+0012 BtlCmd_ShowParty 0223E8A0 2
+0012 BtlCmd_WaitMonSelection 0223E978 2
+
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
-0012 TryUseHeldItem 0225471C 3
+0012 TryUseHeldItem_Vanilla 0225471C 3
+0012 GetNaturalGiftPower 02255890 2
+0012 GetNaturalGiftType 022558A4 2
 0012 TryFling 02255F7C 3
 
 arm9 PartyMenu_HandleUseItemOnMon 0207C288 1
@@ -654,11 +657,11 @@ arm9 ScrCmd_CreateRoamer 02045264 1
 #endif
 
 # encounter
-arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
-arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
-arm9 EncounterSlot_WildMonSlotRoll_Fishing 02247764 1
-arm9 EncounterSlot_WildMonSlotRoll_RockSmash 0224779C 0
-arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
+0002 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
+0002 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
+0002 EncounterSlot_WildMonSlotRoll_Fishing 02247764 1
+0002 EncounterSlot_WildMonSlotRoll_RockSmash 0224779C 0
+0002 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
 
 0012 GetPokemon_CheckIfTrainer_hook 2246704 0
 0012 GetPokemon_BallBlocked_hook 02247094 0
