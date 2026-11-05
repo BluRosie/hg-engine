@@ -32,7 +32,7 @@ BEGIN_TEST
                 .form = 0,
                 .ability = ABILITY_GLUTTONY,
                 .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_TACKLE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_SLEEP_TALK, MOVE_TACKLE, MOVE_METRONOME, MOVE_COPYCAT },
                 .hp = FULL_HP,
                 .status = STATUS_SLEEP,
                 .condition2 = 0,

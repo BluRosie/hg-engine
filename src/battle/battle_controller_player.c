@@ -186,17 +186,6 @@ void LONG_CALL BattleControllerPlayer_SelectionScreenInput(struct BattleSystem *
                                 ctx->com_seq_no[battlerId] = SSI_STATE_END;
                                 ctx->ret_seq_no[battlerId] = SSI_STATE_NO_MOVES;
                             }
-                        } else if (ctx->battlemon[battlerId].moveeffect.encoredMove) {
-                            ctx->waza_no_pos[battlerId] = ctx->battlemon[battlerId].moveeffect.encoredMoveIndex;
-                            ctx->waza_no_select[battlerId] = ctx->battlemon[battlerId].moveeffect.encoredMove;
-                            ctx->playerActions[battlerId][2] = 0;
-
-                            if (BattleWorkBattleStatusFlagGet(bsys) & BATTLE_SPECIAL_RECORDING) {
-                                ctx->com_seq_no[battlerId] = SSI_STATE_13;
-                            } else {
-                                ctx->com_seq_no[battlerId] = SSI_STATE_END;
-                                ctx->ret_seq_no[battlerId] = SSI_STATE_13;
-                            }
                         } else {
                             ctx->com_seq_no[battlerId] = SSI_STATE_3;
                         }
@@ -450,13 +439,8 @@ void LONG_CALL BattleControllerPlayer_FightInput(struct BattleSystem *bsys, stru
         randomTarget = 1;
     } else if (mon->moveeffect.encoredMove && mon->moveeffect.encoredMove == mon->move[mon->moveeffect.encoredMoveIndex]) {
         ctx->moveNoTemp = mon->moveeffect.encoredMove;
-        // A player Pokemon keeps the target it chose in doubles. If Encore landed this turn after a move without
-        // a chosen target was selected (self, ally or spread moves), the target is random.
-        // The AI skips its target selection while encored, so its target is random as well.
-        randomTarget = !((BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLES)
-            && ClientBelongsToPlayer(bsys, attacker)
-            && ctx->moveTbl[ctx->moveNoTemp].target == RANGE_SINGLE_TARGET
-            && ctx->moveTbl[ctx->waza_no_select[attacker]].target == RANGE_SINGLE_TARGET);
+        randomTarget = ctx->waza_no_select[attacker] != ctx->moveNoTemp
+            && ctx->moveTbl[ctx->waza_no_select[attacker]].target != RANGE_SINGLE_TARGET;
     } else if (mon->moveeffect.encoredMove) {
         ctx->moveNoTemp = mon->move[mon->moveeffect.encoredMoveIndex];
         mon->moveeffect.encoredMove = MOVE_NONE;
