@@ -1,8 +1,8 @@
-// Test: Encore - locks a target that already moved for the next 3 turns
+// Test: Encore - locks target for 3 turns
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
-    .battleType = BATTLE_TYPE_TRAINER,
+    .battleType = BATTLE_TYPE_DOUBLES,
     .weather = FIELD_CONDITION_NONE,
     .fieldCondition = 0,
     .terrain = TERRAIN_NONE,
@@ -73,7 +73,7 @@ BEGIN_TEST
             { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
         },
@@ -83,7 +83,7 @@ BEGIN_TEST
             { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
             { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
             { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
         },
@@ -92,9 +92,8 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -102,9 +101,9 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_SECOND },
+            { ACTION_NONE, 0 },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -112,11 +111,9 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Eevee used Quick Attack!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "IronBundle used Encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Eevee must do an encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle used Tackle!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Eevee used Quick Attack!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Jolteon used Encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle must do an encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle used Tackle!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Eevee used Quick Attack!" },
@@ -124,6 +121,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Eevee used Quick Attack!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle used Tackle!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Eevee’s encore ended!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle used Tackle!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle’s encore ended!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Eevee used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle used Sleep Talk!" },

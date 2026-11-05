@@ -93,6 +93,8 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax used Tackle!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Jolteon used Encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax is fast asleep." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax used Sleep Talk!" },
     }
 }
 END_TEST

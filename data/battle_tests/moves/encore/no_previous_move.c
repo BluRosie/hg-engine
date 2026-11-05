@@ -1,4 +1,4 @@
-// Test: Encore - fails on a target that switched in, its previous mon had used a move
+// Test: Encore - fails on a target that has no previous move
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

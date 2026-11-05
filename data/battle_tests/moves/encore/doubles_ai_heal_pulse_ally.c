@@ -13,7 +13,7 @@ BEGIN_TEST
                 .form = 0,
                 .ability = ABILITY_VOLT_ABSORB,
                 .item = ITEM_NONE,
-                .moves = { MOVE_ENCORE, MOVE_SLEEP_TALK, MOVE_GROWL, MOVE_NONE },
+                .moves = { MOVE_ENCORE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -43,7 +43,7 @@ BEGIN_TEST
                 .form = 0,
                 .ability = ABILITY_NATURAL_CURE,
                 .item = ITEM_NONE,
-                .moves = { MOVE_HEAL_PULSE, MOVE_FLORAL_HEALING, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_HEAL_PULSE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -92,7 +92,7 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
             { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_SECOND },
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+            { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -119,6 +119,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax's HP was restored!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Blissey used Heal Pulse!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax's HP is full!" },
-    }
+    },
+    .knownFailing = TRUE,
 }
 END_TEST

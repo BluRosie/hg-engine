@@ -59,6 +59,16 @@ enum {
     CHECK_STATUS_DONE,
 };
 
+static const u16 sMovesCallingOtherMoves[] = {
+    MOVE_ASSIST,
+    MOVE_COPYCAT,
+    MOVE_INSTRUCT,
+    MOVE_ME_FIRST,
+    MOVE_METRONOME,
+    MOVE_NATURE_POWER,
+    MOVE_SLEEP_TALK,
+};
+
 const u16 sProtectSuccessChance[] = {
     1, // 100%
     3, // ~33.3%
@@ -4319,6 +4329,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         int movePos = BattleMon_GetMoveIndex(target, lastMove);
 
         if (lastMove == MOVE_NONE
+            || IsElementInArray(sMovesCallingOtherMoves, &lastMove, NELEMS(sMovesCallingOtherMoves), sizeof(sMovesCallingOtherMoves[0]))
             || !IsMoveEncored(ctx, lastMove)
             || movePos == MAX_MON_MOVES
             || target->pp[movePos] == 0

@@ -1,4 +1,4 @@
-// Test: Encore - can choose its target
+// Test: Encore - player can choose target
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -25,7 +25,7 @@ BEGIN_TEST
                 .form = 0,
                 .ability = ABILITY_OVERGROW,
                 .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_TACKLE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -38,10 +38,10 @@ BEGIN_TEST
     },
     .enemyParty = {
             {
-                .species = SPECIES_SHUCKLE,
+                .species = SPECIES_MAGNEMITE,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_NO_GUARD,
+                .ability = ABILITY_STURDY,
                 .item = ITEM_NONE,
                 .moves = { MOVE_THUNDER_SHOCK, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
@@ -53,9 +53,9 @@ BEGIN_TEST
                 .species = SPECIES_SNORLAX,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_NO_GUARD,
+                .ability = ABILITY_GLUTTONY,
                 .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_ENCORE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -78,9 +78,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -100,9 +100,9 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         },
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_SECOND },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -111,11 +111,20 @@ BEGIN_TEST
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle used Thunder Shock!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Jolteon used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meganium used Tackle!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Magnemite used Thunder Shock!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Jolteon’s Volt Absorb" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax used Encore!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meganium must do an encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Jolteon used Encore!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle must do an encore!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle used Thunder Shock!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Shuckle used Thunder Shock!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Magnemite must do an encore!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meganium used Tackle!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Magnemite used Thunder Shock!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax used Encore!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Magnemite used Thunder Shock!" },
     }
 }
 END_TEST

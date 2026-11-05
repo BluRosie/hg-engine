@@ -48,7 +48,7 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -70,7 +70,7 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -93,6 +93,15 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle must do an encore!" },
+#ifdef ENCORE_CHAMPIONS_PRIORITY //TODO
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Sucker Punch!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Tackle!" },
+#else
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Tackle!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Sucker Punch!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+#endif
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Sucker Punch!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Tackle!" },
     }
