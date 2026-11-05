@@ -22,46 +22,10 @@
 #define BATTLE_INPUT_CANCEL  0xFF
 
 #if defined(DISABLE_ITEMS_IN_TRAINER_BATTLE)
-void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
-{
-    BattleMessage msg;
-    int battlerId;
-    u32 fight_type = BattleTypeGet(bsys);
-
-    for (battlerId = 0; battlerId < bsys->maxBattlers; battlerId++) {
-        if (ctx->playerActions[battlerId][0] == CONTROLLER_COMMAND_ITEM_INPUT && ctx->com_seq_no[battlerId] == SSI_STATE_7) {
-            if (fight_type & BATTLE_TYPE_TRAINER) {
-                msg.id = BATTLE_MSG_ITEMS_CANT_BE_USED_HERE; // msg.id  = msg_0197_00593; // Items can't be used here
-                msg.tag = TAG_NONE;
-                ov12_022639B8(bsys, battlerId, msg);
-                ctx->com_seq_no[battlerId] = SSI_STATE_15;
-                ctx->ret_seq_no[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
-            }
-        }
-    }
-}
+#define BATTLE_TYPES_WITHOUT_ITEMS (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER | BATTLE_TYPE_TRAINER)
+#else
+#define BATTLE_TYPES_WITHOUT_ITEMS (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER)
 #endif
-
-void overrideRunButton(struct BattleSystem *bsys, struct BattleStruct *ctx)
-{
-    BattleMessage msg;
-    int battlerId;
-    u32 fight_type = BattleTypeGet(bsys);
-
-    for (battlerId = 0; battlerId < bsys->maxBattlers; battlerId++) {
-        if (ctx->playerActions[battlerId][0] == CONTROLLER_COMMAND_RUN_INPUT) {
-            if (ctx->com_seq_no[battlerId] == SSI_STATE_11) {
-                if (fight_type & BATTLE_TYPE_TOTEM) {
-                    msg.id = BATTLE_MSG_CANT_FLEE_THIS_FIGHT; // Can't flee this fight!
-                    msg.tag = TAG_NONE;
-                    ov12_022639B8(bsys, battlerId, msg);
-                    ctx->com_seq_no[battlerId] = SSI_STATE_15;
-                    ctx->ret_seq_no[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
-                }
-            }
-        }
-    }
-}
 
 void LONG_CALL BattleControllerPlayer_SelectionScreenInput(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
@@ -197,7 +161,7 @@ void LONG_CALL BattleControllerPlayer_SelectionScreenInput(struct BattleSystem *
                             ctx->com_seq_no[battlerId] = SSI_STATE_END;
                             ctx->ret_seq_no[battlerId] = SSI_STATE_13;
                             ctx->playerActions[battlerId][0] = CONTROLLER_COMMAND_CATCHING_CONSTEST_THROW_BALL;
-                        } else if (BattleTypeGet(bsys) & (BATTLE_TYPE_LINK | BATTLE_TYPE_FRONTIER)) {
+                        } else if (BattleTypeGet(bsys) & BATTLE_TYPES_WITHOUT_ITEMS) {
                             msg.id = BATTLE_MSG_ITEMS_CANT_BE_USED_HERE; // Items can't be used here
                             msg.tag = TAG_NONE;
                             ov12_022639B8(bsys, battlerId, msg);
@@ -327,7 +291,13 @@ void LONG_CALL BattleControllerPlayer_SelectionScreenInput(struct BattleSystem *
             }
             break;
         case SSI_STATE_11: // Flee after a mon fainted..?
-            if (battleType & BATTLE_TYPE_FRONTIER) {
+            if (battleType & BATTLE_TYPE_TOTEM) {
+                msg.tag = TAG_NONE;
+                msg.id = BATTLE_MSG_CANT_FLEE_THIS_FIGHT; // Can't flee this fight!
+                ov12_022639B8(bsys, battlerId, msg);
+                ctx->com_seq_no[battlerId] = SSI_STATE_15;
+                ctx->ret_seq_no[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
+            } else if (battleType & BATTLE_TYPE_FRONTIER) {
                 BattleController_EmitShowYesNoMenu(bsys, ctx, battlerId, 955, 0, 0, 0);
                 ctx->com_seq_no[battlerId] = SSI_STATE_12;
             } else if ((battleType & BATTLE_TYPE_TRAINER) && !(battleType & BATTLE_TYPE_LINK)) {
@@ -513,10 +483,6 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
 #ifdef DEBUG_BATTLE_SCENARIOS
     TestBattle_autoSelectPlayerMoves(bsys, ctx);
 #endif
-#if defined(DISABLE_ITEMS_IN_TRAINER_BATTLE)
-    overrideItemUsage(bsys, ctx);
-#endif
-    overrideRunButton(bsys, ctx);
 
     if (ctx->server_seq_no == CONTROLLER_COMMAND_45) {
         return TRUE;
