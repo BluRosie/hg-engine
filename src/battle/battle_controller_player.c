@@ -193,9 +193,6 @@ void LONG_CALL BattleControllerPlayer_SelectionScreenInput(struct BattleSystem *
 
                             if (BattleWorkBattleStatusFlagGet(bsys) & BATTLE_SPECIAL_RECORDING) {
                                 ctx->com_seq_no[battlerId] = SSI_STATE_13;
-                            } else if ((battleType & BATTLE_TYPE_DOUBLES) && ClientBelongsToPlayer(bsys, battlerId)) {
-                                // Encore only locks the move, the player still chooses the target
-                                ctx->com_seq_no[battlerId] = SSI_STATE_5;
                             } else {
                                 ctx->com_seq_no[battlerId] = SSI_STATE_END;
                                 ctx->ret_seq_no[battlerId] = SSI_STATE_13;
@@ -288,8 +285,7 @@ void LONG_CALL BattleControllerPlayer_SelectionScreenInput(struct BattleSystem *
         }
         case SSI_STATE_6:
             if (BattleBuffer_GetNext(ctx, battlerId) == 0xff) {
-                // an encored mon skipped the move menu, so go back to the command menu instead
-                ctx->com_seq_no[battlerId] = ctx->battlemon[battlerId].moveeffect.encoredMove ? SSI_STATE_SELECT_COMMAND_INIT : SSI_STATE_3;
+                ctx->com_seq_no[battlerId] = SSI_STATE_3;
             } else if (BattleBuffer_GetNext(ctx, battlerId)) {
                 ctx->playerActions[battlerId][1] = ctx->server_buffer[battlerId][0] - 1;
                 ctx->com_seq_no[battlerId] = SSI_STATE_13;

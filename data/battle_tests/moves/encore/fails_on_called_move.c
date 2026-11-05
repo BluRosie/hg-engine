@@ -1,4 +1,4 @@
-// Test: Encore - fails on a target that switched in, its previous mon had used a move
+// Test: Encore - fails if the last move was called by another move
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,29 +8,18 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
             {
-                .species = SPECIES_SHUCKLE,
+                .species = SPECIES_JOLTEON,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_CONTRARY,
+                .ability = ABILITY_VOLT_ABSORB,
                 .item = ITEM_NONE,
-                .moves = { MOVE_TACKLE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_ENCORE, MOVE_SLEEP_TALK, MOVE_GROWL, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            {
-                .species = SPECIES_SNORLAX,
-                .level = 50,
-                .form = 0,
-                .ability = ABILITY_GLUTTONY,
-                .item = ITEM_NONE,
-                .moves = { MOVE_TACKLE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
-                .hp = FULL_HP,
-                .status = 0,
-                .condition2 = 0,
-                .moveEffectFlags = 0,
-            },
+            { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -38,14 +27,14 @@ BEGIN_TEST
     },
     .enemyParty = {
             {
-                .species = SPECIES_JOLTEON,
+                .species = SPECIES_SNORLAX,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_VOLT_ABSORB,
+                .ability = ABILITY_GLUTTONY,
                 .item = ITEM_NONE,
-                .moves = { MOVE_ENCORE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_SLEEP_TALK, MOVE_TACKLE, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
-                .status = 0,
+                .status = STATUS_SLEEP,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
@@ -57,8 +46,8 @@ BEGIN_TEST
     },
     .playerScript = {
         {
+            { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -79,7 +68,7 @@ BEGIN_TEST
     },
     .enemyScript = {
         {
-            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -100,8 +89,9 @@ BEGIN_TEST
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Encore!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax used Tackle!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Jolteon used Encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
     }
 }

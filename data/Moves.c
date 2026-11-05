@@ -6154,7 +6154,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .appeal = APPEAL_VOLTAGE_CHAIN_HEARTS,
             .contestType = CONTEST_CUTE,
         },
-        .description = "The user compels the\\nfoe to keep using\\nonly the move it last\\nused for three to\\nseven turns.",
+        .description = "The user compels the\\nfoe to keep using\\nonly the move it last\\nused for three turns.",
     },
 
     [MOVE_PURSUIT] = {

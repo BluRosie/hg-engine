@@ -1,4 +1,4 @@
-// Test: Encore - fails if the target has not used a move yet
+// Test: Encore - fails on a target that switched in, its previous mon had used a move
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -13,13 +13,24 @@ BEGIN_TEST
                 .form = 0,
                 .ability = ABILITY_CONTRARY,
                 .item = ITEM_NONE,
-                .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_TACKLE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
                 .moveEffectFlags = 0,
             },
-            { .species = SPECIES_NONE },
+            {
+                .species = SPECIES_SNORLAX,
+                .level = 50,
+                .form = 0,
+                .ability = ABILITY_GLUTTONY,
+                .item = ITEM_NONE,
+                .moves = { MOVE_TACKLE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
+                .hp = FULL_HP,
+                .status = 0,
+                .condition2 = 0,
+                .moveEffectFlags = 0,
+            },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
             { .species = SPECIES_NONE },
@@ -30,9 +41,9 @@ BEGIN_TEST
                 .species = SPECIES_JOLTEON,
                 .level = 50,
                 .form = 0,
-                .ability = ABILITY_NO_GUARD,
+                .ability = ABILITY_VOLT_ABSORB,
                 .item = ITEM_NONE,
-                .moves = { MOVE_ENCORE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                .moves = { MOVE_ENCORE, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                 .hp = FULL_HP,
                 .status = 0,
                 .condition2 = 0,
@@ -47,7 +58,7 @@ BEGIN_TEST
     .playerScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -69,7 +80,7 @@ BEGIN_TEST
     .enemyScript = {
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -91,7 +102,10 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Tackle!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Snorlax" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Encore!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
     }
 }
 END_TEST
