@@ -3477,6 +3477,10 @@ BOOL BtlCmd_TryEncore(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx
     target->moveeffect.encoredMoveIndex = BattleMon_GetMoveIndex(target, lastMove);
     target->moveeffect.encoredTurns = 3;
 
+    if (IsMovingAfterClient(ctx, ctx->defence_client) == FALSE) {
+        target->moveeffect.encoredTurns--;
+    }
+
     return FALSE;
 }
 

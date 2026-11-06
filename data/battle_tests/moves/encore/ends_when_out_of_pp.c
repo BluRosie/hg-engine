@@ -96,7 +96,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle must do an encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle’s encore ended!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle's encore ended!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Sleep Talk!" },
     }
 }

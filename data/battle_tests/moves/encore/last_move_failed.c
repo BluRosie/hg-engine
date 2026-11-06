@@ -98,7 +98,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Tackle!" },
 #else
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Jolteon used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It’s not very effective..." },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's not very effective..." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Shuckle used Sucker Punch!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
 #endif
