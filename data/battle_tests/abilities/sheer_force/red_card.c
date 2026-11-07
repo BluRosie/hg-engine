@@ -39,7 +39,7 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_BLISSEY,
-            .level = 100,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_NATURAL_CURE,
             .item = ITEM_RED_CARD,

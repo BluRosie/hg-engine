@@ -28,7 +28,7 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_BLISSEY,
-            .level = 100,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,

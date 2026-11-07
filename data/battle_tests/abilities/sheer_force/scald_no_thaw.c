@@ -39,7 +39,7 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_SHUCKLE,
-            .level = 100,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_STURDY,
             .item = ITEM_NONE,
@@ -51,7 +51,7 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_DRAMPA,
-            .level = 100,
+            .level = 50,
             .form = 0,
             .ability = ABILITY_BERSERK,
             .item = ITEM_NONE,
