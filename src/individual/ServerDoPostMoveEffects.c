@@ -1890,6 +1890,14 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
 
 int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
 {
+    if (sp->pickpocketBattlers == 0) {
+        return FALSE;
+    }
+
+    BOOL attackerInBattle = sp->sel_mons_no[sp->attack_client] == sp->pickpocketAttackerSlot;
+    struct PartyPokemon *attacker = Battle_GetClientPartyMon(bsys, sp->attack_client, sp->pickpocketAttackerSlot);
+    u16 attackerItem = attackerInBattle ? sp->battlemon[sp->attack_client].item : GetMonData(attacker, MON_DATA_HELD_ITEM, NULL);
+
     for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
         int client_no = sp->turnOrder[battler];
         if (client_no == sp->attack_client
@@ -1901,24 +1909,43 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
         }
 
         // handle pickpocket - steal attacker's item if it can
-        if (MoldBreakerAbilityCheck(sp, sp->attack_client, client_no, ABILITY_PICKPOCKET)) {
-            if (((sp->oneSelfFlag[client_no].physical_damage)
-                    || (sp->oneSelfFlag[client_no].special_damage))
-                && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, client_no), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
-                && sp->moveTbl[sp->current_move_index].power != 0
-                // can not steal an item if you already have one
-                && sp->battlemon[client_no].item == ITEM_NONE
-                // if the attacker has its species-specific item or the target would get its item, then pickpocket can not activate
-                && CanTrickHeldItem(sp, sp->attack_client, client_no)
-                // pickpocket doesn't activate if attacked by sheer force
-                && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) {
+        if ((sp->pickpocketBattlers & No2Bit(client_no))
+            && sp->moveTbl[sp->current_move_index].power != 0
+            && attackerItem != ITEM_NONE
+            // can not steal an item if you already have one
+            && sp->battlemon[client_no].item == ITEM_NONE
+            // if the attacker has its species-specific item or the target would get its item, then pickpocket can not activate
+            && CanTrickHeldItemManual(attackerItem,
+                GetMonData(attacker, MON_DATA_SPECIES, NULL),
+                sp->battlemon[client_no].item,
+                sp->battlemon[client_no].species,
+                GetMonData(attacker, MON_DATA_FORM, NULL),
+                sp->battlemon[client_no].form_no)
+            // pickpocket doesn't activate if attacked by sheer force
+            && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) {
 
-                sp->defence_client = client_no;
-                LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_PICKPOCKET_DEF);
-                sp->next_server_seq_no = sp->server_seq_no;
-                sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-                return TRUE;
+            sp->mp.id = BATTLE_MSG_STOLE_ITEM;
+            sp->mp.tag = TAG_NICKNAME_NICKNAME_ITEM;
+            sp->mp.param[0] = CreateNicknameTag(sp, client_no);
+            sp->mp.param[1] = (sp->pickpocketAttackerSlot << 8) | sp->attack_client;
+            sp->mp.param[2] = attackerItem;
+            ctx->battlerIdTemp = client_no;
+
+            if (attackerInBattle) {
+                sp->battlemon[sp->attack_client].item = ITEM_NONE;
+                CopyBattleMonToPartyMon(bsys, sp, sp->attack_client);
+            } else {
+                u16 noItem = ITEM_NONE;
+                SetMonData(attacker, MON_DATA_HELD_ITEM, &noItem);
             }
+            sp->battlemon[client_no].item = attackerItem;
+            CopyBattleMonToPartyMon(bsys, sp, client_no);
+
+            sp->defence_client = client_no;
+            LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_HANDLE_PICKPOCKET_DEF);
+            sp->next_server_seq_no = sp->server_seq_no;
+            sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
         }
     }
 
