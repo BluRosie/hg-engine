@@ -1467,7 +1467,7 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
                 int client_no = ctx->turnOrder[battler];
 
                 if (client_no == ctx->attack_client
-                    || (ctx->battlemon[client_no].ability == ABILITY_STICKY_HOLD
+                    || (GetBattlerAbility(ctx, client_no) == ABILITY_STICKY_HOLD)
                         && ctx->battlemon[client_no].hp)
                     || (CheckSubstitute(ctx, client_no) == TRUE)
                     || (ctx->battlemon[client_no].item == ITEM_NONE)
@@ -1903,6 +1903,7 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
     BOOL attackerInBattle = sp->sel_mons_no[sp->attack_client] == sp->pickpocketAttackerSlot;
     struct PartyPokemon *attacker = Battle_GetClientPartyMon(bsys, sp->attack_client, sp->pickpocketAttackerSlot);
     u16 attackerItem = attackerInBattle ? sp->battlemon[sp->attack_client].item : GetMonData(attacker, MON_DATA_HELD_ITEM, NULL);
+    u16 attackerAbility = attackerInBattle ? GetBattlerAbility(sp, sp->attack_client) : GetMonData(attacker, MON_DATA_ABILITY, NULL);
 
     for (int battler = 0; battler < BattleWorkClientSetMaxGet(bsys); battler++) {
         int client_no = sp->turnOrder[battler];
@@ -1918,6 +1919,7 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
         if ((sp->pickpocketBattlers & No2Bit(client_no))
             && sp->moveTbl[sp->current_move_index].power != 0
             && attackerItem != ITEM_NONE
+            && attackerAbility != ABILITY_STICKY_HOLD
             // can not steal an item if you already have one
             && sp->battlemon[client_no].item == ITEM_NONE
             // if the attacker has its species-specific item or the target would get its item, then pickpocket can not activate
@@ -1938,7 +1940,7 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
             sp->mp.param[0] = CreateNicknameTag(sp, client_no);
             sp->mp.param[1] = (sp->pickpocketAttackerSlot << 8) | sp->attack_client;
             sp->mp.param[2] = attackerItem;
-            ctx->battlerIdTemp = client_no;
+            sp->battlerIdTemp = client_no;
 
             if (attackerInBattle) {
                 sp->battlemon[sp->attack_client].item = ITEM_NONE;
