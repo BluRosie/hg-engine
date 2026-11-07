@@ -98,7 +98,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Incineroar!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar's Intimidate" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Empoleon's Attack fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Empoleon’s Competitive" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Empoleon's Competitive" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Empoleon's Sp. Atk rose sharply!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Incineroar used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Empoleon used Sleep Talk!" },

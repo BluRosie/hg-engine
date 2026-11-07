@@ -4,7 +4,7 @@
 .data
 
 _000:
-    AbilityPopup BATTLER_CATEGORY_BATTLER_MSG_TEMP
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait
     // {0} stole {1}’s {2}!
