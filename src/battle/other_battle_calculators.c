@@ -3604,8 +3604,7 @@ u32 LONG_CALL StruggleCheck(struct BattleSystem *bsys, struct BattleStruct *ctx,
         if (BattleContext_CheckMoveHealBlocked(bsys, ctx, battlerId, ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_HEAL_BLOCK)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
-        if ((ctx->battlemon[battlerId].moveeffect.encoredMove) && (ctx->battlemon[battlerId].moveeffect.encoredMove != ctx->battlemon[battlerId].move[movePos])) {
-            // BUG: The flag check for encore is missing in this if statement, though it's unclear if this effects anything functionally
+        if ((ctx->battlemon[battlerId].moveeffect.encoredMove) && (ctx->battlemon[battlerId].moveeffect.encoredMove != ctx->battlemon[battlerId].move[movePos]) && (struggleCheckFlags & STRUGGLE_CHECK_ENCORE)) {
             nonSelectableMoves |= No2Bit(movePos);
         }
         if ((item == HOLD_EFFECT_CHOICE_ATK || item == HOLD_EFFECT_CHOICE_SPEED || item == HOLD_EFFECT_CHOICE_SPATK) && (struggleCheckFlags & STRUGGLE_CHECK_CHOICED)) {
@@ -3667,7 +3666,14 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
 
     BOOL ret = TRUE;
 
-    if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_DISABLED) & No2Bit(movePos)) {
+    if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_ENCORE) & No2Bit(movePos)) {
+        msg->tag = TAG_NICKNAME_MOVE;
+        // {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
+        msg->id = BATTLE_MSG_CANNOT_USE_MOVE;
+        msg->param[0] = CreateNicknameTag(ctx, battlerId);
+        msg->param[1] = ctx->battlemon[battlerId].moveeffect.encoredMove;
+        ret = FALSE;
+    } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_DISABLED) & No2Bit(movePos)) {
         msg->tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0}’s {STRVAR_1 6, 1, 0}\nis disabled!\r
         msg->id = BATTLE_MSG_CANNOT_USE_MOVE_DISABLED;
@@ -3719,7 +3725,7 @@ BOOL LONG_CALL ov12_02251A28(struct BattleSystem *bsys, struct BattleStruct *ctx
     } else if (StruggleCheck(bsys, ctx, battlerId, 0, STRUGGLE_CHECK_GORILLA_TACTICS) & No2Bit(movePos)) {
         msg->tag = TAG_NICKNAME_MOVE;
         // {STRVAR_1 1, 0, 0} can only use {STRVAR_1 6, 1, 0}!\r
-        msg->id = BATTLE_MSG_CANNOT_USE_MOVE_GORILLA_TACTICS;
+        msg->id = BATTLE_MSG_CANNOT_USE_MOVE;
         msg->param[0] = CreateNicknameTag(ctx, battlerId);
         msg->param[1] = ctx->waza_no_old[battlerId];
         ret = FALSE;
