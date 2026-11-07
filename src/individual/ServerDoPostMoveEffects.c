@@ -1467,7 +1467,7 @@ int LONG_CALL Activate_Moxie_BeastBoost_Others(void *bsys, struct BattleStruct *
                 int client_no = ctx->turnOrder[battler];
 
                 if (client_no == ctx->attack_client
-                    || (GetBattlerAbility(ctx, client_no) == ABILITY_STICKY_HOLD)
+                    || ((GetBattlerAbility(ctx, client_no) == ABILITY_STICKY_HOLD)
                         && ctx->battlemon[client_no].hp)
                     || (CheckSubstitute(ctx, client_no) == TRUE)
                     || (ctx->battlemon[client_no].item == ITEM_NONE)
