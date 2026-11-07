@@ -1011,7 +1011,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         break;
     case MOVE_EFFECT_STEALTH_ROCK_HIT: // https://discord.com/channels/419213663107416084/1368163973366681712/1392652799686348912
         if (ctx->attack_client != BATTLER_NONE
-            && (ctx->battlemon[ctx->attack_client].hp != 0)) {
+            && (ctx->battlemon[ctx->attack_client].hp != 0)
+            && !(GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE && ctx->battlemon[ctx->attack_client].sheer_force_flag == 1)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SET_STEALTH_ROCK);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1021,7 +1022,8 @@ int LONG_CALL Activate_AdditionalMoveEffects(void *bsys UNUSED, struct BattleStr
         break;
     case MOVE_EFFECT_SET_SPIKES_HIT:
         if (ctx->attack_client != BATTLER_NONE
-            && (ctx->battlemon[ctx->attack_client].hp != 0)) {
+            && (ctx->battlemon[ctx->attack_client].hp != 0)
+            && !(GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE && ctx->battlemon[ctx->attack_client].sheer_force_flag == 1)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SET_SPIKES);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1271,7 +1273,9 @@ int LONG_CALL ThawTarget_FromFireMove_Scald(void *bsys UNUSED, struct BattleStru
             && (ctx->defence_client != ctx->attack_client)
             && ((ctx->oneSelfFlag[ctx->defence_client].physical_damage) || (ctx->oneSelfFlag[ctx->defence_client].special_damage))
             && (ctx->battlemon[ctx->defence_client].hp)
-            && ((movetype == TYPE_FIRE) || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)))) // scald can also melt opponents as of gen 6
+            && ((movetype == TYPE_FIRE)
+                || (IsElementInArray(gMovesThatThawFrozenMons, &currMove, NELEMS(gMovesThatThawFrozenMons), sizeof(u16)) // scald can also melt opponents as of gen 6
+                    && !(GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE && ctx->battlemon[ctx->attack_client].sheer_force_flag == 1)))
             && ctx->oneTurnFlag[ctx->attack_client].parental_bond_flag == 0) {
             ctx->battlerIdTemp = ctx->defence_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
@@ -1696,6 +1700,11 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bsys, struct BattleS
 
 int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct BattleStruct *ctx)
 {
+    if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE && ctx->battlemon[ctx->attack_client].sheer_force_flag == 1) {
+        ctx->swoak_work = 0;
+        return FALSE;
+    }
+
     for (; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys);) {
         int client_no = ctx->turnOrder[ctx->swoak_work];
         ctx->swoak_work++;
@@ -1712,7 +1721,6 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
             // Defender is alive after the attack
             if (!ctx->futureSightHitTurn
                 && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
-                && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
                     || (ctx->oneSelfFlag[client_no].special_damage))
                 && CanSwitchMon(bsys, ctx, client_no)) {
@@ -1732,7 +1740,6 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
             if (IsAttackerOnField(ctx)
                 && !ctx->futureSightHitTurn
                 && ctx->battlemon[ctx->attack_client].hp
-                && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 //&& (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
                 // Damage was dealt
                 && ((ctx->oneSelfFlag[client_no].physical_damage)
@@ -1794,6 +1801,13 @@ int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct Ba
 
 int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct BattleStruct *ctx)
 {
+#if SHEER_FORCE_GENERATION < GEN_CHAMPIONS
+    if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE && ctx->battlemon[ctx->attack_client].sheer_force_flag == 1) {
+        ctx->swoak_work = 0;
+        return FALSE;
+    }
+#endif
+
     for (; ctx->swoak_work < BattleWorkClientSetMaxGet(bsys);) {
         int client_no = ctx->turnOrder[ctx->swoak_work];
         ctx->swoak_work++;
@@ -1812,8 +1826,6 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
                 (ctx->battlemon[client_no].hp)
                 && (ctx->battlemon[client_no].states[STAT_SPECIAL_ATTACK] < 12)
                 && ((ctx->oneSelfFlag[client_no].physical_damage) || (ctx->oneSelfFlag[client_no].special_damage))
-                // berserk doesn't activate if the Pokémon gets attacked by a sheer force boosted move
-                && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 // berserk doesn't activate until the last hit of a multi-hit move
                 && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
                 && (
@@ -1838,8 +1850,6 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
                     || (ctx->battlemon[client_no].states[STAT_DEFENSE] > 0)
                     || (ctx->battlemon[client_no].states[STAT_SPECIAL_DEFENSE] > 0))
                 && ((ctx->oneSelfFlag[client_no].physical_damage) || (ctx->oneSelfFlag[client_no].special_damage))
-                // anger shell doesn't activate if the Pokémon gets attacked by a sheer force boosted move
-                && !((GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE) && (ctx->battlemon[ctx->attack_client].sheer_force_flag == 1))
                 // anger shell doesn't activate until the last hit of a multi-hit move
                 && (ctx->battlemon[client_no].hp <= (s32)(ctx->battlemon[client_no].maxhp / 2))
                 && (
@@ -1857,10 +1867,6 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
                 return TRUE;
             }
         } else if (MoldBreakerAbilityCheck(ctx, ctx->attack_client, client_no, ABILITY_COLOR_CHANGE)) {
-            if (GetBattlerAbility(ctx, ctx->attack_client) == ABILITY_SHEER_FORCE && ctx->battlemon[ctx->attack_client].sheer_force_flag == 1) { // sheer force doesn't let color change activate
-                return FALSE;
-            }
-
             u8 movetype = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index); // new normalize checks
 
             if ((ctx->battlemon[client_no].hp)
@@ -1921,8 +1927,11 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
                 sp->battlemon[client_no].species,
                 GetMonData(attacker, MON_DATA_FORM, NULL),
                 sp->battlemon[client_no].form_no)
+#if SHEER_FORCE_GENERATION < GEN_CHAMPIONS
             // pickpocket doesn't activate if attacked by sheer force
-            && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) {
+            && !(GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE && sp->battlemon[sp->attack_client].sheer_force_flag == 1)
+#endif
+        ) {
 
             sp->mp.id = BATTLE_MSG_STOLE_ITEM;
             sp->mp.tag = TAG_NICKNAME_NICKNAME_ITEM;

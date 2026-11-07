@@ -1091,7 +1091,10 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
         case MOVE_EFFECT_RAISE_ATTACK_HIT:
         case MOVE_EFFECT_LOWER_ACCURACY_HIT:
         case MOVE_EFFECT_BADLY_POISON_HIT:
-        // case MOVE_EFFECT_SECRET_POWER: // need a different way of doing this i think
+        case MOVE_EFFECT_SECRET_POWER:
+        case MOVE_EFFECT_SLEEP_HIT: // relic song, wicked torque
+        case MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED: // barb barrage
+        case MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT: // dire claw
         case MOVE_EFFECT_LOWER_SP_ATK_HIT:
         case MOVE_EFFECT_RAISE_DEF_HIT:
         case MOVE_EFFECT_THROAT_CHOP:
@@ -1100,7 +1103,6 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
         case MOVE_EFFECT_FLINCH_PARALYZE_HIT:
         case MOVE_EFFECT_FLINCH_DOUBLE_DAMAGE_FLY_OR_BOUNCE: // removes the double damage flying too
         case MOVE_EFFECT_LOWER_SP_DEF_2_HIT:
-        case MOVE_EFFECT_PREVENT_ESCAPE_HIT:
         case MOVE_EFFECT_THAW_AND_BURN_HIT: // it does thaw otherwise
         case MOVE_EFFECT_CHATTER: // confuse chance based on volume of cry
         case MOVE_EFFECT_FLINCH_MINIMIZE_DOUBLE_HIT:
@@ -1113,8 +1115,36 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
             sheer_force_active = TRUE;
             break;
 
+        case MOVE_EFFECT_PREVENT_ESCAPE_HIT:
+            if (sp->current_move_index == MOVE_THOUSAND_WAVES && GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) {
+                break;
+            }
+            effect = MOVE_EFFECT_HIT;
+            sheer_force_active = TRUE;
+            break;
+
         case MOVE_EFFECT_POISON_MULTI_HIT: // twineedle
             effect = MOVE_EFFECT_MULTI_HIT;
+            sheer_force_active = TRUE;
+            break;
+
+        case MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS: // axe kick
+            effect = MOVE_EFFECT_CRASH_ON_MISS;
+            sheer_force_active = TRUE;
+            break;
+
+        case MOVE_EFFECT_HIT_TWICE_AND_FLINCH: // double iron bash
+            effect = MOVE_EFFECT_HIT_TWICE;
+            sheer_force_active = TRUE;
+            break;
+
+        case MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT_FLINCH: // sky attack
+            effect = MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT;
+            sheer_force_active = TRUE;
+            break;
+
+        case MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT: // matcha gotcha
+            effect = MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT;
             sheer_force_active = TRUE;
             break;
 
@@ -1135,16 +1165,36 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
         }
 
         if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) {
-            // moves boosted by sheer force that still maintain their effect
+            switch (effect) {
+            case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: // rapid spin
+            case MOVE_EFFECT_RAISE_DEF_2_HIT: // diamond storm
+            case MOVE_EFFECT_RAISE_EVA_HIT: // zippy zap
+                effect = MOVE_EFFECT_HIT;
+                sheer_force_active = TRUE;
+                break;
+            case MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT: // esper wing
+                effect = MOVE_EFFECT_HIGH_CRITICAL;
+                sheer_force_active = TRUE;
+                break;
+
+            default:
+                break;
+            }
+
             if ((sheer_force_active == TRUE)
                 || (sp->current_move_index == MOVE_SPARKLING_ARIA)
-                // || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // doesnt have an eff atm but still on the table
-                || (sp->current_move_index == MOVE_SPIRIT_SHACKLE)
-                || (sp->current_move_index == MOVE_ANCHOR_SHOT)
-                // || (sp->current_move_index == MOVE_EERIE_SPELL) // same as genesis supernova
+                || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // TODO
+                || (sp->current_move_index == MOVE_EERIE_SPELL) // TODO
+                || (sp->current_move_index == MOVE_SALT_CURE) // TODO
+                || (sp->current_move_index == MOVE_SYRUP_BOMB) // TODO
+                || (sp->current_move_index == MOVE_SHELL_SIDE_ARM) // TODO
+                || (sp->current_move_index == MOVE_ORDER_UP) // keep stat boost
                 || (sp->current_move_index == MOVE_CEASELESS_EDGE)
                 || (sp->current_move_index == MOVE_STONE_AXE)
-                || (sp->current_move_index == MOVE_ELECTRO_SHOT)) { // according to bulbapedia but only on the electro shot page ?
+#if SHEER_FORCE_GENERATION < GEN_CHAMPIONS
+                || (sp->current_move_index == MOVE_ELECTRO_SHOT) // keep stat boost
+#endif
+            ) {
                 sp->battlemon[sp->attack_client].sheer_force_flag = 1;
             }
         }

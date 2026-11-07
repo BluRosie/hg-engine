@@ -233,6 +233,9 @@
 // UNSEEN_FIST_GENERATION defines the behavior that Unseen Fist should exhibit, where it either completely ignores Protect (<=8) or deals 0.25x Damage (>=9)
 #define UNSEEN_FIST_GENERATION GEN_CHAMPIONS
 
+// SHEER_FORCE_GENERATION set to GEN_CHAMPIONS lets Anger Shell, Berserk, Color Change and Pickpocket activate against Sheer Force moves. Removes the Sheer Force boost from Electro Shot
+#define SHEER_FORCE_GENERATION GEN_LATEST
+
 // PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION actiavtes the struggle check for Belch/Stuff Cheeks in Generations before Champions
 #define PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION GEN_LATEST
 
