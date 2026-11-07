@@ -431,6 +431,13 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
             seq_no[0] = BATTLE_SUBSCRIPT_PERISH_BODY;
             ret = TRUE;
         }
+    } else if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_PICKPOCKET) { // not breakable
+        if ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
+            && sp->battlemon[sp->defence_client].hp
+            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
+            sp->pickpocketBattlers |= No2Bit(sp->defence_client);
+            sp->pickpocketAttackerSlot = sp->sel_mons_no[sp->attack_client];
+        }
     }
 
     return ret;
