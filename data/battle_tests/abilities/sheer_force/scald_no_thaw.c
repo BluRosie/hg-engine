@@ -1,4 +1,4 @@
-// Test: Sheer Force - Scald doesn't thaw the target, but a Fire-type move does
+// Test: Sheer Force - Scald does not thaw the target, but a Fire move does
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

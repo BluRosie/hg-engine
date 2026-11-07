@@ -1,4 +1,4 @@
-// Test: Sheer Force - Stone Axe doesn't set Stealth Rock
+// Test: Sheer Force - Stone Axe does not set Stealth Rock
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
