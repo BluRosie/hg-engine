@@ -1073,22 +1073,18 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
         switch (effect) {
         case MOVE_EFFECT_FLINCH_HIT:
         case MOVE_EFFECT_ALWAYS_FLINCH_FIRST_TURN_ONLY:
-        case MOVE_EFFECT_RAISE_ALL_STATS_HIT:
         case MOVE_EFFECT_BLIZZARD:
         case MOVE_EFFECT_PARALYZE_HIT:
         case MOVE_EFFECT_LOWER_ATTACK_HIT:
         case MOVE_EFFECT_LOWER_SPEED_HIT:
-        case MOVE_EFFECT_RAISE_SP_ATK_HIT:
         case MOVE_EFFECT_CONFUSE_HIT:
         case MOVE_EFFECT_LOWER_DEFENSE_HIT:
         case MOVE_EFFECT_LOWER_SP_DEF_HIT:
         case MOVE_EFFECT_BURN_HIT:
         case MOVE_EFFECT_FLINCH_BURN_HIT:
-        case MOVE_EFFECT_RAISE_SPEED_HIT:
         case MOVE_EFFECT_POISON_HIT:
         case MOVE_EFFECT_FREEZE_HIT:
         case MOVE_EFFECT_FLINCH_FREEZE_HIT:
-        case MOVE_EFFECT_RAISE_ATTACK_HIT:
         case MOVE_EFFECT_LOWER_ACCURACY_HIT:
         case MOVE_EFFECT_BADLY_POISON_HIT:
         case MOVE_EFFECT_SECRET_POWER:
@@ -1096,7 +1092,6 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
         case MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED: // barb barrage
         case MOVE_EFFECT_SLEEP_POISON_PARALYZE_HIT: // dire claw
         case MOVE_EFFECT_LOWER_SP_ATK_HIT:
-        case MOVE_EFFECT_RAISE_DEF_HIT:
         case MOVE_EFFECT_THROAT_CHOP:
         case MOVE_EFFECT_THUNDER:
         case MOVE_EFFECT_HURRICANE:
@@ -1166,6 +1161,11 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
 
         if (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE) {
             switch (effect) {
+            case MOVE_EFFECT_RAISE_ALL_STATS_HIT: // ancient power
+            case MOVE_EFFECT_RAISE_SP_ATK_HIT: // torch song
+            case MOVE_EFFECT_RAISE_SPEED_HIT: // trailblaze
+            case MOVE_EFFECT_RAISE_ATTACK_HIT: // power up punch
+            case MOVE_EFFECT_RAISE_DEF_HIT: // steel wing
             case MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING: // rapid spin
             case MOVE_EFFECT_RAISE_DEF_2_HIT: // diamond storm
             case MOVE_EFFECT_RAISE_EVA_HIT: // zippy zap
