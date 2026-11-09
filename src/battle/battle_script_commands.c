@@ -3745,8 +3745,13 @@ BOOL BtlCmd_RemoveItem(void *bsys, struct BattleStruct *ctx)
 
     int side = read_battle_script_param(ctx);
     int battlerId = GrabClientFromBattleScriptParam(bsys, ctx, side);
+    u16 item = ctx->battlemon[battlerId].item;
 
-    ctx->recycle_item[battlerId] = ctx->battlemon[battlerId].item;
+    if (item != ITEM_EJECT_BUTTON && item != ITEM_EJECT_PACK) {
+        ctx->abilityProcessingFlags[battlerId].pendingSymbiosis = 1;
+    }
+
+    ctx->recycle_item[battlerId] = item;
     ctx->battlemon[battlerId].item = ITEM_NONE;
 
     ctx->battlemon[battlerId].moveeffect.knockOffFlag = TRUE;
@@ -4172,6 +4177,10 @@ BOOL BtlCmd_TryPluck(void *bw, struct BattleStruct *sp)
         sp->mp.param[1] = item;
         sp->battlemon[sp->defence_client].item = 0; // no recycle
         sp->battlemon[sp->defence_client].moveeffect.knockOffFlag = TRUE;
+
+        if (sp->battlemon[sp->attack_client].item == ITEM_NONE && sp->temp_work != 0) {
+            sp->abilityProcessingFlags[sp->attack_client].pendingSymbiosis = 1;
+        }
 
         if (GetItemData(item, ITEM_PARAM_HOLD_EFFECT, 5) != 0) {
             sp->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(bw, sp->attack_client)][sp->sel_mons_no[sp->attack_client]].berryEatenAndCanBelch = TRUE;
