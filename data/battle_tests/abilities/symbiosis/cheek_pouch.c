@@ -1,4 +1,4 @@
-// Test: Symbiosis - triggers after an ally's Cheek Pouch activates
+// Test: Symbiosis - triggers after Cheek Pouch
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

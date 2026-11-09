@@ -51,7 +51,7 @@ BEGIN_TEST
         },
         {
             .species = SPECIES_ORANGURU,
-            .level = 50,
+            .level = 49,
             .form = 0,
             .ability = ABILITY_SYMBIOSIS,
             .item = ITEM_POTION,

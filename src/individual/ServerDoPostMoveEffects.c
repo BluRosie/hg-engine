@@ -36,6 +36,7 @@ int LONG_CALL Activate_MirrorHerb_WhiteHerb_EjectPack(void *bw, struct BattleStr
 int LONG_CALL Activate_KeeMarangaBerry_RedCard_EjectButton(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct BattleStruct *ctx);
 int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp);
+int LONG_CALL Activate_Symbiosis(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_Disguise_IceFace(void *bsys, struct BattleStruct *sp);
 int LONG_CALL Activate_SecondaryEffects(void *bsys, struct BattleStruct *ctx);
 int LONG_CALL Activate_HowlLifeDew(void *bsys, struct BattleStruct *ctx);
@@ -655,8 +656,14 @@ void __attribute__((section(".init"))) ServerDoPostMoveEffectsInternal(void *bsy
         ctx->swoak_work = 0;
         ctx->swoam_seq_no++;
         FALLTHROUGH;
-    case MOVE_PERFORMANCE_STEP_27_1_OPPORTUNIST_SYMBIOSIS:
-        // TODO
+    case MOVE_PERFORMANCE_STEP_27_1_OPPORTUNIST_SYMBIOSIS: // speed order
+#ifdef DEBUG_MOVE_PERFORMANCE_LOGIC
+        debug_printf("in MOVE_PERFORMANCE_STEP_27_1_OPPORTUNIST_SYMBIOSIS %d\n", ctx->swoam_seq_no);
+#endif
+        // TODO opportunist
+        if (Activate_Symbiosis(bsys, ctx) == TRUE) {
+            return;
+        }
         ctx->swoak_work = 0;
         ctx->swoam_seq_no++;
         FALLTHROUGH;
@@ -1293,6 +1300,7 @@ int LONG_CALL Activate_SkillEffects(void *bsys UNUSED, struct BattleStruct *ctx)
             && ctx->battlemon[ctx->attack_client].item) {
             ctx->recycle_item[ctx->attack_client] = ctx->battlemon[ctx->attack_client].item;
             ctx->battlemon[ctx->attack_client].item = 0;
+            ctx->abilityProcessingFlags[ctx->attack_client].pendingSymbiosis = 1;
         }
         break;
     case MOVE_BURN_UP:
@@ -1920,6 +1928,48 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
                 return TRUE;
             }
         }
+    }
+
+    return FALSE;
+}
+
+int LONG_CALL Activate_Symbiosis(void *bsys, struct BattleStruct *ctx)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    if (ctx->current_move_index == MOVE_BESTOW
+        && ctx->attack_client != BATTLER_NONE
+        && ctx->battlemon[ctx->attack_client].item == ITEM_NONE
+        && (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0) {
+        ctx->abilityProcessingFlags[ctx->attack_client].pendingSymbiosis = 1;
+    }
+
+    for (int i = 0; i < maxBattlers; i++) {
+        int symbiosisBattler = ctx->turnOrder[i];
+        int ally = BATTLER_ALLY(symbiosisBattler);
+
+        if (ally >= maxBattlers || !ctx->abilityProcessingFlags[ally].pendingSymbiosis) {
+            continue;
+        }
+
+        if (GetBattlerAbility(ctx, symbiosisBattler) == ABILITY_SYMBIOSIS
+            && ctx->battlemon[symbiosisBattler].hp != 0
+            && ctx->battlemon[symbiosisBattler].item != ITEM_NONE
+            && ctx->battlemon[ally].hp != 0
+            && ctx->battlemon[ally].item == ITEM_NONE
+            && CanItemBeRemovedFromSpecies(ctx->battlemon[symbiosisBattler].species, ctx->battlemon[symbiosisBattler].item, ctx->battlemon[symbiosisBattler].form_no)
+            && CanItemBeRemovedFromSpecies(ctx->battlemon[ally].species, ctx->battlemon[symbiosisBattler].item, ctx->battlemon[ally].form_no)) {
+            ctx->abilityProcessingFlags[ally].pendingSymbiosis = 0;
+            ctx->battlerIdTemp = symbiosisBattler;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYMBIOSIS);
+            ctx->next_server_seq_no = ctx->server_seq_no;
+            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+            return TRUE;
+        }
+    }
+
+    for (int battler = 0; battler < maxBattlers; battler++) {
+        ctx->abilityProcessingFlags[battler].pendingSymbiosis = 0;
     }
 
     return FALSE;

@@ -1,4 +1,4 @@
-// Test: Symbiosis - triggers for the Bug Bite user's ally, not for the ally of the target that lost its berry
+// Test: Symbiosis - triggers for attacker's ally, not for defender's ally
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
