@@ -111,9 +111,13 @@ BEGIN_TEST
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "White Herb" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staravia's Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet's Attack fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet returned its stats to normal using its White Herb!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru's Symbiosis" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru shared its Potion with Wobbuffet!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Staravia used Sleep Talk!" },
     },
 }
 END_TEST

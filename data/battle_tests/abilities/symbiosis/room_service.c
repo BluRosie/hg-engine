@@ -114,7 +114,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Kirlia used Trick Room!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru's Symbiosis" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru shared its Toxic Orb with Wobbuffet!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Wobbuffet was badly poisoned" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet was badly poisoned by the Toxic Orb!" },
     },
 }
 END_TEST

@@ -112,7 +112,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Super Fang!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Oran Berry" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dedenne restored its health using its Oran Berry!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dedenne's Cheek Pouch" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dedenne had its HP restored." },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru's Symbiosis" },
