@@ -856,7 +856,6 @@ typedef struct AbilityProcessingFlags {
     u8 padding : 7;
 } AbilityProcessingFlags;
 
-
 #define VANILLA_BATTLE_SCRIPT_PUSH_DEPTH 4
 #define BATTLE_SCRIPT_PUSH_DEPTH         8
 
