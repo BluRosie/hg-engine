@@ -1935,8 +1935,6 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
 
 int LONG_CALL Activate_Symbiosis(void *bsys, struct BattleStruct *ctx)
 {
-    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
-
     if (ctx->current_move_index == MOVE_BESTOW
         && ctx->attack_client != BATTLER_NONE
         && ctx->battlemon[ctx->attack_client].item == ITEM_NONE
@@ -1944,34 +1942,13 @@ int LONG_CALL Activate_Symbiosis(void *bsys, struct BattleStruct *ctx)
         ctx->abilityProcessingFlags[ctx->attack_client].pendingSymbiosis = 1;
     }
 
-    for (int i = 0; i < maxBattlers; i++) {
-        int symbiosisBattler = ctx->turnOrder[i];
-        int ally = BATTLER_ALLY(symbiosisBattler);
-
-        if (ally >= maxBattlers || !ctx->abilityProcessingFlags[ally].pendingSymbiosis) {
-            continue;
-        }
-
-        if (GetBattlerAbility(ctx, symbiosisBattler) == ABILITY_SYMBIOSIS
-            && ctx->battlemon[symbiosisBattler].hp != 0
-            && ctx->battlemon[symbiosisBattler].item != ITEM_NONE
-            && ctx->battlemon[ally].hp != 0
-            && ctx->battlemon[ally].item == ITEM_NONE
-            && CanItemBeRemovedFromSpecies(ctx->battlemon[symbiosisBattler].species, ctx->battlemon[symbiosisBattler].item, ctx->battlemon[symbiosisBattler].form_no)
-            && CanItemBeRemovedFromSpecies(ctx->battlemon[ally].species, ctx->battlemon[symbiosisBattler].item, ctx->battlemon[ally].form_no)) {
-            ctx->abilityProcessingFlags[ally].pendingSymbiosis = 0;
-            ctx->battlerIdTemp = symbiosisBattler;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYMBIOSIS);
-            ctx->next_server_seq_no = ctx->server_seq_no;
-            ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
-            return TRUE;
-        }
+    if (TryActivateSymbiosis(bsys, ctx)) {
+        ctx->next_server_seq_no = ctx->server_seq_no;
+        ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+        return TRUE;
     }
 
-    for (int battler = 0; battler < maxBattlers; battler++) {
-        ctx->abilityProcessingFlags[battler].pendingSymbiosis = 0;
-    }
-
+    ctx->moveInProgress = FALSE;
     return FALSE;
 }
 

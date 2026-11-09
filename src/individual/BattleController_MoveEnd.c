@@ -26,6 +26,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
 {
     // debug_printf("In BattleController_MoveEnd\n");
     int script;
+    ctx->moveInProgress = FALSE;
     u32 battleType = BattleTypeGet(bsys);
 
     if ((ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0) {

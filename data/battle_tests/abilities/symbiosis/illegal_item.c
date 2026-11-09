@@ -1,4 +1,4 @@
-// Test: Symbiosis - opposing Symbiosis still works after the player's item was knocked off
+// Test: Symbiosis - does not transfer illegal item
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,11 +8,11 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_WOBBUFFET,
+            .species = SPECIES_GENESECT,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SHADOW_TAG,
-            .item = ITEM_LEFTOVERS,
+            .ability = ABILITY_DOWNLOAD,
+            .item = ITEM_CHILAN_BERRY,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -20,12 +20,12 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_WOBBUFFET,
+            .species = SPECIES_ORANGURU,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SHADOW_TAG,
-            .item = ITEM_NONE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_TRICK_ROOM, MOVE_NONE, MOVE_NONE },
+            .ability = ABILITY_SYMBIOSIS,
+            .item = ITEM_DOUSE_DRIVE,
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -42,19 +42,19 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_SHADOW_TAG,
-            .item = ITEM_ROOM_SERVICE,
-            .moves = { MOVE_SLEEP_TALK, MOVE_KNOCK_OFF, MOVE_NONE, MOVE_NONE },
+            .item = ITEM_NONE,
+            .moves = { MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_ORANGURU,
+            .species = SPECIES_WOBBUFFET,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SYMBIOSIS,
-            .item = ITEM_POTION,
+            .ability = ABILITY_SHADOW_TAG,
+            .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -79,7 +79,7 @@ BEGIN_TEST
         },
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -90,7 +90,7 @@ BEGIN_TEST
     },
     .enemyScript = {
         {
-            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -111,10 +111,9 @@ BEGIN_TEST
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "knocked off Wobbuffet's Leftovers" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Trick Room!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru's Symbiosis" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "shared its Potion with" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Scratch!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Chilan Berry weakened the damage" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Symbiosis" },
     },
 }
 END_TEST

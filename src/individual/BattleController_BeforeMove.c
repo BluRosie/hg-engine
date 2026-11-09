@@ -227,6 +227,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         for (int battler = 0; battler < CLIENT_MAX; battler++) {
             ctx->abilityProcessingFlags[battler].pendingSymbiosis = 0;
         }
+        ctx->moveInProgress = TRUE;
         // reset new stuff here, because subscript is modified
         // ctx->battlemon[ctx->attack_client].moveeffect.custapBerryFlag = 0;
         // ctx->battlemon[ctx->attack_client].moveeffect.quickClawFlag = 0;

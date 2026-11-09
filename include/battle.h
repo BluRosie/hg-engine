@@ -1098,7 +1098,8 @@ struct BattleStruct {
     u8 futureSightNoAttacker : 1;
     u8 futureSightSTAB : 1;
     u8 ejectPackActivated : 1;
-    u8 gemBoostingMovePadding : 3;
+    u8 moveInProgress : 1;
+    u8 gemBoostingMovePadding : 2;
 
     int currentMoveSwitchStatus;
 
@@ -2835,6 +2836,7 @@ s32 LONG_CALL GrabClientFromBattleScriptParam(void *bw, struct BattleStruct *sp,
 void LONG_CALL LoadBattleSubSeqScript(struct BattleStruct *sp, int kind, int index);
 /* https://github.com/pret/pokeheartgold/blob/master/src/battle/overlay_12_0224E4FC.c#L202 */
 BOOL LONG_CALL PopBattleScript(struct BattleStruct *sp);
+BOOL LONG_CALL TryActivateSymbiosis(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 /**
  *  @brief load battle script and queue up the current one to go after this one

@@ -698,7 +698,44 @@ BOOL LONG_CALL PopBattleScript(struct BattleStruct *sp)
         sp->skill_seq_no = sp->push_skill_seq_no[sp->push_count];
         return FALSE;
     }
+
+    if (!sp->moveInProgress && TryActivateSymbiosis(gBattleSystem, sp)) {
+        return FALSE;
+    }
     return TRUE;
+}
+
+BOOL LONG_CALL TryActivateSymbiosis(struct BattleSystem *bsys, struct BattleStruct *ctx)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+    for (int i = 0; i < maxBattlers; i++) {
+        int symbiosisBattler = ctx->turnOrder[i];
+        int ally = BATTLER_ALLY(symbiosisBattler);
+
+        if (ally >= maxBattlers || !ctx->abilityProcessingFlags[ally].pendingSymbiosis) {
+            continue;
+        }
+
+        if (GetBattlerAbility(ctx, symbiosisBattler) == ABILITY_SYMBIOSIS
+            && ctx->battlemon[symbiosisBattler].hp != 0
+            && ctx->battlemon[symbiosisBattler].item != ITEM_NONE
+            && ctx->battlemon[ally].hp != 0
+            && ctx->battlemon[ally].item == ITEM_NONE
+            && CanItemBeRemovedFromSpecies(ctx->battlemon[symbiosisBattler].species, ctx->battlemon[symbiosisBattler].item, ctx->battlemon[symbiosisBattler].form_no)
+            && CanItemBeRemovedFromSpecies(ctx->battlemon[ally].species, ctx->battlemon[symbiosisBattler].item, ctx->battlemon[ally].form_no)) {
+            ctx->abilityProcessingFlags[ally].pendingSymbiosis = 0;
+            ctx->battlerIdTemp = symbiosisBattler;
+            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYMBIOSIS);
+            return TRUE;
+        }
+    }
+
+    for (int battler = 0; battler < CLIENT_MAX; battler++) {
+        ctx->abilityProcessingFlags[battler].pendingSymbiosis = 0;
+    }
+
+    return FALSE;
 }
 
 /**

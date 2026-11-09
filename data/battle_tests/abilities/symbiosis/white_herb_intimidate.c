@@ -1,4 +1,4 @@
-// Test: Symbiosis - does not transfer illegal item
+// Test: Symbiosis - triggers outside of a move after an ally's White Herb activates on switch-in
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -8,11 +8,11 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_GENESECT,
+            .species = SPECIES_WOBBUFFET,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_DOWNLOAD,
-            .item = ITEM_CHILAN_BERRY,
+            .ability = ABILITY_SHADOW_TAG,
+            .item = ITEM_WHITE_HERB,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -24,7 +24,7 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_SYMBIOSIS,
-            .item = ITEM_DOUSE_DRIVE,
+            .item = ITEM_POTION,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
@@ -38,12 +38,12 @@ BEGIN_TEST
     },
     .enemyParty = {
         {
-            .species = SPECIES_WOBBUFFET,
+            .species = SPECIES_STARAVIA,
             .level = 50,
             .form = 0,
-            .ability = ABILITY_SHADOW_TAG,
+            .ability = ABILITY_INTIMIDATE,
             .item = ITEM_NONE,
-            .moves = { MOVE_SCRATCH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -111,9 +111,9 @@ BEGIN_TEST
         },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Scratch!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Chilan Berry weakened the damage" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Symbiosis" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "White Herb" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru's Symbiosis" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru shared its Potion with Wobbuffet!" },
     },
 }
 END_TEST
