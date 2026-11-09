@@ -535,6 +535,7 @@
 #define BATTLE_SUBSCRIPT_COMATOSE                               (526)
 #define BATTLE_SUBSCRIPT_DOESNT_AFFECT_ALLY_ABILITY             (527)
 #define BATTLE_SUBSCRIPT_TRY_CLEAR_UNNERVE                      (528)
+#define BATTLE_SUBSCRIPT_SYMBIOSIS                              (529)
 
 #define MAX_BASE_SUBSCRIPT_NUM 528
 

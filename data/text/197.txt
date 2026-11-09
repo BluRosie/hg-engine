@@ -1799,3 +1799,10 @@ The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
 {STRVAR_1 1, 0, 0} is drowsing!
 The wild {STRVAR_1 1, 0, 0} is drowsing!
 The opposing {STRVAR_1 1, 0, 0} is drowsing!
+{STRVAR_1 1, 0, 0} shared its {STRVAR_1 8, 1, 0}\nwith {STRVAR_1 1, 2, 0}!
+{STRVAR_1 1, 0, 0} shared its {STRVAR_1 8, 1, 0}\nwith the wild {STRVAR_1 1, 2, 0}!
+{STRVAR_1 1, 0, 0} shared its {STRVAR_1 8, 1, 0}\nwith the opposing {STRVAR_1 1, 2, 0}!
+The wild {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with {STRVAR_1 1, 2, 0}!
+The wild {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with the wild\f{STRVAR_1 1, 2, 0}!
+The opposing {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with {STRVAR_1 1, 2, 0}!
+The opposing {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with the\fopposing {STRVAR_1 1, 2, 0}!

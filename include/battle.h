@@ -851,6 +851,12 @@ typedef struct SwitchInFlags {
     u8 padding : 4;
 } SwitchInFlags;
 
+typedef struct AbilityProcessingFlags {
+    u8 pendingSymbiosis : 1;
+    u8 padding : 7;
+} AbilityProcessingFlags;
+
+
 #define VANILLA_BATTLE_SCRIPT_PUSH_DEPTH 4
 #define BATTLE_SCRIPT_PUSH_DEPTH         8
 
@@ -1105,6 +1111,7 @@ struct BattleStruct {
     MagicBounceContext magicBounceContext;
     HealingWishQueue healingWishQueue;
     SwitchInFlags switchInFlags[CLIENT_MAX];
+    AbilityProcessingFlags abilityProcessingFlags[CLIENT_MAX];
     int field_condition2; // gen5+ field conditions
     int magicRoomCounter;
 
