@@ -192,6 +192,7 @@ u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 void LONG_CALL GetMonSpriteCharAndPlttNarcIdsEx(MON_PIC *picdata, u16 species, u8 gender, u8 whichFacing, u8 shiny, u8 form, u32 personality)
 {
     species = PokeOtherFormMonsNoGet(species, form);
+    word_to_store_form_at = form;
 
     picdata->arc_no = ARC_MON_PIC;
     picdata->index_chr = species * 6 + whichFacing + (gender == MON_FEMALE ? 0 : 1);
@@ -210,7 +211,11 @@ u8 LONG_CALL GetMonPicHeightBySpeciesGenderForm(u16 species, u8 gender, u8 which
 {
     u8 ret;
     (void)pid;
-    species = PokeOtherFormMonsNoGet(species, form);
+    // Checking whether we need to update species number or not (pre-sanitized form mon)
+    if (word_to_store_form_at == 0 && form > 0) {
+        species = PokeOtherFormMonsNoGet(species, form);
+    }
+
     ReadWholeNarcMemberByIdPair(&ret, ARC_MON_PIC_HEIGHT, species * 4 + whichFacing + (gender != MON_FEMALE ? 1 : 0));
     return ret;
 }
