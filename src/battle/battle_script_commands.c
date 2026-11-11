@@ -144,6 +144,8 @@ BOOL btl_scr_cmd_12A_GoToIfMoveConditionFlagSet(void *bsys, struct BattleStruct 
 BOOL btl_scr_cmd_12B_TryActivateReceiver(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12D_TryClearUnnerve(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12E_TryActivateSymbiosis(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_12F_RestoreBoosterEnergyBattler(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -490,6 +492,8 @@ const u8 *BattleScrCmdNames[] = {
     "TryActivateReceiver",
     "TryActivateEmergencyExit",
     "TryClearUnnerve",
+    "TryActivateSymbiosis"
+    "RestoreBoosterEnergyBattler",
     // "YourCustomCommand",
 };
 
@@ -497,7 +501,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12D
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12E
 
 // clang-format off
 const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
@@ -578,6 +582,8 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x12B - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12B_TryActivateReceiver,
     [0x12C - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12C_TryActivateEmergencyExit,
     [0x12D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12D_TryClearUnnerve,
+    [0x12E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12E_TryActivateSymbiosis,
+    [0x12F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12F_RestoreBoosterEnergyBattler,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -700,6 +706,7 @@ BOOL LONG_CALL PopBattleScript(struct BattleStruct *sp)
     }
 
     if (!sp->moveInProgress && TryActivateSymbiosis(gBattleSystem, sp)) {
+        LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYMBIOSIS);
         return FALSE;
     }
     return TRUE;
@@ -726,7 +733,6 @@ BOOL LONG_CALL TryActivateSymbiosis(struct BattleSystem *bsys, struct BattleStru
             && CanItemBeRemovedFromSpecies(ctx->battlemon[ally].species, ctx->battlemon[symbiosisBattler].item, ctx->battlemon[ally].form_no)) {
             ctx->abilityProcessingFlags[ally].pendingSymbiosis = 0;
             ctx->battlerIdTemp = symbiosisBattler;
-            LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYMBIOSIS);
             return TRUE;
         }
     }
@@ -6074,6 +6080,28 @@ BOOL btl_scr_cmd_12D_TryClearUnnerve(void *bsys, struct BattleStruct *ctx)
         && HasUnnerveAbility(ctx, ally)) {
         IncrementBattleScriptPtr(ctx, failAddress);
     }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_12E_TryActivateSymbiosis(void *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int failAddress = read_battle_script_param(ctx);
+
+    if (!TryActivateSymbiosis(bsys, ctx)) {
+        IncrementBattleScriptPtr(ctx, failAddress);
+    }
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_12F_RestoreBoosterEnergyBattler(void UNUSED *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+
+    ctx->battlerIdTemp = BATTLER_ALLY(ctx->battlerIdTemp);
+    ctx->msg_work = ctx->paradoxBoostedStat[ctx->battlerIdTemp];
 
     return FALSE;
 }

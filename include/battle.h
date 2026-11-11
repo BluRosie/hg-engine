@@ -853,7 +853,8 @@ typedef struct SwitchInFlags {
 
 typedef struct AbilityProcessingFlags {
     u8 pendingSymbiosis : 1;
-    u8 padding : 7;
+    u8 symbiosisAlly : 3;
+    u8 boosterEnergyStat : 4;
 } AbilityProcessingFlags;
 
 #define VANILLA_BATTLE_SCRIPT_PUSH_DEPTH 4

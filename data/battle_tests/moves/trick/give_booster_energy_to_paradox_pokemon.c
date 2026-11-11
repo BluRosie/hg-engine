@@ -119,7 +119,7 @@
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Mewscarada switched items with its target!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Booster Energy was used up..." },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RagingBolt used the Booster Energy to activate Protosynthesis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RagingBolt used its Booster Energy to activate Protosynthesis!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RagingBolt's Sp. Atk was heightened!" },
     }
 },

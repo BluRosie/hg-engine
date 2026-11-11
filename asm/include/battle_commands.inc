@@ -1652,7 +1652,16 @@
     .long (((\arg_1 - .) / 4) - 1)
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 301
+    .macro TryActivateSymbiosis arg_0
+    .long 302
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .macro RestoreBoosterEnergyBattler
+    .long 303
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 303
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)
