@@ -91,7 +91,7 @@ BEGIN_TEST {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle used Splash!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mew used Encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle must do an encore!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle's encore ended!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle ended its encore!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle used Swords Dance!" },
     },
 } END_TEST

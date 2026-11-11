@@ -1398,9 +1398,15 @@ int LONG_CALL Activate_RampageConfusion(void *bsys UNUSED, struct BattleStruct *
     return FALSE;
 }
 
+BOOL AttackerCameInThisTurn(struct BattleStruct *ctx)
+{
+    return ctx->moveConditionsFlags[ctx->attack_client].firstTurnOut == 2 && !ctx->futureSightHitTurn;
+}
+
 int LONG_CALL Activate_ShellBell_LifeOrb(void *bw UNUSED, struct BattleStruct *sp)
 {
     if (!IsAttackerOnField(sp)
+        || AttackerCameInThisTurn(sp)
         || (GetBattlerAbility(sp, sp->attack_client) == ABILITY_SHEER_FORCE
             && sp->battlemon[sp->attack_client].sheer_force_flag == 1)) { // skip over shell bell and life orb if sheer force is active
         return FALSE;
@@ -2027,6 +2033,7 @@ int LONG_CALL Activate_Switch(void *bsys, struct BattleStruct *ctx)
         if (ctx->attack_client != BATTLER_NONE
             && ctx->battlemon[ctx->attack_client].hp > 0
             && (ctx->currentMoveSwitchStatus < CURRENT_MOVE_SWITCH_PENDING)
+            && !AttackerCameInThisTurn(ctx)
             && CanSwitchMon(bsys, ctx, ctx->attack_client)) {
             ctx->addeffect_type = SIDE_EFFECT_TYPE_MOVE_EFFECT;
             ctx->state_client = ctx->attack_client;

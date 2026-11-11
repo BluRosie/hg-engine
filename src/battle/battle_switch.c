@@ -145,7 +145,8 @@ BOOL BtlCmd_SwitchAndUpdateMon(struct BattleSystem *bsys, struct BattleStruct *c
         break;
     }
 
-    ctx->moveConditionsFlags[battlerId].firstTurnOut = 2;
+    // check for a replacement after FieldConditionCheck
+    ctx->moveConditionsFlags[battlerId].firstTurnOut = ctx->next_server_seq_no == CONTROLLER_COMMAND_TURN_END ? 1 : 2;
     ctx->client_status[battlerId] &= ~1;
     ctx->no_reshuffle_client &= (No2Bit(battlerId) ^ ~0);
     ctx->sel_mons_no[battlerId] = ctx->reshuffle_sel_mons_no[battlerId];

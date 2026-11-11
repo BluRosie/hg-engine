@@ -59,6 +59,16 @@ enum {
     CHECK_STATUS_DONE,
 };
 
+static const u16 sMovesCallingOtherMoves[] = {
+    MOVE_ASSIST,
+    MOVE_COPYCAT,
+    MOVE_INSTRUCT,
+    MOVE_ME_FIRST,
+    MOVE_METRONOME,
+    MOVE_NATURE_POWER,
+    MOVE_SLEEP_TALK,
+};
+
 const u16 sProtectSuccessChance[] = {
     1, // 100%
     3, // ~33.3%
@@ -4315,7 +4325,19 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         break;
     }
     case MOVE_ENCORE: {
-        // TODO
+        // dirty hack: waza_no_sketch holds the last clicked move
+        struct BattlePokemon *target = &ctx->battlemon[ctx->defence_client];
+        u16 lastMove = ctx->waza_no_sketch[ctx->defence_client];
+        int movePos = BattleMon_GetMoveIndex(target, lastMove);
+
+        if (lastMove == MOVE_NONE
+            || IsElementInArray(sMovesCallingOtherMoves, &lastMove, NELEMS(sMovesCallingOtherMoves), sizeof(sMovesCallingOtherMoves[0]))
+            || !IsMoveEncored(ctx, lastMove)
+            || movePos == MAX_MON_MOVES
+            || target->pp[movePos] == 0
+            || target->moveeffect.encoredMove != MOVE_NONE) {
+            butItFailedFlag = TRUE;
+        }
         break;
     }
     case MOVE_SKETCH: {
