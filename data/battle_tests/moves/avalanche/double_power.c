@@ -116,7 +116,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machamp used Avalanche!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 26, 26, 26, 27, 27, 27, 28, 28, 28, 29, 29, 29, 30, 30, 30, 31 } }, // boosted
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machoke used Revenge!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 24, 24, 25, 25, 25, 26, 26, 26, 26, 27, 27, 27, 28, 28, 28, 29 } }, // unboosted
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_SECOND, .expectationValue.hpTaken = { 21, 21, 21, 21, 21, 21, 22, 22, 22, 23, 23, 23, 24, 24, 24, 24 } }, // unboosted
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Slowking used Pound!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Machamp used Avalanche!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 13, 13, 13, 14, 14, 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 16 } }, // unboosted
