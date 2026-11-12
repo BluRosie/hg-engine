@@ -109,7 +109,7 @@ const struct TestBattleScenario BattleTests[] = {
 #endif
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sandile lost some of its HP!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Impidimp restored its health using its Sitrus Berry!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Impidimp stole Sandile's Life Orb!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sandile had its Life Orb stolen!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.hpTaken = { 27, 27, 27, 27, 27, 27, 29, 29, 29, 30, 30, 30, 31, 31, 31, 31 } }, // life orb boosted
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Impidimp lost some of its HP!" },
            

@@ -399,13 +399,13 @@ The opposing {STRVAR_1 1, 0, 0} took\nits attacker down with it!
 {STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
-{STRVAR_1 1, 0, 0} stole\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-{STRVAR_1 1, 0, 0} stole the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-{STRVAR_1 1, 0, 0} stole the opposing\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-The wild {STRVAR_1 1, 0, 0} stole\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-The wild {STRVAR_1 1, 0, 0} stole the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0} stole\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0} stole the\nopposing {STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
+{STRVAR_1 1, 0, 0} had its {STRVAR_1 8, 1, 0} stolen!
+The wild {STRVAR_1 1, 1, 0} had its\n{STRVAR_1 8, 1, 0} stolen!
+The opposing {STRVAR_1 1, 1, 0} had its\n{STRVAR_1 8, 1, 0} stolen!
+(unused)
+(unused)
+(unused)
+(unused)
 {STRVAR_1 1, 0, 0} can no\nlonger escape!
 The wild {STRVAR_1 1, 0, 0} can no\nlonger escape!
 The opposing {STRVAR_1 1, 0, 0} can no\nlonger escape!

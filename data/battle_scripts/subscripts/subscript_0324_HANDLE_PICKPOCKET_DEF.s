@@ -7,7 +7,7 @@ _000:
     AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
     PlayMoveAnimation BATTLER_CATEGORY_ATTACKER
     Wait
-    // {0} stole {1}’s {2}!
+    // {0} had its {1} stolen!
     PrintBufferedMessage
     Wait
     WaitButtonABTime 30

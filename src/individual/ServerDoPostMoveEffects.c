@@ -1936,10 +1936,9 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
         ) {
 
             sp->mp.id = BATTLE_MSG_STOLE_ITEM;
-            sp->mp.tag = TAG_NICKNAME_NICKNAME_ITEM;
-            sp->mp.param[0] = CreateNicknameTag(sp, client_no);
-            sp->mp.param[1] = (sp->pickpocketAttackerSlot << 8) | sp->attack_client;
-            sp->mp.param[2] = attackerItem;
+            sp->mp.tag = TAG_NICKNAME_ITEM;
+            sp->mp.param[0] = (sp->pickpocketAttackerSlot << 8) | sp->attack_client;
+            sp->mp.param[1] = attackerItem;
             sp->battlerIdTemp = client_no;
 
             if (attackerInBattle) {
