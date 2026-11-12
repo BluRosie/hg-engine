@@ -1935,7 +1935,7 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
 #endif
         ) {
 
-            sp->mp.id = BATTLE_MSG_STOLE_ITEM;
+            sp->mp.id = BATTLE_MSG_PICKPOCKET;
             sp->mp.tag = TAG_NICKNAME_ITEM;
             sp->mp.param[0] = (sp->pickpocketAttackerSlot << 8) | sp->attack_client;
             sp->mp.param[1] = attackerItem;
