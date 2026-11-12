@@ -1,4 +1,4 @@
-// Test: Intimidate - Doubles, Switch Out
+// Test: Intimidate - Doubles, Switch Out - Checks happen from left to right
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -117,15 +117,15 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar's Intimidate" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Weavile's Inner Focus" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Weavile's Attack was not lowered!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Tentacruel's Clear Body" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Tentacruel's stats were not lowered!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Weavile's Inner Focus" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Weavile's Attack was not lowered!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Gyarados!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gyarados's Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar's Attack fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Metagross's Clear Body" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Metagross's stats were not lowered!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Incineroar's Attack fell!" },
     }
 }
 END_TEST
