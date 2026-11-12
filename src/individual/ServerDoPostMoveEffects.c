@@ -1896,7 +1896,7 @@ int LONG_CALL Activate_Berserk_AngerShell_ColorChange(void *bsys UNUSED, struct 
 
 int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
 {
-    if (sp->pickpocketBattlers == 0) {
+    if (sp->pickpocketBattler == 0) {
         return FALSE;
     }
 
@@ -1916,7 +1916,7 @@ int LONG_CALL Activate_Pickpocket(void *bsys, struct BattleStruct *sp)
         }
 
         // handle pickpocket - steal attacker's item if it can
-        if ((sp->pickpocketBattlers & No2Bit(client_no))
+        if ((sp->pickpocketBattler & No2Bit(client_no))
             && sp->moveTbl[sp->current_move_index].power != 0
             && attackerItem != ITEM_NONE
             && attackerAbility != ABILITY_STICKY_HOLD

@@ -136,7 +136,7 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->futureSightNoAttacker = FALSE;
     ctx->futureSightSTAB = 0;
     ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
-    ctx->pickpocketBattlers = 0;
+    ctx->pickpocketBattler = 0;
     ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam = FALSE;
     ctx->recoilDamage = 0;
 
