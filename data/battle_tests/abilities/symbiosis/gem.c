@@ -113,6 +113,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Scratch!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The Normal Gem strengthened Scratch's power!" },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 14, 14, 14, 14, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 17 } },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru's Symbiosis" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oranguru shared its Toxic Orb with Wobbuffet!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet was badly poisoned by the Toxic Orb!" },

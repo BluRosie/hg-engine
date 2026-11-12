@@ -705,6 +705,7 @@ BOOL LONG_CALL PopBattleScript(struct BattleStruct *sp)
         return FALSE;
     }
 
+    // Here we check if Symbiosis needs to activate whenever a subscript ends (not including calls inside subscripts)
     if (!sp->moveInProgress && TryActivateSymbiosis(gBattleSystem, sp)) {
         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYMBIOSIS);
         return FALSE;
@@ -712,6 +713,9 @@ BOOL LONG_CALL PopBattleScript(struct BattleStruct *sp)
     return TRUE;
 }
 
+/**
+ *  @brief Has side effect of setting `pendingSymbiosis` and `battlerIdTemp`
+ */
 BOOL LONG_CALL TryActivateSymbiosis(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
     int maxBattlers = BattleWorkClientSetMaxGet(bsys);

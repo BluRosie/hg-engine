@@ -225,6 +225,7 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
             ctx->battlemon[ctx->attack_client].effect_of_moves &= ~MOVE_EFFECT_FLAG_GRUDGE;
         }
         for (int battler = 0; battler < CLIENT_MAX; battler++) {
+            // To clear flag set during switch-in due to banned item
             ctx->abilityProcessingFlags[battler].pendingSymbiosis = 0;
         }
         ctx->moveInProgress = TRUE;
