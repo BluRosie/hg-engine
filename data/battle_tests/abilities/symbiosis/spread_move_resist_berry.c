@@ -1,4 +1,4 @@
-// Test: Symbiosis - a spread move does not consume items received through Symbiosis as resist berries
+// Test: Symbiosis - after resist berries are consumed, damage happens first, then Symbiosis
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

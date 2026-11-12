@@ -1,4 +1,4 @@
-// Test: Pursuit - second pursuit not triggered if kill from first pursuit
+// Test: Pursuit - second pursuit not triggered if KO from first pursuit
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

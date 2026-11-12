@@ -1,4 +1,4 @@
-// Test: Scale Shot - effectiveness messages after kill
+// Test: Scale Shot - effectiveness messages after KO
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

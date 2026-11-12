@@ -1,4 +1,4 @@
-// Test: Innards Out - return entire damage received, kill attacker
+// Test: Innards Out - return entire damage received, KO attacker
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
