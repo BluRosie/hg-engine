@@ -1678,15 +1678,15 @@ A critical hit on {STRVAR_1 1, 0, 0}!
 A critical hit on the wild\n{STRVAR_1 1, 0, 0}!
 A critical hit on the opposing\n{STRVAR_1 1, 0, 0}!
 The {STRVAR_1 8, 0, 0} was used up...
-{STRVAR_1 1, 0, 0} used the {STRVAR_1 8, 2, 0} to\nactivate {STRVAR_1 5, 1, 0}!
-The wild {STRVAR_1 1, 0, 0} used the\n{STRVAR_1 8, 2, 0} to activate\f{STRVAR_1 5, 1, 0}!
-The opposing {STRVAR_1 1, 0, 0} used the\n{STRVAR_1 8, 2, 0} to activate\f{STRVAR_1 5, 1, 0}!
-The harsh sunlight activated\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
-The harsh sunlight activated the wild\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
-The harsh sunlight activated the\nopposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
-The Electric Terrain activated\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
-The Electric Terrain activated the wild\n{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
-The Electric Terrain activated the\nopposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}!
+{STRVAR_1 1, 0, 0} used its Booster Energy to\nactivate Protosynthesis!
+The wild {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fProtosynthesis!
+The opposing {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fProtosynthesis!
+The harsh sunlight activated\n{STRVAR_1 1, 0, 0}’s Protosynthesis!
+The harsh sunlight activated the wild\n{STRVAR_1 1, 0, 0}’s Protosynthesis!
+The harsh sunlight activated the\nopposing {STRVAR_1 1, 0, 0}’s Protosynthesis!
+The Electric Terrain activated\n{STRVAR_1 1, 0, 0}’s Quark Drive!
+The Electric Terrain activated the wild\n{STRVAR_1 1, 0, 0}’s Quark Drive!
+The Electric Terrain activated the\nopposing {STRVAR_1 1, 0, 0}’s Quark Drive!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwas heightened!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 13, 1, 0} was heightened!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 13, 1, 0} was heightened!
@@ -1799,3 +1799,13 @@ The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nwas taken over!
 {STRVAR_1 1, 0, 0} is drowsing!
 The wild {STRVAR_1 1, 0, 0} is drowsing!
 The opposing {STRVAR_1 1, 0, 0} is drowsing!
+{STRVAR_1 1, 0, 0} shared its {STRVAR_1 8, 1, 0}\nwith {STRVAR_1 1, 2, 0}!
+{STRVAR_1 1, 0, 0} shared its {STRVAR_1 8, 1, 0}\nwith the wild {STRVAR_1 1, 2, 0}!
+{STRVAR_1 1, 0, 0} shared its {STRVAR_1 8, 1, 0}\nwith the opposing {STRVAR_1 1, 2, 0}!
+The wild {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with {STRVAR_1 1, 2, 0}!
+The wild {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with the wild\f{STRVAR_1 1, 2, 0}!
+The opposing {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with {STRVAR_1 1, 2, 0}!
+The opposing {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with the\fopposing {STRVAR_1 1, 2, 0}!
+{STRVAR_1 1, 0, 0} used its Booster Energy to\nactivate its Quark Drive!
+The wild {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fits Quark Drive!
+The opposing {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fits Quark Drive!

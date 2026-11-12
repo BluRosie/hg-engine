@@ -2713,7 +2713,7 @@
 
 #define IS_ITEM_Z_CRYSTAL(item) ((item >= ITEM_NORMALIUM_Z_HELD && item <= ITEM_PIKANIUM_Z_HELD) || (item >= ITEM_DECIDIUM_Z_HELD && item <= ITEM_MEWNIUM_Z_HELD) || (item == ITEM_PIKASHUNIUM_Z_HELD) || (item >= ITEM_MIMIKIUM_Z_ITEM && item <= ITEM_ULTRANECROZIUM_Z_ITEM))
 
-#define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
+#define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_DOUSE_DRIVE && item <= ITEM_CHILL_DRIVE)
 
 #define IS_ITEM_GEM(item) (item == ITEM_FAIRY_GEM || (item >= ITEM_FIRE_GEM && item <= ITEM_NORMAL_GEM))
 

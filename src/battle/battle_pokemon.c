@@ -1202,6 +1202,8 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
     sp->switchInFlags[client].pastelVeilProcessed = 0;
     sp->switchInFlags[client].unnerveInactive = 0;
 
+    sp->abilityProcessingFlags[client].pendingSymbiosis = 0;
+
     sp->hazardQueueTracker = 0;
     sp->ejectPackActivated = FALSE;
 
