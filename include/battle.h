@@ -1117,6 +1117,8 @@ struct BattleStruct {
     int magicRoomCounter;
 
     int recoilDamage;
+    u8 pickpocketBattler;
+    u8 pickpocketAttackerSlot; // account for red card
 };
 
 enum {
