@@ -146,6 +146,11 @@
     || (species == SPECIES_CHI_YU) || (species == SPECIES_OGERPON) || (species == SPECIES_OKIDOGI) || (species == SPECIES_MUNKIDORI)        \
     || (species == SPECIES_FEZANDIPITI))
 
+#define IS_SPECIES_TOTEM(species) ((species == SPECIES_RATICATE_ALOLAN_LARGE) || (species == SPECIES_MAROWAK_ALOLAN_LARGE) || (species == SPECIES_GUMSHOOS_LARGE)       \
+    || (species == SPECIES_VIKAVOLT_LARGE) || (species == SPECIES_RIBOMBEE_LARGE) || (species == SPECIES_ARAQUANID_LARGE) || (species == SPECIES_LURANTIS_LARGE)        \
+    || (species == SPECIES_SALAZZLE_LARGE) || (species == SPECIES_TOGEDEMARU_LARGE) || (species == SPECIES_MIMIKYU_LARGE) || (species == SPECIES_MIMIKYU_BUSTED_LARGE)  \
+    || (species == SPECIES_KOMMO_O_LARGE))
+
 #define IS_SPECIES_ULTRA_BEAST(species) ((species == SPECIES_NIHILEGO) || (species == SPECIES_BUZZWOLE) || (species == SPECIES_PHEROMOSA) \
     || (species == SPECIES_XURKITREE) || (species == SPECIES_CELESTEELA) || (species == SPECIES_KARTANA) || (species == SPECIES_GUZZLORD) \
     || (species == SPECIES_POIPOLE) || (species == SPECIES_NAGANADEL) || (species == SPECIES_STAKATAKA) || (species == SPECIES_BLACEPHALON))
