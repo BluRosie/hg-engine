@@ -61,6 +61,7 @@ protected:
     TextFormat text_format = FMT_PLAIN_TEXT;
 
     MsgArcHeader header = {};
+    vector<string> id_strings;
     vector<MsgAlloc> alloc_table;
     vector<string> vec_decoded;
     vector<u16string> vec_encoded;

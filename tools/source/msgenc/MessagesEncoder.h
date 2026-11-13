@@ -16,6 +16,7 @@ class MessagesEncoder : public MessagesConverter
     u16string EncodeMessage(const string& message, int & i);
     void CharmapRegisterCharacter(string& code, uint16_t value) override;
     void CmdmapRegisterCommand(string& command, uint16_t value) override;
+    void WriteConstantsHeader(const string &_filename);
 public:
     MessagesEncoder(Options &options) : MessagesConverter(options) {}
     void ReadInput() override;

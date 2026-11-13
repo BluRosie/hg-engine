@@ -1,4 +1,4 @@
-
+[BATTLE_MSG_NONE] = ""
 {STRVAR_1 1, 0, 0} gained\n{STRVAR_1 54, 1, 0} Exp. Points!\r
 {STRVAR_1 1, 0, 0} gained a boosted\n{STRVAR_1 54, 1, 0} Exp. Points!\r
 {STRVAR_1 1, 0, 0} grew to\nLv. {STRVAR_1 52, 1, 0}!{WAIT 5}{WAIT 2}\r
@@ -13,7 +13,7 @@ Use next Pokémon?{YESNO 0}
 {STRVAR_1 1, 0, 0}’s\nattack missed!
 The wild {STRVAR_1 1, 0, 0}’s\nattack missed!
 The attack of the opposing\n{STRVAR_1 1, 0, 0} missed!
-{STRVAR_1 1, 0, 0}\nprotected itself!
+[BATTLE_MSG_PROTECTED_ITSELF] = "{STRVAR_1 1, 0, 0}\nprotected itself!"
 The wild {STRVAR_1 1, 0, 0}\nprotected itself!
 The opposing {STRVAR_1 1, 0, 0}\nprotected itself!
 {STRVAR_1 1, 0, 0} avoided damage\nby using {STRVAR_1 5, 1, 0}!
@@ -28,7 +28,7 @@ The opposing {STRVAR_1 1, 0, 0} avoided\nthe attack!
 It doesn’t affect\n{STRVAR_1 1, 0, 0}...
 It doesn’t affect\nthe wild {STRVAR_1 1, 0, 0}...
 It doesn’t affect\nthe opposing {STRVAR_1 1, 0, 0}...
-{STRVAR_1 1, 0, 0} fainted!\r
+[BATTLE_MSG_FAINTED] = "{STRVAR_1 1, 0, 0} fainted!\r"
 The wild {STRVAR_1 1, 0, 0} fainted!\r
 The opposing {STRVAR_1 1, 0, 0} fainted!\r
 You got ${STRVAR_1 54, 1, 0}\nfor winning!\r
@@ -37,15 +37,15 @@ You gave ${STRVAR_1 54, 1, 0}\nto the winner...\r
 You have no more Pokémon\nthat can fight!\r
 You were overwhelmed by your defeat!\r
 ... ... ... ...\r
-{STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r
+[BATTLE_MSG_BATTLER_PREVENTS_ESCAPE_WITH] = "{STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r"
 The wild {STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r
 The opposing {STRVAR_1 1, 0, 0} prevents\nescape with {STRVAR_1 5, 1, 0}!\r
 You couldn’t get away!\r
 {STRVAR_1 1, 0, 0} can’t escape!\r
 The wild {STRVAR_1 1, 0, 0} can’t escape!\r
 The opposing {STRVAR_1 1, 0, 0} can’t escape!\r
-The Pokémon was\nhit {STRVAR_1 50, 0, 0} time(s)!
-{STRVAR_1 1, 0, 0}\nfell asleep!
+[BATTLE_MSG_HIT_X_TIMES] = "The Pokémon was\nhit {STRVAR_1 50, 0, 0} time(s)!"
+[BATTLE_MSG_FELL_ASLEEP] = "{STRVAR_1 1, 0, 0}\nfell asleep!"
 The wild {STRVAR_1 1, 0, 0}\nfell asleep!
 The opposing {STRVAR_1 1, 0, 0}\nfell asleep!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0} made\n{STRVAR_1 1, 2, 0} fall asleep!
@@ -64,14 +64,14 @@ The opposing {STRVAR_1 1, 0, 0}\nwasn’t affected!
 {STRVAR_1 1, 0, 0}\nwas poisoned!
 The wild {STRVAR_1 1, 0, 0}\nwas poisoned!
 The opposing {STRVAR_1 1, 0, 0}\nwas poisoned!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\npoisoned {STRVAR_1 1, 2, 0}!
+[BATTLE_MSG_BADLY_POISONED] = "{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\npoisoned {STRVAR_1 1, 2, 0}!"
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\npoisoned the wild {STRVAR_1 1, 2, 0}!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\npoisoned the opposing {STRVAR_1 1, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\f{STRVAR_1 1, 2, 0}!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\fthe wild {STRVAR_1 1, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\f{STRVAR_1 1, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 5, 1, 0} poisoned\fthe opposing {STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
+[BATTLE_MSG_POISON_DAMAGE] = "{STRVAR_1 1, 0, 0} was hurt\nby its poisoning!"
 The wild {STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
 The opposing {STRVAR_1 1, 0, 0} was hurt\nby its poisoning!
 {STRVAR_1 1, 0, 0} is already\npoisoned!
@@ -118,10 +118,10 @@ The opposing {STRVAR_1 1, 0, 0} thawed out!
 {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
 The wild {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
 The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 6, 1, 0} melted the ice!
-{STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
+[BATTLE_MSG_PARA] = "{STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!"
 The wild {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
 The opposing {STRVAR_1 1, 0, 0} is paralyzed,\nso it may be unable to move!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!
+[BATTLE_MSG_SYNCHRONIZE_PARA] = "{STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!"
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the wild {STRVAR_1 1, 2, 0},\fso it may be unable to move!
 {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed the opposing {STRVAR_1 1, 2, 0},\fso it may be unable to move!
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 5, 1, 0}\nparalyzed {STRVAR_1 1, 2, 0},\fso it may be unable to move!
@@ -140,10 +140,10 @@ The opposing {STRVAR_1 1, 0, 0} was\ncured of paralysis!
 {STRVAR_1 1, 0, 0}’s\ndream was eaten!
 The wild {STRVAR_1 1, 0, 0}’s\ndream was eaten!
 The opposing {STRVAR_1 1, 0, 0}’s\ndream was eaten!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any higher!
+[BATTLE_MSG_STAT_WONT_GO_HIGHER] = "{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any higher!"
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any higher!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any higher!
-{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any lower!
+[BATTLE_MSG_STAT_WONT_GO_LOWER] = "{STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any lower!"
 The wild {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any lower!
 The opposing {STRVAR_1 1, 0, 0}’s {STRVAR_1 13, 1, 0}\nwon’t go any lower!
 (Unused)
@@ -271,22 +271,22 @@ The wild {STRVAR_1 1, 0, 0} kept going\nand crashed!
 The opposing {STRVAR_1 1, 0, 0} kept going\nand crashed!
 Your team became\nshrouded in mist!
 The opposing team became\nshrouded in mist!
-{STRVAR_1 1, 0, 0} is protected\nby the mist!
+[BATTLE_MSG_PROTECTED_BY_MIST] = "{STRVAR_1 1, 0, 0} is protected\nby the mist!"
 The wild {STRVAR_1 1, 0, 0} is protected\nby the mist!
 The opposing {STRVAR_1 1, 0, 0} is protected\nby the mist!
 {STRVAR_1 1, 0, 0} is getting\npumped!
 The wild {STRVAR_1 1, 0, 0} is getting\npumped!
 The opposing {STRVAR_1 1, 0, 0} is getting\npumped!
-{STRVAR_1 1, 0, 0} was damaged\nby the recoil!
+[BATTLE_MSG_HIT_WITH_RECOIL] = "{STRVAR_1 1, 0, 0} was damaged\nby the recoil!"
 The wild {STRVAR_1 1, 0, 0} was damaged\nby the recoil!
 The opposing {STRVAR_1 1, 0, 0} was damaged\nby the recoil!
-{STRVAR_1 1, 0, 0} protected\nitself!
+[BATTLE_MSG_PROTECT_ITSELF] = "{STRVAR_1 1, 0, 0} protected\nitself!"
 The wild {STRVAR_1 1, 0, 0} protected\nitself!
 The opposing {STRVAR_1 1, 0, 0} protected\nitself!
 {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
 The wild {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
 The opposing {STRVAR_1 1, 1, 0} is buffeted\nby the {STRVAR_1 6, 0, 0}!
-Your side’s {STRVAR_1 6, 0, 0}\nwore off!
+[BATTLE_MSG_SIDE_EFFECT_WORE_OFF] = "Your side’s {STRVAR_1 6, 0, 0}\nwore off!"
 The opposing side’s {STRVAR_1 6, 0, 0}\nwore off!
 {STRVAR_1 1, 0, 0} was seeded!
 The wild {STRVAR_1 1, 0, 0}\nwas seeded!
@@ -300,7 +300,7 @@ The opposing {STRVAR_1 1, 0, 0}’s health is\nsapped by Leech Seed!
 {STRVAR_1 1, 0, 0} is fast\nasleep.
 The wild {STRVAR_1 1, 0, 0} is fast\nasleep.
 The opposing {STRVAR_1 1, 0, 0} is fast\nasleep.
-{STRVAR_1 1, 0, 0} woke up!
+[BATTLE_MSG_WOKE_UP] = "{STRVAR_1 1, 0, 0} woke up!"
 The wild {STRVAR_1 1, 0, 0}\nwoke up!
 The opposing {STRVAR_1 1, 0, 0}\nwoke up!
 The uproar woke\n{STRVAR_1 1, 0, 0}!
@@ -343,7 +343,7 @@ You picked up\n${STRVAR_1 54, 1, 0}!\r
 {STRVAR_1 1, 0, 0} is\nunaffected!
 The wild {STRVAR_1 1, 0, 0} is\nunaffected!
 The opposing {STRVAR_1 1, 0, 0} is\nunaffected!
-{STRVAR_1 1, 0, 0} transformed\ninto {STRVAR_1 0, 1, 0}!
+[BATTLE_MSG_TRANSFORMED_INTO] = "{STRVAR_1 1, 0, 0} transformed\ninto {STRVAR_1 0, 1, 0}!"
 The wild {STRVAR_1 1, 0, 0} transformed\ninto {STRVAR_1 0, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} transformed\ninto {STRVAR_1 0, 1, 0}!
 {STRVAR_1 1, 0, 0} made\na substitute!
@@ -399,7 +399,7 @@ The opposing {STRVAR_1 1, 0, 0} took\nits attacker down with it!
 {STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} lost\n{STRVAR_1 50, 2, 0} PP from {STRVAR_1 6, 1, 0}!
-{STRVAR_1 1, 0, 0} stole\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
+[BATTLE_MSG_STOLE_ITEM] = "{STRVAR_1 1, 0, 0} stole\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!"
 {STRVAR_1 1, 0, 0} stole the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 {STRVAR_1 1, 0, 0} stole the opposing\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
 The wild {STRVAR_1 1, 0, 0} stole\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
@@ -415,7 +415,7 @@ The opposing {STRVAR_1 1, 0, 0} began\nhaving a nightmare!
 {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
 The wild {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
 The opposing {STRVAR_1 1, 0, 0} is locked\nin a nightmare!
-{STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
+[BATTLE_MSG_LAID_A_CURSE] = "{STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the wild\f{STRVAR_1 1, 1, 0}!
 {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on the opposing\f{STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} cut its own HP\nand put a curse on {STRVAR_1 1, 1, 0}!
@@ -440,7 +440,7 @@ The opposing {STRVAR_1 1, 1, 0} was identified!
 {STRVAR_1 1, 0, 0}’s perish count\nfell to {STRVAR_1 50, 1, 0}!
 The wild {STRVAR_1 1, 0, 0}’s perish count\nfell to {STRVAR_1 50, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0}’s perish count\nfell to {STRVAR_1 50, 1, 0}!
-{STRVAR_1 1, 0, 0} braced\nitself!
+[BATTLE_MSG_BRACED_ITSELF] = {STRVAR_1 1, 0, 0} braced\nitself!
 The wild {STRVAR_1 1, 0, 0} braced\nitself!
 The opposing {STRVAR_1 1, 0, 0} braced\nitself!
 {STRVAR_1 1, 0, 0} endured\nthe hit!
@@ -464,7 +464,7 @@ The wild {STRVAR_1 1, 0, 0} got free of\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 6, 2, 
 The wild {STRVAR_1 1, 0, 0} got free of the\nwild {STRVAR_1 1, 1, 0}’s {STRVAR_1 6, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0} got free of\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 6, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0} got free of\nthe opposing {STRVAR_1 1, 1, 0}’s\f{STRVAR_1 6, 2, 0}!
-{STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
+[BATTLE_MSG_BLEW_AWAY_HAZARDS] = {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} blew away\n{STRVAR_1 6, 1, 0}!
 {STRVAR_1 1, 0, 0} fled from\nbattle!
@@ -473,7 +473,7 @@ The opposing {STRVAR_1 1, 0, 0} fled from\nbattle!
 {STRVAR_1 1, 0, 0} foresaw\nan attack!
 The wild {STRVAR_1 1, 0, 0} foresaw\nan attack!
 The opposing {STRVAR_1 1, 0, 0} foresaw\nan attack!
-{STRVAR_1 1, 0, 0} took\nthe {STRVAR_1 6, 1, 0} attack!
+[BATTLE_MSG_TOOK_DOOM_DESIRE] = {STRVAR_1 1, 0, 0} took\nthe {STRVAR_1 6, 1, 0} attack!
 The wild {STRVAR_1 1, 0, 0} took\nthe {STRVAR_1 6, 1, 0} attack!
 The opposing {STRVAR_1 1, 0, 0} took\nthe {STRVAR_1 6, 1, 0} attack!
 {STRVAR_1 1, 0, 0} chose\nDoom Desire as its destiny!
@@ -508,12 +508,12 @@ The wild {STRVAR_1 1, 0, 0} is ready to\nhelp {STRVAR_1 1, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} is ready to\nhelp the wild {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} is ready to\nhelp {STRVAR_1 1, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} is ready to\nhelp the opposing {STRVAR_1 1, 1, 0}!
-{STRVAR_1 1, 0, 0} switched\nitems with its target!
+[BATTLE_MSG_SWITCHED_ITEM_WITH_TARGET] = {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The wild {STRVAR_1 1, 0, 0} switched\nitems with its target!
 The opposing {STRVAR_1 1, 0, 0} switched\nitems with its target!
-{STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+[BATTLE_MSG_OBTAINED_ITEM] = {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
 The wild {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
-The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.
+[BATTLE_MSG_OBTAINED_ITEM_OBTAINED_ITEM] = "The opposing {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}."
 {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\r{STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.
 {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe wild {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
 {STRVAR_1 1, 0, 0} obtained\n{STRVAR_1 8, 1, 0}.\rThe opposing {STRVAR_1 1, 2, 0} obtained\n{STRVAR_1 8, 3, 0}.\r
@@ -1806,6 +1806,6 @@ The wild {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with {STRVAR_1 1, 2, 
 The wild {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with the wild\f{STRVAR_1 1, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with {STRVAR_1 1, 2, 0}!
 The opposing {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with the\fopposing {STRVAR_1 1, 2, 0}!
-{STRVAR_1 1, 0, 0} used its Booster Energy to\nactivate its Quark Drive!
+[BATTLE_MSG_BOOSTER_ENERGY_ACTIVATES_QUARK_DRIVE] = "{STRVAR_1 1, 0, 0} used its Booster Energy to\nactivate its Quark Drive!"
 The wild {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fits Quark Drive!
 The opposing {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fits Quark Drive!

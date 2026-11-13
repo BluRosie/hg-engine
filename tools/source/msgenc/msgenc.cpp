@@ -24,7 +24,7 @@ static inline void usage() {
     cout << "-e            Encode from text to binary using the provided key" << endl;
     cout << "--gmm         Text file is GMM (Gamefreak XML format)" << endl;
     //cout << "--json        Text file is JSON" << endl;
-    cout << "-H HEADER     When operating in GMM mode, specify this header file to read/write C constant values" << endl;
+    cout << "-H HEADER     When operating in GMM mode or text mode with specified defines, specify this header file to read/write C constant values" << endl;
     cout << "-k KEY        The 16-bit encryption key for this message bank. Default: computes it from the binary file name" << endl;
     cout << "-v            Print the program version and exit." << endl;
     cout << "-h            Print this message and exit." << endl;
