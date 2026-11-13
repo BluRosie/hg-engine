@@ -10,12 +10,14 @@ class MessagesEncoder : public MessagesConverter
     map <string, uint16_t> charmap;
 
     void ReadMessagesFromText(string& filename);
+    void ReadMessagesFromGMM(string& filename);
+    void ReadMessagesFromJson(string& filename);
     void WriteMessagesToBin(string& filename);
     u16string EncodeMessage(const string& message, int & i);
     void CharmapRegisterCharacter(string& code, uint16_t value) override;
     void CmdmapRegisterCommand(string& command, uint16_t value) override;
 public:
-    MessagesEncoder(string &_textfilename, int _key, string &_charmapfilename, string &_binfilename) : MessagesConverter(CONV_ENCODE, _textfilename, _key, _charmapfilename, _binfilename) {}
+    MessagesEncoder(Options &options) : MessagesConverter(options) {}
     void ReadInput() override;
     void Convert() override;
     void WriteOutput() override;
