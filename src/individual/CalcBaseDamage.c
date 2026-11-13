@@ -258,8 +258,15 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_ASSURANCE:
-    case MOVE_REVENGE:
         if (DefendingMon.assuranceDamage) {
+            movepower *= 2;
+        }
+        break;
+    case MOVE_REVENGE:
+    case MOVE_AVALANCHE:
+        // the user was damaged by the target this turn
+        if ((sp->oneTurnFlag[attacker].physical_damage[defender] && (sp->oneTurnFlag[attacker].physical_damager_bit & No2Bit(defender)))
+            || (sp->oneTurnFlag[attacker].special_damage[defender] && (sp->oneTurnFlag[attacker].special_damager_bit & No2Bit(defender)))) {
             movepower *= 2;
         }
         break;
