@@ -1122,9 +1122,9 @@ The opposing {STRVAR_1 1, 0, 0} frisked its\nfoe and found one {STRVAR_1 8, 1, 0
 {STRVAR_1 1, 0, 0} is tormented!
 The wild {STRVAR_1 1, 0, 0} is tormented!
 The opposing {STRVAR_1 1, 0, 0} is tormented!
-(unused)
-(unused)
-(unused)
+{STRVAR_1 1, 0, 0} had its {STRVAR_1 8, 1, 0} stolen!
+The wild {STRVAR_1 1, 1, 0} had its\n{STRVAR_1 8, 1, 0} stolen!
+The opposing {STRVAR_1 1, 1, 0} had its\n{STRVAR_1 8, 1, 0} stolen!
 (unused)
 {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} maxed its\n{STRVAR_1 13, 2, 0} with its {STRVAR_1 8, 1, 0}!
