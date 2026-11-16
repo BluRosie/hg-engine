@@ -598,6 +598,9 @@ endif
 	@echo "machine moves:"
 	cp $(MACHINE_MOVES_PARAMS_BIN) $(MACHINE_MOVES_PARAMS_TARGET)
 
+	@echo "bug contest encounter tables:"
+	cp $(BUG_CONTEST_ENCOUNTER_BIN) $(BUG_CONTEST_ENCOUNTER_TARGET)
+
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
 	@echo "Updated item descriptions and sprites. Double check formatting"
