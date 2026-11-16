@@ -400,6 +400,7 @@ def run_single_partition(args) -> int:
 
         if window is not None:
             window.draw()
+            window.process_input()
 
         emu.cycle(False)
 
