@@ -1,5 +1,6 @@
-CXXFLAGS := -std=c++17 -O2 -Wall -Wno-switch
-CFLAGS   := -O2 -Wall -Wno-switch
+DATAPROC_DIR := ../dataproc/lib
+
+CXXFLAGS := -g -std=c++17 -Wall -Wextra -Wpedantic -Wno-unused-parameter
 
 ifeq ($(DEBUG),)
 CXXFLAGS += -DNDEBUG
@@ -9,10 +10,13 @@ DEPDIR := .deps
 DEPFLAGS = -MT $@ -MMD -MP -MF $(DEPDIR)/$*.d
 
 SRCS := \
+	Gmm.cpp \
 	msgenc.cpp \
 	MessagesConverter.cpp \
 	MessagesDecoder.cpp \
-	MessagesEncoder.cpp
+	MessagesEncoder.cpp \
+	Options.cpp \
+	pugixml.cpp
 
 OBJS := $(SRCS:%.cpp=%.o)
 

@@ -10,51 +10,60 @@
 #include "constants/move_effects.h"
 
 #include "battle.h"
+#include "overlay.h"
 
 #ifdef DEBUG_BATTLE_SCENARIOS
 #include "test_battle.h"
 #endif // DEBUG_BATTLE_SCENARIOS
 
-#if defined(DISABLE_ITEMS_IN_TRAINER_BATTLE)
-void overrideItemUsage(struct BattleSystem *bsys, struct BattleStruct *ctx)
+void LONG_CALL BattleControllerPlayer_SelectionScreenInput(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    BattleMessage msg;
-    int battlerId;
-    u32 fight_type = BattleTypeGet(bsys);
-
-    for (battlerId = 0; battlerId < bsys->maxBattlers; battlerId++) {
-        if (ctx->playerActions[battlerId][0] == CONTROLLER_COMMAND_ITEM_INPUT && ctx->com_seq_no[battlerId] == SSI_STATE_7) {
-            if (fight_type & BATTLE_TYPE_TRAINER) {
-                msg.id = BATTLE_MSG_ITEMS_CANT_BE_USED_HERE; // msg.id  = msg_0197_00593; // Items can't be used here
-                msg.tag = TAG_NONE;
-                ov12_022639B8(bsys, battlerId, msg);
-                ctx->com_seq_no[battlerId] = SSI_STATE_15;
-                ctx->ret_seq_no[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
-            }
-        }
-    }
+    u32 ovyId, offset;
+    void (*internalFunc)(struct BattleSystem *, struct BattleStruct *);
+    ovyId = OVERLAY_BATTLE_SELECTIONSCREENINPUT;
+    offset = 0x023C0400 | 1;
+    HandleLoadOverlay(ovyId, 2);
+    // clang-format off
+    internalFunc = (void (*)(struct BattleSystem *, struct BattleStruct *))(offset);
+    // clang-format on
+    internalFunc(bsys, ctx);
+    UnloadOverlayByID(ovyId);
 }
-#endif
 
-void overrideRunButton(struct BattleSystem *bsys, struct BattleStruct *ctx)
+void LONG_CALL BattleControllerPlayer_FightInput(struct BattleSystem *bsys, struct BattleStruct *ctx)
 {
-    BattleMessage msg;
-    int battlerId;
-    u32 fight_type = BattleTypeGet(bsys);
+    int randomTarget = 0;
+    int attacker = ctx->executionOrder[ctx->executionIndex];
+    struct BattlePokemon *mon = &ctx->battlemon[attacker];
 
-    for (battlerId = 0; battlerId < bsys->maxBattlers; battlerId++) {
-        if (ctx->playerActions[battlerId][0] == CONTROLLER_COMMAND_RUN_INPUT) {
-            if (ctx->com_seq_no[battlerId] == SSI_STATE_11) {
-                if (fight_type & BATTLE_TYPE_TOTEM) {
-                    msg.id = BATTLE_MSG_CANT_FLEE_THIS_FIGHT; // Can't flee this fight!
-                    msg.tag = TAG_NONE;
-                    ov12_022639B8(bsys, battlerId, msg);
-                    ctx->com_seq_no[battlerId] = SSI_STATE_15;
-                    ctx->ret_seq_no[battlerId] = SSI_STATE_SELECT_COMMAND_INIT;
-                }
-            }
+    ctx->attack_client = attacker;
+
+    if (ctx->oneTurnFlag[attacker].struggle_flag) {
+        ctx->moveNoTemp = MOVE_STRUGGLE;
+        randomTarget = 1;
+    } else if (mon->moveeffect.encoredMove && mon->moveeffect.encoredMove == mon->move[mon->moveeffect.encoredMoveIndex]) {
+        ctx->moveNoTemp = mon->moveeffect.encoredMove;
+        randomTarget = ctx->waza_no_select[attacker] != ctx->moveNoTemp
+            && ctx->moveTbl[ctx->waza_no_select[attacker]].target != RANGE_SINGLE_TARGET;
+    } else if (mon->moveeffect.encoredMove) {
+        ctx->moveNoTemp = mon->move[mon->moveeffect.encoredMoveIndex];
+        mon->moveeffect.encoredMove = MOVE_NONE;
+        mon->moveeffect.encoredMoveIndex = 0;
+        mon->moveeffect.encoredTurns = 0;
+        randomTarget = 1;
+    } else if (!Battler_CanSelectAction(ctx, attacker)) {
+        ctx->moveNoTemp = ctx->waza_no_keep[attacker];
+    } else {
+        ctx->moveNoTemp = mon->move[ctx->waza_no_pos[attacker]];
+        if (ctx->waza_no_select[attacker] != ctx->moveNoTemp) {
+            randomTarget = 1;
         }
     }
+
+    ctx->current_move_index = ctx->moveNoTemp;
+    ctx->server_seq_no = CONTROLLER_COMMAND_23;
+    ctx->defence_client = ov12_022506D4(bsys, ctx, attacker, ctx->moveNoTemp, randomTarget, 0);
+    BattleController_EmitClearMessageBox(bsys);
 }
 
 BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct *ctx)
@@ -94,7 +103,8 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
 #ifdef DEBUG_BATTLE_SCENARIOS
     if (TestBattle_IsComplete() && !ctx->fight_end_flag) {
         BattleSystem_SetBattleOutcomeFlags(bsys, BATTLE_OUTCOME_PLAYER_FLED);
-        ctx->server_seq_no = CONTROLLER_COMMAND_42;
+        ctx->fight_end_flag = 1;
+        ctx->server_seq_no = CONTROLLER_COMMAND_44;
     }
 #endif
 
@@ -108,10 +118,6 @@ BOOL LONG_CALL BattleContext_Main(struct BattleSystem *bsys, struct BattleStruct
 #ifdef DEBUG_BATTLE_SCENARIOS
     TestBattle_autoSelectPlayerMoves(bsys, ctx);
 #endif
-#if defined(DISABLE_ITEMS_IN_TRAINER_BATTLE)
-    overrideItemUsage(bsys, ctx);
-#endif
-    overrideRunButton(bsys, ctx);
 
     if (ctx->server_seq_no == CONTROLLER_COMMAND_45) {
         return TRUE;
@@ -179,10 +185,10 @@ void LONG_CALL ov12_0224D23C(struct BattleSystem *bsys, struct BattleStruct *ctx
     if (!(ctx->server_status_flag & BATTLE_STATUS_NO_MOVE_SET)) {
         if (ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE) {
             ctx->moveProtect[ctx->attack_client] = ctx->current_move_index;
-            ctx->waza_no_last = ctx->moveNoTemp;
+            // ctx->lastSuccessfulMove = ctx->moveNoTemp; // we overwrite the previous move in MoveEnd only if successful (gen5+)
         } else {
             ctx->moveProtect[ctx->attack_client] = MOVE_NONE;
-            ctx->waza_no_last = MOVE_NONE;
+            // ctx->lastSuccessfulMove = MOVE_NONE;
         }
         if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED) {
             ctx->waza_no_old[ctx->attack_client] = ctx->moveNoTemp;
@@ -206,7 +212,7 @@ void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStru
     int moveType = GetAdjustedMoveType(ctx, ctx->attack_client, ctx->current_move_index);
 
     // Update Mirror Move vars.
-    if (ctx->aiWorkTable.old_moveData[ctx->moveNoTemp].flag & FLAG_MIRROR_MOVE
+    if (ctx->moveTbl[ctx->moveNoTemp].flag & FLAG_MIRROR_MOVE
         && !(ctx->server_status_flag & BATTLE_STATUS_NO_MOVE_SET)
         && ctx->defence_client != BATTLER_NONE
         && ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE) {
@@ -227,16 +233,14 @@ void LONG_CALL ov12_0224DD74(struct BattleSystem *bsys UNUSED, struct BattleStru
                 ctx->waza_no_hit[ctx->defence_client] = ctx->current_move_index;
                 ctx->waza_no_hit_client[ctx->defence_client] = ctx->attack_client;
                 ctx->waza_no_hit_type[ctx->defence_client] = moveType;
-                ctx->waza_no_last = ctx->moveNoTemp;
             } else {
                 ctx->waza_no_hit[ctx->defence_client] = MOVE_NONE;
                 ctx->waza_no_hit_client[ctx->defence_client] = BATTLER_NONE;
                 ctx->waza_no_hit_type[ctx->defence_client] = 0; // Intended to be 'no type' but is technically TYPE_NORMAL.
-                ctx->waza_no_last = MOVE_NONE;
             }
 
             if (ctx->server_status_flag2 & BATTLE_STATUS2_MOVE_SUCCEEDED && !(ctx->waza_status_flag & MOVE_STATUS_FAILED)) {
-                switch (ctx->aiWorkTable.old_moveData[ctx->current_move_index].target) {
+                switch (ctx->moveTbl[ctx->current_move_index].target) {
                 case RANGE_USER:
                 case RANGE_USER_SIDE:
                 case RANGE_FIELD:

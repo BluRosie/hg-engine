@@ -99,7 +99,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (AttackingMon.speed == 0) {
             movepower = 1;
         } else {
-            movepower = (25 * DefendingMon.speed) / AttackingMon.speed;
+            movepower = (25 * DefendingMon.speed) / AttackingMon.speed + 1;
             movepower = movepower > 150 ? 150 : movepower;
         }
         break;
@@ -145,7 +145,15 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         break;
     case MOVE_HEAVY_SLAM:
     case MOVE_HEAT_CRASH:
+        if (DefendingMon.weight == 0) {
+            movepower = 120;
+            break;
+        }
         switch (AttackingMon.weight / DefendingMon.weight) {
+        case 0:
+        case 1:
+            movepower = 40;
+            break;
         case 2:
             movepower = 60;
             break;
@@ -156,11 +164,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             movepower = 100;
             break;
         case 5:
-            movepower = 120;
-            break;
-        // less than 2
         default:
-            movepower = 40;
+            movepower = 120;
             break;
         }
         break;
@@ -168,6 +173,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     case MOVE_ERUPTION:
     case MOVE_WATER_SPOUT:
         movepower = (150 * AttackingMon.hp) / AttackingMon.maxhp;
+        movepower = movepower < 1 ? 1 : movepower;
         break;
     case MOVE_REVERSAL:
     case MOVE_FLAIL:
@@ -205,9 +211,11 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     // Happiness-based
     case MOVE_RETURN:
         movepower = AttackingMon.happiness * 10 / 25;
+        movepower = movepower < 1 ? 1 : movepower;
         break;
     case MOVE_FRUSTRATION:
         movepower = (255 - AttackingMon.happiness) * 10 / 25;
+        movepower = movepower < 1 ? 1 : movepower;
         break;
     // Counter-based
     // Fury Cutter's damage cap is handled in src/battle/battle_script_commands.c.
@@ -250,8 +258,15 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_ASSURANCE:
-    case MOVE_REVENGE:
         if (DefendingMon.assuranceDamage) {
+            movepower *= 2;
+        }
+        break;
+    case MOVE_REVENGE:
+    case MOVE_AVALANCHE:
+        // the user was damaged by the target this turn
+        if ((sp->oneTurnFlag[attacker].physical_damage[defender] && (sp->oneTurnFlag[attacker].physical_damager_bit & No2Bit(defender)))
+            || (sp->oneTurnFlag[attacker].special_damage[defender] && (sp->oneTurnFlag[attacker].special_damager_bit & No2Bit(defender)))) {
             movepower *= 2;
         }
         break;
@@ -273,7 +288,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_HEX:
-        if (DefendingMon.condition & STATUS_ALL) {
+        if (DefendingMon.condition & STATUS_ALL || MoldBreakerAbilityCheck(sp, defender, defender, ABILITY_COMATOSE)) { // not affected by Mold Breaker
             movepower *= 2;
         }
         break;
@@ -298,13 +313,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_WAKE_UP_SLAP:
-        if (CheckSubstitute(sp, defender) == FALSE && (DefendingMon.condition & STATUS_SLEEP || MoldBreakerAbilityCheck(sp, defender, defender, ABILITY_COMATOSE))) {
+        if (CheckSubstitute(sp, defender) == FALSE && (DefendingMon.condition & STATUS_SLEEP || MoldBreakerAbilityCheck(sp, defender, defender, ABILITY_COMATOSE))) { // not affected by Mold Breaker
             movepower *= 2;
         }
         break;
     case MOVE_WEATHER_BALL:
         if ((weather & FIELD_CONDITION_WEATHER)
-            && !(weather & (FIELD_CONDITION_STRONG_WINDS | FIELD_CONDITION_SNOW_ALL))) {
+            && !(weather & FIELD_CONDITION_STRONG_WINDS)) {
             movepower *= 2;
         }
         break;
@@ -317,12 +332,12 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     case MOVE_BOLT_BEAK:
     case MOVE_FISHIOUS_REND:
         // https://www.smogon.com/forums/threads/sword-shield-battle-mechanics-research.3655528/post-8433978
-        if (IsMovingAfterClient(sp, defender) == FALSE || sp->playerActions[sp->defence_client][3] == CONTROLLER_COMMAND_40) {
+        if (IsMovingAfterClient(sp, defender) == FALSE || sp->playerActions[defender][3] == CONTROLLER_COMMAND_40) {
             movepower *= 2;
         }
         break;
     case MOVE_RISING_VOLTAGE:
-        if ((terrainOverlayNumberOfTurnsLeft > 0) && (terrainOverlayType == ELECTRIC_TERRAIN)) {
+        if ((terrainOverlayNumberOfTurnsLeft > 0) && (terrainOverlayType == ELECTRIC_TERRAIN) && DefendingMon.isGrounded) {
             movepower = 140;
         }
         break;
@@ -538,7 +553,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if (AttackingMon.isGrounded && movetype == TYPE_GRASS) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
             }
-            if (moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) {
+            if ((moveno == MOVE_EARTHQUAKE || moveno == MOVE_MAGNITUDE || moveno == MOVE_BULLDOZE) && DefendingMon.isGrounded) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
             }
             break;
@@ -601,7 +616,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 #if FAIRY_TYPE_IMPLEMENTED == 1
         // if Fairy Aura is present but not Aura Break
         if (!fairyAuraApplied
-            && (movetype == TYPE_DARK)
+            && (movetype == TYPE_FAIRY)
             && (battlerAbilities[damageCalc->rawSpeedNonRNGClientOrder[i]] == ABILITY_FAIRY_AURA)
             && (fieldHasAuraBreak == FALSE)) {
             fairyAuraApplied = TRUE;
@@ -611,7 +626,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
         // if Aura Break is present and also Fairy Aura
         if (!fairyAuraApplied
-            && (movetype == TYPE_DARK)
+            && (movetype == TYPE_FAIRY)
             && (battlerAbilities[damageCalc->rawSpeedNonRNGClientOrder[i]] == ABILITY_AURA_BREAK)
             && (fieldHasFairyAura == TRUE)) {
             fairyAuraApplied = TRUE;
@@ -712,14 +727,17 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle Analytic
-            if (AttackingMon.ability == ABILITY_ANALYTIC) {
-                for (i = 0; i < 4; i++) {
-                    // TODO: handle without bw, sp
-                    if (attacker != i && damageCalc->clients[i].hp != 0 && CalcSpeed(bw, sp, attacker, i, 0) == 0) {
+            if (AttackingMon.ability == ABILITY_ANALYTIC && moveEffect != MOVE_EFFECT_HIT_IN_3_TURNS) {
+                int k = 0;
+                for (k = 0; k < 4; k++) {
+                    if (attacker == k || damageCalc->clients[k].hp == 0) {
+                        continue;
+                    }
+                    if (IsMovingAfterClient(sp, k) == FALSE) { // checks if sp->playerActions[k][0] == CONTROLLER_COMMAND_40
                         break;
                     }
                 }
-                if (i == 4) {
+                if (k == 4) {
                     basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
                     continue;
                 }
@@ -742,14 +760,16 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
             // handle Flare Boost
             if ((AttackingMon.ability == ABILITY_FLARE_BOOST)
-                && (AttackingMon.condition & STATUS_BURN)) {
+                && (AttackingMon.condition & STATUS_BURN)
+                && (movesplit == SPLIT_SPECIAL)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
                 continue;
             }
 
             // handle Toxic Boost
             if ((AttackingMon.ability == ABILITY_TOXIC_BOOST)
-                && (AttackingMon.condition & (STATUS_BAD_POISON | STATUS_POISON))) {
+                && (AttackingMon.condition & (STATUS_BAD_POISON | STATUS_POISON))
+                && (movesplit == SPLIT_PHYSICAL)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_5);
                 continue;
             }
@@ -775,12 +795,6 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
                 continue;
             }
 
-            // handle Power Spot
-            // TODO: confirm location
-            if (AttackingMonAlly.ability == ABILITY_POWER_SPOT) {
-                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
-            }
-
             // handle Punk Rock
             // TODO: confirm location
             if (MoldBreakerAbilityCheck(sp, attacker, attacker, ABILITY_PUNK_ROCK) && IsMoveSoundBased(moveno)) {
@@ -795,16 +809,23 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
             // handle Stakeout
             // TODO: confirm location
-            if (AttackingMon.ability == ABILITY_STAKEOUT && sp->playerActions[sp->defence_client][3] == CONTROLLER_COMMAND_40) {
+            if (AttackingMon.ability == ABILITY_STAKEOUT && sp->playerActions[defender][3] == CONTROLLER_COMMAND_40) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__2_0);
             }
         }
 
         if (BATTLER_ALLY(attacker) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
+            // handle Power Spot
+            // TODO: confirm location
+            if (AttackingMonAlly.ability == ABILITY_POWER_SPOT) {
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
+                continue;
+            }
+
             // Handle Battery
             if ((AttackingMonAlly.ability == ABILITY_BATTERY)
                 && (movesplit == SPLIT_SPECIAL)) {
-                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_33);
+                basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
                 continue;
             }
 
@@ -1346,8 +1367,10 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 #endif
 
     // Step 4.3. Psyshock / Psystrike / Secret Sword
+    // ignores Sand, Assault Vest, but Grass Pelt etc are applied
+    u8 defensiveSplit = movesplit;
     if ((moveno == MOVE_PSYSHOCK) || (moveno == MOVE_PSYSTRIKE) || (moveno == MOVE_SECRET_SWORD)) {
-        DefendingMon.sp_defense = DefendingMon.defense;
+        defensiveSplit = SPLIT_PHYSICAL;
     }
 
 #ifdef DEBUG_DAMAGE_CALC
@@ -1406,7 +1429,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     debug_printf("[CalcBaseDamage] sp_defense: %d\n", sp_defense);
 #endif
 
-    switch (movesplit) {
+    switch (defensiveSplit) {
     case SPLIT_PHYSICAL:
         calculatedDefense = defense;
         break;
@@ -1427,8 +1450,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             // handle weather boosts
             if ((!flowerGiftAppliedForDefenseModifier)
                 && (weather & FIELD_CONDITION_SUN_ALL)
-                && (MoldBreakerAbilityCheck(sp, attack, defender, ABILITY_FLOWER_GIFT))
-                && (movesplit == SPLIT_SPECIAL)) {
+                && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLOWER_GIFT))
+                && (defensiveSplit == SPLIT_SPECIAL)) {
                 flowerGiftAppliedForDefenseModifier = TRUE;
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
             }
@@ -1436,27 +1459,27 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             // handle Marvel Scale
             if ((MoldBreakerAbilityCheckInternal(attacker, defender, AttackingMon.ability, DefendingMon.ability, moveno, movesplit, ABILITY_MARVEL_SCALE) == TRUE)
                 && (DefendingMon.condition)
-                && (movesplit == SPLIT_PHYSICAL)) {
+                && (defensiveSplit == SPLIT_PHYSICAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
             }
 
             // handle Grass Pelt
             if ((MoldBreakerAbilityCheckInternal(attacker, defender, AttackingMon.ability, DefendingMon.ability, moveno, movesplit, ABILITY_GRASS_PELT) == TRUE)
                 && (terrainOverlayType == GRASSY_TERRAIN && terrainOverlayNumberOfTurnsLeft > 0)
-                && (movesplit == SPLIT_PHYSICAL)) {
+                && (defensiveSplit == SPLIT_PHYSICAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
             }
 
             // handle Fur Coat
             if ((MoldBreakerAbilityCheckInternal(attacker, defender, AttackingMon.ability, DefendingMon.ability, moveno, movesplit, ABILITY_FUR_COAT) == TRUE)
-                && (movesplit == SPLIT_PHYSICAL)) {
+                && (defensiveSplit == SPLIT_PHYSICAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
             }
 
             // handle Protosynthesis and Quark Drive
             // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
             if ((DefendingMon.ability == ABILITY_PROTOSYNTHESIS || DefendingMon.ability == ABILITY_QUARK_DRIVE)
-                && ((movesplit == SPLIT_PHYSICAL && DefendingMon.paradoxBoostedStat == STAT_DEFENSE) || (movesplit == SPLIT_SPECIAL && DefendingMon.paradoxBoostedStat == STAT_SPECIAL_DEFENSE))) {
+                && ((defensiveSplit == SPLIT_PHYSICAL && DefendingMon.paradoxBoostedStat == STAT_DEFENSE) || (defensiveSplit == SPLIT_SPECIAL && DefendingMon.paradoxBoostedStat == STAT_SPECIAL_DEFENSE))) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_3);
             }
         }
@@ -1466,7 +1489,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if ((!flowerGiftAppliedForDefenseModifier)
                 && (weather & FIELD_CONDITION_SUN_ALL)
                 && (MoldBreakerAbilityCheck(sp, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_GIFT))
-                && (movesplit == SPLIT_SPECIAL)) {
+                && (defensiveSplit == SPLIT_SPECIAL)) {
                 flowerGiftAppliedForDefenseModifier = TRUE;
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
             }
@@ -1495,7 +1518,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle Assault Vest
-            if ((DefendingMon.item_held_effect == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES) && (movesplit == SPLIT_SPECIAL)) {
+            if ((DefendingMon.item_held_effect == HOLD_EFFECT_SPDEF_BOOST_NO_STATUS_MOVES) && (defensiveSplit == SPLIT_SPECIAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__1_5);
             }
 
@@ -1503,8 +1526,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if ((DefendingMon.item_held_effect == HOLD_EFFECT_CLAMPERL_SPDEF)
                 && (DefendingMon.species == SPECIES_CLAMPERL)
                 // it’s not a Ditto/Smeargle/Mew Transformed into the species
-                && !(AttackingMon.condition2 & STATUS2_TRANSFORM)
-                && (movesplit == SPLIT_SPECIAL)) {
+                && !(DefendingMon.condition2 & STATUS2_TRANSFORM)
+                && (defensiveSplit == SPLIT_SPECIAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
             }
 
@@ -1512,8 +1535,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             if ((DefendingMon.item_held_effect == HOLD_EFFECT_DITTO_DEF_UP)
                 && (DefendingMon.species == SPECIES_DITTO)
                 // it’s not a Ditto/Smeargle/Mew Transformed into the species
-                && !(AttackingMon.condition2 & STATUS2_TRANSFORM)
-                && (movesplit == SPLIT_PHYSICAL)) {
+                && !(DefendingMon.condition2 & STATUS2_TRANSFORM)
+                && (defensiveSplit == SPLIT_PHYSICAL)) {
                 defenseModifier = QMul_RoundUp(defenseModifier, UQ412__2_0);
             }
         }
@@ -1533,7 +1556,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     debug_printf("[Paradox Ability] Defender boosterEnergyActivated: %d\n", DefendingMon.boosterEnergyActivated);
 #endif
 
-    switch (movesplit) {
+    switch (defensiveSplit) {
     case SPLIT_PHYSICAL:
         // Handle Sword of Ruin
         // TODO: confirm location

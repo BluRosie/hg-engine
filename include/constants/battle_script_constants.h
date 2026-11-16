@@ -504,7 +504,7 @@
 #define BATTLE_SUBSCRIPT_BATCH_EFFECTIVENESS                    (495)
 #define BATTLE_SUBSCRIPT_BATCH_FOLLOWUP                         (496)
 #define BATTLE_SUBSCRIPT_SUBSTITUTE_FADES                       (497)
-#define BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT                        (498)
+#define BATTLE_SUBSCRIPT_HANDLE_WIMP_OUT_EMERGENCY_EXIT         (498)
 #define BATTLE_SUBSCRIPT_RECOIL_HALF_MAX_HP                     (499)
 #define BATTLE_SUBSCRIPT_FUTURE_SIGHT_DAMAGE                    (500)
 #define BATTLE_SUBSCRIPT_HANDLE_HOSPITALITY                     (501)
@@ -522,8 +522,22 @@
 #define BATTLE_SUBSCRIPT_ENDURE_HIT                             (513)
 #define BATTLE_SUBSCRIPT_PERISH_BODY                            (514)
 #define BATTLE_SUBSCRIPT_BATTLE_BOND_BOOST                      (515)
+#define BATTLE_SUBSCRIPT_ZERO_TO_HERO                           (516)
+#define BATTLE_SUBSCRIPT_WANDERING_SPIRIT                       (517)
+#define BATTLE_SUBSCRIPT_SCREEN_CLEANER                         (518)
+#define BATTLE_SUBSCRIPT_FELL_STRAIGHT_DOWN                     (519)
+#define BATTLE_SUBSCRIPT_MAGIC_ROOM_END                         (520)
+#define BATTLE_SUBSCRIPT_HEAVY_RECOIL                           (521)
+#define BATTLE_SUBSCRIPT_PREVENT_INTIMIDATE                     (522)
+#define BATTLE_SUBSCRIPT_RECEIVER                               (523)
+#define BATTLE_SUBSCRIPT_SEND_OUT_PENDING_SWITCHES              (524)
+#define BATTLE_SUBSCRIPT_PASTEL_VEIL                            (525)
+#define BATTLE_SUBSCRIPT_COMATOSE                               (526)
+#define BATTLE_SUBSCRIPT_DOESNT_AFFECT_ALLY_ABILITY             (527)
+#define BATTLE_SUBSCRIPT_TRY_CLEAR_UNNERVE                      (528)
+#define BATTLE_SUBSCRIPT_SYMBIOSIS                              (529)
 
-#define MAX_BASE_SUBSCRIPT_NUM 515
+#define MAX_BASE_SUBSCRIPT_NUM 528
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -751,16 +765,6 @@
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)
-
-// additional effect constants
-#define ADD_STATUS_NONE        (0)
-#define ADD_STATUS_DIRECT      (1)
-#define ADD_STATUS_INDIRECT    (2)
-#define ADD_STATUS_ABILITY     (3)
-#define ADD_STATUS_MOVE_EFFECT (4)
-#define ADD_STATUS_SOUBIITEM   (5)
-#define ADD_STATUS_DOKUBISI    (6)
-#define ADD_STATUS_IGNORE      (7)
 
 #define BATTLE_ANIMATION_NONE               0
 #define BATTLE_ANIMATION_ASLEEP             1

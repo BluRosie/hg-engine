@@ -32,5 +32,5 @@ _020:
     Wait
 
 _026:
-    Call BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
+    GoToSubscript BATTLE_SUBSCRIPT_SHOW_PARTY_LIST
     End 

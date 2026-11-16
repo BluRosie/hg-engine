@@ -104,6 +104,7 @@
 
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The sunlight turned harsh!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RoarinMoon's Protosynthesis" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The harsh sunlight activated RoarinMoon's Protosynthesis!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "RoarinMoon's Attack was heightened!" },
     }

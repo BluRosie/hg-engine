@@ -162,9 +162,13 @@ static void LONG_CALL TestBattle_OverridePokemon(struct PartyPokemon *mon, u16 s
         if (moves[i] != MOVE_NONE) {
             u16 move = moves[i];
             SetMonData(mon, MON_DATA_MOVE1 + i, &move);
-            u32 pp = 40;
+            u32 pp = GetMoveMaxPP(move, 0);
             SetMonData(mon, MON_DATA_MOVE1MAXPP + i, &pp);
             SetMonData(mon, MON_DATA_MOVE1PP + i, &pp);
+        } else {
+            u32 pp = 0;
+            SetMonData(mon, MON_DATA_MOVE1PP + i, &pp);
+            SetMonData(mon, MON_DATA_MOVE1MAXPP + i, &pp);
         }
     }
 
@@ -629,6 +633,79 @@ int LONG_CALL TestBattle_PostKOSwitchIn(struct BattleSystem *bsys UNUSED, int ba
     return 6;
 }
 
+static BOOL TestBattle_IsPartySlotAlreadyActive(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler, int partySlot)
+{
+    int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+    u8 side = IsClientEnemy(bsys, battler);
+
+    for (int other = 0; other < maxBattlers; other++) {
+        if (IsClientEnemy(bsys, other) != side) {
+            continue;
+        }
+        if (ctx->sel_mons_no[other] == partySlot) {
+            return TRUE;
+        }
+
+        if (other != battler && ctx->reshuffle_sel_mons_no[other] == partySlot) {
+            return TRUE;
+        }
+    }
+
+    return FALSE;
+}
+
+int LONG_CALL TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    int partyCount = BattleWorkPokeCountGet(bsys, battler);
+
+    for (int partySlot = 0; partySlot < partyCount; partySlot++) {
+        struct PartyPokemon *mon = BattleWorkPokemonParamGet(bsys, battler, partySlot);
+
+        if (GetMonData(mon, MON_DATA_HP, NULL) == 0) {
+            continue;
+        }
+
+        if (GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_NONE) {
+            continue;
+        }
+
+        if (GetMonData(mon, MON_DATA_SPECIES_OR_EGG, NULL) == SPECIES_EGG) {
+            continue;
+        }
+
+        if (TestBattle_IsPartySlotAlreadyActive(bsys, ctx, battler, partySlot)) {
+            continue;
+        }
+
+        return partySlot;
+    }
+
+    return 6;
+}
+
+BOOL LONG_CALL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    return sCurrentScenario != NULL
+        //&& (battler == BATTLER_PLAYER_FIRST || battler == BATTLER_PLAYER_SECOND) // do it for all
+        && (ctx->client_status[battler] & 1)
+        && TestBattle_FindNextLivePartySlot(bsys, ctx, battler) != 6;
+}
+
+BOOL LONG_CALL TestBattle_WouldOpenSelectionMenu(struct BattleStruct *ctx, int battler, const struct BattleAction *script)
+{
+    int scriptIndex = GetScriptIndex(battler);
+
+    if (scriptIndex < AI_SCRIPT_MAX_MOVES && script[scriptIndex].action != ACTION_NONE) {
+        return FALSE;
+    }
+
+    if ((ctx->no_reshuffle_client & No2Bit(battler)) || ctx->battlemon[battler].hp == 0) {
+        return FALSE;
+    }
+
+    return !(ctx->battlemon[battler].condition2 & (STATUS2_RECHARGE | STATUS2_RAMPAGE | STATUS2_UPROAR | STATUS2_LOCKED_INTO_MOVE));
+}
+
 /**
  * @brief Auto-select moves/switches for player battlers in test scenarios
  *
@@ -652,7 +729,32 @@ void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struc
         return;
     }
 
+    if (GetScriptIndex(0) == 0) {
+        int maxBattlers = BattleWorkClientSetMaxGet(bsys);
+
+        for (int battlerId = 0; battlerId < maxBattlers; battlerId++) {
+            int partySlot = ctx->sel_mons_no[battlerId];
+            const struct TestBattlePokemon *mon;
+
+            if (BATTLER_IS_ENEMY(battlerId)) {
+                mon = &sCurrentScenario->enemyParty[partySlot];
+            } else {
+                mon = &sCurrentScenario->playerParty[partySlot];
+            }
+
+            ctx->battlemon[battlerId].tera_type = mon->teraType;
+            ctx->battlemon[battlerId].is_currently_terastallized = mon->isTerastallized;
+        }
+    }
+
     TestBattle_CheckScriptCompletion();
+
+    // idle mon would wait for player input
+    if (TestBattle_WouldOpenSelectionMenu(ctx, 0, sCurrentScenario->playerScript[0])
+        || ((BattleTypeGet(bsys) & BATTLE_TYPE_DOUBLES) && TestBattle_WouldOpenSelectionMenu(ctx, 2, sCurrentScenario->playerScript[1]))) {
+        SetTestComplete(TRUE);
+        return;
+    }
 
     const struct BattleAction *script0 = sCurrentScenario->playerScript[0];
     int scriptIndex0 = GetScriptIndex(0);

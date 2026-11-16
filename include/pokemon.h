@@ -711,6 +711,9 @@ typedef struct
     u32 personal_rnd;
 } MON_PIC;
 
+#define MON_PIC_FACING_BACK  0
+#define MON_PIC_FACING_FRONT 2
+
 #define NEEDS_REVERSION 0x8000
 
 typedef struct EncounterInfo {
@@ -1835,5 +1838,7 @@ u16 LONG_CALL ItemToMachineMove(u16 itemId);
 BOOL LONG_CALL GetTMHMCompatBySpeciesAndForm(u16 species, u16 form, u8 tmhmIdx);
 
 void LONG_CALL DeleteMonFirstMoveAndAppend(struct PartyPokemon *mon, u16 move);
+
+struct PartyPokemon LONG_CALL *GetFirstAliveMonInParty_CrashIfNone(struct Party *party);
 
 #endif

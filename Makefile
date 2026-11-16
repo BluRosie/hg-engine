@@ -86,7 +86,7 @@ venv: $(VENV_ACTIVATE)
 $(VENV_ACTIVATE):
 	$(PYTHON_NO_VENV) -m venv $(VENV)
 ifeq ($(MSYS2), 0)
-	$(PYTHON) -m pip install ndspy==4.1.0
+	$(PYTHON) -m pip install ndspy==4.1.0 PyYAML
 else
 	$(PYTHON) -m pip install -r $(REQUIREMENTS)
 endif
@@ -107,14 +107,20 @@ SPECIESDATAGEN := tools/speciesdatagen
 TRAINERDATAGEN := tools/trainerdatagen
 NARCHIVE := $(PYTHON) tools/narcpy.py
 NDSTOOL := tools/ndstool
+DSROM := tools/dsrom
+# recursive (=) assignment: $(BASE)/$(FILESYS) are not defined until the Output section below
+DSROM_BRIDGE = $(PYTHON) scripts/dsrom_bridge.py --dsrom-bin $(DSROM) --dsrom-dir $(BASE)_dsrom --base $(BASE) --filesys $(FILESYS)
 NTRWAVTOOL := $(PYTHON) tools/ntrWavTool.py
 O2NARC := tools/o2narc
 SDATTOOL := $(PYTHON) tools/SDATTool.py
+JSONPROC := tools/jsonproc
+
+ROM_TOOL ?= $(DSROM)
 
 # Compiler/Assembler/Linker settings
 LDFLAGS = rom.ld -T $(C_SUBDIR)/linker.ld
-ASFLAGS =  -I$(shell pwd)/asm/include -I$(shell pwd)/include -mthumb -mcpu=arm946e-s -mtune=arm946e-s
-CFLAGS =  -I$(shell pwd)/include -mthumb -mno-thumb-interwork -mcpu=arm946e-s -mtune=arm946e-s -mno-long-calls -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
+ASFLAGS =  -I"$(shell pwd)/asm/include" -I"$(shell pwd)/include" -mthumb -mcpu=arm946e-s -mtune=arm946e-s
+CFLAGS =  -I"$(shell pwd)/include" -mthumb -mno-thumb-interwork -mcpu=arm946e-s -mtune=arm946e-s -mno-long-calls -Wall -Wextra -Wno-builtin-declaration-mismatch -Wno-sequence-point -Wno-address-of-packed-member -Os -fira-loop-pressure -fipa-pta
 ARMIPS_FLAGS = -equ DEBUG_BATTLE_SCENARIOS 0
 
 ifeq ($(AUTO_TEST),Y)
@@ -147,6 +153,13 @@ OBJS     := $(C_OBJS) $(ASM_OBJS)
 
 REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
+####################### Config Toggles #######################
+CONFIG_H := $(INCLUDE_SUBDIR)/config.h
+config_enabled = $(shell grep -E -c '^[[:space:]]*\#define[[:space:]]+$(1)[[:space:]]*$$' $(CONFIG_H))
+
+BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
+BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
+IMPLEMENT_TRANSPARENT_TEXTBOXES := $(call config_enabled,IMPLEMENT_TRANSPARENT_TEXTBOXES)
 
 ## includes
 include data/graphics/pokegra.mk
@@ -160,7 +173,7 @@ include dump.mk
 ####################### Build Tools #######################
 MSGENC_SOURCES := $(wildcard tools/source/msgenc/*.cpp) $(wildcard tools/source/msgenc/*.h)
 $(MSGENC): tools/source/msgenc/*
-	cd tools/source/msgenc ; $(MAKE)
+	cd tools/source/msgenc ; $(MAKE) clean; $(MAKE)
 	mv tools/source/msgenc/msgenc tools/msgenc
 
 TOOLS += $(MSGENC)
@@ -178,7 +191,26 @@ ifeq (,$(wildcard $(NDSTOOL)))
 	rm -r -f tools/source/ndstool
 endif
 
+ifeq ($(ROM_TOOL),$(DSROM))
+TOOLS += $(DSROM)
+else
 TOOLS += $(NDSTOOL)
+endif
+
+$(DSROM):
+ifeq (,$(wildcard $(DSROM)))
+	rm -r -f tools/source/ds-rom
+	cd tools/source ; git clone https://github.com/AetiasHax/ds-rom.git
+	cd tools/source/ds-rom ; git checkout 3bfef542191764df2afa39254bbf18f68c621d22
+	cd tools/source/ds-rom ; cargo build --release -p ds-rom-cli
+	@# workaround for cargo build with spaces in the project path
+ifeq (,$(CARGO_TARGET_DIR))
+	cp tools/source/ds-rom/target/release/dsrom $(DSROM)
+else
+	cp $(CARGO_TARGET_DIR)/release/dsrom $(DSROM)
+endif
+	rm -r -f tools/source/ds-rom
+endif
 
 $(ARMIPS):
 ifeq (,$(wildcard $(ARMIPS)))
@@ -216,45 +248,51 @@ TOOLS += tools/ntrWavTool.py
 
 NITROGFX_SOURCES := $(wildcard tools/source/nitrogfx/*.c) $(wildcard tools/source/nitrogfx/*.h)
 $(GFX): $(NITROGFX_SOURCES)
-	cd tools/source/nitrogfx ; $(MAKE)
+	cd tools/source/nitrogfx ; $(MAKE) clean; $(MAKE)
 	mv tools/source/nitrogfx/nitrogfx $(GFX)
 
 TOOLS += $(GFX)
 
 $(MOVEDATAGEN): $(wildcard tools/source/movedatagen/*.c) data/Moves.c include/move_data.h include/config.h
-	cd tools/source/movedatagen ; $(MAKE)
+	cd tools/source/movedatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(MOVEDATAGEN)
 
-$(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSort.c data/PokedexArea.c include/pokedex_archive_data.h include/constants/pokedex.h
-	cd tools/source/pokedexdatagen ; $(MAKE)
+$(POKEDEXDATAGEN): $(wildcard tools/source/pokedexdatagen/*.c) data/PokedexSort.c data/PokedexArea.c data/RegionalDex.c include/pokedex_archive_data.h include/constants/pokedex.h include/constants/species.h
+	cd tools/source/pokedexdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(POKEDEXDATAGEN)
 
 $(SPECIESDATAGEN): $(wildcard tools/source/speciesdatagen/*.c) data/Species.c include/species_data.h include/config.h
-	cd tools/source/speciesdatagen ; $(MAKE)
+	cd tools/source/speciesdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(SPECIESDATAGEN)
 
 $(TRAINERDATAGEN): $(wildcard tools/source/trainerdatagen/*.c) data/Trainers.c include/trainer_data.h include/constants/trainerclass.h include/constants/pokemon.h
-	cd tools/source/trainerdatagen ; $(MAKE)
+	cd tools/source/trainerdatagen ; $(MAKE) clean; $(MAKE)
 
 TOOLS += $(TRAINERDATAGEN)
 
 $(O2NARC): $(wildcard tools/source/o2narc/*.cpp) $(wildcard tools/source/o2narc/*.h)
-	cd tools/source/o2narc ; $(MAKE)
+	cd tools/source/o2narc ; $(MAKE) clean; $(MAKE)
 	mv tools/source/o2narc/o2narc $(O2NARC)
 
 TOOLS += $(O2NARC)
 
+$(JSONPROC): $(wildcard tools/source/jsonproc/*.cpp) $(wildcard tools/source/jsonproc/*.h) $(wildcard tools/source/jsonproc/*.hpp) $(wildcard tools/source/jsonproc/nlohmann/*.hpp)
+	cd tools/source/jsonproc ; $(MAKE) clean; $(MAKE)
+	mv tools/source/jsonproc/jsonproc $(JSONPROC)
+
+TOOLS += $(JSONPROC)
+
 $(ENCODEPWIMG):
-	cd tools/source/DECODEIMG ; $(MAKE)
+	cd tools/source/DECODEIMG ; $(MAKE) clean; $(MAKE)
 	mv tools/source/DECODEIMG/ENCODE_IMG $(ENCODEPWIMG)
 
 TOOLS += $(ENCODEPWIMG)
 
 $(BTX):
-	cd tools/source/btx ; $(MAKE)
+	cd tools/source/btx ; $(MAKE) clean; $(MAKE)
 	mv tools/source/btx/btx $(BTX)
 
 TOOLS += $(BTX)
@@ -299,11 +337,19 @@ $(OUTPUT):$(LINK)
 	$(OBJCOPY) -O binary $< $@
 
 # only reextract from the rom if the romname is newer than the extracted arm9.bin
+ifeq ($(ROM_TOOL),$(DSROM))
+$(BASE)/arm9.bin: $(ROMNAME) $(DSROM) $(VENV_ACTIVATE) scripts/dsrom_bridge.py
+	rm -rf $(BASE) $(BASE)_dsrom
+	@mkdir -p $(REQUIRED_DIRECTORIES)
+	$(DSROM_BRIDGE) extract --rom $(ROMNAME)
+	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+else
 $(BASE)/arm9.bin: $(ROMNAME) $(NDSTOOL) $(VENV_ACTIVATE)
 	rm -rf $(BASE)
 	@mkdir -p $(REQUIRED_DIRECTORIES)
 	$(NDSTOOL) -x $(ROMNAME) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
 	$(NARCHIVE) extract $(FILESYS)/a/0/2/8 -o $(BUILD)/a028/ -nf
+endif
 
 all: $(OUTPUT) $(OVERLAY_OUTPUTS) $(TOOLS) $(BASE)/arm9.bin
 	@# find and delete macOS and windows files
@@ -314,7 +360,11 @@ all: $(OUTPUT) $(OVERLAY_OUTPUTS) $(TOOLS) $(BASE)/arm9.bin
 	$(ARMIPS) armips/global.s $(ARMIPS_FLAGS)
 	$(NARCHIVE) create $(FILESYS)/a/0/2/8 $(BUILD)/a028/ -nf
 	@echo "Making ROM..."
+ifeq ($(ROM_TOOL),$(DSROM))
+	$(DSROM_BRIDGE) pack --rom $(BUILDROM)
+else
 	$(NDSTOOL) -c $(BUILDROM) -9 $(BASE)/arm9.bin -7 $(BASE)/arm7.bin -y9 $(BASE)/overarm9.bin -y7 $(BASE)/overarm7.bin -d $(FILESYS) -y $(BASE)/overlay -t $(BASE)/banner.bin -h $(BASE)/header.bin
+endif
 	@echo "Done.  See output $(BUILDROM)."
 
 
@@ -330,7 +380,7 @@ restore_build: | restore all
 
 ####################### Clean #######################
 clean:
-	rm -rf $(BUILD) $(BASE) $(BUILD)/rom_gen.ld $(BUILD)/rom_gen_battle.ld
+	rm -rf $(BUILD) $(BASE) $(BASE)_dsrom $(BUILD)/rom_gen.ld $(BUILD)/rom_gen_battle.ld
 	rm -rf $(shell find . -type d -name "generated")
 	@echo "Build artifacts removed."
 
@@ -345,10 +395,15 @@ clean_code:
 	rm -f $(ALL_CODE_OBJS) $(LINKED_OUTPUTS) $(OUTPUT) $(OVERLAY_OUTPUTS) $(BUILD)/rom_gen.ld $(BUILD)/rom_gen_battle.ld
 
 ####################### Final ROM Build #######################
-CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8_1*) $(wildcard build/$(BUILD)/8_2*) $(BUILD)/a028/8_07 $(BUILD)/a028/8_08 $(BUILD)/a028/8_09
+CODE_ADDON_ARTIFACTS := $(wildcard $(BUILD)/a028/9_*) $(wildcard $(BUILD)/a028/8_1*) $(wildcard $(BUILD)/a028/8_2*) $(BUILD)/a028/8_07 $(BUILD)/a028/8_08 $(BUILD)/a028/8_09
 CODE_ADDON_ARTIFACTS := $(filter-out $(BUILD)/a028/8_1 $(BUILD)/a028/8_2 $(BUILD)/a028/8_3 $(BUILD)/a028/8_4 $(BUILD)/a028/8_5 $(BUILD)/a028/8_6, $(CODE_ADDON_ARTIFACTS))
 
 move_narc: $(NARC_FILES)
+ifneq ($(strip $(ZONE_EVENT_OBJS)),)
+	@echo "zone events:"
+	cp $(ZONE_EVENT_NARC) $(ZONE_EVENT_TARGET)
+endif
+
 	@echo "battle hud layout:"
 	cp $(BATTLEHUD_NARC) $(BATTLEHUD_TARGET)
 
@@ -460,14 +515,18 @@ move_narc: $(NARC_FILES)
 	@echo "pokewalker icons:"
 	cp $(PW_POKEICON_NARC) $(PW_POKEICON_TARGET)
 
+ifneq ($(IMPLEMENT_TRANSPARENT_TEXTBOXES),0)
 	@echo "font:"
-	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(FONT_NARC) $(FONT_TARGET); fi
+	cp $(FONT_NARC) $(FONT_TARGET)
 
 	@echo "textbox:"
-	if [ $$(grep -i -c "//#define IMPLEMENT_TRANSPARENT_TEXTBOXES" $(INCLUDE_SUBDIR)/config.h) -eq 0 ]; then cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET); fi
+	cp $(TEXTBOX_NARC) $(TEXTBOX_TARGET)
+endif
 
+ifneq ($(strip $(SCR_SEQ_OBJS)),)
 	@echo "scripts:"
 	cp $(SCR_SEQ_NARC) $(SCR_SEQ_TARGET)
+endif
 
 	@echo "headbutt trees:"
 	cp $(HEADBUTT_NARC) $(HEADBUTT_TARGET)
@@ -533,6 +592,12 @@ move_narc: $(NARC_FILES)
 	@echo "hidden item params:"
 	cp $(HIDDEN_ITEM_PARAMS_BIN) $(HIDDEN_ITEM_PARAMS_TARGET)
 
+	@echo "ability flag params:"
+	cp $(ABILITY_FLAG_PARAMS_BIN) $(ABILITY_FLAG_PARAMS_TARGET)
+
+	@echo "machine moves:"
+	cp $(MACHINE_MOVES_PARAMS_BIN) $(MACHINE_MOVES_PARAMS_TARGET)
+
 update_machine_moves: $(VENV_ACTIVATE)
 	$(PYTHON) scripts/update_machine_moves.py --descriptions --sprites
 	@echo "Updated item descriptions and sprites. Double check formatting"
@@ -543,3 +608,5 @@ update_machine_moves: $(VENV_ACTIVATE)
 
 ####################### Debug #######################
 print-% : ; $(info $* is a $(flavor $*) variable set to [$($*)]) @true
+
+contents-% : ; $(info $($*)) @true

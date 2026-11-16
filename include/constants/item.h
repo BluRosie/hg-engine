@@ -2696,8 +2696,9 @@
 
 #define MAX_TOTAL_ITEM_NUM ITEM_CANARI_BREAD
 
-#define NUM_MEGA_STONES (48) // includes the pixie plate, doesn't include plza megas due to overflowing bag
-#define NUM_HMS         (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
+#define NUM_MEGA_STONES   (48) // includes the pixie plate, doesn't include plza megas due to overflowing bag
+#define NUM_HMS           (ITEM_HM08 - ITEM_HM01 + 1) // intentionally do not include HM07_ORAS (Dive)
+#define NUM_MACHINE_MOVES 340
 
 // ITEM_BLANK_PLATE and ITEM_LEGEND_PLATE are not included in this list as they have only ever been key items and this list is currently just used for held item interactions.
 // Feel free to add them yourself, though.
@@ -2712,7 +2713,7 @@
 
 #define IS_ITEM_Z_CRYSTAL(item) ((item >= ITEM_NORMALIUM_Z_HELD && item <= ITEM_PIKANIUM_Z_HELD) || (item >= ITEM_DECIDIUM_Z_HELD && item <= ITEM_MEWNIUM_Z_HELD) || (item == ITEM_PIKASHUNIUM_Z_HELD) || (item >= ITEM_MIMIKIUM_Z_ITEM && item <= ITEM_ULTRANECROZIUM_Z_ITEM))
 
-#define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_BURN_DRIVE && item <= ITEM_SHOCK_DRIVE)
+#define IS_ITEM_GENESECT_DRIVE(item) (item >= ITEM_DOUSE_DRIVE && item <= ITEM_CHILL_DRIVE)
 
 #define IS_ITEM_GEM(item) (item == ITEM_FAIRY_GEM || (item >= ITEM_FIRE_GEM && item <= ITEM_NORMAL_GEM))
 

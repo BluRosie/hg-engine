@@ -3,11 +3,7 @@
 
 #define GEN_CHAMPIONS 99
 
-#ifdef DEBUG_BATTLE_SCENARIOS
 #define GEN_LATEST GEN_CHAMPIONS
-#else
-#define GEN_LATEST 9
-#endif
 
 // APPLY_ANTIPIRACY will apply the typical anti-piracy code changes to your ROM automatically so that the game runs well on hardware (TWLmenu and R4 are both tested)
 // comment out the lines if you do not want anti-piracy to be applied to your ROM
@@ -114,7 +110,7 @@
 // Uncomment this line to enable this functionality
 // #define IMPLEMENT_DYNAMIC_WILD_SPECIES_FORMS
 
-// Some forms only exist in their debut games, with accompying mechanics. IMPLEMENT_GONE_SPECIES_MECHANICS lets these forms' mechanics coexist with the latest mechanics. Examples include Noble Pokémon
+// Some forms only exist in their debut games, with accompying mechanics. IMPLEMENT_DEXIT_FORMS_MECHANICS lets these forms' mechanics coexist with the latest mechanics. Examples include Noble Pokémon
 #define IMPLEMENT_DEXIT_FORMS_MECHANICS
 
 // EXPAND_PC_BOXES will expand the amount of pc boxes if enabled to 30
@@ -231,7 +227,10 @@
 #define DISABLE_CRITICAL_HP_WARNING
 
 // UNSEEN_FIST_GENERATION defines the behavior that Unseen Fist should exhibit, where it either completely ignores Protect (<=8) or deals 0.25x Damage (>=9)
-#define UNSEEN_FIST_GENERATION GEN_CHAMPIONS
+#define UNSEEN_FIST_GENERATION GEN_LATEST
+
+// SHEER_FORCE_GENERATION set to GEN_CHAMPIONS lets Anger Shell, Berserk, Color Change and Pickpocket activate against Sheer Force moves. Removes the Sheer Force boost from Electro Shot
+#define SHEER_FORCE_GENERATION GEN_LATEST
 
 // PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION actiavtes the struggle check for Belch/Stuff Cheeks in Generations before Champions
 #define PREVENT_SELECTING_BERRY_PREREQUISITE_MOVES_GENERATION GEN_LATEST
@@ -247,7 +246,7 @@
 #define CHAMPIONS_POWER_CHANGES         1
 #define CHAMPIONS_TYPE_CHANGES          1
 #define CHAMPIONS_ACC_CHANGES           1
-#define CHAMPIONS_PP_CHANGES            0
+#define CHAMPIONS_PP_CHANGES            1
 #define CHAMPIONS_EFFECT_CHANCE_CHANGES 1
 
 // EXPAND_TRAINER_PRIZE_MONEY allows for additional trainers to have prize money associated.
@@ -269,7 +268,15 @@
 #define EXPAND_ROAMERS
 
 // PLAY_MON_VICTORY_POSE enables the victory pose for Pokémon when fainting an opponent.
-// Comment out this define if you want to disable this feature.
+// Uncomment out this define if you want to enable this feature.
 // #define PLAY_MON_VICTORY_POSE
+
+// Dumps of the vanilla text (data/text), zone event data (data/eventdata/zone_event), and field scripts (data/scr_seq)
+// are shipped as a reference so that a hack can be diffed against what the game originally shipped with.
+// Dumped scripts are not built into the rom unless the matching define below is uncommented, so that a rom.nds edited with
+// DSPRE, PokeText, or any other external tool keeps its own version of everything hg-engine does not itself change.
+// hg-engine's own text archives and its common and trainer scripts are always built.
+// #define BUILD_DUMPED_EVENTDATA
+// #define BUILD_DUMPED_SCR_SEQ
 
 #endif

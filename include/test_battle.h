@@ -31,6 +31,8 @@ struct PACKED TestBattlePokemon {
     u16 species;
     u8 level;
     u8 form;
+    u8 teraType;
+    u8 isTerastallized;
     u16 ability;
     u16 item;
     u16 moves[4];
@@ -47,8 +49,12 @@ enum ExpectationType {
     EXPECTATION_TYPE_MESSAGE_CONTAINS,
     EXPECTATION_TYPE_ATTACK_MESSAGE,
     EXPECTATION_OVERWORLD_FORM,
+    EXPECTATION_CURRENT_HP,
     EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN,
-    EXPECTATION_TYPE_NOT_MESSAGE
+    EXPECTATION_TYPE_NOT_MESSAGE,
+    EXPECTATION_TYPE_PARTY_FORM,
+    EXPECTATION_TYPE_BATTLER_TYPES,
+    EXPECTATION_TYPE_SIDE_CONDITION_ABSENT
 };
 
 union ExpectationValue {
@@ -56,6 +62,9 @@ union ExpectationValue {
     u32 hpRecovered[16];
     char message[TEST_BATTLE_MESSAGE_LEN];
     u16 formID;
+    s32 currentHP;
+    u8 types[2];
+    u32 sideConditionMask;
 };
 
 struct Expectations {
@@ -64,7 +73,7 @@ struct Expectations {
     union ExpectationValue expectationValue;
 };
 
-#define MAX_EXPECTATIONS 8
+#define MAX_EXPECTATIONS 16
 
 // Complete test scenario definition
 struct PACKED TestBattleScenario {
@@ -121,6 +130,8 @@ void LONG_CALL TestBattle_QueueNextTest();
 void LONG_CALL TestBattle_OverrideParties(struct BATTLE_PARAM *bp);
 void LONG_CALL TestBattle_ApplyBattleState(struct BattleStruct *sp);
 void LONG_CALL TestBattle_autoSelectPlayerMoves(struct BattleSystem *bsys, struct BattleStruct *ctx);
+BOOL LONG_CALL TestBattle_ShouldAutoSelectKOSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler);
+int LONG_CALL TestBattle_FindNextLivePartySlot(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler);
 
 #endif // DEBUG_BATTLE_SCENARIOS
 #endif // TEST_BATTLE_H

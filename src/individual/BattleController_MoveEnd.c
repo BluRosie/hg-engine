@@ -26,7 +26,12 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
 {
     // debug_printf("In BattleController_MoveEnd\n");
     int script;
+    ctx->moveInProgress = FALSE;
     u32 battleType = BattleTypeGet(bsys);
+
+    if ((ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0) {
+        ctx->lastSuccessfulMove = ctx->current_move_index;
+    }
 
     if (ctx->pursuitContext.isActive == TRUE) {
         ctx->pursuitContext.isActive = FALSE;
@@ -63,8 +68,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
             return;
         }
 
-        if (ctx->moveConditionsFlags[ctx->attack_client].glaiveRush && ctx->current_move_index != MOVE_GLAIVE_RUSH) {
-            ctx->moveConditionsFlags[ctx->attack_client].glaiveRush = FALSE;
+        if (ctx->moveConditionsFlags[ctx->attack_client].wideOpen
+            && ctx->current_move_index != MOVE_GLAIVE_RUSH
+            && !ctx->futureSightHitTurn) {
+            ctx->moveConditionsFlags[ctx->attack_client].wideOpen = FALSE;
         }
 
         if ((ctx->battlemon[ctx->attack_client].condition2 & STATUS2_RAGE) && (ctx->current_move_index != MOVE_RAGE)) {
@@ -120,12 +127,19 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
     ctx->clientLoopForSpreadMoves = 0;
     ctx->movePerformanceSubstep = 0;
     ctx->clientLoopForAbility = 0;
+
+    if (ctx->boostedAccuracy) {
+        ctx->battlemon[ctx->attack_client].moveeffect.boostedAccuracy = 0;
+    }
     ctx->boostedAccuracy = FALSE;
     ctx->gemBoostingMove = FALSE;
     ctx->futureSightHitTurn = FALSE;
     ctx->futureSightNoAttacker = FALSE;
     ctx->futureSightSTAB = 0;
     ctx->currentMoveSwitchStatus = CURRENT_MOVE_NO_SWITCH;
+    ctx->pickpocketBattler = 0;
+    ctx->moveConditionsFlags[ctx->attack_client].mindBlownOrSteelBeam = FALSE;
+    ctx->recoilDamage = 0;
 
     ctx->moveContext.hitFoesCount = 0;
     ctx->moveContext.hitSubstituteCount = 0;

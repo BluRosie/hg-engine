@@ -28,6 +28,10 @@ strh r0, [r1]
 add r1, #0x32
 strb r0, [r1]
 
+// change how the form is used for the summary screen cry
+.org 0x02089C9A
+add r2, #0x26
+
 // change how ability is used
 .org 0x0208D376
 ldrh r2, [r4, r2]

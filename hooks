@@ -19,7 +19,8 @@
 #0224C690
 0012 ServerHPCalc 08014DD0 2
 
-arm9 PokePicLoad 080701EC 1
+arm9 GetMonSpriteCharAndPlttNarcIdsEx 020701E4
+arm9 GetMonPicHeightBySpeciesGenderForm 020708D8
 arm9 PokeOtherFormMonsNoGet 08072634 2
 arm9 PokeIconIndexGetByMonsNumber 080741BC 3
 arm9 PokeIconCgxPatternGet 080742CC 1
@@ -99,6 +100,7 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 ServerWazaKoyuuCheck 08014944 2
 #choose target from input
 0012 ov12_022506D4 022506D4
+0012 EndTurn_CheckIfReplacementsCanBeSendOut 0224D540
 
 0012 CheckLegalMimicMove 02257D6C 1
 0012 CheckLegalMetronomeMove 02257DA4 4
@@ -141,6 +143,7 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_CheckSubstitute 0224514C 3
 0012 BtlCmd_TrySwapItems 02242A50 3
 0012 BtlCmd_TryWish 02242B58 3
+0012 BtlCmd_TryEncore 02240BB0 3
 0012 BtlCmd_TryFutureSight 02242570 3
 0012 BtlCmd_SetMultiHit 0223EC10 3
 0012 BtlCmd_GenerateEndOfBattleItem 022440A0 3
@@ -161,6 +164,11 @@ arm9 CreateStarterMon_hook 020960E6 1
 0012 BtlCmd_TryFeint 02243D20 3
 0012 BtlCmd_TryPerishSong 02241A04 3
 0012 BtlCmd_Metronome 0224089C 3
+0012 BtlCmd_TryCopycat 02243A0C 3
+0012 BtlCmd_RemoveItem 02244EF8 3
+0012 BtlCmd_CheckSpikes 02241980 3
+0012 BtlCmd_CheckStealthRock 022446AC 3
+0012 BtlCmd_SwitchAndUpdateMon 0223EAA0 3
 
 #trainer data expansion
 arm9 MakeTrainerPokemonParty 08073604 3
@@ -281,7 +289,6 @@ arm9 GetBoxMonSex 0806FF90 1
 arm9 grab_sex_for_GetBoxMonData 0806EA1A 1
 
 #item time baby - 02257FA0
-0012 MoveHitUTurnHeldItemEffectCheck 080206E0 3
 #0224E1BC - after move hit effects
 0012 ServerWazaHitAfterCheckAct 080168FC 2
 # post-move effects, not necessarily on hit
@@ -355,7 +362,7 @@ arm9 GrabCryNumSpeciesForm 02006A0C 2
 #endif
 
 # need another hook for this one yeah yeah
-0012 ServerDoTypeCalcMod 02251D28
+0012 ShouldUseNormalTypeEffCalc 02251C74
 0012 AITypeCalc 02252054
 0012 GrabMoveTypeForConversion2 0224DD7C 2
 
@@ -392,6 +399,7 @@ arm9 CapRareCandies 0208FEEA 1
 0012 read_battle_script_param 022454E8 1
 0012 LoadBattleSubSeqScript 0224EB9C 3
 0012 PushAndLoadBattleScript 0224EBDC 3
+0012 PopBattleScript 0224EC74 1
 
 0012 ServerInit 02248660 1
 
@@ -524,6 +532,8 @@ arm9 form_evo_hook_2 0207641C 0
 #endif
 
 0012 BattleContext_Main 022486B0 2
+0012 BattleControllerPlayer_SelectionScreenInput 02248848 3
+0012 BattleControllerPlayer_FightInput 0224A9B0 3
 
 arm9 sub_0207B0B0 0207B0B0 2
 arm9 sub_0207AFC4 0207AFC4 1
@@ -597,8 +607,14 @@ arm9 ScrCmd_WildBattle 02043E5C 1
 0012 BattleMessage_ExpandPlaceholders 0223CEF4
 #endif
 
+
+0012 BtlCmd_ShowParty 0223E8A0 2
+0012 BtlCmd_WaitMonSelection 0223E978 2
+
 arm9 GetItemAttr_PreloadedItemData 02077DAC 2
-0012 TryUseHeldItem 0225471C 3
+0012 TryUseHeldItem_Vanilla 0225471C 3
+0012 GetNaturalGiftPower 02255890 2
+0012 GetNaturalGiftType 022558A4 2
 0012 TryFling 02255F7C 3
 
 arm9 PartyMenu_HandleUseItemOnMon 0207C288 1
@@ -638,16 +654,18 @@ arm9 ScrCmd_CreateRoamer 02045264 1
 #endif
 
 # encounter
-arm9 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
-arm9 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
-arm9 EncounterSlot_WildMonSlotRoll_Fishing 02247764 1
-arm9 EncounterSlot_WildMonSlotRoll_RockSmash 0224779C 0
-arm9 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
+0002 EncounterSlot_WildMonSlotRoll_Land 0224768C 0
+0002 EncounterSlot_WildMonSlotRoll_Surfing 02247720 0
+0002 EncounterSlot_WildMonSlotRoll_Fishing 02247764 1
+0002 EncounterSlot_WildMonSlotRoll_RockSmash 0224779C 0
+0002 EncounterSlot_WildMonSlotRoll_Headbutt 022477C0 0
 
 0012 GetPokemon_CheckIfTrainer_hook 2246704 0
 0012 GetPokemon_BallBlocked_hook 02247094 0
 0012 BattleSystem_AdjustMessageForSide 0223C558 2
 
 0012 PlayerTrainerVictoryBGM_hook 0224DA9E 3
+
+arm9 FieldSystem_RestoreMapObjectsFromSave 0203B9F4 1
 
 0012 TrainerAI_PickCommand_hook 0225E10C 0

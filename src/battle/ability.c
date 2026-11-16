@@ -64,9 +64,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 
     // 02252F24
     if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_WATER_ABSORB) == TRUE) {
-        if ((movetype == TYPE_WATER) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)
-            //    && (sp->moveTbl[sp->current_move_index].power) //as of Gen5
-        ) {
+        if ((movetype == TYPE_WATER) && (attacker != defender) && ((sp->server_status_flag & SERVER_STATUS_FLAG_x20) == 0)) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[defender].maxhp, 4);
             scriptnum = BATTLE_SUBSCRIPT_ABILITY_RESTORES_HP;
         }
@@ -119,7 +117,7 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
         if ((IsMoveWindMove(sp->current_move_index)) && (attacker != defender)) {
             scriptnum = BATTLE_SUBSCRIPT_HANDLE_WIND_RIDER;
             sp->addeffect_param = MOVE_SUBSCRIPT_PTR_ATTACK_UP_1_STAGE;
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = defender;
             sp->battlerIdTemp = defender;
             // scriptnum = BATTLE_SUBSCRIPT_BOOST_STATS;
@@ -176,13 +174,13 @@ int MoveCheckDamageNegatingAbilities(struct BattleStruct *sp, int attacker, int 
 
     // TODO: Confirm location in-game
     // handle good as gold
-    /*if (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE)
-    {
-        if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS)
-        {
-            scriptnum = BATTLE_SUBSCRIPT_HANDLE_JUST_FAIL;
+    if (attacker != defender
+        && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_GOOD_AS_GOLD) == TRUE
+        && (sp->moveTbl[sp->current_move_index].target & (RANGE_OPPONENT_SIDE | RANGE_FIELD)) == 0) {
+        if (GetMoveSplit(sp, sp->current_move_index) == SPLIT_STATUS) {
+            scriptnum = BATTLE_SUBSCRIPT_DOESNT_AFFECT_ABILITY;
         }
-    } */
+    }
 
     return scriptnum;
 }
@@ -458,7 +456,7 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
             && (BattleRand(bw) % 10 < 3)
 #endif
         ) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = sp->defence_client;
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = BATTLE_SUBSCRIPT_POISON;
@@ -469,7 +467,7 @@ BOOL LONG_CALL MoveHitAttackerAbilityCheck(void *bw UNUSED, struct BattleStruct 
         if (sp->oneTurnFlag[sp->defence_client].protectFlag
             && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
             && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             seq_no[0] = BATTLE_SUBSCRIPT_UNSEEN_FIST;
             ret = TRUE;
         }
@@ -512,100 +510,7 @@ BOOL LONG_CALL MoveHitDefenderAbilityCheck(struct BattleSystem *bw, struct Battl
  */
 BOOL AbilityIsIgnoredByMoldBreaker(int ability)
 {
-    switch (ability) {
-    case ABILITY_BATTLE_ARMOR:
-    case ABILITY_STURDY:
-    case ABILITY_DAMP:
-    case ABILITY_LIMBER:
-    case ABILITY_SAND_VEIL:
-    case ABILITY_VOLT_ABSORB:
-    case ABILITY_WATER_ABSORB:
-    case ABILITY_OBLIVIOUS:
-    case ABILITY_INSOMNIA:
-    case ABILITY_IMMUNITY:
-    case ABILITY_FLASH_FIRE:
-    case ABILITY_SHIELD_DUST:
-    case ABILITY_OWN_TEMPO:
-    case ABILITY_SUCTION_CUPS:
-    case ABILITY_WONDER_GUARD:
-    case ABILITY_LEVITATE:
-    case ABILITY_CLEAR_BODY:
-    case ABILITY_LIGHTNING_ROD:
-    case ABILITY_ILLUMINATE:
-    case ABILITY_INNER_FOCUS:
-    case ABILITY_MAGMA_ARMOR:
-    case ABILITY_WATER_VEIL:
-    case ABILITY_SOUNDPROOF:
-    case ABILITY_THICK_FAT:
-    case ABILITY_KEEN_EYE:
-    case ABILITY_HYPER_CUTTER:
-    case ABILITY_STICKY_HOLD:
-    case ABILITY_MARVEL_SCALE:
-    case ABILITY_VITAL_SPIRIT:
-    case ABILITY_WHITE_SMOKE:
-    case ABILITY_SHELL_ARMOR:
-    case ABILITY_TANGLED_FEET:
-    case ABILITY_MOTOR_DRIVE:
-    case ABILITY_SNOW_CLOAK:
-    case ABILITY_HEATPROOF:
-    case ABILITY_SIMPLE:
-    case ABILITY_DRY_SKIN:
-    case ABILITY_LEAF_GUARD:
-    case ABILITY_UNAWARE:
-    case ABILITY_FILTER:
-    case ABILITY_STORM_DRAIN:
-    case ABILITY_SOLID_ROCK:
-    case ABILITY_FLOWER_GIFT:
-    case ABILITY_CONTRARY:
-    case ABILITY_FRIEND_GUARD:
-    case ABILITY_HEAVY_METAL:
-    case ABILITY_LIGHT_METAL:
-    case ABILITY_MULTISCALE:
-    case ABILITY_TELEPATHY:
-    case ABILITY_OVERCOAT:
-    case ABILITY_BIG_PECKS:
-    case ABILITY_WONDER_SKIN:
-    case ABILITY_MAGIC_BOUNCE:
-    case ABILITY_SAP_SIPPER:
-    case ABILITY_AROMA_VEIL:
-    case ABILITY_FLOWER_VEIL:
-    case ABILITY_FUR_COAT:
-    case ABILITY_BULLETPROOF:
-    case ABILITY_SWEET_VEIL:
-    case ABILITY_GRASS_PELT:
-    case ABILITY_AURA_BREAK:
-    case ABILITY_WATER_BUBBLE:
-    case ABILITY_DISGUISE:
-    case ABILITY_QUEENLY_MAJESTY:
-    case ABILITY_FLUFFY:
-    case ABILITY_DAZZLING:
-    case ABILITY_MIRROR_ARMOR:
-    case ABILITY_PUNK_ROCK:
-    case ABILITY_ICE_SCALES:
-    case ABILITY_ICE_FACE:
-    case ABILITY_PASTEL_VEIL:
-    case ABILITY_THERMAL_EXCHANGE:
-    case ABILITY_PURIFYING_SALT:
-    case ABILITY_WELL_BAKED_BODY:
-    case ABILITY_WIND_RIDER:
-    case ABILITY_GUARD_DOG:
-    case ABILITY_GOOD_AS_GOLD:
-    case ABILITY_VESSEL_OF_RUIN:
-    case ABILITY_SWORD_OF_RUIN:
-    case ABILITY_TABLETS_OF_RUIN:
-    case ABILITY_BEADS_OF_RUIN:
-    case ABILITY_ARMOR_TAIL:
-    case ABILITY_EARTH_EATER:
-    case ABILITY_MINDS_EYE:
-    case ABILITY_TERA_SHELL:
-    case ABILITY_EELEVATE:
-        return TRUE;
-        break;
-
-    default:
-        break;
-    }
-    return FALSE;
+    return GetAbilityFlags(ability).ignoredByMoldBreaker;
 }
 
 u32 LONG_CALL MoldBreakerAbilityCheckInternal(int attacker, int defender, int attackerAbility, int defenderAbility, int currentMoveIndex, int moveSplit, u32 ability)
@@ -668,7 +573,7 @@ BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int se
     seq_no = 0;
 
     if (TryGetSynchronizeStatusSubsequence(sp, &seq_no) == TRUE) {
-        sp->addeffect_type = ADD_STATUS_ABILITY;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
         sp->next_server_seq_no = server_seq_no;
         sp->server_seq_no = 22;
@@ -698,7 +603,7 @@ BOOL LONG_CALL SynchroniseAbilityCheck(void *bw, struct BattleStruct *sp, int se
 
     if (ret == TRUE) {
         seq_no = BATTLE_SUBSCRIPT_INFATUATE;
-        sp->addeffect_type = ADD_STATUS_SOUBIITEM;
+        sp->addeffect_type = SIDE_EFFECT_TYPE_HELD_ITEM;
         LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, seq_no);
         sp->next_server_seq_no = server_seq_no;
         sp->server_seq_no = 22;
@@ -812,7 +717,7 @@ BOOL ServerFlinchCheck(void *bw, struct BattleStruct *sp)
             && IsMoveAffectedByKingsRock(sp, sp->current_move_index)
             && (sp->battlemon[sp->defence_client].hp)) {
             sp->state_client = sp->defence_client;
-            sp->addeffect_type = ADD_STATUS_INDIRECT;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_INDIRECT;
             LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FLINCH_MON);
             sp->next_server_seq_no = sp->server_seq_no;
             sp->server_seq_no = 22;
@@ -1091,7 +996,7 @@ u32 LONG_CALL ServerWazaKoyuuCheck(void *bw, struct BattleStruct *sp)
             if ((sp->server_status_flag & (BATTLE_STATUS_NO_MOVE_SET)) == 0) {
                 sp->moveProtect[sp->attack_client] = 0;
                 sp->waza_no_old[sp->attack_client] = sp->moveNoTemp;
-                sp->waza_no_last = sp->moveNoTemp;
+                sp->lastSuccessfulMove = sp->moveNoTemp;
                 sp->lastClientMoveType[sp->attack_client] = GetAdjustedMoveType(sp, sp->attack_client, sp->moveNoTemp);
                 sp->server_status_flag |= (BATTLE_STATUS_NO_MOVE_SET);
             }
@@ -1153,4 +1058,16 @@ void ServerDoPostMoveEffects(struct BattleSystem *bsys, struct BattleStruct *ctx
     }
 
     ctx->swoak_seq_no = 0; // reset according to the scriptures
+}
+
+AbilityFlags LONG_CALL GetAbilityFlags(int ability)
+{
+    AbilityFlags flags = { 0 };
+    if (ability <= ABILITY_NONE || ability >= NUM_ABILITIES) {
+        return flags;
+    }
+
+    ReadFromNarcMemberByIdPair(&flags, ARC_CODE_ADDONS, CODE_ADDON_ABILITY_FLAGS, ability * sizeof(AbilityFlags), sizeof(AbilityFlags));
+
+    return flags;
 }

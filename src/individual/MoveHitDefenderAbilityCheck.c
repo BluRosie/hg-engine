@@ -23,7 +23,7 @@
  *  @param seq_no battle subscript to run
  *  @return TRUE to load the battle subscript in *seq_no and run it; FALSE otherwise
  */
-BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleStruct *sp, int *seq_no)
+BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleStruct *sp, int *seq_no)
 {
     BOOL ret = FALSE;
     u32 move_pos;
@@ -42,8 +42,11 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
             && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
-            && (BattleRand(bw) % 10 < 3)) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && (BattleRand(bw) % 10 < 3)
+#endif
+        ) {
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = BATTLE_SUBSCRIPT_PARALYZE;
@@ -65,7 +68,10 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
             && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
-            && (BattleRand(bw) % 10 < 3)) {
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && (BattleRand(bw) % 10 < 3)
+#endif
+        ) {
             switch (BattleRand(bw) % 3) {
             case 0:
             default:
@@ -78,7 +84,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
                 seq_no[0] = BATTLE_SUBSCRIPT_FALL_ASLEEP;
                 break;
             }
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
             ret = TRUE;
@@ -88,8 +94,11 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
             && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
-            && (BattleRand(bw) % 10 < 3)) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && (BattleRand(bw) % 10 < 3)
+#endif
+        ) {
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = BATTLE_SUBSCRIPT_POISON;
@@ -100,8 +109,11 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
             && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
-            && (BattleRand(bw) % 10 < 3)) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && (BattleRand(bw) % 10 < 3)
+#endif
+        ) {
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = BATTLE_SUBSCRIPT_BURN;
@@ -113,8 +125,11 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
             && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
             && (sp->battlemon[sp->defence_client].hp)
-            && (BattleRand(bw) % 10 < 3)) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && (BattleRand(bw) % 10 < 3)
+#endif
+        ) {
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = BATTLE_SUBSCRIPT_INFATUATE;
@@ -223,6 +238,17 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             seq_no[0] = BATTLE_SUBSCRIPT_HANDLE_ABILITY_STAT_CHANGE;
             ret = TRUE;
         }
+    } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_WANDERING_SPIRIT)) {
+        if (sp->battlemon[sp->attack_client].ability != ABILITY_WANDERING_SPIRIT
+            && !AbilityFailSkillSwap(sp->battlemon[sp->attack_client].ability)
+            && HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_ABILITY_CHANGES
+            && HeldItemHoldEffectGet(sp, sp->defence_client) != HOLD_EFFECT_PREVENT_ABILITY_CHANGES
+            && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
+            && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)) {
+            sp->battlerIdTemp = sp->attack_client;
+            seq_no[0] = BATTLE_SUBSCRIPT_WANDERING_SPIRIT;
+            ret = TRUE;
+        }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MUMMY) || MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_LINGERING_AROMA)) {
         if (sp->battlemon[sp->attack_client].ability != sp->battlemon[sp->defence_client].ability) {
             if ((IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
@@ -304,7 +330,10 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && sp->battlemon[sp->attack_client].pp[move_pos] != 0 // pp is nonzero
             && sp->current_move_index != 0 // a move has already been used
             && sp->moveTbl[sp->current_move_index].power != 0
-            && BattleRand(bw) % 10 < 3) {
+#ifndef DEBUG_BATTLE_SCENARIOS
+            && BattleRand(bw) % 10 < 3
+#endif
+        ) {
             sp->waza_work = sp->current_move_index;
             sp->battlemon[sp->attack_client].moveeffect.disabledMove = sp->waza_work;
             sp->battlemon[sp->attack_client].moveeffect.disabledTurns = 4; // cursed body disables for 4 turns every time
@@ -367,7 +396,7 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             && IsAttackerOnField(sp)
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
-            sp->addeffect_type = ADD_STATUS_ABILITY;
+            sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
             sp->state_client = sp->attack_client;
             sp->battlerIdTemp = sp->defence_client;
             seq_no[0] = BATTLE_SUBSCRIPT_BURN;
@@ -401,6 +430,13 @@ BOOL MoveHitDefenderAbilityCheckInternal(struct BattleSystem *bw, struct BattleS
             sp->addeffect_type = SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY;
             seq_no[0] = BATTLE_SUBSCRIPT_PERISH_BODY;
             ret = TRUE;
+        }
+    } else if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_PICKPOCKET) { // not breakable
+        if ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
+            && sp->battlemon[sp->defence_client].hp
+            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
+            sp->pickpocketBattler |= No2Bit(sp->defence_client);
+            sp->pickpocketAttackerSlot = sp->sel_mons_no[sp->attack_client];
         }
     }
 

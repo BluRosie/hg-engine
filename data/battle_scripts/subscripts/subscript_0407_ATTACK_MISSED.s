@@ -23,6 +23,7 @@ Continue:
     WaitButtonABTime 30
     // now handle high jump kick
     Call BATTLE_SUBSCRIPT_CRASH_ON_MISS
+    Call BATTLE_SUBSCRIPT_HEAVY_RECOIL
     // now handle several moves needing to be canceled--rollout, charge moves
     UnlockMoveChoice BATTLER_CATEGORY_ATTACKER
     End

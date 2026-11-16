@@ -84,6 +84,9 @@ BEGIN_TEST
         } },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye used Skill Swap!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye's Prankster" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag's Water Absorb" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Poliwag's Prankster" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye swapped Abilities with its target!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Poliwag used Water Gun!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Sableye's Water Absorb" },

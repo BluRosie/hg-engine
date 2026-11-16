@@ -53,7 +53,7 @@ def load_machine_move_list(file_path):
     with open(file_path, encoding='utf-8') as f:
         for line in f:
             line = line.strip()
-            if 'static const u16 sMachineMoves[]' in line:
+            if 'const u16 sMachineMoves[]' in line:
                 in_array = True
                 continue
             if in_array:
@@ -419,7 +419,7 @@ if __name__ == "__main__":
 
     args = parser.parse_args()
 
-    machine_moves = load_machine_move_list("src/item.c")
+    machine_moves = load_machine_move_list("data/MachineMoves.c")
     tutor_moves = load_tutor_move_list("src/field/move_tutor.c")
     [species_dict, base_species_max_index] = load_species_header("include/constants/species.h")
     moves_dict = load_moves_header("include/constants/moves.h")

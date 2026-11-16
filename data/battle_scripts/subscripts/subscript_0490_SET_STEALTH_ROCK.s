@@ -9,6 +9,8 @@ _000:
     AddEntryHazardToQueue BATTLER_CATEGORY_DEFENDER, HAZARD_IDX_STEALTH_ROCK
     // Pointed stones float in the air around your team!
     PrintMessage 1077, TAG_NONE_SIDE, BATTLER_CATEGORY_ATTACKER_ENEMY
+    Wait 
+    WaitButtonABTime 30
 
 _017:
     End 

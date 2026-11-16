@@ -42,17 +42,20 @@ _nostatusrestored:
     WaitButtonABTime 30
     //SetCurrentMoveSwitchingStatus CURRENT_MOVE_SWITCH_DONE
     //UpdateVarFromVar OPCODE_SET, BSCRIPT_VAR_BATTLER_SWITCH, BSCRIPT_VAR_BATTLER_TARGET
-    Call BATTLE_SUBSCRIPT_HAZARDS_CHECK
     GoTo _end
 
 _suctioncups:
     // {0} is anchored in place with its suction cups!
     PrintMessage 659, TAG_NICKNAME_ABILITY, BATTLER_CATEGORY_DEFENDER, BATTLER_CATEGORY_DEFENDER
+    Wait 
+    WaitButtonABTime 30
     GoTo _end
 
 _ingrain:
     // {0} is anchored in place with its roots!
     PrintMessage 542, TAG_NICKNAME, BATTLER_CATEGORY_DEFENDER
+    Wait 
+    WaitButtonABTime 30
 
 _end:
     //restore real attacker, defender

@@ -1,4 +1,4 @@
-// Test: Sludge Wave - Chain Kills in Doubles, switch at beginning
+// Test: Sludge Wave - Chain KOs in Doubles, switch at beginning
 // SKIP
 #include "../../battle_tests.h"
 BEGIN_TEST

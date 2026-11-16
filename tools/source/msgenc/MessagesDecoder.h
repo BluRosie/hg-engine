@@ -18,6 +18,8 @@ class MessagesDecoder : public MessagesConverter
 
     void ReadMessagesFromBin(string& filename);
     void WriteMessagesToText(string& filename);
+    void WriteMessagesToGMM(string& filename);
+    void WriteMessagesToJson(string& filename);
     template <typename T> void WriteBinaryFile(string& filename, T& data);
     static u16string DecodeTrainerNameMessage(u16string const &message);
     string DecodeMessage(u16string& message, int& i);
@@ -25,7 +27,7 @@ class MessagesDecoder : public MessagesConverter
     void CmdmapRegisterCommand(string& command, uint16_t value) override;
 
 public:
-    MessagesDecoder(string &_textfilename, int _key, string &_charmapfilename, string &_binfilename) : MessagesConverter(CONV_DECODE, _textfilename, _key, _charmapfilename, _binfilename) {}
+    MessagesDecoder(Options &options) : MessagesConverter(options) {}
     void ReadInput() override;
     void Convert() override;
     void WriteOutput() override;

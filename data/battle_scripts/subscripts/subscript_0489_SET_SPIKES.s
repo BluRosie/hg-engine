@@ -6,8 +6,10 @@
 _000:
     TrySpikes _010
     AddEntryHazardToQueue BATTLER_CATEGORY_DEFENDER, HAZARD_IDX_SPIKES
-    // Spikes were scattered all around your team’s feet!
+    // Spikes were scattered all around your teamâ€™s feet!
     PrintMessage 427, TAG_NONE_SIDE, BATTLER_CATEGORY_ATTACKER_ENEMY
+    Wait 
+    WaitButtonABTime 30
     End 
 
 _010:

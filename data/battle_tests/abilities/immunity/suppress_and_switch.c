@@ -102,6 +102,5 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Snorlax's Immunity" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Snorlax was cured of its poisoning!" },
     },
-    .knownFailing = TRUE,
 }
 END_TEST

@@ -1,4 +1,4 @@
-// Test: Mega Sol - Synthesis heals more
+// Test: Mega Sol - Synthesis heals ~ 2/3 without weather
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -32,7 +32,7 @@ BEGIN_TEST
                         .ability = ABILITY_OVERGROW,
                         .item = ITEM_MEGANIUMITE,
                         .moves = { MOVE_SYNTHESIS, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-                        .hp = 76,
+                        .hp = 1,
                         .status = 0,
                         .condition2 = 0,
                         .moveEffectFlags = 0,
@@ -44,7 +44,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE } },
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                          { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -64,7 +64,7 @@ BEGIN_TEST
         } },
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                         { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+                         { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -86,8 +86,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Synthesis!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meganium's Mega Sol" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's HP was restored!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium used Synthesis!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Meganium's HP is full!" },
+        { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.currentHP = 104 },
     }
 }
 END_TEST

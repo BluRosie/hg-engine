@@ -13,7 +13,7 @@ from typing import Union
 from desmume.emulator import DeSmuME, DeSmuME_Memory
 
 # Settings
-BASE_IDLE_TIMEOUT_SECONDS = 1 * 60  # 1 minute
+BASE_IDLE_TIMEOUT_SECONDS = 1 * 90  # 1.5 minute
 
 g_EmulatorCommunicationSendHoleAddress = 0x02FFF81C
 TEST_CASE_PASS = -1
@@ -126,7 +126,7 @@ def get_idle_timeout_seconds(partition_count: int) -> int:
 
 
 def read_communication_hole_value():
-    return emu_memory.signed[g_EmulatorCommunicationSendHoleAddress]
+    return emu_memory.read(g_EmulatorCommunicationSendHoleAddress, g_EmulatorCommunicationSendHoleAddress, 4, True)
 
 
 def write_communication_hole_value(value: int):
@@ -400,6 +400,7 @@ def run_single_partition(args) -> int:
 
         if window is not None:
             window.draw()
+            window.process_input()
 
         emu.cycle(False)
 

@@ -1,4 +1,4 @@
-// Test: Sludge Wave - Chain Kills
+// Test: Sludge Wave - Chain KOs
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

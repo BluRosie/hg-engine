@@ -1,5 +1,8 @@
 #include <algorithm>
 #include "MessagesDecoder.h"
+#include "Gmm.h"
+//#include "Json.h"
+#include "Options.h"
 
 void MessagesDecoder::CmdmapRegisterCommand(string &command, uint16_t value)
 {
@@ -163,6 +166,14 @@ void MessagesDecoder::WriteMessagesToText(string& filename) {
     WriteTextFile(filename, ss.str());
 }
 
+void MessagesDecoder::WriteMessagesToGMM(string &filename) {
+    GMM(filename, std::ios::out).ToFile(*this);
+}
+
+//void MessagesDecoder::WriteMessagesToJson(string &filename) {
+//    Json(filename, std::ios::out).ToFile(*this);
+//}
+
 // Public virtual functions
 
 void MessagesDecoder::ReadInput()
@@ -181,5 +192,15 @@ void MessagesDecoder::Convert()
 
 void MessagesDecoder::WriteOutput()
 {
-    WriteMessagesToText(textfilename);
+    switch (text_format) {
+    case FMT_PLAIN_TEXT:
+        WriteMessagesToText(textfilename);
+        break;
+    case FMT_GAMEFREAK_GMM:
+        WriteMessagesToGMM(textfilename);
+        break;
+//    case FMT_JSON:
+//        WriteMessagesToJson(textfilename);
+//        break;
+    }
 }
