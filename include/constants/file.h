@@ -149,6 +149,7 @@
 #define OVERLAY_PARTY_HANDLEUSEITEMONMON             149
 #define OVERLAY_INHERITMOVES                         150
 #define OVERLAY_CREATETRADEMON                       151
+#define OVERLAY_BATTLE_SELECTIONSCREENINPUT          152
 
 #define MAX_ACTIVE_OVERLAYS 8
 
