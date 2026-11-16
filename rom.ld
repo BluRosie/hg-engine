@@ -770,6 +770,7 @@ Battler_GetRandomOpposingBattlerId = 0x02253DA0 | 1;
 GetBattlerLearnedMoveCount = 0x02252EA8 | 1;
 BattleMon_AddVar = 0x0224F7AC | 1;
 GetFlavorPreferenceFromPID = 0x020718E8 | 1;
+HealthBox_DrawLevelText = 0x022652D0 | 1;
 
 ov12_02261258 = 0x02261258 | 1;
 //ov12_02252D14 = 0x02252D14 | 1;

@@ -739,9 +739,12 @@ bx   r3
 .global hook_GrabIllusionBoxMonForHpBar
 hook_GrabIllusionBoxMonForHpBar:
 mov r3, r4
-bl BattleSystem_GrabIllusionBoxMonNameForHpBar // (struct BattleSystem *battleSystem, int client, int partyIndex, MessageFormat *msgFormat)
+mov r0, r5 // healthBar
+bl BattleSystem_GrabIllusionBoxMonNameForHpBar // (HealthBar *healthBar, int client, int partyIndex, MessageFormat *msgFormat)
 ldr r1, =0x022651C0 | 1
 bx r1
+
+.pool
 
 .global GetPokemon_CheckIfTrainer_hook
 GetPokemon_CheckIfTrainer_hook:
