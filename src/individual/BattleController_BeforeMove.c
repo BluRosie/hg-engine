@@ -2,6 +2,7 @@
 #include "types.h"
 
 #include "constants/ability.h"
+#include "constants/battle_constants.h"
 #include "constants/battle_message_constants.h"
 #include "constants/battle_script_constants.h"
 #include "constants/file.h"
@@ -1273,7 +1274,14 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
     }
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
-        if (BattleRand(bsys) % 5 != 0) {
+        ctx->battlemon[ctx->attack_client].condition += 1 << STATUS_FREEZE_COUNT_SHIFT;
+        u32 totalFreezeTurns = (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE_COUNT) >> STATUS_FREEZE_COUNT_SHIFT;
+        if (totalFreezeTurns < 3
+#ifdef DEBUG_BATTLE_SCENARIOS
+            || FALSE) {
+#else
+            || BattleRand(bsys) % 4 != 0) {
+#endif
             if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT && effect != MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FROZEN);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1285,6 +1293,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
                 return;
             }
         } else {
+            ctx->battlemon[ctx->attack_client].condition &= ~STATUS_FREEZE_COUNT;
             ctx->battlerIdTemp = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1833,6 +1842,7 @@ void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct Batt
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
         if (effect == MOVE_EFFECT_THAW_AND_BURN_HIT || effect == MOVE_EFFECT_RECOIL_BURN_HIT || effect == MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
+            ctx->battlemon[ctx->attack_client].condition &= ~STATUS_FREEZE_COUNT;
             ctx->battlerIdTemp = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
