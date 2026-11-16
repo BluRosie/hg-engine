@@ -521,17 +521,17 @@ void BattleMessage_BufferPokemon(struct BattleSystem *battleSystem, int bufferIn
 // parameter order is for assembly convenience
 void BattleSystem_GrabIllusionBoxMonNameForHpBar(HealthBox *healthBox, int client, int partyIndex, MessageFormat *msgFormat)
 {
-	struct BattleSystem *battleSystem = healthBox->battleSys;
+    struct BattleSystem *battleSystem = healthBox->battleSys;
     struct Party *party = BattleWorkPokePartyGet(battleSystem, client);
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIndex);
     struct BattleStruct *ctx = battleSystem->sp;
 
     if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
-		u32 illusionIndex = Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]);
+        u32 illusionIndex = Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]);
         mon = Party_GetMonByIndex(party, illusionIndex);
-		// take this opportunity to also reset the gender of the mon
-		healthBox->gender = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_GENDER, NULL);
-		HealthBox_DrawLevelText(healthBox); // also redraws gender icon which is what we really want
+        // take this opportunity to also reset the gender of the mon
+        healthBox->gender = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_GENDER, NULL);
+        HealthBox_DrawLevelText(healthBox); // also redraws gender icon which is what we really want
     }
     BufferBoxMonNickname(msgFormat, 0, &mon->box);
 }
