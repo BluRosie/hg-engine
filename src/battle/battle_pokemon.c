@@ -283,7 +283,7 @@ s32 Party_GetIllusionImitatedIndex(struct Party *party, s32 illusionIndex)
 void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_ENCOUNT_PARAM *pep = (struct POKEMON_ENCOUNT_PARAM *)&cp->client_buffer[0];
-    u32 side = cp->client_no, newform, newmon, newshiny;
+    u32 side = cp->client_no, newform, newmon, newshiny, newsex;
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
@@ -306,11 +306,13 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
         newmon = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_SPECIES, NULL);
         newform = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_FORM, NULL);
         newshiny = MonIsShiny(Party_GetMonByIndex(party, illusionIndex));
+        newsex = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_GENDER, NULL);
 
         if (newmon != pep->monsno || newform != pep->form_no) {
             pep->monsno = newmon;
             pep->form_no = newform;
             pep->rare = newshiny;
+            pep->sex = newsex;
 
             gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = side;
             if (!(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, side)))) {
@@ -334,7 +336,7 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
 void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
-    u32 side = cp->client_no, newform, newmon, newshiny;
+    u32 side = cp->client_no, newform, newmon, newshiny, newsex;
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
@@ -357,11 +359,13 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
         newmon = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_SPECIES, NULL);
         newform = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_FORM, NULL);
         newshiny = MonIsShiny(Party_GetMonByIndex(party, illusionIndex));
+        newsex = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_GENDER, NULL);
 
         if (newmon != pap->monsno || newform != pap->form_no) {
             pap->monsno = newmon;
             pap->form_no = newform;
             pap->rare = newshiny;
+            pap->sex = newsex;
 
             gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = side;
             if (!(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, side)))) {
@@ -385,7 +389,7 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
 void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
 {
     struct POKEMON_APPEAR_PARAM *pap = (struct POKEMON_APPEAR_PARAM *)&cp->client_buffer[0];
-    u32 side = cp->client_no, newform, newmon, newshiny;
+    u32 side = cp->client_no, newform, newmon, newshiny, newsex;
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
@@ -408,11 +412,13 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
         newmon = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_SPECIES, NULL);
         newform = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_FORM, NULL);
         newshiny = MonIsShiny(Party_GetMonByIndex(party, illusionIndex));
+        newsex = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_GENDER, NULL);
 
         if (newmon != pap->monsno || newform != pap->form_no) {
             pap->monsno = newmon;
             pap->form_no = newform;
             pap->rare = newshiny;
+            pap->sex = newsex;
 
             gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = side;
             if (!(gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, side)))) {
@@ -513,14 +519,19 @@ void BattleMessage_BufferPokemon(struct BattleSystem *battleSystem, int bufferIn
 }
 
 // parameter order is for assembly convenience
-void BattleSystem_GrabIllusionBoxMonNameForHpBar(struct BattleSystem *battleSystem, int client, int partyIndex, MessageFormat *msgFormat)
+void BattleSystem_GrabIllusionBoxMonNameForHpBar(HealthBox *healthBox, int client, int partyIndex, MessageFormat *msgFormat)
 {
+    struct BattleSystem *battleSystem = healthBox->battleSys;
     struct Party *party = BattleWorkPokePartyGet(battleSystem, client);
     struct PartyPokemon *mon = Party_GetMonByIndex(party, partyIndex);
     struct BattleStruct *ctx = battleSystem->sp;
 
     if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(battleSystem, client)) {
-        mon = Party_GetMonByIndex(party, Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]));
+        u32 illusionIndex = Party_GetIllusionImitatedIndex(party, ctx->sel_mons_no[client]);
+        mon = Party_GetMonByIndex(party, illusionIndex);
+        // take this opportunity to also reset the gender of the mon
+        healthBox->gender = GetMonData(Party_GetMonByIndex(party, illusionIndex), MON_DATA_GENDER, NULL);
+        HealthBox_DrawLevelText(healthBox); // also redraws gender icon which is what we really want
     }
     BufferBoxMonNickname(msgFormat, 0, &mon->box);
 }

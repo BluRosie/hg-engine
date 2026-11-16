@@ -14,6 +14,7 @@
 #include "save.h"
 #include "sprite.h"
 #include "task.h"
+#include "window.h"
 
 #define CLIENT_MAX 4
 
@@ -2618,6 +2619,42 @@ u32 LONG_CALL GrabTimeOfDayFileAdjustment(void *bw);
 BOOL LONG_CALL CheckItemGradualHPRestore(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
 BOOL LONG_CALL ov12_02252218(struct BattleStruct *ctx, int battlerId);
 BOOL LONG_CALL TryHeldItemNegativeEffect(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerId);
+
+typedef struct HealthBox {
+    u8 state;
+    void *mainSprite;
+    void *arrowSprites;
+    struct BattleSystem *battleSys;
+    SysTask *unk10;
+    struct Window unk14;
+    u8 battler;
+    u8 type;
+    u8 selectedPartySlot;
+    u8 numSafariBalls;
+    s32 curHp;
+    s32 maxHp;
+    s32 damage;
+    s32 hpTemp;
+    s32 curExp;
+    s32 maxExp;
+    s32 expReward;
+    s32 expTemp;
+    u8 level;
+    u8 gender;
+    u8 status;
+    u8 caughtSpecies;
+    u8 command;
+    u8 delay;
+    u8 expSoundTimer;
+    u8 scrollDirection : 1;
+    u8 doneScrolling : 1;
+    u8 unused_4F_2 : 1;
+    u8 numberMode : 1;
+    SysTask *bobbingAnimTask;
+    u16 degrees;
+} HealthBox;
+
+void LONG_CALL HealthBox_DrawLevelText(HealthBox *healthBox);
 
 typedef struct ANIM_CMD_STRUCT {
     u8 padding_0[0x18];
