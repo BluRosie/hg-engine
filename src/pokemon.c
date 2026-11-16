@@ -191,7 +191,16 @@ u32 LONG_CALL PokeIconIndexGetByMonsNumber(u32 mons, u32 egg, u32 form_no)
 
 void LONG_CALL GetMonSpriteCharAndPlttNarcIdsEx(MON_PIC *picdata, u16 species, u8 gender, u8 whichFacing, u8 shiny, u8 form, u32 personality)
 {
-    species = PokeOtherFormMonsNoGet(species, form);
+    if (species == SPECIES_EGG || species == SPECIES_BAD_EGG) {
+        // manaphy egg is "bad egg" or form 1 for egg
+        species = (species == SPECIES_EGG && form == 1) ? SPECIES_BAD_EGG : SPECIES_EGG;
+        gender = MON_MALE;
+        whichFacing = MON_PIC_FACING_FRONT;
+        shiny = FALSE;
+    } else {
+        species = PokeOtherFormMonsNoGet(species, form);
+    }
+
     word_to_store_form_at = form;
 
     picdata->arc_no = ARC_MON_PIC;
