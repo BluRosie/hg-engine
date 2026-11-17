@@ -3766,12 +3766,8 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
 {
     int side = IsClientEnemy(bw, sp->attack_client);
 
-    // clear all of these now since they will be cleared
     for (int i = 0; i < NUM_HAZARD_IDX; i++) {
-        sp->entryHazardQueue[0][i] = HAZARD_IDX_NONE;
-    }
-    for (int i = 0; i < NUM_HAZARD_IDX; i++) {
-        sp->entryHazardQueue[1][i] = HAZARD_IDX_NONE;
+        sp->entryHazardQueue[side][i] = HAZARD_IDX_NONE;
     }
 
     // Binding Moves
