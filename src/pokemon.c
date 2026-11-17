@@ -1187,7 +1187,7 @@ u16 LONG_CALL get_mon_ow_tag(u16 species, u32 form, u32 isFemale)
         ret += GetSpeciesBasedOnForm(species, form);
     }
 
-    if (form != 0 && ObjectEvent_GetGraphicsInfo(ret) == NULL) {
+    if (form != 0 && IsOverlayLoaded(OVERLAY_FIELD) && ObjectEvent_GetGraphicsInfo(ret) == NULL) {
         return get_mon_ow_tag(species, 0, isFemale);
     }
 
