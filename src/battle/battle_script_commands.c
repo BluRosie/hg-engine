@@ -493,7 +493,7 @@ const u8 *BattleScrCmdNames[] = {
     "TryActivateReceiver",
     "TryActivateEmergencyExit",
     "TryClearUnnerve",
-    "TryActivateSymbiosis"
+    "TryActivateSymbiosis",
     "RestoreBoosterEnergyBattler",
     // "YourCustomCommand",
 };
@@ -2852,7 +2852,7 @@ BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp)
 }
 
 /**
- *  @brief script command to turn on the ability activated flag for a client
+ *  @brief script command to set or clear the ability activated flag for a client
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -2862,12 +2862,13 @@ BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw UNUSED, struct BattleStruct
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    u8 side, client_no;
+    u8 side, client_no, value;
 
     side = read_battle_script_param(sp);
+    value = read_battle_script_param(sp);
     client_no = GrabClientFromBattleScriptParam(bw, sp, side);
 
-    sp->battlemon[client_no].ability_activated_flag = 1;
+    sp->battlemon[client_no].ability_activated_flag = value ? 1 : 0;
 
     return FALSE;
 }
