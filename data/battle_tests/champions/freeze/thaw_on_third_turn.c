@@ -21,6 +21,18 @@ BEGIN_TEST
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
+        {
+            .species = SPECIES_MEGANIUM,
+            .level = 50,
+            .form = 0,
+            .ability = ABILITY_OVERGROW,
+            .item = ITEM_NONE,
+            .moves = { MOVE_COTTON_SPORE, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .hp = FULL_HP,
+            .status = STATUS_FREEZE,
+            .condition2 = 0,
+            .moveEffectFlags = 0,
+        },
     },
     .enemyParty = {
         {
@@ -40,10 +52,12 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            // counter persists on switch
+            { ACTION_SWITCH_SLOT_1, BATTLER_ENEMY_FIRST },
+            // counter is not shared
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
+            { ACTION_SWITCH_SLOT_0, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
         },
@@ -63,9 +77,9 @@ BEGIN_TEST
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
         },
@@ -83,6 +97,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Whimsicott is frozen solid!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Whimsicott is frozen solid!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Meganium is frozen solid!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Whimsicott used Cotton Spore!" },
     }
 }
