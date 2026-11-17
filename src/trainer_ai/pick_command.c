@@ -300,7 +300,7 @@ int BattleAI_PostKOSwitchIn(struct BattleSystem *battleSystem, int battler)
 
                     moveStatusFlags = 0;
 
-                    score = ServerDoTypeCalcMod(battleSystem, ctx, move, 0, battler, defender, score, &moveStatusFlags);
+                    score = TypeCalc(battleSystem, ctx, move, 0, battler, defender, score, &moveStatusFlags); // BattleSystem_ApplyTypeChart
 
                     if (moveStatusFlags & MOVE_STATUS_NO_EFFECT) {
                         score = 0;

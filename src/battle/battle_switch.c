@@ -202,7 +202,7 @@ BOOL LONG_CALL BtlCmd_ShowParty(struct BattleSystem *bsys, struct BattleStruct *
             ctx->reshuffle_client = battler; // first battler that switches
         }
         promptedBattlers |= MaskOfFlagNo(battler);
-        ctx->ai_reshuffle_sel_mons_no[battler] = 6; // reset ai
+        ctx->aiSwitchedPartySlot[battler] = 6; // reset ai
         if (!IsReplacementAutoSelected(bsys, ctx, battler) && !IsWaitingForOtherSlot(bsys, ctx, battler)) {
             BattleController_EmitShowMonList(bsys, ctx, battler, 1, 0, 6);
         }
@@ -257,7 +257,7 @@ BOOL LONG_CALL BtlCmd_WaitMonSelection(struct BattleSystem *bsys, struct BattleS
                 int rightSlot = BATTLER_ALLY(battler);
                 if (!(battler & 2) && SideSharesParty(bsys, battler) && (ctx->client_status[rightSlot] & 1)
                     && !IsReplacementAutoSelected(bsys, ctx, rightSlot)) {
-                    ctx->ai_reshuffle_sel_mons_no[battler] = ctx->reshuffle_sel_mons_no[battler];
+                    ctx->aiSwitchedPartySlot[battler] = ctx->reshuffle_sel_mons_no[battler];
                     BattleController_EmitShowMonList(bsys, ctx, rightSlot, 1, 0, ctx->reshuffle_sel_mons_no[battler]);
                     askedThisTime |= MaskOfFlagNo(rightSlot);
                 } else {
@@ -276,7 +276,7 @@ BOOL LONG_CALL BtlCmd_WaitMonSelection(struct BattleSystem *bsys, struct BattleS
                 ov12_0223BDDC(bsys, battler, ctx->reshuffle_sel_mons_no[battler] + 1);
             } else if (BattleBuffer_GetNext(ctx, battler)) {
                 ov12_0223BDDC(bsys, battler, ctx->server_buffer[battler][0]);
-                ctx->ai_reshuffle_sel_mons_no[battler] = 6;
+                ctx->aiSwitchedPartySlot[battler] = 6;
             }
         }
         ctx->server_status_flag2 &= 0xf0ffffff;
