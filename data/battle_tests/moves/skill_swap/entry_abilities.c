@@ -69,7 +69,12 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales's Drought" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales used Skill Swap!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gyarados’s Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales used Skill Swap!" }, // TODO: once have popup recolering/udpdate
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales’s Drought" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gyarados’s Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales’s Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "NGyarados’s Drought" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales swapped Abilities with its target!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Ninetales's Intimidate" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Gyarados's Attack fell!" },
