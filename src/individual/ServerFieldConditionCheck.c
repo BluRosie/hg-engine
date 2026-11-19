@@ -764,7 +764,7 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
                     sp->battlerIdTemp = battlerId;
                     sp->hp_calc_work = BattleDamageDivide(sp->battlemon[battlerId].maxhp, 16);
                     if ((sp->battlemon[battlerId].condition & STATUS_POISON_COUNT) != STATUS_POISON_COUNT) {
-                        sp->battlemon[battlerId].condition += 1 << 8;
+                        sp->battlemon[battlerId].condition += 1 << STATUS_POISON_COUNT_SHIFT;
                     }
                     sp->hp_calc_work *= ((sp->battlemon[battlerId].condition & STATUS_POISON_COUNT) >> 8);
                     sp->hp_calc_work *= -1;
