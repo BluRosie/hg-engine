@@ -1366,9 +1366,10 @@
     .long (((\arg_4 - .) / 4) - 1)
     .endm
 
-    .macro SetAbilityActivatedFlag arg_0
+    .macro SetAbilityActivatedFlag arg_0, arg_1
     .long 250
     .long \arg_0
+    .long \arg_1
     .endm
 
     .macro SwitchInAbilityCheck arg_0
