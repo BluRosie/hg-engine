@@ -236,12 +236,19 @@ jobs:
           docker run \
             --cap-drop ALL \
             --env HOME=/tmp \
+            --env PYTHONFAULTHANDLER=1 \
             --env SDL_VIDEODRIVER=dummy \
             --mount type=bind,source="$PWD",destination=/hg-engine \
             --rm \
             --security-opt no-new-privileges \
             --user "$(id -u):$(id -g)" \
             hg-engine sh -c '. .venv/bin/activate && python3 -u debug_emulator.py'
+
+      - name: "DEBUG: kernel log and memory"
+        if: always()
+        run: |
+          sudo dmesg | tail -n 30
+          free --mega
 
       - name: "DEBUG: upload emulator screenshots"
         if: always()
