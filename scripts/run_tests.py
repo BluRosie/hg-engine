@@ -122,7 +122,7 @@ def should_suppress_partition_summary() -> bool:
 
 
 def get_idle_timeout_seconds(partition_count: int) -> int:
-    return BASE_IDLE_TIMEOUT_SECONDS * max(1, partition_count)
+    return BASE_IDLE_TIMEOUT_SECONDS * int(os.environ.get("TEST_RUNNER_PARTITIONS_PER_MACHINE", max(1, partition_count)))
 
 
 def read_communication_hole_value():
