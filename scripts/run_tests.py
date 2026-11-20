@@ -174,6 +174,8 @@ def callback_function_when_game_put_thing_into_communication_hole(address, size)
         print("##[endgroup]")
         if not has_finished_testing():
             print(f"##[group]{test_case_names[current_test_case]}")
+    elif not has_finished_testing():
+        print(f"[Start] {test_case_names[current_test_case]}", flush=True)
 
 
 def read_total_tests_from_header() -> int:
@@ -366,6 +368,8 @@ def run_single_partition(args) -> int:
 
     if ci:
         print(f"##[group]{test_case_names[0]}")
+    else:
+        print(f"[Start] {test_case_names[0]}", flush=True)
 
     for i in range(120):
         del i
