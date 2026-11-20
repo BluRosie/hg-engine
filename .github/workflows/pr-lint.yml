@@ -9,16 +9,15 @@ on:
 jobs:
   pr-lint:
     if: ${{ github.repository == 'BluRosie/hg-engine' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     permissions:
       contents: read
-      pull-requests: read
 
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
-          submodules: recursive
+          persist-credentials: false
 
       - name: Run formatter and report any failure
         run: |
@@ -26,7 +25,7 @@ jobs:
           git diff --staged --name-only |
           while IFS= read -r f; do
             if [ -f "$f" ] && [[ "$f" =~ ^(src/.+\.c|include/.+\.h)$ ]]; then
-              echo "File diffs failing:\n"
+              printf 'File diffs failing:\n\n'
               git diff --staged
               exit 1
             fi
