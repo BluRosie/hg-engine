@@ -10,7 +10,6 @@ import tempfile
 import time
 from typing import Union
 
-from desmume.emulator import DeSmuME, DeSmuME_Memory
 
 # Settings
 BASE_IDLE_TIMEOUT_SECONDS = 1 * 90  # 1.5 minute
@@ -43,6 +42,11 @@ parser.add_argument(
     type=int,
     default=1,
     help="Number of parallel headless partitions to run",
+)
+parser.add_argument(
+    "--merge",
+    metavar="DIRECTORY",
+    help="Combine the partition_*.json and partition_*.log files written by separate runs and print them like --jobs does",
 )
 
 ci = False
@@ -305,6 +309,8 @@ def reset_partition_state() -> None:
 
 
 def run_single_partition(args) -> int:
+    from desmume.emulator import DeSmuME, DeSmuME_Memory
+
     global ci
     global emu
     global emu_memory
@@ -590,27 +596,74 @@ def run_parallel_partitions(args) -> int:
                 log_sections.append(raw_section)
                 replay_sections.append(filter_replayed_stdout_section(raw_section))
 
-        results.sort(key=lambda item: item["partition_index"])
-        summary = format_aggregate_results(results)
-        total_failed = sum(len(result["failed"]) for result in results)
-        total_partition_errors = sum(1 for result in results if result.get("status") != "ok")
-        print("\n\n".join(section for section in replay_sections if section))
-        print()
-        print(summary)
+        failures = print_partition_results(results, log_sections, replay_sections)
 
-        with open("test_logs.txt", "w", encoding="utf-8") as file:
-            file.write("\n\n".join(log_sections))
-            file.write("\n\n")
-            file.write(summary)
-            file.write("\n")
-
-        if exit_code != 0 and total_failed == 0 and total_partition_errors == 0:
+        if exit_code != 0 and failures == 0:
             return exit_code
-        return total_failed + total_partition_errors
+        return failures
+
+
+def print_partition_results(results: list[dict], log_sections: list[str], replay_sections: list[str]) -> int:
+    summary = format_aggregate_results(results)
+    total_failed = sum(len(result["failed"]) for result in results)
+    total_partition_errors = sum(1 for result in results if result.get("status") != "ok")
+    print("\n\n".join(section for section in replay_sections if section))
+    print()
+    print(summary)
+
+    with open("test_logs.txt", "w", encoding="utf-8") as file:
+        file.write("\n\n".join(log_sections))
+        file.write("\n\n")
+        file.write(summary)
+        file.write("\n")
+
+    return total_failed + total_partition_errors
+
+
+def merge_partition_results(directory: str) -> int:
+    results = list()
+    log_sections = list()
+    replay_sections = list()
+    for result_path in pathlib.Path(directory).glob("partition_*.json"):
+        with open(result_path, "r", encoding="utf-8") as file:
+            results.append(json.load(file))
+    if not results:
+        print(f"{bcolors.FAIL}No partition results found in {directory}{bcolors.ENDC}")
+        return 1
+    results.sort(key=lambda item: item["partition_index"])
+
+    partition_count = results[0]["partition_count"]
+    missing = sorted(set(range(partition_count)) - {result["partition_index"] for result in results})
+    for partition_index in missing:
+        results.append(
+            {
+                "partition_count": partition_count,
+                "partition_index": partition_index,
+                "passed": [],
+                "failed": [],
+                "known_failing": [],
+                "skipped": results[0]["skipped"],
+                "status": "missing",
+                "error_message": "wrote no results (crashed or cancelled?)",
+            }
+        )
+    results.sort(key=lambda item: item["partition_index"])
+
+    for result in results:
+        log_path = pathlib.Path(directory, f"partition_{result['partition_index']}.log")
+        log_text = log_path.read_text(encoding="utf-8") if log_path.exists() else ""
+        raw_section = f"== Partition {result['partition_index'] + 1}/{partition_count} ==\n{log_text}".rstrip()
+        log_sections.append(raw_section)
+        replay_sections.append(filter_replayed_stdout_section(raw_section))
+
+    return print_partition_results(results, log_sections, replay_sections)
 
 
 def main():
     args = parser.parse_args()
+
+    if args.merge:
+        sys.exit(merge_partition_results(args.merge))
 
     if args.jobs > 1:
         sys.exit(run_parallel_partitions(args))

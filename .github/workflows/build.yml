@@ -268,11 +268,46 @@ jobs:
             hg-engine bash -c '
               set -o pipefail
               . .venv/bin/activate
+              mkdir -p test-results
               slices=$(nproc)
               for k in $(seq 0 $((slices - 1))); do
                 slice=$((SHARD * slices + k))
-                TEST_RUNNER_PARTITION_COUNT=$((SHARD_COUNT * slices)) TEST_RUNNER_PARTITION_INDEX=$slice TEST_RUNNER_PARTITIONS_PER_MACHINE=$slices python3 -u scripts/run_tests.py 2>&1 | sed --unbuffered "s/^/[slice $slice] /" &
+                TEST_RUNNER_PARTITION_COUNT=$((SHARD_COUNT * slices)) TEST_RUNNER_PARTITION_INDEX=$slice TEST_RUNNER_PARTITIONS_PER_MACHINE=$slices \
+                TEST_RUNNER_RESULT_FILE=test-results/partition_$slice.json TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY=1 \
+                  python3 -u scripts/run_tests.py -c 2>&1 | tee test-results/partition_$slice.log | sed --unbuffered "s/^/[slice $slice] /" &
               done
               status=0
               for pid in $(jobs -p); do wait "$pid" || status=1; done
               exit $status'
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: test-results-${{ matrix.shard }}
+          path: hg-engine/test-results/
+          retention-days: 7
+
+  test-report:
+    needs: test
+    if: ${{ !cancelled() && needs.test.result != 'skipped' }}
+    runs-on: ${{ inputs.runner || 'ubuntu-26.04' }}
+
+    steps:
+      - name: Checkout hg-engine
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: hg-engine
+          sparse-checkout: scripts
+          persist-credentials: false
+
+      - name: Download test results
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: test-results-*
+          path: hg-engine/test-results
+          merge-multiple: true
+
+      - name: Run tests
+        working-directory: hg-engine
+        run: python3 scripts/run_tests.py --merge test-results
