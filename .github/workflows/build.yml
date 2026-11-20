@@ -207,13 +207,13 @@ jobs:
           echo "runner: $(uname -m), $(nproc) cpus, $(grep -m 1 'model name' /proc/cpuinfo)"
           cat > debug_emulator.py <<'EOF'
           import importlib.metadata, platform, time
-          from desmume.emulator import DeSmuME, DeSmuME_Memory
+          from desmume.emulator import DeSmuME
 
           ADDR = 0x02FFF81C
           print("python", platform.python_version(), platform.machine(), "py-desmume", importlib.metadata.version("py-desmume"), flush=True)
           emu = DeSmuME()
           hook_hits = []
-          DeSmuME_Memory(emu).register_write(ADDR, lambda address, size: hook_hits.append(emu.memory.read(ADDR, ADDR, 4, True)))
+          emu.memory.register_write(ADDR, lambda address, size: hook_hits.append(emu.memory.read(ADDR, ADDR, 4, True)))
           emu.open("test.nds")
           emu.backup.import_file("test.sav")
           for _ in range(120):
