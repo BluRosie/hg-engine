@@ -23,6 +23,8 @@ env:
   # Secure downloads from pinned commit SHAs
   PRET_ASSETS: https://raw.githubusercontent.com/pret/pokeheartgold/79948ad5db02cb4dc190dbaa0c4b7848279bc61c
   HG_ENGINE_ASSETS: https://raw.githubusercontent.com/BluRosie/hg-engine/9749e99e3d376fce6fa0e88061397bbe9dd65b41
+  # pokeheartgold commit the base ROM is built from; the built ROM is cached per commit
+  DECOMP_REF: 793ebe976cd99bbb3899ae6a8c8cac4ad0b7b50f
 
 jobs:
   build:
@@ -30,7 +32,15 @@ jobs:
     runs-on: ${{ inputs.runner || 'ubuntu-26.04' }}
 
     steps:
+      - name: Restore base ROM cache
+        id: base-rom
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: base-rom.nds
+          key: ${{ runner.os }}-base-rom-heartgold-us-${{ env.DECOMP_REF }}
+
       - name: Add WineHQ apt repository
+        if: steps.base-rom.outputs.cache-hit != 'true'
         env:
           WINEHQ_KEY_FINGERPRINT: D43F640145369C51D786DDEA76F1A20FF987672F
         run: |
@@ -48,6 +58,7 @@ jobs:
           EOF
 
       - name: Install decomp packages
+        if: steps.base-rom.outputs.cache-hit != 'true'
         run: |
           sudo apt update
           sudo apt --yes install --install-recommends \
@@ -60,14 +71,16 @@ jobs:
             winehq-stable
 
       - name: Checkout decomp
+        if: steps.base-rom.outputs.cache-hit != 'true'
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: "BluRosie/pokeheartgold"
-          ref: 793ebe976cd99bbb3899ae6a8c8cac4ad0b7b50f
+          ref: ${{ env.DECOMP_REF }}
           path: pokeheartgold
           persist-credentials: false
 
       - name: Restore decomp toolchain cache
+        if: steps.base-rom.outputs.cache-hit != 'true'
         uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
@@ -79,6 +92,7 @@ jobs:
           key: ${{ runner.os }}-pokeheartgold-toolchain-mwccarm-nitrosdk-3_2-060901
 
       - name: Download decomp toolchain
+        if: steps.base-rom.outputs.cache-hit != 'true'
         working-directory: pokeheartgold
         run: |
           mkdir --parents tools sub
@@ -100,6 +114,7 @@ jobs:
           fi
 
       - name: Build HeartGold (decomp)
+        if: steps.base-rom.outputs.cache-hit != 'true'
         working-directory: pokeheartgold
         env:
           GAME_VERSION: HEARTGOLD
@@ -108,6 +123,14 @@ jobs:
           LM_LICENSE_FILE: "${{ github.workspace }}/pokeheartgold/tools/mwccarm/license.dat"
         run: |
           make --jobs=$(nproc)
+          cp build/heartgold.us/pokeheartgold.us.nds ../base-rom.nds
+
+      - name: Save base ROM cache
+        if: steps.base-rom.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: base-rom.nds
+          key: ${{ steps.base-rom.outputs.cache-primary-key }}
 
       # hg-engine: build and test in Docker
       - name: Checkout hg-engine
@@ -119,7 +142,8 @@ jobs:
 
       - name: Add base ROM and test save
         run: |
-          cp pokeheartgold/build/heartgold.us/pokeheartgold.us.nds hg-engine/rom.nds
+          echo "4fcded0e2713dc03929845de631d0932ea2b5a37  base-rom.nds" | sha1sum --check
+          cp base-rom.nds hg-engine/rom.nds
           wget --quiet --directory-prefix=hg-engine "$HG_ENGINE_ASSETS/test.sav"
           echo "40306677b3d5723aaa78bca217596c43fc7149c1050d7bd9aae4aae952107939  hg-engine/test.sav" | sha256sum --check
 
