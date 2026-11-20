@@ -2402,7 +2402,7 @@ BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp)
     IncrementBattleScriptPtr(sp, 1);
     int address = read_battle_script_param(sp);
 
-    if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
+    if (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
         IncrementBattleScriptPtr(sp, address);
     }
     return FALSE;
@@ -3313,7 +3313,7 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
 {
     IncrementBattleScriptPtr(ctx, 1);
 
-    if (IsContactBeingMade(GetBattlerAbility(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->defence_client), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag)
+    if (!CanBattlerAvoidContactEffects(GetBattlerAbility(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->attack_client), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag)
         && ctx->battlemon[ctx->attack_client].hp
         && ctx->oneTurnFlag[ctx->defence_client].gainedProtectFlagFromAlly == FALSE
         && (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) == 0) {
