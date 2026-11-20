@@ -97,7 +97,6 @@ ifeq ($(MSYS2), 0)
 else
 	$(PYTHON) -m pip install --require-hashes --requirement $(REQUIREMENTS)
 endif
-	touch $(VENV_ACTIVATE)
 
 endif
 
