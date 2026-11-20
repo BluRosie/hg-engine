@@ -1,4 +1,4 @@
-name: pr-lint
+name: Lint Pull Request
 
 on:
   pull_request:
