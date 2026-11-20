@@ -18,12 +18,15 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
 env:
   COMPARE: 0
   # Secure downloads from pinned commit SHAs
   PRET_ASSETS: https://raw.githubusercontent.com/pret/pokeheartgold/79948ad5db02cb4dc190dbaa0c4b7848279bc61c
   HG_ENGINE_ASSETS: https://raw.githubusercontent.com/BluRosie/hg-engine/9749e99e3d376fce6fa0e88061397bbe9dd65b41
-  # pokeheartgold commit the base ROM is built from; the built ROM is cached per commit
   DECOMP_REF: 793ebe976cd99bbb3899ae6a8c8cac4ad0b7b50f
 
 jobs:
@@ -197,9 +200,39 @@ jobs:
             --user "$(id -u):$(id -g)" \
             hg-engine make AUTO_TEST=Y --jobs=$(nproc)
 
-      - name: Run tests
+      - name: "DEBUG: emulator check"
         working-directory: hg-engine
+        timeout-minutes: 15
         run: |
+          echo "runner: $(uname -m), $(nproc) cpus, $(grep -m 1 'model name' /proc/cpuinfo)"
+          cat > debug_emulator.py <<'EOF'
+          import importlib.metadata, platform, time
+          from desmume.emulator import DeSmuME, DeSmuME_Memory
+
+          ADDR = 0x02FFF81C
+          print("python", platform.python_version(), platform.machine(), "py-desmume", importlib.metadata.version("py-desmume"), flush=True)
+          emu = DeSmuME()
+          hook_hits = []
+          DeSmuME_Memory(emu).register_write(ADDR, lambda address, size: hook_hits.append(emu.memory.read(ADDR, ADDR, 4, True)))
+          emu.open("test.nds")
+          emu.backup.import_file("test.sav")
+          for _ in range(120):
+              emu.cycle(False)
+          emu.memory.write_long(ADDR, 0 + (1 << 16))
+          print("hook hits after our own write:", len(hook_hits), flush=True)
+
+          last = None
+          start = time.monotonic()
+          for frame in range(60 * 120):
+              emu.cycle(False)
+              value = emu.memory.read(ADDR, ADDR, 4, True)
+              if value != last:
+                  print(f"frame {frame}: hole={value} hook_hits={len(hook_hits)}", flush=True)
+                  last = value
+              if frame % 600 == 0:
+                  emu.screenshot().save(f"debug-{frame:05}.png")
+          print(f"done: hook_hits={len(hook_hits)} values={hook_hits[:10]} speed={7200 / (time.monotonic() - start):.0f} fps", flush=True)
+          EOF
           docker run \
             --cap-drop ALL \
             --env HOME=/tmp \
@@ -208,4 +241,85 @@ jobs:
             --rm \
             --security-opt no-new-privileges \
             --user "$(id -u):$(id -g)" \
-            hg-engine scripts/run_tests.sh -c -j $(nproc)
+            hg-engine sh -c '. .venv/bin/activate && python3 -u debug_emulator.py'
+
+      - name: "DEBUG: upload emulator screenshots"
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: emulator-debug
+          path: hg-engine/debug-*.png
+          retention-days: 1
+
+      - name: Save test build cache
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            hg-engine/test.nds
+            hg-engine/test.sav
+            hg-engine/.venv
+            hg-engine/build/battle_tests/test_manifest.json
+            hg-engine/include/constants/generated/test_battle.h
+          key: ${{ runner.os }}-test-build-${{ github.run_id }}
+
+  test:
+    needs: build
+    runs-on: ${{ inputs.runner || 'ubuntu-26.04' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4]
+
+    steps:
+      - name: Checkout hg-engine
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: hg-engine
+          persist-credentials: false
+
+      - name: Restore test build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            hg-engine/test.nds
+            hg-engine/test.sav
+            hg-engine/.venv
+            hg-engine/build/battle_tests/test_manifest.json
+            hg-engine/include/constants/generated/test_battle.h
+          key: ${{ runner.os }}-test-build-${{ github.run_id }}
+          fail-on-cache-miss: true
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Build Docker image
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: hg-engine
+          tags: hg-engine
+          load: true
+          cache-from: type=gha
+
+      - name: Run tests (shard ${{ matrix.shard }})
+        working-directory: hg-engine
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          docker run \
+            --cap-drop ALL \
+            --env HOME=/tmp \
+            --env SDL_VIDEODRIVER=dummy \
+            --env SHARD \
+            --mount type=bind,source="$PWD",destination=/hg-engine \
+            --rm \
+            --security-opt no-new-privileges \
+            --user "$(id -u):$(id -g)" \
+            hg-engine bash -c '
+              . .venv/bin/activate
+              for k in 0 1 2 3; do
+                TEST_RUNNER_PARTITION_COUNT=20 TEST_RUNNER_PARTITION_INDEX=$((SHARD * 4 + k)) python3 -u scripts/run_tests.py -c > "partition-$k.log" 2>&1 &
+              done
+              status=0
+              for pid in $(jobs -p); do wait "$pid" || status=1; done
+              cat partition-*.log
+              exit $status'
