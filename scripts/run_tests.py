@@ -571,8 +571,10 @@ def run_parallel_partitions(args) -> int:
             if process.returncode != 0:
                 exit_code = 1
             if not result_path.exists():
+                output_tail = "\n".join(output_path.read_text(encoding="utf-8").splitlines()[-20:])
                 raise RuntimeError(
-                    f"Partition {partition_index} did not write results to {result_path}"
+                    f"Partition {partition_index} did not write results to {result_path}. "
+                    f"Last output of that partition:\n{output_tail}"
                 )
 
         results = list()
@@ -659,11 +661,28 @@ def merge_partition_results(directory: str) -> int:
     return print_partition_results(results, log_sections, replay_sections)
 
 
+def check_required_files() -> None:
+    missing = [
+        f"{name} not found in {os.getcwd()}. {fix}"
+        for name, fix in (
+            ("test.nds", "Build it with: make AUTO_TEST=Y"),
+            ("test.sav", "Download it with: curl --fail --location --output test.sav https://github.com/BluRosie/hg-engine/raw/workflows/assets/test.sav"),
+        )
+        if not os.path.exists(name)
+    ]
+    if missing:
+        for line in missing:
+            print(f"{bcolors.FAIL}{line}{bcolors.ENDC}")
+        sys.exit(1)
+
+
 def main():
     args = parser.parse_args()
 
     if args.merge:
         sys.exit(merge_partition_results(args.merge))
+
+    check_required_files()
 
     if args.jobs > 1:
         sys.exit(run_parallel_partitions(args))

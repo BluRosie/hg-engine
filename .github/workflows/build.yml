@@ -258,6 +258,7 @@ jobs:
           docker run \
             --cap-drop ALL \
             --env HOME=/tmp \
+            --env SDL_AUDIODRIVER=dummy \
             --env SDL_VIDEODRIVER=dummy \
             --env SHARD \
             --env SHARD_COUNT \
@@ -308,6 +309,6 @@ jobs:
           path: hg-engine/test-results
           merge-multiple: true
 
-      - name: Run tests
+      - name: Show test results
         working-directory: hg-engine
         run: python3 scripts/run_tests.py --merge test-results
