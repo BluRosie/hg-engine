@@ -8,14 +8,14 @@ BEGIN_TEST
     .terrain = TERRAIN_NONE,
     .playerParty = {
         {
-            .species = SPECIES_TSAREENA,
+            .species = SPECIES_TAPU_LELE,
             .level = 50,
             .form = 0,
             .ability = ABILITY_PSYCHIC_SURGE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
-            .status = 0,
+            .status = STATUS_POISON,
             .condition2 = 0,
             .moveEffectFlags = 0,
         },
@@ -91,7 +91,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The battlefield got weird!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Avalanche!" },
-        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Tsareena is protected by the Psychic Terrain!" },
+        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Tapu Lele is protected by the Psychic Terrain!" },
     }
 }
 END_TEST

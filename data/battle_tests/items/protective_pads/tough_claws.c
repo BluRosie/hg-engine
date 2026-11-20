@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_BINACLE,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_TOUGH_CLAWS,
             .item = ITEM_PROTECTIVE_PADS,
@@ -28,7 +28,7 @@ BEGIN_TEST
     .enemyParty = {
         {
             .species = SPECIES_WOBBUFFET,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_TELEPATHY,
             .item = ITEM_NONE,
@@ -90,7 +90,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Binacle used Scratch!" },
-        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 19, 19, 20, 20, 20, 20, 20, 21, 21, 21, 21, 22, 22, 22, 22, 23 } },
+        { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 35, 36, 36, 36, 37, 37, 38, 38, 39, 39, 39, 40, 40, 41, 41, 42 } },
     }
 }
 END_TEST
