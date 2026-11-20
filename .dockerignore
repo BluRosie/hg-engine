@@ -1,0 +1,3 @@
+# Stop `docker build` from yoinking the whole repo and rom to the Docker VM,
+# If you ever add a COPY, add a !path line below for just that file instead of removing this.
+*

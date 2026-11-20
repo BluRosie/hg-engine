@@ -1,14 +1,38 @@
-FROM ubuntu:22.04 as build
+FROM ubuntu:26.04@sha256:d66b366dac61b575bee2aef07e9c26e8070096fbe84a3d4d3eb0da069b5d76db
 
-LABEL maintainer="DavveDP"
-LABEL version="0.1"
-LABEL description="docker image for building hg-engine"
+# https://github.com/opencontainers/image-spec/blob/main/annotations.md
+LABEL org.opencontainers.image.title="hg-engine build environment" \
+  org.opencontainers.image.description="Docker image for building hg-engine." \
+  org.opencontainers.image.source="https://github.com/BluRosie/hg-engine"
 
-ADD . /hg-engine
-RUN DEBIAN_FRONTEND=noninteractive apt-get update -y && DEBIAN_FRONTEND=noninteractive apt-get upgrade -y \
-&& DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends libpng-dev build-essential cmake python3-pip python3-venv git automake autoconf gcc-arm-none-eabi pkg-config -y \
-&& apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF \
-&& apt-get update -y \
-&& ln -s /proc/self/mounts /etc/mtab || true
+ARG DEBIAN_FRONTEND=noninteractive
 
-CMD cd /hg-engine && make -j$(nproc)
+# https://docs.docker.com/build/building/best-practices/#sort-multi-line-arguments
+RUN apt-get update && apt-get install --yes --no-install-recommends \
+  autoconf \
+  automake \
+  build-essential \
+  ca-certificates \
+  cargo \
+  cmake \
+  gcc-arm-none-eabi \
+  git \
+  libgl1 \
+  libglib2.0-0t64 \
+  libpng-dev \
+  pkg-config \
+  python3-pip \
+  python3-venv \
+  rsync \
+  && rm --recursive --force /var/lib/apt/lists/*
+
+# Owned by the build user, so a new volume mounted here (docker-makerom.cmd on macOS) is writable too
+RUN mkdir /hg-engine && chown ubuntu:ubuntu /hg-engine
+
+WORKDIR /hg-engine
+
+# Always run as a user after installing packages, never root!
+# https://nvd.nist.gov/vuln/detail/cve-2019-5736
+USER ubuntu
+
+CMD ["sh", "-c", "exec make --jobs=$(nproc)"]

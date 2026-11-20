@@ -1,4 +1,4 @@
-name: build
+name: Build and Test
 
 on:
   push:
@@ -9,142 +9,306 @@ on:
     paths-ignore:
       - '**.md'
   workflow_dispatch:
+    inputs:
+      runner:
+        description: "Runner label, for example self-hosted."
+        type: string
+        default: ubuntu-26.04
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
-  LM_LICENSE_FILE: "$GITHUB_WORKSPACE/tools/mwccarm/license.dat"
-  CC: gcc-10
-  CXX: g++-10
   COMPARE: 0
-  SDL_VIDEODRIVER: dummy
+  # Secure downloads from pinned commit SHAs
+  PRET_ASSETS: https://raw.githubusercontent.com/pret/pokeheartgold/79948ad5db02cb4dc190dbaa0c4b7848279bc61c
+  HG_ENGINE_ASSETS: https://raw.githubusercontent.com/BluRosie/hg-engine/9749e99e3d376fce6fa0e88061397bbe9dd65b41
+  DECOMP_REF: 793ebe976cd99bbb3899ae6a8c8cac4ad0b7b50f
 
 jobs:
   build:
-    if: ${{ github.repository == 'BluRosie/hg-engine' }}
-    runs-on: ubuntu-22.04
+    if: ${{ github.repository == 'BluRosie/hg-engine' || (github.event_name == 'workflow_dispatch' && github.repository != 'BluRosie/hg-engine') }}
+    runs-on: ${{ inputs.runner || 'ubuntu-26.04' }}
 
     steps:
-      - name: Update and Install Software (decomp)
-        run: |
-          sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-          sudo apt update
-          sudo apt -y --allow-downgrades install g++-10-multilib linux-libc-dev binutils-arm-none-eabi p7zip-full pkg-config libpugixml-dev ppa-purge
-          sudo ppa-purge -y ppa:ubuntu-toolchain-r/test || true
-          sudo dpkg --add-architecture i386
-          sudo mkdir -pm755 /etc/apt/keyrings
-          sudo wget -O /etc/apt/keyrings/winehq-archive.key https://dl.winehq.org/wine-builds/winehq.key
-          sudo add-apt-repository ppa:cybermax-dexter/sdl2-backport
-          sudo wget -NP /etc/apt/sources.list.d/ https://dl.winehq.org/wine-builds/ubuntu/dists/$(lsb_release -cs)/winehq-$(lsb_release -cs).sources
-          sudo apt update
-          sudo apt -y --allow-downgrades install --install-recommends winehq-stable
+      - name: Restore base ROM cache
+        id: base-rom
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: base-rom.nds
+          key: ${{ runner.os }}-base-rom-heartgold-us-${{ env.DECOMP_REF }}
 
-      - name: Checkout Repo (decomp)
-        uses: actions/checkout@v6
+      - name: Add WineHQ apt repository
+        if: steps.base-rom.outputs.cache-hit != 'true'
+        env:
+          WINEHQ_KEY_FINGERPRINT: D43F640145369C51D786DDEA76F1A20FF987672F
+        run: |
+          wget --quiet --output-document="$RUNNER_TEMP/winehq.key" https://dl.winehq.org/wine-builds/winehq.key
+          # fails the step if the downloaded key is not the expected one
+          gpg --show-keys --with-colons "$RUNNER_TEMP/winehq.key" | grep --quiet "$WINEHQ_KEY_FINGERPRINT"
+          sudo install -D --mode=644 "$RUNNER_TEMP/winehq.key" /etc/apt/keyrings/winehq-archive.asc
+          sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null <<EOF
+          Types: deb
+          URIs: https://dl.winehq.org/wine-builds/ubuntu
+          Suites: $(lsb_release --codename --short)
+          Components: main
+          Architectures: amd64
+          Signed-By: /etc/apt/keyrings/winehq-archive.asc
+          EOF
+
+      - name: Install decomp packages
+        if: steps.base-rom.outputs.cache-hit != 'true'
+        run: |
+          sudo apt update
+          sudo apt --yes install --install-recommends \
+            7zip \
+            binutils-arm-none-eabi \
+            build-essential \
+            libpng-dev \
+            libpugixml-dev \
+            pkg-config \
+            winehq-stable
+
+      - name: Checkout decomp
+        if: steps.base-rom.outputs.cache-hit != 'true'
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           repository: "BluRosie/pokeheartgold"
+          ref: ${{ env.DECOMP_REF }}
+          path: pokeheartgold
+          persist-credentials: false
 
       - name: Restore decomp toolchain cache
-        uses: actions/cache@v4
+        if: steps.base-rom.outputs.cache-hit != 'true'
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
           path: |
-            tools/mwccarm
-            tools/bin
-            sub/ARM7-TS.lcf.template
-            ARM9-TS.lcf.template
-            mwldarm.response.template
+            pokeheartgold/tools/mwccarm
+            pokeheartgold/tools/bin
+            pokeheartgold/sub/ARM7-TS.lcf.template
+            pokeheartgold/ARM9-TS.lcf.template
+            pokeheartgold/mwldarm.response.template
           key: ${{ runner.os }}-pokeheartgold-toolchain-mwccarm-nitrosdk-3_2-060901
 
-      - name: Setup Repo (decomp)
+      - name: Download decomp toolchain
+        if: steps.base-rom.outputs.cache-hit != 'true'
+        working-directory: pokeheartgold
         run: |
-          mkdir -p ~/download
-          mkdir -p $GITHUB_WORKSPACE/tools
-          mkdir -p $GITHUB_WORKSPACE/sub
-          cd ~/download
-          if [ ! -d "$GITHUB_WORKSPACE/tools/mwccarm" ]; then
-            wget -q https://github.com/pret/pokeheartgold/raw/workflows/assets/mwccarm.zip
-            unzip -q -o mwccarm.zip
-            rm -rf $GITHUB_WORKSPACE/tools/mwccarm
-            mv mwccarm $GITHUB_WORKSPACE/tools
+          mkdir --parents tools sub
+          if [ ! -d tools/mwccarm ]; then
+            wget --quiet --directory-prefix="$RUNNER_TEMP" "$PRET_ASSETS/mwccarm.zip"
+            echo "dc386e37b2176e960954a733de928337d9b7e7620b9e94228008c31774339ace  $RUNNER_TEMP/mwccarm.zip" | sha256sum --check
+            unzip -q -o "$RUNNER_TEMP/mwccarm.zip" -d tools
           fi
-          if [ ! -d "$GITHUB_WORKSPACE/tools/bin" ] || [ ! -f "$GITHUB_WORKSPACE/sub/ARM7-TS.lcf.template" ] || [ ! -f "$GITHUB_WORKSPACE/ARM9-TS.lcf.template" ] || [ ! -f "$GITHUB_WORKSPACE/mwldarm.response.template" ]; then
-            wget -q https://github.com/pret/pokeheartgold/raw/workflows/assets/NitroSDK-3_2-060901.7z
-            rm -rf NitroSDK-3_2-060901
-            7z x -y NitroSDK-3_2-060901.7z >/dev/null
-            rm -rf $GITHUB_WORKSPACE/tools/bin
-            mv NitroSDK-3_2-060901/tools/bin $GITHUB_WORKSPACE/tools
-            cp NitroSDK-3_2-060901/include/nitro/specfiles/ARM7-TS.lcf.template $GITHUB_WORKSPACE/sub/
-            cp NitroSDK-3_2-060901/include/nitro/specfiles/ARM9-TS.lcf.template $GITHUB_WORKSPACE/
-            cp NitroSDK-3_2-060901/include/nitro/specfiles/mwldarm.response.template $GITHUB_WORKSPACE/
+          if [ ! -d tools/bin ] || [ ! -f sub/ARM7-TS.lcf.template ] || [ ! -f ARM9-TS.lcf.template ] || [ ! -f mwldarm.response.template ]; then
+            wget --quiet --directory-prefix="$RUNNER_TEMP" "$PRET_ASSETS/NitroSDK-3_2-060901.7z"
+            echo "0ee935e34237cb1954e657083cd80a31ec9de1aeddd9468cceef684cac75b491  $RUNNER_TEMP/NitroSDK-3_2-060901.7z" | sha256sum --check
+            7z x -y -o"$RUNNER_TEMP" "$RUNNER_TEMP/NitroSDK-3_2-060901.7z" > /dev/null
+            sdk="$RUNNER_TEMP/NitroSDK-3_2-060901"
+            rm --recursive --force tools/bin
+            mv "$sdk/tools/bin" tools/
+            cp "$sdk/include/nitro/specfiles/ARM7-TS.lcf.template" sub/
+            cp "$sdk/include/nitro/specfiles/ARM9-TS.lcf.template" .
+            cp "$sdk/include/nitro/specfiles/mwldarm.response.template" .
           fi
-        working-directory: ~
-
-      - name: Set Swap Space (decomp)
-        uses: pierotofy/set-swap-space@master
-        with:
-          swap-size-gb: 19
 
       - name: Build HeartGold (decomp)
+        if: steps.base-rom.outputs.cache-hit != 'true'
+        working-directory: pokeheartgold
         env:
           GAME_VERSION: HEARTGOLD
           GAME_LANGUAGE: ENGLISH
           GAME_REVISION: 0
+          LM_LICENSE_FILE: "${{ github.workspace }}/pokeheartgold/tools/mwccarm/license.dat"
         run: |
-          make -j$(nproc)
+          make --jobs=$(nproc)
+          cp build/heartgold.us/pokeheartgold.us.nds ../base-rom.nds
 
-      - name: Update and Install Software
-        run: |
-          sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-          sudo apt update
-          sudo apt -y --allow-downgrades install libpng-dev build-essential python3-pip python3-venv git gcc-arm-none-eabi pkg-config pipx
-          sudo apt curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
-
-      - name: Move built file (1)
-        run: |
-          mv build/heartgold.us/pokeheartgold.us.nds ~/download/rom.nds
-          cd ~
-          rm -rf $GITHUB_WORKSPACE/*
-
-      - name: Checkout Repo
-        uses: actions/checkout@v4
+      - name: Save base ROM cache
+        if: steps.base-rom.outputs.cache-hit != 'true'
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
+          path: base-rom.nds
+          key: ${{ steps.base-rom.outputs.cache-primary-key }}
+
+      # hg-engine: build and test in Docker
+      - name: Checkout hg-engine
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: hg-engine
           submodules: recursive
+          persist-credentials: false
+
+      - name: Add base ROM and test save
+        run: |
+          echo "4fcded0e2713dc03929845de631d0932ea2b5a37  base-rom.nds" | sha1sum --check
+          cp base-rom.nds hg-engine/rom.nds
+          wget --quiet --directory-prefix=hg-engine "$HG_ENGINE_ASSETS/test.sav"
+          echo "40306677b3d5723aaa78bca217596c43fc7149c1050d7bd9aae4aae952107939  hg-engine/test.sav" | sha256sum --check
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Build Docker image
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: hg-engine
+          tags: hg-engine
+          load: true
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
 
       - name: Restore Python cache
-        uses: actions/cache@v4
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
-          path: .venv
-          key: ${{ runner.os }}-hg-engine-venv-${{ hashFiles('requirements.txt') }}
+          path: hg-engine/.venv
+          key: ${{ runner.os }}-hg-engine-venv-${{ hashFiles('hg-engine/Dockerfile', 'hg-engine/requirements.txt') }}
 
       - name: Restore tool cache
-        uses: actions/cache@v4
+        uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
         with:
+          key: ${{ runner.os }}-hg-engine-tools-${{ hashFiles('hg-engine/Dockerfile', 'hg-engine/Makefile', 'hg-engine/tools/source/**') }}
           path: |
-            tools/msgenc
-            tools/dsrom
-            tools/armips
-            tools/adpcm-xq
-            tools/ntrWavTool.py
-            tools/nitrogfx
-            tools/movedatagen
-            tools/pokedexdatagen
-            tools/speciesdatagen
-            tools/trainerdatagen
-            tools/o2narc
-            tools/jsonproc
-            tools/ENCODE_IMG
-            tools/btx
-          key: ${{ runner.os }}-hg-engine-tools-${{ hashFiles('Makefile', 'tools/source/**') }}
-
-      - name: Move built file (2)
-        run: |
-          mv ~/download/rom.nds $GITHUB_WORKSPACE/
-          wget https://github.com/BluRosie/hg-engine/raw/workflows/assets/test.sav -P $GITHUB_WORKSPACE/
-        working-directory: ~
+            hg-engine/tools/msgenc
+            hg-engine/tools/dsrom
+            hg-engine/tools/armips
+            hg-engine/tools/adpcm-xq
+            hg-engine/tools/ntrWavTool.py
+            hg-engine/tools/nitrogfx
+            hg-engine/tools/movedatagen
+            hg-engine/tools/pokedexdatagen
+            hg-engine/tools/speciesdatagen
+            hg-engine/tools/trainerdatagen
+            hg-engine/tools/o2narc
+            hg-engine/tools/jsonproc
+            hg-engine/tools/ENCODE_IMG
+            hg-engine/tools/btx
 
       - name: Build hg-engine
+        working-directory: hg-engine
         run: |
-          unset CC
-          unset CXX
-          make AUTO_TEST=Y -j$(nproc)
-      - name: Run tests
+          docker run \
+            --cap-drop ALL \
+            --env HOME=/tmp \
+            --mount type=bind,source="$PWD",destination=/hg-engine \
+            --rm \
+            --security-opt no-new-privileges \
+            --user "$(id -u):$(id -g)" \
+            hg-engine make AUTO_TEST=Y --jobs=$(nproc)
+
+      - name: Save test build cache
+        uses: actions/cache/save@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            hg-engine/test.nds
+            hg-engine/test.sav
+            hg-engine/.venv
+            hg-engine/build/battle_tests/test_manifest.json
+            hg-engine/include/constants/generated/test_battle.h
+          key: ${{ runner.os }}-test-build-${{ github.run_id }}
+
+  test:
+    needs: build
+    runs-on: ${{ inputs.runner || 'ubuntu-26.04' }}
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    steps:
+      - name: Checkout hg-engine
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: hg-engine
+          persist-credentials: false
+
+      - name: Restore test build cache
+        uses: actions/cache/restore@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: |
+            hg-engine/test.nds
+            hg-engine/test.sav
+            hg-engine/.venv
+            hg-engine/build/battle_tests/test_manifest.json
+            hg-engine/include/constants/generated/test_battle.h
+          key: ${{ runner.os }}-test-build-${{ github.run_id }}
+          fail-on-cache-miss: true
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@f87e5991a6d7451dcb8d9637bfbc97413f497069 # v4.4.1
+
+      - name: Build Docker image
+        uses: docker/build-push-action@c3c9e263c25d99ce0380d002d59b67737d91b0dc # v7.4.0
+        with:
+          context: hg-engine
+          tags: hg-engine
+          load: true
+          cache-from: type=gha
+
+      - name: Run tests (shard ${{ matrix.shard }})
+        working-directory: hg-engine
+        env:
+          SHARD: ${{ strategy.job-index }}
+          SHARD_COUNT: ${{ strategy.job-total }}
         run: |
-          scripts/run_tests.sh -c -j $(nproc)
+          docker run \
+            --cap-drop ALL \
+            --env HOME=/tmp \
+            --env SDL_AUDIODRIVER=dummy \
+            --env SDL_VIDEODRIVER=dummy \
+            --env SHARD \
+            --env SHARD_COUNT \
+            --mount type=bind,source="$PWD",destination=/hg-engine \
+            --rm \
+            --security-opt no-new-privileges \
+            --user "$(id -u):$(id -g)" \
+            hg-engine bash -c '
+              set -o pipefail
+              . .venv/bin/activate
+              mkdir -p test-results
+              slices=$(nproc)
+              for k in $(seq 0 $((slices - 1))); do
+                slice=$((SHARD * slices + k))
+                TEST_RUNNER_PARTITION_COUNT=$((SHARD_COUNT * slices)) TEST_RUNNER_PARTITION_INDEX=$slice TEST_RUNNER_PARTITIONS_PER_MACHINE=$slices \
+                TEST_RUNNER_RESULT_FILE=test-results/partition_$slice.json TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY=1 \
+                  python3 -u scripts/run_tests.py -c 2>&1 | tee test-results/partition_$slice.log | sed --unbuffered "s/^/[slice $slice] /" &
+              done
+              status=0
+              for pid in $(jobs -p); do wait "$pid" || status=1; done
+              exit $status'
+
+      - name: Upload test results
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: test-results-${{ matrix.shard }}
+          path: hg-engine/test-results/
+          retention-days: 7
+
+  test-report:
+    needs: test
+    if: ${{ !cancelled() && needs.test.result != 'skipped' }}
+    runs-on: ${{ inputs.runner || 'ubuntu-26.04' }}
+
+    steps:
+      - name: Checkout hg-engine
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          path: hg-engine
+          sparse-checkout: scripts
+          persist-credentials: false
+
+      - name: Download test results
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: test-results-*
+          path: hg-engine/test-results
+          merge-multiple: true
+
+      - name: Show test results
+        working-directory: hg-engine
+        run: python3 scripts/run_tests.py --merge test-results
