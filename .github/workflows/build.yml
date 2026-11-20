@@ -37,14 +37,14 @@ jobs:
           wget --quiet --output-document="$RUNNER_TEMP/winehq.key" https://dl.winehq.org/wine-builds/winehq.key
           # fails the step if the downloaded key is not the expected one
           gpg --show-keys --with-colons "$RUNNER_TEMP/winehq.key" | grep --quiet "$WINEHQ_KEY_FINGERPRINT"
-          sudo install -D --mode=644 "$RUNNER_TEMP/winehq.key" /etc/apt/keyrings/winehq-archive.key
+          sudo install -D --mode=644 "$RUNNER_TEMP/winehq.key" /etc/apt/keyrings/winehq-archive.asc
           sudo tee /etc/apt/sources.list.d/winehq.sources > /dev/null <<EOF
           Types: deb
           URIs: https://dl.winehq.org/wine-builds/ubuntu
           Suites: $(lsb_release --codename --short)
           Components: main
           Architectures: amd64
-          Signed-By: /etc/apt/keyrings/winehq-archive.key
+          Signed-By: /etc/apt/keyrings/winehq-archive.asc
           EOF
 
       - name: Install decomp packages
