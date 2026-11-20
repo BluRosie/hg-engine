@@ -986,7 +986,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     if (MoldBreakerAbilityCheckInternal(attacker, defender, AttackingMon.ability, DefendingMon.ability, moveno, movesplit, ABILITY_UNAWARE) == TRUE) {
         AttackingMon.atkstate = 0;
         AttackingMon.spatkstate = 0;
-        AttackingMon.defstate = 0; //Body Press
+        AttackingMon.defstate = 0; // Body Press
     }
 
 #ifdef DEBUG_DAMAGE_CALC
