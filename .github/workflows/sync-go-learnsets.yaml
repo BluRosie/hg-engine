@@ -8,6 +8,11 @@ on:
   schedule:
     - cron: '0 0 1 * *'  # Monthly at 00:00 UTC on the 1st
   workflow_dispatch:
+    inputs:
+      output_name:
+        description: "Learnset file name in data/learnsets/base"
+        type: string
+        default: 99_go.json
 
 jobs:
   run-and-pr:
@@ -15,7 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       PY_SCRIPT: tools/source/dumptools/gamemaster_go_import.py
-      FILE_TO_COMMIT: data/learnsets/base/99_go.json
+      GO_LEARNSET_FILE: ${{ inputs.output_name || '99_go.json' }}
+      FILE_TO_COMMIT: data/learnsets/base/${{ inputs.output_name || '99_go.json' }}
       COMMIT_MESSAGE: "chore: update Pokemon GO learnsets"
       PR_TITLE: "Update Pokemon GO learnsets"
       PR_BODY: "This PR was created automatically by the GitHub Actions workflow."
@@ -38,9 +44,6 @@ jobs:
 
       - name: Run script (from its directory)
         working-directory: tools/source/dumptools
-        env:
-          # (Optional) make the output name overrideable in the future
-          OUTPUT_FILE_LOCAL: 99_go.json
         run: |
           if [ ! -f "${PY_SCRIPT##*/}" ]; then
             echo "ERROR: ${PY_SCRIPT} not found at $(pwd)"; exit 1
@@ -48,12 +51,12 @@ jobs:
           # Run with the same interpreter we installed deps into
           python "${PY_SCRIPT##*/}"
           # Sanity check: ensure the script produced the file we expect
-          test -f "${OUTPUT_FILE_LOCAL}" || { echo "ERROR: ${OUTPUT_FILE_LOCAL} not produced"; exit 1; }
+          test -f "${GO_LEARNSET_FILE}" || { echo "ERROR: ${GO_LEARNSET_FILE} not produced"; exit 1; }
 
       - name: Place output where we commit it
         run: |
           mkdir -p "$(dirname "${FILE_TO_COMMIT}")"
-          cp tools/source/dumptools/99_go.json "${FILE_TO_COMMIT}"
+          cp "tools/source/dumptools/${GO_LEARNSET_FILE}" "${FILE_TO_COMMIT}"
 
 
       - name: Create a unique branch name
