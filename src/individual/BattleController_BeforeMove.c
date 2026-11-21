@@ -213,7 +213,6 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         debug_printf("WAZA_STATUS_FLAG_NO_OUT set, check Metronome\n");
 #endif
         ctx->server_seq_no = CONTROLLER_COMMAND_26;
-        ST_ServerMetronomeBeforeCheck(bsys, ctx); // 801ED20h
         return;
     }
 
@@ -1208,7 +1207,6 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         // ctx->next_server_seq_no = CONTROLLER_COMMAND_24;  // after that
         ST_ServerTotteokiCountCalc(bsys, ctx); // 801B570h
     }
-    ST_ServerMetronomeBeforeCheck(bsys, ctx); // 801ED20h
 
     return;
 }
