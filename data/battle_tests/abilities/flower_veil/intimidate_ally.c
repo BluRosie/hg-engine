@@ -111,8 +111,10 @@ BEGIN_TEST
         },
     },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gyarados's Intimidate" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Comfey's Flower Veil" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Venusaur surrounded itself with a veil of petals!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Comfey's Attack fell!" },
     }
 }
 END_TEST
