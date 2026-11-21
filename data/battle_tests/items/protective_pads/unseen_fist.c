@@ -1,4 +1,4 @@
-// Test: Protective Pads - Protective Pads doesn't invalid unseen fist
+// Test: Protective Pads - Protective Pads doesn't invalidate unseen fist
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
