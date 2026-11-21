@@ -1,4 +1,4 @@
-// Test: Body Press - Unaware ignores the user's Defense stat stages
+// Test: Body Press - Unaware ignores the attacker's Defense stat stages
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
