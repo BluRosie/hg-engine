@@ -1,4 +1,4 @@
-// Test: Protective Pads - Protective Pads doesn't invalidate unseen fist
+// Test: Protective Pads - Protective Pads doesn't invalidate Unseen Fist
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
@@ -68,7 +68,7 @@ BEGIN_TEST
     },
     .enemyScript = {
         {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
