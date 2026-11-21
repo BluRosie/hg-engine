@@ -34,7 +34,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
+        { .species = SPECIES_NONE },
     },
     .enemyParty = {
         {
@@ -64,7 +64,7 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
+        { .species = SPECIES_NONE },
     },
     .playerScript = {
         {
@@ -86,7 +86,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
-        }
+        },
     },
     .enemyScript = {
         {
@@ -108,10 +108,11 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
-        }
+        },
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Venusaur surrounded itself with a veil" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Comfey's Flower Veil" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Venusaur surrounded itself with a veil of petals!" },
     }
 }
 END_TEST
