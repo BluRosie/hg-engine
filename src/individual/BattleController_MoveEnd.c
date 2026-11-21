@@ -116,8 +116,10 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
     }
 
-    if ((ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE) && (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0) {
-        if (ctx->waza_no_metronome[ctx->attack_client] == ctx->current_move_index) {
+    if (((ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE) || (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN)) && (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0) {
+        if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT) {
+            ctx->waza_no_metronome[ctx->attack_client] = ctx->current_move_index;
+        } else if (ctx->waza_no_metronome[ctx->attack_client] == ctx->current_move_index) {
             if (ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns < 5) {
                 ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns++;
             }
