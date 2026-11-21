@@ -90,7 +90,7 @@ BEGIN_TEST
     },
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Tackle!" },
-        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Wobbuffet is hurt by the opposing Snorlax's Rocky Helmet!" },
+        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "Wobbuffet was hurt by the Rocky Helmet!" },
     }
 }
 END_TEST
