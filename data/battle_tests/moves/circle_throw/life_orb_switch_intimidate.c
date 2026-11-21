@@ -94,7 +94,7 @@ BEGIN_TEST
             { ACTION_NONE, 0 },
         } },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh is hurt by the opposing Beedrill's Rocky Helmet!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh was hurt by the Rocky Helmet!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Litten was dragged out!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh's Attack fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Throh lost some of its HP!" },

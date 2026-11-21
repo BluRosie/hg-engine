@@ -1158,13 +1158,13 @@ The opposing {STRVAR_1 1, 0, 0}’s\n{STRVAR_1 8, 1, 0} made the opposing\f{STRV
 {STRVAR_1 1, 0, 0} boosted\nthe accuracy of its next move\fusing its {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} boosted\nthe accuracy of its next move\fusing its {STRVAR_1 8, 1, 0}!
 The opposing {STRVAR_1 1, 0, 0} boosted\nthe accuracy of its next move\fusing its {STRVAR_1 8, 1, 0}!
-{STRVAR_1 1, 0, 0} is hurt by\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-{STRVAR_1 1, 0, 0} is hurt by the wild\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-{STRVAR_1 1, 0, 0} is hurt by the opposing\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-The wild {STRVAR_1 1, 0, 0} is hurt by\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-The wild {STRVAR_1 1, 0, 0} is hurt by the\nwild {STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0} is hurt by\n{STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
-The opposing {STRVAR_1 1, 0, 0} is hurt by the\nopposing {STRVAR_1 1, 1, 0}’s {STRVAR_1 8, 2, 0}!
+{STRVAR_1 1, 0, 0} was hurt by\nthe Rocky Helmet!
+{STRVAR_1 1, 0, 0} was hurt by\nthe Rocky Helmet!
+{STRVAR_1 1, 0, 0} was hurt by\nthe Rocky Helmet!
+The wild {STRVAR_1 1, 0, 0} was hurt by\nthe Rocky Helmet!
+The wild {STRVAR_1 1, 0, 0} was hurt by\nthe Rocky Helmet!
+The opposing {STRVAR_1 1, 0, 0} was hurt by\nthe Rocky Helmet!
+The opposing {STRVAR_1 1, 0, 0} was hurt by\nthe Rocky Helmet!
 Whoa!\nA wild {STRVAR_1 1, 0, 0} came charging!
 {STRVAR_1 1, 0, 0} was badly\npoisoned by the {STRVAR_1 8, 1, 0}!
 The wild {STRVAR_1 1, 0, 0} was badly\npoisoned by the {STRVAR_1 8, 1, 0}!

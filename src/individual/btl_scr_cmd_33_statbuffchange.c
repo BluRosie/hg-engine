@@ -31,6 +31,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     int address3;
     int abilityBlockAddress;
     int abilityBlockAbilityAddress;
+    int abilityBlockNoPopupAddress;
     int stattochange;
     int statchange;
     int flag;
@@ -43,6 +44,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     address3 = read_battle_script_param(sp);
     abilityBlockAddress = read_battle_script_param(sp);
     abilityBlockAbilityAddress = read_battle_script_param(sp);
+    abilityBlockNoPopupAddress = read_battle_script_param(sp);
 
     flag = 0;
 
@@ -215,7 +217,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         // Cap stat change here so that message below is correct
         if (battlemon->states[STAT_ATTACK + stattochange] + statchange < 0) {
             // debug_printf("\n\nCapped\n\n");
-            statchange = battlemon->states[STAT_ATTACK + stattochange];
+            statchange = -battlemon->states[STAT_ATTACK + stattochange];
         }
         // debug_printf("sp->addeffect_flag: %d\n", sp->addeffect_flag);
         if ((sp->addeffect_flag & SIDE_EFFECT_NO_ABILITY) == 0) {
@@ -342,13 +344,17 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
             if (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY || sp->addeffect_type == SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY) {
                 BOOL prevented = FALSE;
+                BOOL noPopup = FALSE;
+                int popupClient = sp->state_client;
                 if (sp->scw[IsClientEnemy(bw, sp->state_client)].mistCount) {
                     sp->mp.id = BATTLE_MSG_PROTECTED_BY_MIST;
                     sp->mp.tag = TAG_NICKNAME;
                     sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
                     prevented = TRUE;
-                } else if (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_FLOWER_VEIL) != 0 && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
+                    noPopup = TRUE;
+                } else if (CheckSideAbility(bw, sp, CHECK_ABILITY_SAME_SIDE_HP, sp->state_client, ABILITY_FLOWER_VEIL) != 0 && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
                 {
+                    popupClient = (GetBattlerAbility(sp, sp->state_client) == ABILITY_FLOWER_VEIL) ? sp->state_client : BATTLER_ALLY(sp->state_client);
                     sp->mp.id = BATTLE_MSG_FLOWER_VEIL_PETALS;
                     sp->mp.tag = TAG_NICKNAME;
                     sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
@@ -389,7 +395,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 
                 if (prevented) {
                     sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
-                    IncrementBattleScriptPtr(sp, abilityBlockAbilityAddress);
+                    sp->ability_client = popupClient;
+                    IncrementBattleScriptPtr(sp, noPopup ? abilityBlockNoPopupAddress : abilityBlockAbilityAddress);
                     return FALSE;
                 }
             }
