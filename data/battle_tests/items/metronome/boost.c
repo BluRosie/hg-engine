@@ -31,8 +31,8 @@ BEGIN_TEST
             .level = 68,
             .form = 0,
             .ability = ABILITY_HEALER,
-            .item = ITEM_LEPPA_BERRY,
-            .moves = { MOVE_SOFT_BOILED, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .item = ITEM_NONE,
+            .moves = { MOVE_SOFT_BOILED, MOVE_MILK_DRINK, MOVE_RECOVER, MOVE_SLACK_OFF },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -72,9 +72,9 @@ BEGIN_TEST
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 }
         },
         {

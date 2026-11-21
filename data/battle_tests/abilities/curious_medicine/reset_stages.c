@@ -75,7 +75,7 @@ BEGIN_TEST
         {
             .species = SPECIES_SLOWKING,
             .level = 50,
-            .form = 2,
+            .form = 1,
             .ability = ABILITY_CURIOUS_MEDICINE,
             .item = ITEM_NONE,
             .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
