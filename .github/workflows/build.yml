@@ -214,6 +214,7 @@ jobs:
   test:
     needs: build
     runs-on: ${{ inputs.runner || 'ubuntu-26.04' }}
+    timeout-minutes: 60
     strategy:
       fail-fast: false
       matrix:
@@ -271,11 +272,22 @@ jobs:
               . .venv/bin/activate
               mkdir -p test-results
               slices=$(nproc)
+              run_slice() {
+                for attempt in 1 2 3; do
+                  rm -f "test-results/partition_$1.json"
+                  TEST_RUNNER_PARTITION_COUNT=$((SHARD_COUNT * slices)) TEST_RUNNER_PARTITION_INDEX=$1 TEST_RUNNER_PARTITIONS_PER_MACHINE=$slices \
+                  TEST_RUNNER_RESULT_FILE=test-results/partition_$1.json TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY=1 \
+                    python3 -u scripts/run_tests.py -c 2>&1 | tee "test-results/partition_$1.log" | sed --unbuffered "s/^/[slice $1] /"
+                  result=$?
+                  if python3 -c "import json, sys; sys.exit(json.load(open(sys.argv[1]))[\"status\"] != \"ok\")" "test-results/partition_$1.json" 2> /dev/null; then
+                    return $result
+                  fi
+                  echo "[slice $1] attempt $attempt hung or crashed"
+                done
+                return 1
+              }
               for k in $(seq 0 $((slices - 1))); do
-                slice=$((SHARD * slices + k))
-                TEST_RUNNER_PARTITION_COUNT=$((SHARD_COUNT * slices)) TEST_RUNNER_PARTITION_INDEX=$slice TEST_RUNNER_PARTITIONS_PER_MACHINE=$slices \
-                TEST_RUNNER_RESULT_FILE=test-results/partition_$slice.json TEST_RUNNER_SUPPRESS_PARTITION_SUMMARY=1 \
-                  python3 -u scripts/run_tests.py -c 2>&1 | tee test-results/partition_$slice.log | sed --unbuffered "s/^/[slice $slice] /" &
+                run_slice $((SHARD * slices + k)) &
               done
               status=0
               for pid in $(jobs -p); do wait "$pid" || status=1; done
