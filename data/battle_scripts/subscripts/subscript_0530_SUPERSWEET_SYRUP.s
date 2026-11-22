@@ -5,6 +5,7 @@
 
 _000:
     AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
+    // A supersweet aroma is wafting from\nthe syrup covering {0}!
     PrintMessage 1811, TAG_NICKNAME, BATTLER_CATEGORY_MSG_BATTLER_TEMP
     Wait
     WaitButtonABTime 30

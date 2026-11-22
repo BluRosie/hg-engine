@@ -752,7 +752,7 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL battleBondFlag;
     BOOL intrepidSwordFlag;
     BOOL dauntlessShieldFlag;
-    BOOL superSweetSyrupFlag;
+    BOOL supersweetSyrupFlag;
     BOOL zeroToHeroFlag;
 } OnceOnlyAbilityFlags;
 
@@ -1015,7 +1015,7 @@ struct BattleStruct {
     /*0x30C4*/ u16 lastClientDamagingMove[CLIENT_MAX]; // Currently unused due to modernization.
     /*0x30CC*/ u16 lastClientDamagedBy[CLIENT_MAX]; // Same here.
     /*0x30D4*/ u16 lastClientMoveType[CLIENT_MAX]; // Used for modernized Conversion 2. Originally stored only the most recent damaging move.
-    /*0x30DC*/ u16 waza_no_metronome[CLIENT_MAX];
+    /*0x30DC*/ u16 moveNumberMetronome[CLIENT_MAX];
     /*0x30E4*/ int store_damage[CLIENT_MAX];
     /*0x30F4*/ int client_no_hit[CLIENT_MAX];
     /*0x3104*/ int client_no_agi;

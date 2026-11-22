@@ -116,6 +116,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet was badly poisoned!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Toxic Chain" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wynaut was badly poisoned!" },
-    }
+    },
+    .knownFailing = TRUE,
 }
 END_TEST

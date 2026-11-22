@@ -843,7 +843,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         // 6.9.9 Metronome (item)
         if ((sp->rawSpeedNonRNGClientOrder[i] == attacker)
             && attackerItemHeldEffect == HOLD_EFFECT_BOOST_REPEATED) {
-            switch ((sp->waza_no_metronome[attacker] == moveno) ? sp->battlemon[attacker].moveeffect.metronomeTurns : 0) {
+            switch ((sp->moveNumberMetronome[attacker] == moveno) ? sp->battlemon[attacker].moveeffect.metronomeTurns : 0) {
             case 0:
                 break;
             case 1:

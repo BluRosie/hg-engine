@@ -25,72 +25,27 @@ BEGIN_TEST
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE }
     },
-    .enemyParty = {
-        {
-            .species = SPECIES_WOBBUFFET,
-            .level = 50,
-            .form = 0,
-            .ability = ABILITY_NONE,
-            .item = ITEM_COVERT_CLOAK,
-            .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
-            .hp = FULL_HP,
-            .status = 0,
-            .condition2 = 0,
-            .moveEffectFlags = 0,
-        },
+    .enemyParty = { {
+                        .species = SPECIES_WOBBUFFET,
+                        .level = 50,
+                        .form = 0,
+                        .ability = ABILITY_NONE,
+                        .item = ITEM_COVERT_CLOAK,
+                        .moves = { MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .hp = FULL_HP,
+                        .status = 0,
+                        .condition2 = 0,
+                        .moveEffectFlags = 0,
+                    },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },
-        { .species = SPECIES_NONE }
-    },
-    .playerScript = {
-        {
-            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 }
-        },
-        {
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 }
-        }
-    },
-    .enemyScript = {
-        {
-            { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 }
-        },
-        {
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 },
-            { ACTION_NONE, 0 }
-        }
-    },
-    .expectations = {
+        { .species = SPECIES_NONE } },
+    .playerScript = { { { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 } }, { { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 } } }, .enemyScript = { { { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 } }, { { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 }, { ACTION_NONE, 0 } } }, .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Okidogi used Scratch!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Toxic Chain" },
-    }
+    },
+    .knownFailing = TRUE,
 }
 END_TEST

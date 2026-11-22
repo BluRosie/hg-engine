@@ -537,11 +537,11 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
 
                 // Supersweet Syrup
                 {
-                    if ((sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].superSweetSyrupFlag == FALSE)
+                    if ((sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].supersweetSyrupFlag == FALSE)
                         && (sp->battlemon[client_no].hp)
                         && (sp->battlemon[BATTLER_ACROSS(client_no)].hp || sp->battlemon[BATTLER_OPPONENT(client_no)].hp)
                         && (GetBattlerAbility(sp, client_no) == ABILITY_SUPERSWEET_SYRUP)) {
-                        sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].superSweetSyrupFlag = TRUE;
+                        sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].supersweetSyrupFlag = TRUE;
                         sp->battlerIdTemp = client_no;
                         scriptnum = BATTLE_SUBSCRIPT_SUPERSWEET_SYRUP;
                         ret = SWITCH_IN_CHECK_MOVE_SCRIPT;

@@ -120,18 +120,18 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         || ((ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE)
             && (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)) {
         if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT) {
-            ctx->waza_no_metronome[ctx->attack_client] = ctx->current_move_index;
-        } else if (ctx->waza_no_metronome[ctx->attack_client] == ctx->current_move_index) {
+            ctx->moveNumberMetronome[ctx->attack_client] = ctx->current_move_index;
+        } else if (ctx->moveNumberMetronome[ctx->attack_client] == ctx->current_move_index) {
             if (ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns < 5) {
                 ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns++;
             }
         } else {
             ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns = 1;
         }
-        ctx->waza_no_metronome[ctx->attack_client] = ctx->current_move_index;
+        ctx->moveNumberMetronome[ctx->attack_client] = ctx->current_move_index;
     } else {
         ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns = 0;
-        ctx->waza_no_metronome[ctx->attack_client] = MOVE_NONE;
+        ctx->moveNumberMetronome[ctx->attack_client] = MOVE_NONE;
     }
 
     int client_set_max = BattleWorkClientSetMaxGet(bsys);

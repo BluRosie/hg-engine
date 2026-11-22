@@ -20,7 +20,7 @@ BEGIN_TEST
             .moveEffectFlags = 0,
         },
         {
-            .species = SPECIES_WOBBUFFET,
+            .species = SPECIES_WYNAUT,
             .level = 50,
             .form = 0,
             .ability = ABILITY_NONE,
@@ -114,7 +114,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Supersweet Syrup" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A supersweet aroma is wafting from the syrup covering the opposing Dipplin!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet's evasiveness fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet's evasiveness fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wynaut's evasiveness fell!" },
     }
 }
 END_TEST

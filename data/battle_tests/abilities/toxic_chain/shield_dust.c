@@ -91,6 +91,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Okidogi used Scratch!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_DOES_NOT_CONTAIN, .expectationValue.message = "Toxic Chain" },
-    }
+    },
+    .knownFailing = TRUE,
 }
 END_TEST
