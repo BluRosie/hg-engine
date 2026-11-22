@@ -21,6 +21,8 @@ This repository and its assets are a [community endeavor](CREDITS.md). By its na
   - [Setup Instructions (Linux with dnf or yum)](#setup-instructions-linux-with-dnf-or-yum)
   - [Setup Instructions (Linux with pacman)](#setup-instructions-linux-with-pacman)
   - [Setup Instructions (macOS)](#setup-instructions-macos)
+    - [Manually](#manually)
+    - [From script](#from-script)
   - [Setup Instructions (Windows on WSL)](#setup-instructions-windows-on-wsl)
   - [Setup Instructions (Windows on MSYS2)](#setup-instructions-windows-on-msys2)
   - [Further Setup Instructions (All Platforms) (Continued from Individual Sections)](#further-setup-instructions-all-platforms-continued-from-individual-sections)
@@ -101,8 +103,25 @@ See [Build Instructions (Docker)](#build-instructions-docker) for more. On macOS
 ## Setup Instructions (macOS)
 
 1. Follow [Further Setup Instructions](#further-setup-instructions-all-platforms-continued-from-individual-sections) to pull a local copy of `hg-engine`.
-2. In Terminal, from the `hg-engine` folder, run `./scripts/setup-macos.sh`. It installs everything listed in the [Brewfile](Brewfile), fetches the git submodules and checks your `rom.nds` if it is already there. It is safe to run again, for example after pulling updates. If macOS asks to install the Command Line Tools when you first run `git`, accept and run the command again afterwards.
-3. Continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
+
+### Manually 
+
+All actions are expected to happen from the repository root.
+
+- Install [Homebrew](https://brew.sh) if you don't have it yet. Its installer also installs the Command Line Tools.
+- Run `brew bundle` to install the required packages from the [Brewfile](Brewfile). The Arm toolchain (`gcc-arm-embedded`) asks for your macOS password due to needing root permissions.
+- Run `git submodule update --init --recursive` to fetch the git submodules.
+- `python3 --version` must show 3.11 to 3.14. If it doesn't, run `echo 'export PATH="$(brew --prefix python@3.14)/libexec/bin:$PATH"' >> ~/.zprofile` and open a new Terminal window.
+- `echo "4fcded0e2713dc03929845de631d0932ea2b5a37  rom.nds" | shasum --algorithm 1 --check` to check your `rom.nds`, once you have put it in place. It should print `rom.nds: OK`.
+
+### From script
+
+> [!WARNING]  
+> Always inspect shell scripts before running them.
+
+In Terminal, from the `hg-engine` folder, run `./scripts/setup-macos.sh`. It installs everything listed in the [Brewfile](Brewfile), fetches the git submodules and checks your `rom.nds` if it is already there. It can be run again, for example after pulling updates. If macOS asks to install the Command Line Tools when you first run `git`, accept and run the command again afterwards.
+
+After installing manually or via script, continue to [Build Instructions](#build-instructions-all-platforms-continued-from-further-setup-instructions)
 
 ## Setup Instructions (Windows on WSL)
 
