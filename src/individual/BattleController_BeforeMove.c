@@ -2,6 +2,7 @@
 #include "types.h"
 
 #include "constants/ability.h"
+#include "constants/battle_constants.h"
 #include "constants/battle_message_constants.h"
 #include "constants/battle_script_constants.h"
 #include "constants/file.h"
@@ -1272,7 +1273,14 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
     }
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
-        if (BattleRand(bsys) % 5 != 0) {
+        ctx->battlemon[ctx->attack_client].condition += 1 << STATUS_FREEZE_COUNT_SHIFT;
+        u32 totalFreezeTurns = (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE_COUNT) >> STATUS_FREEZE_COUNT_SHIFT;
+        if (totalFreezeTurns < 3
+#ifdef DEBUG_BATTLE_SCENARIOS
+            || FALSE) {
+#else
+            || BattleRand(bsys) % 4 != 0) {
+#endif
             if (effect != MOVE_EFFECT_THAW_AND_BURN_HIT && effect != MOVE_EFFECT_RECOIL_BURN_HIT && effect != MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
                 LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_FROZEN);
                 ctx->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -1284,6 +1292,7 @@ void BattleController_CheckSleepOrFrozen(struct BattleSystem *bsys, struct Battl
                 return;
             }
         } else {
+            ctx->battlemon[ctx->attack_client].condition &= ~STATUS_FREEZE_COUNT;
             ctx->battlerIdTemp = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -1832,6 +1841,7 @@ void BattleController_CheckThawOut(struct BattleSystem *bsys UNUSED, struct Batt
 
     if (ctx->battlemon[ctx->attack_client].condition & STATUS_FREEZE) {
         if (effect == MOVE_EFFECT_THAW_AND_BURN_HIT || effect == MOVE_EFFECT_RECOIL_BURN_HIT || effect == MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT) {
+            ctx->battlemon[ctx->attack_client].condition &= ~STATUS_FREEZE_COUNT;
             ctx->battlerIdTemp = ctx->attack_client;
             LoadBattleSubSeqScript(ctx, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_THAW_OUT);
             ctx->next_server_seq_no = ctx->server_seq_no;
@@ -2270,7 +2280,7 @@ BOOL BattleController_CheckAbilityFailures1(struct BattleSystem *bsys, struct Ba
     if ((defenderHasPriorityBlock || defenderAllyHasPriorityBlock)
         && CLIENT_DOES_NOT_HAVE_MOLD_BREAKER_VARIATIONS(ctx, attacker)
         && (IsClientEnemy(bsys, defender) != IsClientEnemy(bsys, attacker))) {
-        if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
+        if (IsAttackerOnField(ctx) && ctx->clientPriority[ctx->attack_client] > 0 && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, attacker, defender)) {
             if (defenderHasPriorityBlock) {
                 ctx->battlerIdTemp = defender;
             } else {
@@ -2564,7 +2574,7 @@ BOOL BattleController_CheckSemiInvulnerability(struct BattleSystem *bsys UNUSED,
     return FALSE;
 }
 
-BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender)
+BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender UNUSED)
 {
     u32 moveHasProtectFlag = (ctx->moveTbl[ctx->current_move_index].flag & FLAG_PROTECT) != 0;
     u32 ability = GetBattlerAbility(ctx, attacker);
@@ -2572,7 +2582,7 @@ BOOL CanHitThroughProtect(struct BattleStruct *ctx, int attacker, int defender)
         || (ctx->current_move_index == MOVE_CURSE && HasType(ctx, attacker, TYPE_GHOST))
         || ((ability == ABILITY_UNSEEN_FIST
                 || ability == ABILITY_PIERCING_DRILL)
-            && IsContactBeingMade(ability, HeldItemHoldEffectGet(ctx, attacker), HeldItemHoldEffectGet(ctx, defender), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag))) {
+            && IsMoveMakingContact(ability, HeldItemHoldEffectGet(ctx, attacker), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag))) {
         return TRUE;
     }
     return FALSE;
@@ -2721,7 +2731,7 @@ BOOL BattleController_CheckPsychicTerrain(struct BattleSystem *bsys UNUSED, stru
         && !ctx->futureSightHitTurn
         && ctx->terrainOverlay.numberOfTurnsLeft > 0
         && MoldBreakerIsClientGrounded(ctx, ctx->attack_client, defender)
-        && ctx->clientPriority[ctx->attack_client]
+        && ctx->clientPriority[ctx->attack_client] > 0
         && CurrentMoveShouldNotBeExemptedFromPriorityBlocking(ctx, ctx->attack_client, defender)) {
         BattleController_ResetGeneralMoveFailureFlags(ctx, ctx->attack_client, TRUE);
         ctx->battlerIdTemp = defender;
@@ -5082,7 +5092,7 @@ BOOL BattleController_CheckStrongWindsWeaken(struct BattleSystem *bw, struct Bat
             if (HasType(sp, defender, TypeEffectivenessTable[i][1])) {
                 if ((GetWeather(bw, sp, sp->attack_client) & FIELD_CONDITION_STRONG_WINDS)
                     && (TypeEffectivenessTable[i][2] == 20)
-                    && (HasType(sp, defender, TYPE_FLYING))) {
+                    && (TypeEffectivenessTable[i][1] == TYPE_FLYING)) {
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_WEAKEN_MOVES_STRONG_WINDS);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;

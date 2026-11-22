@@ -1080,6 +1080,19 @@ const u8 DecreaseSpeedHoldEffects[] = {
     HOLD_EFFECT_LVLUP_SPDEF_EV_UP,
 };
 
+u8 GetSpeedDropHoldEffect(struct BattleStruct *sp, int client, u8 holdEffect)
+{
+    if (GetBattlerAbility(sp, client) == ABILITY_KLUTZ
+        && !sp->battlemon[client].moveeffect.embargoFlag
+        && !((sp->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM) && sp->magicRoomCounter)) {
+        holdEffect = BattleItemDataGet(sp, sp->battlemon[client].item, 1);
+        if (holdEffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
+            holdEffect = HOLD_EFFECT_NONE;
+        }
+    }
+    return holdEffect;
+}
+
 // return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two.
 u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag)
 {
@@ -1281,22 +1294,20 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 #endif
 
     // Step 6: Iron Ball / Macho Brace / Power EV items
+    u8 speedDropHoldEffect1 = GetSpeedDropHoldEffect(sp, client1, hold_effect1);
+    u8 speedDropHoldEffect2 = GetSpeedDropHoldEffect(sp, client2, hold_effect2);
 
     for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
-        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i]) {
-            if (!(GetBattlerAbility(sp, client1) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-                speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
-                break;
-            }
+        if (speedDropHoldEffect1 == DecreaseSpeedHoldEffects[i]) {
+            speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
+            break;
         }
     }
 
     for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
-        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i]) {
-            if (!(GetBattlerAbility(sp, client2) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-                speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
-                break;
-            }
+        if (speedDropHoldEffect2 == DecreaseSpeedHoldEffects[i]) {
+            speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
+            break;
         }
     }
 
@@ -2830,39 +2841,33 @@ BOOL LONG_CALL IsMoveWindMove(u16 move)
 }
 
 /**
- * @brief checks if contact is being made, checking abilities and items
- * @param bw battle work structure
- * @param sp global battle structure
+ * @brief checks if the attacker avoids the target's contact effects (Protective Pads or no contact)
  * @return TRUE/FALSE
  */
-BOOL LONG_CALL IsContactBeingMade(int attackerAbility, int attackerItemHoldEffect, int defenderItemHoldEffect, int moveno, u8 moveFlag)
+BOOL LONG_CALL CanBattlerAvoidContactEffects(int attackerAbility, int attackerItemHoldEffect, int moveno, u8 moveFlag)
 {
-    // HeldItemHoldEffectGet -> attackerItemHoldEffect
-
-    // Attacker abilities
-    if (attackerAbility == ABILITY_LONG_REACH) {
-        return FALSE;
-    }
-
-    // Check for items attacker
-    if (attackerItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
-        // Punching Gloves prevents contact when attacking with punching moves
-        || (attackerItemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
-            && IsMovePunchingMove(moveno))) {
-        return FALSE;
-    }
-
-    // Check for items defender
-    if (defenderItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS) {
-        return FALSE;
-    }
-
-    // Does the move make contact vanilla
-    if (moveFlag & FLAG_CONTACT) {
+    if (attackerItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS) {
         return TRUE;
     }
 
-    return FALSE;
+    return !IsMoveMakingContact(attackerAbility, attackerItemHoldEffect, moveno, moveFlag);
+}
+
+/**
+ * @brief checks if the move makes contact, checking Punching Glove and Long Reach
+ * @return TRUE/FALSE
+ */
+BOOL LONG_CALL IsMoveMakingContact(int attackerAbility, int attackerItemHoldEffect, int moveno, u8 moveFlag)
+{
+    // TODO: Shell Side Arm if physical
+    if (!(moveFlag & FLAG_CONTACT)) {
+        return FALSE;
+    } else if (attackerItemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG && IsMovePunchingMove(moveno)) {
+        return FALSE;
+    } else if (attackerAbility == ABILITY_LONG_REACH) {
+        return FALSE;
+    }
+    return TRUE;
 }
 
 void LONG_CALL ov12_02252D14(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
@@ -3807,19 +3812,26 @@ int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct B
         }
     }
 
-    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_PRANKSTER) && (GetMoveSplit(ctx, move) == SPLIT_STATUS)) {
-        return ctx->moveTbl[move].priority + 1;
+    int priority = ctx->moveTbl[move].priority;
+
+    if (move == MOVE_GRASSY_GLIDE && ctx->terrainOverlay.type == GRASSY_TERRAIN) {
+        priority++;
     }
 
-    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_GALE_WINGS) && (ctx->moveTbl[move].type == TYPE_FLYING)) {
-        return ctx->moveTbl[move].priority + 1;
+    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_PRANKSTER) && (GetMoveSplit(ctx, move) == SPLIT_STATUS)) {
+        priority++;
+    }
+
+    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_GALE_WINGS) && (ctx->moveTbl[move].type == TYPE_FLYING)
+        && ctx->battlemon[battlerId].hp == (s32)ctx->battlemon[battlerId].maxhp) {
+        priority++;
     }
 
     if ((GetBattlerAbility(ctx, battlerId) == ABILITY_TRIAGE) && (isTriageMove)) {
-        return ctx->moveTbl[move].priority + 3;
+        priority += 3;
     }
 
-    return ctx->moveTbl[move].priority;
+    return priority;
 }
 
 /// @brief Checks if a client has the type
@@ -4139,7 +4151,12 @@ BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys UNUSED, struct 
 
 u32 LONG_CALL RollMetronomeMove(struct BattleSystem *bsys)
 {
-    return (BattleRand(bsys) % NUM_OF_MOVES) + 1;
+    // Handle dummy moves
+    u32 randomNumber = (BattleRand(bsys) % (NUM_OF_MOVES - 3)) + 1;
+    if (randomNumber >= MOVE_468) {
+        return randomNumber + 3;
+    }
+    return randomNumber;
 }
 
 /**

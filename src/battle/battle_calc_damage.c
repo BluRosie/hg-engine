@@ -754,7 +754,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
             && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLUFFY)) {
             // 6.9.6 Fluffy (contact moves)
-            if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), attackerItemHeldEffect, HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
+            if (IsMoveMakingContact(GetBattlerAbility(sp, sp->attack_client), attackerItemHeldEffect, sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
                 finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
                 debug_printf("\n=================\n");
@@ -826,7 +826,7 @@ void CalcDamageOverall(void *bw, struct BattleStruct *sp)
         if ((sp->rawSpeedNonRNGClientOrder[i] == defender)
             && MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_AURA_GUARD)) {
             // 6.9.17 Aura Guard (contact moves) //TODO: confirm location
-            if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), attackerItemHeldEffect, HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
+            if (IsMoveMakingContact(GetBattlerAbility(sp, sp->attack_client), attackerItemHeldEffect, sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
                 finalModifier = QMul_RoundUp(finalModifier, UQ412__0_5);
 #ifdef DEBUG_DAMAGE_CALC
                 debug_printf("\n=================\n");
