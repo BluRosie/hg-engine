@@ -1,4 +1,4 @@
-// Test: Supersweet Syrup - lowers evasion of both opposing mon's in battle
+// Test: Supersweet Syrup - lowers evasion of both opponents in battle
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
