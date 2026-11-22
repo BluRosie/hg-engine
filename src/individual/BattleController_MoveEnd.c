@@ -134,6 +134,16 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->moveNumberMetronome[ctx->attack_client] = MOVE_NONE;
     }
 
+    // TODO: confirm failure due to sleep, truant etc
+    {
+        int usedMoveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+        if (usedMoveEffect != MOVE_EFFECT_PROTECT
+            && usedMoveEffect != MOVE_EFFECT_PROTECT_USER_SIDE
+            && usedMoveEffect != MOVE_EFFECT_SURVIVE_WITH_1_HP) {
+            ctx->protectSuccessTurns[ctx->attack_client] = 0;
+        }
+    }
+
     int client_set_max = BattleWorkClientSetMaxGet(bsys);
 
     for (int i = 0; i < client_set_max; i++) {

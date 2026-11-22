@@ -5185,6 +5185,7 @@ void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int
         ctx->battlemon[attack_client].effect_of_moves &= ~(MOVE_EFFECT_FLAG_SEMI_INVULNERABLE);
         ctx->battlemon[attack_client].moveeffect.rolloutCount = 0;
         ctx->battlemon[attack_client].moveeffect.furyCutterCount = 0;
+        ctx->protectSuccessTurns[attack_client] = 0;
 
         if (setsMoveConditionalFailureFlag) {
             ctx->moveConditionsFlags[attack_client].moveFailureThisTurn = TRUE;
