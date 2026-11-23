@@ -1663,7 +1663,12 @@
     .long 303
     .endm
 
-    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 303
+    .macro TrySetSyrupBomb arg_0
+    .long 304
+    .long (((\arg_0 - .) / 4) - 1)
+    .endm
+
+    .equ BASE_ENGINE_BTL_SCR_CMDS_MAX, 304
 
     // .macro YourCustomCommand
     // .long (BASE_ENGINE_BTL_SCR_CMDS_MAX + 1)

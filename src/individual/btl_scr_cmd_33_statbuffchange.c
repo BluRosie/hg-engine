@@ -16,6 +16,8 @@
 #include "pokemon.h"
 #include "save.h"
 
+BOOL StatStageAbilityCheck(struct BattleStruct *sp, int client, u32 ability);
+
 /**
  *  @brief script command to set up the stat boost animation/message
  *
@@ -23,7 +25,7 @@
  *  @param sp global battle structure
  *  @return FALSE
  */
-BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
+BOOL __attribute__((section(".init"))) btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
 {
     // debug_printf("in btl_scr_cmd_33_statbuffchange %d\n", sp->state_client);
     int address1;
@@ -102,11 +104,11 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         // debug_printf("1 step up\n");
     }
 
-    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_SIMPLE)) {
+    if (StatStageAbilityCheck(sp, sp->state_client, ABILITY_SIMPLE)) {
         statchange *= 2;
     }
 
-    if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CONTRARY)) {
+    if (StatStageAbilityCheck(sp, sp->state_client, ABILITY_CONTRARY)) {
         // statchange
         statchange = -statchange;
 
@@ -125,6 +127,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
         && (HeldItemHoldEffectGet(sp, sp->state_client) != HOLD_EFFECT_PREVENT_STAT_DROPS)
         && (sp->addeffect_type == SIDE_EFFECT_TYPE_STICKY_WEB
             || sp->addeffect_type == SIDE_EFFECT_TYPE_CONTACT_PROTECTED
+            || sp->addeffect_type == SIDE_EFFECT_TYPE_OCTOLOCK
+            || sp->addeffect_type == SIDE_EFFECT_TYPE_SYRUP_BOMB
             || (sp->state_client != sp->attack_client // can't raise own stats
                 && sp->state_client != BattleWorkPartnerClientNoGet(bw, sp->attack_client) // can't raise partner's stats
                 && ((sp->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)
@@ -231,8 +235,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     sp->mp.tag = TAG_NICKNAME;
                     sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
                     flag = 1;
-                } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE
-                               || MoldBreakerAbilityCheck(sp, sp->attack_client, BATTLER_ALLY(sp->state_client), ABILITY_FLOWER_VEIL) == TRUE) // any enemy has flower veil (accounting for mold breaker, otherwise would just CheckSideAbility)
+                } else if ((StatStageAbilityCheck(sp, sp->state_client, ABILITY_FLOWER_VEIL) == TRUE
+                               || StatStageAbilityCheck(sp, BATTLER_ALLY(sp->state_client), ABILITY_FLOWER_VEIL) == TRUE) // any enemy has flower veil (accounting for mold breaker, otherwise would just CheckSideAbility)
                     && HasType(sp, sp->state_client, TYPE_GRASS)) // and target has grass type
                 {
                     if (sp->addeffect_type == SIDE_EFFECT_TYPE_ABILITY) {
@@ -241,8 +245,8 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                         sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
                     }
                     flag = 1;
-                } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_CLEAR_BODY) == TRUE)
-                    || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE)
+                } else if ((StatStageAbilityCheck(sp, sp->state_client, ABILITY_CLEAR_BODY) == TRUE)
+                    || (StatStageAbilityCheck(sp, sp->state_client, ABILITY_WHITE_SMOKE) == TRUE)
                     || (GetBattlerAbility(sp, sp->state_client) == ABILITY_FULL_METAL_BODY)) // Full Metal Body cannot be ignored
                 {
                     sp->mp.id = BATTLE_MSG_STATS_NOT_LOWERED;
@@ -257,19 +261,19 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                     sp->mp.param[1] = CreateNicknameTag(sp, GetBattleMonItem(sp, sp->state_client));
                     sp->mp.param[2] = STAT_ATTACK + stattochange;
                     flag = 1;
-                } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_HYPER_CUTTER) == TRUE) && ((STAT_ATTACK + stattochange) == STAT_ATTACK)) {
+                } else if ((StatStageAbilityCheck(sp, sp->state_client, ABILITY_HYPER_CUTTER) == TRUE) && ((STAT_ATTACK + stattochange) == STAT_ATTACK)) {
                     sp->mp.id = BATTLE_MSG_ATTACK_NOT_LOWERED;
                     sp->mp.tag = TAG_NICKNAME;
                     sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
                     flag = 3;
-                } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_BIG_PECKS) == TRUE) && ((STAT_ATTACK + stattochange) == STAT_DEFENSE)) {
+                } else if ((StatStageAbilityCheck(sp, sp->state_client, ABILITY_BIG_PECKS) == TRUE) && ((STAT_ATTACK + stattochange) == STAT_DEFENSE)) {
                     sp->mp.id = BATTLE_MSG_DEFENSE_NOT_LOWERED;
                     sp->mp.tag = TAG_NICKNAME;
                     sp->mp.param[0] = CreateNicknameTag(sp, sp->state_client);
                     flag = 3;
-                } else if (((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_KEEN_EYE) == TRUE)
-                               || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_MINDS_EYE) == TRUE)
-                               || (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_ILLUMINATE) == TRUE))
+                } else if (((StatStageAbilityCheck(sp, sp->state_client, ABILITY_KEEN_EYE) == TRUE)
+                               || (StatStageAbilityCheck(sp, sp->state_client, ABILITY_MINDS_EYE) == TRUE)
+                               || (StatStageAbilityCheck(sp, sp->state_client, ABILITY_ILLUMINATE) == TRUE))
                     && ((STAT_ATTACK + stattochange) == STAT_ACCURACY)) {
                     sp->mp.id = BATTLE_MSG_ACCURACY_NOT_LOWERED;
                     sp->mp.tag = TAG_NICKNAME;
@@ -291,7 +295,7 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
                         IncrementBattleScriptPtr(sp, address1);
                         return FALSE;
                     }
-                } else if ((MoldBreakerAbilityCheck(sp, sp->attack_client, sp->state_client, ABILITY_SHIELD_DUST) == TRUE)
+                } else if ((StatStageAbilityCheck(sp, sp->state_client, ABILITY_SHIELD_DUST) == TRUE)
                     && (sp->addeffect_type == SIDE_EFFECT_TYPE_INDIRECT)) {
                     flag = 1;
                 } else if (CheckSubstitute(sp, sp->state_client) == TRUE) {
@@ -316,7 +320,12 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
             }
             if (flag == 3) {
                 sp->oneSelfFlag[sp->state_client].defiant_flag = 0;
-                IncrementBattleScriptPtr(sp, abilityBlockAddress);
+                if (sp->addeffect_type == SIDE_EFFECT_TYPE_OCTOLOCK || sp->addeffect_type == SIDE_EFFECT_TYPE_SYRUP_BOMB) {
+                    sp->ability_client = sp->state_client;
+                    IncrementBattleScriptPtr(sp, abilityBlockAbilityAddress);
+                } else {
+                    IncrementBattleScriptPtr(sp, abilityBlockAddress);
+                }
                 return FALSE;
             }
             if ((flag == 2) && (sp->addeffect_type == SIDE_EFFECT_TYPE_DIRECT)) {
@@ -429,4 +438,12 @@ BOOL btl_scr_cmd_33_statbuffchange(void *bw, struct BattleStruct *sp)
     // debug_printf("Final: %d\n", battlemon->states[STAT_ATTACK + stattochange]);
 
     return 0;
+}
+
+BOOL StatStageAbilityCheck(struct BattleStruct *sp, int client, u32 ability)
+{
+    if (sp->addeffect_type == SIDE_EFFECT_TYPE_OCTOLOCK || sp->addeffect_type == SIDE_EFFECT_TYPE_SYRUP_BOMB) {
+        return GetBattlerAbility(sp, client) == ability;
+    }
+    return MoldBreakerAbilityCheck(sp, sp->attack_client, client, ability);
 }

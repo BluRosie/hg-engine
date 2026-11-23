@@ -536,8 +536,12 @@
 #define BATTLE_SUBSCRIPT_DOESNT_AFFECT_ALLY_ABILITY             (527)
 #define BATTLE_SUBSCRIPT_TRY_CLEAR_UNNERVE                      (528)
 #define BATTLE_SUBSCRIPT_SYMBIOSIS                              (529)
+#define BATTLE_SUBSCRIPT_OCTOLOCK_START                         (530)
+#define BATTLE_SUBSCRIPT_OCTOLOCK_END_TURN                      (531)
+#define BATTLE_SUBSCRIPT_SYRUP_BOMB_START                       (532)
+#define BATTLE_SUBSCRIPT_SYRUP_BOMB_END_TURN                    (533)
 
-#define MAX_BASE_SUBSCRIPT_NUM 528
+#define MAX_BASE_SUBSCRIPT_NUM 533
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)
@@ -760,8 +764,10 @@
 #define MOVE_SUBSCRIPT_PTR_POWDER                           (213)
 #define MOVE_SUBSCRIPT_PTR_LASER_FOCUS                      (214)
 #define MOVE_SUBSCRIPT_PTR_GIVE_HELD_ITEM                   (215)
+#define MOVE_SUBSCRIPT_PTR_OCTOLOCK                         (216)
+#define MOVE_SUBSCRIPT_PTR_SYRUP_BOMB                       (217)
 
-#define MAX_BASE_SUBSCRIPT_PTR_NUM (215)
+#define MAX_BASE_SUBSCRIPT_PTR_NUM (217)
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_PTR_CUSTOM_1 (MAX_BASE_SUBSCRIPT_PTR_NUM + 1)

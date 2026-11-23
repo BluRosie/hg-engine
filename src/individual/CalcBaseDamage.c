@@ -393,6 +393,11 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             movepower *= 2;
         }
         break;
+    case MOVE_FICKLE_BEAM:
+        if (sp->moveConditionsFlags[attacker].fickleBeamBoosted) {
+            movepower *= 2;
+        }
+        break;
     case MOVE_PSYBLADE:
         if (sp->terrainOverlay.numberOfTurnsLeft > 0 && sp->terrainOverlay.type == ELECTRIC_TERRAIN) {
             movepower = 120;

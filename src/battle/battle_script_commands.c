@@ -146,6 +146,7 @@ BOOL btl_scr_cmd_12C_TryActivateEmergencyExit(void *bsys, struct BattleStruct *c
 BOOL btl_scr_cmd_12D_TryClearUnnerve(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12E_TryActivateSymbiosis(void *bsys, struct BattleStruct *ctx);
 BOOL btl_scr_cmd_12F_RestoreBoosterEnergyBattler(void *bsys, struct BattleStruct *ctx);
+BOOL btl_scr_cmd_130_TrySetSyrupBomb(void *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_GoToMoveScript(struct BattleSystem *bsys, struct BattleStruct *ctx);
 BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp);
 BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp);
@@ -495,6 +496,7 @@ const u8 *BattleScrCmdNames[] = {
     "TryClearUnnerve",
     "TryActivateSymbiosis",
     "RestoreBoosterEnergyBattler",
+    "TrySetSyrupBomb",
     // "YourCustomCommand",
 };
 
@@ -502,7 +504,7 @@ u32 cmdAddress = 0;
 #pragma GCC diagnostic pop
 #endif // DEBUG_BATTLE_SCRIPT_COMMANDS
 
-#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x12E
+#define BASE_ENGINE_BTL_SCR_CMDS_MAX 0x130
 
 // clang-format off
 const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
@@ -585,6 +587,7 @@ const btl_scr_cmd_func NewBattleScriptCmdTable[] = {
     [0x12D - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12D_TryClearUnnerve,
     [0x12E - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12E_TryActivateSymbiosis,
     [0x12F - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_12F_RestoreBoosterEnergyBattler,
+    [0x130 - START_OF_NEW_BTL_SCR_CMDS] = btl_scr_cmd_130_TrySetSyrupBomb,
     // [BASE_ENGINE_BTL_SCR_CMDS_MAX - START_OF_NEW_BTL_SCR_CMDS + 1] = btl_scr_cmd_custom_01_your_custom_command,
 };
 
@@ -1154,6 +1157,7 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
         case MOVE_EFFECT_SANDSEAR_STORM:
         case MOVE_EFFECT_BLEAKWIND_STORM:
         case MOVE_EFFECT_WILDBOLT_STORM:
+        case MOVE_EFFECT_SYRUP_BOMB:
             effect = MOVE_EFFECT_HIT;
             sheer_force_active = TRUE;
             break;
@@ -1234,7 +1238,6 @@ BOOL btl_scr_cmd_24_jumptocurmoveeffectscript(void *bw UNUSED, struct BattleStru
                 || (sp->current_move_index == MOVE_GENESIS_SUPERNOVA) // TODO
                 || (sp->current_move_index == MOVE_EERIE_SPELL) // TODO
                 || (sp->current_move_index == MOVE_SALT_CURE) // TODO
-                || (sp->current_move_index == MOVE_SYRUP_BOMB) // TODO
                 || (sp->current_move_index == MOVE_SHELL_SIDE_ARM) // TODO
                 || (sp->current_move_index == MOVE_ORDER_UP) // keep stat boost
                 || (sp->current_move_index == MOVE_CEASELESS_EDGE)
@@ -5316,6 +5319,13 @@ BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
     case MOVE_RAGE_POWDER:
         ctx->moveConditionsFlags[client_no].usedRagePowder = TRUE;
         break;
+    case MOVE_FICKLE_BEAM:
+        ctx->moveConditionsFlags[client_no].fickleBeamBoosted = TRUE;
+        break;
+    case MOVE_OCTOLOCK:
+        ctx->octolockSyrupBomb.octolockActive[client_no] = TRUE;
+        ctx->octolockSyrupBomb.octolockSource[client_no] = ctx->attack_client;
+        break;
     default:
         break;
     }
@@ -6175,6 +6185,23 @@ BOOL btl_scr_cmd_12F_RestoreBoosterEnergyBattler(void UNUSED *bsys, struct Battl
 
     ctx->battlerIdTemp = BATTLER_ALLY(ctx->battlerIdTemp);
     ctx->msg_work = ctx->paradoxBoostedStat[ctx->battlerIdTemp];
+
+    return FALSE;
+}
+
+BOOL btl_scr_cmd_130_TrySetSyrupBomb(void UNUSED *bsys, struct BattleStruct *ctx)
+{
+    IncrementBattleScriptPtr(ctx, 1);
+    int failAddress = read_battle_script_param(ctx);
+
+    if (ctx->octolockSyrupBomb.syrupBombTurns[ctx->state_client] != 0
+        || MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->state_client, ABILITY_SHIELD_DUST)) {
+        IncrementBattleScriptPtr(ctx, failAddress);
+        return FALSE;
+    }
+
+    ctx->octolockSyrupBomb.syrupBombSource[ctx->state_client] = ctx->attack_client;
+    ctx->octolockSyrupBomb.syrupBombTurns[ctx->state_client] = 3;
 
     return FALSE;
 }
