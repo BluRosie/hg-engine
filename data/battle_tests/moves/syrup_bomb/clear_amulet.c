@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_WOBBUFFET,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_TELEPATHY,
             .item = ITEM_NONE,
@@ -91,8 +91,12 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Syrup Bomb!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet got covered in sticky candy syrup!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet's Clear Amulet prevents Speed loss!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet's Clear Amulet prevents Speed loss!" },
     }

@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_WOBBUFFET,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_TELEPATHY,
             .item = ITEM_NONE,
@@ -59,7 +59,7 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_SWITCH_SLOT_1, 0 },
-            { ACTION_MOVE_SLOT_2, BATTLER_ENEMY_FIRST },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -102,12 +102,17 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Syrup Bomb!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet got covered in sticky candy syrup!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet's Speed fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Wobbuffet" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Wynaut" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Sleep Talk!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "The opposing Wobbuffet's Speed fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
     }
 }
 END_TEST

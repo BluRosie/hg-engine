@@ -89,6 +89,8 @@ BEGIN_TEST
         }
     },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pidgey used Sleep Talk!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "But it failed!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Octolock!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Pidgey can no longer escape because of Octolock!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Pidgey's Big Pecks" },

@@ -9,7 +9,7 @@ BEGIN_TEST
     .playerParty = {
         {
             .species = SPECIES_WOBBUFFET,
-            .level = 50,
+            .level = 100,
             .form = 0,
             .ability = ABILITY_TELEPATHY,
             .item = ITEM_NONE,
