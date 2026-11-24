@@ -914,9 +914,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             while (sp->scc_work < client_set_max) {
                 battlerId = sp->turnOrder[sp->scc_work];
 
-                if (sp->octolockSyrupBomb.octolockActive[battlerId] && IsBattlerOnField(sp, battlerId) && sp->battlemon[battlerId].hp != 0) {
+                if (sp->moveConditionsFlags[battlerId].octolockFlags.isActive && IsBattlerOnField(sp, battlerId) && sp->battlemon[battlerId].hp != 0) {
                     sp->battlerIdTemp = battlerId;
-                    sp->attack_client = sp->octolockSyrupBomb.octolockSource[battlerId];
+                    sp->attack_client = sp->moveConditionsFlags[battlerId].octolockFlags.sourceBattler;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_OCTOLOCK_END_TURN);
                     sp->next_server_seq_no = sp->server_seq_no;
                     sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
@@ -942,9 +942,9 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             while (sp->scc_work < client_set_max) {
                 battlerId = sp->turnOrder[sp->scc_work];
 
-                if (sp->octolockSyrupBomb.syrupBombTurns[battlerId] != 0 && IsBattlerOnField(sp, battlerId) && sp->battlemon[battlerId].hp != 0) {
-                    sp->attack_client = sp->octolockSyrupBomb.syrupBombSource[battlerId];
-                    sp->octolockSyrupBomb.syrupBombTurns[battlerId]--;
+                if (sp->moveConditionsFlags[battlerId].syrupBombFlags.turns != 0 && IsBattlerOnField(sp, battlerId) && sp->battlemon[battlerId].hp != 0) {
+                    sp->attack_client = sp->moveConditionsFlags[battlerId].syrupBombFlags.sourceBattler;
+                    sp->moveConditionsFlags[battlerId].syrupBombFlags.turns--;
                     sp->battlerIdTemp = battlerId;
                     LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYRUP_BOMB_END_TURN);
                     sp->next_server_seq_no = sp->server_seq_no;

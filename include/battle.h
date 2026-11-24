@@ -761,6 +761,16 @@ typedef struct OnceOnlyMoveConditionFlags {
     u8 padding : 7;
 } OnceOnlyMoveConditionFlags;
 
+typedef struct OctolockFlags {
+    u8 isActive : 1;
+    u8 sourceBattler : 7;
+} OctolockFlags;
+
+typedef struct SyrupBombFlags {
+    u8 turns : 3;
+    u8 sourceBattler : 5;
+} SyrupBombFlags;
+
 typedef struct MoveConditionsFlags {
     u8 endure : 1;
     u8 moveFailureLastTurn : 1;
@@ -787,6 +797,9 @@ typedef struct MoveConditionsFlags {
     u8 usedRagePowder : 1;
     u8 fickleBeamBoosted : 1;
     u8 padding : 6;
+
+    OctolockFlags octolockFlags;
+    SyrupBombFlags syrupBombFlags;
 } MoveConditionsFlags;
 
 typedef struct MovePerformanceContext {
@@ -858,13 +871,6 @@ typedef struct AbilityProcessingFlags {
     u8 symbiosisAlly : 3;
     u8 boosterEnergyStat : 4;
 } AbilityProcessingFlags;
-
-typedef struct OctolockSyrupBombState {
-    u8 octolockActive[CLIENT_MAX];
-    u8 octolockSource[CLIENT_MAX];
-    u8 syrupBombTurns[CLIENT_MAX];
-    u8 syrupBombSource[CLIENT_MAX];
-} OctolockSyrupBombState;
 
 #define VANILLA_BATTLE_SCRIPT_PUSH_DEPTH 4
 #define BATTLE_SCRIPT_PUSH_DEPTH         8
@@ -1128,7 +1134,6 @@ struct BattleStruct {
     int recoilDamage;
     u8 pickpocketBattler;
     u8 pickpocketAttackerSlot; // account for red card
-    OctolockSyrupBombState octolockSyrupBomb;
 };
 
 enum {

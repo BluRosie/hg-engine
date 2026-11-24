@@ -117,5 +117,5 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
 BOOL SeeIfBindShouldRestrainSwitch(struct BattleSystem *bw UNUSED, struct BattleStruct *sp, u32 battler)
 {
     // debug_printf("Battler %d can%s switch out.\n", battler, (sp->binding_turns[battler] != 0) ? "'t" : "");
-    return sp->binding_turns[battler] != 0 || sp->octolockSyrupBomb.octolockActive[battler];
+    return sp->binding_turns[battler] != 0 || sp->moveConditionsFlags[battler].octolockFlags.isActive;
 }

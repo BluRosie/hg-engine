@@ -4304,7 +4304,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         break;
     }
     case MOVE_OCTOLOCK: {
-        if (ctx->octolockSyrupBomb.octolockActive[ctx->defence_client]
+        if (ctx->moveConditionsFlags[ctx->defence_client].octolockFlags.isActive
             || (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_MEAN_LOOK)) {
             butItFailedFlag = TRUE;
         }
@@ -4314,7 +4314,7 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
     case MOVE_MEAN_LOOK:
     case MOVE_SPIDER_WEB: {
         if ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_MEAN_LOOK)
-            || ctx->octolockSyrupBomb.octolockActive[ctx->defence_client]) {
+            || ctx->moveConditionsFlags[ctx->defence_client].octolockFlags.isActive) {
             butItFailedFlag = TRUE;
         }
         break;

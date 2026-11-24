@@ -4,6 +4,7 @@
 .data
 
 _000:
+    GotoIfSecondHitOfParentalBond _damage
     PrintAttackMessage
 #ifndef DEBUG_BATTLE_SCENARIOS
     Random 10, 0

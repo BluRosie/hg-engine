@@ -5323,8 +5323,8 @@ BOOL btl_scr_cmd_115_setMoveConditionFlag(void *bsys, struct BattleStruct *ctx)
         ctx->moveConditionsFlags[client_no].fickleBeamBoosted = TRUE;
         break;
     case MOVE_OCTOLOCK:
-        ctx->octolockSyrupBomb.octolockActive[client_no] = TRUE;
-        ctx->octolockSyrupBomb.octolockSource[client_no] = ctx->attack_client;
+        ctx->moveConditionsFlags[client_no].octolockFlags.isActive = TRUE;
+        ctx->moveConditionsFlags[client_no].octolockFlags.sourceBattler = ctx->attack_client;
         break;
     default:
         break;
@@ -6194,14 +6194,14 @@ BOOL btl_scr_cmd_130_TrySetSyrupBomb(void UNUSED *bsys, struct BattleStruct *ctx
     IncrementBattleScriptPtr(ctx, 1);
     int failAddress = read_battle_script_param(ctx);
 
-    if (ctx->octolockSyrupBomb.syrupBombTurns[ctx->state_client] != 0
+    if (ctx->moveConditionsFlags[ctx->state_client].syrupBombFlags.turns != 0
         || MoldBreakerAbilityCheck(ctx, ctx->attack_client, ctx->state_client, ABILITY_SHIELD_DUST)) {
         IncrementBattleScriptPtr(ctx, failAddress);
         return FALSE;
     }
 
-    ctx->octolockSyrupBomb.syrupBombSource[ctx->state_client] = ctx->attack_client;
-    ctx->octolockSyrupBomb.syrupBombTurns[ctx->state_client] = 3;
+    ctx->moveConditionsFlags[ctx->state_client].syrupBombFlags.sourceBattler = ctx->attack_client;
+    ctx->moveConditionsFlags[ctx->state_client].syrupBombFlags.turns = 3;
 
     return FALSE;
 }
