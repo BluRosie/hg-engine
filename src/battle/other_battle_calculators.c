@@ -4153,7 +4153,7 @@ BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys UNUSED, struct 
 u32 LONG_CALL RollMetronomeMove(struct BattleSystem *bsys)
 {
     // Handle dummy moves
-    u32 randomNumber = (BattleRand(bsys) % (NUM_OF_MOVES - 3)) + 1;
+    u32 randomNumber = (BattleRand(bsys) % (NUM_OF_MOVES - 3 - 1)) + 1; // -3 dummy moves and -1 move none
     if (randomNumber >= MOVE_468) {
         return randomNumber + 3;
     }
