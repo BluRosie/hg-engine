@@ -4,7 +4,7 @@
 .data
 
 _000:
-    ChangeStatStage _051, _069, _070, _AbilityBlock, _AbilityBlockAbility
+    ChangeStatStage _051, _069, _070, _AbilityBlock, _AbilityBlockAbility, _AbilityBlockNoPopup
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_DIRECT, _010
     PrintAttackMessage
     Wait
@@ -73,7 +73,9 @@ _End:
 
 
 _AbilityBlockAbility:
-    AbilityPopup BATTLER_CATEGORY_SIDE_EFFECT_MON
+    AbilityPopup BATTLER_CATEGORY_ABILITY_MON
+
+_AbilityBlockNoPopup:
     PrintBufferedMessage
     Wait
     WaitButtonABTime 30

@@ -1,10 +1,11 @@
 import json
+import os
 import requests
 import re
 
 GAMEMASTER_URL = "https://raw.githubusercontent.com/pvpoke/pvpoke/refs/heads/master/src/data/gamemaster.json"
 GAMEMASTER_LOCAL = "gamemaster.json"
-OUTPUT_JSON = "22_go.json"
+OUTPUT_JSON = os.environ.get("GO_LEARNSET_FILE", "99_go.json")
 
 
 def load_species_header(file_path):

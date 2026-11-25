@@ -41,7 +41,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         if ((sp->battlemon[sp->attack_client].hp)
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
 #ifndef DEBUG_BATTLE_SCENARIOS
             && (BattleRand(bw) % 10 < 3)
 #endif
@@ -57,7 +57,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         if ((sp->battlemon[sp->attack_client].hp)
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 8);
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = BATTLE_SUBSCRIPT_ROUGH_SKIN;
@@ -67,7 +67,10 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         if ((sp->battlemon[sp->attack_client].hp)
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+            && !HasType(sp, sp->attack_client, TYPE_GRASS)
+            && GetBattlerAbility(sp, sp->attack_client) != ABILITY_OVERCOAT
+            && HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_SPORE_POWDER_IMMUNITY
 #ifndef DEBUG_BATTLE_SCENARIOS
             && (BattleRand(bw) % 10 < 3)
 #endif
@@ -93,7 +96,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         if ((sp->battlemon[sp->attack_client].hp)
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
 #ifndef DEBUG_BATTLE_SCENARIOS
             && (BattleRand(bw) % 10 < 3)
 #endif
@@ -108,7 +111,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         if ((sp->battlemon[sp->attack_client].hp)
             && (sp->battlemon[sp->attack_client].condition == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
 #ifndef DEBUG_BATTLE_SCENARIOS
             && (BattleRand(bw) % 10 < 3)
 #endif
@@ -123,7 +126,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         if ((sp->battlemon[sp->attack_client].hp)
             && ((sp->battlemon[sp->attack_client].condition2 & STATUS2_ATTRACT) == 0)
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
             && (sp->battlemon[sp->defence_client].hp)
 #ifndef DEBUG_BATTLE_SCENARIOS
             && (BattleRand(bw) % 10 < 3)
@@ -140,7 +143,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
             && (GetBattlerAbility(sp, sp->attack_client) != ABILITY_MAGIC_GUARD)
             && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_DAMP) == 0)
             && (sp->battlemon[sp->attack_client].hp)
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
             sp->hp_calc_work = BattleDamageDivide(sp->battlemon[sp->attack_client].maxhp * -1, 4);
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = BATTLE_SUBSCRIPT_AFTERMATH;
@@ -229,7 +232,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_GOOEY)
         || MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_TANGLING_HAIR)) {
         if ((sp->battlemon[sp->attack_client].states[STAT_SPEED] > 0)
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
             && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
             sp->addeffect_param = MOVE_SUBSCRIPT_PTR_SPEED_DOWN_1_STAGE;
             sp->addeffect_type = SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY;
@@ -243,7 +246,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
             && !AbilityFailSkillSwap(sp->battlemon[sp->attack_client].ability)
             && HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_PREVENT_ABILITY_CHANGES
             && HeldItemHoldEffectGet(sp, sp->defence_client) != HOLD_EFFECT_PREVENT_ABILITY_CHANGES
-            && IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
+            && !CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)
             && (sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)) {
             sp->battlerIdTemp = sp->attack_client;
             seq_no[0] = BATTLE_SUBSCRIPT_WANDERING_SPIRIT;
@@ -251,7 +254,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
         }
     } else if (MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_MUMMY) || MoldBreakerAbilityCheck(sp, sp->attack_client, sp->defence_client, ABILITY_LINGERING_AROMA)) {
         if (sp->battlemon[sp->attack_client].ability != sp->battlemon[sp->defence_client].ability) {
-            if ((IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
+            if ((!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))
                 && (!AbilityCantSupress(sp->battlemon[sp->attack_client].ability))
                 && ((sp->oneSelfFlag[sp->defence_client].physical_damage) || (sp->oneSelfFlag[sp->defence_client].special_damage))) {
                 sp->addeffect_type = SIDE_EFFECT_TYPE_ABILITY;
@@ -426,7 +429,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
     } else if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_PERISH_BODY) { // not breakable
         // defender does not need to be alive
         if ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
+            && (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
             sp->addeffect_type = SIDE_EFFECT_TYPE_PRINT_WORK_ABILITY;
             seq_no[0] = BATTLE_SUBSCRIPT_PERISH_BODY;
             ret = TRUE;
@@ -434,7 +437,7 @@ BOOL __attribute__((section(".init"))) MoveHitDefenderAbilityCheckInternal(struc
     } else if (GetBattlerAbility(sp, sp->defence_client) == ABILITY_PICKPOCKET) { // not breakable
         if ((sp->oneSelfFlag[sp->defence_client].physical_damage || sp->oneSelfFlag[sp->defence_client].special_damage)
             && sp->battlemon[sp->defence_client].hp
-            && (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
+            && (IsMoveMakingContact(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag))) {
             sp->pickpocketBattler |= No2Bit(sp->defence_client);
             sp->pickpocketAttackerSlot = sp->sel_mons_no[sp->attack_client];
         }
