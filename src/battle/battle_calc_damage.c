@@ -23,6 +23,7 @@ int AdjustDamageForRoll(void *bw, struct BattleStruct *sp, int damage);
 
 int CalcBaseDamage(void *bw, struct BattleStruct *sp, int moveno, u32 side_cond UNUSED, u32 field_cond, u16 pow UNUSED, u8 type UNUSED, u8 attacker, u8 defender, u8 critical)
 {
+    debug_printf("FUCK\n");
     struct DamageCalcStruct damageCalc = { 0 };
 
     BOOL isFutureSightWithoutAttacker = FALSE;

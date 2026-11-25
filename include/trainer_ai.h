@@ -3,8 +3,107 @@
 
 #include "battle.h"
 
-void LONG_CALL AITypeCalc(struct BattleStruct *bsys, u32 move, u32 type, int atkAbility, int defAbility, int held_effect, int type1, int type2, u32 *flag);
-BOOL LONG_CALL CantEscape(struct BattleSystem *bsys, struct BattleStruct *ctx, int battlerID, BattleMessage *msg);
+typedef struct {
+    u8 id;
+    int side;
+    int level;
+    int ability; // TODO: Handle deactivations/ignores in SetupStateVariables
+    int item;
+    int itemHoldEffect;
+    int itemFlingEffect;
+
+    int hp;
+    int maxHP;
+    int percentHP;
+    int speed;
+
+    int partyIndex;
+    int partySize;
+    int livingPartySize;
+
+    int turnsOnField; 
+} AIContextBattler;
+
+// TODO: Sort this nonsense properly.
+typedef struct {
+    AIContextBattler attacker;
+    AIContextBattler target;
+
+    // Move-related variables:
+    int move;
+    int moveEffect;
+    u32 moveEffectiveness;
+    int moveType;
+    int movePP;
+
+    BOOL attackerHasSupereffectiveMove;
+    BOOL attackerHasDamagingMove;
+    int attackerMaxRollMoveDamages[4];
+    BOOL attackerKnowsPsychUp;
+    u32 flingPower;
+
+    int attackerMovesKnown;
+    int attackerStatusedMons;
+
+    // Target ONLY
+    int targetImmunities; // TODO: Create bitflags for organization
+    BOOL targetImmuneToPoison;
+    BOOL targetImmuneToParalysis;
+    BOOL targetImmuneToBurn;
+    BOOL targetImmuneToSleep;
+
+    BOOL targetHasHazards;
+    BOOL targetHasBadItem;
+
+    int targetLastUsedMove;
+    int targetLastUsedMoveEffect;
+    int targetDamagedMons;
+    
+    // Field states
+    BOOL trickRoomActive;
+    
+    BOOL hasStatChange;
+
+    int differenceInAttackStages;
+    int differenceInSpAtkStages;
+    int differenceInDefenseStages;
+    int differenceInSpDefStages;
+    
+    u8 attackerMovesFirst;
+    u8 targetMovesFirst;
+    u8 isSpeedTie;
+
+    int chosenTarget;
+
+    /*Specific to multi/double/tag battles*/
+    int partner;
+    int partnerHP;
+    int partnerPercentHP;
+    int partnerAbility;
+    int partnerItem;
+} AIContext;
+
+typedef int (*MoveEffectEvaluator)(AIContext *ai, struct BattleSystem *battleSystem);
+
+int MoveEffectEvaluator_EvaluateBasic(AIContext *ai, struct BattleSystem *battleSystem);
+int MoveEffectEvaluator_EvaluateTag(AIContext *ai, struct BattleSystem *battleSystem);
+int MoveEffectEvaluator_EvaluateExpert(AIContext *ai, struct BattleSystem *battleSystem);
+
+int AttackerMonWithHighestDamage(struct BattleSystem *battleSystem, AIContext *ai);
+int BattlerStatStageChangeSum(struct BattleSystem *battleSystem, u32 battlerID);
+BOOL BattlerHasStatStageOrGreater(struct BattleSystem *battleSystem, u32 battlerID, s8 stages);
+BOOL BattlerHasStatStageOrLess(struct BattleSystem *battleSystem, u32 battlerID, s8 stages);
+BOOL BattlerHasMoveSplit(struct BattleSystem *battleSystem, u32 battlerID, u32 split);
+BOOL BattlerHasMoveEffect(struct BattleSystem *battleSystem, u32 battlerID, u32 moveEffect);
+BOOL BattlerHasMoveType(struct BattleSystem *battleSystem, u32 battlerID, u32 type);
+BOOL ItemIsBadToTrade(u32 item, AIContext *ai);
+BOOL ItemIsDisruptive(u32 item, AIContext *ai);
+BOOL IsDesirableAbility(u32 ability);
+BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int mainBattler, int flag);
+BOOL LONG_CALL IsInList(u32 moveEffect, const u16 list[], u16 length);
+
+void LONG_CALL AITypeCalc(struct BattleStruct *battleSystem, u32 move, u32 type, int atkAbility, int defAbility, int held_effect, int type1, int type2, u32 *flag);
+BOOL LONG_CALL CantEscape(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerID, BattleMessage *msg);
 
 enum AIActionChoice {
     AI_ENEMY_ATTACK_1,

@@ -84,7 +84,7 @@
 // #define DEBUG_DAMAGE_CALC
 
 // DEBUG_SPEED_CALC shows debug information related to calculating speed. It is very slow and laggy.
-//  #define DEBUG_SPEED_CALC
+// #define DEBUG_SPEED_CALC
 
 // DEBUG_ABILITY_POPUP shows debug information related to the Ability popup.
 // #define DEBUG_ABILITY_POPUP

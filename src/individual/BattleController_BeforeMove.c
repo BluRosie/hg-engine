@@ -3896,7 +3896,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
             case MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE:
             case MOVE_EFFECT_ADD_TYPE_GRASS:
             case MOVE_EFFECT_ADD_TYPE_GHOST:
-            case MOVE_EFFECT_SUPRESS_ABILITY:
+            case MOVE_EFFECT_SUPPRESS_ABILITY:
             case MOVE_EFFECT_GUARD_SPLIT:
             case MOVE_EFFECT_POWER_SPLIT:
             case MOVE_EFFECT_STATUS_LEECH_SEED:
@@ -5192,7 +5192,7 @@ BOOL CanMoveActivateEffectivenessBerry(struct BattleStruct *ctx)
     case MOVE_EFFECT_STRUGGLE:
     case MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL: // Psywave
     case MOVE_EFFECT_LEVEL_DAMAGE_FLAT: // Seismic Toss, Night Shade, ...
-    case MOVE_EFFECT_10_DAMAGE_FLAT: // Sonic Boom
+    case MOVE_EFFECT_20_DAMAGE_FLAT: // Sonic Boom
     case MOVE_EFFECT_40_DAMAGE_FLAT: // Dragon Rage
     case MOVE_EFFECT_HALVE_HP: // Super Fang, Ruination, ...
     case MOVE_EFFECT_QUARTER_HP: // Guardian of Alola

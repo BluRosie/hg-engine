@@ -567,7 +567,7 @@ u8 LONG_CALL TestBattle_AISelectMove(struct BattleSystem *bsys, int battler)
     u8 target = 0;
     TestBattle_GetAIScriptedMove(battler, &moveSlot, &target);
     bsys->sp->waza_no_pos[battler] = moveSlot;
-    bsys->sp->aiWorkTable.ai_dir_select_client[battler] = target;
+    bsys->sp->trainerAIData.ai_dir_select_client[battler] = target;
     return moveSlot;
 }
 

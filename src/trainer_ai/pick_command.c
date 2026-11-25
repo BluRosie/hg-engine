@@ -24,8 +24,7 @@ BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSystem, 
 
 int TypeMatchupMultiplier(u8 attackingType, u8 defendingType1, u8 defendingType2, u8 defendingType3);
 
-int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
-{
+int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker) {
     int i;
     u8 battler1, battler2;
     struct BattleStruct *ctx = bsys->sp;
@@ -70,11 +69,11 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker)
             return PLAYER_INPUT_ITEM;
         }
     }
+    debug_printf("AI decided to fight!\n");
     return PLAYER_INPUT_FIGHT;
 }
 
-BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker)
-{
+BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker) {
     u32 battler1, battler2;
     u32 battleType = BattleTypeGet(bsys);
 
@@ -167,13 +166,13 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx,
     return FALSE;
 }
 
-int BattleAI_PostKOSwitchIn(struct BattleSystem *battleSystem, int battler)
-{
+int BattleAI_PostKOSwitchIn(struct BattleSystem *battleSystem, int battler) {
     int i, j;
     u16 monSpecies;
     u16 move;
     int moveType;
-    u8 score, maxScore; // BUG: Post-KO Switch-In AI Scoring Overflow (see docs/bugs_and_glitches.md)
+    u8 score = 0;
+    u8 maxScore = 0;
     u8 picked = 6;
     u8 slot1, slot2;
     u32 moveStatusFlags;
@@ -293,7 +292,7 @@ int BattleAI_PostKOSwitchIn(struct BattleSystem *battleSystem, int battler)
 
                 move = GetMonData(mon, MON_DATA_MOVE1 + j, NULL); 
                 moveType = ctx->moveTbl[move].effect;
-                 if (move && ctx->moveTbl[move].power != 1) {
+                if (move && ctx->moveTbl[move].power != 1) {
 
                     score = CalcBaseDamage(battleSystem, ctx, move, ctx->side_condition[BATTLER_IS_ENEMY(defender)],
                     ctx->field_condition, ctx->moveTbl[move].power, ctx->moveTbl[move].type, battler, defender, 0);
@@ -333,13 +332,12 @@ int BattleAI_PostKOSwitchIn(struct BattleSystem *battleSystem, int battler)
  * @return          TRUE if an item should be used, FALSE if not.
  */
 
-BOOL TrainerAI_ShouldUseItem(struct BattleSystem *battleSystem, int battler)
-{
+BOOL TrainerAI_ShouldUseItem(struct BattleSystem *battleSystem, int battler) {
     int i;
     u8 aliveMons = 0;
     struct BattleStruct *ctx = battleSystem->sp;
     int battleType = BattleTypeGet(battleSystem);
-    ctx->aiWorkTable.usedItemCondition[battler >> 1] = 0;
+    ctx->trainerAIData.usedItemCondition[battler >> 1] = 0;
     BOOL result = FALSE;
 
     if (battleType & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI | BATTLE_TYPE_TAG)) {
@@ -368,8 +366,8 @@ BOOL TrainerAI_ShouldUseItem(struct BattleSystem *battleSystem, int battler)
     }
  
     for (i = 0; i < 4; i++) { // MAX_TRAINER_ITEMS
-        if (i == 0 || aliveMons <= ctx->aiWorkTable.trainerItemCounts[battler >> 1] - i + 1) {
-            u16 item = ctx->aiWorkTable.trainerItems[battler >> 1][i];
+        if (i == 0 || aliveMons <= ctx->trainerAIData.trainerItemCounts[battler >> 1] - i + 1) {
+            u16 item = ctx->trainerAIData.trainerItems[battler >> 1][i];
  
             if (item == ITEM_NONE) {
                 continue;
@@ -378,7 +376,7 @@ BOOL TrainerAI_ShouldUseItem(struct BattleSystem *battleSystem, int battler)
             if (item == ITEM_FULL_RESTORE) {
                 if (ctx->battlemon[battler].hp < (s32)(ctx->battlemon[battler].maxhp / 4)
                     && ctx->battlemon[battler].hp) {
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_FULL_RESTORE;
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_FULL_RESTORE;
                     result = TRUE;
                 }
             } else if (GetItemVar(ctx, item, ITEM_PARAM_HP_RECOVERY)) {
@@ -390,86 +388,86 @@ BOOL TrainerAI_ShouldUseItem(struct BattleSystem *battleSystem, int battler)
                     if (ctx->battlemon[battler].hp
                         && (ctx->battlemon[battler].hp < (s32)(ctx->battlemon[battler].maxhp / 4)
                         || (ctx->battlemon[battler].maxhp - ctx->battlemon[battler].hp) > hpRestore)) {
-                        ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_HP;
+                        ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_HP;
                         result = TRUE;
                     }
                 }
             } else if (GetItemVar(ctx, item, ITEM_PARAM_SLEEP_RECOVERY)) {
                 if (ctx->battlemon[battler].condition & STATUS_SLEEP) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] |= No2Bit(5);
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] |= No2Bit(5);
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
                     result = TRUE;
                 }
             } else if (GetItemVar(ctx, item, ITEM_PARAM_POISON_RECOVERY)) {
                 if ((ctx->battlemon[battler].condition & STATUS_POISON)
                     || (ctx->battlemon[battler].condition & STATUS_BAD_POISON)) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] |= No2Bit(4);
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] |= No2Bit(4);
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
                     result = TRUE;
                 }
             } else if (GetItemVar(ctx, item, ITEM_PARAM_BURN_RECOVERY)) {
                 if (ctx->battlemon[battler].condition & STATUS_BURN) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] |= No2Bit(3);
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] |= No2Bit(3);
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
                     result = TRUE;
                 }
             } else if (GetItemVar(ctx, item, ITEM_PARAM_FREEZE_RECOVERY)) {
                 if (ctx->battlemon[battler].condition & STATUS_FREEZE) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] |= No2Bit(2);
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] |= No2Bit(2);
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
                     result = TRUE;
                 }
             } else if (GetItemVar(ctx, item, ITEM_PARAM_PARALYZE_RECOVERY)) {
                 if (ctx->battlemon[battler].condition & STATUS_PARALYSIS) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] |= No2Bit(1);
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] |= No2Bit(1);
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
                     result = TRUE;
                 }
             } else if (GetItemVar(ctx, item, ITEM_PARAM_CONFUSION_RECOVERY)) {
                 if (ctx->battlemon[battler].condition2 & STATUS2_CONFUSION) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] |= No2Bit(0);
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] |= No2Bit(0);
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_RECOVER_STATUS;
                     result = TRUE;
                 }
                 // Don't try to use any of these until after the first turn that a mon is in play.
             } else if ((ctx->battlemon[battler].moveeffect.fakeOutCount - ctx->total_turn) >= 0) {
                 if (GetItemVar(ctx, item, ITEM_PARAM_ATTACK_UP)) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] = STAT_ATTACK;
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] = STAT_ATTACK;
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
                     result = TRUE;
                 } else if (GetItemVar(ctx, item, ITEM_PARAM_DEFENSE_UP)) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] = STAT_DEFENSE;
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] = STAT_DEFENSE;
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
                     result = TRUE;
                 } else if (GetItemVar(ctx, item, ITEM_PARAM_SP_ATTACK_UP)) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] = STAT_SPECIAL_ATTACK;
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] = STAT_SPECIAL_ATTACK;
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
                     result = TRUE;
                 } else if (GetItemVar(ctx, item, ITEM_PARAM_SP_DEFENSE_UP)) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] = STAT_SPECIAL_DEFENSE;
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] = STAT_SPECIAL_DEFENSE;
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
                     result = TRUE;
                 } else if (GetItemVar(ctx, item, ITEM_PARAM_SPEED_UP)) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] = STAT_SPEED;
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] = STAT_SPEED;
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
                     result = TRUE;
                 } else if (GetItemVar(ctx, item, ITEM_PARAM_ACCURACY_UP)) {
-                    ctx->aiWorkTable.usedItemCondition[battler >> 1] = STAT_ACCURACY;
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
+                    ctx->trainerAIData.usedItemCondition[battler >> 1] = STAT_ACCURACY;
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_STAT_BOOSTER;
                     result = TRUE;
                 } else if (GetItemVar(ctx, item, ITEM_PARAM_CRITICAL_UP)
                     && (ctx->side_condition[1] & SIDE_CONDITION_MIST) == FALSE) {
-                    ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_GUARD_SPEC;
+                    ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_GUARD_SPEC;
                     result = TRUE;
                 }
             } else {
                 // Unrecognized item type
-                ctx->aiWorkTable.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_MAX;
+                ctx->trainerAIData.usedItemType[battler >> 1] = ITEM_AI_CATEGORY_MAX;
             }
  
             if (result == TRUE) {
-                ctx->aiWorkTable.usedItem[battler >> 1] = item;
-                ctx->aiWorkTable.trainerItems[battler >> 1][i] = 0;
+                ctx->trainerAIData.usedItem[battler >> 1] = item;
+                ctx->trainerAIData.trainerItems[battler >> 1][i] = 0;
             }
         }
     }
@@ -485,8 +483,7 @@ BOOL TrainerAI_ShouldUseItem(struct BattleSystem *battleSystem, int battler)
  * @param battler   The AI's battler.
  * @return TRUE if the AI has a switch to make, FALSE otherwise.
  */
-BOOL AI_PerishSongKO(struct BattleStruct *ctx, int battler)
-{
+BOOL AI_PerishSongKO(struct BattleStruct *ctx, int battler) {
     if ((ctx->battlemon[battler].effect_of_moves & MOVE_EFFECT_FLAG_PERISH_SONG)
         && ctx->battlemon[battler].moveeffect.perishSongTurns == 1) { // Bugfix: checks the perish count on the correct turn.
         ctx->aiSwitchedPartySlot[battler] = 6;
@@ -508,8 +505,7 @@ BOOL AI_PerishSongKO(struct BattleStruct *ctx, int battler)
  * @param battler   The AI's battler.
  * @return TRUE if the AI has a switch to make, FALSE otherwise.
  */
-BOOL AI_CannotDamageWonderGuard(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
-{
+BOOL AI_CannotDamageWonderGuard(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler) {
     int i, j;
     u16 move;
     int moveType;
@@ -591,8 +587,7 @@ BOOL AI_CannotDamageWonderGuard(struct BattleSystem *bsys, struct BattleStruct *
  * @param battler   The AI's battler.
  * @return TRUE if the AI has a switch to make, FALSE otherwise.
  */
-BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler)
-{
+BOOL AI_OnlyIneffectiveMoves(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler) {
     int i, j;
     u8 defender1, defender2;
     u8 aiSlot1, aiSlot2;
@@ -835,8 +830,7 @@ static BOOL AbilityAbsorbsMove(int ability, int move, int adjustedType) {
  * @param battler   The AI's battler.
  * @return BOOL
  */
-BOOL AI_HasAbsorbAbilityInParty(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler)
-{
+BOOL AI_HasAbsorbAbilityInParty(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler) {
     u8 aiSlot1, aiSlot2;
 
     // If we have a super-effective move against either opponent, do not switch ~33% of the time.
@@ -902,8 +896,7 @@ BOOL AI_HasAbsorbAbilityInParty(struct BattleSystem *battleSystem, struct Battle
  * @param battler   The AI's battler.
  * @return TRUE if the AI should switch, FALSE otherwise.
  */
-BOOL AI_IsAsleepWithNaturalCure(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler)
-{
+BOOL AI_IsAsleepWithNaturalCure(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler) {
     // Don't switch if we aren't asleep, don't have Natural Cure, or are below 50% HP.
     if ((ctx->battlemon[battler].condition & STATUS_SLEEP) == FALSE
     || ctx->battlemon[battler].ability != ABILITY_NATURAL_CURE
@@ -958,8 +951,7 @@ BOOL AI_IsAsleepWithNaturalCure(struct BattleSystem *battleSystem, struct Battle
  *                              target against which the battler has a super-effective move.
  * @return TRUE if the AI's battler has a super-effective move.
  */
-BOOL AI_HasSuperEffectiveMove(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler, BOOL memorizedTypeChart)
-{
+BOOL AI_HasSuperEffectiveMove(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler, BOOL memorizedTypeChart) {
     int i;
     u32 effectiveness;
     u16 move;
@@ -1040,8 +1032,7 @@ BOOL AI_HasSuperEffectiveMove(struct BattleSystem *battleSystem, struct BattleSt
  * @return          TRUE if the AI has a high number of positive stat stages;
  *                  FALSE otherwise.
  */
-BOOL AI_IsHeavilyStatBoosted(struct BattleSystem *battleSystem UNUSED, struct BattleStruct *ctx, int battler)
-{
+BOOL AI_IsHeavilyStatBoosted(struct BattleSystem *battleSystem UNUSED, struct BattleStruct *ctx, int battler) {
     int stat;
     u8 numBoosts = 0;
 
@@ -1065,8 +1056,7 @@ BOOL AI_IsHeavilyStatBoosted(struct BattleSystem *battleSystem UNUSED, struct Ba
 * @param rand                  Random odds to switch, if conditions are met.
 * @return TRUE if the AI should switch, FALSE if not.
 */
-BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler, u32 checkEffectiveness, u8 rand)
-{
+BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battler, u32 checkEffectiveness, u8 rand) {
     u8 aiSlot1, aiSlot2;
 
     if (ctx->waza_no_hit[battler] == MOVE_NONE || ctx->waza_no_hit_client[battler] == BATTLER_NONE) {
@@ -1137,8 +1127,7 @@ BOOL AI_HasPartyMemberWithSuperEffectiveMove(struct BattleSystem *battleSystem, 
     return FALSE;
 }
 
-int TypeMatchupMultiplier(u8 attackingType, u8 defendingType1, u8 defendingType2, u8 defendingType3)
-{
+int TypeMatchupMultiplier(u8 attackingType, u8 defendingType1, u8 defendingType2, u8 defendingType3) {
     int i = 0;
     int mul = 40;
 

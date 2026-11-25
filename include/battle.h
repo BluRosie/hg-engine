@@ -533,57 +533,45 @@ struct __attribute__((packed)) side_condition_work {
     u32 : 23;
 };
 
-struct __attribute__((packed)) BattleAIWorkTable {
-    u8 evalStep; // 0x0
-    u8 moveSlot; // 0x1
-    u16 move; // 0x2
-
-    s8 moveScore[4]; // 0x4
-
-    int calcTemp; // 0x8
-    u32 aiFlags; // 0xC
-
-    u8 stateFlags; // 0x10
-    u8 aiBitShift; // 0x11
+struct __attribute__((packed)) TrainerAIData {
+    u8 evalStep;
+    u8 moveSlot;
+    u16 move;
+    s8 moveScore[4];
+    int calcTemp;
+    u32 aiFlags;
+    u8 stateFlags;
+    u8 aiBitShift;
 
     u8 ai_all_move_check_loop_count; // 0x12
     u8 ai_all_move_check_push_pos; // 0x13
     u8 *ai_all_move_check_loop_address; // 0x14
 
-    u8 moveDamageRolls[4]; // 0x18
-
-    u16 moves[4][4]; // 0x1C, length = 32 = 0x20 bytes
-    u8 abilities[4]; // 0x3C
-    u16 heldItems[4]; // 0x40
-
-    u16 trainerItems[2][4]; // 0x48, length = 16 = 0x10 bytes
-
-    u32 scriptStackPointer[8]; // 0x58, length = 32 = 0x20 bytes
-    u8 scriptStackSize; // 0x78
-    u8 trainerItemCounts[2]; // 0x79
-
-    u8 attacker; // 0x7B
-    u8 defender; // 0x7C
-
-    u8 usedItemType[2]; // 0x7D
-    u8 usedItemCondition[2]; // 0x7F
+    u8 moveDamageRolls[4];
+    u16 moves[4][4];
+    u8 abilities[4];
+    u16 heldItems[4];
+    u16 trainerItems[2][4];
+    u32 scriptStackPointer[8];
+    u8 scriptStackSize;
+    u8 trainerItemCounts[2];
+    u8 attacker;
+    u8 defender;
+    u8 usedItemType[2];
+    u8 usedItemCondition[2];
 
     u8 padding_81; // implicit padding here, one byte
 
-    u16 usedItem[2]; // 0x82
-
-    u8 selectedClient[CLIENT_MAX]; // 0x86
+    u16 usedItem[2];
+    u8 selectedTarget[CLIENT_MAX];
     struct BattleMove old_moveData[467 + 1]; // 0x8A, length = 0x10*468 = 0x1D40, this technically is also 0x3DE in the BattleStruct
 
     u16 padding_1DCA; // implicit padding here, two bytes
 
-    ITEMDATA *itemData; // 0x1DCC, this is technically also 0x2120 in the BattleStruct
+    ITEMDATA *itemData;
 
     u16 ai_calc_count[CLIENT_MAX]; // 0x1DD0
     u16 ai_calc_continue[CLIENT_MAX]; // 0x1DD8
-
-    // length is 0x1DE0
-    // the end of this struct is at 0x2134 in the BattleStruct
 };
 
 /**
@@ -948,7 +936,7 @@ struct BattleStruct {
     /*0x2D4*/ struct OneSelfTurnEffect oneSelfFlag[CLIENT_MAX]; // selfTurnData
     /*0x344*/ struct MoveOutCheck moveOutCheck[CLIENT_MAX]; // MoveFail
 
-    /*0x354*/ struct BattleAIWorkTable aiWorkTable;
+    /*0x354*/ struct TrainerAIData trainerAIData;
     /*0x2134*/ u32 *ai_seq_work;
     /*0x2138*/ u32 ai_seq_address;
 
