@@ -1,8 +1,8 @@
 /* Overlay 153 */
 OUTPUT_ARCH(arm)
 MEMORY {
-        rom     : ORIGIN = 0x023C1000, LENGTH = 0x3C00
-        ewram   : ORIGIN = 0x023C1000, LENGTH = 0x3C00
+        rom     : ORIGIN = 0x023C1000, LENGTH = 0x3000
+        ewram   : ORIGIN = 0x023C1000, LENGTH = 0x3000
 }
 
 SECTIONS {
