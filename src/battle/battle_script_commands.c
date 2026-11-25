@@ -1531,6 +1531,10 @@ void Task_DistributeExp_Extend(void *arg0, void *work)
 
             // debug_printf("[Task_DistributeExp_Extend] L = %d, Lp = %d, b = %d, top = %d, bottom = %d, exp = %d\n", level, Lp, base, top, bottom, totalexp);
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+            totalexp = 0;
+#endif
+
             if (monCountFromItem) {
                 sp->obtained_exp = (totalexp / 2) / monCount;
                 if (sp->obtained_exp == 0) {
