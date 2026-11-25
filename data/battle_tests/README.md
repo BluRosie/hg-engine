@@ -118,14 +118,14 @@ BEGIN_TEST {
 
 ## Running Tests
 ### Build test ROM
-- `make AUTO_TEST=Y -j$(nproc)`
+- `make AUTO_TEST=Y -j$(getconf _NPROCESSORS_ONLN)`
 ### Filter tests
-- `make AUTO_TEST=Y TEST_FILTER="species moves/move_folder" -j${nproc}`
+- `make AUTO_TEST=Y TEST_FILTER="species moves/move_folder" -j$(getconf _NPROCESSORS_ONLN)`
 - Or create `test_filter.txt`. Each line is a separate filter.
 
 
 ### Run tests (headless)
-`SDL_VIDEODRIVER=dummy scripts/run_tests.sh -j $(nproc)`
+`SDL_AUDIODRIVER=dummy SDL_VIDEODRIVER=dummy scripts/run_tests.sh -j $(getconf _NPROCESSORS_ONLN)`
 
 Optionally provide `-j` with a number to partition the tests into N parallelized chunks
 

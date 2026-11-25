@@ -1,0 +1,7 @@
+# Edit versions here, then regenerate requirements.txt: see "Updating Python Dependencies" in CONTRIBUTING.md
+ndspy==4.1.0
+pandas==3.1.1
+Pillow==13.0.0
+py-desmume==0.0.9
+PyYAML==6.0.3
+requests==2.34.2
