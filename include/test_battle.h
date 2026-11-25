@@ -93,6 +93,7 @@ struct PACKED TestBattleScenario {
     u8 expectationPassCount;
     u8 knownFailing : 1;
     u8 markAsFail : 7;
+    u16 forcedMetronomeMove;
 };
 
 #define FULL_HP (0xFFFF)
