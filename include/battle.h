@@ -3036,14 +3036,14 @@ void LONG_CALL UpdateTerrainOverlay(struct BattleStruct *ctx, u8 client, enum Te
 /**
  *  @brief compare battlers to determine who goes first
  *
- *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param sp global battle structure
+ *  @param bsys battle work structure; void * because we haven't defined the battle work structure
+ *  @param ctx global battle structure
  *  @param client1 first battler to compare
  *  @param client2 second battler to compare
  *  @param flag if nonzero, ignore quick claw and custap berry modifiers
  *  @return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two
  */
-u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
+u8 LONG_CALL CalcSpeed(struct BattleSystem *bsys, struct BattleStruct *ctx, int client1, int client2, int flag);
 
 #define CALCSPEED_FLAG_NOTHING     0
 #define CALCSPEED_FLAG_NO_PRIORITY 0x80
