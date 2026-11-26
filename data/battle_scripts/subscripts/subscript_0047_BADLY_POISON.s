@@ -12,6 +12,7 @@ _Start:
     // Skip Leaf Guard check if weather is suppressed.
     CheckIgnoreWeather _CheckFlowerVeil
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _CheckFlowerVeil
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN, _CheckFlowerVeil
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _AbilityBlock
 
 // Check for hazard-inflicted poison (Toxic Spikes).
@@ -29,6 +30,7 @@ _CheckAbilities_Textless:
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _End
     CheckIgnoreWeather _CheckIgnorableFlowerVeil_Textless
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _CheckIgnorableFlowerVeil_Textless
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN, _CheckIgnorableFlowerVeil_Textless
     CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _End
 
 // Check for self-inflicted poison via items (Toxic Orb). Yes, it is weird that this case allows Mold Breaker to bypass ally abilities.
@@ -43,6 +45,7 @@ _CheckIgnorableAbilities:
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _AbilityBlock
     CheckIgnoreWeather _CheckIgnorableFlowerVeil
     CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _CheckIgnorableFlowerVeil
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN, _CheckIgnorableFlowerVeil
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _AbilityBlock
 
 // Regular check for Flower Veil.
