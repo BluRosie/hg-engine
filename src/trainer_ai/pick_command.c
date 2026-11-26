@@ -80,9 +80,8 @@ BOOL TrainerAI_ShouldSwitch(struct BattleSystem *bsys, struct BattleStruct *ctx,
     u32 battleType = BattleTypeGet(bsys);
 
     if ((battleType & BATTLE_TYPE_TRAINER) || IsClientEnemy(bsys, attacker) == 0) {
-        /*Don't try to make illegal switches.
-        This includes binding conditions, 
-        ingrain, shadow tag, arena trap, and magnet pull*/
+        // Don't try to make illegal switches.
+        // This includes binding conditions, ingrain, shadow tag, arena trap, and magnet pull.
         BattleMessage message = {0};
         BattleMessage *msg = &message;
         

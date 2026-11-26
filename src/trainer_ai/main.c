@@ -1443,14 +1443,14 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
         (ai->target.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL) ||
         (IsClientGrounded(ctx, target) && ctx->terrainOverlay.type == MISTY_TERRAIN);
 
-    ai->targetImmuneToSleep = (ctx->battlemon[target].condition & STATUS_ALL || 
-        ctx->side_condition[ai->target.side] & SIDE_STATUS_SAFEGUARD ||
-        ai->target.ability == ABILITY_VITAL_SPIRIT ||
-        ai->target.ability == ABILITY_INSOMNIA || 
-        (ai->target.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)|| 
-        (ai->target.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL) ||
-        (ai->target.ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[target].speed)||
-        (IsClientGrounded(ctx, target) && (ctx->terrainOverlay.type == ELECTRIC_TERRAIN || ctx->terrainOverlay.type == MISTY_TERRAIN)));
+    ai->targetImmuneToSleep = (ctx->battlemon[target].condition & STATUS_ALL
+    || ctx->side_condition[ai->target.side] & SIDE_STATUS_SAFEGUARD
+    || ai->target.ability == ABILITY_VITAL_SPIRIT
+    || ai->target.ability == ABILITY_INSOMNIA
+    || (ai->target.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)
+    || (ai->target.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL)
+    || (ai->target.ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[target].speed)
+    || (IsClientGrounded(ctx, target) && (ctx->terrainOverlay.type == ELECTRIC_TERRAIN || ctx->terrainOverlay.type == MISTY_TERRAIN)));
 
     ai->moveEffectiveness = 0;
     

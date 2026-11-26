@@ -32,12 +32,15 @@ static int MoveEffectEvaluator_Basic_StatDown_Evasion(AIContext *ai, struct Batt
 static int MoveEffectEvaluator_Basic_AnyStatChanges(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
 static int MoveEffectEvaluator_Basic_ForceSwitch(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_Conversion(AIContext *ai, struct BattleSystem *battleSystem);
-static int MoveEffectEvaluator_Basic_HealTarget(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
+static int MoveEffectEvaluator_Basic_HealHP(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
 static int MoveEffectEvaluator_Basic_Status_Poison(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
 static int MoveEffectEvaluator_Basic_LightScreen(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_Rest(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_OHKO(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
+static int MoveEffectEvaluator_Basic_Mist(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_FocusEnergy(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_Status_Confuse(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_Transform(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_Reflect(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_Status_Paralyze(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
 static int MoveEffectEvaluator_Basic_Substitute(AIContext *ai, struct BattleSystem *battleSystem);
@@ -112,10 +115,33 @@ static int MoveEffectEvaluator_Basic_TrickRoom(AIContext *ai, UNUSED struct Batt
 static int MoveEffectEvaluator_Basic_Captivate(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_StealthRock(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_SelfSacrifice(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
+static int MoveEffectEvaluator_Basic_StatUp_Attack_Accuracy(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_StatUp_SpecialAttack_SpecialDefense_Speed(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_SetType_Water(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_StatUp_Attack_Defense_Accuracy(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_StatUp_Attack_SpecialAttack_Speed(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_StatUp_Attack_SpecialAttack(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_ShedTail(AIContext *ai, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_Snow(UNUSED AIContext *ai_unused, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_StickyWeb(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_StatUp_Attack_Defense_Speed(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_HasItem_Target(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
 static int MoveEffectEvaluator_Basic_VenomDrench(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_AddType_Grass(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_AddType_Ghost(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_SetType_Psychic(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_AuroraVeil(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_HealTarget(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_HealHP_Doubles(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_StatUp_Attack_Doubles(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_HasType_Fire(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_HasType_Electric(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_Belch(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_EatBerry(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
+static int MoveEffectEvaluator_Basic_Powder(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_LaserFocus(AIContext *ai, struct BattleSystem *battleSystem);
+static int MoveEffectEvaluator_Basic_Bestow(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused);
+static int MoveEffectEvaluator_Basic_MagicRoom(UNUSED AIContext *ai_unused, struct BattleSystem *battleSystem);
 
 static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM + 1] = {
     [MOVE_EFFECT_HIT] = MoveEffectEvaluator_Basic_None,
@@ -150,12 +176,12 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_MULTI_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_CONVERSION] = MoveEffectEvaluator_Basic_Conversion,
     [MOVE_EFFECT_FLINCH_HIT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_RESTORE_HALF_HP] = MoveEffectEvaluator_Basic_HealTarget,
+    [MOVE_EFFECT_RESTORE_HALF_HP] = MoveEffectEvaluator_Basic_HealHP,
     [MOVE_EFFECT_STATUS_BADLY_POISON] = MoveEffectEvaluator_Basic_Status_Poison,
     [MOVE_EFFECT_INCREASE_PRIZE_MONEY] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_SET_LIGHT_SCREEN] = MoveEffectEvaluator_Basic_LightScreen,
     [MOVE_EFFECT_RANDOM_PRIMARY_STATUS_HIT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_RECOVER_HEALTH_AND_SLEEP] = MoveEffectEvaluator_Basic_Rest,
     [MOVE_EFFECT_ONE_HIT_KO] = MoveEffectEvaluator_Basic_OHKO,
     [MOVE_EFFECT_CHARGE_TURN_HIGH_CRIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_HALVE_HP] = MoveEffectEvaluator_Basic_None,
@@ -164,7 +190,7 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_HIGH_CRITICAL] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_HIT_TWICE] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_CRASH_ON_MISS] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_PREVENT_STAT_REDUCTION] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_PREVENT_STAT_REDUCTION] = MoveEffectEvaluator_Basic_Mist,
     [MOVE_EFFECT_CRIT_UP_2] = MoveEffectEvaluator_Basic_FocusEnergy,
     [MOVE_EFFECT_RECOIL_QUARTER] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_STATUS_CONFUSE] = MoveEffectEvaluator_Basic_Status_Confuse,
@@ -175,7 +201,7 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_SP_DEF_UP_2] = MoveEffectEvaluator_Basic_StatUp_SpecialDefense,
     [MOVE_EFFECT_ACC_UP_2] = MoveEffectEvaluator_Basic_StatUp_Accuracy,
     [MOVE_EFFECT_EVA_UP_2] = MoveEffectEvaluator_Basic_StatUp_Evasion,
-    [MOVE_EFFECT_TRANSFORM] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_TRANSFORM] = MoveEffectEvaluator_Basic_Transform,
     [MOVE_EFFECT_ATK_DOWN_2] = MoveEffectEvaluator_Basic_StatDown_Attack,
     [MOVE_EFFECT_DEF_DOWN_2] = MoveEffectEvaluator_Basic_StatDown_Defense,
     [MOVE_EFFECT_SPEED_DOWN_2] = MoveEffectEvaluator_Basic_StatDown_Speed,
@@ -216,7 +242,7 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_LEARN_MOVE_PERMANENT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_UNUSED_96] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_USE_RANDOM_LEARNED_MOVE_SLEEP] = MoveEffectEvaluator_Basic_Sleeping,
-    [MOVE_EFFECT_KO_MON_THAT_DEFEATED_USER] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_KO_MON_THAT_DEFEATED_USER] = MoveEffectEvaluator_Basic_HasLivingAlly,
     [MOVE_EFFECT_INCREASE_POWER_WITH_LESS_HP] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_DECREASE_LAST_MOVE_PP] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_LEAVE_WITH_1_HP] = MoveEffectEvaluator_Basic_None,
@@ -250,7 +276,7 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_20_DAMAGE_FLAT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_UNUSED_131] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER] = MoveEffectEvaluator_Basic_HealTarget,
+    [MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER] = MoveEffectEvaluator_Basic_HealHP,
     [MOVE_EFFECT_UNUSED_133] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_UNUSED_134] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_RANDOM_TYPE_BASED_ON_IVS] = MoveEffectEvaluator_Basic_None,
@@ -296,20 +322,20 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_TAUNT] = MoveEffectEvaluator_Basic_Taunt,
     [MOVE_EFFECT_BOOST_ALLY_POWER_BY_50_PERCENT] = MoveEffectEvaluator_Basic_DoublesOnly,
     [MOVE_EFFECT_SWITCH_HELD_ITEMS] = MoveEffectEvaluator_Basic_SwitchItems,
-    [MOVE_EFFECT_COPY_ABILITY] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_HEAL_IN_3_TURNS] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_COPY_ABILITY] = MoveEffectEvaluator_Basic_None, // TODO: Immutable or matching abilities
+    [MOVE_EFFECT_HEAL_IN_3_TURNS] = MoveEffectEvaluator_Basic_None, // TODO: Wish in effect
     [MOVE_EFFECT_USE_RANDOM_ALLY_MOVE] = MoveEffectEvaluator_Basic_HasAlly,
     [MOVE_EFFECT_GROUND_TRAP_USER_CONTINUOUS_HEAL] = MoveEffectEvaluator_Basic_Ingrain,
     [MOVE_EFFECT_USER_ATK_DEF_DOWN_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_MAGIC_COAT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_RECYCLE] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_RECYCLE] = MoveEffectEvaluator_Basic_None, // TODO: Nothing to recycle
     [MOVE_EFFECT_DOUBLE_DAMAGE_IF_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_REMOVE_SCREENS] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_STATUS_SLEEP_NEXT_TURN] = MoveEffectEvaluator_Basic_Status_Sleep,
     [MOVE_EFFECT_REMOVE_HELD_ITEM] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_SET_HP_EQUAL_TO_USER] = MoveEffectEvaluator_Basic_Endeavor,
     [MOVE_EFFECT_DECREASE_POWER_WITH_LESS_USER_HP] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_SWITCH_ABILITIES] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_SWITCH_ABILITIES] = MoveEffectEvaluator_Basic_None, // TODO: Immutable or matching abilities
     [MOVE_EFFECT_MAKE_SHARED_MOVES_UNUSEABLE] = MoveEffectEvaluator_Basic_Imprison,
     [MOVE_EFFECT_HEAL_STATUS] = MoveEffectEvaluator_Basic_Refresh,
     [MOVE_EFFECT_REMOVE_ALL_PP_ON_DEFEAT] = MoveEffectEvaluator_Basic_HasLivingAlly,
@@ -332,7 +358,7 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_SP_ATK_SP_DEF_UP] = MoveEffectEvaluator_Basic_StatUp_SpecialAttack_SpecialDefense,
     [MOVE_EFFECT_ATK_SPEED_UP] = MoveEffectEvaluator_Basic_StatUp_Attack_Speed,
     [MOVE_EFFECT_CAMOUFLAGE] = MoveEffectEvaluator_Basic_Camouflage,
-    [MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE] = MoveEffectEvaluator_Basic_HealTarget,
+    [MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE] = MoveEffectEvaluator_Basic_HealHP,
     [MOVE_EFFECT_GRAVITY] = MoveEffectEvaluator_Basic_Gravity,
     [MOVE_EFFECT_IGNORE_EVASION_REMOVE_DARK_IMMUNE] = MoveEffectEvaluator_Basic_MiracleEye,
     [MOVE_EFFECT_DOUBLE_POWER_HEAL_SLEEP] = MoveEffectEvaluator_Basic_None,
@@ -395,25 +421,24 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_FLINCH_FREEZE_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_FLINCH_PARALYZE_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_RAISE_SP_ATK_HIT] = MoveEffectEvaluator_Basic_None,
-    // TODO: New effects
-    [MOVE_EFFECT_ATK_ACC_UP] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_ATK_ACC_UP] = MoveEffectEvaluator_Basic_StatUp_Attack_Accuracy,
     [MOVE_EFFECT_GUARD_SPLIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_POWER_SPLIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_DOUBLE_POWER_ON_POISONED] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_AUTOTOMIZE] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_AUTOTOMIZE] = MoveEffectEvaluator_Basic_StatUp_Speed,
     [MOVE_EFFECT_ALWAYS_CRITICAL] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_CHANGE_TO_WATER_TYPE] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_SP_ATK_SP_DEF_SPEED_UP] = MoveEffectEvaluator_Basic_StatUp_SpecialAttack_SpecialDefense_Speed,
+    [MOVE_EFFECT_CHANGE_TO_WATER_TYPE] = MoveEffectEvaluator_Basic_SetType_Water,
     [MOVE_EFFECT_RAISE_SPEED_HIT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_ATK_DEF_ACC_UP] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_ATK_DEF_ACC_UP] = MoveEffectEvaluator_Basic_StatUp_Attack_Defense_Accuracy,
     [MOVE_EFFECT_DOUBLE_DAMAGE_ON_STATUS] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_SPEED_UP_2_ATK_UP] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_SPEED_UP_2_ATK_UP] = MoveEffectEvaluator_Basic_StatUp_Attack_Speed,
     [MOVE_EFFECT_DOUBLE_POWER_WITHOUT_ITEM] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2_DEF_SP_DEF_DOWN] = MoveEffectEvaluator_Basic_StatUp_Attack_SpecialAttack_Speed,
     [MOVE_EFFECT_USER_DEF_SP_DEF_SPEED_DOWN_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_HEAVY_SLAM] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_CONFUSE_HIT_CRASH_ON_MISS] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_APPLY_TERRAINS] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_APPLY_TERRAINS] = MoveEffectEvaluator_Basic_None, // TODO: Failure per terrain move
     [MOVE_EFFECT_ATK_SP_ATK_UP] = MoveEffectEvaluator_Basic_StatUp_Attack_SpecialAttack, // DISCUSS: Should we fully replicate code to cut down on clear body checks?
     [MOVE_EFFECT_HIT_TWICE_AND_FLINCH] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_UP_TO_10_HITS] = MoveEffectEvaluator_Basic_None,
@@ -421,8 +446,8 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_HIT_THREE_TIMES] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_PSYBLADE] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_SLEEP_HIT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_SPICY_EXTRACT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_SPICY_EXTRACT] = MoveEffectEvaluator_Basic_None, // TODO: Different cases for different target types.
+    [MOVE_EFFECT_ATK_SP_ATK_SPEED_UP_2] = MoveEffectEvaluator_Basic_None, // TODO: Why is this const outdated?
     [MOVE_EFFECT_SHED_TAIL] = MoveEffectEvaluator_Basic_ShedTail,
     [MOVE_EFFECT_AFTER_YOU] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_QUASH] = MoveEffectEvaluator_Basic_None,
@@ -437,15 +462,15 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_RECOVER_FULL_DAMAGE_DEALT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_RAISE_EVA_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_RAISE_DEF_2_HIT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_CHARGE_TURN_ATK_SP_ATK_SPEED_UP_2] = MoveEffectEvaluator_Basic_StatUp_Attack_SpecialAttack_Speed,
     [MOVE_EFFECT_WEATHER_SNOW] = MoveEffectEvaluator_Basic_Snow,
     [MOVE_EFFECT_PREVENT_HEALING_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_BURN_HIT_DOUBLE_POWER_ON_STATUS] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_POISON_HIT_DOUBLE_POWER_ON_POISONED] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_SET_ABILITY_TO_SIMPLE] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_SET_ABILITY_TO_SIMPLE] = MoveEffectEvaluator_Basic_None, // TODO: Immutable abilities
     [MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_CHARGE_TURN_SP_ATK_UP_RAIN_SKIPS] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_STICKY_WEB] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_STICKY_WEB] = MoveEffectEvaluator_Basic_StickyWeb,
     [MOVE_EFFECT_ATK_UP_3] = MoveEffectEvaluator_Basic_StatUp_Attack,
     [MOVE_EFFECT_DEF_UP_3] = MoveEffectEvaluator_Basic_StatUp_Defense,
     [MOVE_EFFECT_SPEED_UP_3] = MoveEffectEvaluator_Basic_StatUp_Speed,
@@ -463,9 +488,9 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_HURRICANE] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_USER_DEF_DOWN_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_USER_DEF_DOWN_HIT_REMOVE_PROTECT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_ATK_DEF_SPEED_UP] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_POLTERGEIST] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_ATK_DEF_SPEED_UP] = MoveEffectEvaluator_Basic_StatUp_Attack_Defense_Speed,
+    [MOVE_EFFECT_POLTERGEIST] = MoveEffectEvaluator_Basic_HasItem_Target,
+    [MOVE_EFFECT_RAISE_ALL_STATS_LOSE_THIRD_MAX_HP] = MoveEffectEvaluator_Basic_None, // TODO: Probably Acupressure + CutHP
     [MOVE_EFFECT_RECOVER_THREE_QUARTERS_DAMAGE_DEALT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_RECOVER_HALF_DAMAGE_DEALT_BURN_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_FICKLE_BEAM] = MoveEffectEvaluator_Basic_None,
@@ -478,7 +503,7 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_BLEAKWIND_STORM] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_WILDBOLT_STORM] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_SANDSEAR_STORM] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_TOXIC_THREAD] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_TOXIC_THREAD] = MoveEffectEvaluator_Basic_None, // TODO: StatDown_Speed and Status_Poison
     [MOVE_EFFECT_MAKE_IT_RAIN] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_VENOM_DRENCH] = MoveEffectEvaluator_Basic_VenomDrench,
     [MOVE_EFFECT_ATK_SP_ATK_DOWN] = MoveEffectEvaluator_Basic_StatDown_Attack_SpecialAttack,
@@ -486,47 +511,47 @@ static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM +
     [MOVE_EFFECT_CHARGE_TURN_BURN_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_QUARTER_HP] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_HIT_THREE_TIMES_ALWAYS_CRITICAL] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_TAKE_HEART] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_TAKE_HEART] = MoveEffectEvaluator_Basic_None, // TODO: Statups and cure status
     [MOVE_EFFECT_HIGH_CRITICAL_RAISE_SPEED_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_MORTAL_SPIN] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_TIDY_UP] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_TIDY_UP] = MoveEffectEvaluator_Basic_None, // TODO: Statups and hazards
     [MOVE_EFFECT_PROTECT_USER_SIDE] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_INCINERATE] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_FIRST_TURN_ONLY] = MoveEffectEvaluator_Basic_FirstTurnOnly,
-    [MOVE_EFFECT_ADD_TYPE_GRASS] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_ADD_TYPE_GHOST] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_SET_AURORA_VEIL] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_STRENGTH_SAP] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_HEAL_TARGET] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_ADD_TYPE_GRASS] = MoveEffectEvaluator_Basic_AddType_Grass,
+    [MOVE_EFFECT_ADD_TYPE_GHOST] = MoveEffectEvaluator_Basic_AddType_Ghost,
+    [MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE] = MoveEffectEvaluator_Basic_SetType_Psychic,
+    [MOVE_EFFECT_SET_AURORA_VEIL] = MoveEffectEvaluator_Basic_AuroraVeil,
+    [MOVE_EFFECT_STRENGTH_SAP] = MoveEffectEvaluator_Basic_StatDown_Attack,
+    [MOVE_EFFECT_HEAL_TARGET] = MoveEffectEvaluator_Basic_HealTarget,
     [MOVE_EFFECT_POLLEN_PUFF] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_COACHING] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_COACHING] = MoveEffectEvaluator_Basic_DoublesOnly,
     [MOVE_EFFECT_DOUBLE_POWER_IF_FASTER] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_LIFE_DEW] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_ENTRAINMENT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_HOWL] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_DECORATE] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_END_TERRAIN] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_LIFE_DEW] = MoveEffectEvaluator_Basic_HealHP_Doubles,
+    [MOVE_EFFECT_ENTRAINMENT] = MoveEffectEvaluator_Basic_None, // TODO: Immutable abilities
+    [MOVE_EFFECT_HOWL] = MoveEffectEvaluator_Basic_StatUp_Attack_Doubles,
+    [MOVE_EFFECT_DECORATE] = MoveEffectEvaluator_Basic_None, // TODO: Not DoublesOnly due to Contrary shenanigans.
+    [MOVE_EFFECT_END_TERRAIN] = MoveEffectEvaluator_Basic_None, // TODO: Same issue as setting terrain, only fails for Steamroller
     [MOVE_EFFECT_FELL_STINGER] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_PARTING_SHOT] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_PARTING_SHOT] = MoveEffectEvaluator_Basic_None, // TODO: StatDown_Attack_SpecialAttack + HasLivingAlly
     [MOVE_EFFECT_CLEAR_SMOG] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_ION_DELUGE] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_ION_DELUGE_HIT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_REMOVE_USER_FIRE_TYPE_HIT] = MoveEffectEvaluator_Basic_HasType_Fire,
+    [MOVE_EFFECT_REMOVE_USER_ELECTRIC_TYPE_HIT] = MoveEffectEvaluator_Basic_HasType_Electric,
     [MOVE_EFFECT_FORCE_SWITCH_HIT] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_BELCH] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_STUFF_CHEEKS] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_POWDER] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_LASER_FOCUS] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_BELCH] = MoveEffectEvaluator_Basic_Belch,
+    [MOVE_EFFECT_STUFF_CHEEKS] = MoveEffectEvaluator_Basic_EatBerry,
+    [MOVE_EFFECT_POWDER] = MoveEffectEvaluator_Basic_Powder,
+    [MOVE_EFFECT_LASER_FOCUS] = MoveEffectEvaluator_Basic_LaserFocus,
     [MOVE_EFFECT_GLAIVE_RUSH] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_THROAT_CHOP] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_FINAL_GAMBIT] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_FINAL_GAMBIT] = MoveEffectEvaluator_Basic_HasLivingAlly,
     [MOVE_EFFECT_RECOIL_HALF_MAX_HP] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_GIVE_HELD_ITEM] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_GIVE_HELD_ITEM] = MoveEffectEvaluator_Basic_Bestow,
     [MOVE_EFFECT_IGNORE_PROTECT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_SMACK_DOWN] = MoveEffectEvaluator_Basic_None,
-    [MOVE_EFFECT_MAGIC_ROOM] = MoveEffectEvaluator_Basic_None,
+    [MOVE_EFFECT_MAGIC_ROOM] = MoveEffectEvaluator_Basic_MagicRoom,
     [MOVE_EFFECT_STEEL_BEAM] = MoveEffectEvaluator_Basic_None,
 };
 
@@ -742,7 +767,7 @@ static int MoveEffectEvaluator_Basic_Conversion(AIContext *ai, struct BattleSyst
     return 0;
 }
 
-static int MoveEffectEvaluator_Basic_HealTarget(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
+static int MoveEffectEvaluator_Basic_HealHP(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
     if (ai->target.hp == ai->target.maxHP) {
         return -8;
     }
@@ -765,9 +790,35 @@ static int MoveEffectEvaluator_Basic_LightScreen(AIContext *ai, struct BattleSys
     return 0;
 }
 
+static int MoveEffectEvaluator_Basic_Rest(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+    
+    if ((ai->attackerMovesFirst && ai->attacker.percentHP == 100)
+    || ai->attacker.ability == ABILITY_VITAL_SPIRIT
+    || ai->attacker.ability == ABILITY_INSOMNIA
+    || ai->attacker.ability == ABILITY_COMATOSE
+    || ai->attacker.ability == ABILITY_PURIFYING_SALT
+    || (ai->attacker.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)
+    || ctx->field_condition & FIELD_CONDITION_UPROAR
+    // TODO: Affected by Sweet Veil
+    || (IsClientGrounded(ctx, ai->attacker.id) && (ctx->terrainOverlay.type == ELECTRIC_TERRAIN || ctx->terrainOverlay.type == MISTY_TERRAIN))) {
+        return -10;
+    }
+    return 0;
+}
+
 static int MoveEffectEvaluator_Basic_OHKO(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
     if (ai->target.ability == ABILITY_STURDY
     || ai->attacker.level < ai->target.level) {
+        return -10;
+    }
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_Mist(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (ctx->side_condition[ai->attacker.side] & SIDE_STATUS_MIST) {
         return -10;
     }
     return 0;
@@ -788,6 +839,16 @@ static int MoveEffectEvaluator_Basic_Status_Confuse(AIContext *ai, struct Battle
     if ((ctx->battlemon[ai->target.id].condition2 & STATUS2_CONFUSION) // TODO: Fold into status immunity flags.
     || ctx->side_condition[ai->target.side] & SIDE_STATUS_SAFEGUARD
     || ai->target.ability == ABILITY_OWN_TEMPO) {
+        return -10;
+    }
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_Transform(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (ctx->battlemon[ai->attacker.id].condition2 & STATUS2_TRANSFORM
+    || ctx->battlemon[ai->target.id].condition2 & STATUS2_SUBSTITUTE) {
         return -10;
     }
     return 0;
@@ -1054,13 +1115,13 @@ static int MoveEffectEvaluator_Basic_NoStockpile(AIContext *ai, struct BattleSys
 }
 
 static int MoveEffectEvaluator_Basic_Swallow(AIContext *ai, struct BattleSystem *battleSystem) {
-    return MoveEffectEvaluator_Basic_NoStockpile(ai, battleSystem) + MoveEffectEvaluator_Basic_HealTarget(ai, battleSystem);
+    return MoveEffectEvaluator_Basic_NoStockpile(ai, battleSystem) + MoveEffectEvaluator_Basic_HealHP(ai, battleSystem);
 }
 
 static int MoveEffectEvaluator_Basic_Hail(UNUSED AIContext *ai_unused, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
 
-    if (ctx->field_condition & FIELD_CONDITION_SNOW_ALL) {
+    if (ctx->field_condition & FIELD_CONDITION_HAIL_ALL) {
         return -8;
     }
     return 0;
@@ -1454,6 +1515,33 @@ static int MoveEffectEvaluator_Basic_SelfSacrifice(AIContext *ai, UNUSED struct 
     // ai->defenderDamagedMons > 0 && ai->attackerStatusedMons > 0
 }
 
+static int MoveEffectEvaluator_Basic_StatUp_Attack_Accuracy(AIContext *ai, struct BattleSystem *battleSystem) {
+    return MoveEffectEvaluator_Basic_StatUp_Attack(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_Accuracy(ai, battleSystem);
+}
+
+static int MoveEffectEvaluator_Basic_StatUp_SpecialAttack_SpecialDefense_Speed(AIContext *ai, struct BattleSystem *battleSystem) {
+    return MoveEffectEvaluator_Basic_StatUp_SpecialAttack(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_SpecialDefense(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_Speed(ai, battleSystem);
+}
+
+static int MoveEffectEvaluator_Basic_SetType_Water(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (IsPureType(ctx, ai->target.id, TYPE_WATER)
+    || ctx->battlemon[ai->target.id].is_currently_terastallized) {
+        return -10;
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_StatUp_Attack_Defense_Accuracy(AIContext *ai, struct BattleSystem *battleSystem) {
+    return MoveEffectEvaluator_Basic_StatUp_Attack(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_Defense(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_Accuracy(ai, battleSystem);
+}
+
+static int MoveEffectEvaluator_Basic_StatUp_Attack_SpecialAttack_Speed(AIContext *ai, struct BattleSystem *battleSystem) {
+    return MoveEffectEvaluator_Basic_StatUp_Attack(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_SpecialAttack(ai, battleSystem + MoveEffectEvaluator_Basic_StatUp_Speed(ai, battleSystem));
+}
+
 static int MoveEffectEvaluator_Basic_StatUp_Attack_SpecialAttack(AIContext *ai, struct BattleSystem *battleSystem) {
     return MoveEffectEvaluator_Basic_StatUp_Attack(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_SpecialAttack(ai, battleSystem);
 }
@@ -1471,6 +1559,29 @@ static int MoveEffectEvaluator_Basic_Snow(UNUSED AIContext *ai_unused, struct Ba
     return 0;
 }
 
+static int MoveEffectEvaluator_Basic_StickyWeb(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (ctx->side_condition[ai->target.side] & SIDE_STATUS_STICKY_WEB
+    || ai->target.livingPartySize == 1) {
+        return -10;
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_StatUp_Attack_Defense_Speed(AIContext *ai, struct BattleSystem *battleSystem) {
+    return MoveEffectEvaluator_Basic_StatUp_Attack(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_Defense(ai, battleSystem) + MoveEffectEvaluator_Basic_StatUp_Speed(ai, battleSystem);
+}
+
+static int MoveEffectEvaluator_Basic_HasItem_Target(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
+    if (ai->target.item == ITEM_NONE) {
+        return -10;
+    }
+
+    return 0;
+}
+
 static int MoveEffectEvaluator_Basic_VenomDrench(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
     int moveScore = 0;
@@ -1482,4 +1593,148 @@ static int MoveEffectEvaluator_Basic_VenomDrench(AIContext *ai, struct BattleSys
     moveScore += MoveEffectEvaluator_Basic_StatDown_Attack(ai, battleSystem) + MoveEffectEvaluator_Basic_StatDown_SpecialAttack(ai, battleSystem) + MoveEffectEvaluator_Basic_StatDown_Speed(ai, battleSystem);
 
     return moveScore;
+}
+
+static int MoveEffectEvaluator_Basic_AddType_Grass(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (HasType(ctx, ai->target.id, TYPE_GRASS)
+    || ctx->battlemon[ai->target.id].is_currently_terastallized) {
+        return -10;
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_AddType_Ghost(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (HasType(ctx, ai->target.id, TYPE_GHOST)
+    || ctx->battlemon[ai->target.id].is_currently_terastallized) {
+        return -10;
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_SetType_Psychic(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (IsPureType(ctx, ai->target.id, TYPE_PSYCHIC)
+    || ctx->battlemon[ai->target.id].is_currently_terastallized) {
+        return -10;
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_AuroraVeil(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (ctx->side_condition[ai->attacker.side] & SIDE_STATUS_AURORA_VEIL
+    || !(ctx->field_condition & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL))) {
+        return -10;
+    }
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_HealTarget(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+    int moveScore = 0;
+
+    // These are technically tag strategies, but they are also faster to check than battle type.
+    if (ai->attacker.side != ai->target.side
+    || ctx->battlemon[ai->target.id].condition2 & STATUS2_SUBSTITUTE) {
+        moveScore -= 10;
+    }
+
+    return moveScore + MoveEffectEvaluator_Basic_HealHP(ai, battleSystem);
+}
+
+static int MoveEffectEvaluator_Basic_HealHP_Doubles(AIContext *ai, struct BattleSystem *battleSystem) {
+    // Check selfishly only in singles.
+    if (!(BattleTypeGet(battleSystem) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG))) {
+        return MoveEffectEvaluator_Basic_HealHP(ai, battleSystem);
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_StatUp_Attack_Doubles(AIContext *ai, struct BattleSystem *battleSystem) {
+    // Check selfishly only in singles.
+    if (!(BattleTypeGet(battleSystem) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG))) {
+        return MoveEffectEvaluator_Basic_StatUp_Attack(ai, battleSystem);
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_HasType_Fire(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (!HasType(ctx, ai->target.id, TYPE_FIRE)) {
+        return -10;
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_HasType_Electric(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+
+    if (!HasType(ctx, ai->target.id, TYPE_ELECTRIC)) {
+        return -10;
+    }
+
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_Belch(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+    
+    if (!ctx->onceOnlyMoveConditionFlags[SanitizeClientForTeamAccess(battleSystem, ai->attacker.id)][ctx->sel_mons_no[ai->attacker.id]].berryEatenAndCanBelch) {
+        return -10;
+    }
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_EatBerry(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
+    if (!IS_ITEM_BERRY(ai->attacker.item)) {
+        return -10;
+    }
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_Powder(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+    
+    if (ctx->moveConditionsFlags[ai->target.id].powderBlockingFireMove) {
+        return -10;
+    }
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_LaserFocus(AIContext *ai, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+    
+    if (ctx->moveConditionsFlags[ai->attacker.id].laserFocusTimer) {
+        return -10;
+    }
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_Bestow(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
+    if (ai->attacker.item == ITEM_NONE || ai->target.item != ITEM_NONE) {
+        return -10;
+    }
+    return 0;
+}
+
+static int MoveEffectEvaluator_Basic_MagicRoom(UNUSED AIContext *ai_unused, struct BattleSystem *battleSystem) {
+    struct BattleStruct *ctx = battleSystem->sp;
+    
+    if ((ctx->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM) && ctx->magicRoomCounter) {
+        return -10;
+    }
+    return 0;
 }
