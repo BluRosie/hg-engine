@@ -37,6 +37,9 @@ BEGIN_TEST
             .status = 0,
             .condition2 = 0,
             .moveEffectFlags = 0,
+            .furtherParams = {
+                { MON_DATA_SPEED_IV, 0 },
+            },
         },
         { .species = SPECIES_NONE },
         { .species = SPECIES_NONE },

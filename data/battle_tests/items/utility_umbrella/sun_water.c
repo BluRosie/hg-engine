@@ -1,4 +1,4 @@
-// Test: Utility Umbrella - does not weaken Fire damage in Sun
+// Test: Utility Umbrella - does not weaken Water damage in Sun
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

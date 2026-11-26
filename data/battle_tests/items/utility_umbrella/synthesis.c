@@ -31,7 +31,7 @@ BEGIN_TEST
             .level = 50,
             .form = 0,
             .ability = ABILITY_OVERCOAT,
-            .item = ITEM_LIFE_ORB,
+            .item = ITEM_CHOICE_SCARF,
             .moves = { MOVE_SYNTHESIS, MOVE_NONE, MOVE_NONE, MOVE_NONE },
             .hp = 1,
             .status = 0,
@@ -89,6 +89,10 @@ BEGIN_TEST
         }
     },
     .expectations = {
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet used Synthesis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet's HP was restored!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet used Synthesis!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Wobbuffet's HP was restored!" },
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = BATTLER_PLAYER_FIRST, .expectationValue.currentHP = 133 },
         { .expectationType = EXPECTATION_CURRENT_HP, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.currentHP = 67 },
     }
