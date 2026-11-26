@@ -88,9 +88,11 @@ _120:
 _148:
     // {0} swapped abilities with its target!
     PrintMessage 559, TAG_NICKNAME, BATTLER_CATEGORY_ATTACKER
-    Wait 
+    Wait
     WaitButtonABTime 30
-    End 
+    SetAbilityActivatedFlag BATTLER_CATEGORY_ATTACKER, FALSE
+    SetAbilityActivatedFlag BATTLER_CATEGORY_DEFENDER, FALSE
+    End
 
 _156:
     UpdateVar OPCODE_FLAG_ON, BSCRIPT_VAR_MOVE_STATUS_FLAGS, MOVE_STATUS_FAILED

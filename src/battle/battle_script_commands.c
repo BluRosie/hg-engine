@@ -493,7 +493,7 @@ const u8 *BattleScrCmdNames[] = {
     "TryActivateReceiver",
     "TryActivateEmergencyExit",
     "TryClearUnnerve",
-    "TryActivateSymbiosis"
+    "TryActivateSymbiosis",
     "RestoreBoosterEnergyBattler",
     // "YourCustomCommand",
 };
@@ -2402,7 +2402,7 @@ BOOL btl_scr_cmd_EA_ifcontactmove(void *bw UNUSED, struct BattleStruct *sp)
     IncrementBattleScriptPtr(sp, 1);
     int address = read_battle_script_param(sp);
 
-    if (IsContactBeingMade(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->defence_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
+    if (!CanBattlerAvoidContactEffects(GetBattlerAbility(sp, sp->attack_client), HeldItemHoldEffectGet(sp, sp->attack_client), sp->current_move_index, sp->moveTbl[sp->current_move_index].flag)) {
         IncrementBattleScriptPtr(sp, address);
     }
     return FALSE;
@@ -2852,7 +2852,7 @@ BOOL btl_scr_cmd_F9_canclearprimalweather(void *bw, struct BattleStruct *sp)
 }
 
 /**
- *  @brief script command to turn on the ability activated flag for a client
+ *  @brief script command to set or clear the ability activated flag for a client
  *
  *  @param bw battle work structure
  *  @param sp global battle structure
@@ -2862,12 +2862,13 @@ BOOL btl_scr_cmd_FA_setabilityactivatedflag(void *bw UNUSED, struct BattleStruct
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    u8 side, client_no;
+    u8 side, client_no, value;
 
     side = read_battle_script_param(sp);
+    value = read_battle_script_param(sp);
     client_no = GrabClientFromBattleScriptParam(bw, sp, side);
 
-    sp->battlemon[client_no].ability_activated_flag = 1;
+    sp->battlemon[client_no].ability_activated_flag = value ? 1 : 0;
 
     return FALSE;
 }
@@ -3312,7 +3313,7 @@ BOOL btl_scr_cmd_103_checkprotectcontactmoves(void *bsys UNUSED, struct BattleSt
 {
     IncrementBattleScriptPtr(ctx, 1);
 
-    if (IsContactBeingMade(GetBattlerAbility(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->defence_client), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag)
+    if (!CanBattlerAvoidContactEffects(GetBattlerAbility(ctx, ctx->attack_client), HeldItemHoldEffectGet(ctx, ctx->attack_client), ctx->current_move_index, ctx->moveTbl[ctx->current_move_index].flag)
         && ctx->battlemon[ctx->attack_client].hp
         && ctx->oneTurnFlag[ctx->defence_client].gainedProtectFlagFromAlly == FALSE
         && (ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN) == 0) {
@@ -3766,12 +3767,8 @@ BOOL BtlCmd_RapidSpin(void *bw, struct BattleStruct *sp)
 {
     int side = IsClientEnemy(bw, sp->attack_client);
 
-    // clear all of these now since they will be cleared
     for (int i = 0; i < NUM_HAZARD_IDX; i++) {
-        sp->entryHazardQueue[0][i] = HAZARD_IDX_NONE;
-    }
-    for (int i = 0; i < NUM_HAZARD_IDX; i++) {
-        sp->entryHazardQueue[1][i] = HAZARD_IDX_NONE;
+        sp->entryHazardQueue[side][i] = HAZARD_IDX_NONE;
     }
 
     // Binding Moves

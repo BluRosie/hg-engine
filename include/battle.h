@@ -1074,7 +1074,7 @@ struct BattleStruct {
     BOOL moveBounced;
     u8 rawSpeedNonRNGClientOrder[CLIENT_MAX];
     int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
-    u8 clientPriority[CLIENT_MAX];
+    s8 clientPriority[CLIENT_MAX];
     OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
     OnceOnlyMoveConditionFlags onceOnlyMoveConditionFlags[4][6];
 
@@ -3350,10 +3350,16 @@ BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx
 BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 /**
- * @brief checks if contact is being made, checking abilities and items
+ * @brief checks if the attacker avoids the target's contact effects (Protective Pads or no contact)
  * @return TRUE/FALSE
  */
-BOOL LONG_CALL IsContactBeingMade(int attackerAbility, int attackerItemHoldEffect, int defenderItemHoldEffect, int moveno, u8 moveFlag);
+BOOL LONG_CALL CanBattlerAvoidContactEffects(int attackerAbility, int attackerItemHoldEffect, int moveno, u8 moveFlag);
+
+/**
+ * @brief checks if the move makes contact, checking Punching Glove and Long Reach
+ * @return TRUE/FALSE
+ */
+BOOL LONG_CALL IsMoveMakingContact(int attackerAbility, int attackerItemHoldEffect, int moveno, u8 moveFlag);
 
 /**
  * @brief checks if the move index is a punching move
