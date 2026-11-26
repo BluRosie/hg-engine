@@ -42196,9 +42196,9 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = 9,
-        .shadowXOffset = -5,
-        .shadowSize = 2,
+        .spriteYOffset = 11,
+        .shadowXOffset = -4,
+        .shadowSize = 3,
     },
     [SPECIES_MEGA_ALAKAZAM] = {
         .frontHeader = {
@@ -42313,8 +42313,8 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = -8,
-        .shadowXOffset = 2,
+        .spriteYOffset = -7,
+        .shadowXOffset = 4,
         .shadowSize = 3,
     },
     [SPECIES_MEGA_KANGASKHAN] = {
@@ -42353,7 +42353,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = -9,
-        .shadowXOffset = -4,
+        .shadowXOffset = -2,
         .shadowSize = 3,
     },
     [SPECIES_MEGA_PINSIR] = {
@@ -42431,8 +42431,8 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = 8,
-        .shadowXOffset = 0,
-        .shadowSize = 2,
+        .shadowXOffset = 1,
+        .shadowSize = 3,
     },
     [SPECIES_MEGA_AERODACTYL] = {
         .frontHeader = {
@@ -42704,7 +42704,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = -4,
-        .shadowXOffset = 4,
+        .shadowXOffset = 5,
         .shadowSize = 2,
     },
     [SPECIES_MEGA_HOUNDOOM] = {
@@ -42782,7 +42782,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = 0,
-        .shadowXOffset = -9,
+        .shadowXOffset = -7,
         .shadowSize = 3,
     },
     [SPECIES_MEGA_SCEPTILE] = {
@@ -43484,7 +43484,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = 8,
-        .shadowXOffset = 4,
+        .shadowXOffset = 6,
         .shadowSize = 3,
     },
     [SPECIES_MEGA_LATIOS] = {
@@ -43834,7 +43834,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = 7,
+        .spriteYOffset = 8,
         .shadowXOffset = 4,
         .shadowSize = 3,
     },
@@ -43875,7 +43875,7 @@ const SpriteFrameData __data[] = {
         },
         .spriteYOffset = 8,
         .shadowXOffset = 3,
-        .shadowSize = 2,
+        .shadowSize = 3,
     },
     [SPECIES_GROUDON_PRIMAL] = {
         .frontHeader = {
@@ -45473,7 +45473,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = -3,
-        .shadowXOffset = -3,
+        .shadowXOffset = -4,
         .shadowSize = 3,
     },
     [SPECIES_MOLTRES_GALARIAN] = {
@@ -46527,7 +46527,7 @@ const SpriteFrameData __data[] = {
         },
         .spriteYOffset = -1,
         .shadowXOffset = 0,
-        .shadowSize = 2,
+        .shadowSize = 1,
     },
     [SPECIES_SHELLOS_EAST_SEA] = {
         .frontHeader = {
@@ -49256,7 +49256,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = -1,
-        .shadowXOffset = 0,
+        .shadowXOffset = 1,
         .shadowSize = 1,
     },
     [SPECIES_PUMPKABOO_LARGE] = {
@@ -49685,7 +49685,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = 0,
-        .shadowXOffset = 1,
+        .shadowXOffset = -3,
         .shadowSize = 2,
     },
     [SPECIES_ORICORIO_POM_POM] = {
@@ -51674,8 +51674,8 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = -1,
-        .shadowXOffset = 0,
-        .shadowSize = 2,
+        .shadowXOffset = 2,
+        .shadowSize = 3,
     },
     [SPECIES_GROWLITHE_HISUIAN] = {
         .frontHeader = {
@@ -52180,7 +52180,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = -13,
+        .spriteYOffset = -11,
         .shadowXOffset = 2,
         .shadowSize = 2,
     },
@@ -54091,8 +54091,8 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = 0,
-        .shadowXOffset = 0,
+        .spriteYOffset = 2,
+        .shadowXOffset = -4,
         .shadowSize = 2,
     },
     [SPECIES_GIGANTAMAX_VENUSAUR] = {
@@ -55690,7 +55690,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = -4,
+        .spriteYOffset = -3,
         .shadowXOffset = 8,
         .shadowSize = 3,
     },
@@ -56080,7 +56080,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = -1,
+        .spriteYOffset = 7,
         .shadowXOffset = 0,
         .shadowSize = 2,
     },
@@ -56119,8 +56119,8 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = -1,
-        .shadowXOffset = 0,
+        .spriteYOffset = 0,
+        .shadowXOffset = -4,
         .shadowSize = 2,
     },
     [SPECIES_MEGA_EXCADRILL] = {
@@ -56275,7 +56275,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = 4,
+        .spriteYOffset = 6,
         .shadowXOffset = 0,
         .shadowSize = 3,
     },
@@ -56353,8 +56353,8 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = -1,
-        .shadowXOffset = 0,
+        .spriteYOffset = 0,
+        .shadowXOffset = 1,
         .shadowSize = 3,
     },
     [SPECIES_MEGA_CHESNAUGHT] = {
@@ -56431,7 +56431,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = 4,
+        .spriteYOffset = 8,
         .shadowXOffset = -9,
         .shadowSize = 2,
     },
@@ -56470,7 +56470,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = -1,
+        .spriteYOffset = 1,
         .shadowXOffset = 0,
         .shadowSize = 2,
     },
@@ -56743,9 +56743,9 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
-        .spriteYOffset = -1,
+        .spriteYOffset = 6,
         .shadowXOffset = 0,
-        .shadowSize = 2,
+        .shadowSize = 3,
     },
     [SPECIES_MEGA_HAWLUCHA] = {
         .frontHeader = {
@@ -57095,7 +57095,7 @@ const SpriteFrameData __data[] = {
                 { .frameNo = -1, .duration = 0, .horizontalShift = 0, .verticalShift = 0 },
         },
         .spriteYOffset = -1,
-        .shadowXOffset = 0,
+        .shadowXOffset = 2,
         .shadowSize = 2,
     },
     [SPECIES_MEGA_SCOVILLAIN] = {
