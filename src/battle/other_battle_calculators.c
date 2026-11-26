@@ -1169,14 +1169,14 @@ u8 LONG_CALL CalcSpeed(struct BattleSystem *bsys, struct BattleStruct *ctx, int 
 
     // Step 1: 2x Abilities
 
-    if (((ability1 == ABILITY_SWIFT_SWIM) && (GetBattlerWeather(bw, sp, client1) & FIELD_CONDITION_RAIN_ALL))
-        || ((ability1 == ABILITY_CHLOROPHYLL) && (GetBattlerWeather(bw, sp, client1) & FIELD_CONDITION_SUN_ALL))
+    if (((ability1 == ABILITY_SWIFT_SWIM) && (GetBattlerWeather(bsys, ctx, client1) & FIELD_CONDITION_RAIN_ALL))
+        || ((ability1 == ABILITY_CHLOROPHYLL) && (GetBattlerWeather(bsys, ctx, client1) & FIELD_CONDITION_SUN_ALL))
         || ((ability1 == ABILITY_SAND_RUSH) && (weather & FIELD_CONDITION_SANDSTORM_ALL))
         || ((ability1 == ABILITY_SLUSH_RUSH) && (weather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL)))) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
-    if (((ability2 == ABILITY_SWIFT_SWIM) && (GetBattlerWeather(bw, sp, client2) & FIELD_CONDITION_RAIN_ALL))
-        || ((ability2 == ABILITY_CHLOROPHYLL) && (GetBattlerWeather(bw, sp, client2) & FIELD_CONDITION_SUN_ALL))
+    if (((ability2 == ABILITY_SWIFT_SWIM) && (GetBattlerWeather(bsys, ctx, client2) & FIELD_CONDITION_RAIN_ALL))
+        || ((ability2 == ABILITY_CHLOROPHYLL) && (GetBattlerWeather(bsys, ctx, client2) & FIELD_CONDITION_SUN_ALL))
         || ((ability2 == ABILITY_SAND_RUSH) && (weather & FIELD_CONDITION_SANDSTORM_ALL))
         || ((ability2 == ABILITY_SLUSH_RUSH) && (weather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL)))) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
