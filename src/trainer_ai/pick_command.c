@@ -69,7 +69,9 @@ int TrainerAI_PickCommand(struct BattleSystem *bsys, int attacker) {
             return PLAYER_INPUT_ITEM;
         }
     }
+#ifdef DEBUG_TRAINER_AI
     debug_printf("AI decided to fight!\n");
+#endif
     return PLAYER_INPUT_FIGHT;
 }
 

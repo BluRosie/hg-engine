@@ -117,7 +117,7 @@ static int MoveEffectEvaluator_Basic_ShedTail(AIContext *ai, struct BattleSystem
 static int MoveEffectEvaluator_Basic_Snow(UNUSED AIContext *ai_unused, struct BattleSystem *battleSystem);
 static int MoveEffectEvaluator_Basic_VenomDrench(AIContext *ai, struct BattleSystem *battleSystem);
 
-static MoveEffectEvaluator sBasicMoveEffectEvaluators[] = { // MAX_BASE_MOVE_EFFECT_NUM + 1?
+static MoveEffectEvaluator sBasicMoveEffectEvaluators[MAX_BASE_MOVE_EFFECT_NUM + 1] = {
     [MOVE_EFFECT_HIT] = MoveEffectEvaluator_Basic_None,
     [MOVE_EFFECT_STATUS_SLEEP] = MoveEffectEvaluator_Basic_Status_Sleep,
     [MOVE_EFFECT_POISON_HIT] = MoveEffectEvaluator_Basic_None,

@@ -38,7 +38,7 @@ typedef struct {
 
     BOOL attackerHasSupereffectiveMove;
     BOOL attackerHasDamagingMove;
-    int attackerMaxRollMoveDamages[4];
+    int maxRollMoveDamages[4];
     BOOL attackerKnowsPsychUp;
     u32 flingPower;
 
@@ -103,7 +103,6 @@ BOOL LONG_CALL BattlerMovesFirstDoubles(struct BattleSystem *battleSystem, struc
 BOOL LONG_CALL IsInList(u32 moveEffect, const u16 list[], u16 length);
 
 void LONG_CALL AITypeCalc(struct BattleStruct *battleSystem, u32 move, u32 type, int atkAbility, int defAbility, int held_effect, int type1, int type2, u32 *flag);
-BOOL LONG_CALL CantEscape(struct BattleSystem *battleSystem, struct BattleStruct *ctx, int battlerID, BattleMessage *msg);
 
 enum AIActionChoice {
     AI_ENEMY_ATTACK_1,

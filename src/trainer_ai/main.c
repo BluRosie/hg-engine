@@ -68,11 +68,15 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
 
     int target = BATTLER_OPPONENT(attacker); // Default for singles -- updated in the doubles section.
 
+#ifdef DEBUG_TRAINER_AI
     debug_printf("AI reached setup state!\n");
+#endif
 
     SetupStateVariables(battleSystem, attacker, target, ai);
 
+#ifdef DEBUG_TRAINER_AI
     debug_printf("AI finished setup state!\n");
+#endif
 
     // For more than a 1v1 battle, loop over all battlers and compute the highest score for each.
     // The highest score among them determines the target.
@@ -197,6 +201,9 @@ enum AIActionChoice __attribute__((section (".init"))) TrainerAI_Main(struct Bat
     }
 
     result = tiedMoveSlots[BattleRand(battleSystem) % numMoveSlotTies]; // Randomly pick a move among the tied moves.
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move choice: %d\n", result);
+#endif
     return result;
 }
 
@@ -577,7 +584,7 @@ int BasicFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused, AIC
     // DISCUSS: Does any ability-based weather decision-making belong in BasicFlag? I don't think so.
 
 #ifdef DEBUG_TRAINER_AI
-    debug_printf("Move score returned from basic flag: %d\n", moveScore);
+    debug_printf("Move score returned from Basic flag for move %d: %d\n", ai->move, moveScore);
 #endif
 
     return moveScore;
@@ -590,19 +597,19 @@ int EvaluateAttackFlag(struct BattleSystem *battleSystem, int moveSlot, AIContex
     BOOL isCurrentMoveStrongest = TRUE;
 
     for (int moveSlotToCompare = 0; moveSlotToCompare < ai->attackerMovesKnown; moveSlotToCompare++) {
-        if (moveSlotToCompare != moveSlot && ai->attackerMaxRollMoveDamages[moveSlotToCompare] > ai->attackerMaxRollMoveDamages[moveSlot]) {
+        if (moveSlotToCompare != moveSlot && ai->maxRollMoveDamages[moveSlotToCompare] > ai->maxRollMoveDamages[moveSlot]) {
             isCurrentMoveStrongest = FALSE;
         }
     }
 
 #ifdef DEBUG_TRAINER_AI
     for (int slot = 0; slot < 4; slot++) {
-        debug_printf("Move %d: Max damage roll %d\n", slot, ai->attackerMaxRollMoveDamages[slot]);
+        debug_printf("Move %d: Max damage roll %d\n", slot, ai->maxRollMoveDamages[slot]);
     }
 #endif
 
     // Provide incentive if the current move KOs.
-    if (ai->attackerMaxRollMoveDamages[moveSlot] >= ai->target.hp
+    if (ai->maxRollMoveDamages[moveSlot] >= ai->target.hp
     && ai->moveEffect != MOVE_EFFECT_HALVE_DEFENSE) { // Do not incentivize self-KO moves at all, even if they see a KO.
         if (ai->moveEffect == MOVE_EFFECT_HIT_FIRST_IF_TARGET_ATTACKING // Only incentivize risky options 33% of the time.
         || ai->moveEffect == MOVE_EFFECT_HIT_IN_3_TURNS
@@ -619,7 +626,7 @@ int EvaluateAttackFlag(struct BattleSystem *battleSystem, int moveSlot, AIContex
         }
     } else if (isCurrentMoveStrongest == FALSE) { // Slightly penalize weaker moves that do not see a KO.
         for (int moveSlotToCompare = 0; moveSlotToCompare < 4; moveSlotToCompare++) {
-            if (ai->attackerMaxRollMoveDamages[moveSlotToCompare] > ai->attackerMaxRollMoveDamages[moveSlot]) { // For each move that is stronger than this one...
+            if (ai->maxRollMoveDamages[moveSlotToCompare] > ai->maxRollMoveDamages[moveSlot]) { // For each move that is stronger than this one...
                 moveScore--; // Avoids the use of a random move when highest power move cannot be used.
             }
         }
@@ -632,12 +639,18 @@ int EvaluateAttackFlag(struct BattleSystem *battleSystem, int moveSlot, AIContex
     }
 
 #ifdef DEBUG_TRAINER_AI
-    debug_printf("Move score returned from evaluate attack flag: %d\n", moveScore);
+    debug_printf("Move score returned from EvaluateAttack flag for move %d: %d\n", ai->move, moveScore);
 #endif
     return moveScore;
 }
 
 int ExpertFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused, AIContext *ai) {
+    int moveScore = MoveEffectEvaluator_EvaluateExpert(ai, battleSystem);
+
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from Expert flag for move %d: %d\n", ai->move, moveScore);
+#endif
+
     return MoveEffectEvaluator_EvaluateExpert(ai, battleSystem);
 }
 
@@ -655,6 +668,10 @@ int SetupFirstTurnFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_un
         }
     }
 
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from SetupFirstTurn flag for move %d: %d\n", ai->move, moveScore);
+#endif
+
     return moveScore;
 }
 
@@ -667,6 +684,10 @@ int RiskyFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused, AIC
         }
     }
 
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from Risky flag for move %d: %d\n", ai->move, moveScore);
+#endif
+
     return moveScore;
 }
 
@@ -678,6 +699,10 @@ int PrioritizeDamageFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_
             moveScore += 2;
         }
     }
+
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from PrioritizeDamage flag for move %d: %d\n", ai->move, moveScore);
+#endif
 
     return moveScore;
 }
@@ -723,6 +748,10 @@ int BatonPassFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused,
             moveScore += 3;
         }
     }
+
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from BatonPass flag for move %d: %d\n", ai->move, moveScore);
+#endif
 
     return moveScore;
 }
@@ -868,7 +897,7 @@ int TagStrategyFlag(struct BattleSystem *battleSystem, int moveSlot, AIContext *
         }
     } else { // Target is not explicitly partner:
         if (ai->moveEffectiveness == MOVE_STATUS_NOT_VERY_EFFECTIVE
-        && ai->attackerMaxRollMoveDamages[moveSlot] < ai->target.hp
+        && ai->maxRollMoveDamages[moveSlot] < ai->target.hp
         && !(ai->moveEffect == MOVE_EFFECT_LEVEL_DAMAGE_FLAT
         || ai->moveEffect == MOVE_EFFECT_ONE_HIT_KO
         || ai->moveEffect == MOVE_EFFECT_20_DAMAGE_FLAT
@@ -976,6 +1005,10 @@ int TagStrategyFlag(struct BattleSystem *battleSystem, int moveSlot, AIContext *
         // ...did any exist?
     }
 
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from TagStrategy flag for move %d: %d\n", ai->move, moveScore);
+#endif
+
     return moveScore;
 }
 
@@ -1030,6 +1063,10 @@ int CheckHPFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused, A
         }
     }
 
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from CheckHP flag for move %d: %d\n", ai->move, moveScore);
+#endif
+
     return moveScore;
 }
 
@@ -1050,6 +1087,10 @@ int WeatherFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused, A
         moveScore += 5;
     }
 
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from Weather flag for move %d: %d\n", ai->move, moveScore);
+#endif
+
     return moveScore;
 }
 
@@ -1062,6 +1103,10 @@ int HarassmentFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused
             moveScore += 2;
         }
     }
+
+#ifdef DEBUG_TRAINER_AI
+    debug_printf("Move score returned from Harassment flag for move %d: %d\n", ai->move, moveScore);
+#endif
 
     return moveScore;
 }
@@ -1254,7 +1299,7 @@ BOOL LONG_CALL IsInList(u32 value, const u16 list[], u16 length) {
 BOOL LONG_CALL MoveIsStrongest(int moveSlot, AIContext *ai) {
     for (int slotToCompare = 0; slotToCompare < 4; slotToCompare++) {
         if (slotToCompare != moveSlot) {
-            if (ai->attackerMaxRollMoveDamages[moveSlot] < ai->attackerMaxRollMoveDamages[slotToCompare]) {
+            if (ai->maxRollMoveDamages[moveSlot] < ai->maxRollMoveDamages[slotToCompare]) {
                 return FALSE;
             }
         }
@@ -1267,7 +1312,6 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
     struct BattleStruct *ctx = battleSystem->sp;
     
     u8 speedCalc;
-    int work;
     u32 temp = 0;
 
     ai->attacker.id = attacker;
@@ -1305,6 +1349,8 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
 
     ai->targetLastUsedMove = ctx->waza_no_old[target];
     ai->targetLastUsedMoveEffect = ctx->moveTbl[ai->targetLastUsedMove].effect;
+
+    
     
     ai->flingPower = BattleItemDataGet(ctx, ai->attacker.item, ITEM_PARAM_FLING_POWER);
     ai->differenceInAttackStages = ctx->battlemon[attacker].states[STAT_ATTACK] - ctx->battlemon[target].states[STAT_ATTACK];
@@ -1317,27 +1363,33 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
     ai->trickRoomActive = 0;
     ai->targetHasBadItem = 0;
 
-    speedCalc = CalcSpeed(battleSystem, ctx, ai->target.id, attacker, CALCSPEED_FLAG_NO_PRIORITY); //checks actual turn order with field state considered
+    speedCalc = CalcSpeed(battleSystem, ctx, ai->target.id, attacker, CALCSPEED_FLAG_NO_PRIORITY); // Checks actual turn order with field state considered.
     
     //evaluates to 0 if ai->target > attacker (false)
     //and 1 if ai->target < attacker (true)
     //if speed tie, then 2.
     if (speedCalc == 0) {
-        ai->targetMovesFirst = 1;
-    }
-    else if (speedCalc == 1) {
-        ai->attackerMovesFirst = 1;
-    }
-    else if (speedCalc == 2) {
-        ai->isSpeedTie = 1;
+        ai->targetMovesFirst = TRUE;
+    } else if (speedCalc == 1) {
+        ai->attackerMovesFirst = TRUE;
+    } else if (speedCalc == 2) {
+        ai->isSpeedTie = TRUE;
     }
 
     if (ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) {
-        ai->trickRoomActive = 1;
+        ai->trickRoomActive = TRUE;
     }
-    if ((ai->target.item == ITEM_IRON_BALL && !ai->trickRoomActive)||ai->target.item == ITEM_LAGGING_TAIL ||ai->target.item == ITEM_TOXIC_ORB ||ai->target.item == ITEM_FLAME_ORB || ai->target.item == ITEM_RING_TARGET ||
-    ai->target.item == ITEM_STICKY_BARB || ai->target.item == ITEM_CHOICE_SCARF || ai->target.item == ITEM_CHOICE_SPECS || ai->target.item == ITEM_CHOICE_BAND) {
-        ai->targetHasBadItem = 1;
+
+    if ((ai->target.item == ITEM_IRON_BALL && !ai->trickRoomActive)
+    || ai->target.item == ITEM_LAGGING_TAIL
+    || ai->target.item == ITEM_TOXIC_ORB
+    || ai->target.item == ITEM_FLAME_ORB
+    || ai->target.item == ITEM_RING_TARGET
+    || ai->target.item == ITEM_STICKY_BARB
+    || ai->target.item == ITEM_CHOICE_SCARF
+    || ai->target.item == ITEM_CHOICE_SPECS
+    || ai->target.item == ITEM_CHOICE_BAND) {
+        ai->targetHasBadItem = TRUE;
     }
 
     /*Check if target or user has stat change*/
@@ -1345,7 +1397,7 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
     for (int i = 0; i < STAT_MAX; i++) {
         if (ctx->battlemon[attacker].states[i] != 0 ||
             ctx->battlemon[target].states[i] != 0) {
-            ai->hasStatChange = 1;
+            ai->hasStatChange = TRUE;
         }
     }
     
@@ -1369,6 +1421,7 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
         (ai->target.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)|| 
         (ai->target.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL)) ||
         (IsClientGrounded(ctx, ai->target.id) && ctx->terrainOverlay.type == MISTY_TERRAIN);
+
     ai->targetImmuneToParalysis =
         (HasType(ctx, target, TYPE_ELECTRIC) ||
         ctx->battlemon[target].condition & STATUS_ALL || 
@@ -1377,7 +1430,8 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
         (ai->target.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)|| 
         (ai->target.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL) ||
         (ai->target.ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[target].speed)) ||
-        (IsClientGrounded(ctx, target) && ctx->terrainOverlay.type == MISTY_TERRAIN) ;
+        (IsClientGrounded(ctx, target) && ctx->terrainOverlay.type == MISTY_TERRAIN);
+
     ai->targetImmuneToBurn =  
         (HasType(ctx, target, TYPE_FIRE) ||
         ctx->battlemon[target].condition & STATUS_ALL || 
@@ -1388,6 +1442,7 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
         (ai->target.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)|| 
         (ai->target.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL) ||
         (IsClientGrounded(ctx, target) && ctx->terrainOverlay.type == MISTY_TERRAIN);
+
     ai->targetImmuneToSleep = (ctx->battlemon[target].condition & STATUS_ALL || 
         ctx->side_condition[ai->target.side] & SIDE_STATUS_SAFEGUARD ||
         ai->target.ability == ABILITY_VITAL_SPIRIT ||
@@ -1395,57 +1450,53 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
         (ai->target.ability == ABILITY_LEAF_GUARD && ctx->field_condition & FIELD_CONDITION_SUN_ALL)|| 
         (ai->target.ability == ABILITY_HYDRATION && ctx->field_condition & FIELD_CONDITION_RAIN_ALL) ||
         (ai->target.ability == ABILITY_MAGIC_GUARD && ctx->battlemon[attacker].speed > ctx->battlemon[target].speed)||
-        (IsClientGrounded(ctx, target) && (ctx->terrainOverlay.type == ELECTRIC_TERRAIN ||ctx->terrainOverlay.type == MISTY_TERRAIN)));
+        (IsClientGrounded(ctx, target) && (ctx->terrainOverlay.type == ELECTRIC_TERRAIN || ctx->terrainOverlay.type == MISTY_TERRAIN)));
+
     ai->moveEffectiveness = 0;
     
     ai->attacker.partySize = Battle_GetClientPartySize(battleSystem, attacker);
     ai->attacker.livingPartySize = 0;
+
     ai->target.partySize = Battle_GetClientPartySize(battleSystem, target);
     ai->target.livingPartySize = 0;
 
     ai->attackerStatusedMons = 0;
-    ai->targetDamagedMons = 0;
 
-    /*Check if attacker's team has anyone that is statused or damaged.
-    Also compute number of living members on attacker's team.*/
+    // Attacker team loop:
     for (int i = 0; i < ai->attacker.partySize; i++) {
-        struct PartyPokemon * currentMonAttacking = Battle_GetClientPartyMon(battleSystem, attacker, i);
+        struct PartyPokemon *currentMon = Battle_GetClientPartyMon(battleSystem, attacker, i);
 
-        if (!(GetMonData(currentMonAttacking, MON_DATA_HP, 0) == 0 ||
-        GetMonData(currentMonAttacking, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-        GetMonData(currentMonAttacking, MON_DATA_SPECIES_OR_EGG, 0) == 494)) {
-
+        if (!(GetMonData(currentMon, MON_DATA_HP, 0) == 0
+        || GetMonData(currentMon, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_NONE
+        || GetMonData(currentMon, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_EGG)) {
             ai->attacker.livingPartySize++;
-            work = GetMonData(currentMonAttacking, MON_DATA_STATUS, NULL);
-            if (GetMonData(currentMonAttacking, MON_DATA_HP, 0) !=
-            GetMonData(currentMonAttacking, MON_DATA_MAXHP, 0)) {
-                ai->targetDamagedMons++;
-            }
-            if (!(work & STATUS_NONE)) {
+
+            if (!(GetMonData(currentMon, MON_DATA_STATUS, NULL) & STATUS_NONE)) {
                 ai->attackerStatusedMons++;
             }
         }
     }
 
-    /*Loop over defending team*/
+    ai->targetDamagedMons = 0;
+
+    // Target team loop:
     for (int i = 0; i < ai->target.partySize; i++) {
-        struct PartyPokemon * currentMonDefending = Battle_GetClientPartyMon(battleSystem, ai->target.id, i);
-        if (!(GetMonData(currentMonDefending, MON_DATA_HP, 0) == 0 ||
-        GetMonData(currentMonDefending, MON_DATA_SPECIES_OR_EGG, 0) == 0||
-        GetMonData(currentMonDefending, MON_DATA_SPECIES_OR_EGG, 0) == 494)) {
+        struct PartyPokemon *currentMon = Battle_GetClientPartyMon(battleSystem, ai->target.id, i);
+        if (!(GetMonData(currentMon, MON_DATA_HP, 0) == 0
+        || GetMonData(currentMon, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_NONE
+        || GetMonData(currentMon, MON_DATA_SPECIES_OR_EGG, 0) == SPECIES_EGG)) {
             ai->target.livingPartySize++;
+
+            if (GetMonData(currentMon, MON_DATA_HP, 0) != GetMonData(currentMon, MON_DATA_MAXHP, 0)) {
+                ai->targetDamagedMons++;
+            }
         }
     }
 
-    ai->targetDamagedMons = 0;
-    ai->attackerStatusedMons = 0;
     ai->attackerKnowsPsychUp = 0;
     ai->attackerMovesKnown = GetBattlerLearnedMoveCount(battleSystem, ctx, attacker);
     ai->attackerHasSupereffectiveMove = 0;
     ai->attackerHasDamagingMove = 0;
-
-
-    debug_printf("Reached attacker team loop.\n");
 
     /*Loop over all moves for checking certain conditions*/
     /*Set up max roll damage calculations for all known moves.
@@ -1461,41 +1512,36 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
             specialMovePower = 71;
         }
 
-        debug_printf("Reached CalcBaseDamage for move %d.\n", i);
-        ai->attackerMaxRollMoveDamages[i] = CalcBaseDamage(battleSystem, ctx, move, ctx->side_condition[ai->target.side], ctx->field_condition, specialMovePower, 0, ai->attacker.id, ai->target.id, 0);
-        debug_printf("Reached TypeCalc for move %d.\n", i);
-        ai->attackerMaxRollMoveDamages[i] = TypeCalc(battleSystem, ctx, move, 0, attacker, ai->target.id, ai->attackerMaxRollMoveDamages[i], &temp);
-        debug_printf("Passed TypeCalc for move %d.\n", i);
+        ai->maxRollMoveDamages[i] = CalcBaseDamage(battleSystem, ctx, move, ctx->side_condition[ai->target.side], ctx->field_condition, specialMovePower, 0, ai->attacker.id, ai->target.id, 0);
+        ai->maxRollMoveDamages[i] = TypeCalc(battleSystem, ctx, move, 0, attacker, ai->target.id, ai->maxRollMoveDamages[i], &temp);
 
         /*Directly modify max roll damages for multihit moves by 3.0 (average damage is 3.1x)*/
         //serparately add in type calc after base damage. will need to add in consideration for multihit moves
         if (move == MOVE_EFFECT_MULTI_HIT) {
-            ai->attackerMaxRollMoveDamages[i] = ai->attackerMaxRollMoveDamages[i] * 3;
+            ai->maxRollMoveDamages[i] = ai->maxRollMoveDamages[i] * 3;
         }
         //if flat damage moves, set to level (even for psywave)
         else if (moveEffect == MOVE_EFFECT_LEVEL_DAMAGE_FLAT || move == MOVE_EFFECT_RANDOM_DAMAGE_1_TO_150_LEVEL) {
-            ai->attackerMaxRollMoveDamages[i] = ai->attacker.level;
+            ai->maxRollMoveDamages[i] = ai->attacker.level;
         }
         else if (moveEffect == MOVE_EFFECT_20_DAMAGE_FLAT) {//this is misnamed in hg-engine (sonicboom)
-            ai->attackerMaxRollMoveDamages[i] = 20;
+            ai->maxRollMoveDamages[i] = 20;
         }
         else if (moveEffect == MOVE_EFFECT_40_DAMAGE_FLAT) {//dragon rage
-            ai->attackerMaxRollMoveDamages[i] = 40;
+            ai->maxRollMoveDamages[i] = 40;
         }
         else if (moveEffect == MOVE_EFFECT_POISON_MULTI_HIT ||
                 moveEffect == MOVE_EFFECT_HIT_TWICE) {//twineedle
-            ai->attackerMaxRollMoveDamages[i] = ai->attackerMaxRollMoveDamages[i] * 2;
+            ai->maxRollMoveDamages[i] = ai->maxRollMoveDamages[i] * 2;
         }
 
-        if (ai->attackerMaxRollMoveDamages[i] > 0) {
+        if (ai->maxRollMoveDamages[i] > 0) {
             ai->attackerHasDamagingMove = 1;
         }
         if (move == MOVE_PSYCH_UP) {
             ai->attackerKnowsPsychUp = 1;
         }
 
-        // TODO: Fix.
-        debug_printf("Reached AITypeCalc.\n");
         AITypeCalc(ctx, move, moveType, ai->attacker.ability, ai->target.ability, ai->target.itemHoldEffect, ctx->battlemon[target].type1, ctx->battlemon[target].type2, & ai->moveEffectiveness);
         if (ai->moveEffectiveness == MOVE_STATUS_SUPER_EFFECTIVE) {
             ai->attackerHasSupereffectiveMove = 1;
