@@ -651,7 +651,7 @@ int ExpertFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused, AI
     debug_printf("Move score returned from Expert flag for move %d: %d\n", ai->move, moveScore);
 #endif
 
-    return MoveEffectEvaluator_EvaluateExpert(ai, battleSystem);
+    return moveScore;
 }
 
 int SetupFirstTurnFlag(struct BattleSystem *battleSystem, UNUSED int moveSlot_unused, AIContext *ai) {
