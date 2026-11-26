@@ -318,7 +318,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_WEATHER_BALL:
-        if ((weather & FIELD_CONDITION_WEATHER)
+        if ((GetBattlerWeather(bw, sp, attacker) & FIELD_CONDITION_WEATHER)
             && !(weather & FIELD_CONDITION_STRONG_WINDS)) {
             movepower *= 2;
         }
@@ -541,7 +541,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
     // Field effects (weather conditions, Terrains, Imprison, Ion Deluge, Magic Room, Gravity, etc.):
 
-    if ((weather & (FIELD_CONDITION_FOG | FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SANDSTORM_ALL | FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SNOW_ALL))
+    if ((GetBattlerWeather(bw, sp, attacker) & (FIELD_CONDITION_FOG | FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SANDSTORM_ALL | FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SNOW_ALL))
         && (moveno == MOVE_SOLAR_BEAM || moveno == MOVE_SOLAR_BLADE)) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
     }
@@ -1084,13 +1084,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle weather boosts
-            if ((weather & FIELD_CONDITION_SUN_ALL)
+            if ((GetBattlerWeather(bw, sp, attacker) & FIELD_CONDITION_SUN_ALL)
                 && (AttackingMon.ability == ABILITY_SOLAR_POWER)
                 && (movesplit == SPLIT_SPECIAL)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
             if ((!flowerGiftAppliedForAttackModifier)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (GetBattlerWeather(bw, sp, attacker) & FIELD_CONDITION_SUN_ALL)
                 && (AttackingMon.ability == ABILITY_FLOWER_GIFT)
                 && (movesplit == SPLIT_PHYSICAL)) {
                 flowerGiftAppliedForAttackModifier = TRUE;
@@ -1212,7 +1212,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (BATTLER_ALLY(attacker) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
             if ((!flowerGiftAppliedForAttackModifier)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (GetBattlerWeather(bw, sp, BATTLER_ALLY(attacker)) & FIELD_CONDITION_SUN_ALL)
                 && (AttackingMonAlly.ability == ABILITY_FLOWER_GIFT)
                 && (movesplit == SPLIT_PHYSICAL)) {
                 flowerGiftAppliedForAttackModifier = TRUE;
@@ -1450,7 +1450,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (defender == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
             if ((!flowerGiftAppliedForDefenseModifier)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (GetBattlerWeather(bw, sp, defender) & FIELD_CONDITION_SUN_ALL)
                 && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLOWER_GIFT))
                 && (defensiveSplit == SPLIT_SPECIAL)) {
                 flowerGiftAppliedForDefenseModifier = TRUE;
@@ -1488,7 +1488,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (BATTLER_ALLY(defender) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
             if ((!flowerGiftAppliedForDefenseModifier)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (GetBattlerWeather(bw, sp, BATTLER_ALLY(defender)) & FIELD_CONDITION_SUN_ALL)
                 && (MoldBreakerAbilityCheck(sp, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_GIFT))
                 && (defensiveSplit == SPLIT_SPECIAL)) {
                 flowerGiftAppliedForDefenseModifier = TRUE;
