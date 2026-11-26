@@ -1,4 +1,4 @@
-// Test: Dragon Darts - Hit both, faint first hit
+// Test: Dragon Darts - Doubles 1 VS 1
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

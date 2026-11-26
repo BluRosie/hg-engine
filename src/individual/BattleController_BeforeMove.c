@@ -214,7 +214,6 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         debug_printf("WAZA_STATUS_FLAG_NO_OUT set, check Metronome\n");
 #endif
         ctx->server_seq_no = CONTROLLER_COMMAND_26;
-        ST_ServerMetronomeBeforeCheck(bsys, ctx); // 801ED20h
         return;
     }
 
@@ -1209,7 +1208,6 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
         // ctx->next_server_seq_no = CONTROLLER_COMMAND_24;  // after that
         ST_ServerTotteokiCountCalc(bsys, ctx); // 801B570h
     }
-    ST_ServerMetronomeBeforeCheck(bsys, ctx); // 801ED20h
 
     return;
 }
@@ -5188,6 +5186,7 @@ void BattleController_ResetGeneralMoveFailureFlags(struct BattleStruct *ctx, int
         ctx->battlemon[attack_client].effect_of_moves &= ~(MOVE_EFFECT_FLAG_SEMI_INVULNERABLE);
         ctx->battlemon[attack_client].moveeffect.rolloutCount = 0;
         ctx->battlemon[attack_client].moveeffect.furyCutterCount = 0;
+        ctx->protectSuccessTurns[attack_client] = 0;
 
         if (setsMoveConditionalFailureFlag) {
             ctx->moveConditionsFlags[attack_client].moveFailureThisTurn = TRUE;
