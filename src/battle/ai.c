@@ -24,7 +24,7 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
  *  @param move index of the move being used
  *  @param atkAbility ability of the attacker
  *  @param defAbility ability of the defender
- *  @param held_effect held item effect of the attacker
+ *  @param held_effect held item effect of the defender
  *  @param type1 primary type of defender
  *  @param type2 secondary type of defender
  *  @param flag flags to modify so that the AI knows what decision to make
@@ -104,18 +104,4 @@ void AITypeCalc(struct BattleStruct *sp, u32 move, u32 type, int atkAbility, int
     }
 
     return;
-}
-
-/**
- *  @brief see if bind should restrain switching for AI
- *
- *  @param bw battle work structure
- *  @param sp global battle structure
- *  @param battler battler whose bind counter to check
- *  @return TRUE if the switch should not be able to happen, FALSE otherwise
- */
-BOOL SeeIfBindShouldRestrainSwitch(struct BattleSystem *bw UNUSED, struct BattleStruct *sp, u32 battler)
-{
-    // debug_printf("Battler %d can%s switch out.\n", battler, (sp->binding_turns[battler] != 0) ? "'t" : "");
-    return sp->binding_turns[battler] != 0;
 }

@@ -1331,7 +1331,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Sonic Boom",
         },
         .data = {
-            .effect = MOVE_EFFECT_10_DAMAGE_FLAT,
+            .effect = MOVE_EFFECT_20_DAMAGE_FLAT,
             .split = SPLIT_SPECIAL,
             .power = 1,
             .type = TYPE_NORMAL,
@@ -9647,7 +9647,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Miracle Eye",
         },
         .data = {
-            .effect = MOVE_EFFECT_IGNORE_EVATION_REMOVE_DARK_IMMUNE,
+            .effect = MOVE_EFFECT_IGNORE_EVASION_REMOVE_DARK_IMMUNE,
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_PSYCHIC,
@@ -10268,7 +10268,7 @@ const MoveSourceEntry sMoveSource[NUM_OF_MOVES + 1] = {
             .fullName = "Gastro Acid",
         },
         .data = {
-            .effect = MOVE_EFFECT_SUPRESS_ABILITY,
+            .effect = MOVE_EFFECT_SUPPRESS_ABILITY,
             .split = SPLIT_STATUS,
             .power = 0,
             .type = TYPE_POISON,

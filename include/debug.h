@@ -84,7 +84,7 @@
 // #define DEBUG_DAMAGE_CALC
 
 // DEBUG_SPEED_CALC shows debug information related to calculating speed. It is very slow and laggy.
-//  #define DEBUG_SPEED_CALC
+// #define DEBUG_SPEED_CALC
 
 // DEBUG_ABILITY_POPUP shows debug information related to the Ability popup.
 // #define DEBUG_ABILITY_POPUP
@@ -110,6 +110,9 @@
 // DEBUG_AUTO_CONTINUE_GAME skips the title screen and start menu to automatically continue the game
 // when enabled, skips the intro movie and title screen to immediately continue the loaded save
 // #define DEBUG_AUTO_CONTINUE_GAME
+
+// DEBUG_TRAINER_AI shows debug information related to trainer AI decision-making.
+// #define DEBUG_TRAINER_AI
 
 // NOCASH_GBA_PRINT swaps from desmume prints with the syscall to NO$GBA-style prints for use with i.e. melonDS
 #define NOCASH_GBA_PRINT

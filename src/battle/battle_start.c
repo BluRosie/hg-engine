@@ -43,7 +43,7 @@ struct BattleStruct *ServerInit(struct BattleSystem *bw)
     BattleStructureCounterInit(bw, sp);
     ServerMoveAIInit(bw, sp);
     DumpMoveTableData(&sp->moveTbl[0]);
-    sp->aiWorkTable.item = ItemDataTableLoad(HEAPID_BATTLE_HEAP);
+    sp->trainerAIData.itemData = ItemDataTableLoad(HEAPID_BATTLE_HEAP);
 
 #ifdef RESTORE_ITEMS_AT_BATTLE_END
 

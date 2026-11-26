@@ -131,7 +131,7 @@
 #define MOVE_EFFECT_PASS_STATS_AND_STATUS                   127
 #define MOVE_EFFECT_HIT_BEFORE_SWITCH                       128
 #define MOVE_EFFECT_REMOVE_HAZARDS_AND_BINDING              129
-#define MOVE_EFFECT_10_DAMAGE_FLAT                          130
+#define MOVE_EFFECT_20_DAMAGE_FLAT                          130
 #define MOVE_EFFECT_UNUSED_131                              131
 #define MOVE_EFFECT_HEAL_HALF_DIFFERENT_IN_WEATHER          132
 #define MOVE_EFFECT_UNUSED_133                              133
@@ -217,7 +217,7 @@
 #define MOVE_EFFECT_CAMOUFLAGE                              213
 #define MOVE_EFFECT_HEAL_HALF_REMOVE_FLYING_TYPE            214
 #define MOVE_EFFECT_GRAVITY                                 215
-#define MOVE_EFFECT_IGNORE_EVATION_REMOVE_DARK_IMMUNE       216
+#define MOVE_EFFECT_IGNORE_EVASION_REMOVE_DARK_IMMUNE       216
 #define MOVE_EFFECT_DOUBLE_POWER_HEAL_SLEEP                 217
 #define MOVE_EFFECT_USER_SPEED_DOWN_HIT                     218
 #define MOVE_EFFECT_POWER_BASED_ON_LOW_SPEED                219
@@ -240,7 +240,7 @@
 #define MOVE_EFFECT_PREVENT_HEALING                         236
 #define MOVE_EFFECT_INCREASE_POWER_WITH_MORE_HP             237
 #define MOVE_EFFECT_SWAP_ATK_DEF                            238
-#define MOVE_EFFECT_SUPRESS_ABILITY                         239
+#define MOVE_EFFECT_SUPPRESS_ABILITY                        239
 #define MOVE_EFFECT_PREVENT_CRITS                           240
 #define MOVE_EFFECT_USE_MOVE_FIRST                          241
 #define MOVE_EFFECT_USE_LAST_USED_MOVE                      242
