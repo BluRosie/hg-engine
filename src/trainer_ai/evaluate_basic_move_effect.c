@@ -793,7 +793,7 @@ static int MoveEffectEvaluator_Basic_LightScreen(AIContext *ai, struct BattleSys
 static int MoveEffectEvaluator_Basic_Rest(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
     
-    if ((ai->attackerMovesFirst && ai->attacker.percentHP == 100)
+    if ((ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST && ai->attacker.percentHP == 100)
     || ai->attacker.ability == ABILITY_VITAL_SPIRIT
     || ai->attacker.ability == ABILITY_INSOMNIA
     || ai->attacker.ability == ABILITY_COMATOSE
@@ -920,7 +920,7 @@ static int MoveEffectEvaluator_Basic_Sleeping(AIContext *ai, struct BattleSystem
 static int MoveEffectEvaluator_Basic_Conversion2(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
     
-    if (ai->attackerMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         u8 typeToChangeTo = ctx->lastClientMoveType[ai->target.id];
 
         if (typeToChangeTo == TYPE_TYPELESS
@@ -1187,7 +1187,7 @@ static int MoveEffectEvaluator_Basic_Ingrain(AIContext *ai, struct BattleSystem 
 }
 
 static int MoveEffectEvaluator_Basic_Endeavor(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
-    if (ai->attackerMovesFirst
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST
     && ai->attacker.hp >= ai->target.hp) {
         return -10;
     }
@@ -1305,7 +1305,7 @@ static int MoveEffectEvaluator_Basic_StatUp_Random(AIContext *ai, struct BattleS
 }
 
 static int MoveEffectEvaluator_Basic_TargetMovesFirst(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
-    if (ai->attackerMovesFirst) { // TODO: Account for ABILITY_STALL during setup.
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) { // TODO: Account for ABILITY_STALL during setup.
         return -10;
     }
     return 0;
@@ -1381,7 +1381,7 @@ static int MoveEffectEvaluator_Basic_LuckyChant(AIContext *ai, struct BattleSyst
 static int MoveEffectEvaluator_Basic_Copycat(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
 
-    if (ctx->total_turn == 0 && ai->attackerMovesFirst) {
+    if (ctx->total_turn == 0 && ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         return -10;
     }
     return 0;
@@ -1477,7 +1477,7 @@ static int MoveEffectEvaluator_Basic_Defog(AIContext *ai, struct BattleSystem *b
 }
 
 static int MoveEffectEvaluator_Basic_TrickRoom(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
-    if (ai->attackerMovesFirst || ai->isSpeedTie) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST || ai->speedCalc == SPEEDCALC_TIE) {
         return -10;
     }
     return 0;

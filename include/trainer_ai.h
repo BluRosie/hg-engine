@@ -69,9 +69,7 @@ typedef struct {
     int differenceInDefenseStages;
     int differenceInSpDefStages;
     
-    u8 attackerMovesFirst;
-    u8 targetMovesFirst;
-    u8 isSpeedTie;
+    u8 speedCalc;
 
     int chosenTarget;
 
@@ -186,11 +184,19 @@ enum {
     PLAYER_INPUT_CANCEL = 0xFF,
 };
 
-#define ITEM_AI_CATEGORY_FULL_RESTORE   0
-#define ITEM_AI_CATEGORY_RECOVER_HP     1
-#define ITEM_AI_CATEGORY_RECOVER_STATUS 2
-#define ITEM_AI_CATEGORY_STAT_BOOSTER   3
-#define ITEM_AI_CATEGORY_GUARD_SPEC     4
-#define ITEM_AI_CATEGORY_MAX            5
+enum {
+    ITEM_AI_CATEGORY_FULL_RESTORE,
+    ITEM_AI_CATEGORY_RECOVER_HP,
+    ITEM_AI_CATEGORY_RECOVER_STATUS,
+    ITEM_AI_CATEGORY_STAT_BOOSTER,
+    ITEM_AI_CATEGORY_GUARD_SPEC,
+    ITEM_AI_CATEGORY_MAX,
+};
+
+enum {
+    SPEEDCALC_TARGET_MOVES_FIRST,
+    SPEEDCALC_ATTACKER_MOVES_FIRST,
+    SPEEDCALC_TIE,
+};
 
 #endif // TRAINER_AI_H

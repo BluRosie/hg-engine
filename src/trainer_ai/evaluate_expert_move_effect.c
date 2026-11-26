@@ -636,11 +636,11 @@ static int MoveEffectEvaluator_Expert_SelfSacrifice_Hit(AIContext *ai, struct Ba
         }
     }
     
-    if (ai->attacker.percentHP >= 80 && (ai->attackerMovesFirst || ai->isSpeedTie)) {
+    if (ai->attacker.percentHP >= 80 && (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST || ai->speedCalc == SPEEDCALC_TIE)) {
         if (BattleRand(battleSystem) % 10 < 8) {
             moveScore -= 3;
         }
-    } else if (ai->attacker.percentHP >= 80 && (ai->targetMovesFirst || ai->isSpeedTie)) {
+    } else if (ai->attacker.percentHP >= 80 && (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST || ai->speedCalc == SPEEDCALC_TIE)) {
         if (BattleRand(battleSystem) % 10 < 8) {
             moveScore -= 1;
         }
@@ -677,7 +677,7 @@ static int MoveEffectEvaluator_Expert_DreamEater(AIContext *ai, struct BattleSys
 }
 
 static int MoveEffectEvaluator_Expert_MirrorMove(AIContext *ai, struct BattleSystem *battleSystem) {
-    if (ai->attackerMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         if (IsInList(ai->moveEffect, MirrorMoveList, NELEMS(MirrorMoveList))) {
             if (BattleRand(battleSystem) % 2 < 1) {
                 return 2;
@@ -761,11 +761,11 @@ static int MoveEffectEvaluator_Expert_StatUp_Defense(AIContext *ai, struct Battl
 static int MoveEffectEvaluator_Expert_StatUp_Speed(AIContext *ai, struct BattleSystem *battleSystem) {
     int moveScore = 0;
     
-    if (ai->attackerMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         moveScore -= 3;
     }
     
-    if (ai->targetMovesFirst && !ai->trickRoomActive) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && !ai->trickRoomActive) {
         if (BattleRand(battleSystem) % 10 < 7) {
             moveScore += 3;
         }
@@ -997,14 +997,14 @@ static int MoveEffectEvaluator_Expert_StatDown_Defense(AIContext *ai, struct Bat
 static int MoveEffectEvaluator_Expert_StatDown_Speed(AIContext *ai, struct BattleSystem *battleSystem) {
     int moveScore = 0;
 
-    if ((ai->targetMovesFirst || ai->isSpeedTie)
+    if ((ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST || ai->speedCalc == SPEEDCALC_TIE)
     && !ai->trickRoomActive) {
         if (BattleRand(battleSystem) % 10 < 7) {
             moveScore += 2;
         }
     }
 
-    if (ai->attackerMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         moveScore -= 3;
     }
 
@@ -1154,7 +1154,7 @@ static int MoveEffectEvaluator_Expert_HealTarget(AIContext *ai, struct BattleSys
 
     if (ai->target.percentHP == 100) {
         moveScore -= 3;
-    } else if (ai->attackerMovesFirst && ai->target.id == ai->attacker.id) {
+    } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST && ai->target.id == ai->attacker.id) {
         moveScore -= 8;
     } else if (ai->target.percentHP > 70) {
         if (BattleRand(battleSystem) % 10 < 9) {
@@ -1206,7 +1206,7 @@ static int MoveEffectEvaluator_Expert_LightScreen(AIContext *ai, struct BattleSy
 static int MoveEffectEvaluator_Expert_Rest(AIContext *ai, struct BattleSystem *battleSystem) {
     int moveScore = 0;
     
-    if (ai->attackerMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         if (ai->attacker.percentHP == 100) {
             if (BattleRand(battleSystem) % 10 < 6) {
                 moveScore -= 8;
@@ -1218,7 +1218,7 @@ static int MoveEffectEvaluator_Expert_Rest(AIContext *ai, struct BattleSystem *b
                 moveScore -= 3;
             }
         }
-    } else if (ai->targetMovesFirst) {
+    } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
         if (ai->attacker.percentHP > 70) {
             moveScore -= 3;
         } else if (ai->attacker.percentHP >= 60) {
@@ -1374,7 +1374,7 @@ static int MoveEffectEvaluator_Expert_Status_Poison(AIContext *ai, UNUSED struct
 static int MoveEffectEvaluator_Expert_Status_Paralyze(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
     int moveScore = 0;
     
-    if (ai->targetMovesFirst && !ai->trickRoomActive) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && !ai->trickRoomActive) {
         moveScore += 3;
     }
     
@@ -1441,7 +1441,7 @@ static int MoveEffectEvaluator_Expert_Substitute(AIContext *ai, struct BattleSys
     }
     
     // TODO: This logic that gamefreak wrote sucks, so I (sauceyaTTa) am modifying it. Check it in game later.
-    if (ai->attackerMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         if (ctx->moveTbl[ai->targetLastUsedMove].split == SPLIT_STATUS) {
             if (ai->targetLastUsedMoveEffect == MOVE_EFFECT_STATUS_PARALYZE
             || ai->targetLastUsedMoveEffect == MOVE_EFFECT_STATUS_POISON
@@ -1482,11 +1482,11 @@ static int MoveEffectEvaluator_Expert_Recharge(AIContext *ai, struct BattleSyste
         }
     }
 
-    if (ai->targetMovesFirst && ai->attacker.percentHP >= 60) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.percentHP >= 60) {
         moveScore -= 1;
     }
 
-    if (ai->attackerMovesFirst && ai->attacker.percentHP > 40) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST && ai->attacker.percentHP > 40) {
         moveScore -= 1;
     }
 
@@ -1537,7 +1537,7 @@ static int MoveEffectEvaluator_Expert_Disable(AIContext *ai, struct BattleSystem
         }
     }
 
-    if (ai->targetMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
         moveScore -= 2;
     }
 
@@ -1608,7 +1608,7 @@ static int MoveEffectEvaluator_Expert_Counter(AIContext *ai, struct BattleSystem
 static int MoveEffectEvaluator_Expert_Encore(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
 
-    if (!ai->targetMovesFirst) {
+    if (!ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
         if (ctx->moveTbl[ai->targetLastUsedMove].split == SPLIT_STATUS) {
             if (BattleRand(battleSystem) % 10 < 6) {
                 return -1;
@@ -1624,7 +1624,7 @@ static int MoveEffectEvaluator_Expert_Encore(AIContext *ai, struct BattleSystem 
 static int MoveEffectEvaluator_Expert_PainSplit(AIContext *ai, UNUSED struct BattleSystem *battleSystem_unused) {
     if (ai->target.percentHP < 80) {
         return -1;
-    } else if (ai->targetMovesFirst) {
+    } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
         if (ai->attacker.percentHP > 60) {
             return -1;
         } else {
@@ -1656,7 +1656,7 @@ static int MoveEffectEvaluator_Expert_SleepTalk(UNUSED AIContext *ai_unused, str
 }
 
 static int MoveEffectEvaluator_Expert_PowerFromLessHP(AIContext *ai, struct BattleSystem *battleSystem) {
-    if (ai->targetMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
         if (ai->attacker.percentHP > 60) {
             return -1;
         } else if (ai->attacker.percentHP <= 40) {
@@ -1664,7 +1664,7 @@ static int MoveEffectEvaluator_Expert_PowerFromLessHP(AIContext *ai, struct Batt
                 return 1;
             }
         }
-    } else if (ai->attackerMovesFirst) {
+    } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         if (ai->attacker.percentHP > 33) {
             return -1;
         } else if (ai->attacker.percentHP <= 20) {
@@ -1840,19 +1840,19 @@ static int MoveEffectEvaluator_Expert_Endure(AIContext *ai, struct BattleSystem 
 
 static int MoveEffectEvaluator_Expert_BatonPass(AIContext *ai, struct BattleSystem *battleSystem) {
     if (BattlerHasStatStageOrGreater(battleSystem, ai->attacker.id, 9)) {
-        if (ai->targetMovesFirst && ai->attacker.percentHP <= 70) {
+        if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.percentHP <= 70) {
             if (BattleRand(battleSystem) % 10 < 7) {
                 return 2;
             } 
-        } else if (ai->attackerMovesFirst && ai->attacker.percentHP <= 60) {
+        } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST && ai->attacker.percentHP <= 60) {
             if (BattleRand(battleSystem) % 10 < 7) {
                 return 2;
             } 
         }
     } else if (BattlerHasStatStageOrLess(battleSystem, ai->attacker.id, 8)) {
-        if (ai->targetMovesFirst && ai->attacker.percentHP <= 70) {
+        if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.percentHP <= 70) {
             return -2;
-        } else if (ai->attackerMovesFirst && ai->attacker.percentHP <= 60) {
+        } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST && ai->attacker.percentHP <= 60) {
             return -2;
         }
     } else {
@@ -1921,7 +1921,7 @@ static int MoveEffectEvaluator_Expert_HealTarget_Weather(AIContext *ai, struct B
 static int MoveEffectEvaluator_Expert_Rain(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
     
-    if (ai->targetMovesFirst && ai->attacker.ability == ABILITY_SWIFT_SWIM && !ai->trickRoomActive) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.ability == ABILITY_SWIFT_SWIM && !ai->trickRoomActive) {
         return 1;
     } else {
         if (ai->attacker.percentHP < 40) {
@@ -1944,7 +1944,7 @@ static int MoveEffectEvaluator_Expert_Rain(AIContext *ai, struct BattleSystem *b
 static int MoveEffectEvaluator_Expert_Sun(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
     
-    if (ai->targetMovesFirst && ai->attacker.ability == ABILITY_CHLOROPHYLL && !ai->trickRoomActive) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.ability == ABILITY_CHLOROPHYLL && !ai->trickRoomActive) {
         return 1;
     } else {
         if (ai->attacker.percentHP < 40) {
@@ -2114,7 +2114,7 @@ static int MoveEffectEvaluator_Expert_SpitUp(AIContext *ai, struct BattleSystem 
 static int MoveEffectEvaluator_Expert_Hail(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
 
-    if (ai->targetMovesFirst && ai->attacker.ability == ABILITY_SLUSH_RUSH && !ai->trickRoomActive) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.ability == ABILITY_SLUSH_RUSH && !ai->trickRoomActive) {
         return 1;
     } else {
         if (ai->attacker.percentHP < 40) {
@@ -2263,9 +2263,9 @@ static int MoveEffectEvaluator_Expert_UserStatDown_AttackDefense(AIContext *ai, 
         return -1;
     } else if (ctx->battlemon[ai->attacker.id].states[STAT_ATTACK] <= 5) {
         return -1;
-    } else if (ai->targetMovesFirst && ai->attacker.percentHP <= 60) {
+    } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.percentHP <= 60) {
         return -1;
-    } else if (ai->attackerMovesFirst && ai->attacker.percentHP > 60) {
+    } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST && ai->attacker.percentHP > 60) {
         return -1;
     }
 
@@ -2351,13 +2351,13 @@ static int MoveEffectEvaluator_Expert_Endeavor(AIContext *ai, UNUSED struct Batt
     if (ai->target.percentHP < 70) {
         return -1;
     } else {
-        if (ai->targetMovesFirst) {
+        if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
             if (ai->attacker.percentHP > 50) {
                 return -1;
             } else {
                 return 1;
             }
-        } else if (ai->attackerMovesFirst) {
+        } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
             if (ai->attacker.percentHP > 40) {
                 return -1;
             } else {
@@ -2373,9 +2373,9 @@ static int MoveEffectEvaluator_Expert_PowerFromMoreHP(AIContext *ai, UNUSED stru
     if (ai->moveEffectiveness == MOVE_STATUS_NO_EFFECT
     || ai->moveEffectiveness == MOVE_STATUS_NOT_VERY_EFFECTIVE) {
         return -1;
-    } else if (ai->targetMovesFirst && ai->attacker.percentHP <= 70) {
+    } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.percentHP <= 70) {
         return -1;
-    } else if (ai->attackerMovesFirst && ai->attacker.percentHP <= 50) {
+    } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST && ai->attacker.percentHP <= 50) {
         return -1;
     }
 
@@ -2411,7 +2411,7 @@ static int MoveEffectEvaluator_Expert_Snatch(AIContext *ai, struct BattleSystem 
     }
 
     if (BattleRand(battleSystem) % 10 < 9) {
-        if (ai->targetMovesFirst) {
+        if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
             if (ai->target.percentHP > 25) {
                 if (BattleRand(battleSystem) % 10 < 9) {
                     moveScore -= 2;
@@ -2425,7 +2425,7 @@ static int MoveEffectEvaluator_Expert_Snatch(AIContext *ai, struct BattleSystem 
                     moveScore += 1;
                 }    
             }
-        } else if (ai->attackerMovesFirst) {
+        } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
             if (ai->attacker.percentHP < 100) {
                 if (BattleRand(battleSystem) % 10 < 9) {
                     moveScore -= 2;
@@ -2461,9 +2461,9 @@ static int MoveEffectEvaluator_Expert_UserStatDown_Offense(AIContext *ai, UNUSED
     if (ai->moveEffectiveness == MOVE_STATUS_NO_EFFECT
     || ai->moveEffectiveness == MOVE_STATUS_NOT_VERY_EFFECTIVE) {
         return -1;
-    } else if (ai->attackerMovesFirst && ai->attacker.percentHP <= 60) {
+    } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST && ai->attacker.percentHP <= 60) {
         return -1;
-    } else if (ai->targetMovesFirst && ai->attacker.percentHP <= 80) {
+    } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.percentHP <= 80) {
         return -1;
     }
 
@@ -2485,7 +2485,7 @@ static int MoveEffectEvaluator_Expert_HalveFireDamage(AIContext *ai, struct Batt
 static int MoveEffectEvaluator_Expert_StatUp_OffenseSpeed(AIContext *ai, struct BattleSystem *battleSystem) {
     int moveScore = 0;
     
-    if (ai->targetMovesFirst && !ai->trickRoomActive) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && !ai->trickRoomActive) {
         if (BattleRand(battleSystem) % 2 < 1) {
             moveScore += 1;
         }
@@ -2554,7 +2554,7 @@ static int MoveEffectEvaluator_Expert_UserStatDown_Speed(AIContext *ai, UNUSED s
     if (ai->moveEffectiveness == MOVE_STATUS_NO_EFFECT
     || ai->moveEffectiveness == MOVE_STATUS_NOT_VERY_EFFECTIVE) {
         return -1;
-    } else if (ai->targetMovesFirst) {
+    } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
         return 1;
     }
 
@@ -2564,7 +2564,7 @@ static int MoveEffectEvaluator_Expert_UserStatDown_Speed(AIContext *ai, UNUSED s
 static int MoveEffectEvaluator_Expert_SelfSacrifice_Heal(AIContext *ai, struct BattleSystem *battleSystem) {
     int moveScore = 0;
     
-    if (ai->attacker.percentHP >= 80 && ai->attackerMovesFirst) {
+    if (ai->attacker.percentHP >= 80 && ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         if (BattleRand(battleSystem) % 4 < 1) {
             moveScore -= 5;
         }
@@ -2677,7 +2677,7 @@ static int MoveEffectEvaluator_Expert_EatTargetBerry(AIContext *ai, struct Battl
 // TODO: This logic sucks.
 static int MoveEffectEvaluator_Expert_Tailwind(AIContext *ai, struct BattleSystem *battleSystem) {
     if (BattleRand(battleSystem) % 4 < 3) {
-        if (ai->attackerMovesFirst) {
+        if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
             return -1;
         } else if (ai->attacker.percentHP <= 30) {
             return -1;
@@ -2788,7 +2788,7 @@ static int MoveEffectEvaluator_Expert_SwitchOnHit(AIContext *ai, struct BattleSy
         }
     }
     
-    if (ai->attackerMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         moveScore += 1;
     } else {
         if (BattleRand(battleSystem) % 2 < 1) {
@@ -2803,9 +2803,9 @@ static int MoveEffectEvaluator_Expert_UserStatDown_Defense(AIContext *ai, UNUSED
     if (ai->moveEffectiveness == MOVE_STATUS_NO_EFFECT
     || ai->moveEffectiveness == MOVE_STATUS_NOT_VERY_EFFECTIVE) {
         return -1;
-    } else if (ai->targetMovesFirst && ai->attacker.percentHP <= 80) {
+    } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.percentHP <= 80) {
         return -1;
-    } else if (ai->attackerMovesFirst  && ai->attacker.percentHP <= 60) {
+    } else if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST  && ai->attacker.percentHP <= 60) {
         return -1;
     }
 
@@ -2820,7 +2820,7 @@ static int MoveEffectEvaluator_Expert_BoostDamage_UserHit(AIContext *ai, struct 
         moveScore -= 1;
     }
 
-    if (ai->targetMovesFirst && ai->attacker.percentHP >= 30) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST && ai->attacker.percentHP >= 30) {
         if (BattleRand(battleSystem) % 4 < 3) {
             moveScore += 1;
         }
@@ -2834,7 +2834,7 @@ static int MoveEffectEvaluator_Expert_BoostDamage_TargetHit(AIContext *ai, struc
     if (ai->moveEffectiveness == MOVE_STATUS_NO_EFFECT
     || ai->moveEffectiveness == MOVE_STATUS_NOT_VERY_EFFECTIVE) {
         return -1;
-    } else if (ai->targetMovesFirst) {
+    } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
         if (ai->attacker.ability == ABILITY_ROUGH_SKIN) {
             if (BattleRand(battleSystem) % 2 < 1) {
                 return 1;
@@ -2993,11 +2993,11 @@ static int MoveEffectEvaluator_Expert_BoostDamage_HigherTargetHP(AIContext *ai, 
             moveScore += 1;
         }
 
-        if (ai->attackerMovesFirst) {
+        if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
             moveScore += 2;
         }
 
-        if (ai->targetMovesFirst) {
+        if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
             moveScore += 1;
         }
     } else if (ai->target.percentHP > 85) {
@@ -3073,7 +3073,7 @@ static int MoveEffectEvaluator_Expert_LuckyChant(AIContext *ai, struct BattleSys
 static int MoveEffectEvaluator_Expert_MeFirst(AIContext *ai, struct BattleSystem *battleSystem) {
     struct BattleStruct *ctx = battleSystem->sp;
     
-    if (ai->targetMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
         return -2;
     }
     //TODO: if attacker deals more damage, kinda vague in ai doc.
@@ -3091,13 +3091,13 @@ static int MoveEffectEvaluator_Expert_MeFirst(AIContext *ai, struct BattleSystem
 }
 
 static int MoveEffectEvaluator_Expert_Copycat(AIContext *ai, struct BattleSystem *battleSystem) {
-    if (ai->attackerMovesFirst) {
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
         if (IsInList(ai->moveEffect, MirrorMoveList, NELEMS(MirrorMoveList))) {
             if (BattleRand(battleSystem) % 2 < 1) {
                 return 2;
             }
         } else {
-            if (ai->targetMovesFirst) {
+            if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
                 if (BattleRand(battleSystem) % 10 < 7) {
                     return -1;
                 }
@@ -3401,9 +3401,9 @@ static int MoveEffectEvaluator_Expert_TrickRoom(AIContext *ai, struct BattleSyst
     // Trick Room for doubles is handled in TagStrategy.
     if (!(BattleTypeGet(battleSystem) & (BATTLE_TYPE_MULTI | BATTLE_TYPE_DOUBLES | BATTLE_TYPE_TAG))) {
         if (ai->attacker.percentHP > 30 || ai->attacker.livingPartySize > 1) {
-            if (ai->attackerMovesFirst) {
+            if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST) {
                 return -1;
-            } else if (ai->targetMovesFirst) {
+            } else if (ai->speedCalc == SPEEDCALC_TARGET_MOVES_FIRST) {
                 if (BattleRand(battleSystem) % 4 < 3) {
                     return 3;
                 }
@@ -3502,7 +3502,7 @@ static int MoveEffectEvaluator_Expert_ChargeMove_Invulnerable_NoProtect(AIContex
         }
     }
 
-    if (ai->attackerMovesFirst 
+    if (ai->speedCalc == SPEEDCALC_ATTACKER_MOVES_FIRST 
     && ai->targetLastUsedMoveEffect != MOVE_EFFECT_BYPASS_ACCURACY) {
         if (BattleRand(battleSystem) % 10 < 7) {
             moveScore += 1;

@@ -1310,9 +1310,6 @@ BOOL LONG_CALL MoveIsStrongest(int moveSlot, AIContext *ai) {
 // Set up all of the AI variables, exlcuding the double battle related ones (which are setup explicitly in the TagStrategy flag).
 static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker, u32 target, AIContext *ai) {
     struct BattleStruct *ctx = battleSystem->sp;
-    
-    u8 speedCalc;
-    u32 temp = 0;
 
     ai->attacker.id = attacker;
     ai->target.id = target;
@@ -1350,35 +1347,22 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
     ai->targetLastUsedMove = ctx->waza_no_old[target];
     ai->targetLastUsedMoveEffect = ctx->moveTbl[ai->targetLastUsedMove].effect;
 
-    
-    
     ai->flingPower = BattleItemDataGet(ctx, ai->attacker.item, ITEM_PARAM_FLING_POWER);
     ai->differenceInAttackStages = ctx->battlemon[attacker].states[STAT_ATTACK] - ctx->battlemon[target].states[STAT_ATTACK];
     ai->differenceInSpAtkStages = ctx->battlemon[attacker].states[STAT_SPECIAL_ATTACK] - ctx->battlemon[target].states[STAT_SPECIAL_ATTACK];
     ai->differenceInDefenseStages = ctx->battlemon[attacker].states[STAT_DEFENSE] - ctx->battlemon[target].states[STAT_DEFENSE];
     ai->differenceInSpDefStages = ctx->battlemon[attacker].states[STAT_SPECIAL_DEFENSE] - ctx->battlemon[target].states[STAT_SPECIAL_DEFENSE];
-    ai->targetMovesFirst = 0;
-    ai->attackerMovesFirst = 0;
-    ai->isSpeedTie = 0;
-    ai->trickRoomActive = 0;
-    ai->targetHasBadItem = 0;
 
-    speedCalc = CalcSpeed(battleSystem, ctx, ai->target.id, attacker, CALCSPEED_FLAG_NO_PRIORITY); // Checks actual turn order with field state considered.
-    
-    //evaluates to 0 if ai->target > attacker (false)
-    //and 1 if ai->target < attacker (true)
-    //if speed tie, then 2.
-    if (speedCalc == 0) {
-        ai->targetMovesFirst = TRUE;
-    } else if (speedCalc == 1) {
-        ai->attackerMovesFirst = TRUE;
-    } else if (speedCalc == 2) {
-        ai->isSpeedTie = TRUE;
-    }
+    // Evaluates to SPEEDCALC_ATTACKER_MOVES_FIRST, SPEEDCALC_TARGET_MOVES_FIRST or SPEEDCALC_TIE.
+    ai->speedCalc = CalcSpeed(battleSystem, ctx, ai->target.id, attacker, CALCSPEED_FLAG_NO_PRIORITY); // Checks actual turn order with field state considered.
+
+    ai->trickRoomActive = FALSE;
 
     if (ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) {
         ai->trickRoomActive = TRUE;
     }
+
+    ai->targetHasBadItem = FALSE;
 
     if ((ai->target.item == ITEM_IRON_BALL && !ai->trickRoomActive)
     || ai->target.item == ITEM_LAGGING_TAIL
@@ -1395,23 +1379,22 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
     /*Check if target or user has stat change*/
     ai->hasStatChange = 0;
     for (int i = 0; i < STAT_MAX; i++) {
-        if (ctx->battlemon[attacker].states[i] != 0 ||
-            ctx->battlemon[target].states[i] != 0) {
+        if (ctx->battlemon[attacker].states[i] != 0
+        || ctx->battlemon[target].states[i] != 0) {
             ai->hasStatChange = TRUE;
+            break;
         }
     }
     
-    /*Check if ai->target has any IMPACTFUL hazards up (spikes at level 2 or higher)*/
-    if (ctx->side_condition[ai->target.side] & SIDE_STATUS_STEALTH_ROCK ||
-        ctx->scw[ai->target.side].spikesLayers >= 2 ||
-        ctx->scw[ai->target.side].toxicSpikesLayers >= 1) {
-        ai->targetHasHazards = TRUE;
-    } else {
-        ai->targetHasHazards = FALSE;
-    }
+    // Check if ai->target has any IMPACTFUL hazards up (spikes at level 2 or higher).
+    ai->targetHasHazards = 
+        (ctx->side_condition[ai->target.side] & SIDE_STATUS_STEALTH_ROCK
+        || ctx->scw[ai->target.side].spikesLayers >= 2
+        || ctx->scw[ai->target.side].toxicSpikesLayers >= 1
+        || ctx->side_condition[ai->target.side] & SIDE_STATUS_STICKY_WEB);
 
     ai->targetImmuneToPoison = 
-        (HasType(ctx, target, TYPE_POISON) || //TODO need to consider corrosion
+        (HasType(ctx, target, TYPE_POISON) || // TODO: need to consider corrosion
         HasType(ctx, target, TYPE_STEEL) ||
         ctx->battlemon[target].condition & STATUS_ALL || 
         ctx->side_condition[ai->target.side] & SIDE_STATUS_SAFEGUARD ||
@@ -1493,10 +1476,10 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
         }
     }
 
-    ai->attackerKnowsPsychUp = 0;
+    ai->attackerHasDamagingMove = FALSE;
+    ai->attackerHasSupereffectiveMove = FALSE;
+    ai->attackerKnowsPsychUp = FALSE;
     ai->attackerMovesKnown = GetBattlerLearnedMoveCount(battleSystem, ctx, attacker);
-    ai->attackerHasSupereffectiveMove = 0;
-    ai->attackerHasDamagingMove = 0;
 
     /*Loop over all moves for checking certain conditions*/
     /*Set up max roll damage calculations for all known moves.
@@ -1512,6 +1495,7 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
             specialMovePower = 71;
         }
 
+        u32 temp = 0;
         ai->maxRollMoveDamages[i] = CalcBaseDamage(battleSystem, ctx, move, ctx->side_condition[ai->target.side], ctx->field_condition, specialMovePower, 0, ai->attacker.id, ai->target.id, 0);
         ai->maxRollMoveDamages[i] = TypeCalc(battleSystem, ctx, move, 0, attacker, ai->target.id, ai->maxRollMoveDamages[i], &temp);
 
@@ -1536,15 +1520,16 @@ static void SetupStateVariables(struct BattleSystem *battleSystem, u32 attacker,
         }
 
         if (ai->maxRollMoveDamages[i] > 0) {
-            ai->attackerHasDamagingMove = 1;
-        }
-        if (move == MOVE_PSYCH_UP) {
-            ai->attackerKnowsPsychUp = 1;
+            ai->attackerHasDamagingMove = TRUE;
         }
 
-        AITypeCalc(ctx, move, moveType, ai->attacker.ability, ai->target.ability, ai->target.itemHoldEffect, ctx->battlemon[target].type1, ctx->battlemon[target].type2, & ai->moveEffectiveness);
+        if (move == MOVE_PSYCH_UP) {
+            ai->attackerKnowsPsychUp = TRUE;
+        }
+
+        AITypeCalc(ctx, move, moveType, ai->attacker.ability, ai->target.ability, ai->target.itemHoldEffect, ctx->battlemon[target].type1, ctx->battlemon[target].type2, &ai->moveEffectiveness);
         if (ai->moveEffectiveness == MOVE_STATUS_SUPER_EFFECTIVE) {
-            ai->attackerHasSupereffectiveMove = 1;
+            ai->attackerHasSupereffectiveMove = TRUE;
         }
     }
 }
