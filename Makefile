@@ -163,7 +163,11 @@ REQUIRED_DIRECTORIES += $(BASE) $(BUILD) $(BUILD_NARC)
 
 ####################### Config Toggles #######################
 CONFIG_H := $(INCLUDE_SUBDIR)/config.h
-config_enabled = $(shell grep -E -c '^[[:space:]]*\#define[[:space:]]+$(1)[[:space:]]*$$' $(CONFIG_H))
+LIST_DEFINED_MACROS := $(CC) --preprocess -dM --language=c
+CONFIG_MACROS := $(shell $(LIST_DEFINED_MACROS) $(CONFIG_H) | awk '{ print $$2 }')
+
+# Returns a 1 if a #define in config.h is uncommented, else 0
+config_enabled = $(if $(filter $(1),$(CONFIG_MACROS)),1,0)
 
 BUILD_DUMPED_EVENTDATA := $(call config_enabled,BUILD_DUMPED_EVENTDATA)
 BUILD_DUMPED_SCR_SEQ := $(call config_enabled,BUILD_DUMPED_SCR_SEQ)
