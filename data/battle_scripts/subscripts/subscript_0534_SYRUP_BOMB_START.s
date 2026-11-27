@@ -6,7 +6,7 @@
 _000:
     TrySetSyrupBomb _end
     // {0} got covered in sticky candy syrup!
-    PrintMessage 1811, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
+    PrintMessage 1814, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
     Wait
     WaitButtonABTime 30
 

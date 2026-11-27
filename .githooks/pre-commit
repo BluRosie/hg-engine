@@ -1,23 +1,24 @@
 #!/bin/bash
 
 # Runs linting before allowing commits
+# CI passes --all to format every file instead of just staged ones
 
 set -e
 
-echo "Running pre-commit formatter..."
+echo "Running clang-format..."
 
-FILES=$(find . -maxdepth 3 -type f | grep -E '^(./src/.+\.c|./include/.+\.h)$' || true)
+if [ "$1" = "--all" ]; then
+  FILES=$(git ls-files -- 'src/*.c' 'include/*.h')
+else
+  FILES=$(git diff --cached --name-only --diff-filter=ACMR -- 'src/*.c' 'include/*.h')
+fi
+
 if [ -z "$FILES" ]; then
-  echo "No matching C/C++ files exist."
+  echo "No C/C++ files to format."
   exit 0
 fi
 
-for file in $FILES; do
-  if [ -f "$file" ]; then
-    echo "Formatting $file with clang-format"
-    pipx run clang-format==18.* -i "$file"
-    git add "$file"
-  fi
-done
+echo "$FILES" | xargs pipx run 'clang-format==18.*' -i
+echo "$FILES" | xargs git add
 
 echo "Pre-commit formatting complete."

@@ -6,12 +6,11 @@ on:
       - main
     paths:
       - "documentation/wiki/**"
-      - ".github/workflows/wiki.yml"
+      - ".github/workflows/wiki.yaml"
   workflow_dispatch:
 
 permissions:
   contents: write
-  pull-requests: write
 
 concurrency:
   group: sync-github-wiki
@@ -20,14 +19,14 @@ concurrency:
 jobs:
   sync:
     if: ${{ github.repository == 'BluRosie/hg-engine' }}
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-26.04
 
     steps:
-      - name: Checkout repository (default branch, full history)
-        uses: actions/checkout@v4
+      - name: Checkout repository (default branch)
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ github.event.repository.default_branch }}
-          fetch-depth: 0
+          persist-credentials: false
 
       - name: Clone wiki
         env:

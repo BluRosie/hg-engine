@@ -536,12 +536,14 @@
 #define BATTLE_SUBSCRIPT_DOESNT_AFFECT_ALLY_ABILITY             (527)
 #define BATTLE_SUBSCRIPT_TRY_CLEAR_UNNERVE                      (528)
 #define BATTLE_SUBSCRIPT_SYMBIOSIS                              (529)
-#define BATTLE_SUBSCRIPT_OCTOLOCK_START                         (530)
-#define BATTLE_SUBSCRIPT_OCTOLOCK_END_TURN                      (531)
-#define BATTLE_SUBSCRIPT_SYRUP_BOMB_START                       (532)
-#define BATTLE_SUBSCRIPT_SYRUP_BOMB_END_TURN                    (533)
+#define BATTLE_SUBSCRIPT_SUPERSWEET_SYRUP                       (530)
+#define BATTLE_SUBSCRIPT_CURIOUS_MEDICINE                       (531)
+#define BATTLE_SUBSCRIPT_OCTOLOCK_START                         (532)
+#define BATTLE_SUBSCRIPT_OCTOLOCK_END_TURN                      (533)
+#define BATTLE_SUBSCRIPT_SYRUP_BOMB_START                       (534)
+#define BATTLE_SUBSCRIPT_SYRUP_BOMB_END_TURN                    (535)
 
-#define MAX_BASE_SUBSCRIPT_NUM 533
+#define MAX_BASE_SUBSCRIPT_NUM 535
 
 // define your custom subscripts below like this
 // #define MOVE_SUBSCRIPT_CUSTOM_1 (MAX_BASE_SUBSCRIPT_NUM + 1)

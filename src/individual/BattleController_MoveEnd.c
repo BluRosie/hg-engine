@@ -116,6 +116,34 @@ void LONG_CALL BattleController_MoveEndInternal(struct BattleSystem *bsys, struc
         ctx->battlemon[ctx->attack_client].condition2 &= ~STATUS2_LOCKED_INTO_MOVE;
     }
 
+    if ((ctx->server_status_flag & BATTLE_STATUS_CHARGE_TURN)
+        || ((ctx->server_status_flag2 & BATTLE_STATUS2_DISPLAY_ATTACK_MESSAGE)
+            && (ctx->waza_status_flag & WAZA_STATUS_FLAG_NO_OUT) == 0)) {
+        if (ctx->server_status_flag & BATTLE_STATUS_CHARGE_MOVE_HIT) {
+            ctx->moveNumberMetronome[ctx->attack_client] = ctx->current_move_index;
+        } else if (ctx->moveNumberMetronome[ctx->attack_client] == ctx->current_move_index) {
+            if (ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns < 5) {
+                ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns++;
+            }
+        } else {
+            ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns = 1;
+        }
+        ctx->moveNumberMetronome[ctx->attack_client] = ctx->current_move_index;
+    } else {
+        ctx->battlemon[ctx->attack_client].moveeffect.metronomeTurns = 0;
+        ctx->moveNumberMetronome[ctx->attack_client] = MOVE_NONE;
+    }
+
+    // TODO: confirm failure due to sleep, truant etc
+    {
+        int usedMoveEffect = ctx->moveTbl[ctx->current_move_index].effect;
+        if (usedMoveEffect != MOVE_EFFECT_PROTECT
+            && usedMoveEffect != MOVE_EFFECT_PROTECT_USER_SIDE
+            && usedMoveEffect != MOVE_EFFECT_SURVIVE_WITH_1_HP) {
+            ctx->protectSuccessTurns[ctx->attack_client] = 0;
+        }
+    }
+
     int client_set_max = BattleWorkClientSetMaxGet(bsys);
 
     for (int i = 0; i < client_set_max; i++) {

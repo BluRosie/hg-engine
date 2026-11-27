@@ -36,6 +36,8 @@ ifneq ($(MAC), 0)
 MSYS2 = $(shell grep -i -q 'msys' /proc/version; echo $$?)
 else
 MSYS2 = 1
+# Homebrew's zlib is keg-only, so point pkg-config at its zlib.pc (tools/source/btx links against zlib)
+export PKG_CONFIG_PATH := $(shell brew --prefix zlib 2>/dev/null)/lib/pkgconfig:$(PKG_CONFIG_PATH)
 endif
 
 # environment setting
@@ -69,14 +71,19 @@ PYTHON = $(PYTHON_NO_VENV)
 VENV_ACTIVATE =
 endif
 
-.PHONY: clean all dumprom move_narc
+.PHONY: clean all default dumprom move_narc
+
+# remove a target whose recipe failed, so a half-written file (or a venv whose pip install failed) is rebuilt next time
+.DELETE_ON_ERROR:
 
 move_narc clean restore: NOSCAN = 1
 
 NOSCAN ?= 0
 
 
-default: all
+# create the venv before anything else starts, so --jobs can't run a python rule before it exists
+default: $(VENV_ACTIVATE)
+	$(MAKE) all
 
 ifneq ($(PYTHON_VENV_VERSION), 0)
 # only set up venv if we need to
@@ -86,9 +93,9 @@ venv: $(VENV_ACTIVATE)
 $(VENV_ACTIVATE):
 	$(PYTHON_NO_VENV) -m venv $(VENV)
 ifeq ($(MSYS2), 0)
-	$(PYTHON) -m pip install ndspy==4.1.0 PyYAML
+	$(PYTHON) -m pip install --require-hashes --constraint $(REQUIREMENTS) ndspy PyYAML
 else
-	$(PYTHON) -m pip install -r $(REQUIREMENTS)
+	$(PYTHON) -m pip install --require-hashes --requirement $(REQUIREMENTS)
 endif
 
 endif
@@ -216,7 +223,9 @@ endif
 $(ARMIPS):
 ifeq (,$(wildcard $(ARMIPS)))
 	rm -r -f tools/source/armips
-	cd tools/source ; git clone --recursive https://github.com/BluRosie/armips.git
+	cd tools/source ; git clone https://github.com/BluRosie/armips.git
+	cd tools/source/armips ; git checkout 6cc2955197630cba605500b6c375620eb8a91826
+	cd tools/source/armips ; git submodule update --init --recursive
 	mkdir -p tools/source/armips/build
 	cd tools/source/armips/build; cmake .. -DCMAKE_BUILD_TYPE=Release ..
 	cd tools/source/armips/build; $(MAKE)
@@ -230,6 +239,7 @@ $(ADPCMXQ):
 ifeq (,$(wildcard $(ADPCMXQ)))
 	rm -r -f tools/source/adpcm-xq
 	cd tools/source ; git clone https://github.com/dbry/adpcm-xq.git
+	cd tools/source/adpcm-xq ; git checkout 2000733c6d92d73c10ddae3ae80232e173d565c8
 	cd tools/source/adpcm-xq ; gcc -O2 *.c -o adpcm-xq -lm
 	mv tools/source/adpcm-xq/adpcm-xq $(ADPCMXQ)
 	rm -r -f tools/source/adpcm-xq
@@ -241,6 +251,7 @@ tools/ntrWavTool.py:
 ifeq (,$(wildcard tools/ntrWavTool.py))
 	rm -r -f tools/source/ntrWavTool
 	cd tools/source ; git clone https://github.com/turtleisaac/ntrWavTool.git
+	cd tools/source/ntrWavTool ; git checkout 0fda2edbaa346b9142117e05400811370acb3157
 	mv tools/source/ntrWavTool/ntrWavTool.py tools/ntrWavTool.py
 	rm -r -f tools/source/ntrWavTool
 endif

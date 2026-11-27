@@ -1809,6 +1809,9 @@ The opposing {STRVAR_1 1, 0, 0} shared its\n{STRVAR_1 8, 1, 0} with the\fopposin
 {STRVAR_1 1, 0, 0} used its Booster Energy to\nactivate its Quark Drive!
 The wild {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fits Quark Drive!
 The opposing {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fits Quark Drive!
+A supersweet aroma is wafting from\nthe syrup covering {STRVAR_1 1, 0, 0}!
+A supersweet aroma is wafting from\nthe syrup covering\fthe wild {STRVAR_1 1, 0, 0}!
+A supersweet aroma is wafting from\nthe syrup covering\fthe opposing {STRVAR_1 1, 0, 0}!
 {STRVAR_1 1, 0, 0} got covered in\nsticky candy syrup!
 The wild {STRVAR_1 1, 0, 0} got covered\nin sticky candy syrup!
 The opposing {STRVAR_1 1, 0, 0} got covered\nin sticky candy syrup!

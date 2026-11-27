@@ -166,6 +166,13 @@ _SetBadPoison:
     Wait
     UpdateMonData OPCODE_FLAG_ON, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_BAD_POISON
     CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_HELD_ITEM, _ItemMessage
+    CompareVarToValue OPCODE_EQU, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_ABILITY, _AbilityMessage
+    // {0} was badly poisoned!
+    PrintMessage 79, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
+    GoTo _AfterMessage
+
+_AbilityMessage:
+    AbilityPopup BATTLER_CATEGORY_MSG_BATTLER_TEMP
     // {0} was badly poisoned!
     PrintMessage 79, TAG_NICKNAME, BATTLER_CATEGORY_SIDE_EFFECT_MON
     GoTo _AfterMessage
