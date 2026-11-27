@@ -5423,23 +5423,27 @@ BOOL BtlCmd_TryPursuit(struct BattleSystem *bsys, struct BattleStruct *ctx)
     return FALSE;
 }
 
-u16 TotemSpecies[][STAT_MAX] = // Species, stat stage increases
-    {
-        { SPECIES_RATICATE_ALOLAN_LARGE, 0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
-        { SPECIES_MAROWAK_ALOLAN_LARGE, 0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
-        { SPECIES_GUMSHOOS_LARGE, 0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
-        { SPECIES_VIKAVOLT_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
-        { SPECIES_RIBOMBEE_LARGE, 2, 2, 2, 2, 2, 0, 0 }, // +2 Omni-boost
-        { SPECIES_ARAQUANID_LARGE, 0, 0, 1, 0, 0, 0, 0 }, // +1 Speed
-        { SPECIES_LURANTIS_LARGE, 0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
-        { SPECIES_SALAZZLE_LARGE, 0, 0, 0, 0, 1, 0, 0 }, // +1 Special Defense
-        { SPECIES_TOGEDEMARU_LARGE, 0, 2, 0, 0, 0, 0, 0 }, // +2 Defense
-        { SPECIES_MIMIKYU_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
-        { SPECIES_MIMIKYU_BUSTED_LARGE, 0, 0, 0, 0, 0, 0, 0 },
-        { SPECIES_KOMMO_O_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
-        // Add your Totem species here.
-        // Don't bother making a custom form unless you plan for it to be caught.
-    };
+u16 TotemStatBoosts[][STAT_MAX] = { // Species, stat stage increases (all stats except HP)
+    { SPECIES_RATICATE_ALOLAN_LARGE, 0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
+    { SPECIES_MAROWAK_ALOLAN_LARGE, 0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
+    { SPECIES_GUMSHOOS_LARGE, 0, 1, 0, 0, 0, 0, 0 }, // +1 Defense
+    { SPECIES_VIKAVOLT_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+    { SPECIES_RIBOMBEE_LARGE, 2, 2, 2, 2, 2, 0, 0 }, // +2 Omni-boost
+    { SPECIES_ARAQUANID_LARGE, 0, 0, 1, 0, 0, 0, 0 }, // +1 Speed
+    { SPECIES_LURANTIS_LARGE, 0, 0, 2, 0, 0, 0, 0 }, // +2 Speed
+    { SPECIES_SALAZZLE_LARGE, 0, 0, 0, 0, 1, 0, 0 }, // +1 Special Defense
+    { SPECIES_TOGEDEMARU_LARGE, 0, 2, 0, 0, 0, 0, 0 }, // +2 Defense
+    { SPECIES_MIMIKYU_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+    { SPECIES_MIMIKYU_BUSTED_LARGE, 0, 0, 0, 0, 0, 0, 0 },
+    { SPECIES_KOMMO_O_LARGE, 1, 1, 1, 1, 1, 0, 0 }, // +1 Omni-boost
+    // Add your Totem species here.
+    // Don't bother making a custom form unless you plan for it to be caught.
+};
+
+// In lieu of making a custom form, add your Totem species here to modify its weight at the start of battle.
+u16 CustomTotemWeight[][2] = { // Species, weight to set (in kilograms, moved to the left 1 decimal point)
+    // { SPECIES_GYARADOS, 10362 }, // Example Gyarados with doubled weight
+};
 
 BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
 {
@@ -5447,19 +5451,26 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
     s32 battlerID = read_battle_script_param(ctx);
     s32 failAddr = read_battle_script_param(ctx);
 
+    u32 adjustedSpecies = PokeOtherFormMonsNoGet(ctx->battlemon[battlerID].species, ctx->battlemon[battlerID].form_no);
+    
+    // Uncomment this to perform weight overrides.
+    /*for (u32 i = 0; i < NELEMS(CustomTotemWeight); i++) {
+        if (adjustedSpecies == CustomTotemWeight[i][0]) {
+            ctx->battlemon[battlerID].weight = CustomTotemWeight[i][1];
+            break;
+        }
+    }*/
+    
     // Grab totem ID.
     u32 totemID;
-    u32 adjustedSpecies = PokeOtherFormMonsNoGet(ctx->battlemon[battlerID].species, ctx->battlemon[battlerID].form_no);
-    for (totemID = 0; totemID < NELEMS(TotemSpecies); totemID++) {
-        if (adjustedSpecies == TotemSpecies[totemID][0]) {
+    for (totemID = 0; totemID < NELEMS(TotemStatBoosts); totemID++) {
+        if (adjustedSpecies == TotemStatBoosts[totemID][0]) {
             break;
         }
     }
-    // no weight increase because each form has its own weight + wishiwashi doesn't gain weight anyway
-    // ctx->battlemon[battlerID].weight *= 2;
 
-    // if not defined in above table, should skip playing stat animation because it can not be found
-    if (totemID == NELEMS(TotemSpecies)) {
+    // If the Totem has no defined stat boosts, the stat-up animation will be skipped.
+    if (totemID == NELEMS(TotemStatBoosts)) {
         IncrementBattleScriptPtr(ctx, failAddr);
         return FALSE;
     }
@@ -5469,8 +5480,8 @@ BOOL btl_scr_cmd_123_MakeTotem(void *bsys UNUSED, struct BattleStruct *ctx)
     u8 raisedStat = 0;
     u8 stat;
     for (stat = STAT_ATTACK; stat < STAT_MAX; stat++) {
-        if (TotemSpecies[totemID][stat] > 0) {
-            ctx->battlemon[battlerID].states[stat] += TotemSpecies[totemID][stat];
+        if (TotemStatBoosts[totemID][stat] > 0) {
+            ctx->battlemon[battlerID].states[stat] += TotemStatBoosts[totemID][stat];
             raisedStat = stat;
             totalStatBoosts++;
         }
