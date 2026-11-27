@@ -21,7 +21,7 @@ jobs:
 
       - name: Run formatter and report any failure
         run: |
-          ./.githooks/pre-commit
+          ./.githooks/pre-commit --all
           git diff --staged --name-only |
           while IFS= read -r f; do
             if [ -f "$f" ] && [[ "$f" =~ ^(src/.+\.c|include/.+\.h)$ ]]; then
