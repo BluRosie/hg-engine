@@ -96,7 +96,7 @@ BEGIN_TEST
     .expectations = {
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Komala's Comatose" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "sent out Gyarados!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gyarados’s Intimidate" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Gyarados's Intimidate" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Kirlia's Trace" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It traced the opposing Gyarados's Intimidate!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Kirlia's Intimidate" },

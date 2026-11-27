@@ -39,6 +39,7 @@ enum EndTurnResolutionOrder {
     ENDTURN_CURSE,
     ENDTURN_TRAPPING_DAMAGE,
     ENDTURN_OCTOLOCK,
+    ENDTURN_SYRUP_BOMB,
     ENDTURN_TAUNT_FADING,
     ENDTURN_TORMENT_FADING,
     ENDTURN_ENCORE_FADING,
@@ -904,14 +905,61 @@ void ServerFieldConditionCheck(void *bw, struct BattleStruct *sp)
             }
             break;
         }
-        // TODO
         case ENDTURN_OCTOLOCK: {
 #ifdef DEBUG_ENDTURN_LOGIC
             debug_printf("In ENDTURN_OCTOLOCK\n");
 
 #endif
 
-            sp->fcc_seq_no++;
+            while (sp->scc_work < client_set_max) {
+                battlerId = sp->turnOrder[sp->scc_work];
+
+                if (sp->moveConditionsFlags[battlerId].octolockFlags.isActive && IsBattlerOnField(sp, battlerId) && sp->battlemon[battlerId].hp != 0) {
+                    sp->battlerIdTemp = battlerId;
+                    sp->attack_client = sp->moveConditionsFlags[battlerId].octolockFlags.sourceBattler;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_OCTOLOCK_END_TURN);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ret = 1;
+                }
+
+                sp->scc_work++;
+                break;
+            }
+
+            if (sp->scc_work >= client_set_max) {
+                sp->scc_work = 0;
+                sp->fcc_seq_no++;
+            }
+            break;
+        }
+        case ENDTURN_SYRUP_BOMB: {
+#ifdef DEBUG_ENDTURN_LOGIC
+            debug_printf("In ENDTURN_SYRUP_BOMB\n");
+
+#endif
+
+            while (sp->scc_work < client_set_max) {
+                battlerId = sp->turnOrder[sp->scc_work];
+
+                if (sp->moveConditionsFlags[battlerId].syrupBombFlags.turns != 0 && IsBattlerOnField(sp, battlerId) && sp->battlemon[battlerId].hp != 0) {
+                    sp->attack_client = sp->moveConditionsFlags[battlerId].syrupBombFlags.sourceBattler;
+                    sp->moveConditionsFlags[battlerId].syrupBombFlags.turns--;
+                    sp->battlerIdTemp = battlerId;
+                    LoadBattleSubSeqScript(sp, ARC_BATTLE_SUB_SEQ, BATTLE_SUBSCRIPT_SYRUP_BOMB_END_TURN);
+                    sp->next_server_seq_no = sp->server_seq_no;
+                    sp->server_seq_no = CONTROLLER_COMMAND_RUN_SCRIPT;
+                    ret = 1;
+                }
+
+                sp->scc_work++;
+                break;
+            }
+
+            if (sp->scc_work >= client_set_max) {
+                sp->scc_work = 0;
+                sp->fcc_seq_no++;
+            }
             break;
         }
         case ENDTURN_TAUNT_FADING: {

@@ -1812,3 +1812,9 @@ The opposing {STRVAR_1 1, 0, 0} used its\nBooster Energy to activate\fits Quark 
 A supersweet aroma is wafting from\nthe syrup covering {STRVAR_1 1, 0, 0}!
 A supersweet aroma is wafting from\nthe syrup covering\fthe wild {STRVAR_1 1, 0, 0}!
 A supersweet aroma is wafting from\nthe syrup covering\fthe opposing {STRVAR_1 1, 0, 0}!
+{STRVAR_1 1, 0, 0} got covered in\nsticky candy syrup!
+The wild {STRVAR_1 1, 0, 0} got covered\nin sticky candy syrup!
+The opposing {STRVAR_1 1, 0, 0} got covered\nin sticky candy syrup!
+{STRVAR_1 1, 0, 0} can no longer escape\nbecause of Octolock!
+The wild {STRVAR_1 1, 0, 0} can no longer\nescape because of Octolock!
+The opposing {STRVAR_1 1, 0, 0} can no\nlonger escape because of Octolock!

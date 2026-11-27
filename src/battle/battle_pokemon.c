@@ -1220,6 +1220,8 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
 
     sp->log_hail_for_ice_face &= ~(1 << client); // unset log_hail_for_ice_face for client
     sp->binding_turns[client] = 0;
+    sp->moveConditionsFlags[client].octolockFlags.isActive = 0;
+    sp->moveConditionsFlags[client].syrupBombFlags.turns = 0;
     sp->protectSuccessTurns[client] = 0;
     sp->paradoxBoostedStat[client] = 0;
     sp->boosterEnergyActivated[client] = FALSE;
@@ -1231,6 +1233,12 @@ void LONG_CALL ClearBattleMonFlags(struct BattleStruct *sp, int client)
         {
             if (sp->battlemon[i].moveeffect.battlerIdBinding == client) {
                 sp->binding_turns[i] = 0;
+            }
+            if (sp->moveConditionsFlags[i].octolockFlags.isActive && sp->moveConditionsFlags[i].octolockFlags.sourceBattler == client) {
+                sp->moveConditionsFlags[i].octolockFlags.isActive = 0;
+            }
+            if (sp->moveConditionsFlags[i].syrupBombFlags.turns && sp->moveConditionsFlags[i].syrupBombFlags.sourceBattler == client) {
+                sp->moveConditionsFlags[i].syrupBombFlags.turns = 0;
             }
         }
     }

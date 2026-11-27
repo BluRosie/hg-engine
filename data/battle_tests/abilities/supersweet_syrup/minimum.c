@@ -100,10 +100,10 @@ BEGIN_TEST
         }
     },
     .expectations = {
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish’s evasiveness harshly fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish’s evasiveness harshly fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish’s evasiveness harshly fell!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish’s stats won’t go any lower!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's evasiveness harshly fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's evasiveness harshly fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's evasiveness harshly fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's stats won't go any lower!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE_CONTAINS, .expectationValue.message = "Supersweet Syrup" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "A supersweet aroma is wafting from the syrup covering the opposing Hydrapple!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Oddish's evasiveness won't go any lower!" },

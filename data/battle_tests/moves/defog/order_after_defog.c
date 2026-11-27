@@ -82,7 +82,7 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Skarmory used Stealth Rock!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Skarmory used Spikes!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Skarmory used Defog!" },
-        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet’s evasiveness fell!" },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Wobbuffet's evasiveness fell!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Skarmory blew away Spikes!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Skarmory blew away Stealth Rock!" },
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Skarmory used Spikes!" },

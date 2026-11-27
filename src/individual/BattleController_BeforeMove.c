@@ -1056,7 +1056,9 @@ void __attribute__((section(".init"))) BattleController_BeforeMove(struct Battle
 #endif
 
         ctx->wb_seq_no++;
-        BattleController_CheckSubstituteBlockingOtherEffects(bsys, ctx);
+        if (BattleController_CheckSubstituteBlockingOtherEffects(bsys, ctx)) {
+            return;
+        }
         FALLTHROUGH;
     }
     // TODO implement new mechanics
@@ -3026,8 +3028,8 @@ BOOL BattleController_CheckTypeBasedMoveConditionImmunities1(struct BattleSystem
             && HasType(ctx, defender, TYPE_DARK)
             && (ctx->attack_client & 1) != (defender & 1)) // used on an enemy)
                                                            // TODO: Ghost-type immunity to trapping moves
-                                                           // TODO: handle Octolock
         || (moveEffect == MOVE_EFFECT_PREVENT_ESCAPE && HasType(ctx, defender, TYPE_GHOST))
+        || (moveEffect == MOVE_EFFECT_OCTOLOCK && HasType(ctx, defender, TYPE_GHOST))
         // Grass-type powder immunity
         || (IsPowderMove(ctx->current_move_index) && HasType(ctx, defender, TYPE_GRASS) && ctx->attack_client != defender)
         // Ice-type immunity to Sheer Cold
@@ -3899,6 +3901,7 @@ BOOL BattleController_CheckSubstituteBlockingOtherEffects(struct BattleSystem *b
             // List of effects tested: attempting to inflict a major status condition, Acupressure, Block / Mean Look / Spider Web / Octolock, Electrify / Quash, Flower Shield, Forest's Curse / Trick-or-Treat / Soak / Magic Powder, Gastro Acid, Guard Split / Power Split, Heal Pulse, Leech Seed, Lock-On, Mind Reader, Pain Split, Psycho Shift, Purify, Simple Beam, Tar Shot, Topsy-Turvy, Transform, Worry Seed
             case MOVE_EFFECT_RANDOM_STAT_UP_2:
             case MOVE_EFFECT_PREVENT_ESCAPE:
+            case MOVE_EFFECT_OCTOLOCK:
             case MOVE_EFFECT_QUASH:
             case MOVE_EFFECT_CHANGE_TO_WATER_TYPE:
             case MOVE_EFFECT_CHANGE_TO_PSYCHIC_TYPE:
@@ -4298,10 +4301,18 @@ BOOL BattleController_CheckMoveFailures4_SingleTarget(struct BattleSystem *bsys 
         }
         break;
     }
+    case MOVE_OCTOLOCK: {
+        if (ctx->moveConditionsFlags[ctx->defence_client].octolockFlags.isActive
+            || (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_MEAN_LOOK)) {
+            butItFailedFlag = TRUE;
+        }
+        break;
+    }
     case MOVE_BLOCK:
     case MOVE_MEAN_LOOK:
     case MOVE_SPIDER_WEB: {
-        if (ctx->battlemon[ctx->defence_client].condition2 & STATUS2_MEAN_LOOK) {
+        if ((ctx->battlemon[ctx->defence_client].condition2 & STATUS2_MEAN_LOOK)
+            || ctx->moveConditionsFlags[ctx->defence_client].octolockFlags.isActive) {
             butItFailedFlag = TRUE;
         }
         break;
