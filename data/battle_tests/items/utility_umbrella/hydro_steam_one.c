@@ -1,4 +1,4 @@
-// Test: Utility Umbrella - affects Hydro Steam
+// Test: Utility Umbrella - affects Hydro Steam on attacker and/or target
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

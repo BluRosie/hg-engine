@@ -1,4 +1,4 @@
-// Test: Utility Umbrella - affects Hydro Steam both
+// Test: Utility Umbrella - does not receive the 50% damage boost, instead being affected by the standard 50% damage reduction for Hydro Steam
 #include "../../battle_tests.h"
 BEGIN_TEST
 {

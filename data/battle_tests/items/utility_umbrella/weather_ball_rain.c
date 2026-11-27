@@ -1,4 +1,4 @@
-// Test: Utility Umbrella - Weather Ball doesn't change type or double its power in Sunlight or Rain
+// Test: Utility Umbrella - Weather Ball doesn't change type or double its power in Rain
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
