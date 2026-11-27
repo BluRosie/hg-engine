@@ -287,9 +287,11 @@ void ClientPokemonEncount(void *bw, struct CLIENT_PARAM *cp)
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
-    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
-    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
-    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
+    if (gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] == side) {
+        gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, side));
+        gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = CLIENT_MAX;
+        gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, side)] = 6;
+    }
 
     if (
         // mon's ability is illusion
@@ -340,9 +342,11 @@ void ClientPokemonEncountAppear(void *bw, struct CLIENT_PARAM *cp)
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
-    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
-    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
-    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
+    if (gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] == side) {
+        gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, side));
+        gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = CLIENT_MAX;
+        gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, side)] = 6;
+    }
 
     if (
         // mon's ability is illusion
@@ -393,9 +397,11 @@ void ClientPokemonAppear(void *bw, struct CLIENT_PARAM *cp)
     struct Party *party = BattleWorkPokePartyGet(bw, side);
     u32 count = party->count;
 
-    gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client));
-    gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = CLIENT_MAX;
-    gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(gBattleSystem, gBattleSystem->sp->defence_client)] = 6;
+    if (gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] == side) {
+        gIllusionStruct.isSideInIllusion &= ~No2Bit(SanitizeClientForTeamAccess(bw, side));
+        gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, side)] = CLIENT_MAX;
+        gIllusionStruct.illusionPos[SanitizeClientForTeamAccess(bw, side)] = 6;
+    }
 
     if (
         // mon's ability is illusion
@@ -1371,9 +1377,8 @@ struct PartyPokemon *TargetSelectGrabIllusionPartyPokemon(void *bw, u32 client, 
 {
     struct PartyPokemon *pp;
 
-    if (gIllusionStruct.isSideInIllusion & No2Bit(SanitizeClientForTeamAccess(bw, client))
-        && gIllusionStruct.illusionClient[SanitizeClientForTeamAccess(bw, client)] == client) {
-        pp = BattleWorkPokemonParamGet(bw, client, BattleWorkPokePartyGet(bw, client)->count - 1);
+    if (IS_CLIENT_IN_ILLUSION_NO_ABILITY(((struct BattleSystem *)bw), client)) {
+        pp = BattleWorkPokemonParamGet(bw, client, Party_GetIllusionImitatedIndex(BattleWorkPokePartyGet(bw, client), pos));
     } else {
         pp = BattleWorkPokemonParamGet(bw, client, pos);
     }
