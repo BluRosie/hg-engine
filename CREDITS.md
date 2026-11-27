@@ -1,4 +1,4 @@
-# credits
+# Credits
 
 Contributors: Aero,
 agathaGengar,
@@ -28,7 +28,7 @@ XiaoFuDieZZZ,
 YGlitzer,
 Zedakae
 
-[AdAstra](https://github.com/AdAstra-LD/) - `debugsyscall` implementation,  Music tables (trainerclassbattle, maintablescombo, and pokemonbattle)
+[AdAstra](https://github.com/AdAstra-LD/) - `debugsyscall` implementation, Music tables (trainerclassbattle, maintablescombo, and pokemonbattle)
 
 Adcroc1 - helping significantly with sprite formatting
 
@@ -50,13 +50,13 @@ Kingcom - [armips](https://github.com/Kingcom/armips)
 
 MaMe and maple - a lot of mega sprites touched up
 
-Mikelan98 - initial graphics compilation, BDHCAM routine, Music tables (trainerclassbattle, maintablescombo, and pokemonbattle) 
+Mikelan98 - initial graphics compilation, BDHCAM routine, Music tables (trainerclassbattle, maintablescombo, and pokemonbattle)
 
 RavePossum - Victory pose implementation in pokeplatinum
 
 RH-Hideout Team - cries from gen 9
 
-Senate - Prize Money, Music tables (trainerclassbattle, maintablescombo, and pokemonbattle) 
+Senate - Prize Money, Music tables (trainerclassbattle, maintablescombo, and pokemonbattle)
 
 Shy - platinum Battle BG Insertion tutorial
 

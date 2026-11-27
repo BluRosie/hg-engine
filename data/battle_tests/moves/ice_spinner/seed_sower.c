@@ -105,7 +105,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 49, 49, 52, 52, 52, 52, 52, 55, 55, 55, 55, 57, 57, 57, 57, 60 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Grass grew to cover the battlefield!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle is hurt by the opposing Arboliva's Rocky Helmet!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle was hurt by the Rocky Helmet!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Squirtle lost some of its HP!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The grass disappeared from the battlefield." },
         },

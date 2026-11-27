@@ -752,7 +752,7 @@ typedef struct OnceOnlyAbilityFlags {
     BOOL battleBondFlag;
     BOOL intrepidSwordFlag;
     BOOL dauntlessShieldFlag;
-    BOOL superSweetSyrupFlag;
+    BOOL supersweetSyrupFlag;
     BOOL zeroToHeroFlag;
 } OnceOnlyAbilityFlags;
 
@@ -1015,7 +1015,7 @@ struct BattleStruct {
     /*0x30C4*/ u16 lastClientDamagingMove[CLIENT_MAX]; // Currently unused due to modernization.
     /*0x30CC*/ u16 lastClientDamagedBy[CLIENT_MAX]; // Same here.
     /*0x30D4*/ u16 lastClientMoveType[CLIENT_MAX]; // Used for modernized Conversion 2. Originally stored only the most recent damaging move.
-    /*0x30DC*/ u16 waza_no_metronome[CLIENT_MAX];
+    /*0x30DC*/ u16 moveNumberMetronome[CLIENT_MAX];
     /*0x30E4*/ int store_damage[CLIENT_MAX];
     /*0x30F4*/ int client_no_hit[CLIENT_MAX];
     /*0x3104*/ int client_no_agi;
@@ -1085,7 +1085,7 @@ struct BattleStruct {
     BOOL moveBounced;
     u8 rawSpeedNonRNGClientOrder[CLIENT_MAX];
     int numberOfTurnsClientHasCurrentAbility[CLIENT_MAX]; // idk it's probably not u8?
-    u8 clientPriority[CLIENT_MAX];
+    s8 clientPriority[CLIENT_MAX];
     OnceOnlyAbilityFlags onceOnlyAbilityFlags[4][6];
     OnceOnlyMoveConditionFlags onceOnlyMoveConditionFlags[4][6];
 
@@ -3036,14 +3036,14 @@ void LONG_CALL UpdateTerrainOverlay(struct BattleStruct *ctx, u8 client, enum Te
 /**
  *  @brief compare battlers to determine who goes first
  *
- *  @param bw battle work structure; void * because we haven't defined the battle work structure
- *  @param sp global battle structure
+ *  @param bsys battle work structure; void * because we haven't defined the battle work structure
+ *  @param ctx global battle structure
  *  @param client1 first battler to compare
  *  @param client2 second battler to compare
  *  @param flag if nonzero, ignore quick claw and custap berry modifiers
  *  @return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two
  */
-u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag);
+u8 LONG_CALL CalcSpeed(struct BattleSystem *bsys, struct BattleStruct *ctx, int client1, int client2, int flag);
 
 #define CALCSPEED_FLAG_NOTHING     0
 #define CALCSPEED_FLAG_NO_PRIORITY 0x80
@@ -3361,10 +3361,16 @@ BOOL LONG_CALL ov12_0224B498(struct BattleSystem *bsys, struct BattleStruct *ctx
 BOOL LONG_CALL ov12_0224BC2C(struct BattleSystem *bsys, struct BattleStruct *ctx);
 
 /**
- * @brief checks if contact is being made, checking abilities and items
+ * @brief checks if the attacker avoids the target's contact effects (Protective Pads or no contact)
  * @return TRUE/FALSE
  */
-BOOL LONG_CALL IsContactBeingMade(int attackerAbility, int attackerItemHoldEffect, int defenderItemHoldEffect, int moveno, u8 moveFlag);
+BOOL LONG_CALL CanBattlerAvoidContactEffects(int attackerAbility, int attackerItemHoldEffect, int moveno, u8 moveFlag);
+
+/**
+ * @brief checks if the move makes contact, checking Punching Glove and Long Reach
+ * @return TRUE/FALSE
+ */
+BOOL LONG_CALL IsMoveMakingContact(int attackerAbility, int attackerItemHoldEffect, int moveno, u8 moveFlag);
 
 /**
  * @brief checks if the move index is a punching move

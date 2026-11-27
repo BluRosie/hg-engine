@@ -100,7 +100,7 @@ const struct TestBattleScenario BattleTests[] = {
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Incineroar protected itself!" },
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 18, 18, 19, 19, 19, 20, 20, 20, 20, 21, 21, 21, 21, 21, 21, 22 } },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It broke through the opposing Incineroar's protection!" },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dreepy is hurt by the opposing Incineroar's Rocky Helmet!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Dreepy was hurt by the Rocky Helmet!" },
         },
     },
 #ifndef GET_TEST_CASE_ONLY

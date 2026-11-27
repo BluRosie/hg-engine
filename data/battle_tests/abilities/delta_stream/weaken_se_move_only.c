@@ -42,7 +42,7 @@ BEGIN_TEST
                         .form = 0,
                         .ability = ABILITY_NO_GUARD,
                         .item = ITEM_NONE,
-                        .moves = { MOVE_SPARK, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+                        .moves = { MOVE_SPARK, MOVE_SLEEP_TALK, MOVE_NONE, MOVE_NONE },
                         .hp = FULL_HP,
                         .status = 0,
                         .condition2 = 0,
@@ -54,7 +54,7 @@ BEGIN_TEST
             .form = 0,
             .ability = ABILITY_NO_GUARD,
             .item = ITEM_NONE,
-            .moves = { MOVE_ICE_PUNCH, MOVE_NONE, MOVE_NONE, MOVE_NONE },
+            .moves = { MOVE_ICE_PUNCH, MOVE_DRAGON_BREATH, MOVE_NONE, MOVE_NONE },
             .hp = FULL_HP,
             .status = 0,
             .condition2 = 0,
@@ -67,7 +67,7 @@ BEGIN_TEST
     .playerScript = { {
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-                          { ACTION_NONE, 0 },
+                          { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
                           { ACTION_NONE, 0 },
@@ -77,7 +77,7 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_1, BATTLER_ENEMY_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -87,7 +87,7 @@ BEGIN_TEST
     .enemyScript = { {
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST},
                          { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND},
-                         { ACTION_NONE, 0 },
+                         { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
                          { ACTION_NONE, 0 },
@@ -97,7 +97,7 @@ BEGIN_TEST
         {
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_FIRST },
             { ACTION_MOVE_SLOT_1, BATTLER_PLAYER_SECOND },
-            { ACTION_NONE, 0 },
+            { ACTION_MOVE_SLOT_2, BATTLER_PLAYER_FIRST },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
             { ACTION_NONE, 0 },
@@ -113,6 +113,8 @@ BEGIN_TEST
         { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "It's super effective!" },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 7, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 10 } },
         { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_PLAYER_SECOND, .expectationValue.hpTaken = { 15, 15, 15, 15, 15, 15, 15, 16, 16, 16, 16, 16, 16, 16, 16, 18 } },
+        { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Frigibax used Dragon Breath!" },
+        { .expectationType = EXPECTATION_TYPE_NOT_MESSAGE, .expectationValue.message = "The mysterious strong winds weakened the attack!" },
     }
 }
 END_TEST

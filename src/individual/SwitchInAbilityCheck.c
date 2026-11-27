@@ -511,6 +511,44 @@ int UNUSED SwitchInAbilityCheck(void *bw, struct BattleStruct *sp)
                     }
                 }
 
+                // Curious Medicine
+                {
+                    if ((BattleTypeGet(bw) & (BATTLE_TYPE_DOUBLES | BATTLE_TYPE_MULTI))
+                        && (sp->battlemon[client_no].ability_activated_flag == 0)
+                        && (sp->battlemon[client_no].hp)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_CURIOUS_MEDICINE)) {
+                        int ally = BATTLER_ALLY(client_no);
+                        sp->battlemon[client_no].ability_activated_flag = 1;
+                        if (sp->battlemon[ally].hp) {
+                            for (int stat = 0; stat < 8; stat++) {
+                                if (sp->battlemon[ally].states[stat] != 6) {
+                                    sp->battlemon[ally].states[stat] = 6;
+                                    ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                                }
+                            }
+                            if (ret == SWITCH_IN_CHECK_MOVE_SCRIPT) {
+                                sp->battlerIdTemp = client_no;
+                                scriptnum = BATTLE_SUBSCRIPT_CURIOUS_MEDICINE;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+                // Supersweet Syrup
+                {
+                    if ((sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].supersweetSyrupFlag == FALSE)
+                        && (sp->battlemon[client_no].hp)
+                        && (sp->battlemon[BATTLER_ACROSS(client_no)].hp || sp->battlemon[BATTLER_OPPONENT(client_no)].hp)
+                        && (GetBattlerAbility(sp, client_no) == ABILITY_SUPERSWEET_SYRUP)) {
+                        sp->onceOnlyAbilityFlags[SanitizeClientForTeamAccess(bw, client_no)][sp->sel_mons_no[client_no]].supersweetSyrupFlag = TRUE;
+                        sp->battlerIdTemp = client_no;
+                        scriptnum = BATTLE_SUBSCRIPT_SUPERSWEET_SYRUP;
+                        ret = SWITCH_IN_CHECK_MOVE_SCRIPT;
+                        break;
+                    }
+                }
+
                 // Forewarn
                 {
                     if ((sp->battlemon[client_no].ability_activated_flag == 0) && (sp->battlemon[client_no].hp) && (GetBattlerAbility(sp, client_no) == ABILITY_FOREWARN)) {

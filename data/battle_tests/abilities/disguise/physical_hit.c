@@ -95,7 +95,7 @@ const struct TestBattleScenario BattleTests[] = {
             } },
         .expectations = {
             { .expectationType = EXPECTATION_TYPE_HP_BAR, .battlerIDOrPartySlot = BATTLER_ENEMY_FIRST, .expectationValue.hpTaken = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 } },
-            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor is hurt by the opposing Mimikyu's Rocky Helmet!" },
+            { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was hurt by the Rocky Helmet!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "The opposing Mimikyu's disguise was busted!" },
             { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Staraptor was damaged by the recoil!" },
         },

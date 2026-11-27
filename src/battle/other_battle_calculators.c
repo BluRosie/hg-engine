@@ -1080,17 +1080,30 @@ const u8 DecreaseSpeedHoldEffects[] = {
     HOLD_EFFECT_LVLUP_SPDEF_EV_UP,
 };
 
+u8 GetSpeedDropHoldEffect(struct BattleStruct *sp, int client, u8 holdEffect)
+{
+    if (GetBattlerAbility(sp, client) == ABILITY_KLUTZ
+        && !sp->battlemon[client].moveeffect.embargoFlag
+        && !((sp->field_condition2 & FIELD_CONDITION_2_MAGIC_ROOM) && sp->magicRoomCounter)) {
+        holdEffect = BattleItemDataGet(sp, sp->battlemon[client].item, 1);
+        if (holdEffect == HOLD_EFFECT_SPEED_DOWN_GROUNDED) {
+            holdEffect = HOLD_EFFECT_NONE;
+        }
+    }
+    return holdEffect;
+}
+
 // return 0 if client1 moves first, 1 if client2 moves first, 2 if random roll between the two.
-u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int client2, int flag)
+u8 LONG_CALL CalcSpeed(struct BattleSystem *bsys, struct BattleStruct *ctx, int client1, int client2, int flag)
 {
     u8 ret = 0;
     u32 speed1, speed2;
     u8 hold_effect1;
     u8 hold_effect2;
-    s8 priority1 = sp->clientPriority[client1];
-    s8 priority2 = sp->clientPriority[client2];
-    u8 quick_claw1 = sp->battlemon[client1].moveeffect.quickClawFlag || sp->battlemon[client1].moveeffect.custapBerryFlag;
-    u8 quick_claw2 = sp->battlemon[client2].moveeffect.quickClawFlag || sp->battlemon[client2].moveeffect.custapBerryFlag;
+    s8 priority1 = ctx->clientPriority[client1];
+    s8 priority2 = ctx->clientPriority[client2];
+    u8 quick_claw1 = ctx->battlemon[client1].moveeffect.quickClawFlag || ctx->battlemon[client1].moveeffect.custapBerryFlag;
+    u8 quick_claw2 = ctx->battlemon[client2].moveeffect.quickClawFlag || ctx->battlemon[client2].moveeffect.custapBerryFlag;
     u8 move_last1 = 0, move_last2 = 0;
     int ability1;
     int ability2;
@@ -1101,16 +1114,16 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     u32 speedModifier1 = UQ412__1_0;
     u32 speedModifier2 = UQ412__1_0;
 
-    ability1 = GetBattlerAbility(sp, client1);
-    ability2 = GetBattlerAbility(sp, client2);
+    ability1 = GetBattlerAbility(ctx, client1);
+    ability2 = GetBattlerAbility(ctx, client2);
 
-    hold_effect1 = HeldItemHoldEffectGet(sp, client1);
-    hold_effect2 = HeldItemHoldEffectGet(sp, client2);
+    hold_effect1 = HeldItemHoldEffectGet(ctx, client1);
+    hold_effect2 = HeldItemHoldEffectGet(ctx, client2);
 
-    stat_stage_spd1 = sp->battlemon[client1].states[STAT_SPEED];
-    stat_stage_spd2 = sp->battlemon[client2].states[STAT_SPEED];
+    stat_stage_spd1 = ctx->battlemon[client1].states[STAT_SPEED];
+    stat_stage_spd2 = ctx->battlemon[client2].states[STAT_SPEED];
 
-    u32 weather = GetWeather(bw, sp, 0xFF);
+    u32 weather = GetWeather(bsys, ctx, 0xFF);
 
     // Begin calculating Speed Modifiers
 
@@ -1134,8 +1147,8 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     debug_printf("[CalcSpeed] %s's base speed: %d\n", client2Nickname, sp->battlemon[client2].speed);
 #endif
 
-    speed1 = (sp->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1]) % 65536;
-    speed2 = (sp->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1]) % 65536;
+    speed1 = (ctx->battlemon[client1].speed * StatBoostModifiers[stat_stage_spd1][0] / StatBoostModifiers[stat_stage_spd1][1]) % 65536;
+    speed2 = (ctx->battlemon[client2].speed * StatBoostModifiers[stat_stage_spd2][0] / StatBoostModifiers[stat_stage_spd2][1]) % 65536;
 
 #ifdef DEBUG_SPEED_CALC
     debug_printf("\n=================\n");
@@ -1158,7 +1171,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
-    if (sp->terrainOverlay.type == ELECTRIC_TERRAIN && sp->terrainOverlay.numberOfTurnsLeft > 0) {
+    if (ctx->terrainOverlay.type == ELECTRIC_TERRAIN && ctx->terrainOverlay.numberOfTurnsLeft > 0) {
         if (ability1 == ABILITY_SURGE_SURFER) {
             speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
         }
@@ -1169,14 +1182,14 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     }
 
     if ((ability1 == ABILITY_UNBURDEN)
-        && (sp->battlemon[client1].moveeffect.knockOffFlag)
-        && (sp->battlemon[client1].item == 0)) {
+        && (ctx->battlemon[client1].moveeffect.knockOffFlag)
+        && (ctx->battlemon[client1].item == 0)) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
     if ((ability2 == ABILITY_UNBURDEN)
-        && (sp->battlemon[client2].moveeffect.knockOffFlag)
-        && (sp->battlemon[client2].item == 0)) {
+        && (ctx->battlemon[client2].moveeffect.knockOffFlag)
+        && (ctx->battlemon[client2].item == 0)) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
@@ -1189,11 +1202,11 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     // Step 2: Quick Feet
 
-    if ((ability1 == ABILITY_QUICK_FEET) && (sp->battlemon[client1].condition & STATUS_ANY_PERSISTENT)) {
+    if ((ability1 == ABILITY_QUICK_FEET) && (ctx->battlemon[client1].condition & STATUS_ANY_PERSISTENT)) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__1_5);
     }
 
-    if ((ability2 == ABILITY_QUICK_FEET) && (sp->battlemon[client2].condition & STATUS_ANY_PERSISTENT)) {
+    if ((ability2 == ABILITY_QUICK_FEET) && (ctx->battlemon[client2].condition & STATUS_ANY_PERSISTENT)) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__1_5);
     }
 
@@ -1207,12 +1220,12 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     // Step 3: Slow Start
 
     if ((ability1 == ABILITY_SLOW_START)
-        && ((sp->total_turn - sp->battlemon[client1].moveeffect.slowStartTurns) < 5)) {
+        && ((ctx->total_turn - ctx->battlemon[client1].moveeffect.slowStartTurns) < 5)) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
     }
 
     if ((ability2 == ABILITY_SLOW_START)
-        && ((sp->total_turn - sp->battlemon[client2].moveeffect.slowStartTurns) < 5)) {
+        && ((ctx->total_turn - ctx->battlemon[client2].moveeffect.slowStartTurns) < 5)) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
     }
 #ifdef DEBUG_SPEED_CALC
@@ -1226,12 +1239,12 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     // TODO: Check location
 
     if ((ability1 == ABILITY_PROTOSYNTHESIS || ability1 == ABILITY_QUARK_DRIVE)
-        && (sp->paradoxBoostedStat[client1] == STAT_SPEED)) {
+        && (ctx->paradoxBoostedStat[client1] == STAT_SPEED)) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__1_5);
     }
 
     if ((ability2 == ABILITY_PROTOSYNTHESIS || ability2 == ABILITY_QUARK_DRIVE)
-        && (sp->paradoxBoostedStat[client2] == STAT_SPEED)) {
+        && (ctx->paradoxBoostedStat[client2] == STAT_SPEED)) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__1_5);
     }
 #ifdef DEBUG_SPEED_CALC
@@ -1243,16 +1256,16 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     // Step 4: Quick Powder
 
-    if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (sp->battlemon[client1].species == SPECIES_DITTO)
+    if ((hold_effect1 == HOLD_EFFECT_DITTO_SPEED_UP) && (ctx->battlemon[client1].species == SPECIES_DITTO)
         // Not transformed
-        && !(sp->battlemon[client1].condition2 & STATUS2_TRANSFORM)) {
+        && !(ctx->battlemon[client1].condition2 & STATUS2_TRANSFORM)) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
     if ((hold_effect2 == HOLD_EFFECT_DITTO_SPEED_UP)
-        && (sp->battlemon[client2].species == SPECIES_DITTO)
+        && (ctx->battlemon[client2].species == SPECIES_DITTO)
         // Not transformed
-        && !(sp->battlemon[client2].condition2 & STATUS2_TRANSFORM)) {
+        && !(ctx->battlemon[client2].condition2 & STATUS2_TRANSFORM)) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
@@ -1281,22 +1294,20 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 #endif
 
     // Step 6: Iron Ball / Macho Brace / Power EV items
+    u8 speedDropHoldEffect1 = GetSpeedDropHoldEffect(ctx, client1, hold_effect1);
+    u8 speedDropHoldEffect2 = GetSpeedDropHoldEffect(ctx, client2, hold_effect2);
 
     for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
-        if (BattleItemDataGet(sp, sp->battlemon[client1].item, 1) == DecreaseSpeedHoldEffects[i]) {
-            if (!(GetBattlerAbility(sp, client1) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-                speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
-                break;
-            }
+        if (speedDropHoldEffect1 == DecreaseSpeedHoldEffects[i]) {
+            speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__0_5);
+            break;
         }
     }
 
     for (i = 0; i < NELEMS(DecreaseSpeedHoldEffects); i++) {
-        if (BattleItemDataGet(sp, sp->battlemon[client2].item, 1) == DecreaseSpeedHoldEffects[i]) {
-            if (!(GetBattlerAbility(sp, client2) == ABILITY_KLUTZ && DecreaseSpeedHoldEffects[i] == HOLD_EFFECT_SPEED_DOWN_GROUNDED)) {
-                speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
-                break;
-            }
+        if (speedDropHoldEffect2 == DecreaseSpeedHoldEffects[i]) {
+            speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__0_5);
+            break;
         }
     }
 
@@ -1309,11 +1320,11 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     // Step 7: Tailwind
 
-    if (sp->tailwindCount[IsClientEnemy(bw, client1)]) { // new tailwind handling
+    if (ctx->tailwindCount[IsClientEnemy(bsys, client1)]) { // new tailwind handling
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
 
-    if (sp->tailwindCount[IsClientEnemy(bw, client2)]) { // new tailwind handling
+    if (ctx->tailwindCount[IsClientEnemy(bsys, client2)]) { // new tailwind handling
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
@@ -1370,12 +1381,12 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     // Step 11: Paralysis
 
     if ((ability1 != ABILITY_QUICK_FEET)
-        && sp->battlemon[client1].condition & STATUS_PARALYSIS) {
+        && ctx->battlemon[client1].condition & STATUS_PARALYSIS) {
         speed1 = QMul_RoundUp(speed1, UQ412__0_5); // gen 7 on only halves speed for paralysis
     }
 
     if ((ability2 != ABILITY_QUICK_FEET)
-        && sp->battlemon[client2].condition & STATUS_PARALYSIS) {
+        && ctx->battlemon[client2].condition & STATUS_PARALYSIS) {
         speed2 = QMul_RoundUp(speed2, UQ412__0_5); // gen 7 on only halves speed for paralysis
     }
 
@@ -1402,8 +1413,8 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     // Step 13: Speed calculations stop here for the purposes of Gyro Ball / Electro Ball
 
-    sp->effectiveSpeed[client1] = speed1;
-    sp->effectiveSpeed[client2] = speed2;
+    ctx->effectiveSpeed[client1] = speed1;
+    ctx->effectiveSpeed[client2] = speed2;
 
 #ifdef DEBUG_SPEED_CALC
     debug_printf("\n=================\n");
@@ -1414,7 +1425,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
 
     // Step 14: Trick Room
 
-    if (sp->field_condition & FIELD_CONDITION_TRICK_ROOM) {
+    if (ctx->field_condition & FIELD_CONDITION_TRICK_ROOM) {
         speed1 = 10000 - speed1;
         speed2 = 10000 - speed2;
     }
@@ -1443,16 +1454,16 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
     // End of calculating Speed Modifiers
 
     // if one mon is fainted and the other isn't, then the alive one obviously goes first
-    if ((sp->battlemon[client1].hp == 0) && (sp->battlemon[client2].hp)) {
+    if ((ctx->battlemon[client1].hp == 0) && (ctx->battlemon[client2].hp)) {
         return 1;
     }
-    if ((sp->battlemon[client1].hp) && (sp->battlemon[client2].hp == 0)) {
+    if ((ctx->battlemon[client1].hp) && (ctx->battlemon[client2].hp == 0)) {
         return 0;
     }
 
     // Potential After You or Quash present
-    if (sp->oneTurnFlag[client1].forceExecutionOrderFlag != sp->oneTurnFlag[client2].forceExecutionOrderFlag) {
-        switch (sp->oneTurnFlag[client1].forceExecutionOrderFlag) {
+    if (ctx->oneTurnFlag[client1].forceExecutionOrderFlag != ctx->oneTurnFlag[client2].forceExecutionOrderFlag) {
+        switch (ctx->oneTurnFlag[client1].forceExecutionOrderFlag) {
         case EXECUTION_ORDER_AFTER_YOU:
             return 0;
             break;
@@ -1462,7 +1473,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         default:
             break;
         }
-        switch (sp->oneTurnFlag[client2].forceExecutionOrderFlag) {
+        switch (ctx->oneTurnFlag[client2].forceExecutionOrderFlag) {
         case EXECUTION_ORDER_AFTER_YOU:
             return 1;
             break;
@@ -1492,7 +1503,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         {
             if (speed1 < speed2) {
                 ret = 1; // client 2 goes
-            } else if ((speed1 == speed2) && (BattleRand(bw) & 1)) {
+            } else if ((speed1 == speed2) && (BattleRand(bsys) & 1)) {
                 ret = 2; // random roll
             }
         } else if ((quick_claw1 == 0) && (quick_claw2)) // client2 quick claw activate
@@ -1506,7 +1517,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
             if (speed1 > speed2) // if client1 is faster with lagging tail, it moves last
             {
                 ret = 1; // client 2 moves first
-            } else if ((speed1 == speed2) && (BattleRand(bw) & 1)) // random roll
+            } else if ((speed1 == speed2) && (BattleRand(bsys) & 1)) // random roll
             {
                 ret = 2;
             }
@@ -1519,7 +1530,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
         } else if ((ability1 == ABILITY_STALL) && (ability2 == ABILITY_STALL)) {
             if (speed1 > speed2) {
                 ret = 1;
-            } else if ((speed1 == speed2) && (BattleRand(bw) & 1)) {
+            } else if ((speed1 == speed2) && (BattleRand(bsys) & 1)) {
                 ret = 2;
             }
         } else if ((ability1 == ABILITY_STALL) && (ability2 != ABILITY_STALL)) {
@@ -1530,7 +1541,7 @@ u8 LONG_CALL CalcSpeed(void *bw, struct BattleStruct *sp, int client1, int clien
             if (speed1 < speed2) {
                 ret = 1;
             }
-            if ((speed1 == speed2) && (BattleRand(bw) & 1)) {
+            if ((speed1 == speed2) && (BattleRand(bsys) & 1)) {
                 ret = 2;
             }
         }
@@ -2830,39 +2841,33 @@ BOOL LONG_CALL IsMoveWindMove(u16 move)
 }
 
 /**
- * @brief checks if contact is being made, checking abilities and items
- * @param bw battle work structure
- * @param sp global battle structure
+ * @brief checks if the attacker avoids the target's contact effects (Protective Pads or no contact)
  * @return TRUE/FALSE
  */
-BOOL LONG_CALL IsContactBeingMade(int attackerAbility, int attackerItemHoldEffect, int defenderItemHoldEffect, int moveno, u8 moveFlag)
+BOOL LONG_CALL CanBattlerAvoidContactEffects(int attackerAbility, int attackerItemHoldEffect, int moveno, u8 moveFlag)
 {
-    // HeldItemHoldEffectGet -> attackerItemHoldEffect
-
-    // Attacker abilities
-    if (attackerAbility == ABILITY_LONG_REACH) {
-        return FALSE;
-    }
-
-    // Check for items attacker
-    if (attackerItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS
-        // Punching Gloves prevents contact when attacking with punching moves
-        || (attackerItemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG
-            && IsMovePunchingMove(moveno))) {
-        return FALSE;
-    }
-
-    // Check for items defender
-    if (defenderItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS) {
-        return FALSE;
-    }
-
-    // Does the move make contact vanilla
-    if (moveFlag & FLAG_CONTACT) {
+    if (attackerItemHoldEffect == HOLD_EFFECT_PREVENT_CONTACT_EFFECTS) {
         return TRUE;
     }
 
-    return FALSE;
+    return !IsMoveMakingContact(attackerAbility, attackerItemHoldEffect, moveno, moveFlag);
+}
+
+/**
+ * @brief checks if the move makes contact, checking Punching Glove and Long Reach
+ * @return TRUE/FALSE
+ */
+BOOL LONG_CALL IsMoveMakingContact(int attackerAbility, int attackerItemHoldEffect, int moveno, u8 moveFlag)
+{
+    // TODO: Shell Side Arm if physical
+    if (!(moveFlag & FLAG_CONTACT)) {
+        return FALSE;
+    } else if (attackerItemHoldEffect == HOLD_EFFECT_INCREASE_PUNCHING_MOVE_DMG && IsMovePunchingMove(moveno)) {
+        return FALSE;
+    } else if (attackerAbility == ABILITY_LONG_REACH) {
+        return FALSE;
+    }
+    return TRUE;
 }
 
 void LONG_CALL ov12_02252D14(struct BattleSystem *bsys UNUSED, struct BattleStruct *ctx)
@@ -3057,7 +3062,6 @@ void LONG_CALL ov12_0224C4D8(struct BattleSystem *bsys, struct BattleStruct *ctx
         ctx->next_server_seq_no = CONTROLLER_COMMAND_25; // after that
         ST_ServerTotteokiCountCalc(bsys, ctx); // 801B570h
     }
-    ST_ServerMetronomeBeforeCheck(bsys, ctx); // 801ED20h
 }
 
 void LONG_CALL ov12_0224C678(struct BattleSystem *bsys, struct BattleStruct *ctx)
@@ -3808,19 +3812,26 @@ int LONG_CALL GetClientActionPriority(struct BattleSystem *bsys UNUSED, struct B
         }
     }
 
-    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_PRANKSTER) && (GetMoveSplit(ctx, move) == SPLIT_STATUS)) {
-        return ctx->moveTbl[move].priority + 1;
+    int priority = ctx->moveTbl[move].priority;
+
+    if (move == MOVE_GRASSY_GLIDE && ctx->terrainOverlay.type == GRASSY_TERRAIN) {
+        priority++;
     }
 
-    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_GALE_WINGS) && (ctx->moveTbl[move].type == TYPE_FLYING)) {
-        return ctx->moveTbl[move].priority + 1;
+    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_PRANKSTER) && (GetMoveSplit(ctx, move) == SPLIT_STATUS)) {
+        priority++;
+    }
+
+    if ((GetBattlerAbility(ctx, battlerId) == ABILITY_GALE_WINGS) && (ctx->moveTbl[move].type == TYPE_FLYING)
+        && ctx->battlemon[battlerId].hp == (s32)ctx->battlemon[battlerId].maxhp) {
+        priority++;
     }
 
     if ((GetBattlerAbility(ctx, battlerId) == ABILITY_TRIAGE) && (isTriageMove)) {
-        return ctx->moveTbl[move].priority + 3;
+        priority += 3;
     }
 
-    return ctx->moveTbl[move].priority;
+    return priority;
 }
 
 /// @brief Checks if a client has the type
@@ -4140,7 +4151,12 @@ BOOL LONG_CALL CheckLegalMetronomeMove(struct BattleSystem *bsys UNUSED, struct 
 
 u32 LONG_CALL RollMetronomeMove(struct BattleSystem *bsys)
 {
-    return (BattleRand(bsys) % NUM_OF_MOVES) + 1;
+    // Handle dummy moves
+    u32 randomNumber = (BattleRand(bsys) % (NUM_OF_MOVES - 3 - 1)) + 1; // -3 dummy moves and -1 move none
+    if (randomNumber >= MOVE_468) {
+        return randomNumber + 3;
+    }
+    return randomNumber;
 }
 
 /**
