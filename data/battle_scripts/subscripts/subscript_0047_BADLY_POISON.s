@@ -17,10 +17,21 @@ _Start:
 
 // Check for hazard-inflicted poison (Toxic Spikes).
 _CheckFlowerVeil:
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _SingleFlowerVeilGrassCheck_Hazard
-    CheckAbility CHECK_OPCODE_HAVE, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _DoubleFlowerVeilGrassCheck_Hazard
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _FlowerVeilCheck_Hazard
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _FlowerVeilCheck_Hazard
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _FlowerVeilCheck_Hazard
+    // Active Tera type might need to be checked here.
     // We can skip the grounded check as this is only reachable via being hit by Toxic Spikes.
     GoTo _CheckTerrain_Hazard
+
+_FlowerVeilCheck_Hazard:
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _AbilityBlock
+    CheckAbility CHECK_OPCODE_HAVE, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _DoubleFlowerVeilHandle
+
+_CheckTerrain_Hazard:
+    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _MistyTerrainFail
+    // We can skip the Shield Dust check as this is only reachable via being hit by Toxic Spikes.
+    GoTo _CheckIfSkipAttackMessage
 
 _CheckAbilities_Textless:
     // Ensure that the effect does not come from an item (important for Mold Breaker).
@@ -39,64 +50,10 @@ _CheckIgnorableFlowerVeil_Textless:
     CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _FlowerVeilGrassCheck_Textless
     GoTo _CheckIfGrounded_Textless
 
-_CheckIgnorableAbilities:
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_IMMUNITY, _AbilityBlock
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ABILITY, ABILITY_COMATOSE, _AbilityBlock
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _AbilityBlock
-    CheckIgnoreWeather _CheckIgnorableFlowerVeil
-    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _CheckIgnorableFlowerVeil
-    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN, _CheckIgnorableFlowerVeil
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _AbilityBlock
-
-// Regular check for Flower Veil.
-_CheckIgnorableFlowerVeil:
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _SingleFlowerVeilGrassCheck
-    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _DoubleFlowerVeilGrassCheck
-    GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _CheckTerrain
-    GoTo _CheckShieldDust
-
-_SingleFlowerVeilGrassCheck_Hazard:
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _AbilityBlock
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _AbilityBlock
-    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _AbilityBlock
-    // Active Tera type might need to be checked here.
-    // We can skip the grounded check as this is only reachable via being hit by Toxic Spikes.
-    GoTo _CheckTerrain_Hazard
-
-_DoubleFlowerVeilGrassCheck_Hazard:
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _DoubleFlowerVeilHandle
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _DoubleFlowerVeilHandle
-    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _DoubleFlowerVeilHandle
-    // Active Tera type might need to be checked here.
-    // We can skip the grounded check as this is only reachable via being hit by Toxic Spikes.
-    GoTo _CheckTerrain_Hazard
-
-_SingleFlowerVeilGrassCheck:
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _AbilityBlock
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _AbilityBlock
-    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _AbilityBlock
-    GoTo _CheckShieldDust
-
-_DoubleFlowerVeilGrassCheck:
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _DoubleFlowerVeilHandle
-    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _DoubleFlowerVeilHandle
-    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _DoubleFlowerVeilHandle
-    GoTo _CheckShieldDust
-
 _FlowerVeilGrassCheck_Textless:
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _End
     CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _End
     GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _End
-    GoTo _CheckIfGrounded_Textless
-
-_CheckTerrain:
-    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _MistyTerrainFail
-    GoTo _CheckShieldDust
-
-_CheckTerrain_Hazard:
-    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _MistyTerrainFail
-    // We can skip the Shield Dust check as this is only reachable via being hit by Toxic Spikes.
-    GoTo _CheckIfSkipAttackMessage
 
 _CheckIfGrounded_Textless:
     GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _CheckTerrain_Textless
@@ -104,7 +61,6 @@ _CheckIfGrounded_Textless:
 
 _CheckTerrain_Textless:
     GotoIfTerrainOverlayIsType MISTY_TERRAIN, _MistyTerrainFail
-    GoTo _CheckPoisonImmunities_Textless
 
 _CheckPoisonImmunities_Textless:
     CompareMonDataToValue OPCODE_FLAG_SET, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_STATUS, STATUS_POISON, _End
@@ -124,6 +80,34 @@ _CheckItemAnimationSkips:
     // Generation V: Safeguard no longer prevents status conditions inflicted by held items.
     // CompareVarToValue OPCODE_FLAG_SET, BSCRIPT_VAR_SIDE_CONDITION_STAT_CHANGE, SIDE_CONDITION_SAFEGUARD, _End
     GoTo _CheckForItemAnimation
+
+_CheckIgnorableAbilities:
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_IMMUNITY, _AbilityBlock
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_DEFENDER, BMON_DATA_ABILITY, ABILITY_COMATOSE, _AbilityBlock
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_PURIFYING_SALT, _AbilityBlock
+    CheckIgnoreWeather _CheckIgnorableFlowerVeil
+    CompareVarToValue OPCODE_FLAG_NOT, BSCRIPT_VAR_FIELD_CONDITION, FIELD_CONDITION_SUN_ALL, _CheckIgnorableFlowerVeil
+    CheckItemHoldEffect CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN, _CheckIgnorableFlowerVeil
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_LEAF_GUARD, _AbilityBlock
+
+// Regular check for Flower Veil.
+_CheckIgnorableFlowerVeil:
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_1, TYPE_GRASS, _IgnorableFlowerVeilCheck
+    CompareMonDataToValue OPCODE_EQU, BATTLER_CATEGORY_SIDE_EFFECT_MON, BMON_DATA_TYPE_2, TYPE_GRASS, _IgnorableFlowerVeilCheck
+    GoToIfThirdType BATTLER_CATEGORY_SIDE_EFFECT_MON, TYPE_GRASS, _IgnorableFlowerVeilCheck
+    // Active Tera type might need to be checked here.
+    GoTo _CheckIfGrounded
+
+_IgnorableFlowerVeilCheck:
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _AbilityBlock
+    CheckIgnorableAbility CHECK_OPCODE_HAVE, BATTLER_RELATIVE_ALLY|BATTLER_CATEGORY_SIDE_EFFECT_MON, ABILITY_FLOWER_VEIL, _DoubleFlowerVeilHandle
+
+_CheckIfGrounded:
+    GotoIfGrounded BATTLER_CATEGORY_SIDE_EFFECT_MON, _CheckTerrain
+    GoTo _CheckShieldDust
+
+_CheckTerrain:
+    GotoIfTerrainOverlayIsType MISTY_TERRAIN, _MistyTerrainFail
 
 _CheckShieldDust:
     CompareVarToValue OPCODE_NEQ, BSCRIPT_VAR_SIDE_EFFECT_TYPE, SIDE_EFFECT_TYPE_INDIRECT, _CheckIfSkipAttackMessage
