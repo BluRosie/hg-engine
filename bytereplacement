@@ -78,6 +78,9 @@ arm9 0203DFF4 8A 02
 # since we no longer hook it
 arm9 02048510 70 B5 05 1C 80 30 00 68
 
+# restore the original code so we don't cull followers on save load
+arm9 0203B9F4 F8 B5 05 1C E8 68 FF F7
+
 #ifndef IMPLEMENT_CAPTURE_EXPERIENCE
 
 # undo capture experience
