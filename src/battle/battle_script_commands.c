@@ -5677,6 +5677,17 @@ BOOL BtlCmd_Metronome(struct BattleSystem *bsys, struct BattleStruct *ctx)
 
     IncrementBattleScriptPtr(ctx, 1);
 
+#ifdef DEBUG_BATTLE_SCENARIOS
+    struct TestBattleScenario *scenario = TestBattle_GetCurrentScenario();
+    if (scenario != NULL && scenario->forcedMetronomeMove != MOVE_NONE) {
+        moveNo = scenario->forcedMetronomeMove;
+        ctx->waza_work = moveNo;
+        ctx->moveNoTemp = moveNo;
+        ctx->current_move_index = moveNo;
+        return FALSE;
+    }
+#endif // DEBUG_BATTLE_SCENARIOS
+
     while (TRUE) {
         moveNo = RollMetronomeMove(bsys);
 

@@ -116,18 +116,34 @@ BEGIN_TEST {
 } END_TEST
 ```
 
+### Forcing Metronome moves
+
+Metronome normally calls a random move. To make a test call a specific move, add `.forcedMetronomeMove` to the scenario. If any future Metronome moves fail during testing, use the code below to forcibly test that move.
+
+```c
+ .forcedMetronomeMove = MOVE_ENTRAINMENT,
+ .expectations = {
+     { .expectationType = EXPECTATION_TYPE_MESSAGE, .expectationValue.message = "Waggling a finger let it use Entrainment!" },
+ }
+```
+
 ## Running Tests
+
 ### Build test ROM
+
 - `make AUTO_TEST=Y -j$(getconf _NPROCESSORS_ONLN)`
+
 ### Filter tests
+
 - `make AUTO_TEST=Y TEST_FILTER="species moves/move_folder" -j$(getconf _NPROCESSORS_ONLN)`
 - Or create `test_filter.txt`. Each line is a separate filter.
 
-
 ### Run tests (headless)
+
 `SDL_AUDIODRIVER=dummy SDL_VIDEODRIVER=dummy scripts/run_tests.sh -j $(getconf _NPROCESSORS_ONLN)`
 
 Optionally provide `-j` with a number to partition the tests into N parallelized chunks
 
 ### Run tests (with video)
+
 `scripts/run_tests.sh -v`
