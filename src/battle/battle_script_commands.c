@@ -3444,7 +3444,7 @@ BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp)
 {
     IncrementBattleScriptPtr(sp, 1);
 
-    u32 weather = GetWeather(bw, sp, sp->attack_client);
+    u32 weather = GetBattlerWeather(bw, sp, sp->attack_client);
     u32 modifier = UQ412__0_5;
 
     if (!(weather & FIELD_CONDITION_WEATHER) || (weather & FIELD_CONDITION_STRONG_WINDS)) {
@@ -3453,10 +3453,10 @@ BOOL BtlCmd_WeatherHPRecovery(void *bw, struct BattleStruct *sp)
         if (weather & FIELD_CONDITION_SANDSTORM_ALL) {
             modifier = UQ412__0_6666;
         }
-    } else {
-        if (weather & FIELD_CONDITION_SUN_ALL) {
-            modifier = UQ412__0_6666;
-        }
+    } else if (weather & FIELD_CONDITION_SUN_ALL) {
+        modifier = UQ412__0_6666;
+    } else if (HeldItemHoldEffectGet(sp, sp->attack_client) != HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN) {
+        modifier = UQ412__0_25;
     }
 
     sp->hp_calc_work = QMul_RoundDown(sp->battlemon[sp->attack_client].maxhp, modifier);
@@ -3473,7 +3473,7 @@ BOOL BtlCmd_CalcWeatherBallParams(void *bw, struct BattleStruct *sp)
     // debugsyscall(buf);
 
     int attacker = sp->attack_client;
-    u32 weather = GetWeather(bw, sp, attacker);
+    u32 weather = GetBattlerWeather(bw, sp, attacker);
 
     if ((weather & FIELD_CONDITION_WEATHER) && !(weather & FIELD_CONDITION_STRONG_WINDS)) {
         sp->damage_power = sp->moveTbl[sp->current_move_index].power * 2;
@@ -3513,6 +3513,10 @@ BOOL BtlCmd_EndOfTurnWeatherEffect(struct BattleSystem *bsys, struct BattleStruc
     int hold_effect = BattleItemDataGet(ctx, item, 1);
     int ability = GetBattlerAbility(ctx, battlerId);
     u32 weather = GetWeather(bsys, ctx, 0xFF);
+
+    if (HeldItemHoldEffectGet(ctx, battlerId) == HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN) {
+        weather &= ~(FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_RAIN_ALL);
+    }
 
     if (weather & FIELD_CONDITION_SANDSTORM_ALL) {
         if (!HasType(ctx, battlerId, TYPE_ROCK) && !HasType(ctx, battlerId, TYPE_STEEL) && !HasType(ctx, battlerId, TYPE_GROUND)

@@ -37,6 +37,8 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
         }
         client = sp->battlerIdTemp;
 
+        u32 formWeather = GetBattlerWeather(bw, sp, client);
+
         // handle castform
         if ((sp->battlemon[client].species == SPECIES_CASTFORM)
             && (sp->battlemon[client].hp)
@@ -44,28 +46,28 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
                 && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
                 // Snow does not affect Castform in SV, since it cannot enter Paldea, Kitakami nor Blueberry Academy there is no way to confirm
-                if (((sp->field_condition & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_HAIL_ALL)) == 0)
+                if (((formWeather & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_HAIL_ALL)) == 0)
                     && (sp->battlemon[client].form_no != 0)) {
                     sp->battlemon[client].form_no = 0;
                     BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
                     *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
-                } else if ((sp->field_condition & FIELD_CONDITION_SUN_ALL)
+                } else if ((formWeather & FIELD_CONDITION_SUN_ALL)
                     && (sp->battlemon[client].form_no != 1)) {
                     sp->battlemon[client].form_no = 1;
                     BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
                     *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
-                } else if ((sp->field_condition & FIELD_CONDITION_RAIN_ALL)
+                } else if ((formWeather & FIELD_CONDITION_RAIN_ALL)
                     && (sp->battlemon[client].form_no != 2)) {
                     sp->battlemon[client].form_no = 2;
                     BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
                     *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
-                } else if ((sp->field_condition & FIELD_CONDITION_HAIL_ALL)
+                } else if ((formWeather & FIELD_CONDITION_HAIL_ALL)
                     && (sp->battlemon[client].form_no != 3)) {
                     sp->battlemon[client].form_no = 3;
                     BattleFormChange(client, sp->battlemon[client].form_no, bw, sp, 1);
@@ -98,25 +100,25 @@ BOOL BattleFormChangeCheck(void *bw, struct BattleStruct *sp, int *seq_no)
             if ((CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_CLOUD_NINE) == 0)
                 && (CheckSideAbility(bw, sp, CHECK_ABILITY_ALL_HP, 0, ABILITY_AIR_LOCK) == 0)) {
                 // Same with Forecast, unknown interaction with Snow
-                if (((sp->field_condition & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_HAIL_ALL)) == 0)
+                if (((formWeather & (FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_HAIL_ALL)) == 0)
                     && (sp->battlemon[client].form_no == 1)) {
                     sp->battlemon[client].form_no = 0;
                     *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
-                } else if ((sp->field_condition & FIELD_CONDITION_SUN_ALL)
+                } else if ((formWeather & FIELD_CONDITION_SUN_ALL)
                     && (sp->battlemon[client].form_no == 0)) {
                     sp->battlemon[client].form_no = 1;
                     *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
-                } else if ((sp->field_condition & FIELD_CONDITION_RAIN_ALL)
+                } else if ((formWeather & FIELD_CONDITION_RAIN_ALL)
                     && (sp->battlemon[client].form_no == 1)) {
                     sp->battlemon[client].form_no = 0;
                     *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;
                     ret = TRUE;
                     break;
-                } else if ((sp->field_condition & FIELD_CONDITION_HAIL_ALL)
+                } else if ((formWeather & FIELD_CONDITION_HAIL_ALL)
                     && (sp->battlemon[client].form_no == 1)) {
                     sp->battlemon[client].form_no = 0;
                     *seq_no = BATTLE_SUBSCRIPT_FORM_CHANGE;

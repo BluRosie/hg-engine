@@ -2455,6 +2455,8 @@ BOOL LONG_CALL ShouldUseNormalTypeEffCalc(struct BattleStruct *sp, int attack_cl
 
 u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int attacker);
 
+u32 LONG_CALL GetBattlerWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler);
+
 BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no);
 
 /**

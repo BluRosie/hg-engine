@@ -803,6 +803,17 @@ u32 LONG_CALL GetWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, in
     return ctx->field_condition & FIELD_CONDITION_WEATHER;
 }
 
+u32 LONG_CALL GetBattlerWeather(struct BattleSystem *bsys, struct BattleStruct *ctx, int battler)
+{
+    u32 weather = GetWeather(bsys, ctx, battler);
+
+    if (GetBattlerAbility(ctx, battler) != ABILITY_MEGA_SOL && HeldItemHoldEffectGet(ctx, battler) == HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN) {
+        weather &= ~(FIELD_CONDITION_SUN_ALL | FIELD_CONDITION_RAIN_ALL);
+    }
+
+    return weather;
+}
+
 // set sp->waza_status_flag |= MOVE_STATUS_MISSED if a miss
 BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int defender, int move_no)
 {
@@ -819,7 +830,7 @@ BOOL LONG_CALL CalcAccuracy(void *bw, struct BattleStruct *sp, int attacker, int
     int i;
     int maxBattlers = BattleWorkClientSetMaxGet(bw);
     int accuracyModifier = UQ412__1_0;
-    u32 weather = GetWeather(bw, sp, attacker);
+    u32 weather = GetBattlerWeather(bw, sp, attacker);
 
     if (I_AM_TERAPAGOS_AND_I_NEED_TO_KO_CARMINES_SINISTCHA(bw, sp, attacker)) {
         return FALSE;
@@ -1123,7 +1134,8 @@ u8 LONG_CALL CalcSpeed(struct BattleSystem *bsys, struct BattleStruct *ctx, int 
     stat_stage_spd1 = ctx->battlemon[client1].states[STAT_SPEED];
     stat_stage_spd2 = ctx->battlemon[client2].states[STAT_SPEED];
 
-    u32 weather = GetWeather(bsys, ctx, 0xFF);
+    u32 attackerWeather = GetBattlerWeather(bsys, ctx, client1);
+    u32 defenderWeather = GetBattlerWeather(bsys, ctx, client2);
 
     // Begin calculating Speed Modifiers
 
@@ -1158,16 +1170,16 @@ u8 LONG_CALL CalcSpeed(struct BattleSystem *bsys, struct BattleStruct *ctx, int 
 
     // Step 1: 2x Abilities
 
-    if (((ability1 == ABILITY_SWIFT_SWIM) && (weather & FIELD_CONDITION_RAIN_ALL))
-        || ((ability1 == ABILITY_CHLOROPHYLL) && (weather & FIELD_CONDITION_SUN_ALL))
-        || ((ability1 == ABILITY_SAND_RUSH) && (weather & FIELD_CONDITION_SANDSTORM_ALL))
-        || ((ability1 == ABILITY_SLUSH_RUSH) && (weather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL)))) {
+    if (((ability1 == ABILITY_SWIFT_SWIM) && (attackerWeather & FIELD_CONDITION_RAIN_ALL))
+        || ((ability1 == ABILITY_CHLOROPHYLL) && (attackerWeather & FIELD_CONDITION_SUN_ALL))
+        || ((ability1 == ABILITY_SAND_RUSH) && (attackerWeather & FIELD_CONDITION_SANDSTORM_ALL))
+        || ((ability1 == ABILITY_SLUSH_RUSH) && (attackerWeather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL)))) {
         speedModifier1 = QMul_RoundUp(speedModifier1, UQ412__2_0);
     }
-    if (((ability2 == ABILITY_SWIFT_SWIM) && (weather & FIELD_CONDITION_RAIN_ALL))
-        || ((ability2 == ABILITY_CHLOROPHYLL) && (weather & FIELD_CONDITION_SUN_ALL))
-        || ((ability2 == ABILITY_SAND_RUSH) && (weather & FIELD_CONDITION_SANDSTORM_ALL))
-        || ((ability2 == ABILITY_SLUSH_RUSH) && (weather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL)))) {
+    if (((ability2 == ABILITY_SWIFT_SWIM) && (defenderWeather & FIELD_CONDITION_RAIN_ALL))
+        || ((ability2 == ABILITY_CHLOROPHYLL) && (defenderWeather & FIELD_CONDITION_SUN_ALL))
+        || ((ability2 == ABILITY_SAND_RUSH) && (defenderWeather & FIELD_CONDITION_SANDSTORM_ALL))
+        || ((ability2 == ABILITY_SLUSH_RUSH) && (defenderWeather & (FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SNOW_ALL)))) {
         speedModifier2 = QMul_RoundUp(speedModifier2, UQ412__2_0);
     }
 
@@ -2679,7 +2691,7 @@ BOOL LONG_CALL IsMoveInMinimizeVulnerabilityMovesList(u16 move)
 
 BOOL LONG_CALL BattleSystem_CheckMoveEffect(void *bw, struct BattleStruct *sp, int battlerIdAttacker, int battlerIdTarget, int move)
 {
-    u32 weather = GetWeather(bw, sp, battlerIdAttacker);
+    u32 weather = GetBattlerWeather(bw, sp, battlerIdAttacker);
 
     if (sp->server_status_flag & BATTLE_STATUS_CHARGE_TURN) {
         return FALSE;
@@ -3270,6 +3282,7 @@ int LONG_CALL GetDynamicMoveType(struct BattleSystem *bsys, struct BattleStruct 
         }
         break;
     case MOVE_WEATHER_BALL:
+        weather = GetBattlerWeather(bsys, ctx, battlerId);
         if (weather & FIELD_CONDITION_WEATHER) {
             if (weather & FIELD_CONDITION_RAIN_ALL) {
                 type = TYPE_WATER;

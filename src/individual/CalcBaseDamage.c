@@ -60,7 +60,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
     u16 moveEffect = damageCalc->moveEffect;
     u8 moveFlag = damageCalc->moveFlag;
     u8 multiHitCount = damageCalc->multiHitCount;
-    u32 weather = GetWeather(bw, sp, attacker);
+    u32 attackerWeather = GetBattlerWeather(bw, sp, attacker);
+    u32 defenderWeather = GetBattlerWeather(bw, sp, defender);
 
     for (u32 i = 0; i < damageCalc->maxBattlers; i++) {
         battlerAbilities[i] = damageCalc->clients[i].ability;
@@ -318,8 +319,8 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         }
         break;
     case MOVE_WEATHER_BALL:
-        if ((weather & FIELD_CONDITION_WEATHER)
-            && !(weather & FIELD_CONDITION_STRONG_WINDS)) {
+        if ((attackerWeather & FIELD_CONDITION_WEATHER)
+            && !(attackerWeather & FIELD_CONDITION_STRONG_WINDS)) {
             movepower *= 2;
         }
         break;
@@ -546,7 +547,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
     // Field effects (weather conditions, Terrains, Imprison, Ion Deluge, Magic Room, Gravity, etc.):
 
-    if ((weather & (FIELD_CONDITION_FOG | FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SANDSTORM_ALL | FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SNOW_ALL))
+    if ((attackerWeather & (FIELD_CONDITION_FOG | FIELD_CONDITION_HAIL_ALL | FIELD_CONDITION_SANDSTORM_ALL | FIELD_CONDITION_RAIN_ALL | FIELD_CONDITION_SNOW_ALL))
         && (moveno == MOVE_SOLAR_BEAM || moveno == MOVE_SOLAR_BLADE)) {
         basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__0_5);
     }
@@ -725,7 +726,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 
             // Sand Force boosts damage in sand for certain move types
             if ((AttackingMon.ability == ABILITY_SAND_FORCE)
-                && (weather & FIELD_CONDITION_SANDSTORM_ALL)
+                && (attackerWeather & FIELD_CONDITION_SANDSTORM_ALL)
                 && (movetype == TYPE_GROUND || movetype == TYPE_ROCK || movetype == TYPE_STEEL)) {
                 basePowerModifier = QMul_RoundUp(basePowerModifier, UQ412__1_3);
                 continue;
@@ -1089,13 +1090,13 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             }
 
             // handle weather boosts
-            if ((weather & FIELD_CONDITION_SUN_ALL)
+            if ((attackerWeather & FIELD_CONDITION_SUN_ALL)
                 && (AttackingMon.ability == ABILITY_SOLAR_POWER)
                 && (movesplit == SPLIT_SPECIAL)) {
                 attackModifier = QMul_RoundUp(attackModifier, UQ412__1_5);
             }
             if ((!flowerGiftAppliedForAttackModifier)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (attackerWeather & FIELD_CONDITION_SUN_ALL)
                 && (AttackingMon.ability == ABILITY_FLOWER_GIFT)
                 && (movesplit == SPLIT_PHYSICAL)) {
                 flowerGiftAppliedForAttackModifier = TRUE;
@@ -1104,7 +1105,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
             // handle Orichalcum Pulse
             // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/page-20#post-9423025
             if ((AttackingMon.ability == ABILITY_ORICHALCUM_PULSE)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (attackerWeather & FIELD_CONDITION_SUN_ALL)
                 // https://www.smogon.com/forums/threads/scarlet-violet-battle-mechanics-research.3709545/post-9426805
                 // TODO: For Orichalcum Pulse itself - still shows "sending its ancient pulse into a frenzy!" message even with Utility Umbrella disabling the attack boost.
                 && !(AttackingMon.item_held_effect == HOLD_EFFECT_UNAFFECTED_BY_RAIN_OR_SUN)
@@ -1217,7 +1218,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (BATTLER_ALLY(attacker) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
             if ((!flowerGiftAppliedForAttackModifier)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (GetBattlerWeather(bw, sp, BATTLER_ALLY(attacker)) & FIELD_CONDITION_SUN_ALL)
                 && (AttackingMonAlly.ability == ABILITY_FLOWER_GIFT)
                 && (movesplit == SPLIT_PHYSICAL)) {
                 flowerGiftAppliedForAttackModifier = TRUE;
@@ -1419,11 +1420,11 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
 #endif
 
     // Step 4.7. Sandstorm + Rock-type
-    if ((weather & FIELD_CONDITION_SANDSTORM_ALL)
+    if ((attackerWeather & FIELD_CONDITION_SANDSTORM_ALL)
         && HasType(sp, defender, TYPE_ROCK)) {
         sp_defense = QMul_RoundDown(sp_defense, UQ412__1_5);
     }
-    if ((weather & FIELD_CONDITION_SNOW_ALL)
+    if ((attackerWeather & FIELD_CONDITION_SNOW_ALL)
         && HasType(sp, defender, TYPE_ICE)) {
         defense = QMul_RoundDown(defense, UQ412__1_5);
     }
@@ -1455,7 +1456,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (defender == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
             if ((!flowerGiftAppliedForDefenseModifier)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (defenderWeather & FIELD_CONDITION_SUN_ALL)
                 && (MoldBreakerAbilityCheck(sp, attacker, defender, ABILITY_FLOWER_GIFT))
                 && (defensiveSplit == SPLIT_SPECIAL)) {
                 flowerGiftAppliedForDefenseModifier = TRUE;
@@ -1493,7 +1494,7 @@ int UNUSED CalcBaseDamageInternal(struct BattleSystem *bw, struct BattleStruct *
         if (BATTLER_ALLY(defender) == damageCalc->rawSpeedNonRNGClientOrder[i]) {
             // handle weather boosts
             if ((!flowerGiftAppliedForDefenseModifier)
-                && (weather & FIELD_CONDITION_SUN_ALL)
+                && (GetBattlerWeather(bw, sp, BATTLER_ALLY(defender)) & FIELD_CONDITION_SUN_ALL)
                 && (MoldBreakerAbilityCheck(sp, attacker, BATTLER_ALLY(defender), ABILITY_FLOWER_GIFT))
                 && (defensiveSplit == SPLIT_SPECIAL)) {
                 flowerGiftAppliedForDefenseModifier = TRUE;
