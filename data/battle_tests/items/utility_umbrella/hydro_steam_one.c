@@ -1,4 +1,4 @@
-// Test: Utility Umbrella - affects Hydro Steam on attacker and/or target
+// Test: Utility Umbrella - If only the user holds a Utility Umbrella, the weather multiplier is 0.5× instead of 1.5×
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
