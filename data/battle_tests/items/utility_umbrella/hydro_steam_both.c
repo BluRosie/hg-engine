@@ -1,4 +1,4 @@
-// Test: Utility Umbrella - does not receive the 50% damage boost, instead being affected by the standard 50% damage reduction for Hydro Steam
+// Test: Utility Umbrella - If both the user and the target hold a Utility Umbrella, the weather multiplier is 1.0×.
 #include "../../battle_tests.h"
 BEGIN_TEST
 {
